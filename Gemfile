@@ -15,4 +15,6 @@ gem "github-pages", "~> 209", group: :jekyll_plugins
 # Use this to test Jekyll locally:
 #   bundle exec jekyll serve
 
-# gem "rails"
+group :jekyll_plugins do
+  gem "jekyll-asciidoc"
+end
