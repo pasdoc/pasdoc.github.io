@@ -1,0 +1,19 @@
+this is one of the link:WantedFeatures[WantedFeatures]
+
+environment variables could optionally be read in addition to command
+line parameters.
+
+For example the environment variable INCLUDE could be set instead of
+using an --include directive.
+
+link:JohannesBerg[JohannesBerg]: I don't see the reason for this,
+what advantage does it have over the command line?
+
+Especially in the case of --include it saves the trouble of specifying a
+potentially long (think "c:\program files\delphi 7\projects\common\include")
+include path every single time you call link:Home[PasDoc]. Of
+course this could be done by specifying --include %INCLUDE% if the
+environment variable has been defined. Hm, ok, reduce priority. ;-)
+--link:ThomasMueller[ThomasMueller]
+
+link:JohannesBerg[JohannesBerg]: write a ba{tch|sh} script ;-)

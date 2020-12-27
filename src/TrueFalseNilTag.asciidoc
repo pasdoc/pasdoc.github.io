@@ -1,0 +1,24 @@
+link:Home[PasDoc] supports the parameterless
+link:SupportedTags[tags] `@nil`, `@true` and `@false` to insert specially
+formatted text for 'nil', 'true' and 'false'. Currently this text is
+formatted as code (in a monospaced font).
+
+Example:
+
+[source,pascal]
+----
+{ This function returns @true on success, @false otherwise. }
+function SomeBoolFunc: boolean;
+----
+
+By default, they are formatted with the first letter uppercase, rest lowercase, so the output looks like 
+
+```
+This function returns True on success, False otherwise.
+```
+
+If you prefer to display them lowercase, use `--lowercase-keywords` command-line option. The output will then be like this:
+
+```
+This function returns true on success, false otherwise.
+```

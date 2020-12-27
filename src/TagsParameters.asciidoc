@@ -1,0 +1,26 @@
+Tags can be categorized into 3 groups, based on how they treat their
+parameters:
+
+1. Simple tags that do not expect any parameters (e.g. link:TrueFalseNilTag[@nil] or link:InheritedClassnameNameTag[@name]). Pasdoc will show a warning if you try to pass a parameter to such tag, for example if you write `@nil(some parameter)`.
+
+2. Tags that expect a parameter, and expand tags inside the parameter, recursively. This means that inside the parameter: more @tags are expanded, white-space usually does not matter, an empty line starts a new paragraph, and all the other rules listed at link:WritingDocumentation[WritingDocumentation] apply. This also means that inside the parameter you must write `@@` to get one `@` in the output.
++
+Example of using such recursive tag link:ParamReturnsRaisesTag[@raises]:
++
+[source,pascal]
+----
+{ @raises(EMyException when global variable @link(FailWithException) is set to true.) }
+procedure MyProcedure(A: Integer);
+----
+
+3. Tags that take some parameter, but do not expand the text inside the parameter. Such tags are rare, we use them only when the parameter has some special meaning, and recursively expanding @tags inside would not be useful (or reliable). Tags belonging to this group are:
++
+--
+** link:HtmlTag[@html tag]: parameter is an HTML markup, and will be copied verbatim to the HTML output
+** link:LatexTag[@latex tag]: parameter is a LaTeX markup, copied to the LaTeX output
+** link:LinkTag[@link tag]: parameter is an existing Pascal item identifier
+** link:LongcodeTag[@longcode tag]: parameter is a Pascal source code
+** link:PreformattedTag[@preformatted tag]: parameter is a verbatim text block
+--
++
+When using these tags you should note that inside their parameters @tags are _not_ expanded, white-space is not interpreted in any special way (e.g. empty lines are not converted to paragraphs) etc. This also means that the `@` character is not special, and you do not have to (in fact, you cannot) double it if you want a single `@` in the output.

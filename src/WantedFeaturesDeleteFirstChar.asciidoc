@@ -1,0 +1,40 @@
+The goal of this link:WantedFeatures[WantedFeatures] is to have a
+look better comment block in source code. I use this feature in
+http://phpdoc.org[PHPDoc]. This is not a very important feature.
+
+See a sample:
+
+[source,pascal]
+----
+{**
+*  This unit do something. Yes! realy!!
+*}
+----
+
+with this comment, the decription will be:
+
+----
+* This unit do something. Yes! realy!! *
+----
+
+With the feature, the '*' at begining and end of lines will be skiped
+and the result will be
+
+----
+This unit do something. Yes! realy!!
+----
+
+Another sample
+
+[source,pascal]
+----
+{************************
+* This unit do something. Yes! realy!!
+**************************}
+----
+
+Here, the result will be
+
+----
+This unit do something. Yes! realy!!
+----

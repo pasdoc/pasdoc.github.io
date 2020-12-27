@@ -1,0 +1,10 @@
+Things related to link:SpellChecking[SpellChecking] that should be done:
+
+1. In link:LatexOutput[LatexOutput], misplaced words (and suggestions for them) are not shown. See TODO item at TGenericHTMLDocGenerator.WriteSpellChecked.
+
+2. Implementation of this should be improved to be incorporated inside PasDoc_TagManager. PasDoc_TagManager should divide descriptions into words. Advantages over the current approach:
+
+* aspell will not have to understand the final output format, because aspell will always receive plain text queries. Right now, aspell receives HTML / LaTeX content and has to decode it into plain text itself.
+* aspell will not check things that should not be checked, e.g. contents of link:LongcodeTag[LongcodeTag] and link:CodeTag[CodeTag].
+* With auto-linking, identifiers that were automatically turned into links will not be checked.
+* Implementation of the generators will be cleaner: no longer will there be a WriteSpellChecked method. Everything will be written using WriteDirect / WriteConverted. Generators will not have to decide what parts should and what should not be spell-checked.

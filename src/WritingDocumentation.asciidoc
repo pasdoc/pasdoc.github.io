@@ -1,0 +1,112 @@
+PasDoc extracts documentation from the comments that you place in your
+source code (and from external files if you use the
+link:ReadDescriptionFromFile[--description] option).
+Basically, you just place a description of each item in the comment right before this item's declaration.
+See link:WhereToPlaceComments[WhereToPlaceComments] for more explanation
+*where* to place comments. This page describes special syntax *features
+available in documentation comments*.
+
+## [[expanding-tags]] Expanding @-tags
+
+See link:SupportedTags[SupportedTags].
+
+## [[whitespace]] Whitespace
+
+Like in HTML or LaTeX, amount of whitespace you put between words
+(spaces , tabs, newlines) does not matter. In all output formats text
+will be automatically broken into lines basing on things like web
+browser window width (e.g. in case of browsing html output in web
+browser) or page width (e.g. in case of pdf or ps files generated from
+latex file). E.g. following two documentation comments are equivalent:
+
+[source,pascal]
+----
+{ This
+  is
+  documentation          for           my             class
+  with a lot of silly whitespace. }
+TMyClass = class
+----
+
+and :
+
+[source,pascal]
+----
+{ This is documentation for my class with a lot of silly whitespace. }
+TMyClass = class
+----
+
+## [[paragraphs]] Paragraphs
+
+Like in LaTeX: The only exception to the rule above is that an empty
+line (i.e. newline + some whitespace + newline) means "start new
+paragraph". More than one empty lines in a row are equivalent to one
+empty line (in other words, you can't make the gap between two
+paragraphs larger by inserting more empty lines between them).
+
+Example:
+
+[source,pascal]
+----
+{ 1st paragraph.
+
+  2nd paragraph. }
+TMyClass = class
+----
+
+## [[automatic-recognition-of-urls]] Automatic recognition of URLs
+
+Pasdoc automatically recognizes URLs (like
+http://pasdoc.sourceforge.net/) in your comments and appropriately
+presents them in the output format, so that user reading generated
+documentation is able to easily navigate to given URL. E.g. in case of
+link:HtmlOutput[HtmlOutput] URLs will be converted to links
+<a href="...">...</a>. In case of link:LatexOutput[LatexOutput] URLs
+will be presented with \html command.
+
+## [[dashes]] Dashes
+
+Three consecutive dashes, ---, in your comment produce
+http://en.wikipedia.org/wiki/Dash#Em_dash[em dash] (a long dash used
+to separate sentence parts — like this). Two consecutive dashes, --,
+produce http://en.wikipedia.org/wiki/Dash#En_dash[en dash] (a medium
+dash used to separate ranges, like 10–20). A single dash character
+produces just a short dash (good for compound words, like in
+"variable-width font"). This is similar to LaTeX and Texinfo syntax (but
+of course it's supported for all pasdoc output formats, including HTML).
+
+You can always write @- to _force_ inserting a short dash. E.g. if you
+write @-@- then you will get just two consecutive short dashes in the
+output (instead of an en dash that would be generated for --). Actually,
+you can just write @-- (because this way you force the first dash to
+just produce the short dash in the output, and so the 2nd dash is a
+"single dash", so it will also produce a short dash).
+
+## [[help-insight-comments]] Help Insight comments
+
+link:Home[PasDoc] also recognizes Help Insight comments, that start
+with three slashes and use HTML-like tags. See
+http://delphi.wikia.com/wiki/Help_insight. An example straight from that
+page:
+
+[source,pascal]
+----
+/// <summary>parses the commandline</summary>
+/// <param name="CmdLine"> is a string giving the commandline.
+/// NOTE: Do not pass System.CmdLine since it contains the
+/// program's name as the first "parameter".
+/// If you want to parse the commandline as passed by
+/// windows, call the overloaded Parse method without
+/// parameters. It handles this.</param>
+procedure Parse(const _CmdLine: string);
+----
+
+## [[items-without-documentation]] Items without documentation
+
+Even undocumented items (not annotated with any comment) are visible in the output. Here's why:
+
+* Even if there's no description for some item (maybe the name is so obvious it doesn't require a description), the documentation should still show that the identifier exists. If you want to really exclude some (internal) item you can use the link:ExcludeTag[@exclude tag].
+
+* We want to show undocumented identifiers, since you can link to them from other item's using the link:LinkTag[@link tag].
+
+// * If  When both an overview and a detailed view is shown (in the same HTML page), the detailed view should be omitted for all items without any further descriptive information.

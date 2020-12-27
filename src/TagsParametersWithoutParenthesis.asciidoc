@@ -1,0 +1,47 @@
+You can also specify tag parameters without enclosing them in
+parenthesis. So you can write
+
+[source,pascal]
+----
+{ @param S is the text to print
+  @raises EMyException sometimes }
+procedure Print(const S: string);
+----
+
+and it is equivalent to
+
+[source,pascal]
+----
+{ @param(S is the text to print)
+  @raises(EMyException sometimes) }
+procedure Print(const S: string);
+----
+
+Parsing logic is simple: If a tag requires some parameters but you do
+not put an opening parenthesis '(' char right after it, then the tag's
+parameters are supposed to span to the end of line (or to the end of
+comment). Note that this rule does not "break" the behavior of
+parameter-less tags like link:InheritedClassnameNameTag[@name tag].
+Also it does not break comments that enclose tag parameters in
+parenthesis.
+
+Multiline parameters without parenthesis are also possible with the help
+of "line feed" char '\'. Put this char at the end of line and parameter
+will spread over line feed to the next line. This mechanism is similar to 
+that used in shell scripts, C language and so on.
+
+[source,pascal]
+----
+{ @param S is the text to print. \
+    It should not contain non-printable characters.
+  @raises EMyException sometimes }
+procedure Print(const S: string);
+----
+
+
+For more comments and examples of use you can take a look at https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_tag_params_no_parens.pas[test unit for this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_tag_params_no_parens.html[pasdoc's output for this test unit].
+
+Advantages of not enclosing tag parameters in parenthesis are
+
+* sometimes this tends to look better in unit source
+* compatibility with JavaDoc and others

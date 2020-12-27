@@ -1,0 +1,2 @@
+Use --include-creation-time to show the creation time of the docs in the
+output. It is not shown by default since link:Home[PasDoc] 0.14.0.

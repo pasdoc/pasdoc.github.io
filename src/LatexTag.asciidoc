@@ -1,0 +1,19 @@
+The @latex tag is the equivalent of the link:HtmlTag[@html tag] for
+LaTeX output formats. Text inside a @latex(...) tag will be copied
+verbatim when pasdoc generates documentation in
+link:LatexOutput[LaTeX] or link:Latex2RtfOutput[latex2rtf]
+formats, otherwise it will be discarded. E.g.
+
+[source,pascal]
+----
+(* Text visible in every output format.
+
+   @latex(Some \{bf test} text, visible only in LaTeX/latex2rtf output.)
+
+   @html(Some <b>test</b> text, visible only in HTML output.)
+*)
+----
+
+The @latex tag is sometimes used together with the --latex-head
+link:CommandLine[CommandLine] option, if you need to use a specific
+LaTeX package for your custom documentation features.

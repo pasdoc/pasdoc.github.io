@@ -1,0 +1,8 @@
+Use the tag @code for a short (inline) source code, or an identifier. Usually, this is presented with a fixed-width font.
+
+Example:
+
+[source,pascal]
+----
+{ Declare your variables like @code(var SomeVariable: SomeType;) }
+----

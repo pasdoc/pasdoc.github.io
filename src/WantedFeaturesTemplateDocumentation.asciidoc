@@ -1,0 +1,23 @@
+Templates are written in OP via a pseudo class and an include file (see
+the link Thomas provided to his article).
+
+Currently documentation would be generated for the classes like this
+
+TObject > TEMPLATE_CLASS > TTemplateUser
+
+now, the request is to collate this to
+
+TObject > TTemplateUser
+
+so that the templating is invisible in the documentation.
+
+link:JohannesBerg[JohannesBerg]: I propose to introduce a new tag
+@template specifically for this (after all, the people writing the
+program should decide whats in |;)| ). The @template tag on a class
+would cause the class to be skipped when creating documentation, but
+descendents would get all methods it directly defines as their methods.
+Basically this means three things
+
+1.  we have to add a new tag,
+2.  the class containing the tag must be skipped in output, and
+3. classes must check their superclasses for extra methods, properties and attributes

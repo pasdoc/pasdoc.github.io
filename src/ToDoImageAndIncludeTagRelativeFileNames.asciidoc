@@ -1,0 +1,22 @@
+**As of 2008-06-15, this is corrected, and problem described below doesn't occur. However, the analogous problem is still noticeable when using @image or @include from Pascal include file {$I include.inc}. In other words, right now `TBaseItem.BasePath` takes current unit (or introduction/conclusion) path into account, but it still doesn't take Pascal includes into account. To be fixed (using `RawDescriptionInfo` filename, there's filename of included file) after 0.11.0.**
+
+link:IncludeTag[IncludeTag] and link:ImageTag[ImageTag] should be corrected to interpret given filename relative to filename where they were used. Right now, they are relative to current directory where pasdoc is run. This means that images (or included files) may be incorrectly not found, or may be mistaken with some other file.
+
+For example if you have files
+
+----
+dir1/unit1.pas
+dir1/image.png
+dir2/unit2.pas
+dir2/image.png
+----
+
+and dir1/image.png and dir2/image.png are something different and both unit1.pas abd unit2.pas have @image(image.png) then you're in trouble. Depending on where you will run pasdoc, either
+
+* dir1/image.png will be used twice, or
+* dir2/image.png will be used twice, or
+* pasdoc will not be able to find image.png at all.
+
+And all three behaviors above are wrong. The only correct behavior is that unit1.pas docs use dir1/image.png and unit2.pas docs use dir2/image.png.
+
+The test above is included in pasdoc sources in tests/todo/ok_different_image_same_filename/.

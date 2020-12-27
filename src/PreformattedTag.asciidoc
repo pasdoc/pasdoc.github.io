@@ -1,0 +1,33 @@
+@preformatted tag is the analogy of HTML <pre> tag. Text inside
+@preformatted tag will be copied to documentation, preserving all
+whitespaces and newlines and using fixed-width font.
+
+This means that link:WritingDocumentation[usual rules of pasdoc] do
+_not_ apply within @preformatted. Within `@preformatted` tag amount of
+whitespace _does_ matter, empty line is _not_ converted to new
+paragraph, @-tags are not expanded etc.
+
+Example:
+
+[source,pascal]
+----
+{ This unit exists for the glory of the Empire.
+
+@preformatted(
+     ________________.  ___     .______
+     /                | /   \    |   _  \
+    |   (-----|  |----`/  ^  \   |  |_>  |
+     \   \    |  |    /  /_\  \  |      /
+.----->   |   |  |   /  _____  \ |  |\  \-------.
+|________/    |__|  /__/     \__\| _| `.________|
+ ____    __    ____  ___     .______    ________.
+ \   \  /  \  /   / /   \    |   _  \  /        |
+  \   \/    \/   / /  ^  \   |  |_>  ||   (-----`
+   \            / /  /_\  \  |      /  \   \
+    \    /\    / /  _____  \ |  |\  \--->   |
+     \__/  \__/ /__/     \__\|__| `._______/
+)
+
+  (Based on http://www.chris.com/ascii/index.html ). }
+unit StarWars;
+----

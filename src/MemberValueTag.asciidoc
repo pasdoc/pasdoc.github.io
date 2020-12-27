@@ -1,0 +1,64 @@
+This page describes @member and @value tags. Overall, their intention is
+similiar: they allow you to specify a description for some item
+(structure member or enumerated value) as part of the description of an
+"enclosing" item (structure type or enumerated type). This is a matter
+of preference whether you use these tags, because they don't allow to
+express anything new, but they allow to express it in somewhat more
+terse way.
+
+## [[member-tag]] @member tag
+
+The @member tag can be used within the description of a structure
+(class, record, interface or object) to specify the description for a
+particular member (field, property, method) of this structure. Example:
+
+[source,pascal]
+----
+type
+  { @member MyField Description for MyField field.
+    @member MyMethod Description for MyMethod method. }
+  TMyClass = class
+    MyField: Integer;
+    procedure MyMethod;
+  end;
+----
+
+This is equivalent to
+
+[source,pascal]
+----
+type
+  TMyClass = class
+    { Description for MyField field. }
+    MyField: Integer;
+    { Description for MyMethod method. }
+    procedure MyMethod;
+  end;
+----
+
+## [[value-tag]] @value tag
+
+The @value tag can be used within the description of an enumerated type
+to specify the description for a particular value of this type. Example:
+
+[source,pascal]
+----
+type
+  { @value meOne Description for meOne value.
+    @value meTwo Description for meTwo value. }
+  TMyEnum = (meOne, meTwo);
+----
+
+This is equivalent to
+
+[source,pascal]
+----
+type
+  TMyEnum = (
+    { Description for meOne value. } meOne,
+    { Description for meTwo value. } meTwo);
+----
+
+## [[more-examples]] More examples
+
+For more examples and tests of these tags see https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_value_member_tags.pas[test unit ok_value_member_tags.pas] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_value_member_tags.html[html output for this test unit].

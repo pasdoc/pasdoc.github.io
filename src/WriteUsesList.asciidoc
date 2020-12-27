@@ -1,0 +1,13 @@
+link:Home[PasDoc] can optionally include the list of units in a
+unit's uses clause to that unit's description. Pass the
+--write-uses-list directive on the link:CommandLine[CommandLine] to
+enable this feature.
+
+Example:
+
+----
+pasdoc --write-uses-list ...
+----
+
+If a unit in the uses list is part of the documentation, it is clickable
+in the output.

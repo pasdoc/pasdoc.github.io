@@ -1,0 +1,27 @@
+Tag @br forces a line break. E.g. <br> in link:HtmlOutput[HtmlOutput]
+or \\ in link:LatexOutput[LatexOutput].
+
+Example:
+
+[source,pascal]
+----
+{ 1st paragraph. @br Second line of 1st paragraph.
+
+  2nd paragraph. Blah blah blah.
+
+  3rd paragraph. @br
+  Second line of 3rd paragraph. }
+procedure TestLineBreak;
+----
+
+See
+http://pasdoc.sourceforge.net/correct_tests_output/html/ok_line_break.html[pasdoc output for this example].
+
+Note that it's not adviced to use this tag too often, since it makes
+documentation ugly. In HTML, browser window should determine line width,
+in LaTeX, page width should determine line width, and so on. If you want
+to start new paragraph you should just insert an empty line (see
+link:WritingDocumentation[WritingDocumentation]) in description. It's
+possible that in some future output formats @br tag will be ignored (or
+equivalent to starting new paragraph) if line break will not be possible
+to express in this output format.

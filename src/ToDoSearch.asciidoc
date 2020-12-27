@@ -1,0 +1,9 @@
+Things to do related to searching.
+
+* We may add some option like
+--use-google-search=URL-WHERE-YOUR-DOCS-ARE to add a search box to your
+documentation that just calls Google to search within your docs. It
+seems that http://www.google.pl/searchcode.html[Google allows us to do that]. See e.g. how this search works on http://www.mozilla.org/. Of
+course, such a thing would _require_ that you put your documentation
+online.
+* Integration with http://estraier.sourceforge.net/[estraier], open-source server-side search engine.

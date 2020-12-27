@@ -1,0 +1,20 @@
+You can use @include link:SupportedTags[tag] to include text from
+another file into a description. For example:
+
+[source,pascal]
+----
+{ This is some procedure.
+  @include(some_procedure_large_docs.txt) }
+procedure SomeProcedure;
+----
+
+Inside file some_procedure_large_docs.txt you can use all normal pasdoc
+features, @-tags etc. (see
+link:WritingDocumentation[WritingDocumentation]).
+
+The @include tag may be handy when documentation for given item is so
+large that it's more comfortable to keep it in entirely separate file.
+Or when you want to include some documentation text more than once
+--- because you can @include the same file as many times as you wish.
+
+The filename (`some_procedure_large_docs.txt` in the example above) is relative to the Pascal source file defining this identifier (`SomeProcedure` in the example above). You can use something like `@includeCode(../docs/some_procedure_large_docs.txt)` to refer to a different directory.

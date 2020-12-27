@@ -1,0 +1,74 @@
+## [[overview]] Overview
+
+If you run pasdoc with --auto-abstract link:CommandLine[CommandLine]
+option, pasdoc will automatically deduce the abstract description of
+every item from the first sentence of it's description. This means that
+you can write
+
+[source,pascal]
+----
+type
+  { Short description of this class.
+    More elaborate description of this class. }
+  TMyClass = class
+----
+
+and it's equivalent to
+
+[source,pascal]
+----
+type
+  { @abstract(Short description of this class.)
+    More elaborate description of this class. }
+  TMyClass = class
+----
+
+This means that you can avoid writing explicitly @abstract tags, which
+means that your comments look less cluttered. Of course, this also means
+that you have to carefully watch to make the first sentence of every
+description to "stand on it's own".
+
+This is a standard feature of javadoc, and it's also available in
+doxygen.
+
+The parsing logic is simple: the first sentence of the description ends
+at the first period followed by any whitespace (including newline). Of
+course this period must be in the "top-level" text, not inside parameter
+of any @-tag. If there is no such period in the description, then the
+_whole_ description is treated as one sentence, and the _whole_
+description is treated as an abstract description of the item.
+
+Of course if any description has an explicit @abstract section, then
+this has priority over "the first sentence rule". Using explicit
+@abstract tag may be useful if e.g. you need to make the abstract
+description two-sentence long.
+
+## [[small-difference-between-explicit-abstract]] Small difference between explicit @abstract
+
+Note that there is actually a small difference between two examples
+given above. It occurs when pasdoc writes full description of a given
+item (full = abstract one + the rest).
+
+If you used explicit @abstract tag, then pasdoc will always separate the
+abstract description with some space (e.g. paragraph marker, <p>, in
+HTML) from the rest of the description. But if your abstract description
+was deduced automatically, then pasdoc will not automatically insert
+such paragraph. This way full description of an item looks more like it
+was specified in source code.
+
+So if I would really want to make two exactly equivalent examples, I
+should show this as the first example (note that I explicitly inserted
+empty line between abstract description and the rest here):
+
+[source,pascal]
+----
+type
+  { Short description of this class.
+    More elaborate description of this class. }
+  TMyClass = class
+  ...
+----
+
+## [[example-unit]] Example unit
+
+See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_auto_abstract.pas[test unit of this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_auto_abstract/[pasdoc output for this test (with --auto-abstract option)].

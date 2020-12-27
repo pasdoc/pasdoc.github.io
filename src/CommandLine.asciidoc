@@ -1,0 +1,172 @@
+link:Home[PasDoc] is called like
+
+----
+pasdoc <options> <parameters>
+----
+
+where <parameters> are the files to process and <options> is a
+combination of directives from the following list.
+
+Please note that the short single-letter version is case-sensitive.
+Defaults are in brackets.
+
+-?, --help::
+Show pasdoc help text: pasdoc version and short summary of available command-line options. Pretty much something like this wiki page you're reading now.
+
+--version::
+Show pasdoc version (and related info)
+
+-v, --verbosity::
+Set log verbosity (0-6) [2]
+
+link:ConditionalDefines[-D, --define]::
+Define conditional
+
+link:ConditionalDefines[-d, --conditionals]::
+Read conditionals from this file
+
+link:ReadDescriptionFromFile[-R, --description]::
+Read description from this file
+
+link:IncludeInSearchPath[-I, --include]::
+Include search path
+
+-S, --source::
+Read source filenames from file, - (single dash) means standard input.
+
+--html-help-contents::
+Read Contents for link:HtmlHelp[HtmlHelp] output format from file
+
+link:NameOption[-N, --name]::
+Project name. This determines output documentation filename (only if documentation format is not HTML)
+
+link:DocumentationTitle[-T, --title]::
+Documentation title
+
+link:FileAsHeaderOrFooter[-H, --header, -F, --footer]::
+Add HTML content to the header or footer of every page
+
+link:HtmlHeadBodyBeginEndOptions[--html-head, --html-body-begin, --html-body-end]::
+Add HTML content to the <head> or around the pasdoc content (after <body>, before </body>)
+
+-O, --format::
+Output format:
+* link:HtmlOutput[html]
+* link:HtmlHelp[htmlhelp]
+* link:LatexOutput[latex]
+* link:Latex2RtfOutput[latex2rtf]
+* link:SimpleXmlOutput[simplexml]
+
+link:OutputOption[-E, --output]::
+Specify output path
+
+link:ExcludeGeneratorOption[-X, --exclude-generator]::
+Exclude generator information
+
+link:IncludeCreationTimeOption[--include-creation-time]::
+Show creation time in the output
+
+link:OutputLanguage[-L, --language]::
+Set output language
+
+link:CommentMarker[--staronly]::
+Parse only `{\\**`, `(*\**` and `//**` style comments
+
+link:CommentMarker[--marker]::
+Parse only `{<marker>`, `(\*<marker>` and `//<marker>` comments. Overrides the staronly option, which is a shortcut for `--marker=**`.
+
+link:CommentMarker[--marker-optional]::
+Do not require the markers given in `--marker` but remove them from the comment if they exist.
+
+--numericfilenames::
+Causes the html generator to create numeric filenames
+
+link:IncludeByVisibility[-M, --visible-members]::
+Include / Exclude class Members by visiblity
+
+link:WriteUsesList[--write-uses-list]::
+Write uses list of a unit into output
+
+link:GraphVizSupport[--graphviz-uses]::
+Write a GVUses.dot file that can be used for the `dot` program from http://www.graphviz.org/[GraphViz] to generate a unit dependency graph
+
+link:GraphVizSupport[--link-gv-uses]::
+Add a link to the GVUses to the overview frame
+
+link:GraphVizSupport[--graphviz-classes]::
+Write a GVClasses.dot file that can be used for the dot program from http://www.graphviz.org/[GraphViz] to generate a class hierarchy graph
+
+link:GraphVizSupport[--link-gv-classes]::
+Add a link to GVClasses to the overview frame
+
+--abbreviations::
+Abbreviation file, format is `"[name] value"`, value is trimmed, lines that do not start with [ (or whitespace before that) are ignored
+
+link:SpellChecking[--aspell]::
+Enable aspell, give language as parameter
+
+link:SpellChecking[--spell-check-ignore-words]::
+When spell-checking, ignore the words in that file. The file should contain one word on every line
+
+link:CacheOption[--cache-dir]::
+Cache directory for parsed files (default not set)
+
+link:LinkLookOption[--link-look]::
+How multipart links (like @link(Unit.Procedure)) look like in output
+
+link:LinkLookOption[--full-link]::
+Obsolete name for --link-look=full option.
+
+link:AutoAbstractOption[--auto-abstract]::
+Automatically deduce @abstract description of item from 1st sentence of it's full description
+
+link:CssOption[--css]::
+Use the code of your cascading style sheet in replacement of default one.
+
+link:UseTipueSearchOption[--use-tipue-search]::
+Use tipue search engine in HTML output.
+
+link:SortOption[--sort]::
+Specifies what groups of items are sorted.
+
+link:IntroductionAndConclusion[--introduction]::
+Specify the name of a text file to use as introduction in your documentation.
+
+link:IntroductionAndConclusion[--conclusion]::
+Specify the name of a text file to use as conclusion in your documentation.
+
+--latex-head::
+Specify the name of a text file that should be inserted into the preamble of a LaTeX file.
+
+link:ImplicitVisibilityOption[--implicit-visibility]::
+How pasdoc should handle class members within default class visibility.
+
+link:NoMacroOption[--no-macro]::
+Turn FPC macro support off.
+
+link:AutoLinkOption[--auto-link]::
+Automatically turn your identifiers into links, without the need to enclose them in @link tag.
+
+link:AutoLinkOption[--auto-link-exclude]::
+Fine-tune the --auto-link behavior: Prevent automatic linking for the specified identifiers.
+
+link:IgnoreLeadingOption[--ignore-leading]::
+Ignore some leading characters from comment lines.
+
+link:ExternalClassHierarchy[--external-class-hierarchy]::
+Define hierarchy of classes not included in your source code, for more
+complete class tree diagrams.
+
+link:AutoBackComments[--auto-back-comments]::
+Automatically assign a `//` comment without a special marker to the preceding identifier on the same line.
+
+link:MarkdownOption[--markdown]::
+Parse Markdown syntax in the comments. This allows to specify various formatting options without writing tags, which sometimes looks much more readable.
+
+link:ConfigFileOption[@<path-to-file>]::
+Read options from file.
+
+link:ImplementationCommentsOption[--implementation-comments]::
+Scan implementation section of a unit in addition to default interface section.
+
+Confused? Maybe some link:CommandlineExamples[Examples] can help.

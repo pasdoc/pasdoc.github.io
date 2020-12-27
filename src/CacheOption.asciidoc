@@ -1,0 +1,32 @@
+Using option --cache-dir DIR you tell pasdoc to use directory DIR as a cache. This means that
+
+* Before parsing a unit pasdoc checks whether a cache file for this unit exists in the cache directory (and is newer than the unit source file). If yes, then pasdoc reads processed information about this unit from the cache. There's no need to parse and process the unit once again.
+* If some unit had to be parsed, then after parsing this unit, pasdoc will store the processed information about this unit in the cache.
+
+This means that pasdoc will not have to parse all units that you gave it on command line, so pasdoc will work faster.
+
+## [[example]] Example
+
+I'm doing a large documentation for my 77 units. I'm generating documentation for them using command like
+
+----
+pasdoc --format html --cache-dir pasdoc-cache/ ...
+----
+
+(where "..." means "other options", specifying units to process etc.) Generating documentation for the first time takes 43 seconds. Pasdoc parses and processes every unit, generates documentation for it and additionally writes a cache file for each unit in pasdoc-cache/ subdirectory. Now I change the source code of only _one_ unit and I want to generate documentation for my units once again. If I did not use a cache, this would take again about 43 seconds. But, since I'm using a cache, when I run pasdoc for the second time it needs only to parse and process one unit, and information about the rest of 76 units is obtained from the cache. And generating documentation takes only 3 seconds. 3 seconds is of course a lot faster than 43 seconds.
+
+## [[some-notes]] Some notes
+
+* In case of some output formats, additional speedup may be obtained from the cache: When pasdoc realizes that some unit info was obtained from the cache _and_ it sees that some part of output (e.g. html file corresponding to a given unit, in case of using html output) is already present (and is newer than the cache file) then pasdoc does _not_ write that part of the output (e.g. this html file) once again. This means that you not only save parsing time, but you also save time spent writing documentation.
++
+For now, this is implemented only in case of link:HtmlOutput[html output].
+* As you can see, there are some assumptions about the cache that you must be aware of when using cache:
++
+1. You can't rely on cache to work properly if you call pasdoc with different parsing options. E.g. if you generated the cache while _not_ using link:CommentMarker[--staronly option] and then you remake your documentation _with_ link:CommentMarker[--staronly option], then cache will be mistakenly used (even though it shouldn't).
+2. pasdoc compares last modification time of unit source file with last modification time of cache file for this unit. This means that if you use include files ($I directive of all Pascal compilers) and you modify some text inside include file, then pasdoc may not realize that cache file is outdated and whole unit must be parsed again.
++
+If any of such cases occur, it's best to explicitly remove all cache files (e.g. rm -Rf pasdoc-cache/), to make sure that pasdoc will not use them and will parse all files and write docs for them.
++
+Some problems above may be fixed in pasdoc in the future. They certainly can be fixed in pasdoc cleanly, but they require some work.
+* pasdoc will create the cache directory if it doesn't exist (but the creation is not recursive, i.e. multiple levels of directories are not created) (TODO: well, this can be easily fixed)
+* The cache is independent from the output format. So you can reuse a cache generated when making `html` to generate a `latex` version.

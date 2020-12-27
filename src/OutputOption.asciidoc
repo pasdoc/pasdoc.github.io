@@ -1,0 +1,11 @@
+Use link:CommandLine[CommandLine] option --output DIRECTORY (short
+form is -E DIRECTORY) to tell PasDoc where to write the output file(s).
+By default PasDoc writes output files to the current directory.
+
+Note that the output directory in not created automatically. Make sure
+that it exists first. For example, on Unix, use mkdir -p ... like this:
+
+----
+mkdir -p doc/
+pasdoc --output doc/ MyUnit.pas
+----

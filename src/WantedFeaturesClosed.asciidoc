@@ -1,0 +1,401 @@
+Closed things from the link:WantedFeatures[WantedFeatures] page:
+
+* some parameter that can link a .txt file as general documentation,
+which is written to the beginning of the output. i.e. the start page for
+.html output or the first pages for .tex output. this could be used to
+write some general information about the project, including how to get
+it working, what is required to compile it, etc. of course, format tags
+would be nice. +
+This would also close
+http://sourceforge.net/tracker/index.php?func=detail&aid=964800&group_id=4213&atid=354213[RFE 964800].
++
+**Done**: This is implemented now, see
+link:IntroductionAndConclusion[IntroductionAndConclusion]. RFE 964800
+closed.
+
+* Wanted *@see(Name) tag*, which generate "See also" section and link to
+Name. +
+**Done**: Implemented as link:SeeAlsoTag[@seealso tag] –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* "preformatted comments" command-line switch +
++
+While HTML conventions are good if one wants to place a long continuos
+text in a comment, but it's not so good when it is needed to retain
+original formatting (where each linebreak is treated like it is). Blank
+lines in such cases are consuming too much space sometimes.
++
+**Probably already done**: It seems that what you need is already
+implemented: see link:PreformattedTag[PreformattedTag]. Also see
+link:LongcodeTag[LongcodeTag] (specifically for Pascal code). You can
+also always use link:BrTag[@br tag in pasdoc] to force line
+break at some place. I don't think that introducing command-line option
+to treat all comments like preformatted would be good. After all, WWW
+browser or LaTeX page width should usually determine page width. In
+other words, @preformatted and @br tags should be used _seldom_ if you
+want your documentation to look good. So command-line option that makes
+_all_ comments treated like preformatted would do no good. –
+link:MichalisKamburelis[MichalisKamburelis]
++
+No answer from submitter within a month, so I'm moving this to **Done**.
+– link:MichalisKamburelis[MichalisKamburelis]
+
+* delete the first and/or last charater of each line in bloc comment.
+Usefull if you want your doc in source code look better.
+link:WantedFeaturesDeleteFirstChar[Look Here for more description]
++
+**Done**: link:IgnoreLeadingOption[IgnoreLeadingOption].
+
+* It would be very nice if you have the option to get method description
+from the Implementation part as most of the times Interface part has
+only a link:OneLiner[OneLiner] description and the real Description
+is on the header of the implementation of the method.
++
+**Duplicate**:
+I would argue with "most of the times" statement... It heavily depends
+on one coding style, and many programmers, including myself, tend to put
+comments in the interface section. Anyway, I don't say that this
+shouldn't be implemented. It's already requested on page
+link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation],
+so I'm moving this request to *Duplicate requests* section. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* include a Delphi project file (__.dpr) to the files to parse (useful
+for instance for library interfaces)
++
+**Duplicate**: This is also mentioned at
+link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation].
+I'm moving this to _Duplicate requests_ section. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* extracting of comments located in implementation section +
+--The one may prefer to include brief comments in interface declarations
+and more detailed in implementation. It would be good if they were
+merged by link:Home[PasDoc]. It's also the case when I need to
+document functions's some local vars, procs, etc. It simply can't be
+done in interface.
++
+**Duplicate**. This was already requested in
+link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation].
+Patches are welcome. – link:MichalisKamburelis[MichalisKamburelis]
+
+* support for inline comments (like the ones in
+link:JavaDoc[JavaDoc]) +
+now I have to comment out vars like this:
++
+[source,pascal]
+----
+//very important variable
+var1: string;
+//another important var
+var2: integer;
+----
++
+it would be much more convenient to do it this way (especially when
+commenting a long list of vars / fields in a class): :
++
+[source,pascal]
+----
+var1: string; ///very important variable
+var2: integer; ///another important var
+----
++
+I.e. in this case we should take comments, lying _after_ declaration of
+course it needs special tag (like triple slash used in example). Or you
+can better do it by distinguishing comments taking the whole line (let's
+say, before declaration) and the ones that are placed after some code
+(let's say, after declaration).
++
+**Duplicate**. This was already requested by
+http://sourceforge.net/tracker/index.php?func=detail&aid=803026&group_id=4213&atid=354213[RFE 803026]. There the submitter suggested using "<" as the special
+character (i.e. your example would be like
++
+[source,pascal]
+----
+var1: string; //<very important variable
+var2: integer; //<another important var
+----
++
+and I would prefer using "<" than what you propose (using triple dash
+"/" or automatically assigning comments on the same line). That's
+because "<" looks sensible also with other types of comment, and this
+would allow me to use this feature in other situations. E.g. I like to
+see the initial unit's declaration line at the beginning of .pas file.
+Using this feature I could write
++
+[source,pascal]
+----
+unit MyUnit; {< This is a documentation of MyUnit. It's possibly
+long, multiline, because I often put a lot of general comments about the
+unit here. }
+
+interface
+----
++
+Patches to implement this are welcome. –
+link:MichalisKamburelis[MichalisKamburelis]
++
+This is implemented now, see
+link:WhereToPlaceComments[WhereToPlaceComments] section about
+"Placing comments after the item" –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* Pure latex style vs wiki style: Provide english readable shortcuts for
+some of the tags that clutter sentences and confuse non-pasdoc users.
+For example (backquote)Clone could be equivalent to @link(Clone) -cuing
+off (backquote) preceeded by a space, rather than the apostrophe to
+prevent parsing mixups. +
++
+**Duplicate**: In general, "wiki markup parsing" is already a wanted
+feature. See
+http://sourceforge.net/tracker/index.php?func=detail&aid=730930&group_id=4213&atid=354213[this RFE] and comments on link:MichalisKamburelis[MichalisKamburelis]
+homepage about "More wiki-like syntax for pasdoc descriptions". That
+said, if we're talking about the @link tag: There already is a solution
+that allows you to avoid writing @link tags, see
+link:AutoLinkOption[AutoLinkOption]. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* It would be nice to have a RespectCRLF switch to allow less clutter in
+code comments. The switch just makes the documentation respect the
+Carriage Returns present in the source.
++
+**Rejected**: Pasdoc treats line endings inside your comments just like any other
+whitespace, and this has a very good reason. All other documentation
+formats also do this – see e.g. HTML, LaTeX, many wiki engines. Line
+width should be determined by www browser window width or printer page
+width or something like that. There are workarounds (\\ in LaTeX, <br>
+in HTML, @br tag in pasdoc_) to force line break, but they shouldn't be
+used often anyway, so there is no reason to make them more comfortable
+to the user. Human, writing documentation, should force newlines only
+when they have some real meaning: e.g. when you want to do new
+paragraph. And this is easily possible in pasdoc: just write an empty
+line (see link:WritingDocumentation[WritingDocumentation]). This not
+only makes line break, but this also produces additional vertical space
+between paragraphs. Summary: you can use link:BrTag[@br tag] to get
+line ending. But you shouldn't ever need to use this tag too often. So
+there is no good reason to make it more comfortable, by making some
+option to treat line endings in pasdoc like @br. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* it would be nice to have a AllowHTML switch that would permit HTML
+tags like <strong>xxx</strong> in the middle of the comments.
++
+**Rejected**: You can use link:HtmlTag[@html tag] to directly insert HTML tags into
+your documentation. You can't write directly HTML content inside pasdoc
+descriptions, because this can't be really nicely implemented. Even if
+pasdoc would only want to generate HTML documentation output, this would
+be troublesome: You would have to treat special HTML chars, like <, >,
+&, as a special characters inside pasdoc descriptions, and you would
+have to escape them. Moreover, the fact that you could mix pasdoc @-tags
+with HTML tags would mean that pasdoc must at least partially understand
+HTML, at least on a level of reliable HTML lexer (to avoid problems with
+catching @-tags inside HTML tags attributes and such). However, pasdoc
+tries to generate documentation not only for HTML. LaTeX is another
+output format, and more output formats will come. If you we would allow
+HTML tags inside your documentation, then we would have to remove them
+later when generating LaTeX documentation (or try to interpret them,
+like replace <b> with `\textbf{` for LaTeX – this is not really a
+reliable thing to do). As for <strong>xxx</strong>: you can use
+link:BoldAndItalicTags[@bold tag] that I just implemented to have
+some text formatted in bold (in HTML and LaTeX). In general, this is the
+way to go – in the perfect future world, you shouldn't need to use @html
+tag too often, because every sensible functionality will be available
+using pasdoc @-tags. – link:MichalisKamburelis[MichalisKamburelis]
+
+* define (by default) things like LINUX if link:Home[PasDoc] was
+compiled on Linux, or MSWINDOWS if it was compiled on windows etc?
++
+**Rejected**: I don't think that such behavior would be a good one. After all, if I'm
+using simultaneously more than one OS/processor, then I still _don't_
+want pasdoc output to be different, depending on under which
+OS/processor I executed my documentation generation script. That's
+because I don't want to provide different versions of documentation of
+my units – one version for people who use Windows, one version for
+people who use Linux, etc. – such documentation would be very tiresome
+if people would want to write cross-platform code using my units,
+because then you _have_ to know the differences (if there are any) how
+given procedure behaves on each OS. So I rather want to provide one
+documentation for my units, that simultaneously documents behavior of my
+functions under all OSes. And this means that when I generate
+documentation for given unit, I want to always (no matter what
+OS/processor I use currently, and no matter what compiler was used to
+compile pasdoc) run pasdoc with _the same_ symbols defined. That said,
+note that pasdoc_gui does this: default symbols defined for each new
+pasdoc_gui project depend on the compiler defines that were present when
+compiling pasdoc_gui. In case of pasdoc_gui, it's not a problem, because
+1. every user of pasdoc_gui actually _sees_ these compiler defines and
+can adjust them if he wants (and probably everyone will) 2. in the
+future, it will be configurable for user what default compilation
+options pasdoc_gui should propose when creating new project (none (like
+console pasdoc) ? the ones that were defined at compilation of
+pasdoc_gui (like it does currently) ? some user-defined set ?) –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* "compatibility with older pasdoc versions"
++
+In older pasdoc versions it was possible to use blancs between tags
+and brackets, i.e. @param (someparam someparamdescription). This does
+not work any longer since a while, so always I check out a new version
+from cvs repository, I have to do some modifications to assure
+compatibility. This is just a simple addition but it is really useful in
+my opinion because it makes comments within the code better readable
+because of this blanc.
++
+**Probably rejected:** AFAIK it was never officially allowed to put
+spaces between tags and brackets. I never knew that it was possible. So
+it worked by accident. I guess that it stopped working during 0.9.0
+release, when link:TagManager[TagManager] was implemented. This
+behavior is safer, so this is going to stay. It's a pity that we broke
+compatibility, and I'm sort of sorry about that, but this will not be
+changed now. You can't put spaces between tags and brackets. Side note:
+you may be interested in
+link:TagsParametersWithoutParenthesis[TagsParametersWithoutParenthesis]
+feature, then you may be able to sometimes avoid writing parenthesis at
+all. – link:MichalisKamburelis[MichalisKamburelis]
++
+No answer from submitter within a month, so I'm moving this to
+**Rejected**. – link:MichalisKamburelis[MichalisKamburelis]
+
+* The ability to exclude comments from the pasdoc parsing, for example
+//! comment or {! comment}. Currently a { } on a blank line is needed
+to be inserted anywhere comments are not relevent to the documentation,
+otherwise they bind with whatever code is below them. I feel most
+comments should be in the docs, so I would prefer to be able to exclude
+the comments that won't be instead of use markers to mark every comment
+that should be -//*< on the end of every line can get excessive.
++
+**Rejected**: Similar idea was discussed on
+http://lists.sourceforge.net/lists/listinfo/pasdoc-main[our mailing list], see this thread:
+http://sourceforge.net/mailarchive/forum.php?thread_id=9166433&forum_id=4647
+and, in particular, my answer
+http://sourceforge.net/mailarchive/message.php?msg_id=14107333. In
+short, inserting { } before an item that should stay undocumented is
+better and not more troublesome than some "exclude marker" like ! in
+your examples above. – link:MichalisKamburelis[MichalisKamburelis]
+
+* improve comment detection support
++
+comments should be extracted if they are placed only right before
+declarations:
++
+[source,pascal]
+----
+type
+  Foo = class
+    FBar: integer; //some comment
+  public
+    constructor Create;
+  end;
+----
++
+in this case "some comment" would be attached to Create and its' not
+very good
++
+**Rejected for now**. There are people who prefer to write code like
++
+[source,pascal]
+----
+type
+  Foo = class
+    { My Field1 } public Field1: Integer;
+    { My Method1 } public procedure Method1;
+  end;
+----
++
+So it's not so obvious that comments before "public" keyword shouldn't
+be assigned to the next field/method/property. The same argument goes
+for some other keywords, e.g. "type", "const", "var". Some people write
+code in such way that they would prefer having their comments (placed
+before a keyword) still assigned to the following item. Therefore we
+can't implement it. Unless it would be activated by some command-line
+option, like --assign-comments-rigorously. But
++
+1. In the typical situation you can just place { } before an item that should stay without documentation
+2. In the good documentation most items _have_ some documentation comment
+3. There is other method to prevent pasdoc from using unwanted comment: see link:CommentMarker[CommentMarker]
++
+So I would say that there is no real need to implement this. Any arguments anyone ? – link:MichalisKamburelis[MichalisKamburelis]
++
+I think, that above mentioned cases can be easily distinguished by the
+type of the comment: is it placed after code or on the separate line. It
+may be significant if you are going to implement inline comments one
+day. – Konstantin Pastbin
++
+I feel uneasy with treating differently comments that are placed after
+code and on separate line. This is against Pascal (and many other
+languages) free-syntax rules, that say that the amount and kind of
+whitespace doesn't matter.
++
+As for inline comments, look at my answer to inline comments lower on
+this page (in "Duplicate requests" section) – I like the idea of inline
+comments, but I prefer to recognize them by the special character "<".
+So in that case I also don't want to introduce a difference between a
+comment "after code on the same line" and "on separate line". –
+link:MichalisKamburelis[MichalisKamburelis]
++
+link:DoDi[DoDi]: Many source files consistently follow different
+rules. It would be a nice feature to default multi-line "{ }" comments
+to forward, and single-line "//" comments to back comments. Apart from
+such defaults, every comment should be markable as a ">" forward or "<"
+back comment. Likewise "-" could be used to suppress meaningless
+(licensing...) comments.
+
+* allow excluding
+classes from the documentation (or maybe make them invisible, e.g. make
+their members appear to belong to all descendant classes, this would be
+convenient with
+http://www.dummzeuch.de/delphi/object_pascal_templates/english.html[pseudo templates] (link:WantedFeaturesTemplateDocumentation[WantedFeaturesTemplateDocumentation])
++
+**Partially done, partially not needed now**. Excluding is possible by @exclude tag. The need for link:WantedFeaturesTemplateDocumentation[WantedFeaturesTemplateDocumentation] is probably not important anymore, since both FPC and Delphi support real templates recognized by the language (and parsed by PasDoc too).
+
+* a link:CommandLine[CommandLine] options
+--file AFilename where AFilename is a config file that contains all
+parameters to use in addition to the command line. This is usefull if
+link:CommandLine[CommandLine] options are very long and/or to
+distribute them with the project.
++
+**Rejected for now**. I don't see much reason for this. If you want such thing then you should
+use some script (like bash, sh (or even bat if you must)). Otherwise,
+pretty much every command-line program in the whole world would need
+such option. link:MichalisKamburelis[MichalisKamburelis].
+
+* Generating doc as XML format. After that you can use a XSLT processor
+to generate the final format. The code is parsed one time and it's
+possible to generate all types of docs! –GarfieldFr_ +
++
+Yeah, XML would be nice, and it's on my TODO list. But things are still
+too messy now in html and latex generators to actually start
+implementing a new generator. But XML output will definitely be done one
+day. That said, I don't think that we ever should use XML as an
+intermediate format for generating the other output formats, like html
+and latex. Using XML wouldn't give us any benefits over the current
+situation, where we use a generated tree of TPasItem classes. XML output
+would be mainly useful if you would like to implement other programs,
+separated from pasdoc, that do something (related to generating doc or
+not) with the information generated by pasdoc. Oh, and fpdoc also has
+XML output. I didn't try its XML output yet, but it would be nice if our
+XML output would be similar to fpdoc's XML output. Oh, and fpdoc _input_
+format is also XML. So this is another version of XML that I'd like to
+implement, and actually right now this is the most important output
+format for me to implement one day – see my homepage on this wiki for
+more info about this. – link:MichalisKamburelis[MichalisKamburelis]
++
+**Done**: we have simplexml output now.
+
+* It would be nice to be able to skip "n" characters from the begining
+of the comment at least for those making their documentation in
+link:ModelMaker[ModelMaker] that adds a special signature to the
+begining of the comment.
++
+Can you describe in more detail what "special signature" is added by
+link:ModelMaker[ModelMaker] (bear in my mind that I never used
+link:ModelMaker[ModelMaker] and I'm completely alien to it) ? Maybe
+what you want is already possible via --marker <marker>
+link:CommandLine[CommandLine] option, see
+link:CommentMarker[CommentMarker] page ? It would be easy to add some
+link:CommandLine[CommandLine] option like --skip=n, but this is
+rather "brutal" feature, so I would like first to make sure that it's
+really needed in some practical case. –
+link:MichalisKamburelis[MichalisKamburelis]
++
+**No answer since a long time, assuming not needed, resigned**.

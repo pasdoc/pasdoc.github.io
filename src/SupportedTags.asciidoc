@@ -1,0 +1,71 @@
+You can use tags inside the comments to have link:Home[PasDoc]
+automatically add some information or have it treat some text in a
+special manner. A tag is always prefixed with the "@" character. Some
+tags require an argument which must be enclosed in braces (see also
+link:TagsParametersWithoutParenthesis[TagsParametersWithoutParenthesis]),
+others do not, see link:TagsParameters[TagsParameters].
+
+Alphabetical list of supported tags:
+
+@@:: Insert the @ character literally
+link:AbstractTag[@abstract]:: Specify a short abstract of the description
+link:IntroductionAndConclusion[@anchor]:: Set up an invisible anchor inside introduction/conclusion
+link:AuthorTag[@author]:: Specify an author's name (and email address etc.)
+link:BoldAndItalicTags[@bold]:: Format text using bold font
+link:BrTag[@br]:: Force line break
+link:TableTags[@cell]:: Create a cell in a table
+link:InheritedClassnameNameTag[@classname]:: Insert the class name
+link:CodeTag[@code]:: Format argument as code example (see also link:LongcodeTag[@longCode])
+link:CreatedLastmodTag[@created]:: Specify creation date of this item
+link:CvsTag[@cvs]:: Obtain last modification time or author name from cvs $Date and $Author keywords
+link:ListTags[@definitionList]:: Create definition list
+link:DeprecatedTag[@deprecated]:: Mark this item as deprecated
+link:ExcludeTag[@exclude]:: Exclude this item from documentation
+link:TrueFalseNilTag[@false]:: Insert the specially formatted text "false"
+link:HtmlTag[@html]:: Insert the direct HTML code into HTML output
+link:ImageTag[@image]:: Include image file
+link:IncludeTag[@include]:: Include description from file
+link:IncludeCodeTag[@includeCode]:: Include Pascal code (like a longer code example) from file
+link:InheritedClassnameNameTag[@inherited]:: Insert the name of the ancestor class or member
+link:InheritedClassnameNameTag[@inheritedClass]:: Insert the name of the ancestor class
+link:BoldAndItalicTags[@italic]:: Format text using italic font
+link:ListTags[@item]:: Make list item
+link:ListTags[@itemLabel]:: Define a label for next item within definition list
+link:ListTags[@itemSetNumber]:: Change the number of next item inside ordered list
+link:ListTags[@itemSpacing]:: Control the vertical spacing between items of a list
+link:CreatedLastmodTag[@lastmod]:: Specify last modification date of this item
+link:LatexTag[@latex]:: Insert direct LaTeX code into LaTeX output
+link:LinkTag[@link]:: Insert a link to another item
+link:LongcodeTag[@longcode]:: Format argument as multiline Pascal code example (see also link:CodeTag[@code])
+link:MemberValueTag[@member]:: Specify description for a member (field, method, property) of a structure in description of this structure
+link:InheritedClassnameNameTag[@name]:: Insert the name of this item
+link:TrueFalseNilTag[@nil]:: Insert the specially formatted text "nil" here
+link:AutoLinkOption[@noAutoLink]:: Inside parameter of this tag auto-linking is never used
+link:AutoLinkOption[@noAutoLinkHere]:: Never auto-link to this item
+link:ListTags[@orderedList]:: Create ordered list
+link:ParamReturnsRaisesTag[@param]:: Describe the parameter of this method (or procedure/function)
+link:PreformattedTag[@preformatted]:: Insert text using fixed-width font and preserving whitespace
+link:ParamReturnsRaisesTag[@raises]:: Describe the exception which may be raised by this method
+link:ParamReturnsRaisesTag[@return, @returns]:: Describe function's return value
+link:TableTags[@row]:: Create a row in a table
+link:TableTags[@rowHead]:: Create a heading row in a table
+link:IntroductionAndConclusion[@section]:: Start new section inside introduction/conclusion
+link:SeeAlsoTag[@seealso]:: Create "See also" section for given item
+link:IntroductionAndConclusion[@shorttitle]:: Short title of introduction/conclusion
+link:TableTags[@table]:: Create a table
+link:TableOfContentsTag[@tableOfContents]:: Insert table of contents into introduction/conclusion
+link:IntroductionAndConclusion[@title]:: Title of introduction/conclusion
+link:TrueFalseNilTag[@true]:: Insert the specially formatted text "true"
+link:ListTags[@unorderedList]:: Create unordered list
+link:MemberValueTag[@value]:: Description for enumerated value in description of it's enumerated type
+
+Some other special @-constructs:
+
+@-::
+Insert short dash. Usually you can simply write "-", no need to precede it with "@", but in some special cases it's needed if you want to avoid creating en-dash or em-dash in the output. See link:WritingDocumentation[WritingDocumentation] for notes about en-dashes and em-dashes.
+
+@(:: Insert the opening parenthesis character.
+Usually you can simply write "(", no need to precede it with "@", but in some special cases it's needed --- see link:TagsParametersMatching[TagsParametersMatching].
+
+@)::
+Insert the closing parenthesis character. Usually you can simply write ")", no need to precede it with "@", but in some special cases it's needed --- see link:TagsParametersMatching[TagsParametersMatching].

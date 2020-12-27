@@ -1,0 +1,163 @@
+link:Home[PasDoc] supports many output languages.
+
+## [[selecting-language]] Selecting language
+
+Select the language you want using the --language directive on the
+link:CommandLine[CommandLine]. The default language is English.
+
+Example:
+
+----
+pasdoc --language=fr.utf8
+----
+
+This will write documentation in French.
+
+## [[supported-languages]] Supported languages
+
+The following languages are supported:
+
+### [[sorted-by-abbreviation]] (sorted by abbreviation)
+
+|===
+
+| ba | Bosnian | Codepage 1250
+
+| bg | Bulgarian | UTF-8
+
+| big5 | Chinese | Codepage 950
+
+| br | Brasilian | Codepage 1252 (Only in PasDoc \<= 0.13.0)
+
+| br.1252 | Brasilian | Codepage 1252 (Only in PasDoc > 0.13.0)
+
+| br.utf8 | Brasilian | UTF-8 (Only in PasDoc > 0.13.0)
+
+| ct | Catalan |
+
+| de .2+| German | ISO-8859-15
+
+| de.utf8          | UTF-8
+
+| dk | Danish |
+
+| en | English |
+
+| es | Spanish (Spain) |
+
+| fr .2+| French | ISO-8859-15
+
+| fr.utf8          | UTF-8
+
+| hu.1250 | Hungarian | Codepage 1250
+
+| hr | Croatian | Codepage 1250
+
+| id | Indonesian |
+
+| it | Italian |
+
+| jv | Javanese |
+
+| nl | Dutch |
+
+| pl.cp1250 .2+| Polish | Codepage 1250
+
+| pl.iso-8859-2 |               ISO 8859-2
+
+| ru.1251 .4+| Russian | Codepage 1251
+
+| ru.866 | Codepage 866
+
+| ru.KOI8 | KOI-8
+
+| ru.utf8 | UTF-8
+
+| se | Swedish |
+
+| sk | Slovak |
+
+|===
+
+### [[sorted-by-language]] (sorted by language)
+
+|===
+
+| Bosnian | Codepage 1250 | ba
+
+.3+| Brasilian | Codepage 1252 (Only in PasDoc \<= 0.13.0) | br
+
+|                  Codepage 1252 (Only in PasDoc > 0.13.0) | br.1252
+
+|                  UTF-8 (Only in PasDoc > 0.13.0) | br.utf8
+
+| Bulgarian | UTF-8 | bg
+
+| Catalan | | ct
+
+| Chinese | Codepage 950 | big5
+
+| Croatian | Codepage 1250 | hr
+
+| Danish | | dk
+
+| Dutch | | nl
+
+| English | | en
+
+.2+| French | ISO-8859-15 | fr
+
+|               UTF-8 | fr.utf8
+
+.2+| German | ISO-8859-15 | de
+
+|               UTF-8 | de.utf8
+
+| Hungarian | Codepage 1250 | hu.1250
+
+| Indonesian | | id
+
+| Italian | | it
+
+| Javanese | | jv
+
+.2+| Polish | Codepage 1250 | pl.cp1250
+
+|               ISO 8859-2 | pl.iso-8859-2
+
+.4+| Russian | Codepage 1251 | ru.1251
+
+|                Codepage 866 | ru.866
+
+|                KOI-8 | ru.KOI8
+
+|                UTF-8 | ru.utf8
+
+| Slovak | | sk
+
+| Spanish (Spain) | | es
+
+| Swedish | | se
+
+|===
+
+## [[notes-about-encoding]] Notes about encoding
+
+Some languages have several possible encodings. Although the translated
+strings should be the same, but it is important that you choose the same
+encoding that you use inside your source code (inside your documentation
+comments). That is because link:Home[PasDoc] doesn't convert the
+encoding of your comments, we simply put your comments inside HTML (or
+other outputs), of course after processing of the @-tags. So it's your
+responsibility to use in your source code the same encoding that you
+indicate by the --language option.
+
+Note that the encodings listed above apply to the link:Home[PasDoc]
+version compiled without STRING_UNICODE. This means that
+link:Home[PasDoc] was compiled with FPC or with non-Unicode Delphi.
+In particular, the officially released link:Home[PasDoc] versions
+are compiled with FPC, so the encodings listed above are correct.
+
+If you compile link:Home[PasDoc] yourself, with newer (Unicode)
+Delphi, then an alternative version will be used, where all languages
+are encoded in UTF-8.

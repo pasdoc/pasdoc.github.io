@@ -1,0 +1,26 @@
+link:CommandLine[CommandLine] option --no-macro tells pasdoc to _not_
+handle macros. In link:PasDocGui[PasDocGui] you can uncheck the box
+__Recognize FPC macros syntax when parsing__.
+
+Macros are supported by FPC and look like
+
+[source,pascal]
+----
+{$define MY_CONST := 3 + 1}
+const Four = MY_CONST;
+----
+
+By default, macro support is _turned on_ in pasdoc. Even if you don't
+use FPC macros in your sources, there's extremely small chance that you
+will ever need to use this option to turn macro support off. You really
+need to turn macro support off only if you write some strange things
+like
+
+[source,pascal]
+----
+{$define MY_CONST := 3 + 1}
+----
+
+and you _expect that your compiler (Delphi, FPC) will_ _ignore_ __the
+"__:= 3 + 1_" part_ (and treat the directive as equivalent to simple
+`{$define MY_CONST}` ).

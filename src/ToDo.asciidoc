@@ -1,0 +1,46 @@
+Things that are (or were) planned to be done at some point:
+
+**This page grew into a large collection of TODOs, with wildly varying chances of being actually finished by some developer.** Although we tried to manage it, it's not organized properly enough.
+
+**Please report new wanted features to the https://sourceforge.net/p/pasdoc/feature-requests/[feature requests] or https://sourceforge.net/p/pasdoc/bugs/[bugs] issue trackers**, not by editing this page. Consider also asking first on our https://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list].
+
+(Things already done are on link:ToDoClosed[ToDoClosed].)
+
+* _(Partially fixed)_
+link:ToDoImageAndIncludeTagRelativeFileNames[ToDoImageAndIncludeTagRelativeFileNames]
+Usual cases are fixed now. There are still problems in special cases
+when using @image / @include from Pascal include file that is in
+different path than unit.
+
+* link:ToDoParser[ToDoParser]
+* link:ToDoSearch[ToDoSearch]
+* link:ToDoSpellChecking[ToDoSpellChecking]
+* link:ToDoOfflineDocs[ToDoOfflineDocs]
+* https://github.com/pasdoc/pasdoc/tree/master/tests/testcases/todo[tests/testcases/todo/ directory of pasdoc sources] contains some ready test cases of known problems that should be fixed.
+* link:ToDoOverloadingLinking[ToDoOverloadingLinking]
+* Global properties (implemented by FPC) parsing could be improved.
++
+They are parsed correctly since 2006-11-25. But for now they are added by parser to U.Variables list. This should be fixed, either 1. we should have separate Properties list for each unit or 2. we should rename U.Variables to U.VariablesProperties and change corresponding strings for translators to say "Variables and global properties" instead of "Variables". Michalis prefers the 2nd option (as global properties behave like variables from the outside, just like normal properties behave like fields from the outside), but the problem is: the text "Variables and global properties" may confuse Delphi users not familiar with concept of "global properties".
+* Wiki formatting for source code comments
++
+Some comments about wiki syntax are on link:MichalisKamburelis[MichalisKamburelis]
+* Use a new, external parser? Various choices available.
++
+Whatever we choose, we need first to make sure it compiles with both FPC and Delphi, and that it parses really all the source code we can currently handle (see our testcase in tests/). The huge advantage of the currrent parser is that it really works, for a variety of the code existing in the wild.
++
+** JEDI CodeFormat has a very good parser implementation for Delphi.
+** Parser using Martin Waldenburg's excellent Lexer.
+** fcl-passrc from FPC. (See Michalis fcl-passrc test program on FPC wiki).
+
+* Plugins for tags instead of hard-coding them.
++
+This is not so far away to implement now, that we have TagManager.
+Adding new tags to pasdoc code is trivial now, basically you just do
++
+[source,pascal]
+----
+TagManager.AddHandler('...', {$IFDEF FPC}@{$ENDIF} TagHandlerProc, [...], [...]);
+----
++
+and implement TagHandlerProc. So it seems that allowing user to specify via command-line some so/dll/dylib with a hook like RegisterTagHandlers that is called from TDocGenerator.ExpandDescription is not a big deal. If anyone has a usable idea for using such plugin-system, please speak up on http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list], and we can see into this --link:MichalisKamburelis[MichalisKamburelis].
+* parse units in dependency order, ie. when a unit is encountered that uses another unit, then try parsing that other unit first. If it cannot be found, then write a warning. Allow giving a list of units that should not be warned about, and ship a default RTL list.

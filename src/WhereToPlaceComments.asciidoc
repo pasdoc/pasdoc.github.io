@@ -1,0 +1,259 @@
+## [[basic-rule]] Basic rule
+
+If you want to assign some description to your item (where _item_ means
+either a unit, a class, a field, a method, a variable, a type, a
+constant, a function or procedure... really, just anything), you just
+place a comment directly before the item's declaration.
+
+Here's an example of a complete unit with many items documented:
+
+[source,pascal]
+----
+{ Description of MyUnit. }
+unit MyUnit;
+
+interface
+
+type
+  { Description of TMyClass. }
+  TMyClass = class
+  public
+    { Description of MyField. }
+    MyField: Integer;
+    { Description of MyMethod. }
+    procedure MyMethod;
+  end;
+
+  { Description of TMySimpleType. }
+  TMySimpleType = 1..100;
+
+  { Description of TMyEnumType. }
+  TMyEnumType = (
+    { Description of meFirstValue. }
+    meFirstValue,
+    { Description of meSecondValue. }
+    meSecondValue);
+
+const
+  { Description of MyConstant. }
+  MyConstant = 4;
+
+var
+  { Description of MyVariable. }
+  MyVariable: Integer;
+
+{ Description of MyProcedure. }
+procedure MyProcedure;
+
+implementation
+...
+end.
+----
+
+You can simply paste the above example into a file like myunit.pas and
+run pasdoc like this
+
+----
+pasdoc myunit.pas
+----
+
+and pasdoc will generate the documentation for MyUnit (in the default
+link:HtmlOutput[HTML format]). All the "Description of ..." comments
+are nicely shown in the resulting documentation.
+
+## [[more-detailed-rules]] More detailed rules
+
+### [[comment-markers]] Comment markers
+
+You can use link:CommentMarker[--marker option] if
+you want link:Home[PasDoc] to recognize only comments designated by
+some special markers.
+
+### [[multiple-fieldsvariables-in-one-declaration]] Multiple fields/variables in one declaration
+
+The case when you declare multiple fields/variables with the same type
+in one declaration deserves some detailed explanation. This concerns
+declarations like this:
+
+[source,pascal]
+----
+type
+  TMyRecord = record
+    { Comment 1 }
+    Field1, Field2: Integer;
+  end;
+
+var
+  { Comment 2 }
+  Variable1, Variable2: Integer;
+----
+
+The rule is as follows: it is assumed that the single comment will apply
+to all multiple fields in the following declaration. So in the example
+above, _Comment 1_ will be understood to document both Field1 and Field2
+and _Comment 2_ will be understood to document both Variable1 and
+Variable2.
+
+Moreover, if you place a comment in the middle of such
+multiple-declaration, this comment will apply to all following
+fields/variables within this declaration. See this example:
+
+[source,pascal]
+----
+type
+  TMyRecord = record
+    { This comment documents Field1 and Field2 }
+    Field1, Field2,
+      { This comment documents Field3 and Field4 }
+      Field3, Field4: Integer;
+  end;
+
+var
+  { This comment documents Variable1 }
+  Variable1,
+    { This comment documents Variable2 }
+    Variable2: Integer;
+----
+
+### [[placing-comments-after-the-item]] Placing comments after the item
+
+Sometimes it is more convenient to place your documentation comment
+_after_ the documented item, instead of __before__. You can freely do so
+by placing the "<" ("less-than") character as the exactly first
+character of your comment. This tells link:Home[PasDoc] that the
+given comment should be assigned to the preceding (not the following, as
+usual) item declaration.
+
+Example:
+
+[source,pascal]
+----
+unit MyUnit;
+
+{< Here you can place a description of MyUnit.
+   This is convenient for people that like to always
+   keep the "unit UnitName;" declaration
+   as the first line of their *.pas files. }
+
+interface
+
+type
+  TMyEnumType = (
+    meOne, //< Description of meOne
+    meTwo, //< Description of meTwo
+    meThree //< Description of meThree
+  );
+
+  TMyClass = class
+    MyField: Integer; //< Description of MyField
+    procedure MyProc; //< Description of MyProc
+    property MyProp: Integer read MyField write MyField;
+      //< Description of MyProp
+  end;
+
+  TMyException = class(Exception); //< Description of TMyException
+
+var
+  SomeVariable: Integer; //< Description of SomeVariable
+  Var1, Var2: Integer; //< Description of Var1 and Var2
+
+implementation
+...
+end.
+----
+
+If you use a link:CommentMarker[CommentMarker],
+the "<" character must be placed _right after_ your chosen marker.
+
+### [[glueing-single-line-comments]] Glueing single-line comments
+
+Subsequent //-style comments are "glued" by link:Home[PasDoc] into
+one comment. If comment markers are required, every single comment must
+be marked accordingly(?). A back-comment mark is recognized only in the
+first comment of a sequence. For example these methods of documenting
+procedure Foo are equivalent:
+
+[source,pascal]
+----
+
+{ This is
+  description of
+  procedure Foo. }
+procedure Foo;
+
+// This is
+// description of
+// procedure Foo.
+procedure Foo;
+
+procedure Foo;
+//< This is
+// description of
+// procedure Foo.
+----
+
+### [[multiple-comments-on-an-identifier-or-declaration]] Multiple comments on an identifier or declaration
+
+When one or more comments precede an identifier, and possibly another
+back-comment follows it, link:Home[PasDoc] (currently) ignores any
+but the last applicable comment, which overwrites any preceding
+comments.
+
+Declarations inside declarations, of e.g. class or record fields, have
+their own comments. Once such a declaration block is closed, a following
+back-comment again applies to the "outer" declaration.
+
+In a declaration with multiple identifiers, a "<" back-comment applies
+exactly to the preceding identifier. An eventual forward comment is
+"canceled", i.e. following identifiers in the same declaration will stay
+uncommented.
+
+[source,pascal]
+----
+type
+  // This comment is overwritten later
+  TMyEnumType = (
+  // Description of meOne
+    meOne,
+    meTwo, //< Description of meTwo
+    meThree
+  );
+  //< Description of TMyEnumType, *not* of meThree
+----
+
+See also: link:ReadDescriptionFromFile[External descriptions]
+
+## [[common-case-when-comments-are-not-meaningful-to-pasdoc]] Common case when comments are not meaningful to PasDoc
+
+As long as we consider only multi-line comments (`{ ... }` or
+`(* ... *)`), remember that link:Home[PasDoc] takes into account
+only the __last__ comment before given item. For example, in the code
+below, comment _Ignored comment_ is ignored by link:Home[PasDoc].
+Description consists only of _Description of Foo_ comment.
+
+[source,pascal]
+----
+{ Ignored comment. }
+
+{ Description of Foo. }
+procedure Foo;
+----
+
+In particular, note that when you want to hide some comment (i.e.
+prevent it from being assigned to the next item) all you have to do is
+to put an empty (or containing only whitespace) comment right before
+given item. For example:
+
+[source,pascal]
+----
+{ procedure Foo; }
+
+{ }
+procedure Bar;
+----
+
+In the above example, programmer probably temporarily commented out
+procedure Foo; declaration. To prevent from accidentaly assigning
+description "procedure Foo;" to procedure Bar, the programmer added "{
+}" right before procedure Bar declaration. A "{ }" or "//" has the same
+effect, but "{ }" is recommended for clarity.

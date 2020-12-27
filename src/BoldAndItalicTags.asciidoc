@@ -1,0 +1,30 @@
+Use tag @italic to format given text in __italic__. Use tag @bold to
+format given text in **bold**.
+
+These tags may be also enclosed within each other, e.g.
+
+----
+@bold(This is bold text. @italic(This is bold and italic text.))
+----
+
+It's also allowed (and has no effect on final documentation look) to
+enclose these tags within themselves, e.g.
+
+----
+@bold(This is bold text. @bold(This is still bold text.))
+----
+
+This is simply equivalent to
+
+----
+@bold(This is bold text. This is still bold text.)
+----
+
+For some output formats that may not support bold / italic font styles,
+the intended meaning of @italic is "somehow emphasized text" and @bold
+is "more emphasized text".
+
+Don't place paragraph breaks (i.e. empty lines) within @bold / @italic
+tags.
+
+See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_bold_italic.pas[test unit of this feature].

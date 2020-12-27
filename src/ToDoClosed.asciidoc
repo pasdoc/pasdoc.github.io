@@ -1,0 +1,24 @@
+Closed things from the link:ToDo[ToDo] page:
+
+* Add link:OtherTools[OtherTools] to pasdoc releases
+
+* Go through all comments and check them for validity and readability. There are a lot of comments that are outdated.
++
+I think that most comments are correct now. The remaining things must be handled on a case-by-case basis. Everyone: feel free to submit bug reports about unclean and/or outdated pasdoc source documentation. --link:MichalisKamburelis[MichalisKamburelis]
+
+* Properties do not show read and write directives.
++
+This is implemented now: full declaration of every property is shown, including read/write specifiers of this property.
++
+Actually too much is shown for now -- even if read/write specifier specifies some private field or method, it is shown. But it shouldn't because names of private specifiers are, well, private, unless you requested them using --visible-members. This will be fixed later, for now you will have to live with too much private information shown in documentation. See also my mail on http://lists.sourceforge.net/lists/listinfo/pasdoc-main[pasdoc-main mailing list] "Full declaration of properties is now shown" on 2005-05-29. --link:MichalisKamburelis[MichalisKamburelis]
+
+* properly parse duplicate names in different units or different classes
+* RegressionTesting
+* Someone should take care of TPasDoc.SearchDescrFileTags and fix it, or remove it. +
++
+Removed in revision 1.12 of source/component/PasDoc_Base.pas. Reasons:
++
+1. Implementation of TPasDoc.SearchDescrFileTags was hopelessly broken, and moving it to TDocGenerator.ExpandDescription is not so simple -- you have to first scan for @descrfile, than you have to expand descriptions. Which means that we would have to make three passes over descriptions.
+2. @descrfile was never present in the docs, and noone ever complained that it was disabled in PasDoc 0.9.0 and 0.10.0. So I guess that noone needs it.
++
+In summary, existing code of SearchDescrFileTags was useless, so it's removed. -- link:MichalisKamburelis[MichalisKamburelis]

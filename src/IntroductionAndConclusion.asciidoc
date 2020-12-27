@@ -1,0 +1,59 @@
+You can use the link:CommandLine[CommandLine] options `--introduction=FILE-NAME` and `--conclusion=FILE-NAME` to add additional special pages to your documentation.
+
+Since PasDoc 0.16.0 you can also use option `--additional=FILE-NAME` to provide any number of additional files. Option `--additional` can be shortened to `-A`.
+
+## [[simple-example]] Simple example
+
+Create a file named introduction.txt with contents like
+
+----
+@shorttitle(Intro)
+@title(General introduction to my source code)
+
+Some text describing your source code.
+----
+
+Then call pasdoc like this
+
+----
+pasdoc --introduction=introduction.txt ...
+----
+
+In HTML output you will get an additional page introduction.html in your documentation, with contents based on the introduction.txt file. On the navigation frame you will have a link "Intro" to this page. In LaTeX output the introduction will be added as the first chapter of the documentation (conclusion will be added as the last chapter).
+
+## [[format-of-introductionconclusion-files]] Format of introduction/conclusion files
+
+The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in link:WritingDocumentation[WritingDocumentation] apply here too: @-tags are allowed, you must write @@ to get single @ character, URLs are automatically turned into links, an empty line starts a new paragraph etc.
+
+In particular, you can use the link:LinkTag[@link tag] to link _from_ introduction/conclusion to other items in your documentation. Also, you can create links _to_ the introduction/conclusion by specifying the introduction/conclusion filename (without extension) as the link target, e.g.
+
+----
+@link(introduction)
+----
+
+## [[special-tags]] Special tags
+
+Some special @-tags are allowed only in introduction/conclusion files:
+
+@shortTitle(my short title)::
+Specify a short title of the introduction/conclusion. In HTML output, the `my short title` is shown in the navigation frame to link to the introduction and conclusion. In LaTeX output, this tag is ignored.
+
+@title(my title)::
+Specify the title of introduction/conclusion. In HTML output, the argument is the top level heading at the beginning of the page for the introduction and conclusion. In LaTeX output, the argument is the chapter's title.
+
+@section(HeadingLevel AnchorName Section title)::
+Start a new section. The `@section` tag contains:
+*  _HeadingLevel_: a number used to indicate section nesting. It must be an integer >= 1. E.g. in link:HtmlOutput[HtmlOutput] HeadingLevel = 1 results in <h2>Section title</h2>, HeadingLevel = 2 results in <h3>Section title</h3> etc. In link:LatexOutput[LatexOutput] HeadingLevel = 1 results in `\section{Section title}` , HeadingLevel = 2 results in `\subsection{Section title}` etc.
+*  _AnchorName_: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a LinkTag_. Allowed AnchorNames are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).
+* _Section title_: title shown in the documentation.
+
+@anchor(AnchorName)::
+Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a link:LinkTag[@link tag]
+
+link:TableOfContentsTag[@tableOfContents]::
+Insert table of contents here.
+
+## [[more-examples]] More examples
+
+* See the https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction_conclusion.pas[test unit of this feature] and the https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction.txt[accompanying test introduction file] and the http://pasdoc.sourceforge.net/correct_tests_output/html/ok_introduction_conclusion/[HTML output of this test unit and introduction].
+* See also link:PasDocAutoDoc[PasDocAutoDoc] -- there's an "Overview" page included, and it was generated using --introduction command-line option.

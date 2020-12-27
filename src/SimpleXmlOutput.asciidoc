@@ -1,0 +1,7 @@
+Using link:CommandLine[CommandLine] option `--format simplexml` makes pasdoc output
+a simple XML document for each unit.
+
+The XML contains the parsed code tree,
+and the descriptions (with @-tags replaced with some XML elements formatting).
+This allows you to easily write other programs that process these
+XML documents and do.. well, anything you want. Like convert it for your CMS or wiki.

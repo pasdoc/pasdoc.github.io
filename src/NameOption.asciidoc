@@ -1,0 +1,15 @@
+When the output format of the documentation is not HTML (such as
+link:LatexOutput[LaTeX generator], or
+link:HtmlHelp[HtmlHelp]), the option --name (or -N for short)
+specifies the basename of the generated documentation filename (or
+filenames in case of link:HtmlHelp[HtmlHelp]). If this is not
+specified, it uses the default value docs.
+
+E.g. default behaviout of _LaTeX generator_ is to create a file named
+docs.tex. But if you call pasdoc like this
+
+----
+pasdoc --format latex --name "my_documentation" ...
+----
+
+then it will create file my_documentation.tex.

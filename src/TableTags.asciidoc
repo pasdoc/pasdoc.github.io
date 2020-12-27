@@ -1,0 +1,39 @@
+You can create tables using @table tag. Within @table tag, only two tags
+are allowed: @row and @rowHead. @rowHead creates a heading row (usually
+you will put only one such row as the first row of the table), @row
+creates normal row. Within @row and @rowHead tags, you must put only
+some number of @cell tags. Finally, within @cell tag, you can put any
+text, use other @-tags etc.
+
+Simple example:
+
+[source,pascal]
+----
+{ This functions returns boolean value according to the following
+  table:
+    @table(
+      @rowHead( @cell(Value1) @cell(Value2) @cell(Result) )
+      @row( @cell(@false) @cell(@false) @cell(@false) )
+      @row( @cell(@false) @cell(@true) @cell(@true) )
+      @row( @cell(@true) @cell(@false) @cell(@true) )
+      @row( @cell(@true) @cell(@true) @cell(@false) )
+    ) }
+function ExclusiveOr(Value1, Value2: boolean): boolean;
+----
+
+Notes:
+
+* Every table must have at least one row and every row must have at least one cell.
+* Nested tables (i.e. creating new table within a cell, by using @table tag within @cell tag) are allowed.
+* Table is always treated as a separate paragraph in the text.
+
+Things to avoid:
+
+* Although it's allowed to put various number of cells into rows of a given table, you should not do this, to be sure that you get sensible results in all output formats.
+* Although it's allowed to have any number of @rowHead rows within a given table, and for now results look sensible in all output formats, you should refrain from doing this. Every @table should have zero or one @rowHead row, no more.
+* For link:LatexOutput[LatexOutput], LaTeX seriously limits the allowed content of @cell:
+** Lists_ inside a @cell are not allowed.
+** Paragraph breaks inside cells are allowed but ignored.
+** Long lines inside cells are not automatically broken, so generated tables are broken in the output -- they exceed over the right edge of the page.
+** Line break (@br tag) inside a @cell is not allowed.
+** @cells within head rows (using @rowHead) are even more limited, nested tables and paragraphs are not allowed.

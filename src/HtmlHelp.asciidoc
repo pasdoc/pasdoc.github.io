@@ -1,0 +1,23 @@
+_HTML Help_ is a file format for documentation. The final documentation can be a single file with an extension `.chm` (for "_compiled html_"). It was designed by Microsoft, along with some proprietary tools to create and view it, but a number of cross-platform open-source viewers also exist now.
+
+As the name suggests, the format is based on HTML. Internally, a `.chm` file is just a collection of HTML files, with some extra information. See https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help[Wikipedia] and http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx[Microsoft documentation] for more information.
+
+link:Home[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary, so that you can create the final file using the _Microsoft HTML Workshop_ (free download).
+
+How to use _HTML Help_ output:
+
+1. Generate htmlhelp documentation with pasdoc with `--format=htmlhelp`. In addition to normal html files, pasdoc
+will also output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the names of these files to something else with link:NameOption[--name option].
+
+2. https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx[Download HTML Help Workshop]
+
+3. Make `docs.chm` file:
+** Interactively: run the `hhw` program from the _HTML Help Workshop_, (by default in `C:\Program Files (x86)\HTML Help Workshop`), open generated `docs.hhp` file, and run _"Compile HTML file"_ from toolbar.
+** Or in batch mode: run `hhc docs.hhp` (make sure that the program `hhc` is on your $PATH first).
+
+That's it! You have `docs.chm` file, that can be viewed with _HTML Help_ viewer.
+
+## Custom help contents
+
+Optionally, if you wish to use a custom help-contents file, you can specify a file name with the `--html-help-contents` option for PasDoc. Each line of the file specifies an entry in the help contents. Each space or tab character at the beginning of a line increases the level of the item in the contents by 1. The remainder of the line comprises a title for the item, an "=" character, and the link to which the item should be connected. For example: `An Item = MyPage.html`
+

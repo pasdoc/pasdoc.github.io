@@ -1,0 +1,47 @@
+When you surround @-tags parameters in parentheses, then the end of the
+parameters is understood to be at the __matching closing parenthesis__.
+For example the following will be interpreted by pasdoc as you expect:
+
+[source,pascal]
+----
+{ Call this procedure as Foo(1, 'some_string').
+  @italic(This is an italic text.)
+  @italic( @code(This is a code text (that is also italic).) ) }
+procedure Foo(A: Integer; const S: string);
+----
+
+In the example above
+
+* some parentheses are used to indicate where @bold and @code parameters
+begin and end,
+* and some parentheses (around "(1, 'some_string')" and
+"(that is also italic)") are normal parentheses and will be simply
+copied to the output documentation.
+
+## [[and-constructs]] @( and @) constructs
+
+So basically things just work as expected, and you don't have to worry
+about this. However, there are rare situations when you would really
+like to write unmatched parentheses in the output. Consider the
+following example:
+
+[source,pascal]
+----
+{ @italic(This procedure writes the ) character.) }
+procedure WriteClosingParenthesis;
+----
+
+This example does not work as expected, because the first closing
+parenthesis indicates the end of @italic tag. So this example generates
+italic text "This procedure writes the" and then the normal text
+"character.)" in the output. To fix this example, you can use @) pasdoc
+construct, to explicitly indicate that the first closing parenthesis is
+__not matched with any preceeding opening parenthesis and it should just
+produce closing parenthesis in the pasdoc output__. So the fixed version
+of example above is
+
+[source,pascal]
+----
+{ @italic(This procedure writes the @) character.) }
+procedure WriteClosingParenthesis;
+----

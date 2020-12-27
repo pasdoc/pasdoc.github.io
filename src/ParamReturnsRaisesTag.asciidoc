@@ -1,0 +1,19 @@
+link:Home[PasDoc] supports three link:SupportedTags[tags] for describing functions: @param, @returns and @raises.
+
+* @param marks the description of a function's parameter. First word in tag parameter must be the name of function's parameter.
+* @returns marks the description of a function's result value
+* @raises marks the description of an exception raised inside a function. First word in tag parameter must be the class of exception raised.
+
+Examples:
+
+[source,pascal]
+----
+{ Do something with name and value.
+  @param(Name is a string with the item's name)
+  @param(Value is a string with the item's value)
+  @returns(@true on success, @false otherwise)
+  @raises(EUnknownItem if the name can not be found) }
+function DoSomething(const Name: string; const Value: string): boolean;
+----
+
+Note that link:Home[PasDoc] (currently!) does not check whether the parameter names in the description match those of the function. But please don't depend on it -- a future version may check it.

@@ -1,0 +1,12 @@
+You can specify the title for the documentation using the --title or -T
+directive on the link:Home[PasDoc]
+link:CommandLine[CommandLine].
+
+Example:
+
+----
+pasdoc --title "The official PasDoc Documentation"
+----
+
+The title is used for the HTML <title> tag as well as for a H2 header in
+the navigation frame.

@@ -1,0 +1,55 @@
+To generate more complete class hierarchy diagrams (in HTML output and
+for http://www.graphviz.org/[GraphViz] graphs), link:Home[PasDoc] needs to
+know about inheritance of the classes that are not included in your
+source code.
+
+For example, suppose you derive your own classes from standard classes
+like TStrings, TPersistent, TObject etc. link:Home[PasDoc] has to
+internally know that TStrings actually descend from TPersistent in
+standard ObjectPascal RTL to generate perfect class hierarchy diagrams.
+
+By default, we include in link:Home[PasDoc] a knowledge of the
+basic RTL classes. So things actually work out-of-the-box in simple
+cases, and you just enjoy nice class hierarchy diagrams :) But in more
+demanding cases, you may want to provide the hierarchy of external
+classes explicitly.
+
+## [[default-hierarchy-built-in-pasdoc]] Default hierarchy built in PasDoc
+
+Default knowledge of link:Home[PasDoc] can be seen inside the
+https://github.com/pasdoc/pasdoc/tree/master/source/component/external_class_hierarchy.txt[external_class_hierarchy.txt] file.
+This information comes from a couple of basic FPC units,
+https://github.com/pasdoc/pasdoc/tree/master/source/tools/fpc_sources_parse_for_external_class_hierarchy.sh[you can take a look at this script for details].
+
+## [[provide-class-hierarchy-for-pasdoc]] Provide class hierarchy for PasDoc
+
+To make perfect class diagrams, ideally the link:Home[PasDoc] must
+know the class hierarchy of whole FreePascal / Delphi RTL, FCL, LCL, VCL
+and so on. Things are getting more difficult as different compiler
+libraries and their versions may have a little different inheritance.
+Ideally, every class library that you use (and do not let pasdoc parse
+it) may be described as "external class hierarchy" for
+link:Home[PasDoc].
+
+Provide your own file with class hierarchy by
+--external-class-hierarchy=file.txt command-line option. This reads the
+class hierarchy from a given file, and _replaces_ the default pasdoc
+hierarchy (not only _adds_ to it, to account for the fact that different
+compilers/versions may just want different hierarchy even for standard
+classes.) The file format is very simple, each line just specifies
+TChildClass=TParentClass.
+
+The information about class ancestors from source files of course has
+precedence. So if the class is parsed by link:Home[PasDoc], then
+the information about this class ancestor from external class hierarchy
+(link:Home[PasDoc] built-in or from given command-line file) is
+ignored.
+
+## [[user-created-class-hierarchy-files]] User-created class hierarchy files
+
+link:Home[PasDoc] includes a built-in hierarchy of basic RTL
+classes. You're welcome to extend it, or provide alternatives (for
+example, more suitable for Delphi RTL). You can share your files
+e.g. on our
+http://lists.sourceforge.net/lists/listinfo/pasdoc-main[pasdoc-main mailing list].
+We'll collect the submissions in the repository, and link to them here.

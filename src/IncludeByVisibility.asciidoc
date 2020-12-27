@@ -1,0 +1,20 @@
+The link:CommandLine[CommandLine] option `--visible-members` (short
+form is `-M`) controls what class members are visible in final
+documentation. The following visibility types are known:
+
+* private
+* strictprivate
+* protected
+* strictprotected
+* public
+* published
+* automated
+* implicit (public or published; see link:ImplicitVisibilityOption[--implicit-visibility option])
+
+Example:
+
+----
+pasdoc --visible-members protected,public,published,automated
+----
+
+By default private and implicit members are hidden, the rest is shown.

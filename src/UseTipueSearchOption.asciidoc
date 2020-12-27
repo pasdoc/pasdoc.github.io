@@ -1,0 +1,20 @@
+Pass the link:CommandLine[CommandLine] option `--use-tipue-search` to pasdoc (or check the _Use tipue search engine_ box in the link:PasDocGui[PasDocGui]) to instantly get a working "_Search_" box in the HTML output. It allows full text search on the generated documentation.
+
+The search is implemented using http://www.tipue.com/[Tipue]. It is a nice lightweight JavaScript search engine. You don't have to know how it works -- you need to _only_ pass the `--use-tipue-search` option to pasdoc, everything else is done automatically and you get a working "Search" box in your HTML documentation.
+
+## Tipue is a client-side search engine
+
+Note that _Tipue_ is a client-side search engine (as it uses JavaScript for everything). This means that the whole work is done by your web browser. 
+
+- On one hand, this is comfortable, as it allows the "search" functionality to "just work", no matter how you view the documentation (through an HTTP server or not). You don't need to configure anything. PasDoc puts all the files where they should be (Tipue, jQuery, generated index data for Tipue), and the search works.
+
+- On the other hand, the browser has to download the (potentially large) "index data" of your documentation when doing a search. _Tipue_ search cannot show any results before this data is downloaded. You should watch the size of `tipuesearch/tipuesearch_content.js` file (in earlier versions, `tipuesearch_data.js`) in your generated documentation. If it's too large (if downloading it takes a while), then possibly you have outgrown the _Tipue_ capabilities, and you should look into other search implementations (e.g. your own server-side search, or using Google search box).
+
+That said, it works quite nicely even with a large documentation in our experience (_Castle Game Engine_ is using it with over 150 units...).
+
+To test the speed, you can:
+
+* Search for something.
+* Once you're on the "_Search results_" page of your documentation, https://www.getfilecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/[hard refresh the page (Ctrl + Shift + R)]. You can watch the "_Network_" panel of developer tools in Firefox or Chrome to watch how `tipuesearch_content.js` is downloading.
+
+One day we may implement options to integrate other search solutions, see link:ToDoSearch[ToDoSearch].

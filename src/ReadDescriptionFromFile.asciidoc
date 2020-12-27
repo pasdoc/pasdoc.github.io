@@ -1,0 +1,34 @@
+link:Home[PasDoc] can read descriptions from external files specified by the `--description` (short form `-R`) option on the link:CommandLine[CommandLine].
+
+Example:
+
+----
+pasdoc --description my_descriptions.txt unit1.pas
+----
+
+The description file must have the following format:
+
+----
+#Item1
+The multi-line description
+for item1 goes here.
+#Item2
+The description for item2 goes here.
+----
+
+`ItemN` should uniquely identity the item you want to describe. It is safest to use a fully qualified name, including the unit name, like `UnitName.ProcedureName` or `UnitName.TClassName.MethodName`. But you can also omit the `UnitName.` qualifier, if you don't worry about duplicate identifier names in multiple units.
+
+Example:
+
+----
+#UnitMyClass.TMyClass
+This is the description of TMyClass in unit UnitMyClass.
+#UnitMyClass.TMyClass.Create
+This is the description of the constructor of TMyClass.
+----
+
+Inside the item's description, you can use all the PasDoc features and link:SupportedTags[tags] as documented on link:WritingDocumentation[WritingDocumentation].
+
+The `--description` command-line option may be used multiple times. All the description files will be processed.
+
+If the item already had a description in the source code, then the description(s) from the external file are appended at the end to the existing descriptions, separated by a paragraph break.

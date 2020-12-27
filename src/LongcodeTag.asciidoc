@@ -1,0 +1,44 @@
+link:Home[PasDoc] uses the tag @longcode to mark example code which
+is preformatted so the layout should not be changed in the output. In
+addition link:Home[PasDoc] will add code highlighting like in the
+Delphi IDE (see also link:CodeTag[@code]).
+
+For compatibility with older pasdoc behaviour, you must specify an extra
+"marker" character at the beginning and at the end of text that will be
+formatted. Any character can be used but it is best to avoid the space
+character or any other character that cannot be seen. The common
+practice is to use "#" as the marker character. In previous pasdoc
+versions, this marker was used to mark end of longcode text. But
+currently longcode parameters are just parsed to the next matching
+closing parenthesis (just like parameters for any other tag).
+
+Example:
+
+[source,pascal]
+----
+(*Some example use of TForm.OnCreate :
+
+  @longCode(#
+  procedure TForm1.FormCreate(Sender: TObject);
+  var
+    I: Integer;
+  begin
+    // Note that your comments are styled.
+    {$H+}
+    // You can even include compiler directives.
+    // reserved words are formatted in bold.
+    for I := 1 to 10 do
+    begin
+      It is OK to include pseudo-code like this line.
+      // It will be formatted as if it were meaningful pascal code.
+    end;
+  end;
+  #)
+*)
+----
+
+Note that this tag does not expand its parameter (see
+link:TagsParameters[TagsParameters]), which means that @-tags are
+_not_ expanded inside the parameter of this tag, paragraphs are _not_
+inserted, and you can simply write @ char to get it in the output (no
+need to double it, like @@).

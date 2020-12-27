@@ -1,0 +1,21 @@
+`pasdoc_gui` is a GUI interface to the whole link:Home[PasDoc]
+functionality. You can find it inside pasdoc releases in the bin/
+subdirectory, along the traditional command-line pasdoc utility.
+
+The way to work with pasdoc_gui is simple:
+
+1. Set the options as you wish. First of all, add the source files to
+process on the "Source Files" tab.
+2. Save your options as "pasdoc settings" (*.pds) file, this will allow you to load them back later. 3.
+Generate documentation by the big fat "Generate" button, or menu item
+(shortcut F9). For link:HtmlOutput[HtmlOutput], we will automatically
+run WWW browser to view newly made documentation.
+
+You can always press F1 when you work with pasdoc_gui, this will open
+your configured WWW browser with help appropriate for currently focused
+control.
+
+Documentation of some GUI-specific functionality:
+
+* link:PasDocGuiStoreRelativePaths[Store Relative Paths]
+* link:PasDocGuiLatexLineBreaks[Latex Line Breaks]

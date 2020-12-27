@@ -1,0 +1,123 @@
+## [[overview]] Overview
+
+link:CommandLine[CommandLine] option `--auto-link` tells pasdoc to automatically turn identifiers into links inside your descriptions. In link:PasDocGui[PasDocGui] you can check the box _Automatically turn identifiers into links_, for the same effect.
+
+The goal is for you to not have to use the link:LinkTag[@link tag] explicitly so often.
+
+For example, consider this code:
+
+[source,pascal]
+----
+{ This works like procedure @link(Bar). }
+procedure Foo;
+{ This works like procedure @link(Foo). }
+procedure Bar;
+----
+
+You could use --auto-link option and write just
+
+[source,pascal]
+----
+{ This works like procedure Bar. }
+procedure Foo;
+{ This works like procedure Foo. }
+procedure Bar;
+----
+
+Identifiers `Bar` and `Foo` will be automatically turned into links.
+
+## [[noautolinkhere-tag]] @noAutoLinkHere tag
+
+If you use auto-linking, you can prevent pasdoc from automatically linking to given item by placing `@noAutoLinkHere` tag within description of this item.
+
+This is useful if the name of given item is a common "normal" word. In such cases you may prefer to not turn this word into a link automatically. You will have to always use explicit link:LinkTag[@link tag] to link to this item.
+
+Example:
+
+[source,pascal]
+----
+{ @noAutoLinkHere }
+procedure This;
+
+{ This is a nice description of Foo.
+  The word "this" is not automatically turned into a link,
+  because of @@noAutoLinkHere tag in the description of
+  @link(This) item. }
+procedure Foo;
+----
+
+## [[auto-link-exclude-option]] --auto-link-exclude option
+
+Use like `--auto-link-exclude=FILENAME`, where FILENAME is an existing file that contains one identifier name per line. For example,
+
+----
+This
+Create
+Destroy
+----
+
+Identifiers specified in this file will never be automatically linked by pasdoc. This is the equivalent to writing `@noAutoLinkHere` tag at each declaration of such identifier. In some cases, using this is much more convenient than `@noAutoLinkHere`, because some identifiers like `Create` and `Destroy` are often declared, and you almost never want them to be auto-linked. After all, `Create` and `Destroy` are normal English words, and most often you use them in their normal meaning, without the intention of linking to class constructor / destructor.
+
+Following the above reasoning, you may even want to put all normal English words on your exclusion list by using
+
+----
+--auto-link-exclude=/usr/share/dict/american-english
+----
+
+(assuming you live on Unix system with appropriate dictionary file installed).
+
+## [[noautolink-tag]] @noAutoLink tag
+
+If you use auto-linking, you can locally prevent pasdoc from automatically turning your words into a link by using `@noAutoLink` tag. You can put any content within @noAutoLink tag, and it will be processed as usual -- with the exception that identifiers will _not_ be auto-linked inside.
+
+Example:
+
+[source,pascal]
+----
+{ }
+procedure This;
+
+{ @noAutoLink( This is a nice description of Foo.
+  The word "this" is not automatically turned into a link, because
+  this text is within the @@noAutoLink tag.) }
+procedure Foo;
+----
+
+The whole idea of auto-linking is that you will have to seldom use `@noAutoLink` and `@noAutoLinkHere` tags, but on the other hand you will almost never have to use `@link` tag. Without auto-linking, there's no need to ever use `@noAutoLink` or `@noAutoLinkHere` tags (they don't change anything), but you have to very often use @link tag.
+
+## [[details]] Details
+
+### [[auto-linking-messages]] Auto-linking messages
+
+When you request verbosity >= 3 (by link:CommandLine[CommandLine] option --verbosity) you will see informational messages from pasdoc about what identifiers were auto-linked. They will look like this:
+
+----
+Info[3]: Automatically linked identifier "foo" (in description of "bar")
+----
+
+These messages may be useful to you when you want to make sure that you don't have to wrap any additional text inside @noAutoLink or put @noAutoLinkHere in description of some item.
+
+### [[identifier-name-inside-its-own-description]] Identifier name inside its own description
+
+When you write the name of your current item, then (with auto-linking turned on) it will be treated like you used @name tag. Consider this example:
+
+[source,pascal]
+----
+{ MyProcedure is a very useful procedure. }
+procedure MyProcedure;
+----
+
+With auto-linking turned on, this example is equivalent to
+
+[source,pascal]
+----
+{ @name is a very useful procedure. }
+procedure MyProcedure;
+----
+
+So the text "MyProcedure" will be specially formatted in the output (usually using some fixed-width font).
+
+### [[other-details]] Other details
+
+* Note that actually whole _qualified identifiers_ are subject to auto-linking. This means that you can e.g. write TMyClass.MyField and it will be turned into a link if there exists a class named TMyClass with a field MyField. Similar for things like e.g. MyUnit.MyVariable or even MyUnit.TMyClass.MyField.
+* Auto-linking in pasdoc is quite similar to idea of links in doxygen.

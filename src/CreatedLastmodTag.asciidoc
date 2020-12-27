@@ -1,0 +1,12 @@
+link:Home[PasDoc] uses the link:SupportedTags[tags] @created and
+@lastmod to mark the creation and last modified dates of an item. They
+are written to a special section of the documentation.
+
+Example:
+
+[source,pascal]
+----
+{ @created(2003-05-30)
+  @lastmod(2003-07-01) }
+unit SomeUnit;
+----

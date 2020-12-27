@@ -1,0 +1,11 @@
+We want to create offline documentation for pasdoc (to include in pasdoc release archives) generated automatically from content of this wiki.
+
+* The plan to handle this now is to clone GitHub wiki locally, and run Asciidoctor processing over a series of pages. We will use here the fact that all our wiki pages are written using Asciidoctor formatting.
+
+* Also, we have an old outdated documentation written in LaTeX in pasdoc sources, see old_docs/ subdirectory. It was being converted to pdf and html versions using pdflatex and htlatex. This was provided with older (<0.9.0) versions of pasdoc.
++
+With pasdoc 0.9.0 the decision is to drop it because it is too outdated and lacks too many things (see https://sourceforge.net/mailarchive/message.php?msg_id=12114871[mail about this]).
++
+If someone has time, it would be useful to carefully browse old_docs/pasdoc.tex and check if indeed every relevant content is available in wiki. See
+https://raw.githubusercontent.com/pasdoc/pasdoc/master/old_docs/pasdoc.html[HTML version] and
+https://raw.githubusercontent.com/pasdoc/pasdoc/master/old_docs/pasdoc.pdf[PDF version] of old docs.

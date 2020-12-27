@@ -1,0 +1,43 @@
+## [[overview]] Overview
+
+Use special `@<path-to-file>` link:CommandLine[CommandLine] option to make pasdoc read options from file. This is similar to how FPC allows specifying config files. 
+
+For example:
+
+```
+pasdoc @my-config-file.txt myuni1.pas
+```
+
+## [[details]] Details
+
+* There could be any number of `@<path-to-file>` options and they could be freely mixed with other options thus allowing flexible customization. The rule is simple: every `@<path-to-file>` option is replaced by the contents of the file.
+* Config file must contain one option per line. Examples are below.
+* Format is `name[=value]` where
+    - `name` is a long option name just like in the command line but without leading dashes (short names are not accepted, to force the file to be more readable).
+    - `value` is an option value (if an option requires it). Do not "quote" values with spaces (we do not recognize apostrophe or double-quote as a special character in the config file, it would instead be included within the value).
+* Option values inside config file can contain macros that are replaced with actual values. Currently we only support one macro:
+
+    - `$CFG_PATH` - directory of current config file without trailing path separator. This allows linking to a file relative to the config file directory. For example: `auto-link-exclude=$CFG_PATH\autolink-exclude.txt`
+
+## [[examples]] Examples
+
+Examples of config file contents.
+
+### Correct
+
+```
+markdown
+auto-link
+title=My super project
+include=$CFG_PATH/includes/
+```
+
+### Not correct
+
+```
+no-macro auto-link          // two options per line
+--markdown                  // leading dashes
+title="My super project"    // value is quoted. Quotes will be considered as a part of the title
+output html                 // no `=` character between name and value
+D=MSWINDOWS                 // only long option names allowed
+```

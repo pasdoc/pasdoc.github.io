@@ -1,0 +1,221 @@
+When using overloading, you have the same names for some routines within the same unit and the same class. This handling of it in PasDoc has to be improved:
+
+1. different versions of overloaded routine should have different anchors in documentation,
+
+2. and link:LinkTag[LinkTag] should allow to specify to which overloaded version you're linking to (e.g. @link(Create(Integer, Integer)) or @link(Create(String)).
+
+Some comments about it are also at the bottom of link:LatexOutput[LatexOutput] page.
+
+Note that this requires first to have more intelligent parser, that understands procedure parameters names and types, see link:ToDoParser[ToDoParser].
+
+RichardBWinston submitted a patch below. It solves the first part of the problem in a simpler manner (without messing with the parser). I noone will manage to make the full fix, we can apply Richard's patch with small modifications to fix some issues (see "Patch for linking to overloaded methods in link:Home[PasDoc]" thread on pasdoc-main around 2006-09-23).
+
+[source,patch]
+----
+Index: PasDoc_Gen.pas
+===================================================================
+RCS file: /cvsroot/pasdoc/pasdoc/source/component/PasDoc_Gen.pas,v
+retrieving revision 1.179
+diff -u -w -b -r1.179 PasDoc_Gen.pas
+--- PasDoc_Gen.pas	24 Aug 2006 03:11:18 -0000	1.179
++++ PasDoc_Gen.pas	23 Sep 2006 17:53:24 -0000
+@@ -475,6 +475,8 @@
+       name combined with some linking information like a hyperlink element in
+       HTML or a page number in Tex. }
+     function CreateLink(const Item: TBaseItem): string; virtual;
++    function CreateLinkBase(const Item: TBaseItem): string; virtual;
++    function CreateOverloadLink(const Item: TBaseItem): string; virtual;
+ 
+     { If @link(CurrentStream) still exists (<> nil), it is closed.
+       Then, a new output stream in the destination directory with given
+@@ -1008,6 +1010,7 @@
+       p.MyObject := MyObject;
+       p.MyUnit := MyUnit;
+       p.FullLink := CreateLink(p);
++      p.OverloadLink := CreateOverloadLink(p);
+     end;
+   end;
+ 
+@@ -3714,4 +3717,44 @@
+     AutoLink);
+ end;
+ 
++function TDocGenerator.CreateOverloadLink(const Item: TBaseItem): string;
++const
++  rsOverload = 'overload';
++  ReplacementArray: array[0..4] of TCharReplacement = (
++    (cChar: '('; sSpec: '_'),
++    (cChar: ')'; sSpec: '_'),
++    (cChar: ':'; sSpec: '_'),
++    (cChar: ';'; sSpec: '_'),
++    (cChar: ' '; sSpec: '_')
++  );
++var
++  LowerCaseDecString: string;
++  OverloadStart: integer;
++begin
++  if Item is TPasMethod then
++  begin
++    LowerCaseDecString := LowerCase(TPasMethod(Item).FullDeclaration);
++    OverloadStart := Length(LowerCaseDecString) - Length(rsOverload);
++    if (OverloadStart > 1) and
++      (Copy(LowerCaseDecString, OverloadStart, Length(rsOverload)) = rsOverload) then
++    begin
++      result := CreateLinkBase(Item)
++        + StringReplaceChars(TPasMethod(Item).FullDeclaration, ReplacementArray);
++    end
++    else
++    begin
++      result := '';
++    end;
++  end
++  else
++  begin
++    result := '';
++  end;
++end;
++
++function TDocGenerator.CreateLinkBase(const Item: TBaseItem): string;
++begin
++  result := '';
++end;
++
+ end.
+Index: PasDoc_GenHtml.pas
+===================================================================
+RCS file: /cvsroot/pasdoc/pasdoc/source/component/PasDoc_GenHtml.pas,v
+retrieving revision 1.195
+diff -u -w -b -r1.195 PasDoc_GenHtml.pas
+--- PasDoc_GenHtml.pas	24 Aug 2006 05:20:29 -0000	1.195
++++ PasDoc_GenHtml.pas	23 Sep 2006 17:25:16 -0000
+@@ -835,8 +835,17 @@
+     CssClass := 'normal' else
+     CssClass := '';
+ 
++  if Item.OverloadLink = '' then
++  begin
+   Result := MakeTargettedLink(Item.FullLink, ConvertString(LinkCaption), 
+     CssClass, '');
++  end
++  else
++  begin
++    Result := MakeTargettedLink('#' + Item.OverloadLink, ConvertString(LinkCaption),
++      CssClass, '');
++  end;
++
+ end;
+ 
+ function TGenericHTMLDocGenerator.MakeTargettedLink(
+@@ -894,7 +903,14 @@
+   { todo: assign a class }
+   WriteStartOfTableCell('itemcode');
+ 
+-  if MakeAnchor then WriteAnchor(Item.Name);
++  if MakeAnchor then
++  begin
++    WriteAnchor(Item.Name);
++    if Item.OverloadLink <> '' then
++    begin
++      WriteAnchor(Item.OverloadLink);
++    end;
++  end;
+ 
+   WriteCodeWithLinks(Item, Item.FullDeclaration, WriteItemLink);
+ 
+Index: PasDoc_GenLatex.pas
+===================================================================
+RCS file: /cvsroot/pasdoc/pasdoc/source/component/PasDoc_GenLatex.pas,v
+retrieving revision 1.105
+diff -u -w -b -r1.105 PasDoc_GenLatex.pas
+--- PasDoc_GenLatex.pas	2 Aug 2006 10:31:21 -0000	1.105
++++ PasDoc_GenLatex.pas	23 Sep 2006 19:13:52 -0000
+@@ -153,6 +153,7 @@
+     { Returns a link to an anchor within a document. LaTeX simply concatenates
+       the strings with either a "-" or "." character between them. }
+     function CreateLink(const Item: TBaseItem): string; override;
++    function CreateLinkBase(const Item: TBaseItem): string; override;
+     
+     procedure WriteStartOfCode; override;
+     procedure WriteEndOfCode; override;
+@@ -276,6 +277,21 @@
+   Result := '\begin{ttfamily}' + s + '\end{ttfamily}';
+ end;
+ 
++function TTexDocGenerator.CreateLinkBase(const Item: TBaseItem): string;
++begin
++  if (Assigned(Item))
++    and ((Item is TPasItem) and Assigned(TPasItem(Item).MyUnit))
++    and (not Assigned(TPasItem(Item).MyObject))
++    and (not (Item is TPasCio)) then
++  begin
++    Result := TPasItem(Item).MyUnit.FullLink + '-';
++  end
++  else
++  begin
++    result := '';
++  end;
++end;
++
+ function TTexDocGenerator.CreateLink(const Item: TBaseItem): string;
+ begin
+   Result := '';
+@@ -305,12 +321,23 @@
+ function TTexDocGenerator.MakeItemLink(const Item: TBaseItem;
+   const LinkCaption: string;
+   const LinkContext: TLinkContext): string;
++var
++  Link: String;
++begin
++  if Item.OverloadLink = '' then
++  begin
++    Link := Item.FullLink;
++  end
++  else
+ begin
++    Link := Item.OverloadLink;
++  end;
++
+   if LinkContext = lcCode then
+     { Links inside lcCode context look bad... }
+     Result := ConvertString(LinkCaption) else
+     Result :=  '\begin{ttfamily}' + ConvertString(LinkCaption) + 
+-      '\end{ttfamily}(\ref{' + EscapeURL(Item.FullLink) + '})';
++      '\end{ttfamily}(\ref{' + EscapeURL(Link) + '})';
+ end;
+ 
+ function TTexDocGenerator.GetFileExtension: string;
+@@ -740,6 +767,10 @@
+       
+     WriteHeading(HL+1, Item.Name);
+     WriteAnchor(Item.Name, Item.FullLink);
++    if Item.OverloadLink <> '' then
++    begin
++      WriteAnchor(Item.Name, Item.OverloadLink);
++    end;
+ 
+     WriteStartList(s);
+ 
+Index: PasDoc_Items.pas
+===================================================================
+RCS file: /cvsroot/pasdoc/pasdoc/source/component/PasDoc_Items.pas,v
+retrieving revision 1.124
+diff -u -w -b -r1.124 PasDoc_Items.pas
+--- PasDoc_Items.pas	25 Jun 2006 13:56:01 -0000	1.124
++++ PasDoc_Items.pas	23 Sep 2006 14:44:42 -0000
+@@ -115,6 +115,7 @@
+     FCreated: string;
+     FAutoLinkHereAllowed: boolean;
+     FRawDescriptionInfo: TRawDescriptionInfo;
++    FOverloadLink: string;
+     
+     procedure SetAuthors(const Value: TStringVector);
+     function GetRawDescription: string;
+@@ -253,6 +254,7 @@
+ 
+     { a full link that should be enough to link this item from anywhere else }
+     property FullLink: string read FFullLink write FFullLink;
++    property OverloadLink: string read FOverloadLink write FOverloadLink;
+     
+     { Contains '' or string with date of last modification.
+       This string is already in the form suitable for final output
+----

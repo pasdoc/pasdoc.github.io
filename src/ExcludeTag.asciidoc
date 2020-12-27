@@ -1,0 +1,22 @@
+link:Home[PasDoc] uses the link:SupportedTags[tag] @exclude to
+mark items that should not be in the documentation. This can be any type
+of item, e.g. a complete class, a method, a field etc.
+
+When @exclude tag is placed at the class/record/interface or unit
+comment, then the whole item (whole class, whole unit etc.) with all
+it's items will be excluded.
+
+Example:
+
+[source,pascal]
+----
+type
+  { @exclude }
+  TSomeHiddenClass = class ... end;
+
+  TSomeVisibleClass = class
+  public
+    { @exclude }
+    procedure SomeHiddenMethod;
+  end;
+----

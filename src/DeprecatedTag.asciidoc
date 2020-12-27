@@ -1,0 +1,56 @@
+This page describes two closely related pasdoc features:
+
+## [[deprecated-tag]] @deprecated tag
+
+This tag marks given item as a deprecated. Example:
+
+[source,pascal]
+----
+{ @deprecated This procedure is only for backward-compatibility,
+  it may be removed in future versions of this unit. You should use
+  @link(ConvertString) in new code. }
+procedure OldConvertString(var MyString: ShortString);
+----
+
+In generated documentation for OldConvertString pasdoc will try to
+clearly mark that procedure OldConvertString is deprecated. E.g. in HTML
+output at the beginning of description of OldConvertString pasdoc will
+write (using red font, configurable via CSS) "Warning: this symbol is
+deprecated."
+
+For more examples see
+https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_deprecated_tag.pas[test unit tests/ok_deprecated_tag.pas] and
+http://pasdoc.sourceforge.net/correct_tests_output/html/ok_deprecated_tag.html[html output for this test unit].
+
+## [[hint-directives]] Hint directives
+
+Closely related to @deprecated tag are also Delphi "hint directives" :
+__deprecated__, __platform__, __library__. pasdoc correctly parses and
+understands them.
+
+Example (equivalent to example above but this time using _deprecated_
+hint directive):
+
+[source,pascal]
+----
+{ This procedure is only for backward-compatibility, it may be
+  removed in future versions of this unit. You should use
+  @link(ConvertString) in new code. }
+procedure OldConvertString(var MyString: ShortString); deprecated;
+----
+
+Using _deprecated_ hint directive has the same meaning (for pasdoc) as
+using @deprecated tag in symbol's description (i.e. in both cases pasdoc
+will print this red warning "Warning: this symbol is deprecated.").
+Where possible, you should probably use the _deprecated_ hint directive,
+so that both compiler and pasdoc know abuot the deprecation.
+Both FPC and Delphi support it.
+
+@deprecated tag may be useful because (at least old versions of)
+Delphi doesn't allow hint directives for
+properties and non-structural types (although Kylix 3 help says that
+hint directives for any types are allowed). But pasdoc's @deprecated tag
+may be freely specified for _any_ item in your unit, including
+properties and any types.
+
+pasdoc generates appropriate "red warnings" for all hint directives in the final documentation. See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_hint_directives.pas[test unit tests/ok_hint_directives.pas] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_hint_directives.html[html output for this unit].

@@ -1,0 +1,38 @@
+link:CommandLine[CommandLine] option
+`--ignore-leading=<leading-characters>` makes link:Home[PasDoc]
+ignore <leading-characters> at the beginning of comment lines. This
+means that you can decorate comments like
+
+[source,pascal]
+----
+{*
+ * Test
+ *} procedure Foo;
+
+{ ***************
+  * Test2
+  ****************}
+procedure Bar;
+----
+
+and run pasdoc like
+
+----
+pasdoc --ignore-leading=* my.pas
+----
+
+to avoid these star characters in documentation.
+
+Consecutive occurrences of the character are ignored too. Whitespace
+preceding the character to ignore is irrelevant. Trailing characters
+(like in `* MyTest *`) are _not_ removed from the comments. This is
+compatible with JavaDoc behavior.
+
+This doesn't interfere with the link:CommentMarker[--staronly and --marker] options as these are handled before the characters are stripped.
+
+As `--ignore-leading` is a string-option you can even assign a string to
+it instead of a single character, e.g. --ignore-leading=*!. But this is
+not supported (meaning: the ability to pass more than 1 character to
+--ignore-leading may be removed at some point; you're welcome to send
+reports to our http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] if you find a good
+justification for this feature to be "stable").

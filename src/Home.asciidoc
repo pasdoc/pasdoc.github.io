@@ -79,30 +79,3 @@ About these web pages:
 
 * We are using wiki to easily update these pages. You are welcome to contribute to the documentation!
 * All text within this wiki is licensed on terms of http://www.gnu.org/copyleft/gpl.html[GNU General Public License] (just like PasDoc sources).
-
-For some item types like classes or units you may write very large
-descriptions to give an adequate introduction. However, these large
-texts are not appropriate in an overview list. Use the abstract tag to
-give a short explanation of what an item is about. One row of text is a
-good rule of thumb. Of course, there should only be one abstract tag per
-description.
-
-Example:
-
-[source,pascal]
-----
-type
-  { @abstract(This class does some very useful thing.)
-    With the help of this class you can ...
-    (more text that describes how very very
-    useful is this class follows). }
-  TMyClass = class ...
-----
-
-The abstract text will appear in the overview section of the
-documentation (if the document format supports this overview section),
-and will also appear as the first paragraph of the item full
-documentation.
-
-Note that can avoid writing explicit @abstract tag if you use
-link:AutoAbstractOption[--auto-abstract command-line option].

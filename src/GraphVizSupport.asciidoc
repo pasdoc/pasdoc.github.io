@@ -1,0 +1,43 @@
+link:Home[PasDoc] supports the http://www.graphviz.org/[GraphViz] package
+for generating simple unit uses and class inheritance graphs.
+
+There are four link:CommandLine[CommandLine] options that can be
+used:
+
+## [[options-to-create-graph-files]] Options to create graph files
+
+`--graphviz-uses` and `--graphviz-classes` will generate `GVUses.dot` and
+`GVClasses.dot` files that can be used as input for the `dot` program from
+the http://www.graphviz.org/[GraphViz] package like this:
+
+----
+dot -T png GVUses.dot > GVUses.png
+dot -T png GVClasses.dot > GVClasses.png
+----
+
+This will generate a file GVUses.png containing a graph of unit
+dependencies and GVClasses.png containing a graph of class dependencies.
+
+Tip:
+
+The generated graph is usually rather wide which makes it a bit awkward
+to use. By setting the "rankdir" graph attribute to "LR" the graph will
+be built left to right rather than the default top to bottom direction
+resulting in a much more convenient format:
+
+----
+dot -Grankdir=LR -T png GVUses.dot > GVUses.png
+----
+
+## [[options-to-link-to-graphs-in-documentation]] Options to link to graphs in documentation
+
+--link-gv-uses and --link-gv-classes will add a link to the overview
+frame pointing to the pictures generated with dot. You must pass the
+file extension of the picture (dot can also generate gif and lots of
+other formats). So if you generate png you must call
+link:Home[PasDoc] with a link:CommandLine[CommandLine] like
+this:
+
+----
+pasdoc --link-gv-uses png --link-gv-classes png --graphviz-uses --graphviz-classes ...
+----

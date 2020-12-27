@@ -1,0 +1,67 @@
+How to compile link:Home[PasDoc]?
+
+## [[fpc]] FPC
+
+The preferred http://www.freepascal.org/[FreePascal] version should always be the latest stable FPC release. Any FPC >= 2.6.0 is supported, although compilation with older versions is less extensively tested. Using the latest stable FPC is always the best option.
+
+Compile by simple make in top level sources directory.
+
+You must use GNU make. Under Linux this is the standard make, under Windows it is included with FPC installation (you can also get it with http://www.mingw.org/[MinGW] or http://www.cygwin.com/[Cygwin]), under FreeBSD it's called gmake.
+
+### [[lazarus]] Lazarus
+
+Lazarus version required is 1.0.10 or later. Using the latest stable Lazarus version is always adviced and best tested.
+
+* You can install pasdoc components by installing `source/packages/lazarus/pasdoc_package.lpk`. This package is used by console `pasdoc` and by `pasdoc_gui`.
+* You can compile console pasdoc from Lazarus by compiling `source/console/pasdoc.lpi`.
+* You can compile `pasdoc_gui` from Lazarus by compiling `source/gui/pasdoc_gui.lpi`.
+
+### [[fpc-2.0.0]] FPC < 2.0.0
+
+Compatibility with FPC 1.0.10 was dropped after pasdoc 0.9.0 release. If you must compile with FPC 1.0.10, you should use pasdoc 0.9.0 sources, later sources will not compile with FPC 1.0.10. For reasoning, browse http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] archives for a thread *"Drop compatibility with Delphi 5 and FPC 1.0.10 ?"* around 2005-06-12.
+
+Compatibility with FPC 1.9.x was dropped at some point too.
+
+## [[kylix-3]] Kylix 3
+
+### [[compiling-from-the-ide]] Compiling from the IDE
+
+The unit output path is set to the 'lib' subdirectory which must be created manually. This is to reduce clutter.
+
+The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. Sorry, you will have to live with that.
+
+Do not use the "..." button to add directories to the search path, it will add absolute paths. Use relative paths instead.
+
+### [[compiling-using-the-makefile]] Compiling using the Makefile
+
+You can compile using the command make build-delphi-linux-x86
+
+### [[older-kylix-versions]] Older Kylix versions
+
+It is unknown whether the code compiles with older Kylix versions. Please report if you have any info.
+
+## [[delphi]] Delphi
+
+Supported Delphi versions are 5-7 and 2005.
+
+### [[compiling-from-the-ide-1]] Compiling from the IDE
+
+The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. Sorry, you will have to live with that.
+
+### [[compiling-using-the-makefile-1]] Compiling using the Makefile
+
+You can compile using the command make build-delphi-win32
+
+### [[delphi-5-specific-notes]] Delphi 5 specific notes
+
+You must do one specific thing to compile pasdoc with Delphi 5:
+
+* Add "..\component\strutils" to your units search path.
+
+### [[using-fastmm-memory-manager]] Using FastMM memory manager
+
+You can speed up pasdoc a little (about 17%) by using http://sourceforge.net/projects/fastmm[FastMM memory manager]. Just download FastMM, add it to your Delphi units path, and define symbol USE_FASTMM when compiling.
+
+## [[see-also-release-making]] See also: release making
+
+Compiling, testing and other things related to release making are described on this page: link:ReleaseMaking[ReleaseMaking].

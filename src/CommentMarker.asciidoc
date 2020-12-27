@@ -1,0 +1,35 @@
+A "comment marker" is a special marker in the comment that marks this
+comment for use by link:Home[PasDoc]. By default, pasdoc doesn't
+require any comment marker: any comment that is placed right before
+declaration of some item is automatically incorporated as part of
+documentation.
+
+If you prefer to use some markers, you can control it with the following
+link:CommandLine[CommandLine] options:
+
+--staronly::
+Parse only `{\\**`, `(*\**` and `//*\*` style comments. This is a shortcut for `--marker=**`.
++
+Example:
++
+[source,pascal]
+----
+{** This is a pasdoc comment for WriteLn }
+procedure WriteLn(const s: string);
+----
+
+--marker <marker>::
+Parse only `{<marker>`, `(\*<marker>` and `//<marker>` comments.
++
+Example using `:` as marker:
++
+[source,pascal]
+----
+{: WriteLn takes a string and writes it to the console
+  @param(s is the string to write)
+  @returns(true if successfull and false if there is no console window.) }
+function WriteLn(const s: string): boolean;
+----
+
+--marker-optional::
+Do not require the markers given in `--marker <marker>` but remove them from the comment if they exist.

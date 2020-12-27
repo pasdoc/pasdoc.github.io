@@ -1,0 +1,34 @@
+The tag `@includeCode` includes an external file inside the documentation,
+treating it as Pascal source code. The included code will be nicely
+displayed (with colors, bold keywords and so on). This is useful to show
+longer example programs in the documentation. The fact that you keep the
+example code in a separate file allows you to check the correctness of
+your example code by compiling it.
+
+For example, consider you want to document a function LoadImage in your
+unit. You can write:
+
+[source,pascal]
+----
+{ Loads the image from file, creating new TImage instance.
+  Remember to free it later. Example usage:
+  @includeCode(load_image_example.pas) }
+function LoadImage: TImage;
+----
+
+The `load_image_example.pas` is a normal Pascal program showing the usage
+of the LoadImage function.
+
+The filename (`load_image_example.pas` in the example above) is relative to the Pascal source file defining this identifier (`LoadImage` in the example above). You can use something like `@includeCode(../docs/load_image_example.pas)` to refer to a different directory.
+
+You can include multiple source code files (place each filename on a
+separate line), they will simply be glued together. Like this:
+
+----
+@includeCode( demo1.dpr demo2.dpr )
+----
+
+Related tags:
+
+* If you want to include an external file that is not a Pascal code (but may contain description using more link:Home[PasDoc] @tags) then use link:IncludeTag[@include] tag instead.
+* If you want to show a multi-line Pascal code inside the documentation, but don't want to place it a separate file, then use link:LongcodeTag[@longCode] tag instead.

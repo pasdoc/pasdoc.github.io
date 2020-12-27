@@ -1,0 +1,56 @@
+By default, when pasdoc generates the documentation, it shows items in
+the same order as they were declared in your source files. This makes
+sense if the order of declarations in your code is reasonable,
+and you want the documentation to present them in the same order.
+
+Alternatively, pasdoc can sort items when generating
+documentation, i.e. always show them in alphabetical order. This is
+controlled by the `--sort` link:CommandLine[CommandLine] option. As an
+argument, this options takes the list of things that should be sorted in
+the final documentation (separated by commas):
+
+* structures (this decides whether summary of classes / objects / records / interfaces is sorted on unit page)
+* constants
+* functions (this applies to global functions / procedures)
+* types
+* variables
+* uses-clauses
+* record-fields
+* non-record-fields
+* methods
+* properties
+
+Example:
+
+----
+pasdoc --sort=functions,record-fields,non-record-fields,methods,properties ...
+----
+
+This particular example shows how to get the sorting setting that was hardcoded in old PasDoc versions (before 2005-05-25).
+
+Note that there is no way to control sorting of some listings, like the list of all units or all identifiers in the link:HtmlOutput[HtmlOutput]. Such listings are always presented in the alphabetical order.
+
+Note that sorting some things may be considered "unsafe":
+
+* `record-fields`: People sometimes use records to do low-level memory tricks, and then order of the fields in the record matters. So you usually shouldn't sort them.
++
+This is also the reason why sorting of records and non-records (classes / objects / interfaces) fields is controlled by separate values (record-fields and non-record-fields). While sorting of record fields may be "unsafe" (i.e. may produce inappropriate documentation), but people don't do low-level tricks with classes (even if such tricks are somewhat possible, they are always highly discouraged, since the memory layout of the class is the internal thing for the given compiler). So sorting of classes' fields is rather "safe".
+
+* `uses-clauses`: it may be important in some cases to preserve order of units in your uses clause.
++
+When two units define the same identifier, the identifier from the last used unit "wins". So it's important to preserve this order in pasdoc-made documentation, otherwise reader of documentation could be uncertain about some issues. E.g. suppose you have a unit like :
++
+[source,pascal]
+----
+unit MyNewUnit;
+interface
+uses Unit1, Unit2;
+type
+  TMyNewType = TMyOldType;
+implementation
+end.
+----
++
+and suppose that both `Unit1` and `Unit2` contain types named `TMyOldType`. So what actually is `TMyNewType`? Answer is: `TMyNewType` is equal to `Unit2.TMyOldType`. That's because `Unit2` is in the declararation clause after Unit1.
+
+Sorting of other items is generally "safe" and is a matter of personal preference (and coding style), i.e. do you prefer identifiers to be presented always alphabetically or in the order they were declared.

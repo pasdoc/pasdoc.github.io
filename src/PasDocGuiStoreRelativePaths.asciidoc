@@ -1,0 +1,5 @@
+Checkbox _Store only relative paths in project file_ on PasDocGui_:
+
+If this is checked (the default), all paths (like Pascal units filenames, include files paths, output path, filenames of introduction and css files) are stored as relative paths inside the `xxx.pds` file.
+
+This means that you can freely move your saved `xxx.pds` file within your filesystem and you can share this file with other developers (e.g. you can put it inside some code repository). But you have to keep the relative paths valid -- so when you move your `xxx.pds` file, you should move also the Pascal source files referenced inside this file.

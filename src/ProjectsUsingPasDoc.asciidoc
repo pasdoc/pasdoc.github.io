@@ -1,0 +1,22 @@
+## [[projects-using-pasdoc]] Projects using PasDoc
+
+If you use link:Home[PasDoc], your are most welcome to add your project to this page. Or you can send a mail about your project to our mailing list: http://lists.sourceforge.net/lists/listinfo/pasdoc-main .
+
+* http://allegro-pas.sf.net/[Allegro.pas] - A wrapper to allow Pascal language to use the http://alleg.sf.net/[Allegro game programming library].
+* http://brookframework.org/[Brook framework] - Complete framework for web applications.
+* http://castle-engine.sourceforge.net/[Castle Game Engine] - Cross-platform 3D and 2D game engine with a lot of graphic effects and a scene graph based on X3D.
+* http://dzchart.berlios.de[dzChart] - Chart component for Delphi/Kylix.
+* http://fblib.altervista.org/[FBLib] - Open source Firebird library.
+* http://geoblock.sourceforge.net/[Geoblock] - Integrated open source software for 2D/3D modelling, computational geometry and visualization of spatial datasets based on GLScene.
+* http://www.glscene.org/[GLScene]  - Open source OpenGL-based library for Delphi, C++Builder and Free Pascal.
+* http://www.mindspring.com/~rbwinston/PasDoc/PasDoc_GUIs.html[Help Generator] - GUI for link:Home[PasDoc] in two flavors: VCL and CLX. (Last update, July 10, 2005).
+* http://benibela.de/sources_en.html#internettools[Internet Tools] - Package to process web pages; and the http://benibela.de/components_en.html#treelistview[TreeListView], a tree view with record columns
+* https://github.com/Fr0sT-Brutal/Delphi_OSMMap[OSMMap] - Visual control for Delphi and Lazarus to display OSM map
+* http://sourceforge.net/projects/pascalscada/[PascalSCADA] - Set of components for Delphi/Lazarus, used to develop SCADA applications.
+* link:Home[PasDoc] - Our own sources can be processed by link:Home[PasDoc] itself, see link:PasDocAutoDoc[PasDocAutoDoc].
+* https://github.com/Fr0sT-Brutal/Delphi_SChannelTLS[SChannelTLS] - Helper functions and socket classes to perform TLS communication by means of WinAPI (SChannel)
+* http://www.ararat.cz/synapse/[Synapse] - Synchronous TCP/IP Library for Delphi, C++ Builder, Kylix and http://www.freepascal.org/[FreePascal].
+* http://synedit.sourceforge.net[SynEdit] - Component suite for Delphi/Kylix to highlight code source.
+* http://synopse.info/forum/viewforum.php?id=16[SynProject] - GPL Delphi source code versioning and documentation tool, which includes a fork of link:Home[PasDoc]: speed enhancements, cache of parsing content in a .zip archive, integrated http://www.graphviz.org/[GraphViz] diagrams, documentation generation in MS Word format, integration into a complete project documentation tool.
+* http://valkyrie.chaosforge.org/[Valkyrie] - General purpose game-development library.
+* http://yana.sourceforge.net/[yana] - Yet another network analyzer.

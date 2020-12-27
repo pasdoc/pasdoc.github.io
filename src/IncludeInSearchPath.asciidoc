@@ -1,0 +1,27 @@
+Just like a Pascal compiler, link:Home[PasDoc] understands $include
+compiler directive and reads include files. It searches for include
+files in the current directory and in all directories given with the
+--include link:CommandLine[CommandLine] option. Examples:
+
+----
+pasdoc --include c:\mysources\include --include c:\3rdparty\somelib\include ...
+
+pasdoc --include c:\mysources\include;c:\3rdparty\somelib\include ...
+----
+
+As shown in the first example it is possible to specify multiple `--include` options.
+
+You can also specify multiple include paths per --include directive,
+separating them with the platform's path separator (which is ':' on Unix
+and ';' on Windows) as shown in the second example. So both examples
+above (and the two below) are equivalent.
+
+Another example when running under Unix:
+
+----
+pasdoc --include /home/me/include --include /usr/local/pascal/include ...
+
+pasdoc --include /home/me/include:/usr/local/pascal/include ...
+----
+
+The short form of `--include` option is `-I` (upper case i).

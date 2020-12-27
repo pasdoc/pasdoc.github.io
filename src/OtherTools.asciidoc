@@ -1,0 +1,46 @@
+Subdirectory source/tools/ inside link:Home[PasDoc] sources
+contains some useful programs related to PasDoc. They are either small
+programs helpful for development of PasDoc, or tools that use PasDoc
+units to do other tasks.
+
+## [[file_to_pascal_string]] file_to_pascal_string
+
+Converts any text file into a Pascal string, so that you can compile
+text files inside your program.
+
+## [[file_to_pascal_data]] file_to_pascal_data
+
+Converts any file into a Pascal array of bytes, so that you can compile
+binary files inside your program.
+
+## [[pascal_pre_proc]] pascal_pre_proc
+
+Pascal preprocessor. It reads the Pascal source file given on the
+command-line, and outputs it's processed version to the standard output.
+Features (all inherited from pasdoc tokenizer and scanner):
+
+* Handles $ifdef and related constructs
+
+* Handles FPC macros (very useful if you want to use FPC source code using macros in Delphi)
+* Handles $include
+* Preserves whitespace
+
+The preprocessor behavior can be configured by a couple of command-line
+options, a subset of link:CommandLine[PasDoc command line options].
+Run pascal_pre_proc --help to get a list of supported options. Examples
+of use:
+
+* Basic test of handling macros using ok_macros.pas file from pasdoc tests:
++
+----
+pascal_pre_proc pasdoc/tests/ok_macros.pas
+----
+* Generate a single (without any $includes and $ifdefs) source code of the SysUtils unit for Linux/i386 target from FPC sources:
++
+----
+pascal_pre_proc unix/sysutils.pp \
+ -I objpas/sysutils/ -I inc/ -I i386/ -I ./linux/ \
+ -D UNIX -D cpui386 > linux_i386_sysutils.pas
+----
++
+Note that this is not perfect. because proper handling of $if and $elseif conditions is not implemented yet.

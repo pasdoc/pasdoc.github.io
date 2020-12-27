@@ -1,0 +1,157 @@
+Use the `--implementation-comments` command-line option to parse the implementation section of a unit in addition to the interface section. This way you can place the documentation comments inside the implementation section, keeping the interface section shorter.
+
+## Example
+
+Documentation inside the implementation (using the `--implementation-comments=join` option):
+
+```pascal
+unit Foo;
+
+interface
+
+type
+  TCl = class
+    // This method should do something.
+    function Bar(const Par1, Par2: string): Boolean;
+    // This method should do something extended.
+    function BarEx(const Par1, Par2: string): Boolean;
+  end;
+
+implementation
+
+{ This method should do something.
+  @param Par1 - parameter #1
+  @param Par2 - parameter #2
+  
+  @return Success flag
+  @raises Exception on error
+}
+function TCl.Bar(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+{ This method should do something extended.
+  @param Par1 - parameter #1
+  @param Par2 - parameter #2
+  
+  @return Success flag
+  @raises Exception on error
+}
+function TCl.BarEx(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+end.
+```
+
+This way the interface section is clean (but it still has short descriptions), and the full documentation is inside the unit implementation. Developer can see a documentation near the implementation of the method.
+
+It is equivalent to the following documentation inside the interface (without using `--implementation-comments=...`):
+
+```pascal
+unit Foo;
+
+interface
+
+type
+  TCl = class
+    { This method should do something
+      @param Par1 - parameter #1
+      @param Par2 - parameter #2
+      
+      @return Success flag
+      @raises Exception on error
+    }
+    function Bar(const Par1, Par2: string): Boolean;
+
+    { This method should do something extended
+      @param Par1 - parameter #1
+      @param Par2 - parameter #2
+      
+      @return Success flag
+      @raises Exception on error
+    }
+    function BarEx(const Par1, Par2: string): Boolean;
+  end;
+
+implementation
+
+function TCl.Bar(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+function TCl.BarEx(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+end.
+```
+
+## Possible arguments (how to merge information)
+
+The `--implementation-comments` option has three possible arguments, that determine how the information is merged:
+
+|===============
+| `prefer-interface` | Read both interface and implementation comments. Use whichever comment is
+non-empty. If they are both non-empty, use the interface comment.
+| `join` | Read both interface and implementation comments, and concatenate them. The concatenation
+process is smart: if the interface comment is precisely repeated at the implementation comment (like `This method should do something.` in the above example) then it will be ignored.
+| `prefer-implementation` | Just like "prefer interface", but if both comments are non-empty,
+use the implementation comment.
+|===============
+
+**Sample**
+
+Having this unit
+
+```pascal
+unit Foo;
+
+interface
+
+// This method should do something
+function Bar(const Par: string): Boolean;
+
+implementation
+
+{ This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag
+}
+function Bar(const Par: string): Boolean;
+begin
+  ...
+end;
+
+end.
+```
+
+the resulting descriptions will be
+
+* Using `--implementation-comments=prefer-interface`:
+```
+This method should do something
+```
+
+* Using `--implementation-comments=join`
+```
+This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag
+```
+* Using `--implementation-comments=prefer-implementation` (same result as with  `--implementation-comments=join` in this case):
+```
+This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag
+```
+
+## Notes
+
+* Regardless of the `--implementation-comments` option, only the items present in the interface section of a unit  are visible in the final documentation. In other words, using `--implementation-comments` is only a way to "enhance" the documentation of items from the interface section. It doesn't make the internal unit identifiers visible in the documentation.
+
+* Just like with the interface section: To successfully parse the implementation section, make sure that PasDoc is aware of the conditional symbols that are defined. See the link:ConditionalDefines[conditional compilation documentation], in particular section there https://github.com/pasdoc/pasdoc/wiki/ConditionalDefines#make-sure-the-resulting-code-is-valid[Make sure the resulting code is valid] .

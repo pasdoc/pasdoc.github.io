@@ -1,0 +1,101 @@
+Release making process:
+
+## Change version number
+
+* Change version of all packages in pasdoc/source/packages/ dir. Right now this means changing
+** .../packages/lazarus/pasdoc_package.lpk
+** all Delphi packages
+* change VERSION in pasdoc/Makefile
+* change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas
+
+## [[write-changelog-entry]] Write ChangeLog entry
+
+Make sure you have nice entry in https://github.com/pasdoc/pasdoc/blob/master/ChangeLog file in pasdoc sources.
+
+We try to write the ChangeLog entry _while_ developing PasDoc (each time someone does something significant, it's immediately added to the ChangeLog). So at this point, mainly __review and finalize (write new verion number and release date) ChangeLog entry.
+
+## [[compile-and-test-all-releases]] Compile and test all releases
+
+Make sure you have the latest stable FPC and Lazarus versions.
+
+Use `make clean build-fpc-default` or `make clean build-fpc-<os/arch>` to compile a release version of pasdoc. Or you can just call `make dist-<os/arch>`, this will make `clean` and `build-fpc-<os/arch>` as the first steps. (Note that it's important to call `clean` before `build-fpc-<os/arch>`, otherwise you risk that some units were left as compiled with debug options).
+
+Run all the tests by 
+
+```
+cd pasdoc/tests/scripts
+./run_all_tests.sh
+```
+
+There are various comments inside `tests/run_all_tests.sh` about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.
+
+To be perfect, you should run these tests on all targets.
+
+## [[update-docs]] Update docs
+
+Remove from the documentation text
+
+_Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use link:DevelopmentSnapshots[DevelopmentSnapshots] to use this feature._
+
+(where _x.y.z_ is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase __Note that this feature is not available in latest released pasdoc version__. (For GitHub wiki, you can clone it and then just grep locally.)
+
+## [[compile-and-test-pasdoc_gui]] Compile and test pasdoc_gui
+
+* Get latest stable FPC.
+* Get latest stable Lazarus.
+
+* Compile link:PasDocGui[PasDocGui] from command-line using lazbuild:
++
+----
+lazbuild source/packages/lazarus/pasdoc_package.lpk
+lazbuild source/gui/pasdoc_gui.lpi
+----
+* Compile link:PasDocGui[PasDocGui] interactively, from within Lazarus.
+* Test pasdoc_gui: for basic test, open the project with pasdoc's autodoc source/autodoc/autodoc.pds and hit "Generate".
+
+For platforms where pasdoc_gui is included in releases (currently this means Linux-x86, Darwin-x86, Win32) the make dist-... will automatically compile and include pasdoc_gui binary (using lazbuild to compile Lazarus package and project in batch mode).
+
+## [[recompile-and-archive-all-releases]] Recompile and archive all releases
+
+Use make dist-<os/arch>. This will do clean, then appropriate build-<compiler>-<os/arch>, then will produce archive named like pasdoc-<version>-<os/arch>. This is the archive you want to release.
+
+Source archive is made by make dist-src.
+
+## [[release-files-using-sourceforge-file-release-system]] Release files using sourceforge file release system
+
+* Upload on `sftp://kambi,pasdoc@frs.sourceforge.net/home/frs/project/p/pa/pasdoc` (edit this to include your SourceForge username).
+* Package name for archives with compiled version (created by make dist-<os/arch>) is _PasDoc os-arch_. Package name for source archive (the one created by make dist-src) is __PasDoc Sources__.
+* Remember to mark files that should be the default download on some systems (Linux, Windows). For Linux, mark 64-bit version to download by default, as 64-bit is more popular now.
+* Download the uploaded files and compare with originals, or check md5sums, to be absolutely sure they are Ok.
+
+## Tag in version control
+
+Add a tag x.y.z to version control by `make tag`.
+
+## [[final-things-to-do]] Final things to do
+
+* In our https://sourceforge.net/p/pasdoc/bugs/[bugs tracker], add a group _x.y.z_
+* It's a good idea to upload link:PasDocAutoDoc[PasDocAutoDoc] at this time, like this:
++
+----
+cd pasdoc/source/autodoc/
+make clean public upload SF_USERNAME=my_user_name
+----
+* Send mail about release to our pasdoc-main mailing list.
+* https://sourceforge.net/p/pasdoc/news/[Submit news item] _PasDoc x.y.z released_
+* Announce new release on http://freshcode.club/projects/pasdoc.
+* Announce new release on http://lazarus.freepascal.org/[Lazarus forum].
+* Announce new release on FB, G+
+* Send an update to http://directory.fsf.org/project/pasdoc/[FSF directory].
+* Prepare for next release: ChangeLog file should start with line
++
+----
+[Next release -- release date and new version number unknown yet...]
+----
+
+Really, really large and significant improvements may be signalled by
+changing the project's description:
+
+* on https://sourceforge.net/projects/pasdoc/[SF project page]
+* on http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc[Lazarus wiki "Projects Using Lazarus" page]
+* on https://www.ohloh.net/p/PasDoc[ohloh page]

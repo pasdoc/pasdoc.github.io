@@ -1,0 +1,5 @@
+DocBook is a popular XML (and SGML) based standard to write technical
+documentation.
+
+You can read more about DocBook at http://docbook.sourceforge.net/ and
+http://www.oasis-open.org/docbook/.

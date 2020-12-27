@@ -1,0 +1,155 @@
+## [[ordered-and-unordered-lists]] Ordered and unordered lists
+
+You can use tags @orderedList and @unorderedList to create ordered and
+unordered lists. Parameter of these tags should consist solely of @item
+tags. No other @-tag (or any other "normal" text) is allowed inside
+@orderedList and @unorderedList except @itemLabel, @itemSpacing, and
+@itemSetNumber. Any number of @item tags, including zero, is allowed in
+a list.
+
+Each @item tag creates one list item. Inside @item tags other @-tags are
+allowed, and all other pasdoc features (like paragraphs) work. In
+particular, you can use @orderedList and @unorderedList tags within
+@item tag, thus creating nested lists. Nested lists may be of any depth,
+but you should be aware that some output formats like
+link:LatexOutput[LatexOutput] have their own constrains on maximum
+nesting depth.
+
+### [[simple-example]] Simple example
+
+[source,pascal]
+----
+{ The FormatString allows you to use special %-markers to
+  designate where to insert Args items.
+   @unorderedList(
+     @item(%s inserts a string)
+     @item(%d inserts an integer)
+     @item(%% inserts % character)
+   ) }
+function Format(const FormatString: string; const Args: array of const): string;
+----
+
+## [[definition-list]] Definition list
+
+You can create definition lists in a similar manner. In a definition
+list, every item consists of a pair: item label and item description.
+@definitionList tag defines a definition list. Within @definitionList,
+you can only put @itemLabel and @item tags. @itemLabel defines a label
+for a given item and @item tag defines a description for the item (that
+is associated with preceeding @itemLabel).
+
+Just as with @orderedList and @unorderedList, list may contain any
+number of items, including zero.
+
+Within @item and @itemLabel tags you can freely put any content,
+including other pasdoc tags.
+
+You are expected to 1st specify @itemLabel for first item, then @item
+for first item, then @itemLabel for second item, then @item for second
+item and so on. You are allowed to omit @itemLabel or @item for some
+items if you want, then an item without a label or without a description
+will be added to definition list.
+
+### [[simple-example-1]] Simple example
+
+[source,pascal]
+----
+{ In this game, there are various types of items:
+  @definitionList(
+    @itemLabel(Usable, always)
+    @item(Typical items that are used. Scrolls, potions, books etc.
+      You should override this method to define what
+      happens when player uses this item.)
+
+    @itemLabel(Usable, but only when equipped)
+    @item(Items that can be used but must be equipped first. E.g.
+      magic staffs. You should override this method and check for
+      @link(IsEquipped) inside.)
+
+    @itemLabel(Not usable)
+    @item(Items that can't be used.
+      Don't override this method, default implementation in this
+      class will raise an exception.)
+  )
+}
+procedure Use;
+----
+
+## [[compacting-the-look-of-a-list]] Compacting the look of a list
+
+In addition to @item (and @itemLabel) tags, you can also use
+@itemSpacing tag within @orderedList, @unorderedList and @definitionList
+tags. @itemSpacing gives a hint (which may be ignored in some pasdoc
+output formats) about how given list should look like.
+
+There are only two allowed parameters for @itemSpacing:
+
+1. Paragraph means that vertical space between two list items should be
+like a space between two paragraphs. This is the default behaviour, so
+you should rarely need to specify this.
+2. Compact means that vertical space between two list items should be like a space between two
+consecutive lines. So you should use @itemSpacing(Compact) within lists
+where you know that each item is something short (e.g. only a few words)
+--- such lists may look better when vertical space between each item is
+small.
+
+It doesn't matter where exactly you place @itemSpacing, as long as it's
+directly within some @xxxList tag. I.e. you can place @itemSpacing
+before the first list item, you can place it after the last list item,
+or anywhere between two list items. You can specify @itemSpacing
+multiple times within the same list --- only the last occurence of
+@itemSpacing will take effect.
+
+### [[simple-example-2]] Simple example
+
+[source,pascal]
+----
+{ You can eat various fruits:
+  @unorderedList(
+    @itemSpacing(Compact)
+    @item(Apples)
+    @item(Oranges)
+    @item(Bananas)
+  ) }
+procedure EatFruit(Fruit: Integer);
+----
+
+Actually, we could use
+link:TagsParametersWithoutParenthesis[TagsParametersWithoutParenthesis]
+feature and just omit some parenthesis from example above:
+
+[source,pascal]
+----
+{ You can eat various fruits:
+  @unorderedList(
+    @itemSpacing Compact
+    @item Apples
+    @item Oranges
+    @item Bananas
+  ) }
+procedure EatFruit(Fruit: Integer);
+----
+
+## [[reset-list-numbering]] Reset list numbering
+
+You can use @itemSetNumber(NEW-NUMBER) tag within @orderedList to change
+the number of the next list @item.
+
+### [[simple-example-3]] Simple example
+
+[source,pascal]
+----
+{ @orderedList(
+    @item Blah
+    @item Blah
+    @itemSetNumber 10
+    @item Blah
+    @item Blah
+  ) }
+----
+
+This will produce the list with four items "Blah" numbered 1, 2, 10, 11.
+
+## [[more-complicated-example]] More complicated example
+
+See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_lists.pas[test unit of these tags] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_lists/ok_lists.html[HTML output for this test unit].

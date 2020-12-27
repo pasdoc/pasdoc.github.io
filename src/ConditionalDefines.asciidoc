@@ -1,0 +1,111 @@
+## [[overview]] Overview
+
+Pascal allows for _directives_ in the source code. These are comments that contain commands for the compiler introduced by the dollar sign.
+
+To distinguish different compilers, libraries or development stages,
+_conditional directives_ make it possible to make the compiler ignore
+part of the file.
+
+An example:
+
+[source,pascal]
+----
+unit SampleUnit;
+
+{$ifdef MSWINDOWS}
+
+uses Windows, WinProcs;
+procedure WindowMove(H: TWindowHandle; DX, DY: Integer);
+
+{$else}
+
+procedure ClearConsole;
+procedure PrintText(S: String);
+
+{$endif}
+----
+
+As PasDoc parses Pascal files it must be able to correctly understand conditional directives. So it understands a number of directives dealing with conditional compilation: `$ifdef`, `$if`, `$else`, `$endif`, `$ifend`, `$ifopt`, `$define` and `$undef`.
+
+In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don't automatically define `MSWINDOWS`, even when you run PasDoc on Windows. The reason for this is that you probably want to generate *one* documentation that makes sense for *all* operating systems, *all* compiler versions and so on. It's up to you to decide which symbols should be defined to achieve this. 
+
+You can tell PasDoc to have some symbol defined using the `--define` and `--conditionals`
+link:CommandLine[CommandLine] options described below. It's valid to specify multiple --define or --condtional options.
+
+## [[define-option]] --define option
+
+--define DIRECTIVES option (short form is -D DIRECTIVES) adds DIRECTIVES
+to the list of conditional directives that are present whenever parsing
+a unit is started. Each define should be separated from the others by a
+comma, as shown in the following example:
+
+----
+pasdoc --define DEBUG,FPC,MSWINDOWS
+----
+
+This defines three conditionals: DEBUG, FPC and MSWINDOWS.
+
+## [[conditionals-option]] --conditionals option
+
+--conditionals CONDITIONALS-FILE option (short form is
+-d CONDITIONALS-FILE) adds the defines specified in a file
+CONDITIONALS-FILE to the list of conditional directives that are present
+whenever parsing a unit is started. The file must contain one
+conditional per line, without any comments.
+
+Examples:
+
+----
+pasdoc --conditionals c:\sources\myconditionals.txt
+pasdoc --conditionals /home/me/pascal/myconditionals.txt
+----
+
+where the `myconditionals.txt` file may contain, for example:
+
+----
+DEBUG
+FPC
+MSWINDOWS
+----
+
+## Make sure the resulting code is valid
+
+Consider this sample:
+
+```pascal
+const NewLine = {$IFDEF MSWINDOWS} #13#10 {$ENDIF} {$IFDEF POSIX} #10 {$ENDIF};
+```
+
+By default PasDoc defines neither `MSWINDOWS` nor `POSIX`, so it will consider them both undefined and will try to parse (and fail) the following line:
+
+```pascal
+const NewLine = ;
+```
+
+You have to make sure that the combination of symbols used by PasDoc "makes sense", i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:
+
+```pascal
+const NewLine = 
+  {$ifdef PASDOC} 
+    'The value of this constant depends on the operating system'
+  {$else}
+    {$ifdef MSWINDOWS} #13#10 {$endif} {$ifdef POSIX} #10 {$endif}
+  {$endif};
+```
+
+Make sure to execute PasDoc with command-line option `-d PASDOC` to make it work.
+
+## Support for `$if`
+
+The `$if` directive allows to evaluate an expression, like `{$if defined(MSWINDOWS) and not defined(FPC)}`. Not all `$if` features supported by compilers (like FPC or Delphi) are supported right now by PasDoc. We support:
+
+- Functions `defined(SYMBOL)`, `undefined(SYMBOL)`, `option(R+)`
+- Constants `false`, `true`
+- Composing the expression using `and`, `or`, `not` operations
+- Comparing (only Booleans for now) using `=`
+
+In particular, some not supported features:
+
+- `sizeof(xxx)` function (not likely to be ever supported -- requires a compiler to determine it)
+- `declared(identifier)` function
+- Other comparisons, comparisons as integers, like `{$if CompilerVersion > 20}`

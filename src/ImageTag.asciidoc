@@ -1,0 +1,75 @@
+## [[basic-usage]] Basic usage
+
+You can use @image link:SupportedTags[tag] to include a given image file in the output. For example:
+
+[source,pascal]
+----
+{ Diagram below shows how this procedure works:
+  @image(diagram.png) }
+procedure DoSomething;
+----
+
+File diagram.png must exist when you call pasdoc. It will be copied by pasdoc to the output directory. 
+
+The filename is relative to the source file containing the `@image` tag. In the above example, the file `diagram.png` should be in the same directory as the source file. You can also use a relative filename, like `@image(../images/my.png)`. We recommend using slashes (`/`, Unix-style path separators) in the paths, as they will work on both Windows and Unix.
+
+Note that the image file format (and extension) will not be altered by
+pasdoc. So make sure that your included image is in the format
+understood by WWW browsers (for html output), or latex or pdflatex (for
+latex output).
+
+## [[specifying-multiple-image-formats]] Specifying multiple image formats
+
+Be aware that various documentation formats require various image
+formats:
+
+* latex (that converts pasdoc's latex output to dvi) accepts images only
+in EPS (Encapsulated PostScript) format.
+* pdflatex (that converts
+pasdoc's latex output to pdf) accepts images only in PDF, JPEG and PNG
+formats.
+* WWW browsers generally accept many image formats (including
+JPEG and PNG), but not EPS and not PDF.
+
+link:Home[PasDoc] doesn't try to convert your supplied image to any
+image format. You must take care yourself to supply image in good image
+format. However, as you can see above, __there is no single image format
+that is good for every possible output format__.
+
+So pasdoc allows you to put multiple image filenames inside one @image
+tag (each filename in a separate line). It is then understood that you
+have multiple versions of the same image, and pasdoc is free to use the
+best image format for each output.
+
+### [[example]] Example
+
+For example you can write
+
+[source,pascal]
+----
+{ Diagram below shows how this procedure works:
+  @image(
+    diagram.eps
+    diagram.pdf 
+    diagram.png
+  ) }
+procedure DoSomething;
+----
+
+and this means that
+
+* diagram.eps will be used by latex program when making dvi from pasdoc's link:LatexOutput[LatexOutput].
+* diagram.pdf will be used by pdflatex program when making pdf from pasdoc's link:LatexOutput[LatexOutput].
+* diagram.png will be used in pasdoc's link:HtmlOutput[HtmlOutput].
+
+### [[detailed-rules]] Detailed rules
+
+The precise rules when choosing image for each output format are as
+follows:
+
+* For link:HtmlOutput[HtmlOutput], the first specifed image that is neither EPS nor PDF will be used.
+* For pdf section in link:LatexOutput[LatexOutput], the first specifed image that is in PDF format will be used. If no such image is available, then the first specifed image that is in JPEG or PNG format will be used.
+* For non-pdf section in link:LatexOutput[LatexOutput] (processed by normal latex program, htlatex etc.), the first specifed image that is in EPS format will be used.
+
+If any case, if no image in the preferred format will be supplied,
+pasdoc will choose just the first image on the list.

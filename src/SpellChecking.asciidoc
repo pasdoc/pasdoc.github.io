@@ -1,0 +1,57 @@
+Pasdoc can use http://aspell.sourceforge.net/[Aspell] to
+check the spelling of your descriptions. Just run pasdoc with the
+link:CommandLine[CommandLine] option --spell-check. The
+spell-checking will be done using the same language that you specified
+by link:OutputLanguage[--language command-line option] (default:
+English).
+
+Then pasdoc will
+
+1. Write all the words that you mispelled to standard output, using warnings like
++
+----
+Warning[2]: Word mispelled "foo"
+----
+2. In addition, in your generated documentation all your mispelled words will be displayed in some special way and you will be able to see suggestions for them. E.g. in link:HtmlOutput[HtmlOutput] each mispelled word will be displayed using some special color, and when you move your mouse over this word, you will see a hint like "suggestions: ...".
++
+For now it's not done in link:LatexOutput[LatexOutput], see link:ToDoSpellChecking[ToDoSpellChecking].
+
+You can also use the link:CommandLine[CommandLine] option
+--spell-check-ignore-words=IGNORE-WORDS-FILE-NAME where
+IGNORE-WORDS-FILE-NAME is a file that contains words (one word per line)
+that should be ignored (i.e. not checked).
+
+http://aspell.sourceforge.net/[aspell] must be installed
+and available in the search $PATH. Windows users can install aspell as
+part of http://www.cygwin.com/[cygwin], there is also a http://aspell.net/win32/[native Win32 version].
+
+See also: link:ToDoSpellChecking[ToDoSpellChecking].
+
+## [[deprecated---aspell-command-line-option]] Deprecated: --aspell command-line option
+
+For backward compatibility, we also allow --aspell=LANGUAGE command-line
+option, where LANGUAGE is the
+http://aspell.net/man-html/Supported.html[aspell code of the language that you use in documentation]. This allows you to use a different
+language for spell-checking than the language you use for output
+strings... which is not really useful in normal situations.
+
+You can use empty value for the LANGUAGE, in which case the language
+used for spell-checking will be the same as set by the --language, and
+then it works the same as --spell-check option. Except it's error-prone
+and ugly when using on the command-line. For example, the following
+three calls are equivalent and all cause the spell-checking in Polish
+language:
+
+----
+pasdoc --language pl.iso-8859-2 --aspell pl source_file.pas
+pasdoc --language pl.iso-8859-2 --aspell '' source_file.pas
+pasdoc --language pl.iso-8859-2 --aspell= source_file.pas
+----
+
+But you cannot use the (most natural) form
+
+----
+pasdoc --language pl.iso-8859-2 --aspell source_file.pas
+----
+
+because then source_file.pas is interpreted (and rejected) as language name.

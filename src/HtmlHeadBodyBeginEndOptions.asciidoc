@@ -1,0 +1,14 @@
+These three command-line options insert custom HTML code to every generated page.
+
+* `--html-head <filename.html>` adds content inside the HTML <head> element.
+* `--html-body-begin <filename.html>` adds content _right after_ the <body>.
+* `--html-body-end  <filename.html>` adds content _right before_ the </body>.
+
+They offer you a lot of possibilities:
+
+* In `--html-head` you can add links to additional CSS files. (Remember that you can also _replace_ the original CSS code using link:CssOption[--css] option.)
+* You can add links to external JavaScript files. Some of them should to `--html-head`, some to `--html-body-end`. Consult the documentation of the particular JavaScript code.
+* You can add navigation panel to the top and/or bottom of every page.
+* Using both `--html-body-begin` and `--html-body-end` you can wrap the whole PasDoc content in an additional container (like `<div class="pasdoc-container">...</div>`). This can be useful e.g. to style the content selectively, or add a custom sidebar to it.
+
+Note that `--html-body-begin` and `--html-body-end` are different from link:FileAsHeaderOrFooter[--header and --footer] options. The `--header` and `--footer` add content at the beginning/end of the right documentation column. The `--html-body-begin` and `--html-body-end` add content at the beginning/end of the whole HTML page.

@@ -1,0 +1,25 @@
+Use the tag @name to insert the name of the current item.
+
+The following three tags may be used only within a class, i.e. when
+current item is either a class or a member of some class. (__Class__
+means a real class or an interface, a record etc.)
+
+* @classname inserts the name of current class.
+* @inheritedClass inserts the name of ancestor class.
+
+* @inherited: If current item is a class, this is the same thing as
+@inheritedClass: it inserts the name of ancestor class. If current item
+is a class member (i.e. a field, a property or a method) then it inserts
+a qualified name of this member in ancestor class (this is handy if you
+want to link from an overriden method description to ancestor method
+description).
+
+@inherited and @inheritedClass also create a link to appropriate item.
+
+Example:
+
+[source,pascal]
+----
+{ @name is a method of @classname which overrides the method
+  @inherited to do something completely different... }
+----

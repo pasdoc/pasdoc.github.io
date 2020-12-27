@@ -1,0 +1,140 @@
+## [[overview]] Overview
+
+Run PasDoc with `--markdown` link:CommandLine[command-line option] to understand (a subset of) https://github.github.com/gfm[Markdown] syntax in the comments. This allows to specify various formatting options without link:SupportedTags[writing `@tags`], which sometimes looks much more readable.
+
+## [[sup-blocks]] Supported blocks
+
+Note that only a subset of Markdown syntax is supported.
+
+* Bold text: `+**bold**+` or `+__bold__+` (output like link:BoldAndItalicTags[@bold tag])
+* Italic text: `+*italic*+` or `+_italic_+` (output like link:BoldAndItalicTags[@italic tag])
+* Inline code: `++`code`++` (output like link:CodeTag[@code tag])
+* Links: `[Link Title](https://example.org/link-target)` (output like link:UrlTag[@url tag])
+* Multi-line code (preformatted text, output like link:PreformattedTag[@preformatted tag]): 
++
+*Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
++
+[source]  
+----
+'''
+Example 
+preformatted
+multi-line
+text.
+'''
+----
+
+
+* Multi-line Pascal code with syntax highlighting (output like link:LongCodeTag[@longCode tag]): 
++
+*Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
++
+[source]  
+----
+'''pascal
+if Foo then
+  Writeln('Example Pascal code'); // comment
+'''
+----
+
+
+* Unordered lists (output like link:ListTags[@unorderedlist tag]):
++
+[source]  
+----
+* item 1
+* item 2
+----
+* Ordered lists (output like link:ListTags[@orderedlist tag]):
++
+[source]
+----
+1. item 1
+2. item 2
+----
+
+### Notes on lists
+
+List items are defined with the usual format:
+
+[source]
+----
+[WHITESPACE*N]MARKER[item contents]
+----
+
+Where:
+
+* `WHITESPACE*N` is any number (including zero) of tabs `#9` or spaces `#32`
+* `MARKER` is
+   - `*` or `-`, followed by one whitespace character, for unordered lists
+   - NUMBER, followed by `.` or `)`, followed by one whitespace character, for ordered lists
+
+Nested lists are supported as well. Each nested list must be indented with at least one more whitespace character than the parent item:
+
+[source]  
+----
+* item 1
+  * item 1.2
+    * item 1.3
+----
+
+Note that PasDoc implementation of lists is somewhat simpler and stricter than, f.i., GitHub has. 
+PasDoc is much about indents - almost always a content belonging to one nesting level has the same indent. Exception is for text content without **empty line** only.
+Rules of how PasDoc reads list item contents (hereafter **indent of a text line** means number of leading whitespace characters and **indent of a list item** means number of leading characters before first character of item content - that is, leading whitespace characters plus list marker).
+
+* List item with indent lesser than current means current list is finished
+[source]  
+----
+ * item 1
+  * item 1.2
+ * item 2
+----
+
+* List item with indent greater than current means nested list
+[source]  
+----
+* item 1
+ * item 1.1
+----
+
+* Line of text not preceded by **empty line** belongs to current item regardless of indent
+[source]  
+----
+* item 1
+  * item 1.1
+text 1.1
+   text 1.1
+----
+
+* Line of text preceded by **empty line** must have the same or greater indent to belong to current item. Text with lesser indent means current list is finished
+
+[source]  
+----
+* item 1
+  * item 1.1
+    text 1.1
+      text 1.1
+* item 2
+  * item 2.1
+
+   text 2
+----
+
+* List item with the same indent is considered sibling of current item within current list (even preceded by **empty line**!)
+
+[source]  
+----
+* item 1
+
+* item 2
+
+* item 3
+----
+
+## [[example-unit]] Example unit
+
+See the https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_markdown.pas[test unit of this feature] and https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/testcases_output/html/ok_markdown/ok_markdown.html[pasdoc output for this test (generated with --markdown option)].
+
+## [[future]] Future
+
+Going forward, we want to implement as much as possible from https://github.github.com/gfm/[GitHub Flavored Markdown] syntax. All new Markdown features implemented in PasDoc should follow that spec as closely as possible.

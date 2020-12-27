@@ -1,0 +1,9 @@
+## Line breaks option on _LaTeX options_ page of PasDocGui
+
+When a document is processed, sometimes there is too much text to fit on a line but moving it to the next line would make the line too short. LaTeX has two options for handling this:
+
+1. The _strict_ option will keep the text on one line (which may make the line too long).
+
+2. The _sloppy_ option will move the text to the next line (which may make the spaces between words in a line too large).
+
+In console pasdoc, this functionality is obtained using `--latex-head` link:CommandLine[CommandLine] option.

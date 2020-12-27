@@ -1,0 +1,19 @@
+I have contributed a few lines of code and some ideas to PasDoc.
+
+My homepage is http://www.dummzeuch.de
+
+Currently my main project is http://gorm.po.dk/[Gorm], which is part
+of http://dxgettext.po.dk/[GNU Gettext for Delphi and C++ Builder]
+
+Other stuff in which I am / have been involved:
+
+* http://dztemplates.berlios.de[dzTemplates]
+* http://www.gexperts.org[GExperts]
+* http://homepages.borland.com/jedi/jcl/[Jedi Code Library]
+* http://homepages.borland.com/jedi/jvcl/[Jedi Visual Component Library]
+* http://www.vpascal.com[Virtual Pascal]
+* http://www.dummzeuch.de/delphi/dz-charts/english.html[dzChart]
+
+'''''
+
+link:CategoryHomepage[CategoryHomepage]

@@ -1,0 +1,19 @@
+Use `--auto-back-comments` to automatically assign a `//` comment to the preceding identifier on the same line.
+
+For example this will be parsed in a correct way if you call pasdoc with `--auto-back-comments`:
+
+```pascal
+var
+  Foo: Integer; // Documentation of Foo
+  Bar: Integer; // Documentation of Bar
+  Xyz: Integer;
+```
+
+Without the `--auto-back-comments`, PasDoc follows the rule documented at link:WhereToPlaceComments[Where To Place Comments], which admittedly results in un-intuitive behavior for the above example: a comment is by default assigned to the *following* (not *preceding*) identifier, so `Documentation of Foo` would be used for `Bar`. You have to mark the comment with additional `<` character to make it work without the `--auto-back-comments` option:
+
+```pascal
+var
+  Foo: Integer; //< Documentation of Foo
+  Bar: Integer; //< Documentation of Bar
+  Xyz: Integer;
+```

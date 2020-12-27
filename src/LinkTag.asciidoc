@@ -1,0 +1,66 @@
+Inside a description of one item you can place a link to another item
+using @link link:SupportedTags[tag]. Depending on the type of output,
+these links could be hyperlinks (in HTML) or page references (in LaTeX).
+
+Example:
+
+[source,pascal]
+----
+const
+  MaxFactorialArgument = 20;
+
+{ This function calculates factorial of n, n!.
+  You should always call this function with
+  n <= @link(MaxFactorialArgument),
+  otherwise result will not fit in Int64 type. }
+function SmallFactorial(n: Integer): Int64;
+----
+
+You can link to _any_ item in your units that has some Pascal
+identifier. So you can link not only to some procedure, constant,
+variable, etc. but also to a whole class or a whole unit.
+
+You can use qualified names for the link target, like
+
+* @link(SomeClassName.IdentifierinThisClass) or
+* @link(SomeUnitName.IdentifierInThisUnit) or even
+* @link(SomeUnitName.SomeClassName.Identifier).
+
+When resolving links, pasdoc tries to loosely mimic Pascal identifier
+scope: The name of an identifier is first searched within the current
+class / record etc., then within the current unit, then within the units
+in the uses clause. Only if that fails pasdoc will search globally in
+all known units.
+
+## [[explicit-display-name-of-a-link]] Explicit display name of a link
+
+You can also specify an explicit display name for this link, simply by
+putting a space after your link target and then typing the link display
+name. E.g.
+
+[source]
+----
+@link(TMyClass.MyMethod This is a silly link to MyMethod in TMyClass)
+----
+
+One use for such an explicit name is if you have a class TMemo that has
+a property named Lines that returns an instance of a class TStringList.
+You want to document routine TMemo.Clear, that calls Lines.Clear and
+then does some repainting stuff. So you want to link in your description
+to TStringList.Clear, but you want the link to show as Lines.Clear. You
+can do it by writing a description like
+
+[source,pascal]
+----
+type
+  TMemo = class
+    property Lines: TStringList read FLines;
+
+    { This method calls @link(TStringList.Clear Lines.Clear)
+      and then does some repainting stuff. }
+    procedure Clear;
+  end;
+----
+
+If no explicit display name was specified, then what multipart links
+will look like depends on the `--link-look` link:CommandLine[CommandLine] option.

@@ -1,0 +1,33 @@
+You can use @seealso tag to show a list of related items in description
+of a given item. Allowed parameters for @seealso tag and their meaning
+are the same as for link:LinkTag[@link tag]:
+
+----
+@seealso(PossiblyQualified.ItemName [and optional link display name])
+----
+
+You can use @seealso tag multiple times in the same comment to specify
+multiple items that are related to this item.
+
+In output documentation, this will result in "See also" section created
+in description of this item. This section will list all items specified
+by @seealso tags. Abstract descriptions (the one created e.g. by
+link:AbstractTag[@abstract tag]) of each related item will also be
+shown.
+
+## [[simple-example]] Simple example
+
+[source,pascal]
+----
+{ @abstract(Converts an integer to a string.)
+  @seealso(StrToInt)
+  @seealso(Format) }
+function IntToStr(const Value: Int64): string;
+
+{ @abstract(Converts a string to an integer.) @seealso(IntToStr) }
+function StrToInt(const Value: string): Int64;
+----
+
+## [[more-advanced-example]] More advanced example
+
+See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_see_also.pas[test unit of this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_see_also/index.html[HTML output for this test].

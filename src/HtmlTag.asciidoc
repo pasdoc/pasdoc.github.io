@@ -1,0 +1,21 @@
+Parameters of the @html link:SupportedTags[tag] are passed verbatim
+to the HTML output format.
+
+An example:
+
+[source,pascal]
+----
+var
+  { See the YouTube for demonstration of this technique.
+    @html(<iframe width="560" height="315" src="https://www.youtube.com/embed/..." frameborder="0" allowfullscreen></iframe>)
+  } }
+  MyVariable: Integer;
+----
+
+Notes:
+
+* This tag does not recursively expand its parameter (see link:TagsParameters[TagsParameters]), so @-tags are _not_ expanded inside the parameters of this tag, paragraphs are _not_ inserted, and you can simply write the @ char to get it in the output (no need to double it, like @@). Special html characters (like < or >) are _not_ escaped for HTML output. You have to write &lt; to get the < character in HTML output.
++
+To rephrase it: The text inside the parameters of @html is copied absolutely verbatim to the output.
+* When pasdoc generates documentation in a format, that can not use HTML markup, the @html() tag is ignored.
+* See also the link:LatexTag[@latex tag]

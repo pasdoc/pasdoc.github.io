@@ -1,0 +1,26 @@
+When you declare a class, ObjectPascal rules say that default ("implicit") visibility of members is __public__, unless the class is declared within {$M+} state or the class inherits from another class
+declared in {$M+} state (like TPersistent) -- then it's __published__.
+
+However, pasdoc cannot always absolutely correctly implement this behavior
+(only the compiler really knows whether class inherits from another class declared in {$M+} state).
+
+You can control using the command-line option `--implicit-visibility` how
+exactly pasdoc handles members with "implicit visibility":
+
+--implicit-visibility=public::
+Visibility of implicit members is __public__, unless the class is
+declared within {$M+} state, then visibility is __published__. This is
+the default setting.
+
+--implicit-visibility=published::
+Visibility of implicit members is always __published__.
+
+--implicit-visibility=implicit::
+Visibility of implicit members is always __implicit__. _Implicit_ is a new
+visibility kind, invented only for the sake of pasdoc. It's another
+possible kind for `--visible-members` option. By default,
+--visible-members do not include _implicit_ members.
+
+If you don't use `--implicit-visibility=implicit` command-line option then
+_no_ members will be ever considered as having an _implicit_ visibility
+by pasdoc.

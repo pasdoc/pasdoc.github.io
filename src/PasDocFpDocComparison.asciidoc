@@ -1,0 +1,42 @@
+Below I tried to summarize link:Home[PasDoc]
+(http://pasdoc.sourceforge.net/) and FpDoc
+(http://www.freepascal.org/docs-html/fpdoc/fpdoc.html) differences. This
+is written by link:MichalisKamburelis[MichalisKamburelis], an author
+of link:Home[PasDoc] -- but I tried to be as objective as I can.
+Feel welcome to edit and improve this page.
+
+* FpDoc keeps descriptions in separate XML files. link:Home[PasDoc]
+keeps descriptions inside comments in the source interface, or inside
+external files (one file for many descriptions, or one file with one
+description using @include).
+* Formatting in link:Home[PasDoc] is
+done using @tags (similar to javadoc and such), like
+@bold(This is bold text). Formatting in FpDoc is done using XML elements
+(similar to HTML), like <b>This is bold text</b>. Both projects support
+a lot of formatting options, you can compare the list of @tags on
+link:SupportedTags[SupportedTags] with the "Tag reference" on
+http://www.freepascal.org/docs-html/fpdoc/fpdoc.html .
+* For a list of
+supported command-line options and formatting compare
+http://www.freepascal.org/docs-html/fpdoc/fpdoc.html with
+link:CommandLine[CommandLine] . Both projects support a lot
+of options, the differences are in details.
+* Some advanced features of
+link:Home[PasDoc] are listed on
+link:AdvancedFeatures[AdvancedFeatures] . Most of them are not available
+in fpdoc as far as I know.
+* Both programs support many output formats
+including HTML and LaTeX.
++
+link:Home[PasDoc] has an output called htmlhelp, while fpdoc has chm output, although I didn't compare them personally. link:Home[PasDoc] also has link:SimpleXmlOutput[simplexml] output, and latex2rtf output.
++
+You can see sample output of pasdoc e.g. here link:PasDocAutoDoc[PasDocAutoDoc] . Sample fpdoc output is the FPC reference.
+* link:Home[PasDoc] has a simple cross-platform
+GUI (in addition to the command-line of course).
+* FpDoc has
+http://wiki.freepascal.org/FPDoc_Editor .
+* link:Home[PasDoc] also
+has some useful tools like Pascal preprocessor and file_to_pascal_string
+.
+* On the other hand, fpdoc is written using fcl-passrc parser, that
+can be more easily used by other projects.

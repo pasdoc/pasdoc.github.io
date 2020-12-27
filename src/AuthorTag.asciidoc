@@ -1,0 +1,16 @@
+Use an @author tag to specify the author of this item. Use multiple
+@author tags if given item (e.g. unit) has many authors. Example:
+
+[source]
+----
+@author(Johannes Berg <email@address.here>)
+@author(John Doe (www.somewhere.on.the.net))
+@author(Jane Doe (http://jane.doe.org))
+----
+
+E-mail or WWW addresses are automatically highlighted in the output and
+are clickable in HTML output. WWW addresses must either start with
+"http://" or "www." to be recognised.
+
+For now, @author tags will only result in documentation output for
+classes, interfaces, objects and units.
