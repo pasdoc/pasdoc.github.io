@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ConditionalDefines.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ConditionalDefines.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ConditionalDefines.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="overview"><a id="overview"></a> Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pascal allows for <em>directives</em> in the source code. These are comments that contain commands for the compiler introduced by the dollar sign.</p>
+</div>
+<div class="paragraph">
+<p>To distinguish different compilers, libraries or development stages,
+<em>conditional directives</em> make it possible to make the compiler ignore
+part of the file.</p>
+</div>
+<div class="paragraph">
+<p>An example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit SampleUnit;
+
+{$ifdef MSWINDOWS}
+
+uses Windows, WinProcs;
+procedure WindowMove(H: TWindowHandle; DX, DY: Integer);
+
+{$else}
+
+procedure ClearConsole;
+procedure PrintText(S: String);
+
+{$endif}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As PasDoc parses Pascal files it must be able to correctly understand conditional directives. So it understands a number of directives dealing with conditional compilation: <code>$ifdef</code>, <code>$if</code>, <code>$else</code>, <code>$endif</code>, <code>$ifend</code>, <code>$ifopt</code>, <code>$define</code> and <code>$undef</code>.</p>
+</div>
+<div class="paragraph">
+<p>In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don&#8217;t automatically define <code>MSWINDOWS</code>, even when you run PasDoc on Windows. The reason for this is that you probably want to generate <strong>one</strong> documentation that makes sense for <strong>all</strong> operating systems, <strong>all</strong> compiler versions and so on. It&#8217;s up to you to decide which symbols should be defined to achieve this.</p>
+</div>
+<div class="paragraph">
+<p>You can tell PasDoc to have some symbol defined using the <code>--define</code> and <code>--conditionals</code>
+<a href="CommandLine">CommandLine</a> options described below. It&#8217;s valid to specify multiple --define or --condtional options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="define-option"><a id="define-option"></a> --define option</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>--define DIRECTIVES option (short form is -D DIRECTIVES) adds DIRECTIVES
+to the list of conditional directives that are present whenever parsing
+a unit is started. Each define should be separated from the others by a
+comma, as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --define DEBUG,FPC,MSWINDOWS</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This defines three conditionals: DEBUG, FPC and MSWINDOWS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conditionals-option"><a id="conditionals-option"></a> --conditionals option</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>--conditionals CONDITIONALS-FILE option (short form is
+-d CONDITIONALS-FILE) adds the defines specified in a file
+CONDITIONALS-FILE to the list of conditional directives that are present
+whenever parsing a unit is started. The file must contain one
+conditional per line, without any comments.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --conditionals c:\sources\myconditionals.txt
+pasdoc --conditionals /home/me/pascal/myconditionals.txt</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where the <code>myconditionals.txt</code> file may contain, for example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>DEBUG
+FPC
+MSWINDOWS</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="make-sure-the-resulting-code-is-valid">Make sure the resulting code is valid</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consider this sample:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">const NewLine = {$IFDEF MSWINDOWS} #13#10 {$ENDIF} {$IFDEF POSIX} #10 {$ENDIF};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default PasDoc defines neither <code>MSWINDOWS</code> nor <code>POSIX</code>, so it will consider them both undefined and will try to parse (and fail) the following line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">const NewLine = ;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You have to make sure that the combination of symbols used by PasDoc "makes sense", i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">const NewLine =
+  {$ifdef PASDOC}
+    'The value of this constant depends on the operating system'
+  {$else}
+    {$ifdef MSWINDOWS} #13#10 {$endif} {$ifdef POSIX} #10 {$endif}
+  {$endif};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Make sure to execute PasDoc with command-line option <code>-d PASDOC</code> to make it work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="support-for-if">Support for <code>$if</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>$if</code> directive allows to evaluate an expression, like <code>{$if defined(MSWINDOWS) and not defined(FPC)}</code>. Not all <code>$if</code> features supported by compilers (like FPC or Delphi) are supported right now by PasDoc. We support:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Functions <code>defined(SYMBOL)</code>, <code>undefined(SYMBOL)</code>, <code>option(R+)</code></p>
+</li>
+<li>
+<p>Constants <code>false</code>, <code>true</code></p>
+</li>
+<li>
+<p>Composing the expression using <code>and</code>, <code>or</code>, <code>not</code> operations</p>
+</li>
+<li>
+<p>Comparing (only Booleans for now) using <code>=</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In particular, some not supported features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sizeof(xxx)</code> function (not likely to be ever supported&#8201;&#8212;&#8201;requires a compiler to determine it)</p>
+</li>
+<li>
+<p><code>declared(identifier)</code> function</p>
+</li>
+<li>
+<p>Other comparisons, comparisons as integers, like <code>{$if CompilerVersion &gt; 20}</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

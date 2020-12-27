@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ConfigFileOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ConfigFileOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ConfigFileOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="overview"><a id="overview"></a> Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use special <code>@&lt;path-to-file&gt;</code> <a href="CommandLine">CommandLine</a> option to make pasdoc read options from file. This is similar to how FPC allows specifying config files.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>pasdoc @my-config-file.txt myuni1.pas</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="details"><a id="details"></a> Details</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>There could be any number of <code>@&lt;path-to-file&gt;</code> options and they could be freely mixed with other options thus allowing flexible customization. The rule is simple: every <code>@&lt;path-to-file&gt;</code> option is replaced by the contents of the file.</p>
+</li>
+<li>
+<p>Config file must contain one option per line. Examples are below.</p>
+</li>
+<li>
+<p>Format is <code>name[=value]</code> where</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> is a long option name just like in the command line but without leading dashes (short names are not accepted, to force the file to be more readable).</p>
+</li>
+<li>
+<p><code>value</code> is an option value (if an option requires it). Do not "quote" values with spaces (we do not recognize apostrophe or double-quote as a special character in the config file, it would instead be included within the value).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Option values inside config file can contain macros that are replaced with actual values. Currently we only support one macro:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$CFG_PATH</code> - directory of current config file without trailing path separator. This allows linking to a file relative to the config file directory. For example: <code>auto-link-exclude=$CFG_PATH\autolink-exclude.txt</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a id="examples"></a> Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Examples of config file contents.</p>
+</div>
+<div class="sect2">
+<h3 id="correct">Correct</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>markdown
+auto-link
+title=My super project
+include=$CFG_PATH/includes/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="not-correct">Not correct</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>no-macro auto-link          // two options per line
+--markdown                  // leading dashes
+title="My super project"    // value is quoted. Quotes will be considered as a part of the title
+output html                 // no `=` character between name and value
+D=MSWINDOWS                 // only long option names allowed</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

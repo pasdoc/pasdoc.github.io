@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//DeprecatedTag.html" />
+<meta property="og:url" content="https://pasdoc.github.io//DeprecatedTag.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//DeprecatedTag.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>This page describes two closely related pasdoc features:</p>
+</div>
+<div class="sect1">
+<h2 id="deprecated-tag"><a id="deprecated-tag"></a> @deprecated tag</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tag marks given item as a deprecated. Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @deprecated This procedure is only for backward-compatibility,
+  it may be removed in future versions of this unit. You should use
+  @link(ConvertString) in new code. }
+procedure OldConvertString(var MyString: ShortString);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In generated documentation for OldConvertString pasdoc will try to
+clearly mark that procedure OldConvertString is deprecated. E.g. in HTML
+output at the beginning of description of OldConvertString pasdoc will
+write (using red font, configurable via CSS) "Warning: this symbol is
+deprecated."</p>
+</div>
+<div class="paragraph">
+<p>For more examples see
+<a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_deprecated_tag.pas">test unit tests/ok_deprecated_tag.pas</a> and
+<a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_deprecated_tag.html">html output for this test unit</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="hint-directives"><a id="hint-directives"></a> Hint directives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Closely related to @deprecated tag are also Delphi "hint directives" :
+<em>deprecated</em>, <em>platform</em>, <em>library</em>. pasdoc correctly parses and
+understands them.</p>
+</div>
+<div class="paragraph">
+<p>Example (equivalent to example above but this time using <em>deprecated</em>
+hint directive):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This procedure is only for backward-compatibility, it may be
+  removed in future versions of this unit. You should use
+  @link(ConvertString) in new code. }
+procedure OldConvertString(var MyString: ShortString); deprecated;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using <em>deprecated</em> hint directive has the same meaning (for pasdoc) as
+using @deprecated tag in symbol&#8217;s description (i.e. in both cases pasdoc
+will print this red warning "Warning: this symbol is deprecated.").
+Where possible, you should probably use the <em>deprecated</em> hint directive,
+so that both compiler and pasdoc know abuot the deprecation.
+Both FPC and Delphi support it.</p>
+</div>
+<div class="paragraph">
+<p>@deprecated tag may be useful because (at least old versions of)
+Delphi doesn&#8217;t allow hint directives for
+properties and non-structural types (although Kylix 3 help says that
+hint directives for any types are allowed). But pasdoc&#8217;s @deprecated tag
+may be freely specified for <em>any</em> item in your unit, including
+properties and any types.</p>
+</div>
+<div class="paragraph">
+<p>pasdoc generates appropriate "red warnings" for all hint directives in the final documentation. See <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_hint_directives.pas">test unit tests/ok_hint_directives.pas</a> and <a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_hint_directives.html">html output for this unit</a>.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

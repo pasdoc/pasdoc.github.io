@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ImageTag.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ImageTag.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ImageTag.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="basic-usage"><a id="basic-usage"></a> Basic usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use @image <a href="SupportedTags">tag</a> to include a given image file in the output. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Diagram below shows how this procedure works:
+  @image(diagram.png) }
+procedure DoSomething;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>File diagram.png must exist when you call pasdoc. It will be copied by pasdoc to the output directory.</p>
+</div>
+<div class="paragraph">
+<p>The filename is relative to the source file containing the <code>@image</code> tag. In the above example, the file <code>diagram.png</code> should be in the same directory as the source file. You can also use a relative filename, like <code>@image(../images/my.png)</code>. We recommend using slashes (<code>/</code>, Unix-style path separators) in the paths, as they will work on both Windows and Unix.</p>
+</div>
+<div class="paragraph">
+<p>Note that the image file format (and extension) will not be altered by
+pasdoc. So make sure that your included image is in the format
+understood by WWW browsers (for html output), or latex or pdflatex (for
+latex output).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="specifying-multiple-image-formats"><a id="specifying-multiple-image-formats"></a> Specifying multiple image formats</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Be aware that various documentation formats require various image
+formats:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>latex (that converts pasdoc&#8217;s latex output to dvi) accepts images only
+in EPS (Encapsulated PostScript) format.</p>
+</li>
+<li>
+<p>pdflatex (that converts
+pasdoc&#8217;s latex output to pdf) accepts images only in PDF, JPEG and PNG
+formats.</p>
+</li>
+<li>
+<p>WWW browsers generally accept many image formats (including
+JPEG and PNG), but not EPS and not PDF.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="Home">PasDoc</a> doesn&#8217;t try to convert your supplied image to any
+image format. You must take care yourself to supply image in good image
+format. However, as you can see above, <em>there is no single image format
+that is good for every possible output format</em>.</p>
+</div>
+<div class="paragraph">
+<p>So pasdoc allows you to put multiple image filenames inside one @image
+tag (each filename in a separate line). It is then understood that you
+have multiple versions of the same image, and pasdoc is free to use the
+best image format for each output.</p>
+</div>
+<div class="sect2">
+<h3 id="example"><a id="example"></a> Example</h3>
+<div class="paragraph">
+<p>For example you can write</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Diagram below shows how this procedure works:
+  @image(
+    diagram.eps
+    diagram.pdf
+    diagram.png
+  ) }
+procedure DoSomething;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and this means that</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>diagram.eps will be used by latex program when making dvi from pasdoc&#8217;s <a href="LatexOutput">LatexOutput</a>.</p>
+</li>
+<li>
+<p>diagram.pdf will be used by pdflatex program when making pdf from pasdoc&#8217;s <a href="LatexOutput">LatexOutput</a>.</p>
+</li>
+<li>
+<p>diagram.png will be used in pasdoc&#8217;s <a href="HtmlOutput">HtmlOutput</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="detailed-rules"><a id="detailed-rules"></a> Detailed rules</h3>
+<div class="paragraph">
+<p>The precise rules when choosing image for each output format are as
+follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <a href="HtmlOutput">HtmlOutput</a>, the first specifed image that is neither EPS nor PDF will be used.</p>
+</li>
+<li>
+<p>For pdf section in <a href="LatexOutput">LatexOutput</a>, the first specifed image that is in PDF format will be used. If no such image is available, then the first specifed image that is in JPEG or PNG format will be used.</p>
+</li>
+<li>
+<p>For non-pdf section in <a href="LatexOutput">LatexOutput</a> (processed by normal latex program, htlatex etc.), the first specifed image that is in EPS format will be used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If any case, if no image in the preferred format will be supplied,
+pasdoc will choose just the first image on the list.</p>
+</div>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

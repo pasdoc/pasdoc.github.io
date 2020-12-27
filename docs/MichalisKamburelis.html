@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//MichalisKamburelis.html" />
+<meta property="og:url" content="https://pasdoc.github.io//MichalisKamburelis.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//MichalisKamburelis.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>I&#8217;m one of pasdoc&#8217;s developers. I use pasdoc most of all to document my
+<a href="http://castle-engine.sourceforge.net/">Castle Game Engine</a>, an
+open-source 3D and 2D game engine for Object Pascal. My webpage is
+<a href="http://michalis.ii.uni.wroc.pl/~michalis/" class="bare">http://michalis.ii.uni.wroc.pl/~michalis/</a></p>
+</div>
+<hr>
+<div class="sect1">
+<h2 id="adding-new-feature-to-pasdoc"><a id="adding-new-feature-to-pasdoc"></a> Adding new feature to pasdoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When adding new end-user visible feature, remember to always</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>add an entry to ChangeLog</p>
+</li>
+<li>
+<p>add a testcase to tests/</p>
+</li>
+<li>
+<p>add a documentation to wiki</p>
+</li>
+<li>
+<p>make sure that <a href="http://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a> is informed about it</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="should-documentation-be-placed-inside-units-interface-or-in-separate-files"><a id="should-documentation-be-placed-inside-units-interface-or-in-separate-files"></a> Should documentation be placed inside units interface, or in separate files ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Stating it differently, which way is better:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><em>Mix the comments with the sources</em>, like javadoc,
+ocamldoc, pasdoc and many others do. You put comments inside source
+files, before each declared item, and then documentation generator
+parses source files and extracts those comments into documentation.</p>
+</li>
+<li>
+<p><em>Separate the comments from the sources</em>, like fpdoc does. You put
+comments inside a separate XML file.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Below are some of my thoughs about this. If you don&#8217;t have time to read
+this, here&#8217;s my conclusion: I really don&#8217;t think that one way or the
+other is ultimately better. I prefer the "mix the comments with the
+sources" way, but I would be absolutely happy also using a documentation
+generator with an approach "separate the comments from the sources".
+Well, actually I did, I used and tested fpdoc a little, and I like it
+very much. No doubt, pasdoc can learn a few things from fpdoc (actually,
+some of the features I done in pasdoc were inspired by fpdoc behavior).</p>
+</div>
+<div class="paragraph">
+<p>A common argument against "mix with sources" approach is that when the
+documentation gets larger, it tends to clutter unit&#8217;s interface. I don&#8217;t
+think that this is a real problem because:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First of all, I don&#8217;t think about that as a clutter. Units interface
+specification without any documentation is good for compilers, not for
+humans. It&#8217;s <em>especially</em> important for new people, that read your
+source code for the 1st time. Documentation makes unit&#8217;s source larger,
+but it&#8217;s just an essential part of a unit.</p>
+</li>
+<li>
+<p>That said, it&#8217;s sometimes
+useful for someone to get a "higher-level" view of the way unit&#8217;s
+interface is written. The solution is: look at documentation generated
+by pasdoc. pasdoc <a href="HtmlOutput">HtmlOutput</a> presents a nice summary
+view of each unit and of each class. This summary is clear, compact and
+uncluttered. Moreover, output of pasdoc presents some other summary
+views, that are not available when looking at the unit&#8217;s source:
+"all-items" pages (e.g. "all identifiers" page, "all classes", etc.),
+class hierarchy diagram and even some graphviz graphs with class
+hierarchy and unit dependency. So if you really prefer to just forget
+about all this documentation strings for now and just see the list of
+declared identifiers, then look at documentation generated by pasdoc.
+BTW, The same is true for fpdoc. Both pasdoc and fpdoc (and any other
+doc generator for other language) present in final documentation both a
+nice summary and a nice detailed descriptions for documented units. The
+difference between fpdoc and pasdoc comes when you look at units source
+code: if pasdoc was used, the unit&#8217;s source code is cluttered with
+comments. If fpdoc was used, the unit&#8217;s source is compact and not
+cluttered, but you don&#8217;t immediately see documentation.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Conclusion: for programmers already familiar with the unit source, it
+doesn&#8217;t matter. They are familiar with unit source, and even an
+interface largely mixed with a large comments looks "clear and compact"
+for them. I know that this is the case for me and many of my units. For
+programmers new to the unit source: "separate from sources" approach
+looks better, more compact, but is without documentation. So is it
+really useful ? Ultimately, the answer remains "both approaches, <em>mix
+with sources</em> and <em>separate from sources</em>, are equally good". In each
+approach, the generated output provides all the advantages: you can see
+both a compact summary and a large detailed descriptions there.</p>
+</div>
+<div class="paragraph">
+<p>Some additional arguments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In "mix with sources" approach, descriptions are "naturally" linked to
+the appropriate item. In "separate with sources" they are not. E.g. in
+fpdoc&#8217;s XML format you have to specify &lt;element name="ItemName"&gt; for
+each item ItemName. This means that you must specify the name of your
+identifier at least twice: in units interface source and in
+documentation. Program makeskel exists to generate a skeleton with all
+such &lt;element&#8230;&#8203;&gt; tags, so it&#8217;s not that hard. However, in "mix with
+sources" you don&#8217;t need such program like makeskel at all.</p>
+</li>
+<li>
+<p>IMO [<a href="DoDi">DoDi</a>] <em>external files</em> are great for producing book-style
+documentation, with overviews, specifications and further background
+information, which should not clutter the source code. Such information
+also may be presented to the <em>users</em> in various (natural) languages. *
+Also the interface part of the units should stay readable, not cluttered
+by comments that possibly are outdated or became otherwise obsolete, in
+the actual implementation. In the interface section a <em>one-line
+abstract</em> should be sufficient for every item. The <em>developer</em> can find
+more detailed information with the implementation of a procedure or
+method, where it can be kept better in sync with the actual
+implementation. We definitely deserve an merge of descriptions, from
+different sources/places.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="some-todo-things"><a id="some-todo-things"></a> Some TODO things</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some larger things that I want to implement in pasdoc. No, I&#8217;m not
+currently working at them, I have many smaller to-dos now. Features
+below are on my long-term plan.</p>
+</div>
+<div class="sect2">
+<h3 id="new-output-formats"><a id="new-output-formats"></a> New output formats</h3>
+<div class="sect3">
+<h4 id="plain-text-output"><a id="plain-text-output"></a> Plain text output</h4>
+<div class="paragraph">
+<p>This has two purposes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>To be a demo of a simple output generator, potentially useful to
+anyone else who would like to write new output generator and would like
+to see how it can be done (existing html and latex generators are not
+good examples of "simple generators").</p>
+</li>
+<li>
+<p>And as a side-effect, we will
+use it to generate plain-text data that is easier to search by tipue.
+For now you can&#8217;t search using tipue for special characters that are
+escaped in html using &amp;-references. Search engine will just not see
+these characters correctly. Also, when you search for a word like class
+search engine incorrectly finds items with code like &lt;tag class="&#8230;&#8203;"&gt;,
+i.e. it finds word class inside html tag. This will be fixed by
+converting RawDescription to plain text. Short description placed in
+index entry will be as AbstractDescription in plain text, long
+description will be DetailedDescription + Params + etc. also in plain
+text.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fpdoc-output"><a id="fpdoc-output"></a> Fpdoc output</h4>
+<div class="paragraph">
+<p>Output to fpdoc input format. Text below will be moved to
+<a href="FpdocOutput">FpdocOutput</a> page when this will be implemented.</p>
+</div>
+<div class="paragraph">
+<p>Free Pascal code documenter, fpdoc, is a program distributed and
+developed as part of <a href="http://www.freepascal.org/">FreePascal</a>. It&#8217;s
+goal is similar to pasdoc: parse Pascal units and generate documentation
+for them. But, unlike pasdoc, fpdoc does not read descriptions of items
+from the comments placed in unit&#8217;s source file. Instead you put your
+descriptions in a separate XML file. fpdoc reads both the unit&#8217;s source
+file and the XML file with descriptions and generates documentation from
+them. See <a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html">fpdoc reference manual online</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>When you tell pasdoc to use fpdoc output then pasdoc will write
+documentation in fpdoc&#8217;s XML format. This means that after running
+pasdoc, you get a file docs.xml (unless you changed "docs" to something
+else using <a href="NameOption">--name option</a>). Then you can run fpdoc,
+telling fpdoc to again parse the same unit source files and additionally
+to take generated docs.xml file. And then you get documentation
+generated by fpdoc.</p>
+</div>
+<div class="paragraph">
+<p>Why this is useful ?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This means that you can use fpdoc generated output, while at the same
+time writing descriptions inside Pascal source file using pasdoc&#8217;s
+@tags. I&#8217;m not going to tell you whether the documentation generated
+directly (e.g. to html or latex) by pasdoc is better or worse than the
+one generated by fpdoc – the purpose of this pasdoc&#8217;s output format is
+to allow you to check this out yourself.</p>
+</li>
+<li>
+<p>Remember that things that
+pasdoc and fpdoc allow in their descriptions are similar but not exactly
+the same, so if you&#8217;re committed to using only fpdoc&#8217;s output, than
+you&#8217;re probably better off switching to writing your descriptions
+directly in fpdoc&#8217;s XML format, instead of using pasdoc to make XML
+files for fpdoc. And this is the second possible use of this: if you
+have a large documentation set written in pasdoc-style (with
+descriptions embedded in units' source files, with pasdoc&#8217;s @-tags) and
+you want to switch for whatever reason to fpdoc, then you can do it:
+just run pasdoc once with output format set to fpdoc and you&#8217;ll get all
+your documentation converted to fpdoc. Of course, remember that the page
+you&#8217;re reading right now is part of pasdoc&#8217;s documentation. This means
+that people who wrote it may consider pasdoc better than fpdoc :) This
+is something about your freedom: we are so generous that we even let you
+to easily switch from pasdoc to other documentation generator program
+:) Seriously: I don&#8217;t think that pasdoc is ultimately better (or
+worse) than fpdoc, and this output format allows you to combine some of
+pasdoc&#8217;s and fpdoc&#8217;s strengths.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="asciidoctor-output">Asciidoctor output</h4>
+<div class="paragraph">
+<p>A great text-like format, with precise specification (unlike Markdown).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="support-for-groups-of-items"><a id="support-for-groups-of-items"></a> Support for groups of items</h3>
+<div class="paragraph">
+<p>Group of items are items that share a common documentation string.</p>
+</div>
+<div class="paragraph">
+<p>The idea is that you write one documentation string for a group of
+items. In generated documentation, this group of items is documented as
+one item, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>=== procedure BlahBlah1; ===
+
+Normal doc string for procedure BlahBlah1.
+
+=== procedure Foo and
+    procedure Bar and
+    procedure Xyz ===
+
+One doc string that describes at once three procedures Foo, Bar and Xyz.
+
+=== procedure BlahBlah2 ===
+
+Normal doc string for procedure BlahBlah2.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So the idea is that the items in one group not only share the same
+documentation string, but also that user reading this documentation
+clearly sees that these three items are documented in <em>one</em> place by
+<em>one</em> doc string. In other words: no, this can&#8217;t be implemented by
+simply copying the same doc string to a couple of items. This must be
+clear and readable, so that user reading documentation can immediately
+see that some items are grouped. So this will require special support in
+each doc final format.</p>
+</div>
+<div class="paragraph">
+<p>Syntax 1:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ One comment that describes at once three procedures
+  Foo, Bar and Xyz.
+  @groupbegin }
+procedure Foo;
+procedure Bar;
+procedure Xyz;
+{ @groupend }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some rules :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>where @groupbegin and @groupend are placed within a comment does not matter</p>
+</li>
+<li>
+<p>you can place in one comment only one @groupbegin or one @groupend, but not both</p>
+</li>
+<li>
+<p>Groups must be properly closed: of course you can&#8217;t use @groupbegin when you didn&#8217;t ended previous group, and you can&#8217;t use @groupend when there is no current group started, and you must close all groups.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Syntax 2: Alternative syntax that produces <em>exactly</em> the same results,
+is more troublesome to write but also gives more possibilities for human
+writing docs :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ One comment that describes at once three procedures
+  Foo, Bar and Xyz. }
+procedure Foo;
+
+{ @groupwith(Foo) }
+procedure Bar;
+
+{ @groupwith(Foo) }
+procedure Xyz;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rule:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>comment that does have @groupwith() within should not have anything else (only whitespaces) inside. In particular, you can place only one @groupwith() inside comment.</p>
+</li>
+<li>
+<p>item referenced by @groupwith() <em>must</em> have some comment itself (either explicit, or because it&#8217;s between @groupbegin/end, or because it has @groupwith())</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Two syntaxes can be mixed, e.g. 3rd equivalent version of the same
+example is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ One comment that describes at once three procedures
+  Foo, Bar and Xyz.
+  @groupbegin }
+procedure Foo;
+procedure Bar;
+{ @groupend }
+
+{ @groupwith(Foo) }
+procedure Xyz;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rules not dependent on any syntax:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>whole group must be within the same scope, i.e. all it&#8217;s items are
+either within the global unit scope, or all it&#8217;s items are within the
+same class scope and with the same access specifier (access specifier =
+one of public, published, etc.) or within the same record.</p>
+</li>
+<li>
+<p>For now, we
+should probably add additional constraints that can be removed in the
+future (but removing them now would be problematic, i.e. it&#8217;s difficult
+to design nice docs when you want to mix e.g. some type + some const<br>
+some procedure in one group):</p>
+</li>
+<li>
+<p>global procedures and functions may be
+grouped</p>
+</li>
+<li>
+<p>constants may be grouped</p>
+<div class="paragraph">
+<p>(so you can&#8217;t e.g. mix procedures with constants in <em>one</em> group)</p>
+</div>
+</li>
+<li>
+<p>properties and methods of the same class within the same access
+specifier may be grouped. TODO: Maybe we should forbid grouping
+properties with methods in one group ? It would ease the task of
+generating docs.</p>
+</li>
+<li>
+<p><a href="DoDi">DoDi</a>: grouping properties together
+with their read/write specifiers, i.e. fields or get/set methods. This
+can be done (or supported) by the parser.</p>
+</li>
+<li>
+<p><a href="DoDi">DoDi</a>:
+grouping events together, could be done by @@groupwith like means.
+Remember that such declarations do not necessarily occur in contiguous
+blocks, and each one consists of a field, a property, and an event
+handler type.</p>
+</li>
+<li>
+<p><a href="DoDi">DoDi</a>: When we continue to implement new
+syntactical features, like local types or variables in classes, or
+declarations of records in records, or parameter lists, then we have to
+face <em>nested</em> scopes in places, where the generators currently do not
+expect or allow for appropriate tables or pages. Some general redesign
+should be done, which allows for an integration of all the wanted
+features in an extended model of <em>grouping and nesting</em> declarations and
+descriptions. ** For enumerated type values, only consecutive values of
+the same enumerated type are allowed. So, practically, always use
+@groupBegin and @groupEnd. @groupWith is practically useless for them.
+For example, this should be allowed (real-world snippet from my game):<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  TSoundType = ( stNone,
+
+    { Player sounds.
+      @groupBegin }
+    stPlayerSuddenPain,
+    stPlayerPotionDrink,
+    stPlayerDies
+    { @groupEnd });</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that multiple variables defined at once, like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Some docs for A, B, C } A, B, C: Integer;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>would be automatically grouped together. Currently this is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Some docs for A, B, C }
+A: Integer;
+{ Some docs for A, B, C }
+B: Integer;
+{ Some docs for A, B, C }
+C: Integer;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>which means that description "Some docs for A, B, C" is copied three
+times in the documentation. This is bad, because the information that
+items A, B and C are documented togther, at once, is lost (i.e. user
+reading the docs does may not immediately see this).</p>
+</div>
+<div class="paragraph">
+<p>Another advantage of this would be when we generate "All Functions and
+Procedures", "All Identifiers" etc. listings. If two (or more) items
+that are in the same group will be shown in successive rows of these
+listings (e.g. when items are overloaded versions of the same proc, and
+they are wrapped in one group) then we can squish them and present them
+as one table row (because all these items have the same description).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sections"><a id="sections"></a> Sections</h3>
+<div class="paragraph">
+<p>Support for sections, that divide unit into a couple of separate blocks
+but are not tied to any particular item (something in the spirit of
+ocamldoc&#8217;s "{1 Section title}"). Format is</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @section(Section title) Additional comments about section. }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @section(Utilities that deal with strings)
+  Every string routine in this section is able to handle MBCS strings.
+  Unless otherwise noted, all string comparisons are case-sensitive. }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Page of each unit should present hyperlinked table of contents of
+sections within this unit. Sections are only presented when looking at
+unit&#8217;s page.</p>
+</div>
+<div class="paragraph">
+<p>Also LaTeX-like @subsection and @subsubsection could be nice ? Or
+(copying ocamldoc&#8217;s idea) just add a number to each section, i.e.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">@section(1 Main section title)
+@section(2 Sub section title)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is used instead of</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">@section(Main section title)
+@subsection(Sub section title)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>? I think that I prefer using "sub" prefixes, but this is negotiable.</p>
+</div>
+<div class="paragraph">
+<p>Of course, it is not mandatory, not even desirable, to divide every unit
+you document into sections. This feature has it&#8217;s best use when you have
+a large unit with many global procedures/functions – then by using
+sections you can nicely indicate to reader that routines in this unit
+can be logically divided into separate sections, like</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"routines that deal with strings",</p>
+</li>
+<li>
+<p>"routines that deal with filenames",</p>
+</li>
+<li>
+<p>"routines that deal with something-else".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that sections and groups (proposed in the previous point) somewhat
+complement each other.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Groups allow you to easily group together things that are very closely
+related, so closely that they are documented by one documentation
+string. Groups make it both easier to write documentation, and easier to
+reader to see that these things are documented at once.</p>
+</li>
+<li>
+<p>Sections allow
+you to group more things together, that are somewhat loosely related, so
+they all deserve a common description, but also every item inside
+section has it&#8217;s own specific documentation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In summary, this feature is like splitting a large unit to many
+"sub-units" in documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="more-wiki-like-syntax-for-pasdoc-descriptions"><a id="more-wiki-like-syntax-for-pasdoc-descriptions"></a> More wiki-like syntax for pasdoc descriptions</h3>
+<div class="paragraph">
+<p>Wiki-like syntax means that you can achieve some (formatting) effect
+without using any @-tag. Some existing features of pasdoc descriptions
+are already wiki-like syntax (see
+<a href="WritingDocumentation">WritingDocumentation</a>):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Empty line creates a paragraph</p>
+</li>
+<li>
+<p>Dashes rules (--- creates m-dash,&#8201;&#8212;&#8201;creates n-dash)</p>
+</li>
+<li>
+<p>Automatic recognizing of URLs</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>More wiki-like features are planned. The following things should be
+achievable with wiki-like syntax:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>marking text italic/bold (equivalent to @bold and @italic tags)</p>
+</li>
+<li>
+<p>marking text as simple code (@code tag)</p>
+</li>
+<li>
+<p>making lists (@orderedList, @unorderedList, @definitionList, @item,
+@itemLabel; preferably some auto-detection of @itemSpacing should also
+be done here)</p>
+</li>
+<li>
+<p>making tables (@table, @row, @cell; preferably also
+@rowHead)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Notes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Wiki-like syntax should be carefully chosen. Wiki-like syntax adds
+additional meanings to some simple constructions, so if we design
+wiki-like rules badly, people will too often <em>accidentaly</em> do something.
+At the same time, wiki-like syntax must look simple and readable in
+source code, use short sequences of characters to mark things (otherwise
+there will be no benefit of using wiki-like syntax over traditional
+@-tags approach). Negative example of bad wiki-like syntax is LaTeX.
+There are many special rules and exceptions in LaTeX syntax, and often
+they are things that are very seldom used in practice. This means that
+LaTeX writers can easily activate some special feature by accident, and
+this is bad.</p>
+</li>
+<li>
+<p>Introducing wiki-like syntax would break pasdoc
+compatibility badly. So it will have to be actvated by --wiki-syntax.
+Alternatively, if many people will support this decision, we can make
+wiki-like syntax active by default and provide a way to turn if off by
+--no-wiki-syntax. Wiki-like syntax is always just a shortcut for
+equivalent functionality of @-tags, so if someone prefers to not use
+wiki-like syntax, it&#8217;s OK.</p>
+</li>
+<li>
+<p>Note that we can&#8217;t directly borrow ideas
+from some wiki engines (like moinmoin). That&#8217;s because wiki engines
+usually say that line-break creates a new paragraph. This means that
+wiki pages usually have very long lines. That&#8217;s not a problem for wiki
+engines, because edit boxes in WWW browsers will wrap text, and if
+someone uses external editor then it&#8217;s easy to explain to him <em>please
+don&#8217;t introduce line-breaks without a purpose of creating new
+paragraph</em>. But pasdoc can&#8217;t treat line-break as a new paragraph.
+Pasdoc must treat line-break just as some whitespace. That&#8217;s because
+pasdoc descriptions are used within Pascal source files, and people
+don&#8217;t like to have long lines in source files, and are often
+uncomfortable with viewing source files that have too long lines. This
+may seem like a small thing, but actually this means that many other
+rules of wiki engines must be different than pasdoc wiki-like syntax.</p>
+</li>
+<li>
+<p>Note that we can&#8217;t diectly borrow ideas from
+<a href="http://www.maplefish.com/todd/aft.html">aft</a> because aft uses tab
+character to mark various things. But people are often uncomfortable
+with using tab characters in Pascal source files. So for pasdoc, tab
+character must always mean "just some whitespace".</p>
+</li>
+<li>
+<p><a href="AutoLinkOption">Auto-linking</a> may be treated as some form of
+wiki-like syntax (shortcut for @link). But it is activated by different
+command-line option, --auto-link, and can be locally deactivated by
+@noLink tag.</p>
+</li>
+<li>
+<p>Programs that we could borrow some ideas from:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://asciidoctor.org/">AsciiDoctor</a>. A standalone text formatter, with a precise syntax (unlike Markdown "flavours") and a rich feature set.</p>
+</li>
+<li>
+<p><a href="http://txt2tags.sourceforge.net/">txt2tags</a>. A nice standalone text formatter. Better than aft because it doesn&#8217;t make problems when you don&#8217;t write in ISO-8859-1 character set (but e.g. in ISO-8859-2 set that includes Polish chars).</p>
+</li>
+<li>
+<p><a href="http://www.lrde.epita.fr/people/theo/html/ocaml_ref/manual029.html">ocamldoc</a>. pasdoc equivalent for ocaml. ocamldoc has some nice bits of wiki-like syntax for some things, e.g. for lists.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p><a href="CategoryHomepage">CategoryHomepage</a></p>
+</div>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//AutoAbstractOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//AutoAbstractOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//AutoAbstractOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="overview"><a id="overview"></a> Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you run pasdoc with --auto-abstract <a href="CommandLine">CommandLine</a>
+option, pasdoc will automatically deduce the abstract description of
+every item from the first sentence of it&#8217;s description. This means that
+you can write</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  { Short description of this class.
+    More elaborate description of this class. }
+  TMyClass = class</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and it&#8217;s equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  { @abstract(Short description of this class.)
+    More elaborate description of this class. }
+  TMyClass = class</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This means that you can avoid writing explicitly @abstract tags, which
+means that your comments look less cluttered. Of course, this also means
+that you have to carefully watch to make the first sentence of every
+description to "stand on it&#8217;s own".</p>
+</div>
+<div class="paragraph">
+<p>This is a standard feature of javadoc, and it&#8217;s also available in
+doxygen.</p>
+</div>
+<div class="paragraph">
+<p>The parsing logic is simple: the first sentence of the description ends
+at the first period followed by any whitespace (including newline). Of
+course this period must be in the "top-level" text, not inside parameter
+of any @-tag. If there is no such period in the description, then the
+<em>whole</em> description is treated as one sentence, and the <em>whole</em>
+description is treated as an abstract description of the item.</p>
+</div>
+<div class="paragraph">
+<p>Of course if any description has an explicit @abstract section, then
+this has priority over "the first sentence rule". Using explicit
+@abstract tag may be useful if e.g. you need to make the abstract
+description two-sentence long.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="small-difference-between-explicit-abstract"><a id="small-difference-between-explicit-abstract"></a> Small difference between explicit @abstract</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Note that there is actually a small difference between two examples
+given above. It occurs when pasdoc writes full description of a given
+item (full = abstract one + the rest).</p>
+</div>
+<div class="paragraph">
+<p>If you used explicit @abstract tag, then pasdoc will always separate the
+abstract description with some space (e.g. paragraph marker, &lt;p&gt;, in
+HTML) from the rest of the description. But if your abstract description
+was deduced automatically, then pasdoc will not automatically insert
+such paragraph. This way full description of an item looks more like it
+was specified in source code.</p>
+</div>
+<div class="paragraph">
+<p>So if I would really want to make two exactly equivalent examples, I
+should show this as the first example (note that I explicitly inserted
+empty line between abstract description and the rest here):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  { Short description of this class.
+    More elaborate description of this class. }
+  TMyClass = class
+  ...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-unit"><a id="example-unit"></a> Example unit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_auto_abstract.pas">test unit of this feature</a> and <a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_auto_abstract/">pasdoc output for this test (with --auto-abstract option)</a>.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

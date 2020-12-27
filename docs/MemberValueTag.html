@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//MemberValueTag.html" />
+<meta property="og:url" content="https://pasdoc.github.io//MemberValueTag.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//MemberValueTag.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>This page describes @member and @value tags. Overall, their intention is
+similiar: they allow you to specify a description for some item
+(structure member or enumerated value) as part of the description of an
+"enclosing" item (structure type or enumerated type). This is a matter
+of preference whether you use these tags, because they don&#8217;t allow to
+express anything new, but they allow to express it in somewhat more
+terse way.</p>
+</div>
+<div class="sect1">
+<h2 id="member-tag"><a id="member-tag"></a> @member tag</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The @member tag can be used within the description of a structure
+(class, record, interface or object) to specify the description for a
+particular member (field, property, method) of this structure. Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  { @member MyField Description for MyField field.
+    @member MyMethod Description for MyMethod method. }
+  TMyClass = class
+    MyField: Integer;
+    procedure MyMethod;
+  end;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TMyClass = class
+    { Description for MyField field. }
+    MyField: Integer;
+    { Description for MyMethod method. }
+    procedure MyMethod;
+  end;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="value-tag"><a id="value-tag"></a> @value tag</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The @value tag can be used within the description of an enumerated type
+to specify the description for a particular value of this type. Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  { @value meOne Description for meOne value.
+    @value meTwo Description for meTwo value. }
+  TMyEnum = (meOne, meTwo);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TMyEnum = (
+    { Description for meOne value. } meOne,
+    { Description for meTwo value. } meTwo);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-examples"><a id="more-examples"></a> More examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more examples and tests of these tags see <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_value_member_tags.pas">test unit ok_value_member_tags.pas</a> and <a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_value_member_tags.html">html output for this test unit</a>.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

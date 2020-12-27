@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//SpellChecking.html" />
+<meta property="og:url" content="https://pasdoc.github.io//SpellChecking.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//SpellChecking.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Pasdoc can use <a href="http://aspell.sourceforge.net/">Aspell</a> to
+check the spelling of your descriptions. Just run pasdoc with the
+<a href="CommandLine">CommandLine</a> option --spell-check. The
+spell-checking will be done using the same language that you specified
+by <a href="OutputLanguage">--language command-line option</a> (default:
+English).</p>
+</div>
+<div class="paragraph">
+<p>Then pasdoc will</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Write all the words that you mispelled to standard output, using warnings like</p>
+<div class="listingblock">
+<div class="content">
+<pre>Warning[2]: Word mispelled "foo"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>In addition, in your generated documentation all your mispelled words will be displayed in some special way and you will be able to see suggestions for them. E.g. in <a href="HtmlOutput">HtmlOutput</a> each mispelled word will be displayed using some special color, and when you move your mouse over this word, you will see a hint like "suggestions: &#8230;&#8203;".</p>
+<div class="paragraph">
+<p>For now it&#8217;s not done in <a href="LatexOutput">LatexOutput</a>, see <a href="ToDoSpellChecking">ToDoSpellChecking</a>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can also use the <a href="CommandLine">CommandLine</a> option
+--spell-check-ignore-words=IGNORE-WORDS-FILE-NAME where
+IGNORE-WORDS-FILE-NAME is a file that contains words (one word per line)
+that should be ignored (i.e. not checked).</p>
+</div>
+<div class="paragraph">
+<p><a href="http://aspell.sourceforge.net/">aspell</a> must be installed
+and available in the search $PATH. Windows users can install aspell as
+part of <a href="http://www.cygwin.com/">cygwin</a>, there is also a <a href="http://aspell.net/win32/">native Win32 version</a>.</p>
+</div>
+<div class="paragraph">
+<p>See also: <a href="ToDoSpellChecking">ToDoSpellChecking</a>.</p>
+</div>
+<div class="sect1">
+<h2 id="deprecated-aspell-command-line-option"><a id="deprecated---aspell-command-line-option"></a> Deprecated: --aspell command-line option</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For backward compatibility, we also allow --aspell=LANGUAGE command-line
+option, where LANGUAGE is the
+<a href="http://aspell.net/man-html/Supported.html">aspell code of the language that you use in documentation</a>. This allows you to use a different
+language for spell-checking than the language you use for output
+strings&#8230;&#8203; which is not really useful in normal situations.</p>
+</div>
+<div class="paragraph">
+<p>You can use empty value for the LANGUAGE, in which case the language
+used for spell-checking will be the same as set by the --language, and
+then it works the same as --spell-check option. Except it&#8217;s error-prone
+and ugly when using on the command-line. For example, the following
+three calls are equivalent and all cause the spell-checking in Polish
+language:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --language pl.iso-8859-2 --aspell pl source_file.pas
+pasdoc --language pl.iso-8859-2 --aspell '' source_file.pas
+pasdoc --language pl.iso-8859-2 --aspell= source_file.pas</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But you cannot use the (most natural) form</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --language pl.iso-8859-2 --aspell source_file.pas</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>because then source_file.pas is interpreted (and rejected) as language name.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

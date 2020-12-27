@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//DoDi.html" />
+<meta property="og:url" content="https://pasdoc.github.io//DoDi.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//DoDi.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="dr-hans-peter-diettrich"><a id="dr.-hans-peter-diettrich"></a> Dr. Hans-Peter Diettrich</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Email: <a href="mailto:DrDiettrich1@aol.com">DrDiettrich1@aol.com</a></p>
+</div>
+<div class="sect2">
+<h3 id="pasdoc-ideas"><a id="pasdoc-ideas"></a> PasDoc Ideas</h3>
+<div class="paragraph">
+<p>When I started to work on the <a href="Home">PasDoc</a> parser, I soon
+found me also working on the item classes and the generators. This is
+what has been implemented for PasDoc2.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="authors-and-audience"><a id="authors-and-audience"></a> Authors and Audience</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="Home">PasDoc</a> assumes that the author of the descriptions also
+is the author of the source code. This stands somewhat in contrast to
+the observation, that coders typically are poor authors, and prefer to
+write "self-documenting" code &lt;g&gt; instead of decently tagged comments.
+The audience of the created documentation varies between coders,
+reviewers (QA) and users.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Coders do not really care about the visibility of some type or
+subroutine, when they need to know how things are implemented. They
+often are happy with short descriptions, when they can reach more
+detailed or other related information when needed.</p>
+</li>
+<li>
+<p>Reviewers prefer a
+logical grouping of related items, regardless of their kind and
+placement.</p>
+</li>
+<li>
+<p>Users only have to know about "public" items, and are happy
+with overviews in their natural language.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As an author, I hate cluttered interfaces, and prefer to place
+meaningful comments into the source code, where they can be kept in sync
+with the implementation. That&#8217;s why I intend to extend the parser, to
+also handle implementation sections. I also want to use
+<a href="Home">PasDoc</a> also for documenting third party code, best
+without too many changes in the existing code — which will be lost with
+the next release of the code. Doing that is already possible by using
+external files. The logic behind the presentation of the information
+depends primarily on the output type (HTML, HTML-Help, LaTeX).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a static single-document format no repetitions should occur, so
+that all pieces must be placed carefully into the intended flow of
+reading. Unless you want to produce only an "catalog", of available
+items ;-)</p>
+</li>
+<li>
+<p>In multi-document HTML format it&#8217;s possible, and sometimes
+suggested, to present the same information in different "views",
+according to the context, in which a linked page was reached. Related
+information can be represented by links, no need to embed everything
+into a single page.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="systematics"><a id="systematics"></a> Systematics</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The source code is converted into a tree structure, starting with a list
+of units, downto details like declarations or modification dates. Every
+node in this tree has a TranslationID, which can be used to identify and
+handle the item in an appropriate way. Document generators should use
+that tree for generating the full documentation, in order to catch
+really all related details.</p>
+</div>
+<div class="paragraph">
+<p>The documentation generators typically have to enclose sections,
+subsections and so on, in proper "parentheses", i.e. they will translate
+the item tree into an document tree. Every generator has a chance to
+sort the item tree, according to the expected order of presentation,
+which can become user selectable in a future release. Subtrees can be
+inlined into the documentation, as <em>sequential</em> sections, lists or
+tables, as <em>nested</em> sections, or can be stored in distinct <strong>files</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="PasDocGui">PasDocGui</a> now reflects the description
+tree in an TreeView control, mainly for debugging
+purposes. An description editor still is missing, due to problems with
+an re-parse of modified unit files.</p>
+</div>
+<div class="paragraph">
+<p>The XML generator demonstrates an tree walker that transforms the item
+tree into an identical tree of XML tags.</p>
+</div>
+<div class="paragraph">
+<p>The LaTeX generator converts the tree into an somewhat equivalent tree
+of chapters, sections and so on.</p>
+</div>
+<div class="paragraph">
+<p>The HTML generators break the tree into multiple files. They also
+demonstrate the generation of a menu-like table, containing links to
+dedicated sections in the same file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="added-features"><a id="added-features"></a> Added Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every item has a Name and Value string property, inspired by the old
+TStringPair class, a TranslationID, and a possibly empty list of
+sub-items. A PasItem property returns the related
+TPasItem, or NIL if no such item is associated with e.g. used units or
+subroutine parameters.</p>
+</div>
+<div class="paragraph">
+<p>Every item has an OutputFileName property, which
+is initialized by the document generator. A non-blank file name can be
+used to store the description in an distinct file during the generation
+of the documentation. Only Pascal items store an file name, other items
+return an empty string.</p>
+</div>
+<div class="paragraph">
+<p>Some general descriptions, like an authors list, can be added to every
+item. The according information now is stored in the description tree of
+the item, no more in specialized properties of the items.</p>
+</div>
+<div class="paragraph">
+<p>A short description is available for every Pascal item, usable in
+overview tables. The short description is either the abstract
+description, if specified, or the (possibly truncated) first sentence of
+the full description. Class members automatically inherit the abstract
+and full description of their ancestors.</p>
+</div>
+<div class="paragraph">
+<p>Groups have been added, which allow to build subsets of the members of
+an item (unit or structured types). The predefined groups, of e.g. all
+variables of an unit, now can be split into multiple groups. The first
+item, which is added to a group, determines the group kind (translation
+ID), which is used to sort the group lists. Items of a different kind
+can be added later, without affecting the group kind itself; this will
+allow to group together e.g. all class members, which are related to a
+property or event. A future release may implement inheritable groups of
+CIO members.</p>
+</div>
+<div class="paragraph">
+<p>The exclusion of units or other Pascal items has been revised. For units
+the ToBeExcluded flag can be checked by a
+generator, eventually to remove such units from a private copy of the
+general Units list. All other excluded items already are removed from
+the detailed member lists.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="description-identifiers"><a id="description-identifiers"></a> Description Identifiers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Almost every node in the description tree has a unique translation ID.
+This is a list of the currently used ID&#8217;s, their contents and suggested
+handling by an documentation generator.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>trAuthors contains a list of authors. The Name string can be separated into the author&#8217;s name and mail or web address.</p>
+</li>
+<li>
+<p>trCreated and trLastModified contain an date/time string.</p>
+</li>
+<li>
+<p>trDeclaration contains the declaration of an Pascal item. The Name can be prefixed by the visibility of a class member.</p>
+</li>
+<li>
+<p>trDescription contains the abstract (Name) and detailed (Value) description of an Pascal item. Further attributes or hints can be added from the Attributes set of the Pascal item.</p>
+</li>
+<li>
+<p>trExceptionsRaised contains a list of exceptions, raised by a subroutine. The Name is the exception name, which can be presented as a link to the exception class item. The Value contains the remaining text of the @exception tag.</p>
+</li>
+<li>
+<p>trHierarchy contains a list of class ancestors, starting with the base class. The list can be incomplete, when the ancestor is not part of the parsed units, in which case item.<a href="PasItem">PasItem</a> is NIL.</p>
+</li>
+<li>
+<p>trOverview contains a list of member groups of every structured Pascal item (scope). The member lists typically are displayed twice, as an overview table and a list of detailed member descriptions. The member descriptions can be stored in different files, at the convenience of the generator, guided by the OutputFileName property of every member.</p>
+</li>
+<li>
+<p>trParameters contains a list of explicitly mentioned subroutine parameters. See trExceptionsRaised for the Name and Value properties.</p>
+</li>
+<li>
+<p>trReturns contains the description of a function result. It may be split into Name=type and Value=description of the result, in a future implementation with an according syntax of the @return[s] tags.</p>
+</li>
+<li>
+<p>trSeeAlso contains a list of @seealso items. Care for multi-word translations of (at least) this ID, when building anchor strings from "See Also".</p>
+</li>
+<li>
+<p>trUnit contains a reference to the unit item, where the Pascal item has been found. Such items exist for convenience only, in CIO items which may be output into their own (HTML) files. The <a href="MyUnit">MyUnit</a> property can be used with every Pascal item as well.</p>
+</li>
+<li>
+<p>trUsedUnits contains a list of units, used by a unit item. This item eventually should be ignored, as indicated by <a href="WriteUsesClause">WriteUsesClause</a>.</p>
+</li>
+<li>
+<p>trValues contains a list of value group lists of an Pascal enum. When Count=1, only the default list of enum members is present, which may be presented different from multiple groups of values.</p>
+</li>
+<li>
+<p>trUnknown is used for description items without an according translation ID. This ID should occur only in leaf nodes with no further members. The Name of the item should be used for an eventual section heading.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-ideas"><a id="more-ideas"></a> More Ideas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some (invisible) tags are handled by the tag managers, and the
+generators could only be instructed by a filter list, which additional
+tags should be shown or suppressed. Already existing filters are
+ShowUsesList, or the visibility filter for class
+members. A general "usage" or "information level" property could
+indicate that a tag e.g. represents a link target, and consequently can
+be used on a button or menu, or which information can be removed from a
+compressed listing of details (just like the visibility filter).</p>
+</div>
+<div class="paragraph">
+<p>The member collections of Pascal items are based on one master table
+Members, which is primarily used to resolve links, and one or more
+disjoint member lists, which can be constructed from the master table. A
+somewhat special case are project wide lists, whose member lists (of all
+types etc.) are built from the members of all units. Filters can be used
+to exclude classes of members, by e.g. visibility or @exclude tags.
+Member lists now can occur in every item, so that e.g. local subroutines
+or type declarations can immediately be shown as appropriate, once the
+parser will provide the according information.</p>
+</div>
+<div class="paragraph">
+<p>The TagManager class now has an cache of all general
+tags, so that these many tag objects must not be created and destroyed
+for every processed item. Similar caches could be added to the item
+classes.</p>
+</div>
+<div class="paragraph">
+<p>The handling of introduction and conclusion files could be improved, so
+that sections and paragraphs could become available in a tree structure,
+just as used with all other items. Introductions or Overview files could
+be added to all Pascal items, for inclusion into the full description,
+or for (automatic) referencing in <a href="SeeAlso">SeeAlso</a> or equivalent
+sections.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

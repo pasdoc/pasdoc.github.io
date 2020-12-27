@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//CommandLine.html" />
+<meta property="og:url" content="https://pasdoc.github.io//CommandLine.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//CommandLine.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p><a href="Home">PasDoc</a> is called like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc &lt;options&gt; &lt;parameters&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where &lt;parameters&gt; are the files to process and &lt;options&gt; is a
+combination of directives from the following list.</p>
+</div>
+<div class="paragraph">
+<p>Please note that the short single-letter version is case-sensitive.
+Defaults are in brackets.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-?, --help</dt>
+<dd>
+<p>Show pasdoc help text: pasdoc version and short summary of available command-line options. Pretty much something like this wiki page you&#8217;re reading now.</p>
+</dd>
+<dt class="hdlist1">--version</dt>
+<dd>
+<p>Show pasdoc version (and related info)</p>
+</dd>
+<dt class="hdlist1">-v, --verbosity</dt>
+<dd>
+<p>Set log verbosity (0-6) [2]</p>
+</dd>
+<dt class="hdlist1"><a href="ConditionalDefines">-D, --define</a></dt>
+<dd>
+<p>Define conditional</p>
+</dd>
+<dt class="hdlist1"><a href="ConditionalDefines">-d, --conditionals</a></dt>
+<dd>
+<p>Read conditionals from this file</p>
+</dd>
+<dt class="hdlist1"><a href="ReadDescriptionFromFile">-R, --description</a></dt>
+<dd>
+<p>Read description from this file</p>
+</dd>
+<dt class="hdlist1"><a href="IncludeInSearchPath">-I, --include</a></dt>
+<dd>
+<p>Include search path</p>
+</dd>
+<dt class="hdlist1">-S, --source</dt>
+<dd>
+<p>Read source filenames from file, - (single dash) means standard input.</p>
+</dd>
+<dt class="hdlist1">--html-help-contents</dt>
+<dd>
+<p>Read Contents for <a href="HtmlHelp">HtmlHelp</a> output format from file</p>
+</dd>
+<dt class="hdlist1"><a href="NameOption">-N, --name</a></dt>
+<dd>
+<p>Project name. This determines output documentation filename (only if documentation format is not HTML)</p>
+</dd>
+<dt class="hdlist1"><a href="DocumentationTitle">-T, --title</a></dt>
+<dd>
+<p>Documentation title</p>
+</dd>
+<dt class="hdlist1"><a href="FileAsHeaderOrFooter">-H, --header, -F, --footer</a></dt>
+<dd>
+<p>Add HTML content to the header or footer of every page</p>
+</dd>
+<dt class="hdlist1"><a href="HtmlHeadBodyBeginEndOptions">--html-head, --html-body-begin, --html-body-end</a></dt>
+<dd>
+<p>Add HTML content to the &lt;head&gt; or around the pasdoc content (after &lt;body&gt;, before &lt;/body&gt;)</p>
+</dd>
+<dt class="hdlist1">-O, --format</dt>
+<dd>
+<p>Output format:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="HtmlOutput">html</a></p>
+</li>
+<li>
+<p><a href="HtmlHelp">htmlhelp</a></p>
+</li>
+<li>
+<p><a href="LatexOutput">latex</a></p>
+</li>
+<li>
+<p><a href="Latex2RtfOutput">latex2rtf</a></p>
+</li>
+<li>
+<p><a href="SimpleXmlOutput">simplexml</a></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a href="OutputOption">-E, --output</a></dt>
+<dd>
+<p>Specify output path</p>
+</dd>
+<dt class="hdlist1"><a href="ExcludeGeneratorOption">-X, --exclude-generator</a></dt>
+<dd>
+<p>Exclude generator information</p>
+</dd>
+<dt class="hdlist1"><a href="IncludeCreationTimeOption">--include-creation-time</a></dt>
+<dd>
+<p>Show creation time in the output</p>
+</dd>
+<dt class="hdlist1"><a href="OutputLanguage">-L, --language</a></dt>
+<dd>
+<p>Set output language</p>
+</dd>
+<dt class="hdlist1"><a href="CommentMarker">--staronly</a></dt>
+<dd>
+<p>Parse only <code>{**</code>, <code>(***</code> and <code>//**</code> style comments</p>
+</dd>
+<dt class="hdlist1"><a href="CommentMarker">--marker</a></dt>
+<dd>
+<p>Parse only <code>{&lt;marker&gt;</code>, <code>(*&lt;marker&gt;</code> and <code>//&lt;marker&gt;</code> comments. Overrides the staronly option, which is a shortcut for <code>--marker=**</code>.</p>
+</dd>
+<dt class="hdlist1"><a href="CommentMarker">--marker-optional</a></dt>
+<dd>
+<p>Do not require the markers given in <code>--marker</code> but remove them from the comment if they exist.</p>
+</dd>
+<dt class="hdlist1">--numericfilenames</dt>
+<dd>
+<p>Causes the html generator to create numeric filenames</p>
+</dd>
+<dt class="hdlist1"><a href="IncludeByVisibility">-M, --visible-members</a></dt>
+<dd>
+<p>Include / Exclude class Members by visiblity</p>
+</dd>
+<dt class="hdlist1"><a href="WriteUsesList">--write-uses-list</a></dt>
+<dd>
+<p>Write uses list of a unit into output</p>
+</dd>
+<dt class="hdlist1"><a href="GraphVizSupport">--graphviz-uses</a></dt>
+<dd>
+<p>Write a GVUses.dot file that can be used for the <code>dot</code> program from <a href="http://www.graphviz.org/">GraphViz</a> to generate a unit dependency graph</p>
+</dd>
+<dt class="hdlist1"><a href="GraphVizSupport">--link-gv-uses</a></dt>
+<dd>
+<p>Add a link to the GVUses to the overview frame</p>
+</dd>
+<dt class="hdlist1"><a href="GraphVizSupport">--graphviz-classes</a></dt>
+<dd>
+<p>Write a GVClasses.dot file that can be used for the dot program from <a href="http://www.graphviz.org/">GraphViz</a> to generate a class hierarchy graph</p>
+</dd>
+<dt class="hdlist1"><a href="GraphVizSupport">--link-gv-classes</a></dt>
+<dd>
+<p>Add a link to GVClasses to the overview frame</p>
+</dd>
+<dt class="hdlist1">--abbreviations</dt>
+<dd>
+<p>Abbreviation file, format is <code>"[name] value"</code>, value is trimmed, lines that do not start with [ (or whitespace before that) are ignored</p>
+</dd>
+<dt class="hdlist1"><a href="SpellChecking">--aspell</a></dt>
+<dd>
+<p>Enable aspell, give language as parameter</p>
+</dd>
+<dt class="hdlist1"><a href="SpellChecking">--spell-check-ignore-words</a></dt>
+<dd>
+<p>When spell-checking, ignore the words in that file. The file should contain one word on every line</p>
+</dd>
+<dt class="hdlist1"><a href="CacheOption">--cache-dir</a></dt>
+<dd>
+<p>Cache directory for parsed files (default not set)</p>
+</dd>
+<dt class="hdlist1"><a href="LinkLookOption">--link-look</a></dt>
+<dd>
+<p>How multipart links (like @link(Unit.Procedure)) look like in output</p>
+</dd>
+<dt class="hdlist1"><a href="LinkLookOption">--full-link</a></dt>
+<dd>
+<p>Obsolete name for --link-look=full option.</p>
+</dd>
+<dt class="hdlist1"><a href="AutoAbstractOption">--auto-abstract</a></dt>
+<dd>
+<p>Automatically deduce @abstract description of item from 1st sentence of it&#8217;s full description</p>
+</dd>
+<dt class="hdlist1"><a href="CssOption">--css</a></dt>
+<dd>
+<p>Use the code of your cascading style sheet in replacement of default one.</p>
+</dd>
+<dt class="hdlist1"><a href="UseTipueSearchOption">--use-tipue-search</a></dt>
+<dd>
+<p>Use tipue search engine in HTML output.</p>
+</dd>
+<dt class="hdlist1"><a href="SortOption">--sort</a></dt>
+<dd>
+<p>Specifies what groups of items are sorted.</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">--introduction</a></dt>
+<dd>
+<p>Specify the name of a text file to use as introduction in your documentation.</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">--conclusion</a></dt>
+<dd>
+<p>Specify the name of a text file to use as conclusion in your documentation.</p>
+</dd>
+<dt class="hdlist1">--latex-head</dt>
+<dd>
+<p>Specify the name of a text file that should be inserted into the preamble of a LaTeX file.</p>
+</dd>
+<dt class="hdlist1"><a href="ImplicitVisibilityOption">--implicit-visibility</a></dt>
+<dd>
+<p>How pasdoc should handle class members within default class visibility.</p>
+</dd>
+<dt class="hdlist1"><a href="NoMacroOption">--no-macro</a></dt>
+<dd>
+<p>Turn FPC macro support off.</p>
+</dd>
+<dt class="hdlist1"><a href="AutoLinkOption">--auto-link</a></dt>
+<dd>
+<p>Automatically turn your identifiers into links, without the need to enclose them in @link tag.</p>
+</dd>
+<dt class="hdlist1"><a href="AutoLinkOption">--auto-link-exclude</a></dt>
+<dd>
+<p>Fine-tune the --auto-link behavior: Prevent automatic linking for the specified identifiers.</p>
+</dd>
+<dt class="hdlist1"><a href="IgnoreLeadingOption">--ignore-leading</a></dt>
+<dd>
+<p>Ignore some leading characters from comment lines.</p>
+</dd>
+<dt class="hdlist1"><a href="ExternalClassHierarchy">--external-class-hierarchy</a></dt>
+<dd>
+<p>Define hierarchy of classes not included in your source code, for more
+complete class tree diagrams.</p>
+</dd>
+<dt class="hdlist1"><a href="AutoBackComments">--auto-back-comments</a></dt>
+<dd>
+<p>Automatically assign a <code>//</code> comment without a special marker to the preceding identifier on the same line.</p>
+</dd>
+<dt class="hdlist1"><a href="MarkdownOption">--markdown</a></dt>
+<dd>
+<p>Parse Markdown syntax in the comments. This allows to specify various formatting options without writing tags, which sometimes looks much more readable.</p>
+</dd>
+<dt class="hdlist1"><a href="ConfigFileOption">@&lt;path-to-file&gt;</a></dt>
+<dd>
+<p>Read options from file.</p>
+</dd>
+<dt class="hdlist1"><a href="ImplementationCommentsOption">--implementation-comments</a></dt>
+<dd>
+<p>Scan implementation section of a unit in addition to default interface section.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Confused? Maybe some <a href="CommandlineExamples">Examples</a> can help.</p>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

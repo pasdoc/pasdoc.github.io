@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ListTags.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ListTags.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ListTags.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="ordered-and-unordered-lists"><a id="ordered-and-unordered-lists"></a> Ordered and unordered lists</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use tags @orderedList and @unorderedList to create ordered and
+unordered lists. Parameter of these tags should consist solely of @item
+tags. No other @-tag (or any other "normal" text) is allowed inside
+@orderedList and @unorderedList except @itemLabel, @itemSpacing, and
+@itemSetNumber. Any number of @item tags, including zero, is allowed in
+a list.</p>
+</div>
+<div class="paragraph">
+<p>Each @item tag creates one list item. Inside @item tags other @-tags are
+allowed, and all other pasdoc features (like paragraphs) work. In
+particular, you can use @orderedList and @unorderedList tags within
+@item tag, thus creating nested lists. Nested lists may be of any depth,
+but you should be aware that some output formats like
+<a href="LatexOutput">LatexOutput</a> have their own constrains on maximum
+nesting depth.</p>
+</div>
+<div class="sect2">
+<h3 id="simple-example"><a id="simple-example"></a> Simple example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ The FormatString allows you to use special %-markers to
+  designate where to insert Args items.
+   @unorderedList(
+     @item(%s inserts a string)
+     @item(%d inserts an integer)
+     @item(%% inserts % character)
+   ) }
+function Format(const FormatString: string; const Args: array of const): string;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="definition-list"><a id="definition-list"></a> Definition list</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create definition lists in a similar manner. In a definition
+list, every item consists of a pair: item label and item description.
+@definitionList tag defines a definition list. Within @definitionList,
+you can only put @itemLabel and @item tags. @itemLabel defines a label
+for a given item and @item tag defines a description for the item (that
+is associated with preceeding @itemLabel).</p>
+</div>
+<div class="paragraph">
+<p>Just as with @orderedList and @unorderedList, list may contain any
+number of items, including zero.</p>
+</div>
+<div class="paragraph">
+<p>Within @item and @itemLabel tags you can freely put any content,
+including other pasdoc tags.</p>
+</div>
+<div class="paragraph">
+<p>You are expected to 1st specify @itemLabel for first item, then @item
+for first item, then @itemLabel for second item, then @item for second
+item and so on. You are allowed to omit @itemLabel or @item for some
+items if you want, then an item without a label or without a description
+will be added to definition list.</p>
+</div>
+<div class="sect2">
+<h3 id="simple-example-2"><a id="simple-example-1"></a> Simple example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ In this game, there are various types of items:
+  @definitionList(
+    @itemLabel(Usable, always)
+    @item(Typical items that are used. Scrolls, potions, books etc.
+      You should override this method to define what
+      happens when player uses this item.)
+
+    @itemLabel(Usable, but only when equipped)
+    @item(Items that can be used but must be equipped first. E.g.
+      magic staffs. You should override this method and check for
+      @link(IsEquipped) inside.)
+
+    @itemLabel(Not usable)
+    @item(Items that can't be used.
+      Don't override this method, default implementation in this
+      class will raise an exception.)
+  )
+}
+procedure Use;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compacting-the-look-of-a-list"><a id="compacting-the-look-of-a-list"></a> Compacting the look of a list</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to @item (and @itemLabel) tags, you can also use
+@itemSpacing tag within @orderedList, @unorderedList and @definitionList
+tags. @itemSpacing gives a hint (which may be ignored in some pasdoc
+output formats) about how given list should look like.</p>
+</div>
+<div class="paragraph">
+<p>There are only two allowed parameters for @itemSpacing:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Paragraph means that vertical space between two list items should be
+like a space between two paragraphs. This is the default behaviour, so
+you should rarely need to specify this.</p>
+</li>
+<li>
+<p>Compact means that vertical space between two list items should be like a space between two
+consecutive lines. So you should use @itemSpacing(Compact) within lists
+where you know that each item is something short (e.g. only a few words)
+--- such lists may look better when vertical space between each item is
+small.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It doesn&#8217;t matter where exactly you place @itemSpacing, as long as it&#8217;s
+directly within some @xxxList tag. I.e. you can place @itemSpacing
+before the first list item, you can place it after the last list item,
+or anywhere between two list items. You can specify @itemSpacing
+multiple times within the same list --- only the last occurence of
+@itemSpacing will take effect.</p>
+</div>
+<div class="sect2">
+<h3 id="simple-example-3"><a id="simple-example-2"></a> Simple example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ You can eat various fruits:
+  @unorderedList(
+    @itemSpacing(Compact)
+    @item(Apples)
+    @item(Oranges)
+    @item(Bananas)
+  ) }
+procedure EatFruit(Fruit: Integer);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Actually, we could use
+<a href="TagsParametersWithoutParenthesis">TagsParametersWithoutParenthesis</a>
+feature and just omit some parenthesis from example above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ You can eat various fruits:
+  @unorderedList(
+    @itemSpacing Compact
+    @item Apples
+    @item Oranges
+    @item Bananas
+  ) }
+procedure EatFruit(Fruit: Integer);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reset-list-numbering"><a id="reset-list-numbering"></a> Reset list numbering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use @itemSetNumber(NEW-NUMBER) tag within @orderedList to change
+the number of the next list @item.</p>
+</div>
+<div class="sect2">
+<h3 id="simple-example-4"><a id="simple-example-3"></a> Simple example</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @orderedList(
+    @item Blah
+    @item Blah
+    @itemSetNumber 10
+    @item Blah
+    @item Blah
+  ) }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will produce the list with four items "Blah" numbered 1, 2, 10, 11.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-complicated-example"><a id="more-complicated-example"></a> More complicated example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_lists.pas">test unit of these tags</a> and <a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_lists/ok_lists.html">HTML output for this test unit</a>.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ImplementationCommentsOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ImplementationCommentsOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ImplementationCommentsOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Use the <code>--implementation-comments</code> command-line option to parse the implementation section of a unit in addition to the interface section. This way you can place the documentation comments inside the implementation section, keeping the interface section shorter.</p>
+</div>
+<div class="sect1">
+<h2 id="example">Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Documentation inside the implementation (using the <code>--implementation-comments=join</code> option):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit Foo;
+
+interface
+
+type
+  TCl = class
+    // This method should do something.
+    function Bar(const Par1, Par2: string): Boolean;
+    // This method should do something extended.
+    function BarEx(const Par1, Par2: string): Boolean;
+  end;
+
+implementation
+
+{ This method should do something.
+  @param Par1 - parameter #1
+  @param Par2 - parameter #2
+
+  @return Success flag
+  @raises Exception on error
+}
+function TCl.Bar(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+{ This method should do something extended.
+  @param Par1 - parameter #1
+  @param Par2 - parameter #2
+
+  @return Success flag
+  @raises Exception on error
+}
+function TCl.BarEx(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+end.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This way the interface section is clean (but it still has short descriptions), and the full documentation is inside the unit implementation. Developer can see a documentation near the implementation of the method.</p>
+</div>
+<div class="paragraph">
+<p>It is equivalent to the following documentation inside the interface (without using <code>--implementation-comments=&#8230;&#8203;</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit Foo;
+
+interface
+
+type
+  TCl = class
+    { This method should do something
+      @param Par1 - parameter #1
+      @param Par2 - parameter #2
+
+      @return Success flag
+      @raises Exception on error
+    }
+    function Bar(const Par1, Par2: string): Boolean;
+
+    { This method should do something extended
+      @param Par1 - parameter #1
+      @param Par2 - parameter #2
+
+      @return Success flag
+      @raises Exception on error
+    }
+    function BarEx(const Par1, Par2: string): Boolean;
+  end;
+
+implementation
+
+function TCl.Bar(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+function TCl.BarEx(const Par1, Par2: string): Boolean;
+begin
+  ...
+end;
+
+end.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="possible-arguments-how-to-merge-information">Possible arguments (how to merge information)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>--implementation-comments</code> option has three possible arguments, that determine how the information is merged:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prefer-interface</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read both interface and implementation comments. Use whichever comment is
+non-empty. If they are both non-empty, use the interface comment.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>join</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read both interface and implementation comments, and concatenate them. The concatenation
+process is smart: if the interface comment is precisely repeated at the implementation comment (like <code>This method should do something.</code> in the above example) then it will be ignored.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>prefer-implementation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just like "prefer interface", but if both comments are non-empty,
+use the implementation comment.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Sample</strong></p>
+</div>
+<div class="paragraph">
+<p>Having this unit</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit Foo;
+
+interface
+
+// This method should do something
+function Bar(const Par: string): Boolean;
+
+implementation
+
+{ This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag
+}
+function Bar(const Par: string): Boolean;
+begin
+  ...
+end;
+
+end.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the resulting descriptions will be</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using <code>--implementation-comments=prefer-interface</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>This method should do something</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using <code>--implementation-comments=join</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using <code>--implementation-comments=prefer-implementation</code> (same result as with  <code>--implementation-comments=join</code> in this case):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>This method should do something and return a flag
+  @param Par - parameter
+  @return Success flag</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="notes">Notes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Regardless of the <code>--implementation-comments</code> option, only the items present in the interface section of a unit  are visible in the final documentation. In other words, using <code>--implementation-comments</code> is only a way to "enhance" the documentation of items from the interface section. It doesn&#8217;t make the internal unit identifiers visible in the documentation.</p>
+</li>
+<li>
+<p>Just like with the interface section: To successfully parse the implementation section, make sure that PasDoc is aware of the conditional symbols that are defined. See the <a href="ConditionalDefines">conditional compilation documentation</a>, in particular section there <a href="https://github.com/pasdoc/pasdoc/wiki/ConditionalDefines#make-sure-the-resulting-code-is-valid">Make sure the resulting code is valid</a> .</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

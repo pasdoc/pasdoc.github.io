@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//WhereToPlaceComments.html" />
+<meta property="og:url" content="https://pasdoc.github.io//WhereToPlaceComments.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//WhereToPlaceComments.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="basic-rule"><a id="basic-rule"></a> Basic rule</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to assign some description to your item (where <em>item</em> means
+either a unit, a class, a field, a method, a variable, a type, a
+constant, a function or procedure&#8230;&#8203; really, just anything), you just
+place a comment directly before the item&#8217;s declaration.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example of a complete unit with many items documented:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Description of MyUnit. }
+unit MyUnit;
+
+interface
+
+type
+  { Description of TMyClass. }
+  TMyClass = class
+  public
+    { Description of MyField. }
+    MyField: Integer;
+    { Description of MyMethod. }
+    procedure MyMethod;
+  end;
+
+  { Description of TMySimpleType. }
+  TMySimpleType = 1..100;
+
+  { Description of TMyEnumType. }
+  TMyEnumType = (
+    { Description of meFirstValue. }
+    meFirstValue,
+    { Description of meSecondValue. }
+    meSecondValue);
+
+const
+  { Description of MyConstant. }
+  MyConstant = 4;
+
+var
+  { Description of MyVariable. }
+  MyVariable: Integer;
+
+{ Description of MyProcedure. }
+procedure MyProcedure;
+
+implementation
+...
+end.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can simply paste the above example into a file like myunit.pas and
+run pasdoc like this</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc myunit.pas</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and pasdoc will generate the documentation for MyUnit (in the default
+<a href="HtmlOutput">HTML format</a>). All the "Description of &#8230;&#8203;" comments
+are nicely shown in the resulting documentation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-detailed-rules"><a id="more-detailed-rules"></a> More detailed rules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="comment-markers"><a id="comment-markers"></a> Comment markers</h3>
+<div class="paragraph">
+<p>You can use <a href="CommentMarker">--marker option</a> if
+you want <a href="Home">PasDoc</a> to recognize only comments designated by
+some special markers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multiple-fieldsvariables-in-one-declaration"><a id="multiple-fieldsvariables-in-one-declaration"></a> Multiple fields/variables in one declaration</h3>
+<div class="paragraph">
+<p>The case when you declare multiple fields/variables with the same type
+in one declaration deserves some detailed explanation. This concerns
+declarations like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TMyRecord = record
+    { Comment 1 }
+    Field1, Field2: Integer;
+  end;
+
+var
+  { Comment 2 }
+  Variable1, Variable2: Integer;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The rule is as follows: it is assumed that the single comment will apply
+to all multiple fields in the following declaration. So in the example
+above, <em>Comment 1</em> will be understood to document both Field1 and Field2
+and <em>Comment 2</em> will be understood to document both Variable1 and
+Variable2.</p>
+</div>
+<div class="paragraph">
+<p>Moreover, if you place a comment in the middle of such
+multiple-declaration, this comment will apply to all following
+fields/variables within this declaration. See this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TMyRecord = record
+    { This comment documents Field1 and Field2 }
+    Field1, Field2,
+      { This comment documents Field3 and Field4 }
+      Field3, Field4: Integer;
+  end;
+
+var
+  { This comment documents Variable1 }
+  Variable1,
+    { This comment documents Variable2 }
+    Variable2: Integer;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="placing-comments-after-the-item"><a id="placing-comments-after-the-item"></a> Placing comments after the item</h3>
+<div class="paragraph">
+<p>Sometimes it is more convenient to place your documentation comment
+<em>after</em> the documented item, instead of <em>before</em>. You can freely do so
+by placing the "&lt;" ("less-than") character as the exactly first
+character of your comment. This tells <a href="Home">PasDoc</a> that the
+given comment should be assigned to the preceding (not the following, as
+usual) item declaration.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit MyUnit;
+
+{&lt; Here you can place a description of MyUnit.
+   This is convenient for people that like to always
+   keep the "unit UnitName;" declaration
+   as the first line of their *.pas files. }
+
+interface
+
+type
+  TMyEnumType = (
+    meOne, //&lt; Description of meOne
+    meTwo, //&lt; Description of meTwo
+    meThree //&lt; Description of meThree
+  );
+
+  TMyClass = class
+    MyField: Integer; //&lt; Description of MyField
+    procedure MyProc; //&lt; Description of MyProc
+    property MyProp: Integer read MyField write MyField;
+      //&lt; Description of MyProp
+  end;
+
+  TMyException = class(Exception); //&lt; Description of TMyException
+
+var
+  SomeVariable: Integer; //&lt; Description of SomeVariable
+  Var1, Var2: Integer; //&lt; Description of Var1 and Var2
+
+implementation
+...
+end.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you use a <a href="CommentMarker">CommentMarker</a>,
+the "&lt;" character must be placed <em>right after</em> your chosen marker.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="glueing-single-line-comments"><a id="glueing-single-line-comments"></a> Glueing single-line comments</h3>
+<div class="paragraph">
+<p>Subsequent //-style comments are "glued" by <a href="Home">PasDoc</a> into
+one comment. If comment markers are required, every single comment must
+be marked accordingly(?). A back-comment mark is recognized only in the
+first comment of a sequence. For example these methods of documenting
+procedure Foo are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This is
+  description of
+  procedure Foo. }
+procedure Foo;
+
+// This is
+// description of
+// procedure Foo.
+procedure Foo;
+
+procedure Foo;
+//&lt; This is
+// description of
+// procedure Foo.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multiple-comments-on-an-identifier-or-declaration"><a id="multiple-comments-on-an-identifier-or-declaration"></a> Multiple comments on an identifier or declaration</h3>
+<div class="paragraph">
+<p>When one or more comments precede an identifier, and possibly another
+back-comment follows it, <a href="Home">PasDoc</a> (currently) ignores any
+but the last applicable comment, which overwrites any preceding
+comments.</p>
+</div>
+<div class="paragraph">
+<p>Declarations inside declarations, of e.g. class or record fields, have
+their own comments. Once such a declaration block is closed, a following
+back-comment again applies to the "outer" declaration.</p>
+</div>
+<div class="paragraph">
+<p>In a declaration with multiple identifiers, a "&lt;" back-comment applies
+exactly to the preceding identifier. An eventual forward comment is
+"canceled", i.e. following identifiers in the same declaration will stay
+uncommented.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  // This comment is overwritten later
+  TMyEnumType = (
+  // Description of meOne
+    meOne,
+    meTwo, //&lt; Description of meTwo
+    meThree
+  );
+  //&lt; Description of TMyEnumType, *not* of meThree</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See also: <a href="ReadDescriptionFromFile">External descriptions</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="common-case-when-comments-are-not-meaningful-to-pasdoc"><a id="common-case-when-comments-are-not-meaningful-to-pasdoc"></a> Common case when comments are not meaningful to PasDoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As long as we consider only multi-line comments (<code>{ &#8230;&#8203; }</code> or
+<code>(* &#8230;&#8203; *)</code>), remember that <a href="Home">PasDoc</a> takes into account
+only the <em>last</em> comment before given item. For example, in the code
+below, comment <em>Ignored comment</em> is ignored by <a href="Home">PasDoc</a>.
+Description consists only of <em>Description of Foo</em> comment.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Ignored comment. }
+
+{ Description of Foo. }
+procedure Foo;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In particular, note that when you want to hide some comment (i.e.
+prevent it from being assigned to the next item) all you have to do is
+to put an empty (or containing only whitespace) comment right before
+given item. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ procedure Foo; }
+
+{ }
+procedure Bar;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above example, programmer probably temporarily commented out
+procedure Foo; declaration. To prevent from accidentaly assigning
+description "procedure Foo;" to procedure Bar, the programmer added "{
+}" right before procedure Bar declaration. A "{ }" or "//" has the same
+effect, but "{ }" is recommended for clarity.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

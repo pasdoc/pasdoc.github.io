@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//IntroductionAndConclusion.html" />
+<meta property="og:url" content="https://pasdoc.github.io//IntroductionAndConclusion.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//IntroductionAndConclusion.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>You can use the <a href="CommandLine">CommandLine</a> options <code>--introduction=FILE-NAME</code> and <code>--conclusion=FILE-NAME</code> to add additional special pages to your documentation.</p>
+</div>
+<div class="paragraph">
+<p>Since PasDoc 0.16.0 you can also use option <code>--additional=FILE-NAME</code> to provide any number of additional files. Option <code>--additional</code> can be shortened to <code>-A</code>.</p>
+</div>
+<div class="sect1">
+<h2 id="simple-example"><a id="simple-example"></a> Simple example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Create a file named introduction.txt with contents like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@shorttitle(Intro)
+@title(General introduction to my source code)
+
+Some text describing your source code.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then call pasdoc like this</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --introduction=introduction.txt ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In HTML output you will get an additional page introduction.html in your documentation, with contents based on the introduction.txt file. On the navigation frame you will have a link "Intro" to this page. In LaTeX output the introduction will be added as the first chapter of the documentation (conclusion will be added as the last chapter).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="format-of-introductionconclusion-files"><a id="format-of-introductionconclusion-files"></a> Format of introduction/conclusion files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in <a href="WritingDocumentation">WritingDocumentation</a> apply here too: @-tags are allowed, you must write @@ to get single @ character, URLs are automatically turned into links, an empty line starts a new paragraph etc.</p>
+</div>
+<div class="paragraph">
+<p>In particular, you can use the <a href="LinkTag">@link tag</a> to link <em>from</em> introduction/conclusion to other items in your documentation. Also, you can create links <em>to</em> the introduction/conclusion by specifying the introduction/conclusion filename (without extension) as the link target, e.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@link(introduction)</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="special-tags"><a id="special-tags"></a> Special tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some special @-tags are allowed only in introduction/conclusion files:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">@shortTitle(my short title)</dt>
+<dd>
+<p>Specify a short title of the introduction/conclusion. In HTML output, the <code>my short title</code> is shown in the navigation frame to link to the introduction and conclusion. In LaTeX output, this tag is ignored.</p>
+</dd>
+<dt class="hdlist1">@title(my title)</dt>
+<dd>
+<p>Specify the title of introduction/conclusion. In HTML output, the argument is the top level heading at the beginning of the page for the introduction and conclusion. In LaTeX output, the argument is the chapter&#8217;s title.</p>
+</dd>
+<dt class="hdlist1">@section(HeadingLevel AnchorName Section title)</dt>
+<dd>
+<p>Start a new section. The <code>@section</code> tag contains:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>HeadingLevel</em>: a number used to indicate section nesting. It must be an integer &gt;= 1. E.g. in <a href="HtmlOutput">HtmlOutput</a> HeadingLevel = 1 results in &lt;h2&gt;Section title&lt;/h2&gt;, HeadingLevel = 2 results in &lt;h3&gt;Section title&lt;/h3&gt; etc. In <a href="LatexOutput">LatexOutput</a> HeadingLevel = 1 results in <code>\section{Section title}</code> , HeadingLevel = 2 results in <code>\subsection{Section title}</code> etc.</p>
+</li>
+<li>
+<p><em>AnchorName</em>: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a LinkTag_. Allowed AnchorNames are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).</p>
+</li>
+<li>
+<p><em>Section title</em>: title shown in the documentation.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">@anchor(AnchorName)</dt>
+<dd>
+<p>Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a <a href="LinkTag">@link tag</a></p>
+</dd>
+<dt class="hdlist1"><a href="TableOfContentsTag">@tableOfContents</a></dt>
+<dd>
+<p>Insert table of contents here.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="more-examples"><a id="more-examples"></a> More examples</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>See the <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction_conclusion.pas">test unit of this feature</a> and the <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction.txt">accompanying test introduction file</a> and the <a href="http://pasdoc.sourceforge.net/correct_tests_output/html/ok_introduction_conclusion/">HTML output of this test unit and introduction</a>.</p>
+</li>
+<li>
+<p>See also <a href="PasDocAutoDoc">PasDocAutoDoc</a>&#8201;&#8212;&#8201;there&#8217;s an "Overview" page included, and it was generated using --introduction command-line option.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

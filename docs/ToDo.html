@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ToDo.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ToDo.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ToDo.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Things that are (or were) planned to be done at some point:</p>
+</div>
+<div class="paragraph">
+<p><strong>This page grew into a large collection of TODOs, with wildly varying chances of being actually finished by some developer.</strong> Although we tried to manage it, it&#8217;s not organized properly enough.</p>
+</div>
+<div class="paragraph">
+<p><strong>Please report new wanted features to the <a href="https://sourceforge.net/p/pasdoc/feature-requests/">feature requests</a> or <a href="https://sourceforge.net/p/pasdoc/bugs/">bugs</a> issue trackers</strong>, not by editing this page. Consider also asking first on our <a href="https://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a>.</p>
+</div>
+<div class="paragraph">
+<p>(Things already done are on <a href="ToDoClosed">ToDoClosed</a>.)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>(Partially fixed)</em>
+<a href="ToDoImageAndIncludeTagRelativeFileNames">ToDoImageAndIncludeTagRelativeFileNames</a>
+Usual cases are fixed now. There are still problems in special cases
+when using @image / @include from Pascal include file that is in
+different path than unit.</p>
+</li>
+<li>
+<p><a href="ToDoParser">ToDoParser</a></p>
+</li>
+<li>
+<p><a href="ToDoSearch">ToDoSearch</a></p>
+</li>
+<li>
+<p><a href="ToDoSpellChecking">ToDoSpellChecking</a></p>
+</li>
+<li>
+<p><a href="ToDoOfflineDocs">ToDoOfflineDocs</a></p>
+</li>
+<li>
+<p><a href="https://github.com/pasdoc/pasdoc/tree/master/tests/testcases/todo">tests/testcases/todo/ directory of pasdoc sources</a> contains some ready test cases of known problems that should be fixed.</p>
+</li>
+<li>
+<p><a href="ToDoOverloadingLinking">ToDoOverloadingLinking</a></p>
+</li>
+<li>
+<p>Global properties (implemented by FPC) parsing could be improved.</p>
+<div class="paragraph">
+<p>They are parsed correctly since 2006-11-25. But for now they are added by parser to U.Variables list. This should be fixed, either 1. we should have separate Properties list for each unit or 2. we should rename U.Variables to U.VariablesProperties and change corresponding strings for translators to say "Variables and global properties" instead of "Variables". Michalis prefers the 2nd option (as global properties behave like variables from the outside, just like normal properties behave like fields from the outside), but the problem is: the text "Variables and global properties" may confuse Delphi users not familiar with concept of "global properties".</p>
+</div>
+</li>
+<li>
+<p>Wiki formatting for source code comments</p>
+<div class="paragraph">
+<p>Some comments about wiki syntax are on <a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>Use a new, external parser? Various choices available.</p>
+<div class="paragraph">
+<p>Whatever we choose, we need first to make sure it compiles with both FPC and Delphi, and that it parses really all the source code we can currently handle (see our testcase in tests/). The huge advantage of the currrent parser is that it really works, for a variety of the code existing in the wild.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JEDI CodeFormat has a very good parser implementation for Delphi.</p>
+</li>
+<li>
+<p>Parser using Martin Waldenburg&#8217;s excellent Lexer.</p>
+</li>
+<li>
+<p>fcl-passrc from FPC. (See Michalis fcl-passrc test program on FPC wiki).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Plugins for tags instead of hard-coding them.</p>
+<div class="paragraph">
+<p>This is not so far away to implement now, that we have TagManager.
+Adding new tags to pasdoc code is trivial now, basically you just do</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">TagManager.AddHandler('...', {$IFDEF FPC}@{$ENDIF} TagHandlerProc, [...], [...]);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and implement TagHandlerProc. So it seems that allowing user to specify via command-line some so/dll/dylib with a hook like RegisterTagHandlers that is called from TDocGenerator.ExpandDescription is not a big deal. If anyone has a usable idea for using such plugin-system, please speak up on <a href="http://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a>, and we can see into this --<a href="MichalisKamburelis">MichalisKamburelis</a>.</p>
+</div>
+</li>
+<li>
+<p>parse units in dependency order, ie. when a unit is encountered that uses another unit, then try parsing that other unit first. If it cannot be found, then write a warning. Allow giving a list of units that should not be warned about, and ship a default RTL list.</p>
+</li>
+</ul>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

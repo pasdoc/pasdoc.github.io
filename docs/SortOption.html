@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//SortOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//SortOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//SortOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>By default, when pasdoc generates the documentation, it shows items in
+the same order as they were declared in your source files. This makes
+sense if the order of declarations in your code is reasonable,
+and you want the documentation to present them in the same order.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, pasdoc can sort items when generating
+documentation, i.e. always show them in alphabetical order. This is
+controlled by the <code>--sort</code> <a href="CommandLine">CommandLine</a> option. As an
+argument, this options takes the list of things that should be sorted in
+the final documentation (separated by commas):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>structures (this decides whether summary of classes / objects / records / interfaces is sorted on unit page)</p>
+</li>
+<li>
+<p>constants</p>
+</li>
+<li>
+<p>functions (this applies to global functions / procedures)</p>
+</li>
+<li>
+<p>types</p>
+</li>
+<li>
+<p>variables</p>
+</li>
+<li>
+<p>uses-clauses</p>
+</li>
+<li>
+<p>record-fields</p>
+</li>
+<li>
+<p>non-record-fields</p>
+</li>
+<li>
+<p>methods</p>
+</li>
+<li>
+<p>properties</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --sort=functions,record-fields,non-record-fields,methods,properties ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This particular example shows how to get the sorting setting that was hardcoded in old PasDoc versions (before 2005-05-25).</p>
+</div>
+<div class="paragraph">
+<p>Note that there is no way to control sorting of some listings, like the list of all units or all identifiers in the <a href="HtmlOutput">HtmlOutput</a>. Such listings are always presented in the alphabetical order.</p>
+</div>
+<div class="paragraph">
+<p>Note that sorting some things may be considered "unsafe":</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>record-fields</code>: People sometimes use records to do low-level memory tricks, and then order of the fields in the record matters. So you usually shouldn&#8217;t sort them.</p>
+<div class="paragraph">
+<p>This is also the reason why sorting of records and non-records (classes / objects / interfaces) fields is controlled by separate values (record-fields and non-record-fields). While sorting of record fields may be "unsafe" (i.e. may produce inappropriate documentation), but people don&#8217;t do low-level tricks with classes (even if such tricks are somewhat possible, they are always highly discouraged, since the memory layout of the class is the internal thing for the given compiler). So sorting of classes' fields is rather "safe".</p>
+</div>
+</li>
+<li>
+<p><code>uses-clauses</code>: it may be important in some cases to preserve order of units in your uses clause.</p>
+<div class="paragraph">
+<p>When two units define the same identifier, the identifier from the last used unit "wins". So it&#8217;s important to preserve this order in pasdoc-made documentation, otherwise reader of documentation could be uncertain about some issues. E.g. suppose you have a unit like :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit MyNewUnit;
+interface
+uses Unit1, Unit2;
+type
+  TMyNewType = TMyOldType;
+implementation
+end.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and suppose that both <code>Unit1</code> and <code>Unit2</code> contain types named <code>TMyOldType</code>. So what actually is <code>TMyNewType</code>? Answer is: <code>TMyNewType</code> is equal to <code>Unit2.TMyOldType</code>. That&#8217;s because <code>Unit2</code> is in the declararation clause after Unit1.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sorting of other items is generally "safe" and is a matter of personal preference (and coding style), i.e. do you prefer identifiers to be presented always alphabetically or in the order they were declared.</p>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

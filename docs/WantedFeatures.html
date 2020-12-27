@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//WantedFeatures.html" />
+<meta property="og:url" content="https://pasdoc.github.io//WantedFeatures.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//WantedFeatures.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p><strong>This page grew into a large collection of wanted features, with wildly varying chances of being actually tackled by a developer.</strong> Although we tried to manage it, it&#8217;s not organized properly enough.</p>
+</div>
+<div class="paragraph">
+<p><strong>Please report new wanted features to the <a href="https://sourceforge.net/p/pasdoc/feature-requests/">feature requests</a> or <a href="https://sourceforge.net/p/pasdoc/bugs/">bugs</a> issue trackers</strong>, not by editing this page. Consider also asking first on our <a href="https://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a> to know if there are ready alternatives, or if feature seems interesting enough to be implemented real soon by someone.</p>
+</div>
+<div class="paragraph">
+<p>(Features already done are on <a href="WantedFeaturesClosed">WantedFeaturesClosed</a>.)</p>
+</div>
+<div class="paragraph">
+<p>List of wanted features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Parse TODO items and save them in a table in a separate file similar
+to AllVariables.html, AllTypes.html, etc.</p>
+</li>
+<li>
+<p>Support for the ampersand
+operator</p>
+<div class="paragraph">
+<p>The ampersand operator
+can be used to distinguish between keywords and identifiers</p>
+</div>
+<div class="paragraph">
+<p><a href="MichalisKamburelis">MichalisKamburelis</a> answer: Patches for ampersand operator
+are welcome :) — it should be easy by modifying only PasDoc_Tokenizer
+sources.</p>
+</div>
+</li>
+<li>
+<p>Additional special tags and more</p>
+<div class="paragraph">
+<p>I&#8217;m using a wide range of several documents processors
+(<a href="JavaDoc">JavaDoc</a>, <a href="CppDoc">CppDoc</a>, Doxygen ect.) for
+different languages. One common thing uniting these programs is their
+ability to describe more informations about the document, its
+relationship to the whole API ect. To make it short: I&#8217;m missing special
+tags like @version and @since. Both tags are commonly in use and should
+be introduced to <a href="Home">PasDoc</a>. It&#8217;s very hard to find out when
+a unit ect. had been introduced to the API or had been changed in depth
+without such tags. Such informations including @author should appear at
+the top of the page and not at the bottom.</p>
+</div>
+</li>
+<li>
+<p>Comment grouping<br>
+Would it be possible to set a command line option for
+<a href="Home">PasDoc</a> to group related identifiers that are documented
+by one comment:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">//Similar Procedures
+procedure ProcA1;
+procedure ProcA2;
+procedure ProcA3;
+//Another Set of Similar Procedures
+procedure ProcB1;
+procedure ProcB2;
+procedure ProcB3;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>My main reasoning is that each procedure does not necessarily require
+individual documentation and it would be helpful if one comment caused
+them to be grouped together in the HTML output. Just a thought.</p>
+</div>
+<div class="paragraph">
+<p><a href="MichalisKamburelis">MichalisKamburelis</a>: I fully agree and I plan to do this by @groupBegin, @groupEnd tags. See
+the preliminary ideas on my homepage: <a href="MichalisKamburelis">MichalisKamburelis</a> .
+I don&#8217;t think that we can do it without any @-tags (like your
+example), because this would tend to group too many things.</p>
+</div>
+<div class="paragraph">
+<p>I [<a href="DoDi">DoDi</a>] agree2, and suggest a more flexible system for
+grouping and nesting related items together. It should extend the
+currently fixed item classification, in e.g. classes with
+fields/methods/properties, or units with constants/variables/procedures.
+Every "container" (unit, CIO, enum) should have one complete list of all
+members (for link resolution), and any number of sub-lists, which can be
+built by the parser, "linker", or by the generators, based on tags or
+kind of scripts.</p>
+</div>
+<div class="paragraph">
+<p>I think that an empty line can be assumed as the end of grouped of
+identifiers to avoid implementing a any new tag. This is a common way of
+groupping related/overrided identifiers. Also if a comment precedes a
+block (for example const or var) it is related to all elements in the
+group.</p>
+</div>
+</li>
+<li>
+<p>"support to format multiple return values"<br>
+It would be really nice if @returns(&#8230;&#8203;) could output return codes and
+descriptions in a more structured way - like the @params tag already
+does. Most intuivie way would be to allow more @returns tags for a
+single method, i.e. @returns(S_OK if successful) and @returns(E_FAIL if
+an error occured). S_OK and E_FAIL should be formated as 'label' of the
+return code and all following words are the description.</p>
+<div class="paragraph">
+<p><a href="MichalisKamburelis">MichalisKamburelis</a>: Seems like a good idea. But for backward compatibility, new tag should
+be named different, like @returnsValue. Old @returns with old behavior
+should stay.</p>
+</div>
+<div class="paragraph">
+<p>No problem, when the Result is treated like a parameter or any other
+(local) variable. The parser can provide all required (type)
+information, that only must be evaluated appropriately by the
+generators.</p>
+</div>
+</li>
+<li>
+<p><a href="WantedFeaturesDocBook">WantedFeaturesDocBook</a> output</p>
+</li>
+<li>
+<p>use a Delphi project (.dpr) file
+as input and process all files listed there</p>
+<div class="paragraph">
+<p>This depends on doing
+<a href="WantedFeaturesParsingImplementation">WantedFeaturesParsingImplementation</a>
+(at least partially, just to parse the "program" keyword + program name
++ ";" + the uses clause (with the unit names optionally followed by "in"
++ (string) filename). It&#8217;s quite easy actually :) –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>Delphi IDE-Plugin to build documentation for the current editor window
+on the fly and display it (should work great using the caching
+algorithm)</p>
+</li>
+<li>
+<p>Delphi IDE-Plugin to show the documentation of a unit on a
+separate tab page of the editor window with clickable links to the
+actual implementation. (Yes, I am dreaming ;-) )</p>
+</li>
+<li>
+<p>support for
+<a href="WantedFeaturesEnvironmentVariables">WantedFeaturesEnvironmentVariables</a> in addition to
+<a href="CommandLine">CommandLine</a> options, e.g. INCLUDE</p>
+</li>
+<li>
+<p>optionally calculate correct line numbers and put those into the output</p>
+</li>
+<li>
+<p>make caching work properly by putting the unit file&#8217;s timestamp into
+the cache file and comparing it with the current on-disk timestamp. This
+should also expire any units that use this unit (which will
+automatically reparse descendent classes of classes in this unit that
+are defined in other units).</p>
+<div class="paragraph">
+<p>implemented half of this (expires
+units, but not units that need the expired unit)</p>
+</div>
+<div class="paragraph">
+<p>implementing
+re-parsing is harder than it appears because units are not parsed in
+dependency order</p>
+</div>
+</li>
+<li>
+<p>ship files with defines from Delphi, Kylix and FPC
+(maybe even GPC) for different platforms.</p>
+<div class="paragraph">
+<p>If someone wrote his source code, then he already <em>knows</em> about the
+defines that he used (and that may be relevant to pass to pasdoc). In
+other words: It&#8217;s a job of compiler writers to document what symbols are
+automatically defined by their compilers. After a programmer already
+wrote a source code using such-and-such compiler defines, this
+programmer already knows about these defines&#8230;&#8203; So these files would
+only be useful as a comfortable daya
+for people too lazy to grep their own sources for $ifdef :) On the
+practical side: making such files complete is almost impossible, because
+each compiler/compiler mode/OS/processor/etc. results in a different set
+of defines, and it&#8217;s tiresome to document them all (and maintain such
+documentation to keep it up-to-date with new compiler versions!). That
+said: if someone really wants to take a shot at preparing such files, go
+on, you are welcome to add them to this wiki. If you will do it well, we
+will include them in pasdoc. –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>ability to deal with files that have the same name but are in
+different directories. How does one distinguish those without having
+search paths?</p>
+</li>
+<li>
+<p>ability to link external documentation that was created
+by <a href="Home">PasDoc</a> (some mapping file class/function &#8594; html file
+must exist for this)</p>
+</li>
+<li>
+<p>Generating Labels and URL in Graphviz files to link images classes
+files in HTML (or HTML Help).
+<a href="http://home.so-net.net.tw/oodtsen/wingraphviz/index.htm">Look How to do in Clinet-side image map</a>. With this feature, it&#8217;s possible to navigate
+in units/classes doc from graph! –<a href="GarfieldFr">GarfieldFr</a></p>
+<div class="paragraph">
+<p>I started doing this, now in GVClasses.dot and GVUses.dot graph nodes
+have proper href= attribute. So we can process them with</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>dot -Tcmapx GVUses.dot dot -Tcmapx GVClasses.dot</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we have to use output of above calls from dot inside HTML files,
+like GVClasses.html and GVUses.html, and we will have client-side image
+maps assigned to graphviz images. This would require automatically
+calling dot program – this indeed should be done, I&#8217;ll have to
+investigate how to implement it nicely, so that pasdoc will not fail if
+dot can&#8217;t be executed. This should also remove some mess with four
+<a href="CommandLine">CommandLine</a> required to use graphviz – only two
+<a href="CommandLine">CommandLine</a> options shoud be needed for this. Also,
+you can process files to svg format, then you will have links included
+directly in svg file, and then we don&#8217;t have to make client-side maps in
+HTML at all. Unfortunately, I don&#8217;t know of any WWW browser that fully
+supports svg (allowing user to follow URLs from nodes) at this time&#8230;&#8203;
+But pasdoc should not lose the possibility of using svg instead of some
+pixel-based format of images. –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>It would be nice to have an Include directive able to include ASCI
+text, images or html in a point of a code comment. It would be very nice
+if this include directive also could build the name of the file to
+include by some kind of rule to the name of the class (include
+<a href="ModelMaker">ModelMaker</a> exported diagrams).</p>
+<div class="paragraph">
+<p><a href="MichalisKamburelis">MichalisKamburelis</a>: For me, this splits to a couple of sensible requests:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Done</em> I think that for including images, we should create new
+pasdoc tag, like @image(filename).</p>
+</li>
+<li>
+<p><em>Done</em> For including text at the
+point of description, it could be useful to create a tag like
+@include(filename). Given file would be always interpreted as being
+written using normal pasdoc descriptions syntax (@-tags are interpreted,
+empty line means a paragraph, user can always use @html / @latex tags to
+force direct markup etc. – just like
+<a href="IntroductionAndConclusion">IntroductionAndConclusion</a> content).</p>
+</li>
+<li>
+<p>Then we can allow user to use @classname, @name and similar tags as
+part of filename. E.g. @include(@classname.txt) before a class TStream
+would be equivalent to @include(TStream.txt).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Block "exclude tag" which allow exclude block of variables, constants,
+procedures from documentation. In some case is hard to write @exclude
+many time. I thing that tag as "@exclude_start" &#8230;&#8203; &#8230;&#8203; &#8230;&#8203;
+"@exclude_end" will be useful.</p>
+<div class="paragraph">
+<p>Seems fine for me. Although I think that names should be @excludebegin
+and @excludeend (because begin/end pair is familiar to Pascal
+programmers, and we shouldn&#8217;t use _ in the middle of the tag because 1.
+currently we don&#8217;t allow _ in the middle of tag, so e.g. @name_some
+works 2. we have @classname instead of @class_name 3. in general Pascal
+programmers don&#8217;t use _, they rather use <a href="CamelCase">CamelCase</a>,
+so people would be more comfortable to write @excludeBegin and
+@excludeEnd than @exclude_begin and @exclude_end). –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>Allow tag expansion in another tag. For expamle: Parent for this class
+is @link(@inherited)<br></p>
+<div class="paragraph">
+<p>Note that this is already done in many cases, i.e. tags are expanded
+within other tags, e.g. you can use other @-tags inside tags @code,
+@raises, @returns, @bold, @italic, @abstract&#8230;&#8203; However it&#8217;s indeed not
+done for @link tag yet. That&#8217;s because current expansion of @inherited
+and @name and such wouldn&#8217;t be suitable for @link tag (because
+@inherited and @name add some presentational tags around returned name).
+As for your example, @link(@inherited) is not needed, you can already
+write just @inherited, this already produces a linked name. But indeed
+writing things like @link(@inherited.<a href="MethodName">MethodName</a>)
+would be a nice feature to have. So I agree with this request, this
+should be made possible. Moreover, some request above (see @image and
+@include tag) also could use of this feature. –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>Make multi-line //&lt; comments glob together like // coments do. Or even
+a //&lt; line followed by multiple // lines.</p>
+<div class="paragraph">
+<p>The //&lt; followed by // lines cannot be glued together – lines // are
+supposed to be attached to the next item. So</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">procedure Item1; //&lt; Description of Item1.
+// Description of Item2.
+procedure Item2;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>must be parsed correctly. That said, glueing multiple adjacent //&lt; lines
+is sensible. Patches to implement this are welcome. –
+<a href="MichalisKamburelis">MichalisKamburelis</a></p>
+</div>
+</li>
+<li>
+<p>One item which would add a lot of value to <a href="Home">PasDoc</a>
+would be to include a means of documenting the functions/procedures that
+can be called on a particular class. atm, <a href="Home">PasDoc</a> will
+list all functions/procedures that a particular class <em>introduces</em> - but
+there&#8217;s no way of finding out what it&#8217;s really capable of. For example,
+if you have:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TClassOne = class(TComponent)
+  public
+    function MethodBase(): integer;
+  end;
+
+  TClassTwo = class(TClassOne)
+  public
+    function MethodSubclass(): integer;
+  end;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The page for TClassTwo will list
+"<a href="MethodSubclass">MethodSubclass</a>", but give no indication that
+"<a href="MethodBase">MethodBase</a>" can also be called on this subclass.
+This makes working with <a href="Home">PasDoc</a>'s output a lot more
+difficult than it needs to be; in order to find out what methods you can
+call on a particular class involves looking at the documentation for
+that class, then the parent class, then that parent&#8217;s class&#8230;&#8203; It would
+be <em>extremely</em> useful if a layout similar to that which Delphi&#8217;s help
+file offers would be implemented as an option, which would give an
+at-a-glace view of what any given class offers.</p>
+</div>
+</li>
+</ul>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

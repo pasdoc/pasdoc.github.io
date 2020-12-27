@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//SupportedTags.html" />
+<meta property="og:url" content="https://pasdoc.github.io//SupportedTags.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//SupportedTags.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>You can use tags inside the comments to have <a href="Home">PasDoc</a>
+automatically add some information or have it treat some text in a
+special manner. A tag is always prefixed with the "@" character. Some
+tags require an argument which must be enclosed in braces (see also
+<a href="TagsParametersWithoutParenthesis">TagsParametersWithoutParenthesis</a>),
+others do not, see <a href="TagsParameters">TagsParameters</a>.</p>
+</div>
+<div class="paragraph">
+<p>Alphabetical list of supported tags:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">@@</dt>
+<dd>
+<p>Insert the @ character literally</p>
+</dd>
+<dt class="hdlist1"><a href="AbstractTag">@abstract</a></dt>
+<dd>
+<p>Specify a short abstract of the description</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">@anchor</a></dt>
+<dd>
+<p>Set up an invisible anchor inside introduction/conclusion</p>
+</dd>
+<dt class="hdlist1"><a href="AuthorTag">@author</a></dt>
+<dd>
+<p>Specify an author&#8217;s name (and email address etc.)</p>
+</dd>
+<dt class="hdlist1"><a href="BoldAndItalicTags">@bold</a></dt>
+<dd>
+<p>Format text using bold font</p>
+</dd>
+<dt class="hdlist1"><a href="BrTag">@br</a></dt>
+<dd>
+<p>Force line break</p>
+</dd>
+<dt class="hdlist1"><a href="TableTags">@cell</a></dt>
+<dd>
+<p>Create a cell in a table</p>
+</dd>
+<dt class="hdlist1"><a href="InheritedClassnameNameTag">@classname</a></dt>
+<dd>
+<p>Insert the class name</p>
+</dd>
+<dt class="hdlist1"><a href="CodeTag">@code</a></dt>
+<dd>
+<p>Format argument as code example (see also <a href="LongcodeTag">@longCode</a>)</p>
+</dd>
+<dt class="hdlist1"><a href="CreatedLastmodTag">@created</a></dt>
+<dd>
+<p>Specify creation date of this item</p>
+</dd>
+<dt class="hdlist1"><a href="CvsTag">@cvs</a></dt>
+<dd>
+<p>Obtain last modification time or author name from cvs $Date and $Author keywords</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@definitionList</a></dt>
+<dd>
+<p>Create definition list</p>
+</dd>
+<dt class="hdlist1"><a href="DeprecatedTag">@deprecated</a></dt>
+<dd>
+<p>Mark this item as deprecated</p>
+</dd>
+<dt class="hdlist1"><a href="ExcludeTag">@exclude</a></dt>
+<dd>
+<p>Exclude this item from documentation</p>
+</dd>
+<dt class="hdlist1"><a href="TrueFalseNilTag">@false</a></dt>
+<dd>
+<p>Insert the specially formatted text "false"</p>
+</dd>
+<dt class="hdlist1"><a href="HtmlTag">@html</a></dt>
+<dd>
+<p>Insert the direct HTML code into HTML output</p>
+</dd>
+<dt class="hdlist1"><a href="ImageTag">@image</a></dt>
+<dd>
+<p>Include image file</p>
+</dd>
+<dt class="hdlist1"><a href="IncludeTag">@include</a></dt>
+<dd>
+<p>Include description from file</p>
+</dd>
+<dt class="hdlist1"><a href="IncludeCodeTag">@includeCode</a></dt>
+<dd>
+<p>Include Pascal code (like a longer code example) from file</p>
+</dd>
+<dt class="hdlist1"><a href="InheritedClassnameNameTag">@inherited</a></dt>
+<dd>
+<p>Insert the name of the ancestor class or member</p>
+</dd>
+<dt class="hdlist1"><a href="InheritedClassnameNameTag">@inheritedClass</a></dt>
+<dd>
+<p>Insert the name of the ancestor class</p>
+</dd>
+<dt class="hdlist1"><a href="BoldAndItalicTags">@italic</a></dt>
+<dd>
+<p>Format text using italic font</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@item</a></dt>
+<dd>
+<p>Make list item</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@itemLabel</a></dt>
+<dd>
+<p>Define a label for next item within definition list</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@itemSetNumber</a></dt>
+<dd>
+<p>Change the number of next item inside ordered list</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@itemSpacing</a></dt>
+<dd>
+<p>Control the vertical spacing between items of a list</p>
+</dd>
+<dt class="hdlist1"><a href="CreatedLastmodTag">@lastmod</a></dt>
+<dd>
+<p>Specify last modification date of this item</p>
+</dd>
+<dt class="hdlist1"><a href="LatexTag">@latex</a></dt>
+<dd>
+<p>Insert direct LaTeX code into LaTeX output</p>
+</dd>
+<dt class="hdlist1"><a href="LinkTag">@link</a></dt>
+<dd>
+<p>Insert a link to another item</p>
+</dd>
+<dt class="hdlist1"><a href="LongcodeTag">@longcode</a></dt>
+<dd>
+<p>Format argument as multiline Pascal code example (see also <a href="CodeTag">@code</a>)</p>
+</dd>
+<dt class="hdlist1"><a href="MemberValueTag">@member</a></dt>
+<dd>
+<p>Specify description for a member (field, method, property) of a structure in description of this structure</p>
+</dd>
+<dt class="hdlist1"><a href="InheritedClassnameNameTag">@name</a></dt>
+<dd>
+<p>Insert the name of this item</p>
+</dd>
+<dt class="hdlist1"><a href="TrueFalseNilTag">@nil</a></dt>
+<dd>
+<p>Insert the specially formatted text "nil" here</p>
+</dd>
+<dt class="hdlist1"><a href="AutoLinkOption">@noAutoLink</a></dt>
+<dd>
+<p>Inside parameter of this tag auto-linking is never used</p>
+</dd>
+<dt class="hdlist1"><a href="AutoLinkOption">@noAutoLinkHere</a></dt>
+<dd>
+<p>Never auto-link to this item</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@orderedList</a></dt>
+<dd>
+<p>Create ordered list</p>
+</dd>
+<dt class="hdlist1"><a href="ParamReturnsRaisesTag">@param</a></dt>
+<dd>
+<p>Describe the parameter of this method (or procedure/function)</p>
+</dd>
+<dt class="hdlist1"><a href="PreformattedTag">@preformatted</a></dt>
+<dd>
+<p>Insert text using fixed-width font and preserving whitespace</p>
+</dd>
+<dt class="hdlist1"><a href="ParamReturnsRaisesTag">@raises</a></dt>
+<dd>
+<p>Describe the exception which may be raised by this method</p>
+</dd>
+<dt class="hdlist1"><a href="ParamReturnsRaisesTag">@return, @returns</a></dt>
+<dd>
+<p>Describe function&#8217;s return value</p>
+</dd>
+<dt class="hdlist1"><a href="TableTags">@row</a></dt>
+<dd>
+<p>Create a row in a table</p>
+</dd>
+<dt class="hdlist1"><a href="TableTags">@rowHead</a></dt>
+<dd>
+<p>Create a heading row in a table</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">@section</a></dt>
+<dd>
+<p>Start new section inside introduction/conclusion</p>
+</dd>
+<dt class="hdlist1"><a href="SeeAlsoTag">@seealso</a></dt>
+<dd>
+<p>Create "See also" section for given item</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">@shorttitle</a></dt>
+<dd>
+<p>Short title of introduction/conclusion</p>
+</dd>
+<dt class="hdlist1"><a href="TableTags">@table</a></dt>
+<dd>
+<p>Create a table</p>
+</dd>
+<dt class="hdlist1"><a href="TableOfContentsTag">@tableOfContents</a></dt>
+<dd>
+<p>Insert table of contents into introduction/conclusion</p>
+</dd>
+<dt class="hdlist1"><a href="IntroductionAndConclusion">@title</a></dt>
+<dd>
+<p>Title of introduction/conclusion</p>
+</dd>
+<dt class="hdlist1"><a href="TrueFalseNilTag">@true</a></dt>
+<dd>
+<p>Insert the specially formatted text "true"</p>
+</dd>
+<dt class="hdlist1"><a href="ListTags">@unorderedList</a></dt>
+<dd>
+<p>Create unordered list</p>
+</dd>
+<dt class="hdlist1"><a href="MemberValueTag">@value</a></dt>
+<dd>
+<p>Description for enumerated value in description of it&#8217;s enumerated type</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Some other special @-constructs:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">@-</dt>
+<dd>
+<p>Insert short dash. Usually you can simply write "-", no need to precede it with "@", but in some special cases it&#8217;s needed if you want to avoid creating en-dash or em-dash in the output. See <a href="WritingDocumentation">WritingDocumentation</a> for notes about en-dashes and em-dashes.</p>
+</dd>
+<dt class="hdlist1">@(</dt>
+<dd>
+<p>Insert the opening parenthesis character.
+Usually you can simply write "(", no need to precede it with "@", but in some special cases it&#8217;s needed --- see <a href="TagsParametersMatching">TagsParametersMatching</a>.</p>
+</dd>
+<dt class="hdlist1">@)</dt>
+<dd>
+<p>Insert the closing parenthesis character. Usually you can simply write ")", no need to precede it with "@", but in some special cases it&#8217;s needed --- see <a href="TagsParametersMatching">TagsParametersMatching</a>.</p>
+</dd>
+</dl>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

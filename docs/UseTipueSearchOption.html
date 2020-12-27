@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//UseTipueSearchOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//UseTipueSearchOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//UseTipueSearchOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Pass the <a href="CommandLine">CommandLine</a> option <code>--use-tipue-search</code> to pasdoc (or check the <em>Use tipue search engine</em> box in the <a href="PasDocGui">PasDocGui</a>) to instantly get a working "<em>Search</em>" box in the HTML output. It allows full text search on the generated documentation.</p>
+</div>
+<div class="paragraph">
+<p>The search is implemented using <a href="http://www.tipue.com/">Tipue</a>. It is a nice lightweight JavaScript search engine. You don&#8217;t have to know how it works&#8201;&#8212;&#8201;you need to <em>only</em> pass the <code>--use-tipue-search</code> option to pasdoc, everything else is done automatically and you get a working "Search" box in your HTML documentation.</p>
+</div>
+<div class="sect1">
+<h2 id="tipue-is-a-client-side-search-engine">Tipue is a client-side search engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Note that <em>Tipue</em> is a client-side search engine (as it uses JavaScript for everything). This means that the whole work is done by your web browser.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On one hand, this is comfortable, as it allows the "search" functionality to "just work", no matter how you view the documentation (through an HTTP server or not). You don&#8217;t need to configure anything. PasDoc puts all the files where they should be (Tipue, jQuery, generated index data for Tipue), and the search works.</p>
+</li>
+<li>
+<p>On the other hand, the browser has to download the (potentially large) "index data" of your documentation when doing a search. <em>Tipue</em> search cannot show any results before this data is downloaded. You should watch the size of <code>tipuesearch/tipuesearch_content.js</code> file (in earlier versions, <code>tipuesearch_data.js</code>) in your generated documentation. If it&#8217;s too large (if downloading it takes a while), then possibly you have outgrown the <em>Tipue</em> capabilities, and you should look into other search implementations (e.g. your own server-side search, or using Google search box).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>That said, it works quite nicely even with a large documentation in our experience (<em>Castle Game Engine</em> is using it with over 150 units&#8230;&#8203;).</p>
+</div>
+<div class="paragraph">
+<p>To test the speed, you can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Search for something.</p>
+</li>
+<li>
+<p>Once you&#8217;re on the "<em>Search results</em>" page of your documentation, <a href="https://www.getfilecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/">hard refresh the page (Ctrl + Shift + R)</a>. You can watch the "<em>Network</em>" panel of developer tools in Firefox or Chrome to watch how <code>tipuesearch_content.js</code> is downloading.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>One day we may implement options to integrate other search solutions, see <a href="ToDoSearch">ToDoSearch</a>.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

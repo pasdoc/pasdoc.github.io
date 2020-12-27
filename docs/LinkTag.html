@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//LinkTag.html" />
+<meta property="og:url" content="https://pasdoc.github.io//LinkTag.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//LinkTag.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Inside a description of one item you can place a link to another item
+using @link <a href="SupportedTags">tag</a>. Depending on the type of output,
+these links could be hyperlinks (in HTML) or page references (in LaTeX).</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">const
+  MaxFactorialArgument = 20;
+
+{ This function calculates factorial of n, n!.
+  You should always call this function with
+  n &lt;= @link(MaxFactorialArgument),
+  otherwise result will not fit in Int64 type. }
+function SmallFactorial(n: Integer): Int64;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can link to <em>any</em> item in your units that has some Pascal
+identifier. So you can link not only to some procedure, constant,
+variable, etc. but also to a whole class or a whole unit.</p>
+</div>
+<div class="paragraph">
+<p>You can use qualified names for the link target, like</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>@link(SomeClassName.IdentifierinThisClass) or</p>
+</li>
+<li>
+<p>@link(SomeUnitName.IdentifierInThisUnit) or even</p>
+</li>
+<li>
+<p>@link(SomeUnitName.SomeClassName.Identifier).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When resolving links, pasdoc tries to loosely mimic Pascal identifier
+scope: The name of an identifier is first searched within the current
+class / record etc., then within the current unit, then within the units
+in the uses clause. Only if that fails pasdoc will search globally in
+all known units.</p>
+</div>
+<div class="sect1">
+<h2 id="explicit-display-name-of-a-link"><a id="explicit-display-name-of-a-link"></a> Explicit display name of a link</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can also specify an explicit display name for this link, simply by
+putting a space after your link target and then typing the link display
+name. E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>@link(TMyClass.MyMethod This is a silly link to MyMethod in TMyClass)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>One use for such an explicit name is if you have a class TMemo that has
+a property named Lines that returns an instance of a class TStringList.
+You want to document routine TMemo.Clear, that calls Lines.Clear and
+then does some repainting stuff. So you want to link in your description
+to TStringList.Clear, but you want the link to show as Lines.Clear. You
+can do it by writing a description like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
+  TMemo = class
+    property Lines: TStringList read FLines;
+
+    { This method calls @link(TStringList.Clear Lines.Clear)
+      and then does some repainting stuff. }
+    procedure Clear;
+  end;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If no explicit display name was specified, then what multipart links
+will look like depends on the <code>--link-look</code> <a href="CommandLine">CommandLine</a> option.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

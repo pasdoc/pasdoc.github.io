@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//PasDocFpDocComparison.html" />
+<meta property="og:url" content="https://pasdoc.github.io//PasDocFpDocComparison.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//PasDocFpDocComparison.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Below I tried to summarize <a href="Home">PasDoc</a>
+(<a href="http://pasdoc.sourceforge.net/" class="bare">http://pasdoc.sourceforge.net/</a>) and FpDoc
+(<a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html" class="bare">http://www.freepascal.org/docs-html/fpdoc/fpdoc.html</a>) differences. This
+is written by <a href="MichalisKamburelis">MichalisKamburelis</a>, an author
+of <a href="Home">PasDoc</a>&#8201;&#8212;&#8201;but I tried to be as objective as I can.
+Feel welcome to edit and improve this page.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FpDoc keeps descriptions in separate XML files. <a href="Home">PasDoc</a>
+keeps descriptions inside comments in the source interface, or inside
+external files (one file for many descriptions, or one file with one
+description using @include).</p>
+</li>
+<li>
+<p>Formatting in <a href="Home">PasDoc</a> is
+done using @tags (similar to javadoc and such), like
+@bold(This is bold text). Formatting in FpDoc is done using XML elements
+(similar to HTML), like &lt;b&gt;This is bold text&lt;/b&gt;. Both projects support
+a lot of formatting options, you can compare the list of @tags on
+<a href="SupportedTags">SupportedTags</a> with the "Tag reference" on
+<a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html" class="bare">http://www.freepascal.org/docs-html/fpdoc/fpdoc.html</a> .</p>
+</li>
+<li>
+<p>For a list of
+supported command-line options and formatting compare
+<a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html" class="bare">http://www.freepascal.org/docs-html/fpdoc/fpdoc.html</a> with
+<a href="CommandLine">CommandLine</a> . Both projects support a lot
+of options, the differences are in details.</p>
+</li>
+<li>
+<p>Some advanced features of
+<a href="Home">PasDoc</a> are listed on
+<a href="AdvancedFeatures">AdvancedFeatures</a> . Most of them are not available
+in fpdoc as far as I know.</p>
+</li>
+<li>
+<p>Both programs support many output formats
+including HTML and LaTeX.</p>
+<div class="paragraph">
+<p><a href="Home">PasDoc</a> has an output called htmlhelp, while fpdoc has chm output, although I didn&#8217;t compare them personally. <a href="Home">PasDoc</a> also has <a href="SimpleXmlOutput">simplexml</a> output, and latex2rtf output.</p>
+</div>
+<div class="paragraph">
+<p>You can see sample output of pasdoc e.g. here <a href="PasDocAutoDoc">PasDocAutoDoc</a> . Sample fpdoc output is the FPC reference.</p>
+</div>
+</li>
+<li>
+<p><a href="Home">PasDoc</a> has a simple cross-platform
+GUI (in addition to the command-line of course).</p>
+</li>
+<li>
+<p>FpDoc has
+<a href="http://wiki.freepascal.org/FPDoc_Editor" class="bare">http://wiki.freepascal.org/FPDoc_Editor</a> .</p>
+</li>
+<li>
+<p><a href="Home">PasDoc</a> also
+has some useful tools like Pascal preprocessor and file_to_pascal_string
+.</p>
+</li>
+<li>
+<p>On the other hand, fpdoc is written using fcl-passrc parser, that
+can be more easily used by other projects.</p>
+</li>
+</ul>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

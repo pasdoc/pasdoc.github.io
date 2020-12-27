@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//CacheOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//CacheOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//CacheOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Using option --cache-dir DIR you tell pasdoc to use directory DIR as a cache. This means that</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Before parsing a unit pasdoc checks whether a cache file for this unit exists in the cache directory (and is newer than the unit source file). If yes, then pasdoc reads processed information about this unit from the cache. There&#8217;s no need to parse and process the unit once again.</p>
+</li>
+<li>
+<p>If some unit had to be parsed, then after parsing this unit, pasdoc will store the processed information about this unit in the cache.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This means that pasdoc will not have to parse all units that you gave it on command line, so pasdoc will work faster.</p>
+</div>
+<div class="sect1">
+<h2 id="example"><a id="example"></a> Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I&#8217;m doing a large documentation for my 77 units. I&#8217;m generating documentation for them using command like</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --format html --cache-dir pasdoc-cache/ ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(where "&#8230;&#8203;" means "other options", specifying units to process etc.) Generating documentation for the first time takes 43 seconds. Pasdoc parses and processes every unit, generates documentation for it and additionally writes a cache file for each unit in pasdoc-cache/ subdirectory. Now I change the source code of only <em>one</em> unit and I want to generate documentation for my units once again. If I did not use a cache, this would take again about 43 seconds. But, since I&#8217;m using a cache, when I run pasdoc for the second time it needs only to parse and process one unit, and information about the rest of 76 units is obtained from the cache. And generating documentation takes only 3 seconds. 3 seconds is of course a lot faster than 43 seconds.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="some-notes"><a id="some-notes"></a> Some notes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In case of some output formats, additional speedup may be obtained from the cache: When pasdoc realizes that some unit info was obtained from the cache <em>and</em> it sees that some part of output (e.g. html file corresponding to a given unit, in case of using html output) is already present (and is newer than the cache file) then pasdoc does <em>not</em> write that part of the output (e.g. this html file) once again. This means that you not only save parsing time, but you also save time spent writing documentation.</p>
+<div class="paragraph">
+<p>For now, this is implemented only in case of <a href="HtmlOutput">html output</a>.</p>
+</div>
+</li>
+<li>
+<p>As you can see, there are some assumptions about the cache that you must be aware of when using cache:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You can&#8217;t rely on cache to work properly if you call pasdoc with different parsing options. E.g. if you generated the cache while <em>not</em> using <a href="CommentMarker">--staronly option</a> and then you remake your documentation <em>with</em> <a href="CommentMarker">--staronly option</a>, then cache will be mistakenly used (even though it shouldn&#8217;t).</p>
+</li>
+<li>
+<p>pasdoc compares last modification time of unit source file with last modification time of cache file for this unit. This means that if you use include files ($I directive of all Pascal compilers) and you modify some text inside include file, then pasdoc may not realize that cache file is outdated and whole unit must be parsed again.</p>
+<div class="paragraph">
+<p>If any of such cases occur, it&#8217;s best to explicitly remove all cache files (e.g. rm -Rf pasdoc-cache/), to make sure that pasdoc will not use them and will parse all files and write docs for them.</p>
+</div>
+<div class="paragraph">
+<p>Some problems above may be fixed in pasdoc in the future. They certainly can be fixed in pasdoc cleanly, but they require some work.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>pasdoc will create the cache directory if it doesn&#8217;t exist (but the creation is not recursive, i.e. multiple levels of directories are not created) (TODO: well, this can be easily fixed)</p>
+</li>
+<li>
+<p>The cache is independent from the output format. So you can reuse a cache generated when making <code>html</code> to generate a <code>latex</code> version.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

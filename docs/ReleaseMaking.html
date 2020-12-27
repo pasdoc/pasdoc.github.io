@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//ReleaseMaking.html" />
+<meta property="og:url" content="https://pasdoc.github.io//ReleaseMaking.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//ReleaseMaking.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p>Release making process:</p>
+</div>
+<div class="sect1">
+<h2 id="change-version-number">Change version number</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Change version of all packages in pasdoc/source/packages/ dir. Right now this means changing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8230;&#8203;/packages/lazarus/pasdoc_package.lpk</p>
+</li>
+<li>
+<p>all Delphi packages</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>change VERSION in pasdoc/Makefile</p>
+</li>
+<li>
+<p>change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="write-changelog-entry"><a id="write-changelog-entry"></a> Write ChangeLog entry</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Make sure you have nice entry in <a href="https://github.com/pasdoc/pasdoc/blob/master/ChangeLog" class="bare">https://github.com/pasdoc/pasdoc/blob/master/ChangeLog</a> file in pasdoc sources.</p>
+</div>
+<div class="paragraph">
+<p>We try to write the ChangeLog entry <em>while</em> developing PasDoc (each time someone does something significant, it&#8217;s immediately added to the ChangeLog). So at this point, mainly __review and finalize (write new verion number and release date) ChangeLog entry.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compile-and-test-all-releases"><a id="compile-and-test-all-releases"></a> Compile and test all releases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Make sure you have the latest stable FPC and Lazarus versions.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>make clean build-fpc-default</code> or <code>make clean build-fpc-&lt;os/arch&gt;</code> to compile a release version of pasdoc. Or you can just call <code>make dist-&lt;os/arch&gt;</code>, this will make <code>clean</code> and <code>build-fpc-&lt;os/arch&gt;</code> as the first steps. (Note that it&#8217;s important to call <code>clean</code> before <code>build-fpc-&lt;os/arch&gt;</code>, otherwise you risk that some units were left as compiled with debug options).</p>
+</div>
+<div class="paragraph">
+<p>Run all the tests by</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>cd pasdoc/tests/scripts
+./run_all_tests.sh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are various comments inside <code>tests/run_all_tests.sh</code> about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.</p>
+</div>
+<div class="paragraph">
+<p>To be perfect, you should run these tests on all targets.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="update-docs"><a id="update-docs"></a> Update docs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Remove from the documentation text</p>
+</div>
+<div class="paragraph">
+<p><em>Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use <a href="DevelopmentSnapshots">DevelopmentSnapshots</a> to use this feature.</em></p>
+</div>
+<div class="paragraph">
+<p>(where <em>x.y.z</em> is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase <em>Note that this feature is not available in latest released pasdoc version</em>. (For GitHub wiki, you can clone it and then just grep locally.)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compile-and-test-pasdoc_gui"><a id="compile-and-test-pasdoc_gui"></a> Compile and test pasdoc_gui</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Get latest stable FPC.</p>
+</li>
+<li>
+<p>Get latest stable Lazarus.</p>
+</li>
+<li>
+<p>Compile <a href="PasDocGui">PasDocGui</a> from command-line using lazbuild:</p>
+<div class="listingblock">
+<div class="content">
+<pre>lazbuild source/packages/lazarus/pasdoc_package.lpk
+lazbuild source/gui/pasdoc_gui.lpi</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Compile <a href="PasDocGui">PasDocGui</a> interactively, from within Lazarus.</p>
+</li>
+<li>
+<p>Test pasdoc_gui: for basic test, open the project with pasdoc&#8217;s autodoc source/autodoc/autodoc.pds and hit "Generate".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For platforms where pasdoc_gui is included in releases (currently this means Linux-x86, Darwin-x86, Win32) the make dist-&#8230;&#8203; will automatically compile and include pasdoc_gui binary (using lazbuild to compile Lazarus package and project in batch mode).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="recompile-and-archive-all-releases"><a id="recompile-and-archive-all-releases"></a> Recompile and archive all releases</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use make dist-&lt;os/arch&gt;. This will do clean, then appropriate build-&lt;compiler&gt;-&lt;os/arch&gt;, then will produce archive named like pasdoc-&lt;version&gt;-&lt;os/arch&gt;. This is the archive you want to release.</p>
+</div>
+<div class="paragraph">
+<p>Source archive is made by make dist-src.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="release-files-using-sourceforge-file-release-system"><a id="release-files-using-sourceforge-file-release-system"></a> Release files using sourceforge file release system</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Upload on <code>sftp://kambi,<a href="mailto:pasdoc@frs.sourceforge.net">pasdoc@frs.sourceforge.net</a>/home/frs/project/p/pa/pasdoc</code> (edit this to include your SourceForge username).</p>
+</li>
+<li>
+<p>Package name for archives with compiled version (created by make dist-&lt;os/arch&gt;) is <em>PasDoc os-arch</em>. Package name for source archive (the one created by make dist-src) is <em>PasDoc Sources</em>.</p>
+</li>
+<li>
+<p>Remember to mark files that should be the default download on some systems (Linux, Windows). For Linux, mark 64-bit version to download by default, as 64-bit is more popular now.</p>
+</li>
+<li>
+<p>Download the uploaded files and compare with originals, or check md5sums, to be absolutely sure they are Ok.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tag-in-version-control">Tag in version control</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add a tag x.y.z to version control by <code>make tag</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="final-things-to-do"><a id="final-things-to-do"></a> Final things to do</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In our <a href="https://sourceforge.net/p/pasdoc/bugs/">bugs tracker</a>, add a group <em>x.y.z</em></p>
+</li>
+<li>
+<p>It&#8217;s a good idea to upload <a href="PasDocAutoDoc">PasDocAutoDoc</a> at this time, like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre>cd pasdoc/source/autodoc/
+make clean public upload SF_USERNAME=my_user_name</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Send mail about release to our pasdoc-main mailing list.</p>
+</li>
+<li>
+<p><a href="https://sourceforge.net/p/pasdoc/news/">Submit news item</a> <em>PasDoc x.y.z released</em></p>
+</li>
+<li>
+<p>Announce new release on <a href="http://freshcode.club/projects/pasdoc" class="bare">http://freshcode.club/projects/pasdoc</a>.</p>
+</li>
+<li>
+<p>Announce new release on <a href="http://lazarus.freepascal.org/">Lazarus forum</a>.</p>
+</li>
+<li>
+<p>Announce new release on FB, G+</p>
+</li>
+<li>
+<p>Send an update to <a href="http://directory.fsf.org/project/pasdoc/">FSF directory</a>.</p>
+</li>
+<li>
+<p>Prepare for next release: ChangeLog file should start with line</p>
+<div class="listingblock">
+<div class="content">
+<pre>[Next release -- release date and new version number unknown yet...]</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Really, really large and significant improvements may be signalled by
+changing the project&#8217;s description:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>on <a href="https://sourceforge.net/projects/pasdoc/">SF project page</a></p>
+</li>
+<li>
+<p>on <a href="http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc">Lazarus wiki "Projects Using Lazarus" page</a></p>
+</li>
+<li>
+<p>on <a href="https://www.ohloh.net/p/PasDoc">ohloh page</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

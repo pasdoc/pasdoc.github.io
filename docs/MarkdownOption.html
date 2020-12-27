@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//MarkdownOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//MarkdownOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//MarkdownOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="overview"><a id="overview"></a> Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run PasDoc with <code>--markdown</code> <a href="CommandLine">command-line option</a> to understand (a subset of) <a href="https://github.github.com/gfm">Markdown</a> syntax in the comments. This allows to specify various formatting options without <a href="SupportedTags">writing <code>@tags</code></a>, which sometimes looks much more readable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supported-blocks"><a id="sup-blocks"></a> Supported blocks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Note that only a subset of Markdown syntax is supported.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bold text: <code>**bold**</code> or <code>__bold__</code> (output like <a href="BoldAndItalicTags">@bold tag</a>)</p>
+</li>
+<li>
+<p>Italic text: <code>*italic*</code> or <code>_italic_</code> (output like <a href="BoldAndItalicTags">@italic tag</a>)</p>
+</li>
+<li>
+<p>Inline code: <code>`code`</code> (output like <a href="CodeTag">@code tag</a>)</p>
+</li>
+<li>
+<p>Links: <code>[Link Title](<a href="https://example.org/link-target" class="bare">https://example.org/link-target</a>)</code> (output like <a href="UrlTag">@url tag</a>)</p>
+</li>
+<li>
+<p>Multi-line code (preformatted text, output like <a href="PreformattedTag">@preformatted tag</a>):</p>
+<div class="paragraph">
+<p><strong>Important note</strong>: Use 3 backtick characters, like this ```, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>'''
+Example
+preformatted
+multi-line
+text.
+'''</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Multi-line Pascal code with syntax highlighting (output like <a href="LongCodeTag">@longCode tag</a>):</p>
+<div class="paragraph">
+<p><strong>Important note</strong>: Use 3 backtick characters, like this ```, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>'''pascal
+if Foo then
+  Writeln('Example Pascal code'); // comment
+'''</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Unordered lists (output like <a href="ListTags">@unorderedlist tag</a>):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>* item 1
+* item 2</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ordered lists (output like <a href="ListTags">@orderedlist tag</a>):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>1. item 1
+2. item 2</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="notes-on-lists">Notes on lists</h3>
+<div class="paragraph">
+<p>List items are defined with the usual format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>[WHITESPACE*N]MARKER[item contents]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>WHITESPACE*N</code> is any number (including zero) of tabs <code>#9</code> or spaces <code>#32</code></p>
+</li>
+<li>
+<p><code>MARKER</code> is</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>*</code> or <code>-</code>, followed by one whitespace character, for unordered lists</p>
+</li>
+<li>
+<p>NUMBER, followed by <code>.</code> or <code>)</code>, followed by one whitespace character, for ordered lists</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nested lists are supported as well. Each nested list must be indented with at least one more whitespace character than the parent item:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>* item 1
+  * item 1.2
+    * item 1.3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that PasDoc implementation of lists is somewhat simpler and stricter than, f.i., GitHub has.
+PasDoc is much about indents - almost always a content belonging to one nesting level has the same indent. Exception is for text content without <strong>empty line</strong> only.
+Rules of how PasDoc reads list item contents (hereafter <strong>indent of a text line</strong> means number of leading whitespace characters and <strong>indent of a list item</strong> means number of leading characters before first character of item content - that is, leading whitespace characters plus list marker).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List item with indent lesser than current means current list is finished</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> * item 1
+  * item 1.2
+ * item 2</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List item with indent greater than current means nested list</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>* item 1
+ * item 1.1</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Line of text not preceded by <strong>empty line</strong> belongs to current item regardless of indent</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>* item 1
+  * item 1.1
+text 1.1
+   text 1.1</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Line of text preceded by <strong>empty line</strong> must have the same or greater indent to belong to current item. Text with lesser indent means current list is finished</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>* item 1
+  * item 1.1
+    text 1.1
+      text 1.1
+* item 2
+  * item 2.1
+
+   text 2</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List item with the same indent is considered sibling of current item within current list (even preceded by <strong>empty line</strong>!)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>* item 1
+
+* item 2
+
+* item 3</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-unit"><a id="example-unit"></a> Example unit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See the <a href="https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_markdown.pas">test unit of this feature</a> and <a href="https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/testcases_output/html/ok_markdown/ok_markdown.html">pasdoc output for this test (generated with --markdown option)</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="future"><a id="future"></a> Future</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Going forward, we want to implement as much as possible from <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> syntax. All new Markdown features implemented in PasDoc should follow that spec as closely as possible.</p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

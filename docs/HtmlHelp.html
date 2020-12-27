@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//HtmlHelp.html" />
+<meta property="og:url" content="https://pasdoc.github.io//HtmlHelp.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//HtmlHelp.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="paragraph">
+<p><em>HTML Help</em> is a file format for documentation. The final documentation can be a single file with an extension <code>.chm</code> (for "<em>compiled html</em>"). It was designed by Microsoft, along with some proprietary tools to create and view it, but a number of cross-platform open-source viewers also exist now.</p>
+</div>
+<div class="paragraph">
+<p>As the name suggests, the format is based on HTML. Internally, a <code>.chm</code> file is just a collection of HTML files, with some extra information. See <a href="https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help">Wikipedia</a> and <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx">Microsoft documentation</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p><a href="Home">PasDoc</a> can generate all the files necessary to create the <em>HTML Help</em> documentation. We do not produce a ready <code>.chm</code> file&#8201;&#8212;&#8201;but we generate all the prerequisites necessary, so that you can create the final file using the <em>Microsoft HTML Workshop</em> (free download).</p>
+</div>
+<div class="paragraph">
+<p>How to use <em>HTML Help</em> output:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate htmlhelp documentation with pasdoc with <code>--format=htmlhelp</code>. In addition to normal html files, pasdoc
+will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>docs.hhp</code>. You can change the names of these files to something else with <a href="NameOption">--name option</a>.</p>
+</li>
+<li>
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx">Download HTML Help Workshop</a></p>
+</li>
+<li>
+<p>Make <code>docs.chm</code> file:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Interactively: run the <code>hhw</code> program from the <em>HTML Help Workshop</em>, (by default in <code>C:\Program Files (x86)\HTML Help Workshop</code>), open generated <code>docs.hhp</code> file, and run <em>"Compile HTML file"</em> from toolbar.</p>
+</li>
+<li>
+<p>Or in batch mode: run <code>hhc docs.hhp</code> (make sure that the program <code>hhc</code> is on your $PATH first).</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>That&#8217;s it! You have <code>docs.chm</code> file, that can be viewed with <em>HTML Help</em> viewer.</p>
+</div>
+<div class="sect1">
+<h2 id="custom-help-contents">Custom help contents</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Optionally, if you wish to use a custom help-contents file, you can specify a file name with the <code>--html-help-contents</code> option for PasDoc. Each line of the file specifies an entry in the help contents. Each space or tab character at the beginning of a line increases the level of the item in the contents by 1. The remainder of the line comprises a title for the item, an "=" character, and the link to which the item should be connected. For example: <code>An Item = MyPage.html</code></p>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

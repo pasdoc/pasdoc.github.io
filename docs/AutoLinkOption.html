@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>PasDoc | Documentation tool for Pascal source code</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="PasDoc" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documentation tool for Pascal source code" />
+<meta property="og:description" content="Documentation tool for Pascal source code" />
+<link rel="canonical" href="https://pasdoc.github.io//AutoLinkOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//AutoLinkOption.html" />
+<meta property="og:site_name" content="PasDoc" />
+<script type="application/ld+json">
+{"headline":"PasDoc","description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//AutoLinkOption.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b02a1594663c06e9fb1e1236f98feca59c79f6d9">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">PasDoc</h1>
+      <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
+      
+        <a href="https://github.com/pasdoc/pasdoc.github.io" class="btn">View on GitHub</a>
+      
+      
+        <a href="https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip" class="btn">Download .zip</a>
+        <a href="https://github.com/pasdoc/pasdoc.github.io/tarball/gh-pages" class="btn">Download .tar.gz</a>
+      
+    </section>
+
+    <section class="main-content">
+      <div class="sect1">
+<h2 id="overview"><a id="overview"></a> Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="CommandLine">CommandLine</a> option <code>--auto-link</code> tells pasdoc to automatically turn identifiers into links inside your descriptions. In <a href="PasDocGui">PasDocGui</a> you can check the box <em>Automatically turn identifiers into links</em>, for the same effect.</p>
+</div>
+<div class="paragraph">
+<p>The goal is for you to not have to use the <a href="LinkTag">@link tag</a> explicitly so often.</p>
+</div>
+<div class="paragraph">
+<p>For example, consider this code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This works like procedure @link(Bar). }
+procedure Foo;
+{ This works like procedure @link(Foo). }
+procedure Bar;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You could use --auto-link option and write just</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This works like procedure Bar. }
+procedure Foo;
+{ This works like procedure Foo. }
+procedure Bar;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Identifiers <code>Bar</code> and <code>Foo</code> will be automatically turned into links.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="noautolinkhere-tag"><a id="noautolinkhere-tag"></a> @noAutoLinkHere tag</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you use auto-linking, you can prevent pasdoc from automatically linking to given item by placing <code>@noAutoLinkHere</code> tag within description of this item.</p>
+</div>
+<div class="paragraph">
+<p>This is useful if the name of given item is a common "normal" word. In such cases you may prefer to not turn this word into a link automatically. You will have to always use explicit <a href="LinkTag">@link tag</a> to link to this item.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @noAutoLinkHere }
+procedure This;
+
+{ This is a nice description of Foo.
+  The word "this" is not automatically turned into a link,
+  because of @@noAutoLinkHere tag in the description of
+  @link(This) item. }
+procedure Foo;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="auto-link-exclude-option"><a id="auto-link-exclude-option"></a> --auto-link-exclude option</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use like <code>--auto-link-exclude=FILENAME</code>, where FILENAME is an existing file that contains one identifier name per line. For example,</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>This
+Create
+Destroy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Identifiers specified in this file will never be automatically linked by pasdoc. This is the equivalent to writing <code>@noAutoLinkHere</code> tag at each declaration of such identifier. In some cases, using this is much more convenient than <code>@noAutoLinkHere</code>, because some identifiers like <code>Create</code> and <code>Destroy</code> are often declared, and you almost never want them to be auto-linked. After all, <code>Create</code> and <code>Destroy</code> are normal English words, and most often you use them in their normal meaning, without the intention of linking to class constructor / destructor.</p>
+</div>
+<div class="paragraph">
+<p>Following the above reasoning, you may even want to put all normal English words on your exclusion list by using</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>--auto-link-exclude=/usr/share/dict/american-english</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(assuming you live on Unix system with appropriate dictionary file installed).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="noautolink-tag"><a id="noautolink-tag"></a> @noAutoLink tag</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you use auto-linking, you can locally prevent pasdoc from automatically turning your words into a link by using <code>@noAutoLink</code> tag. You can put any content within @noAutoLink tag, and it will be processed as usual&#8201;&#8212;&#8201;with the exception that identifiers will <em>not</em> be auto-linked inside.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ }
+procedure This;
+
+{ @noAutoLink( This is a nice description of Foo.
+  The word "this" is not automatically turned into a link, because
+  this text is within the @@noAutoLink tag.) }
+procedure Foo;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The whole idea of auto-linking is that you will have to seldom use <code>@noAutoLink</code> and <code>@noAutoLinkHere</code> tags, but on the other hand you will almost never have to use <code>@link</code> tag. Without auto-linking, there&#8217;s no need to ever use <code>@noAutoLink</code> or <code>@noAutoLinkHere</code> tags (they don&#8217;t change anything), but you have to very often use @link tag.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="details"><a id="details"></a> Details</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="auto-linking-messages"><a id="auto-linking-messages"></a> Auto-linking messages</h3>
+<div class="paragraph">
+<p>When you request verbosity &gt;= 3 (by <a href="CommandLine">CommandLine</a> option --verbosity) you will see informational messages from pasdoc about what identifiers were auto-linked. They will look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Info[3]: Automatically linked identifier "foo" (in description of "bar")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These messages may be useful to you when you want to make sure that you don&#8217;t have to wrap any additional text inside @noAutoLink or put @noAutoLinkHere in description of some item.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="identifier-name-inside-its-own-description"><a id="identifier-name-inside-its-own-description"></a> Identifier name inside its own description</h3>
+<div class="paragraph">
+<p>When you write the name of your current item, then (with auto-linking turned on) it will be treated like you used @name tag. Consider this example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ MyProcedure is a very useful procedure. }
+procedure MyProcedure;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With auto-linking turned on, this example is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @name is a very useful procedure. }
+procedure MyProcedure;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So the text "MyProcedure" will be specially formatted in the output (usually using some fixed-width font).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-details"><a id="other-details"></a> Other details</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that actually whole <em>qualified identifiers</em> are subject to auto-linking. This means that you can e.g. write TMyClass.MyField and it will be turned into a link if there exists a class named TMyClass with a field MyField. Similar for things like e.g. MyUnit.MyVariable or even MyUnit.TMyClass.MyField.</p>
+</li>
+<li>
+<p>Auto-linking in pasdoc is quite similar to idea of links in doxygen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/pasdoc/pasdoc.github.io">pasdoc.github.io</a> is maintained by <a href="https://github.com/pasdoc">pasdoc</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
