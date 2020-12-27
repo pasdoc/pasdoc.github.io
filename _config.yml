@@ -1,4 +1,5 @@
 # see https://jekyllrb.com/docs/configuration/
+# theme: jekyll-theme-hyde
 theme: jekyll-theme-cayman
 source: ./src/
 destination: ./docs/

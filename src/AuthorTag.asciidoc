@@ -1,3 +1,8 @@
+---
+title: author
+---
+# author
+
 Use an @author tag to specify the author of this item. Use multiple
 @author tags if given item (e.g. unit) has many authors. Example:
 

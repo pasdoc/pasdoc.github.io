@@ -9,6 +9,7 @@ gem "github-pages", "~> 209", group: :jekyll_plugins
 
 group :jekyll_plugins do
   gem "jekyll-asciidoc"
+#  gem "jekyll-theme-hyde"
 end
 
 # Note: As we actually run Jekyll manually, this could possibly be done by "pure"
