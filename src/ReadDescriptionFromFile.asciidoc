@@ -1,3 +1,7 @@
+---
+title: Read Descriptions From File (--description)
+---
+
 link:Home[PasDoc] can read descriptions from external files specified by the `--description` (short form `-R`) option on the link:CommandLine[CommandLine].
 
 Example:
