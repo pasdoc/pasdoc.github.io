@@ -7,10 +7,18 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 # 209 from https://pages.github.com/versions/
 gem "github-pages", "~> 209", group: :jekyll_plugins
 
-# gem "jekyll"
 group :jekyll_plugins do
   gem "jekyll-asciidoc"
 end
+
+# Note: As we actually run Jekyll manually, this could possibly be done by "pure"
+# Jekyll, without GitHub integration. For this, remove github references above,
+# and instead do
+#   gem "jekyll"
+# and also manually include necessary gems, like jekyll-theme-cayman
+# and Markdown parser.
+# I didn't pursue this for now, but it should be possible to make,
+# if the need to remove dependency on GitHub packages arises.
 
 # After changing, run
 #   bundle install
