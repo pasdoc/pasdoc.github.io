@@ -1,7 +1,7 @@
 # see https://jekyllrb.com/docs/configuration/
 theme: jekyll-theme-cayman
 source: ./src/
-destination: ../docs/
+destination: ./docs/
 url: https://pasdoc.github.io/
 
 # see https://github.com/pages-themes/cayman
