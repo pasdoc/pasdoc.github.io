@@ -23,7 +23,7 @@ pasdoc @my-config-file.txt myuni1.pas
 
 Examples of config file contents.
 
-### Correct
+#### Correct
 
 ```
 markdown
@@ -32,7 +32,7 @@ title=My super project
 include=$CFG_PATH/includes/
 ```
 
-### Not correct
+#### Not correct
 
 ```
 no-macro auto-link          // two options per line

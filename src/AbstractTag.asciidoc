@@ -1,8 +1,3 @@
----
-title: abstract
----
-# abstract
-
 For some item types like classes or units you may write very large
 descriptions to give an adequate introduction. However, these large
 texts are not appropriate in an overview list. Use the abstract tag to
