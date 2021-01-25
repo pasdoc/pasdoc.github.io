@@ -4,8 +4,7 @@ set -eu
 rm -Rf src/*.asciidoc
 cp -f ../pasdoc.wiki/*.asciidoc src/
 
-# TODO: we should "mv" to index name, not copy, once we're sure we have no remaining links to Home
-cp src/Home.asciidoc src/index.asciidoc
+mv src/Home.asciidoc src/index.asciidoc
 
 for F in src/*.asciidoc; do
   # Increase header indentation for all files
@@ -20,4 +19,5 @@ for F in src/*.asciidoc; do
   sed --in-place -e 's|link:Home\[PasDoc\]|link:index[PasDoc]|' "$F"
   sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
   sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
+  sed --in-place -e 's|link:Home\[on the main page\]|link:index[PasDoc]|' "$F"
 done

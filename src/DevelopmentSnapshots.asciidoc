@@ -17,5 +17,5 @@ are just snapshots. When reporting bugs for them, please mention that
 you used the snapshots, and mention their date (or Git revision).
 
 Remember that you can always download and compile current pasdoc sources
-yourself. See the GIT instructions link:Home[on the main page] and
+yourself. See the GIT instructions link:index[PasDoc] and
 see link:CompilingPasDoc[CompilingPasDoc].
