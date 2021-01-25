@@ -2,6 +2,12 @@
 
 @import "variables";
 
+@mixin large-or-medium {
+  @media screen and (min-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+
 .short-page-header {
   padding: 1rem 0;
 
@@ -31,6 +37,42 @@
     a.main-page-link:active,
     a.main-page-link:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+#layout-container {
+  #layout-sidebar {
+    padding: 1rem;
+    /* Colors based on jekyll hyde theme https://hyde.getpoole.com/ */
+    background-color: #202020;
+    color: rgba(255,255,255,.5);
+
+    a:link,
+    a:visited,
+    a:active,
+    a:hover {
+      color: white;
+    }
+    a:link,
+    a:visited {
+      text-decoration: none;
+    }
+    a:active,
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  #layout-content {
+  }
+}
+
+/* Simplest sidebar in CSS thanks to https://code-boxx.com/simple-css-sidebar/ */
+@include large-or-medium {
+  #layout-container {
+    display: flex;
+    #layout-sidebar {
+      width: 30%;
     }
   }
 }
