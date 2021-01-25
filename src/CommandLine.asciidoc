@@ -1,4 +1,4 @@
-link:Home[PasDoc] is called like
+link:index[PasDoc] is called like
 
 ----
 pasdoc <options> <parameters>

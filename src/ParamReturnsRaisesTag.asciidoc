@@ -1,4 +1,4 @@
-link:Home[PasDoc] supports three link:SupportedTags[tags] for describing functions: @param, @returns and @raises.
+link:index[PasDoc] supports three link:SupportedTags[tags] for describing functions: @param, @returns and @raises.
 
 * @param marks the description of a function's parameter. First word in tag parameter must be the name of function's parameter.
 * @returns marks the description of a function's result value
@@ -16,4 +16,4 @@ Examples:
 function DoSomething(const Name: string; const Value: string): boolean;
 ----
 
-Note that link:Home[PasDoc] (currently!) does not check whether the parameter names in the description match those of the function. But please don't depend on it -- a future version may check it.
+Note that link:index[PasDoc] (currently!) does not check whether the parameter names in the description match those of the function. But please don't depend on it -- a future version may check it.

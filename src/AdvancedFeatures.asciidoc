@@ -13,4 +13,4 @@ Summary of the most important non-obvious PasDoc features:
 * link:CacheOption[Caching for faster generation of documentation].
 * link:MarkdownOption[Markdown support for emphasis, lists, code blocks etc.]
 
-If you want to compare link:Home[PasDoc] to FpDoc (another open-source Pascal documentation tool), see link:PasDocFpDocComparison[PasDocFpDocComparison] .
+If you want to compare link:index[PasDoc] to FpDoc (another open-source Pascal documentation tool), see link:PasDocFpDocComparison[PasDocFpDocComparison] .

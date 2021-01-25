@@ -11,7 +11,7 @@ what advantage does it have over the command line?
 
 Especially in the case of --include it saves the trouble of specifying a
 potentially long (think "c:\program files\delphi 7\projects\common\include")
-include path every single time you call link:Home[PasDoc]. Of
+include path every single time you call link:index[PasDoc]. Of
 course this could be done by specifying --include %INCLUDE% if the
 environment variable has been defined. Hm, ok, reduce priority. ;-)
 --link:ThomasMueller[ThomasMueller]

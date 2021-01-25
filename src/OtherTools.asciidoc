@@ -1,4 +1,4 @@
-Subdirectory source/tools/ inside link:Home[PasDoc] sources
+Subdirectory source/tools/ inside link:index[PasDoc] sources
 contains some useful programs related to PasDoc. They are either small
 programs helpful for development of PasDoc, or tools that use PasDoc
 units to do other tasks.

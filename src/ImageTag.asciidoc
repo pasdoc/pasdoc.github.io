@@ -31,7 +31,7 @@ formats.
 * WWW browsers generally accept many image formats (including
 JPEG and PNG), but not EPS and not PDF.
 
-link:Home[PasDoc] doesn't try to convert your supplied image to any
+link:index[PasDoc] doesn't try to convert your supplied image to any
 image format. You must take care yourself to supply image in good image
 format. However, as you can see above, __there is no single image format
 that is good for every possible output format__.

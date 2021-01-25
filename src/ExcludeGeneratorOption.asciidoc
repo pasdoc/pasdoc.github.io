@@ -1,5 +1,5 @@
 Pass to pasdoc --exclude-generator option to prevent including in the
-output various information about link:Home[PasDoc] version.
+output various information about link:index[PasDoc] version.
 
 This includes:
 

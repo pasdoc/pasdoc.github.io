@@ -1,5 +1,5 @@
 link:CommandLine[CommandLine] option
-`--ignore-leading=<leading-characters>` makes link:Home[PasDoc]
+`--ignore-leading=<leading-characters>` makes link:index[PasDoc]
 ignore <leading-characters> at the beginning of comment lines. This
 means that you can decorate comments like
 

@@ -4,13 +4,13 @@ Email: DrDiettrich1@aol.com
 
 ### [[pasdoc-ideas]] PasDoc Ideas
 
-When I started to work on the link:Home[PasDoc] parser, I soon
+When I started to work on the link:index[PasDoc] parser, I soon
 found me also working on the item classes and the generators. This is
 what has been implemented for PasDoc2.
 
 ## [[authors-and-audience]] Authors and Audience
 
-link:Home[PasDoc] assumes that the author of the descriptions also
+link:index[PasDoc] assumes that the author of the descriptions also
 is the author of the source code. This stands somewhat in contrast to
 the observation, that coders typically are poor authors, and prefer to
 write "self-documenting" code <g> instead of decently tagged comments.
@@ -31,7 +31,7 @@ As an author, I hate cluttered interfaces, and prefer to place
 meaningful comments into the source code, where they can be kept in sync
 with the implementation. That's why I intend to extend the parser, to
 also handle implementation sections. I also want to use
-link:Home[PasDoc] also for documenting third party code, best
+link:index[PasDoc] also for documenting third party code, best
 without too many changes in the existing code — which will be lost with
 the next release of the code. Doing that is already possible by using
 external files. The logic behind the presentation of the information

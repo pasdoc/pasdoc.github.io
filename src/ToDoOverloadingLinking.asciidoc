@@ -8,7 +8,7 @@ Some comments about it are also at the bottom of link:LatexOutput[LatexOutput] p
 
 Note that this requires first to have more intelligent parser, that understands procedure parameters names and types, see link:ToDoParser[ToDoParser].
 
-RichardBWinston submitted a patch below. It solves the first part of the problem in a simpler manner (without messing with the parser). I noone will manage to make the full fix, we can apply Richard's patch with small modifications to fix some issues (see "Patch for linking to overloaded methods in link:Home[PasDoc]" thread on pasdoc-main around 2006-09-23).
+RichardBWinston submitted a patch below. It solves the first part of the problem in a simpler manner (without messing with the parser). I noone will manage to make the full fix, we can apply Richard's patch with small modifications to fix some issues (see "Patch for linking to overloaded methods in link:index[PasDoc]" thread on pasdoc-main around 2006-09-23).
 
 [source,patch]
 ----

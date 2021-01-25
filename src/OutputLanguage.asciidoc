@@ -1,4 +1,4 @@
-link:Home[PasDoc] supports many output languages.
+link:index[PasDoc] supports many output languages.
 
 ## [[selecting-language]] Selecting language
 
@@ -146,18 +146,18 @@ The following languages are supported:
 Some languages have several possible encodings. Although the translated
 strings should be the same, but it is important that you choose the same
 encoding that you use inside your source code (inside your documentation
-comments). That is because link:Home[PasDoc] doesn't convert the
+comments). That is because link:index[PasDoc] doesn't convert the
 encoding of your comments, we simply put your comments inside HTML (or
 other outputs), of course after processing of the @-tags. So it's your
 responsibility to use in your source code the same encoding that you
 indicate by the --language option.
 
-Note that the encodings listed above apply to the link:Home[PasDoc]
+Note that the encodings listed above apply to the link:index[PasDoc]
 version compiled without STRING_UNICODE. This means that
-link:Home[PasDoc] was compiled with FPC or with non-Unicode Delphi.
-In particular, the officially released link:Home[PasDoc] versions
+link:index[PasDoc] was compiled with FPC or with non-Unicode Delphi.
+In particular, the officially released link:index[PasDoc] versions
 are compiled with FPC, so the encodings listed above are correct.
 
-If you compile link:Home[PasDoc] yourself, with newer (Unicode)
+If you compile link:index[PasDoc] yourself, with newer (Unicode)
 Delphi, then an alternative version will be used, where all languages
 are encoded in UTF-8.

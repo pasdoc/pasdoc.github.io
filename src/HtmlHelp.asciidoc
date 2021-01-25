@@ -2,7 +2,7 @@ _HTML Help_ is a file format for documentation. The final documentation can be a
 
 As the name suggests, the format is based on HTML. Internally, a `.chm` file is just a collection of HTML files, with some extra information. See https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help[Wikipedia] and http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx[Microsoft documentation] for more information.
 
-link:Home[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary, so that you can create the final file using the _Microsoft HTML Workshop_ (free download).
+link:index[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary, so that you can create the final file using the _Microsoft HTML Workshop_ (free download).
 
 How to use _HTML Help_ output:
 

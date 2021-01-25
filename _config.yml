@@ -17,4 +17,4 @@ pasdoc:
   download:
     linux_x86-64: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Linux%20Amd64/pasdoc-0.15.0-linux-x86_64.tar.gz/download
     windows_i386: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Windows/pasdoc-0.15.0-win32.zip/download
-  main_url: Home
+  main_url: index

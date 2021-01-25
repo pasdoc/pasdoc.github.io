@@ -1,4 +1,4 @@
-link:Home[PasDoc] supports the parameterless
+link:index[PasDoc] supports the parameterless
 link:SupportedTags[tags] `@nil`, `@true` and `@false` to insert specially
 formatted text for 'nil', 'true' and 'false'. Currently this text is
 formatted as code (in a monospaced font).

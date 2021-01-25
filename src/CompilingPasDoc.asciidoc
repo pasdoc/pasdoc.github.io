@@ -1,4 +1,4 @@
-How to compile link:Home[PasDoc]?
+How to compile link:index[PasDoc]?
 
 ## [[fpc]] FPC
 

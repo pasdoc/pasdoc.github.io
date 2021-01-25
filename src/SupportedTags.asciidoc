@@ -1,4 +1,4 @@
-You can use tags inside the comments to have link:Home[PasDoc]
+You can use tags inside the comments to have link:index[PasDoc]
 automatically add some information or have it treat some text in a
 special manner. A tag is always prefixed with the "@" character. Some
 tags require an argument which must be enclosed in braces (see also

@@ -30,5 +30,5 @@ separate line), they will simply be glued together. Like this:
 
 Related tags:
 
-* If you want to include an external file that is not a Pascal code (but may contain description using more link:Home[PasDoc] @tags) then use link:IncludeTag[@include] tag instead.
+* If you want to include an external file that is not a Pascal code (but may contain description using more link:index[PasDoc] @tags) then use link:IncludeTag[@include] tag instead.
 * If you want to show a multi-line Pascal code inside the documentation, but don't want to place it a separate file, then use link:LongcodeTag[@longCode] tag instead.

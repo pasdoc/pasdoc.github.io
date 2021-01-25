@@ -26,14 +26,14 @@ different languages. One common thing uniting these programs is their
 ability to describe more informations about the document, its
 relationship to the whole API ect. To make it short: I'm missing special
 tags like @version and @since. Both tags are commonly in use and should
-be introduced to link:Home[PasDoc]. It's very hard to find out when
+be introduced to link:index[PasDoc]. It's very hard to find out when
 a unit ect. had been introduced to the API or had been changed in depth
 without such tags. Such informations including @author should appear at
 the top of the page and not at the bottom.
 
 * Comment grouping +
 Would it be possible to set a command line option for
-link:Home[PasDoc] to group related identifiers that are documented
+link:index[PasDoc] to group related identifiers that are documented
 by one comment:
 +
 [source,pascal]
@@ -149,7 +149,7 @@ link:MichalisKamburelis[MichalisKamburelis]
 different directories. How does one distinguish those without having
 search paths?
 * ability to link external documentation that was created
-by link:Home[PasDoc] (some mapping file class/function -> html file
+by link:index[PasDoc] (some mapping file class/function -> html file
 must exist for this)
 
 * Generating Labels and URL in Graphviz files to link images classes
@@ -250,9 +250,9 @@ must be parsed correctly. That said, glueing multiple adjacent //< lines
 is sensible. Patches to implement this are welcome. –
 link:MichalisKamburelis[MichalisKamburelis]
 
-* One item which would add a lot of value to link:Home[PasDoc]
+* One item which would add a lot of value to link:index[PasDoc]
 would be to include a means of documenting the functions/procedures that
-can be called on a particular class. atm, link:Home[PasDoc] will
+can be called on a particular class. atm, link:index[PasDoc] will
 list all functions/procedures that a particular class _introduces_ - but
 there's no way of finding out what it's really capable of. For example,
 if you have:
@@ -274,7 +274,7 @@ type
 The page for TClassTwo will list
 "link:MethodSubclass[MethodSubclass]", but give no indication that
 "link:MethodBase[MethodBase]" can also be called on this subclass.
-This makes working with link:Home[PasDoc]'s output a lot more
+This makes working with link:index[PasDoc]'s output a lot more
 difficult than it needs to be; in order to find out what methods you can
 call on a particular class involves looking at the documentation for
 that class, then the parent class, then that parent's class... It would

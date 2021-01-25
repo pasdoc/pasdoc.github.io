@@ -1,5 +1,5 @@
 A "comment marker" is a special marker in the comment that marks this
-comment for use by link:Home[PasDoc]. By default, pasdoc doesn't
+comment for use by link:index[PasDoc]. By default, pasdoc doesn't
 require any comment marker: any comment that is placed right before
 declaration of some item is automatically incorporated as part of
 documentation.

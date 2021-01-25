@@ -1,4 +1,4 @@
-Try the current development version of link:Home[PasDoc] by downloading snapshot from here:
+Try the current development version of link:index[PasDoc] by downloading snapshot from here:
 
 https://jenkins.castle-engine.io/public/builds/pasdoc/
 
@@ -9,10 +9,10 @@ In particular:
 * https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.15.0-win32.zip[latest build for Windows 32-bit]
 * https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.15.0-src.zip[latest source code]
 
-These snapshots look like regular link:Home[PasDoc] releases, but are actually compiled automatically from https://github.com/pasdoc/pasdoc[current GitHub code].
+These snapshots look like regular link:index[PasDoc] releases, but are actually compiled automatically from https://github.com/pasdoc/pasdoc[current GitHub code].
 
 Don't be confused by their version numbers. As version, they show the
-number of last released link:Home[PasDoc] version, but in fact they
+number of last released link:index[PasDoc] version, but in fact they
 are just snapshots. When reporting bugs for them, please mention that
 you used the snapshots, and mention their date (or Git revision).
 

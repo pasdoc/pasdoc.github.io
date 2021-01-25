@@ -1,4 +1,4 @@
-link:Home[PasDoc] supports the http://www.graphviz.org/[GraphViz] package
+link:index[PasDoc] supports the http://www.graphviz.org/[GraphViz] package
 for generating simple unit uses and class inheritance graphs.
 
 There are four link:CommandLine[CommandLine] options that can be
@@ -35,7 +35,7 @@ dot -Grankdir=LR -T png GVUses.dot > GVUses.png
 frame pointing to the pictures generated with dot. You must pass the
 file extension of the picture (dot can also generate gif and lots of
 other formats). So if you generate png you must call
-link:Home[PasDoc] with a link:CommandLine[CommandLine] like
+link:index[PasDoc] with a link:CommandLine[CommandLine] like
 this:
 
 ----

@@ -84,7 +84,7 @@ just produce the short dash in the output, and so the 2nd dash is a
 
 ## [[help-insight-comments]] Help Insight comments
 
-link:Home[PasDoc] also recognizes Help Insight comments, that start
+link:index[PasDoc] also recognizes Help Insight comments, that start
 with three slashes and use HTML-like tags. See
 http://delphi.wikia.com/wiki/Help_insight. An example straight from that
 page:

@@ -1,4 +1,4 @@
-You can specify a text file which link:Home[PasDoc] should use as a *header* or *footer* on all of the pages.
+You can specify a text file which link:index[PasDoc] should use as a *header* or *footer* on all of the pages.
 
 Use `--header` or `-H` on the link:CommandLine[CommandLine] to specify a file to use as header, use `--footer` or `-F` to specify the footer.
 
@@ -15,7 +15,7 @@ The header and footer are right now only used in the HTML output.
 
 The header and footer contents are pasted directly to the resulting output. This means that you can use HTML tags freely, but make sure that the resulting contents is always a valid HTML.
 
-Do not specify multiple headers or footers. Right now, link:Home[PasDoc] will only use the last one:
+Do not specify multiple headers or footers. Right now, link:index[PasDoc] will only use the last one:
 
 ----
 pasdoc --header firstheader.html --header secondheader.html

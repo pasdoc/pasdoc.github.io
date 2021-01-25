@@ -1,6 +1,6 @@
-link:Home[PasDoc] uses the tag @longcode to mark example code which
+link:index[PasDoc] uses the tag @longcode to mark example code which
 is preformatted so the layout should not be changed in the output. In
-addition link:Home[PasDoc] will add code highlighting like in the
+addition link:index[PasDoc] will add code highlighting like in the
 Delphi IDE (see also link:CodeTag[@code]).
 
 For compatibility with older pasdoc behaviour, you must specify an extra

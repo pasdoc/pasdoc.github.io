@@ -66,7 +66,7 @@ are nicely shown in the resulting documentation.
 ### [[comment-markers]] Comment markers
 
 You can use link:CommentMarker[--marker option] if
-you want link:Home[PasDoc] to recognize only comments designated by
+you want link:index[PasDoc] to recognize only comments designated by
 some special markers.
 
 ### [[multiple-fieldsvariables-in-one-declaration]] Multiple fields/variables in one declaration
@@ -120,7 +120,7 @@ var
 Sometimes it is more convenient to place your documentation comment
 _after_ the documented item, instead of __before__. You can freely do so
 by placing the "<" ("less-than") character as the exactly first
-character of your comment. This tells link:Home[PasDoc] that the
+character of your comment. This tells link:index[PasDoc] that the
 given comment should be assigned to the preceding (not the following, as
 usual) item declaration.
 
@@ -167,7 +167,7 @@ the "<" character must be placed _right after_ your chosen marker.
 
 ### [[glueing-single-line-comments]] Glueing single-line comments
 
-Subsequent //-style comments are "glued" by link:Home[PasDoc] into
+Subsequent //-style comments are "glued" by link:index[PasDoc] into
 one comment. If comment markers are required, every single comment must
 be marked accordingly(?). A back-comment mark is recognized only in the
 first comment of a sequence. For example these methods of documenting
@@ -195,7 +195,7 @@ procedure Foo;
 ### [[multiple-comments-on-an-identifier-or-declaration]] Multiple comments on an identifier or declaration
 
 When one or more comments precede an identifier, and possibly another
-back-comment follows it, link:Home[PasDoc] (currently) ignores any
+back-comment follows it, link:index[PasDoc] (currently) ignores any
 but the last applicable comment, which overwrites any preceding
 comments.
 
@@ -226,9 +226,9 @@ See also: link:ReadDescriptionFromFile[External descriptions]
 ## [[common-case-when-comments-are-not-meaningful-to-pasdoc]] Common case when comments are not meaningful to PasDoc
 
 As long as we consider only multi-line comments (`{ ... }` or
-`(* ... *)`), remember that link:Home[PasDoc] takes into account
+`(* ... *)`), remember that link:index[PasDoc] takes into account
 only the __last__ comment before given item. For example, in the code
-below, comment _Ignored comment_ is ignored by link:Home[PasDoc].
+below, comment _Ignored comment_ is ignored by link:index[PasDoc].
 Description consists only of _Description of Foo_ comment.
 
 [source,pascal]

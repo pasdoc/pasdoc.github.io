@@ -71,7 +71,7 @@ link:MichalisKamburelis[MichalisKamburelis]
 * extracting of comments located in implementation section +
 --The one may prefer to include brief comments in interface declarations
 and more detailed in implementation. It would be good if they were
-merged by link:Home[PasDoc]. It's also the case when I need to
+merged by link:index[PasDoc]. It's also the case when I need to
 document functions's some local vars, procs, etc. It simply can't be
 done in interface.
 +
@@ -202,7 +202,7 @@ way to go – in the perfect future world, you shouldn't need to use @html
 tag too often, because every sensible functionality will be available
 using pasdoc @-tags. – link:MichalisKamburelis[MichalisKamburelis]
 
-* define (by default) things like LINUX if link:Home[PasDoc] was
+* define (by default) things like LINUX if link:index[PasDoc] was
 compiled on Linux, or MSWINDOWS if it was compiled on windows etc?
 +
 **Rejected**: I don't think that such behavior would be a good one. After all, if I'm
