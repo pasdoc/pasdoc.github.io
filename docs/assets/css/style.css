@@ -268,6 +268,8 @@ td, th { padding: 0; }
 /* Simplest sidebar in CSS thanks to https://code-boxx.com/simple-css-sidebar/ */
 @media screen and (min-width: 42em) { #layout-container { display: flex; }
   #layout-container #layout-sidebar { width: 30%; } }
+.page-header { /* background: #B2D2E1 !important; */ background: #475a94 !important; /* background: #4e4b42 !important; */ }
+
 * { box-sizing: border-box; }
 
 body { padding: 0; margin: 0; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #606c71; }

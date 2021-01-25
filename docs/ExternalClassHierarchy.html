@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=e596fb7e595bb4fc1930a8a86195a9de1ab1a96d">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8291bebb1a478d173ce138297c4915409a632925">
   </head>
   <body>
     <div id="layout-container">
@@ -31,24 +31,24 @@
         <section class="main-content">
           
           <section class="short-page-header">
-            <h1><a class="main-page-link" href="Home">PasDoc</a> » ExternalClassHierarchy</h1>
+            <h1><a class="main-page-link" href="index">PasDoc</a> » ExternalClassHierarchy</h1>
           </section>
           
 
           <div class="paragraph">
 <p>To generate more complete class hierarchy diagrams (in HTML output and
-for <a href="http://www.graphviz.org/">GraphViz</a> graphs), <a href="Home">PasDoc</a> needs to
+for <a href="http://www.graphviz.org/">GraphViz</a> graphs), <a href="index">PasDoc</a> needs to
 know about inheritance of the classes that are not included in your
 source code.</p>
 </div>
 <div class="paragraph">
 <p>For example, suppose you derive your own classes from standard classes
-like TStrings, TPersistent, TObject etc. <a href="Home">PasDoc</a> has to
+like TStrings, TPersistent, TObject etc. <a href="index">PasDoc</a> has to
 internally know that TStrings actually descend from TPersistent in
 standard ObjectPascal RTL to generate perfect class hierarchy diagrams.</p>
 </div>
 <div class="paragraph">
-<p>By default, we include in <a href="Home">PasDoc</a> a knowledge of the
+<p>By default, we include in <a href="index">PasDoc</a> a knowledge of the
 basic RTL classes. So things actually work out-of-the-box in simple
 cases, and you just enjoy nice class hierarchy diagrams :) But in more
 demanding cases, you may want to provide the hierarchy of external
@@ -58,7 +58,7 @@ classes explicitly.</p>
 <h2 id="default-hierarchy-built-in-pasdoc"><a id="default-hierarchy-built-in-pasdoc"></a> Default hierarchy built in PasDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Default knowledge of <a href="Home">PasDoc</a> can be seen inside the
+<p>Default knowledge of <a href="index">PasDoc</a> can be seen inside the
 <a href="https://github.com/pasdoc/pasdoc/tree/master/source/component/external_class_hierarchy.txt">external_class_hierarchy.txt</a> file.
 This information comes from a couple of basic FPC units,
 <a href="https://github.com/pasdoc/pasdoc/tree/master/source/tools/fpc_sources_parse_for_external_class_hierarchy.sh">you can take a look at this script for details</a>.</p>
@@ -69,13 +69,13 @@ This information comes from a couple of basic FPC units,
 <h2 id="provide-class-hierarchy-for-pasdoc"><a id="provide-class-hierarchy-for-pasdoc"></a> Provide class hierarchy for PasDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To make perfect class diagrams, ideally the <a href="Home">PasDoc</a> must
+<p>To make perfect class diagrams, ideally the <a href="index">PasDoc</a> must
 know the class hierarchy of whole FreePascal / Delphi RTL, FCL, LCL, VCL
 and so on. Things are getting more difficult as different compiler
 libraries and their versions may have a little different inheritance.
 Ideally, every class library that you use (and do not let pasdoc parse
 it) may be described as "external class hierarchy" for
-<a href="Home">PasDoc</a>.</p>
+<a href="index">PasDoc</a>.</p>
 </div>
 <div class="paragraph">
 <p>Provide your own file with class hierarchy by
@@ -88,9 +88,9 @@ TChildClass=TParentClass.</p>
 </div>
 <div class="paragraph">
 <p>The information about class ancestors from source files of course has
-precedence. So if the class is parsed by <a href="Home">PasDoc</a>, then
+precedence. So if the class is parsed by <a href="index">PasDoc</a>, then
 the information about this class ancestor from external class hierarchy
-(<a href="Home">PasDoc</a> built-in or from given command-line file) is
+(<a href="index">PasDoc</a> built-in or from given command-line file) is
 ignored.</p>
 </div>
 </div>
@@ -99,7 +99,7 @@ ignored.</p>
 <h2 id="user-created-class-hierarchy-files"><a id="user-created-class-hierarchy-files"></a> User-created class hierarchy files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="Home">PasDoc</a> includes a built-in hierarchy of basic RTL
+<p><a href="index">PasDoc</a> includes a built-in hierarchy of basic RTL
 classes. You&#8217;re welcome to extend it, or provide alternatives (for
 example, more suitable for Delphi RTL). You can share your files
 e.g. on our
@@ -122,7 +122,7 @@ We&#8217;ll collect the submissions in the repository, and link to them here.</p
       <!-- See https://jekyllrb.com/docs/includes/ about Jekyll includes -->
       <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="Home"><h1>PasDoc</h1></a></dt>
+<dt class="hdlist1"><a href="index"><h1>PasDoc</h1></a></dt>
 <dt class="hdlist1">Features: </dt>
 <dd>
 <div class="ulist">
