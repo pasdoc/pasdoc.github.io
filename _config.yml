@@ -4,6 +4,7 @@ theme: jekyll-theme-cayman
 source: ./src/
 destination: ./docs/
 url: https://pasdoc.github.io/
+include: ['_Sidebar.asciidoc']
 
 # see https://github.com/pages-themes/cayman
 title: PasDoc
