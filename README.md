@@ -10,15 +10,24 @@ from `src/` (sources in AsciiDoctor)
 to `docs/` (static HTML, CSS etc. files).
 
 Note that we don't use GitHub automatic handling of Jekyll, as it doesn't support
-sources in AsciiDoctor. That is, https://pages.github.com/versions/ doesn't contain
-jekyll-asciidoc plugin. Luckily, using Jekyll manually is rather easy.
+sources in AsciiDoctor (https://pages.github.com/versions/ doesn't contain
+`jekyll-asciidoc` plugin). Luckily, using Jekyll manually (without GitHub automation)
+is rather easy, and this way we get `jekyll-asciidoc` we need.
 Install by
 
 ```
+sudo apt install ruby-dev # or equivalent for your Linux distro
 sudo gem install jekyll bundler
+bundle install
 ```
 
-Regenerate site by `make` and just commit + push the static files
+Regenerate site
+
+```
+make
+```
+
+Then just commit + push the static files inside `docs/`
 (they need to be in repo, to be served by https://pasdoc.github.io/ ).
 
 To preview offline, do
