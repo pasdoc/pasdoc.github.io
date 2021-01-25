@@ -1,7 +1,22 @@
 # [PasDoc website](https://pasdoc.github.io/) sources
 
-If you want to edit the documentation contents, just edit the files `src/*.asciidoc`.
-They are in [AsciiDoctor](https://asciidoctor.org/) format.
+## Content
+
+If you want to edit the documentation contents, just edit our wiki:
+https://github.com/pasdoc/pasdoc/wiki .
+
+The wiki pages should use [AsciiDoctor](https://asciidoctor.org/) format.
+
+The website contents are auto-generated from wiki sources, by running
+
+```
+# Copies wiki contents to src/*.asciidoc,
+# doing some necessary replacements.
+# Assumes you have wiki GIT repository cloned in ../pasdoc.wiki/ , get by:
+#   git clone https://github.com/pasdoc/pasdoc.wiki.git
+./synchronize_from_wiki.sh
+make
+```
 
 ## How is the site generated
 
