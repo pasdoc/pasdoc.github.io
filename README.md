@@ -37,3 +37,13 @@ bundle exec jekyll serve
 ```
 
 and visit http://127.0.0.1:4000 .
+
+## Customizing theme
+
+See https://jekyllrb.com/docs/themes/ .
+
+Open theme source:
+
+```
+xdg-open $(bundle info --path jekyll-theme-cayman)
+```

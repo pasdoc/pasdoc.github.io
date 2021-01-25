@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-rm -Rf src/*
+rm -Rf src/*.asciidoc
 cp -f ../pasdoc.wiki/*.asciidoc src/
 for F in src/*.asciidoc; do
   # Increase header indentation for all files

@@ -10,5 +10,10 @@ include: ['_Sidebar.asciidoc']
 title: PasDoc
 description: Documentation tool for Pascal source code
 show_downloads: true
-github:
-  zip_url: https://github.com/pasdoc/pasdoc/archive/v0.15.0.zip
+
+# our custom theme variables:
+pasdoc:
+  repository_url: https://github.com/pasdoc/pasdoc
+  download:
+    linux_x86-64: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Linux%20Amd64/pasdoc-0.15.0-linux-x86_64.tar.gz/download
+    windows_i386: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Windows/pasdoc-0.15.0-win32.zip/download
