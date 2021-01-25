@@ -252,11 +252,11 @@ td, th { padding: 0; }
 .highlight { background-color: #f8f8f8; }
 
 /* Addtional CSS (actually SASS code) for PasDoc website. */
-.short-page-header { color: #fff; text-align: center; background-color: #159957; background-image: linear-gradient(120deg, #155799, #159957); padding: 1rem; }
-.short-page-header h1 { padding: 0; margin: 0; }
-.short-page-header a.main-page-link:link, .short-page-header a.main-page-link:visited, .short-page-header a.main-page-link:active, .short-page-header a.main-page-link:hover { color: white; }
-.short-page-header a.main-page-link:link, .short-page-header a.main-page-link:visited { text-decoration: none; }
-.short-page-header a.main-page-link:active, .short-page-header a.main-page-link:hover { text-decoration: underline; }
+.short-page-header { padding: 1rem 0; /* color: $header-heading-color; */ /* text-align: center; */ /* background-color: $header-bg-color; */ /* background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color); */ text-align: left; }
+.short-page-header h1 { color: #159957; font-weight: bold !important; padding: 0; margin: 0; }
+.short-page-header h1 a.main-page-link:link, .short-page-header h1 a.main-page-link:visited, .short-page-header h1 a.main-page-link:active, .short-page-header h1 a.main-page-link:hover { color: #159957; }
+.short-page-header h1 a.main-page-link:link, .short-page-header h1 a.main-page-link:visited { text-decoration: none; }
+.short-page-header h1 a.main-page-link:active, .short-page-header h1 a.main-page-link:hover { text-decoration: underline; }
 
 * { box-sizing: border-box; }
 
