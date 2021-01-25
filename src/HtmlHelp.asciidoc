@@ -17,7 +17,7 @@ will also output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the
 
 That's it! You have `docs.chm` file, that can be viewed with _HTML Help_ viewer.
 
-### Custom help contents
+## Custom help contents
 
 Optionally, if you wish to use a custom help-contents file, you can specify a file name with the `--html-help-contents` option for PasDoc. Each line of the file specifies an entry in the help contents. Each space or tab character at the beginning of a line increases the level of the item in the contents by 1. The remainder of the line comprises a title for the item, an "=" character, and the link to which the item should be connected. For example: `An Item = MyPage.html`
 
