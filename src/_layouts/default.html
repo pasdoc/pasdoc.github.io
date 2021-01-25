@@ -11,7 +11,7 @@
   <body>
     <div id="layout-container">
       <div id="layout-content">
-        {% if page.name == "Home.asciidoc" %}
+        {% if page.name  == "index.asciidoc" %}
         <section class="page-header">
           <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
@@ -33,7 +33,7 @@
         {% endcomment %}
 
         <section class="main-content">
-          {% if page.name != "Home.asciidoc" %}
+          {% if page.name != "index.asciidoc" %}
           <section class="short-page-header">
             <h1><a class="main-page-link" href="{{ site.pasdoc.main_url }}">PasDoc</a> » {{ page.name | remove: ".asciidoc" }}</h1>
           </section>

@@ -13,5 +13,11 @@ for F in src/*.asciidoc; do
   sed --in-place -e 's|^### |#### |' "$F"
   sed --in-place -e 's|^## |### |' "$F"
   sed --in-place -e 's|^# |## |' "$F"
+
+  # fix links to main page, must be index to be used as default page when none specified in URL
   sed --in-place -e 's|link:Home\[PasDoc\]|link:index[PasDoc]|' "$F"
+  # in case there's 2nd link on same line
+  sed --in-place -e 's|link:Home\[PasDoc\]|link:index[PasDoc]|' "$F"
+  sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
+  sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
 done

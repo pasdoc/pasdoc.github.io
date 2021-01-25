@@ -13,7 +13,7 @@ If you use link:index[PasDoc], your are most welcome to add your project to this
 * http://benibela.de/sources_en.html#internettools[Internet Tools] - Package to process web pages; and the http://benibela.de/components_en.html#treelistview[TreeListView], a tree view with record columns
 * https://github.com/Fr0sT-Brutal/Delphi_OSMMap[OSMMap] - Visual control for Delphi and Lazarus to display OSM map
 * http://sourceforge.net/projects/pascalscada/[PascalSCADA] - Set of components for Delphi/Lazarus, used to develop SCADA applications.
-* link:index[PasDoc] - Our own sources can be processed by link:Home[PasDoc] itself, see link:PasDocAutoDoc[PasDocAutoDoc].
+* link:index[PasDoc] - Our own sources can be processed by link:index[PasDoc] itself, see link:PasDocAutoDoc[PasDocAutoDoc].
 * https://github.com/Fr0sT-Brutal/Delphi_SChannelTLS[SChannelTLS] - Helper functions and socket classes to perform TLS communication by means of WinAPI (SChannel)
 * http://www.ararat.cz/synapse/[Synapse] - Synchronous TCP/IP Library for Delphi, C++ Builder, Kylix and http://www.freepascal.org/[FreePascal].
 * http://synedit.sourceforge.net[SynEdit] - Component suite for Delphi/Kylix to highlight code source.

@@ -28,7 +28,7 @@ in fpdoc as far as I know.
 * Both programs support many output formats
 including HTML and LaTeX.
 +
-link:index[PasDoc] has an output called htmlhelp, while fpdoc has chm output, although I didn't compare them personally. link:Home[PasDoc] also has link:SimpleXmlOutput[simplexml] output, and latex2rtf output.
+link:index[PasDoc] has an output called htmlhelp, while fpdoc has chm output, although I didn't compare them personally. link:index[PasDoc] also has link:SimpleXmlOutput[simplexml] output, and latex2rtf output.
 +
 You can see sample output of pasdoc e.g. here link:PasDocAutoDoc[PasDocAutoDoc] . Sample fpdoc output is the FPC reference.
 * link:index[PasDoc] has a simple cross-platform
