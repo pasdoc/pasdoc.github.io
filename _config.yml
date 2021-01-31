@@ -18,3 +18,11 @@ pasdoc:
     linux_x86-64: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Linux%20Amd64/pasdoc-0.15.0-linux-x86_64.tar.gz/download
     windows_i386: https://sourceforge.net/projects/pasdoc/files/PasDoc%20Windows/pasdoc-0.15.0-win32.zip/download
   main_url: index
+
+# for highlighting in code blocks, see https://github.com/asciidoctor/jekyll-asciidoc
+asciidoctor:
+  attributes:
+    idprefix: _
+    source-highlighter: pygments
+    pygments-css: style
+
