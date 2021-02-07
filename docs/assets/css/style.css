@@ -266,7 +266,13 @@ td, th { padding: 0; }
 #layout-container #layout-sidebar a:active, #layout-container #layout-sidebar a:hover { text-decoration: underline; }
 
 /* Simplest sidebar in CSS thanks to https://code-boxx.com/simple-css-sidebar/ */
-@media screen and (min-width: 42em) { #layout-container { display: flex; }
+@media screen and (min-width: 42em) { #layout-container { /* Without flex:
+display: block;
+#layout-content { width: 70%; margin: 0; float: left;
+}
+#layout-sidebar { width: 30%; margin: 0; float: right;
+}
+*/ /* With flex: */ display: flex; }
   #layout-container #layout-sidebar { width: 30%; } }
 .page-header { /* background: #B2D2E1 !important; */ background: #475a94 !important; /* background: #4e4b42 !important; */ }
 
