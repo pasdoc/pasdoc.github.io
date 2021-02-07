@@ -12,24 +12,43 @@ Release making process:
 
 Make sure you have nice entry in https://github.com/pasdoc/pasdoc/blob/master/ChangeLog file in pasdoc sources.
 
-We try to write the ChangeLog entry _while_ developing PasDoc (each time someone does something significant, it's immediately added to the ChangeLog). So at this point, mainly __review and finalize (write new verion number and release date) ChangeLog entry.
+We try to write the ChangeLog entry _while_ developing PasDoc (each time someone does something significant, it's immediately added to the ChangeLog). So at this point, mainly _review and finalize (write new verion number and release date) ChangeLog entry_.
 
 ## [[compile-and-test-all-releases]] Compile and test all releases
 
-Make sure you have the latest stable FPC and Lazarus versions.
+Note: This step is in practice automated now, using https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)[Castle Game Engine Jenkins infrastructure] to automatically test and build PasDoc. The commands performed by Jenkins are configured in `Jenkinsfile` in the PasDoc repository.
 
-Use `make clean build-fpc-default` or `make clean build-fpc-<os/arch>` to compile a release version of pasdoc. Or you can just call `make dist-<os/arch>`, this will make `clean` and `build-fpc-<os/arch>` as the first steps. (Note that it's important to call `clean` before `build-fpc-<os/arch>`, otherwise you risk that some units were left as compiled with debug options).
+* Make sure you have the latest stable FPC and Lazarus versions.
 
-Run all the tests by 
-
+* To build for the current platform (OS and architecture) call this:
++
 ```
-cd pasdoc/tests/scripts
-./run_all_tests.sh
+make clean build-fpc-default
+```
++
+Note that it's important to call `clean` before `build-...`, otherwise you risk that some units were left as compiled with debug options.
++
+To build for an indicated platform:
++
+```
+make clean build-fpc-<os/arch>
+```
++
+To build for indicated platform and package to zip/tar.gz (this will call `clean build-fpc-<os/arch>` as first steps):
++
+```
+make dist-<os/arch>
 ```
 
+* Run all the tests by
++
+```
+make tests
+```
++
 There are various comments inside `tests/run_all_tests.sh` about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.
-
-To be perfect, you should run these tests on all targets.
++
+To be sure, you should run these tests on all targets.
 
 ## [[update-docs]] Update docs
 
@@ -53,7 +72,7 @@ lazbuild source/gui/pasdoc_gui.lpi
 * Compile link:PasDocGui[PasDocGui] interactively, from within Lazarus.
 * Test pasdoc_gui: for basic test, open the project with pasdoc's autodoc source/autodoc/autodoc.pds and hit "Generate".
 
-For platforms where pasdoc_gui is included in releases (currently this means Linux-x86, Darwin-x86, Win32) the make dist-... will automatically compile and include pasdoc_gui binary (using lazbuild to compile Lazarus package and project in batch mode).
+For platforms where pasdoc_gui is included in releases, the `make dist-...` will automatically compile and include `pasdoc_gui` binary (using lazbuild to compile Lazarus package and project in batch mode).
 
 ## [[recompile-and-archive-all-releases]] Recompile and archive all releases
 
