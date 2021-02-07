@@ -85,6 +85,11 @@
     */
     /* With flex: */
     display: flex;
+    #layout-content {
+      /* usually this width declaration is not necessary, except in case would be otherwise
+         too wide, like on ListTags page with wide <pre> element */
+      width: 70%;
+    }
     #layout-sidebar {
       width: 30%;
     }
@@ -95,4 +100,9 @@
   /* background: #B2D2E1 !important; */
   background: #475a94 !important;
   /* background: #4e4b42 !important; */
+}
+
+/* Make sure <pre> is not too wide, like on ListTags page with wide <pre> element */
+.main-conten pre {
+  overflow: scroll !important;
 }
