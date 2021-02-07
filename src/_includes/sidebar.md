@@ -85,80 +85,80 @@
 
 * [Examples](CommandlineExamples)
 
-* --format:
-    * [--format=html](HtmlOutput)
-    * [--format=htmlhelp](HtmlHelp)
-    * [--format=latex](LatexOutput)
-    * [--format=latex2rtf](Latex2RtfOutput)
-    * [--format=simplexml](SimpleXmlOutput)
+* \--format:
+    * [\--format=html](HtmlOutput)
+    * [\--format=htmlhelp](HtmlHelp)
+    * [\--format=latex](LatexOutput)
+    * [\--format=latex2rtf](Latex2RtfOutput)
+    * [\--format=simplexml](SimpleXmlOutput)
 
-* [--auto-abstract](AutoAbstractOption)
+* [\--auto-abstract](AutoAbstractOption)
 
-* [--auto-back-comments](AutoBackComments)
+* [\--auto-back-comments](AutoBackComments)
 
-* [--auto-link, --auto-link-exclude](AutoLinkOption)
+* [\--auto-link, \--auto-link-exclude](AutoLinkOption)
 
-* [--cache](CacheOption)
+* [\--cache](CacheOption)
 
-* [--marker, --staronly, --marker-optional](CommentMarker)
+* [\--marker, \--staronly, \--marker-optional](CommentMarker)
 
-* [--define, --conditionals](ConditionalDefines)
+* [\--define, \--conditionals](ConditionalDefines)
 
-* [--css](CssOption)
+* [\--css](CssOption)
 
-* [--title](DocumentationTitle)
+* [\--title](DocumentationTitle)
 
-* [--exclude-generator](ExcludeGeneratorOption)
+* [\--exclude-generator](ExcludeGeneratorOption)
 
-* [--external-class-hierarchy](ExternalClassHierarchy)
+* [\--external-class-hierarchy](ExternalClassHierarchy)
 
-* [--graphviz-uses, --graphviz-classes, --link-gv-uses, --link-gv-classes](GraphVizSupport)
+* [\--graphviz-uses, \--graphviz-classes, \--link-gv-uses, \--link-gv-classes](GraphVizSupport)
 
-* [--header, --footer](FileAsHeaderOrFooter)
+* [\--header, \--footer](FileAsHeaderOrFooter)
 
-* [--html-head, --html-body-begin, --html-body-end](HtmlHeadBodyBeginEndOptions)
+* [\--html-head, \--html-body-begin, \--html-body-end](HtmlHeadBodyBeginEndOptions)
 
-* [--ignore-leading](IgnoreLeadingOption)
+* [\--ignore-leading](IgnoreLeadingOption)
 
-* [--ignore-marker](IgnoreMarkerOption)
+* [\--ignore-marker](IgnoreMarkerOption)
 
-* [--introduction, --conclusion, -A, --additional](IntroductionAndConclusion)
+* [\--introduction, \--conclusion, -A, \--additional](IntroductionAndConclusion)
 
-* [--implicit-visibility](ImplicitVisibilityOption)
+* [\--implicit-visibility](ImplicitVisibilityOption)
 
-* [--lowercase-keywords](TrueFalseNilTag)
+* [\--lowercase-keywords](TrueFalseNilTag)
 
-* [--visible-members](IncludeByVisibility)
+* [\--visible-members](IncludeByVisibility)
 
-* [--include-creation-time](IncludeCreationTimeOption)
+* [\--include-creation-time](IncludeCreationTimeOption)
 
-* [--include](IncludeInSearchPath)
+* [\--include](IncludeInSearchPath)
 
-* [--link-look](LinkLookOption)
+* [\--link-look](LinkLookOption)
 
-* [--markdown](MarkdownOption)
+* [\--markdown](MarkdownOption)
 
-* [--name](NameOption)
+* [\--name](NameOption)
 
-* [--no-macro](NoMacroOption)
+* [\--no-macro](NoMacroOption)
 
-* [--language](OutputLanguage)
+* [\--language](OutputLanguage)
 
-* [--output](OutputOption)
+* [\--output](OutputOption)
 
-* [--description](ReadDescriptionFromFile)
+* [\--description](ReadDescriptionFromFile)
 
-* [--sort](SortOption)
+* [\--sort](SortOption)
 
-* [--spell-check, --spell-check-ignore-words](SpellChecking)
+* [\--spell-check, \--spell-check-ignore-words](SpellChecking)
 
-* [--use-tipue-search](UseTipueSearchOption)
+* [\--use-tipue-search](UseTipueSearchOption)
 
-* [--write-uses-list](WriteUsesList)
+* [\--write-uses-list](WriteUsesList)
 
 * [@\<config-file.txt\>](ConfigFileOption)
 
-* [--implementation-comments](ImplementationCommentsOption)
+* [\--implementation-comments](ImplementationCommentsOption)
 
 ## Development:
 
