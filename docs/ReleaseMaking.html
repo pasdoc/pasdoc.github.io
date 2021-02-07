@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b59fa220d14603b614fdb46f96cb1d875c72fa36">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1277f3ea81a063ccd175116be70275cae3f056a0">
   </head>
   <body>
     <div id="layout-container">
@@ -73,7 +73,7 @@
 <p>Make sure you have nice entry in <a href="https://github.com/pasdoc/pasdoc/blob/master/ChangeLog" class="bare">https://github.com/pasdoc/pasdoc/blob/master/ChangeLog</a> file in pasdoc sources.</p>
 </div>
 <div class="paragraph">
-<p>We try to write the ChangeLog entry <em>while</em> developing PasDoc (each time someone does something significant, it&#8217;s immediately added to the ChangeLog). So at this point, mainly __review and finalize (write new verion number and release date) ChangeLog entry.</p>
+<p>We try to write the ChangeLog entry <em>while</em> developing PasDoc (each time someone does something significant, it&#8217;s immediately added to the ChangeLog). So at this point, mainly <em>review and finalize (write new verion number and release date) ChangeLog entry</em>.</p>
 </div>
 </div>
 </div>
@@ -81,25 +81,55 @@
 <h2 id="_-compile-and-test-all-releases"><a id="compile-and-test-all-releases"></a> Compile and test all releases</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>Note: This step is in practice automated now, using <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> to automatically test and build PasDoc. The commands performed by Jenkins are configured in <code>Jenkinsfile</code> in the PasDoc repository.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>Make sure you have the latest stable FPC and Lazarus versions.</p>
+</li>
+<li>
+<p>To build for the current platform (OS and architecture) call this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make clean build-fpc-default</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Use <code>make clean build-fpc-default</code> or <code>make clean build-fpc-&lt;os/arch&gt;</code> to compile a release version of pasdoc. Or you can just call <code>make dist-&lt;os/arch&gt;</code>, this will make <code>clean</code> and <code>build-fpc-&lt;os/arch&gt;</code> as the first steps. (Note that it&#8217;s important to call <code>clean</code> before <code>build-fpc-&lt;os/arch&gt;</code>, otherwise you risk that some units were left as compiled with debug options).</p>
+<p>Note that it&#8217;s important to call <code>clean</code> before <code>build-&#8230;&#8203;</code>, otherwise you risk that some units were left as compiled with debug options.</p>
 </div>
 <div class="paragraph">
-<p>Run all the tests by</p>
+<p>To build for an indicated platform:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>cd pasdoc/tests/scripts
-./run_all_tests.sh</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make clean build-fpc-&lt;os/arch&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To build for indicated platform and package to zip/tar.gz (this will call <code>clean build-fpc-&lt;os/arch&gt;</code> as first steps):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make dist-&lt;os/arch&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run all the tests by</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make tests</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>There are various comments inside <code>tests/run_all_tests.sh</code> about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.</p>
 </div>
 <div class="paragraph">
-<p>To be perfect, you should run these tests on all targets.</p>
+<p>To be sure, you should run these tests on all targets.</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -146,7 +176,7 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>For platforms where pasdoc_gui is included in releases (currently this means Linux-x86, Darwin-x86, Win32) the make dist-&#8230;&#8203; will automatically compile and include pasdoc_gui binary (using lazbuild to compile Lazarus package and project in batch mode).</p>
+<p>For platforms where pasdoc_gui is included in releases, the <code>make dist-&#8230;&#8203;</code> will automatically compile and include <code>pasdoc_gui</code> binary (using lazbuild to compile Lazarus package and project in batch mode).</p>
 </div>
 </div>
 </div>
