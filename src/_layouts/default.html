@@ -52,7 +52,10 @@
 
       <div id="layout-sidebar">
       <!-- See https://jekyllrb.com/docs/includes/ about Jekyll includes -->
-      {% include sidebar.html %}
+      {% capture sidebar_content %}
+      {% include sidebar.md %}
+      {% endcapture %}
+      {{ sidebar_content | markdownify }}
       </div> <!--div id="layout-sidebar" -->
     </div> <!--div id="layout-container" -->
 
