@@ -70,6 +70,20 @@
 /* Simplest sidebar in CSS thanks to https://code-boxx.com/simple-css-sidebar/ */
 @include large-or-medium {
   #layout-container {
+    /* Without flex:
+    display: block;
+    #layout-content {
+      width: 70%;
+      margin: 0;
+      float: left;
+    }
+    #layout-sidebar {
+      width: 30%;
+      margin: 0;
+      float: right;
+    }
+    */
+    /* With flex: */
     display: flex;
     #layout-sidebar {
       width: 30%;
