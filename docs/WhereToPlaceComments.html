@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://pasdoc.github.io//WhereToPlaceComments.html" />
 <meta property="og:site_name" content="PasDoc" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://pasdoc.github.io//WhereToPlaceComments.html","headline":"PasDoc","description":"Documentation tool for Pascal source code","@context":"https://schema.org"}</script>
+{"@type":"WebPage","description":"Documentation tool for Pascal source code","url":"https://pasdoc.github.io//WhereToPlaceComments.html","headline":"PasDoc","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5bdb4f392e26c96a27fdd2798967663f291ea927">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b3d3e2aea1e6128741fa182a2af6907c0e86c67d">
   </head>
   <body>
     <div id="layout-container">
@@ -36,7 +36,7 @@
           
 
           <div class="sect1">
-<h2 id="basic-rule"><a id="basic-rule"></a> Basic rule</h2>
+<h2 id="_-basic-rule"><a id="basic-rule"></a> Basic rule</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you want to assign some description to your item (where <em>item</em> means
@@ -49,45 +49,45 @@ place a comment directly before the item&#8217;s declaration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Description of MyUnit. }
-unit MyUnit;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ Description of MyUnit. }</span>
+<span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
 
-interface
+<span style="color: #008000; font-weight: bold">interface</span>
 
-type
-  { Description of TMyClass. }
-  TMyClass = class
-  public
-    { Description of MyField. }
-    MyField: Integer;
-    { Description of MyMethod. }
-    procedure MyMethod;
-  end;
+<span style="color: #008000; font-weight: bold">type</span>
+  <span style="color: #408080; font-style: italic">{ Description of TMyClass. }</span>
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+  <span style="color: #008000">public</span>
+    <span style="color: #408080; font-style: italic">{ Description of MyField. }</span>
+    MyField<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{ Description of MyMethod. }</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyMethod</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
-  { Description of TMySimpleType. }
-  TMySimpleType = 1..100;
+  <span style="color: #408080; font-style: italic">{ Description of TMySimpleType. }</span>
+  TMySimpleType <span style="color: #666666">=</span> <span style="color: #666666">1..100;</span>
 
-  { Description of TMyEnumType. }
-  TMyEnumType = (
-    { Description of meFirstValue. }
-    meFirstValue,
-    { Description of meSecondValue. }
-    meSecondValue);
+  <span style="color: #408080; font-style: italic">{ Description of TMyEnumType. }</span>
+  TMyEnumType <span style="color: #666666">=</span> (
+    <span style="color: #408080; font-style: italic">{ Description of meFirstValue. }</span>
+    meFirstValue<span style="color: #666666">,</span>
+    <span style="color: #408080; font-style: italic">{ Description of meSecondValue. }</span>
+    meSecondValue)<span style="color: #666666">;</span>
 
-const
-  { Description of MyConstant. }
-  MyConstant = 4;
+<span style="color: #008000; font-weight: bold">const</span>
+  <span style="color: #408080; font-style: italic">{ Description of MyConstant. }</span>
+  MyConstant <span style="color: #666666">=</span> <span style="color: #666666">4;</span>
 
-var
-  { Description of MyVariable. }
-  MyVariable: Integer;
+<span style="color: #008000; font-weight: bold">var</span>
+  <span style="color: #408080; font-style: italic">{ Description of MyVariable. }</span>
+  MyVariable<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
 
-{ Description of MyProcedure. }
-procedure MyProcedure;
+<span style="color: #408080; font-style: italic">{ Description of MyProcedure. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyProcedure</span><span style="color: #666666">;</span>
 
-implementation
-...
-end.</code></pre>
+<span style="color: #008000; font-weight: bold">implementation</span>
+<span style="color: #666666">...</span>
+<span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -107,10 +107,10 @@ are nicely shown in the resulting documentation.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="more-detailed-rules"><a id="more-detailed-rules"></a> More detailed rules</h2>
+<h2 id="_-more-detailed-rules"><a id="more-detailed-rules"></a> More detailed rules</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="comment-markers"><a id="comment-markers"></a> Comment markers</h3>
+<h3 id="_-comment-markers"><a id="comment-markers"></a> Comment markers</h3>
 <div class="paragraph">
 <p>You can use <a href="CommentMarker">--marker option</a> if
 you want <a href="index">PasDoc</a> to recognize only comments designated by
@@ -118,7 +118,7 @@ some special markers.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="multiple-fieldsvariables-in-one-declaration"><a id="multiple-fieldsvariables-in-one-declaration"></a> Multiple fields/variables in one declaration</h3>
+<h3 id="_-multiple-fieldsvariables-in-one-declaration"><a id="multiple-fieldsvariables-in-one-declaration"></a> Multiple fields/variables in one declaration</h3>
 <div class="paragraph">
 <p>The case when you declare multiple fields/variables with the same type
 in one declaration deserves some detailed explanation. This concerns
@@ -126,15 +126,15 @@ declarations like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
-  TMyRecord = record
-    { Comment 1 }
-    Field1, Field2: Integer;
-  end;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  TMyRecord <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">record</span>
+    <span style="color: #408080; font-style: italic">{ Comment 1 }</span>
+    Field1<span style="color: #666666">,</span> Field2<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
-var
-  { Comment 2 }
-  Variable1, Variable2: Integer;</code></pre>
+<span style="color: #008000; font-weight: bold">var</span>
+  <span style="color: #408080; font-style: italic">{ Comment 2 }</span>
+  Variable1<span style="color: #666666">,</span> Variable2<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -151,24 +151,24 @@ fields/variables within this declaration. See this example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
-  TMyRecord = record
-    { This comment documents Field1 and Field2 }
-    Field1, Field2,
-      { This comment documents Field3 and Field4 }
-      Field3, Field4: Integer;
-  end;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  TMyRecord <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">record</span>
+    <span style="color: #408080; font-style: italic">{ This comment documents Field1 and Field2 }</span>
+    Field1<span style="color: #666666">,</span> Field2<span style="color: #666666">,</span>
+      <span style="color: #408080; font-style: italic">{ This comment documents Field3 and Field4 }</span>
+      Field3<span style="color: #666666">,</span> Field4<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
-var
-  { This comment documents Variable1 }
-  Variable1,
-    { This comment documents Variable2 }
-    Variable2: Integer;</code></pre>
+<span style="color: #008000; font-weight: bold">var</span>
+  <span style="color: #408080; font-style: italic">{ This comment documents Variable1 }</span>
+  Variable1<span style="color: #666666">,</span>
+    <span style="color: #408080; font-style: italic">{ This comment documents Variable2 }</span>
+    Variable2<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="placing-comments-after-the-item"><a id="placing-comments-after-the-item"></a> Placing comments after the item</h3>
+<h3 id="_-placing-comments-after-the-item"><a id="placing-comments-after-the-item"></a> Placing comments after the item</h3>
 <div class="paragraph">
 <p>Sometimes it is more convenient to place your documentation comment
 <em>after</em> the documented item, instead of <em>before</em>. You can freely do so
@@ -182,38 +182,38 @@ usual) item declaration.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">unit MyUnit;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
 
-{&lt; Here you can place a description of MyUnit.
-   This is convenient for people that like to always
-   keep the "unit UnitName;" declaration
-   as the first line of their *.pas files. }
+<span style="color: #408080; font-style: italic">{&lt; Here you can place a description of MyUnit.</span>
+<span style="color: #408080; font-style: italic">   This is convenient for people that like to always</span>
+<span style="color: #408080; font-style: italic">   keep the &quot;unit UnitName;&quot; declaration</span>
+<span style="color: #408080; font-style: italic">   as the first line of their *.pas files. }</span>
 
-interface
+<span style="color: #008000; font-weight: bold">interface</span>
 
-type
-  TMyEnumType = (
-    meOne, //&lt; Description of meOne
-    meTwo, //&lt; Description of meTwo
-    meThree //&lt; Description of meThree
-  );
+<span style="color: #008000; font-weight: bold">type</span>
+  TMyEnumType <span style="color: #666666">=</span> (
+    meOne<span style="color: #666666">,</span> <span style="color: #408080; font-style: italic">//&lt; Description of meOne</span>
+    meTwo<span style="color: #666666">,</span> <span style="color: #408080; font-style: italic">//&lt; Description of meTwo</span>
+    meThree <span style="color: #408080; font-style: italic">//&lt; Description of meThree</span>
+  )<span style="color: #666666">;</span>
 
-  TMyClass = class
-    MyField: Integer; //&lt; Description of MyField
-    procedure MyProc; //&lt; Description of MyProc
-    property MyProp: Integer read MyField write MyField;
-      //&lt; Description of MyProp
-  end;
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+    MyField<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">//&lt; Description of MyField</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyProc</span><span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">//&lt; Description of MyProc</span>
+    <span style="color: #008000; font-weight: bold">property</span> MyProp<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span> <span style="color: #008000">read</span> <span style="color: #0000FF">MyField</span> <span style="color: #008000">write</span> <span style="color: #0000FF">MyField</span><span style="color: #666666">;</span>
+      <span style="color: #408080; font-style: italic">//&lt; Description of MyProp</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
-  TMyException = class(Exception); //&lt; Description of TMyException
+  TMyException <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>(Exception)<span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">//&lt; Description of TMyException</span>
 
-var
-  SomeVariable: Integer; //&lt; Description of SomeVariable
-  Var1, Var2: Integer; //&lt; Description of Var1 and Var2
+<span style="color: #008000; font-weight: bold">var</span>
+  SomeVariable<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">//&lt; Description of SomeVariable</span>
+  Var1<span style="color: #666666">,</span> Var2<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">//&lt; Description of Var1 and Var2</span>
 
-implementation
-...
-end.</code></pre>
+<span style="color: #008000; font-weight: bold">implementation</span>
+<span style="color: #666666">...</span>
+<span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -222,7 +222,7 @@ the "&lt;" character must be placed <em>right after</em> your chosen marker.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="glueing-single-line-comments"><a id="glueing-single-line-comments"></a> Glueing single-line comments</h3>
+<h3 id="_-glueing-single-line-comments"><a id="glueing-single-line-comments"></a> Glueing single-line comments</h3>
 <div class="paragraph">
 <p>Subsequent //-style comments are "glued" by <a href="index">PasDoc</a> into
 one comment. If comment markers are required, every single comment must
@@ -232,25 +232,26 @@ procedure Foo are equivalent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This is
-  description of
-  procedure Foo. }
-procedure Foo;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span>
+<span style="color: #408080; font-style: italic">{ This is</span>
+<span style="color: #408080; font-style: italic">  description of</span>
+<span style="color: #408080; font-style: italic">  procedure Foo. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
 
-// This is
-// description of
-// procedure Foo.
-procedure Foo;
+<span style="color: #408080; font-style: italic">// This is</span>
+<span style="color: #408080; font-style: italic">// description of</span>
+<span style="color: #408080; font-style: italic">// procedure Foo.</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
 
-procedure Foo;
-//&lt; This is
-// description of
-// procedure Foo.</code></pre>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
+<span style="color: #408080; font-style: italic">//&lt; This is</span>
+<span style="color: #408080; font-style: italic">// description of</span>
+<span style="color: #408080; font-style: italic">// procedure Foo.</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="multiple-comments-on-an-identifier-or-declaration"><a id="multiple-comments-on-an-identifier-or-declaration"></a> Multiple comments on an identifier or declaration</h3>
+<h3 id="_-multiple-comments-on-an-identifier-or-declaration"><a id="multiple-comments-on-an-identifier-or-declaration"></a> Multiple comments on an identifier or declaration</h3>
 <div class="paragraph">
 <p>When one or more comments precede an identifier, and possibly another
 back-comment follows it, <a href="index">PasDoc</a> (currently) ignores any
@@ -270,15 +271,15 @@ uncommented.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">type
-  // This comment is overwritten later
-  TMyEnumType = (
-  // Description of meOne
-    meOne,
-    meTwo, //&lt; Description of meTwo
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  <span style="color: #408080; font-style: italic">// This comment is overwritten later</span>
+  TMyEnumType <span style="color: #666666">=</span> (
+  <span style="color: #408080; font-style: italic">// Description of meOne</span>
+    meOne<span style="color: #666666">,</span>
+    meTwo<span style="color: #666666">,</span> <span style="color: #408080; font-style: italic">//&lt; Description of meTwo</span>
     meThree
-  );
-  //&lt; Description of TMyEnumType, *not* of meThree</code></pre>
+  )<span style="color: #666666">;</span>
+  <span style="color: #408080; font-style: italic">//&lt; Description of TMyEnumType, *not* of meThree</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -288,7 +289,7 @@ uncommented.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="common-case-when-comments-are-not-meaningful-to-pasdoc"><a id="common-case-when-comments-are-not-meaningful-to-pasdoc"></a> Common case when comments are not meaningful to PasDoc</h2>
+<h2 id="_-common-case-when-comments-are-not-meaningful-to-pasdoc"><a id="common-case-when-comments-are-not-meaningful-to-pasdoc"></a> Common case when comments are not meaningful to PasDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As long as we consider only multi-line comments (<code>{ &#8230;&#8203; }</code> or
@@ -299,10 +300,10 @@ Description consists only of <em>Description of Foo</em> comment.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ Ignored comment. }
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ Ignored comment. }</span>
 
-{ Description of Foo. }
-procedure Foo;</code></pre>
+<span style="color: #408080; font-style: italic">{ Description of Foo. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -313,10 +314,10 @@ given item. For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ procedure Foo; }
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ procedure Foo; }</span>
 
-{ }
-procedure Bar;</code></pre>
+<span style="color: #408080; font-style: italic">{ }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -340,308 +341,119 @@ effect, but "{ }" is recommended for clarity.</p>
 
       <div id="layout-sidebar">
       <!-- See https://jekyllrb.com/docs/includes/ about Jekyll includes -->
-      <div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="index"><h1>PasDoc</h1></a></dt>
-<dt class="hdlist1">Features: </dt>
-<dd>
-<div class="ulist">
+      
+      
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [Home](/)
+</code></pre></div></div>
+
+<p><a href="https://sourceforge.net/projects/pasdoc/files/">Download</a></p>
+
+<p>Features:</p>
 <ul>
-<li>
-<p><a href="WritingDocumentation">Writing Documentation</a></p>
-</li>
-<li>
-<p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
-</li>
-<li>
-<p><a href="AdvancedFeatures">Advanced Features</a></p>
-</li>
-<li>
-<p><a href="PasDocAutoDoc">Demo</a></p>
-</li>
-<li>
-<p><a href="ProjectsUsingPasDoc">Projects Using PasDoc</a></p>
-</li>
-<li>
-<p><a href="PasDocFpDocComparison">PasDoc vs FpDoc</a></p>
-</li>
-<li>
-<p><a href="PasDocGui">PasDoc GUI</a></p>
-</li>
-<li>
-<p><a href="OtherTools">Other Tools</a></p>
-</li>
+  <li><a href="WritingDocumentation">Writing Documentation</a></li>
+  <li><a href="WhereToPlaceComments">Where To Place Comments</a></li>
+  <li><a href="AdvancedFeatures">Advanced Features</a></li>
+  <li><a href="PasDocAutoDoc">Demo</a></li>
+  <li><a href="ProjectsUsingPasDoc">Projects Using PasDoc</a></li>
+  <li><a href="PasDocFpDocComparison">PasDoc vs FpDoc</a></li>
+  <li><a href="PasDocGui">PasDoc GUI</a></li>
+  <li><a href="OtherTools">Other Tools</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="SupportedTags">Supported Tags</a>: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="SupportedTags">Supported Tags</a>: ::</p>
 <ul>
-<li>
-<p><a href="AbstractTag">@abstract</a></p>
-</li>
-<li>
-<p><a href="AuthorTag">@author</a></p>
-</li>
-<li>
-<p><a href="BoldAndItalicTags">@bold, @italic</a></p>
-</li>
-<li>
-<p><a href="BrTag">@br</a></p>
-</li>
-<li>
-<p><a href="CodeTag">@code</a></p>
-</li>
-<li>
-<p><a href="CreatedLastmodTag">@created, @lastmod</a></p>
-</li>
-<li>
-<p><a href="CvsTag">@cvs</a></p>
-</li>
-<li>
-<p><a href="DeprecatedTag">@deprecated</a></p>
-</li>
-<li>
-<p><a href="ExcludeTag">@exclude</a></p>
-</li>
-<li>
-<p><a href="HtmlTag">@html</a></p>
-</li>
-<li>
-<p><a href="ImageTag">@image</a></p>
-</li>
-<li>
-<p><a href="IncludeCodeTag">@includeCode</a></p>
-</li>
-<li>
-<p><a href="IncludeTag">@include</a></p>
-</li>
-<li>
-<p><a href="InheritedClassnameNameTag">@name, @className, @inheritedClass, @inherited</a></p>
-</li>
-<li>
-<p><a href="IntroductionAndConclusion">@shortTitle, @title, @section, @anchor</a></p>
-</li>
-<li>
-<p><a href="LatexTag">@latex</a></p>
-</li>
-<li>
-<p><a href="LinkTag">@link</a></p>
-</li>
-<li>
-<p><a href="ListTags">@orderedList, @unorderedList, @definitionList, @item, @itemLabel, @itemSpacing, @itemSetNumber</a></p>
-</li>
-<li>
-<p><a href="LongcodeTag">@longCode</a></p>
-</li>
-<li>
-<p><a href="MemberValueTag">@member, @value</a></p>
-</li>
-<li>
-<p><a href="NoteAndWarningTags">@note, @warning</a></p>
-</li>
-<li>
-<p><a href="ParamReturnsRaisesTag">@param, @returns, @raises</a></p>
-</li>
-<li>
-<p><a href="PreformattedTag">@preformatted</a></p>
-</li>
-<li>
-<p><a href="SeeAlsoTag">@seeAlso</a></p>
-</li>
-<li>
-<p><a href="TableOfContentsTag">@tableOfContents</a></p>
-</li>
-<li>
-<p><a href="TableTags">@table, @row, @rowHead, @cell</a></p>
-</li>
-<li>
-<p><a href="TrueFalseNilTag">@nil, @true, @false</a></p>
-</li>
-<li>
-<p><a href="TagsParametersMatching">@(, @)</a></p>
-</li>
-<li>
-<p><a href="UrlTag">@url</a></p>
-</li>
+  <li><a href="AbstractTag">@abstract</a></li>
+  <li><a href="AuthorTag">@author</a></li>
+  <li><a href="BoldAndItalicTags">@bold, @italic</a></li>
+  <li><a href="BrTag">@br</a></li>
+  <li><a href="CodeTag">@code</a></li>
+  <li><a href="CreatedLastmodTag">@created, @lastmod</a></li>
+  <li><a href="CvsTag">@cvs</a></li>
+  <li><a href="DeprecatedTag">@deprecated</a></li>
+  <li><a href="ExcludeTag">@exclude</a></li>
+  <li><a href="HtmlTag">@html</a></li>
+  <li><a href="ImageTag">@image</a></li>
+  <li><a href="IncludeCodeTag">@includeCode</a></li>
+  <li><a href="IncludeTag">@include</a></li>
+  <li><a href="InheritedClassnameNameTag">@name, @className, @inheritedClass, @inherited</a></li>
+  <li><a href="IntroductionAndConclusion">@shortTitle, @title, @section, @anchor</a></li>
+  <li><a href="LatexTag">@latex</a></li>
+  <li><a href="LinkTag">@link</a></li>
+  <li><a href="ListTags">@orderedList, @unorderedList, @definitionList, @item, @itemLabel, @itemSpacing, @itemSetNumber</a></li>
+  <li><a href="LongcodeTag">@longCode</a></li>
+  <li><a href="MemberValueTag">@member, @value</a></li>
+  <li><a href="NoteAndWarningTags">@note, @warning</a></li>
+  <li><a href="ParamReturnsRaisesTag">@param, @returns, @raises</a></li>
+  <li><a href="PreformattedTag">@preformatted</a></li>
+  <li><a href="SeeAlsoTag">@seeAlso</a></li>
+  <li><a href="TableOfContentsTag">@tableOfContents</a></li>
+  <li><a href="TableTags">@table, @row, @rowHead, @cell</a></li>
+  <li><a href="TrueFalseNilTag">@nil, @true, @false</a></li>
+  <li><a href="TagsParametersMatching">@(, @)</a></li>
+  <li><a href="UrlTag">@url</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="CommandLine">Command Line</a>: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="CommandLine">Command Line</a>: ::</p>
 <ul>
-<li>
-<p><a href="CommandlineExamples">Examples</a></p>
-</li>
-<li>
-<p>--format:</p>
-<div class="ulist">
+  <li><a href="CommandlineExamples">Examples</a></li>
+  <li>–format:
+** <a href="HtmlOutput">–format=html</a>
+** <a href="HtmlHelp">–format=htmlhelp</a>
+** <a href="LatexOutput">–format=latex</a>
+** <a href="Latex2RtfOutput">–format=latex2rtf</a>
+** <a href="SimpleXmlOutput">–format=simplexml</a></li>
+  <li><a href="AutoAbstractOption">–auto-abstract</a></li>
+  <li><a href="AutoBackComments">–auto-back-comments</a></li>
+  <li><a href="AutoLinkOption">–auto-link, –auto-link-exclude</a></li>
+  <li><a href="CacheOption">–cache</a></li>
+  <li><a href="CommentMarker">–marker, –staronly, –marker-optional</a></li>
+  <li><a href="ConditionalDefines">–define, –conditionals</a></li>
+  <li><a href="CssOption">–css</a></li>
+  <li><a href="DocumentationTitle">–title</a></li>
+  <li><a href="ExcludeGeneratorOption">–exclude-generator</a></li>
+  <li><a href="ExternalClassHierarchy">–external-class-hierarchy</a></li>
+  <li><a href="GraphVizSupport">–graphviz-uses, –graphviz-classes, –link-gv-uses, –link-gv-classes</a></li>
+  <li><a href="FileAsHeaderOrFooter">–header, –footer</a></li>
+  <li><a href="HtmlHeadBodyBeginEndOptions">–html-head, –html-body-begin, –html-body-end</a></li>
+  <li><a href="IgnoreLeadingOption">–ignore-leading</a></li>
+  <li><a href="IgnoreMarkerOption">–ignore-marker</a></li>
+  <li><a href="IntroductionAndConclusion">–introduction, –conclusion, -A, –additional</a></li>
+  <li><a href="ImplicitVisibilityOption">–implicit-visibility</a></li>
+  <li><a href="TrueFalseNilTag">–lowercase-keywords</a></li>
+  <li><a href="IncludeByVisibility">–visible-members</a></li>
+  <li><a href="IncludeCreationTimeOption">–include-creation-time</a></li>
+  <li><a href="IncludeInSearchPath">–include</a></li>
+  <li><a href="LinkLookOption">–link-look</a></li>
+  <li><a href="MarkdownOption">–markdown</a></li>
+  <li><a href="NameOption">–name</a></li>
+  <li><a href="NoMacroOption">–no-macro</a></li>
+  <li><a href="OutputLanguage">–language</a></li>
+  <li><a href="OutputOption">–output</a></li>
+  <li><a href="ReadDescriptionFromFile">–description</a></li>
+  <li><a href="SortOption">–sort</a></li>
+  <li><a href="SpellChecking">–spell-check, –spell-check-ignore-words</a></li>
+  <li><a href="UseTipueSearchOption">–use-tipue-search</a></li>
+  <li><a href="WriteUsesList">–write-uses-list</a></li>
+  <li>[@<config-file.txt>](ConfigFileOption)</config-file.txt></li>
+  <li><a href="ImplementationCommentsOption">–implementation-comments</a></li>
+</ul>
+
+<p>Development: ::</p>
 <ul>
-<li>
-<p><a href="HtmlOutput">--format=html</a></p>
-</li>
-<li>
-<p><a href="HtmlHelp">--format=htmlhelp</a></p>
-</li>
-<li>
-<p><a href="LatexOutput">--format=latex</a></p>
-</li>
-<li>
-<p><a href="Latex2RtfOutput">--format=latex2rtf</a></p>
-</li>
-<li>
-<p><a href="SimpleXmlOutput">--format=simplexml</a></p>
-</li>
+  <li><a href="CompilingPasDoc">Compiling</a></li>
+  <li><a href="DevelopmentSnapshots">Development Snapshots</a></li>
+  <li><a href="ReleaseMaking">Release Making</a></li>
 </ul>
-</div>
-</li>
-<li>
-<p><a href="AutoAbstractOption">--auto-abstract</a></p>
-</li>
-<li>
-<p><a href="AutoBackComments">--auto-back-comments</a></p>
-</li>
-<li>
-<p><a href="AutoLinkOption">--auto-link, --auto-link-exclude</a></p>
-</li>
-<li>
-<p><a href="CacheOption">--cache</a></p>
-</li>
-<li>
-<p><a href="CommentMarker">--marker, --staronly, --marker-optional</a></p>
-</li>
-<li>
-<p><a href="ConditionalDefines">--define, --conditionals</a></p>
-</li>
-<li>
-<p><a href="CssOption">--css</a></p>
-</li>
-<li>
-<p><a href="DocumentationTitle">--title</a></p>
-</li>
-<li>
-<p><a href="ExcludeGeneratorOption">--exclude-generator</a></p>
-</li>
-<li>
-<p><a href="ExternalClassHierarchy">--external-class-hierarchy</a></p>
-</li>
-<li>
-<p><a href="GraphVizSupport">--graphviz-uses, --graphviz-classes, --link-gv-uses, --link-gv-classes</a></p>
-</li>
-<li>
-<p><a href="FileAsHeaderOrFooter">--header, --footer</a></p>
-</li>
-<li>
-<p><a href="HtmlHeadBodyBeginEndOptions">--html-head, --html-body-begin, --html-body-end</a></p>
-</li>
-<li>
-<p><a href="IgnoreLeadingOption">--ignore-leading</a></p>
-</li>
-<li>
-<p><a href="IgnoreMarkerOption">--ignore-marker</a></p>
-</li>
-<li>
-<p><a href="IntroductionAndConclusion">--introduction, --conclusion, -A, --additional</a></p>
-</li>
-<li>
-<p><a href="ImplicitVisibilityOption">--implicit-visibility</a></p>
-</li>
-<li>
-<p><a href="TrueFalseNilTag">--lowercase-keywords</a></p>
-</li>
-<li>
-<p><a href="IncludeByVisibility">--visible-members</a></p>
-</li>
-<li>
-<p><a href="IncludeCreationTimeOption">--include-creation-time</a></p>
-</li>
-<li>
-<p><a href="IncludeInSearchPath">--include</a></p>
-</li>
-<li>
-<p><a href="LinkLookOption">--link-look</a></p>
-</li>
-<li>
-<p><a href="MarkdownOption">--markdown</a></p>
-</li>
-<li>
-<p><a href="NameOption">--name</a></p>
-</li>
-<li>
-<p><a href="NoMacroOption">--no-macro</a></p>
-</li>
-<li>
-<p><a href="OutputLanguage">--language</a></p>
-</li>
-<li>
-<p><a href="OutputOption">--output</a></p>
-</li>
-<li>
-<p><a href="ReadDescriptionFromFile">--description</a></p>
-</li>
-<li>
-<p><a href="SortOption">--sort</a></p>
-</li>
-<li>
-<p><a href="SpellChecking">--spell-check, --spell-check-ignore-words</a></p>
-</li>
-<li>
-<p><a href="UseTipueSearchOption">--use-tipue-search</a></p>
-</li>
-<li>
-<p><a href="WriteUsesList">--write-uses-list</a></p>
-</li>
-<li>
-<p><a href="ConfigFileOption">@&lt;config-file.txt&gt;</a></p>
-</li>
-<li>
-<p><a href="ImplementationCommentsOption">--implementation-comments</a></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">Development: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="CategoryHomepage">Developers pages</a>: ::</p>
 <ul>
-<li>
-<p><a href="CompilingPasDoc">Compiling</a></p>
-</li>
-<li>
-<p><a href="DevelopmentSnapshots">Development Snapshots</a></p>
-</li>
-<li>
-<p><a href="ReleaseMaking">Release Making</a></p>
-</li>
+  <li><a href="DoDi">Do Di</a></li>
+  <li><a href="GarfieldFr">Garfield Fr</a></li>
+  <li><a href="JohannesBerg">Johannes Berg</a></li>
+  <li><a href="MichalisKamburelis">Michalis Kamburelis</a></li>
+  <li><a href="ThomasMueller">Thomas Mueller</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="CategoryHomepage">Developers pages</a>: </dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="DoDi">Do Di</a></p>
-</li>
-<li>
-<p><a href="GarfieldFr">Garfield Fr</a></p>
-</li>
-<li>
-<p><a href="JohannesBerg">Johannes Berg</a></p>
-</li>
-<li>
-<p><a href="MichalisKamburelis">Michalis Kamburelis</a></p>
-</li>
-<li>
-<p><a href="ThomasMueller">Thomas Mueller</a></p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
-</div>
+
 
       </div> <!--div id="layout-sidebar" -->
     </div> <!--div id="layout-container" -->

@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://pasdoc.github.io//AutoLinkOption.html" />
 <meta property="og:site_name" content="PasDoc" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://pasdoc.github.io//AutoLinkOption.html","headline":"PasDoc","description":"Documentation tool for Pascal source code","@context":"https://schema.org"}</script>
+{"@type":"WebPage","description":"Documentation tool for Pascal source code","url":"https://pasdoc.github.io//AutoLinkOption.html","headline":"PasDoc","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5bdb4f392e26c96a27fdd2798967663f291ea927">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b3d3e2aea1e6128741fa182a2af6907c0e86c67d">
   </head>
   <body>
     <div id="layout-container">
@@ -36,7 +36,7 @@
           
 
           <div class="sect1">
-<h2 id="overview"><a id="overview"></a> Overview</h2>
+<h2 id="_-overview"><a id="overview"></a> Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="CommandLine">CommandLine</a> option <code>--auto-link</code> tells pasdoc to automatically turn identifiers into links inside your descriptions. In <a href="PasDocGui">PasDocGui</a> you can check the box <em>Automatically turn identifiers into links</em>, for the same effect.</p>
@@ -49,10 +49,10 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This works like procedure @link(Bar). }
-procedure Foo;
-{ This works like procedure @link(Foo). }
-procedure Bar;</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ This works like procedure @link(Bar). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
+<span style="color: #408080; font-style: italic">{ This works like procedure @link(Foo). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -60,10 +60,10 @@ procedure Bar;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ This works like procedure Bar. }
-procedure Foo;
-{ This works like procedure Foo. }
-procedure Bar;</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ This works like procedure Bar. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
+<span style="color: #408080; font-style: italic">{ This works like procedure Foo. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -72,7 +72,7 @@ procedure Bar;</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="noautolinkhere-tag"><a id="noautolinkhere-tag"></a> @noAutoLinkHere tag</h2>
+<h2 id="_-noautolinkhere-tag"><a id="noautolinkhere-tag"></a> @noAutoLinkHere tag</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you use auto-linking, you can prevent pasdoc from automatically linking to given item by placing <code>@noAutoLinkHere</code> tag within description of this item.</p>
@@ -85,20 +85,20 @@ procedure Bar;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @noAutoLinkHere }
-procedure This;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ @noAutoLinkHere }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">This</span><span style="color: #666666">;</span>
 
-{ This is a nice description of Foo.
-  The word "this" is not automatically turned into a link,
-  because of @@noAutoLinkHere tag in the description of
-  @link(This) item. }
-procedure Foo;</code></pre>
+<span style="color: #408080; font-style: italic">{ This is a nice description of Foo.</span>
+<span style="color: #408080; font-style: italic">  The word &quot;this&quot; is not automatically turned into a link,</span>
+<span style="color: #408080; font-style: italic">  because of @@noAutoLinkHere tag in the description of</span>
+<span style="color: #408080; font-style: italic">  @link(This) item. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="auto-link-exclude-option"><a id="auto-link-exclude-option"></a> --auto-link-exclude option</h2>
+<h2 id="_-auto-link-exclude-option"><a id="auto-link-exclude-option"></a> --auto-link-exclude option</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Use like <code>--auto-link-exclude=FILENAME</code>, where FILENAME is an existing file that contains one identifier name per line. For example,</p>
@@ -127,7 +127,7 @@ Destroy</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="noautolink-tag"><a id="noautolink-tag"></a> @noAutoLink tag</h2>
+<h2 id="_-noautolink-tag"><a id="noautolink-tag"></a> @noAutoLink tag</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you use auto-linking, you can locally prevent pasdoc from automatically turning your words into a link by using <code>@noAutoLink</code> tag. You can put any content within @noAutoLink tag, and it will be processed as usual&#8201;&#8212;&#8201;with the exception that identifiers will <em>not</em> be auto-linked inside.</p>
@@ -137,13 +137,13 @@ Destroy</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ }
-procedure This;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">This</span><span style="color: #666666">;</span>
 
-{ @noAutoLink( This is a nice description of Foo.
-  The word "this" is not automatically turned into a link, because
-  this text is within the @@noAutoLink tag.) }
-procedure Foo;</code></pre>
+<span style="color: #408080; font-style: italic">{ @noAutoLink( This is a nice description of Foo.</span>
+<span style="color: #408080; font-style: italic">  The word &quot;this&quot; is not automatically turned into a link, because</span>
+<span style="color: #408080; font-style: italic">  this text is within the @@noAutoLink tag.) }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -152,10 +152,10 @@ procedure Foo;</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="details"><a id="details"></a> Details</h2>
+<h2 id="_-details"><a id="details"></a> Details</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="auto-linking-messages"><a id="auto-linking-messages"></a> Auto-linking messages</h3>
+<h3 id="_-auto-linking-messages"><a id="auto-linking-messages"></a> Auto-linking messages</h3>
 <div class="paragraph">
 <p>When you request verbosity &gt;= 3 (by <a href="CommandLine">CommandLine</a> option --verbosity) you will see informational messages from pasdoc about what identifiers were auto-linked. They will look like this:</p>
 </div>
@@ -169,14 +169,14 @@ procedure Foo;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="identifier-name-inside-its-own-description"><a id="identifier-name-inside-its-own-description"></a> Identifier name inside its own description</h3>
+<h3 id="_-identifier-name-inside-its-own-description"><a id="identifier-name-inside-its-own-description"></a> Identifier name inside its own description</h3>
 <div class="paragraph">
 <p>When you write the name of your current item, then (with auto-linking turned on) it will be treated like you used @name tag. Consider this example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ MyProcedure is a very useful procedure. }
-procedure MyProcedure;</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ MyProcedure is a very useful procedure. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyProcedure</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -184,8 +184,8 @@ procedure MyProcedure;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-pascal" data-lang="pascal">{ @name is a very useful procedure. }
-procedure MyProcedure;</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ @name is a very useful procedure. }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyProcedure</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -193,7 +193,7 @@ procedure MyProcedure;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="other-details"><a id="other-details"></a> Other details</h3>
+<h3 id="_-other-details"><a id="other-details"></a> Other details</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -219,308 +219,119 @@ procedure MyProcedure;</code></pre>
 
       <div id="layout-sidebar">
       <!-- See https://jekyllrb.com/docs/includes/ about Jekyll includes -->
-      <div class="dlist">
-<dl>
-<dt class="hdlist1"><a href="index"><h1>PasDoc</h1></a></dt>
-<dt class="hdlist1">Features: </dt>
-<dd>
-<div class="ulist">
+      
+      
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [Home](/)
+</code></pre></div></div>
+
+<p><a href="https://sourceforge.net/projects/pasdoc/files/">Download</a></p>
+
+<p>Features:</p>
 <ul>
-<li>
-<p><a href="WritingDocumentation">Writing Documentation</a></p>
-</li>
-<li>
-<p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
-</li>
-<li>
-<p><a href="AdvancedFeatures">Advanced Features</a></p>
-</li>
-<li>
-<p><a href="PasDocAutoDoc">Demo</a></p>
-</li>
-<li>
-<p><a href="ProjectsUsingPasDoc">Projects Using PasDoc</a></p>
-</li>
-<li>
-<p><a href="PasDocFpDocComparison">PasDoc vs FpDoc</a></p>
-</li>
-<li>
-<p><a href="PasDocGui">PasDoc GUI</a></p>
-</li>
-<li>
-<p><a href="OtherTools">Other Tools</a></p>
-</li>
+  <li><a href="WritingDocumentation">Writing Documentation</a></li>
+  <li><a href="WhereToPlaceComments">Where To Place Comments</a></li>
+  <li><a href="AdvancedFeatures">Advanced Features</a></li>
+  <li><a href="PasDocAutoDoc">Demo</a></li>
+  <li><a href="ProjectsUsingPasDoc">Projects Using PasDoc</a></li>
+  <li><a href="PasDocFpDocComparison">PasDoc vs FpDoc</a></li>
+  <li><a href="PasDocGui">PasDoc GUI</a></li>
+  <li><a href="OtherTools">Other Tools</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="SupportedTags">Supported Tags</a>: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="SupportedTags">Supported Tags</a>: ::</p>
 <ul>
-<li>
-<p><a href="AbstractTag">@abstract</a></p>
-</li>
-<li>
-<p><a href="AuthorTag">@author</a></p>
-</li>
-<li>
-<p><a href="BoldAndItalicTags">@bold, @italic</a></p>
-</li>
-<li>
-<p><a href="BrTag">@br</a></p>
-</li>
-<li>
-<p><a href="CodeTag">@code</a></p>
-</li>
-<li>
-<p><a href="CreatedLastmodTag">@created, @lastmod</a></p>
-</li>
-<li>
-<p><a href="CvsTag">@cvs</a></p>
-</li>
-<li>
-<p><a href="DeprecatedTag">@deprecated</a></p>
-</li>
-<li>
-<p><a href="ExcludeTag">@exclude</a></p>
-</li>
-<li>
-<p><a href="HtmlTag">@html</a></p>
-</li>
-<li>
-<p><a href="ImageTag">@image</a></p>
-</li>
-<li>
-<p><a href="IncludeCodeTag">@includeCode</a></p>
-</li>
-<li>
-<p><a href="IncludeTag">@include</a></p>
-</li>
-<li>
-<p><a href="InheritedClassnameNameTag">@name, @className, @inheritedClass, @inherited</a></p>
-</li>
-<li>
-<p><a href="IntroductionAndConclusion">@shortTitle, @title, @section, @anchor</a></p>
-</li>
-<li>
-<p><a href="LatexTag">@latex</a></p>
-</li>
-<li>
-<p><a href="LinkTag">@link</a></p>
-</li>
-<li>
-<p><a href="ListTags">@orderedList, @unorderedList, @definitionList, @item, @itemLabel, @itemSpacing, @itemSetNumber</a></p>
-</li>
-<li>
-<p><a href="LongcodeTag">@longCode</a></p>
-</li>
-<li>
-<p><a href="MemberValueTag">@member, @value</a></p>
-</li>
-<li>
-<p><a href="NoteAndWarningTags">@note, @warning</a></p>
-</li>
-<li>
-<p><a href="ParamReturnsRaisesTag">@param, @returns, @raises</a></p>
-</li>
-<li>
-<p><a href="PreformattedTag">@preformatted</a></p>
-</li>
-<li>
-<p><a href="SeeAlsoTag">@seeAlso</a></p>
-</li>
-<li>
-<p><a href="TableOfContentsTag">@tableOfContents</a></p>
-</li>
-<li>
-<p><a href="TableTags">@table, @row, @rowHead, @cell</a></p>
-</li>
-<li>
-<p><a href="TrueFalseNilTag">@nil, @true, @false</a></p>
-</li>
-<li>
-<p><a href="TagsParametersMatching">@(, @)</a></p>
-</li>
-<li>
-<p><a href="UrlTag">@url</a></p>
-</li>
+  <li><a href="AbstractTag">@abstract</a></li>
+  <li><a href="AuthorTag">@author</a></li>
+  <li><a href="BoldAndItalicTags">@bold, @italic</a></li>
+  <li><a href="BrTag">@br</a></li>
+  <li><a href="CodeTag">@code</a></li>
+  <li><a href="CreatedLastmodTag">@created, @lastmod</a></li>
+  <li><a href="CvsTag">@cvs</a></li>
+  <li><a href="DeprecatedTag">@deprecated</a></li>
+  <li><a href="ExcludeTag">@exclude</a></li>
+  <li><a href="HtmlTag">@html</a></li>
+  <li><a href="ImageTag">@image</a></li>
+  <li><a href="IncludeCodeTag">@includeCode</a></li>
+  <li><a href="IncludeTag">@include</a></li>
+  <li><a href="InheritedClassnameNameTag">@name, @className, @inheritedClass, @inherited</a></li>
+  <li><a href="IntroductionAndConclusion">@shortTitle, @title, @section, @anchor</a></li>
+  <li><a href="LatexTag">@latex</a></li>
+  <li><a href="LinkTag">@link</a></li>
+  <li><a href="ListTags">@orderedList, @unorderedList, @definitionList, @item, @itemLabel, @itemSpacing, @itemSetNumber</a></li>
+  <li><a href="LongcodeTag">@longCode</a></li>
+  <li><a href="MemberValueTag">@member, @value</a></li>
+  <li><a href="NoteAndWarningTags">@note, @warning</a></li>
+  <li><a href="ParamReturnsRaisesTag">@param, @returns, @raises</a></li>
+  <li><a href="PreformattedTag">@preformatted</a></li>
+  <li><a href="SeeAlsoTag">@seeAlso</a></li>
+  <li><a href="TableOfContentsTag">@tableOfContents</a></li>
+  <li><a href="TableTags">@table, @row, @rowHead, @cell</a></li>
+  <li><a href="TrueFalseNilTag">@nil, @true, @false</a></li>
+  <li><a href="TagsParametersMatching">@(, @)</a></li>
+  <li><a href="UrlTag">@url</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="CommandLine">Command Line</a>: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="CommandLine">Command Line</a>: ::</p>
 <ul>
-<li>
-<p><a href="CommandlineExamples">Examples</a></p>
-</li>
-<li>
-<p>--format:</p>
-<div class="ulist">
+  <li><a href="CommandlineExamples">Examples</a></li>
+  <li>–format:
+** <a href="HtmlOutput">–format=html</a>
+** <a href="HtmlHelp">–format=htmlhelp</a>
+** <a href="LatexOutput">–format=latex</a>
+** <a href="Latex2RtfOutput">–format=latex2rtf</a>
+** <a href="SimpleXmlOutput">–format=simplexml</a></li>
+  <li><a href="AutoAbstractOption">–auto-abstract</a></li>
+  <li><a href="AutoBackComments">–auto-back-comments</a></li>
+  <li><a href="AutoLinkOption">–auto-link, –auto-link-exclude</a></li>
+  <li><a href="CacheOption">–cache</a></li>
+  <li><a href="CommentMarker">–marker, –staronly, –marker-optional</a></li>
+  <li><a href="ConditionalDefines">–define, –conditionals</a></li>
+  <li><a href="CssOption">–css</a></li>
+  <li><a href="DocumentationTitle">–title</a></li>
+  <li><a href="ExcludeGeneratorOption">–exclude-generator</a></li>
+  <li><a href="ExternalClassHierarchy">–external-class-hierarchy</a></li>
+  <li><a href="GraphVizSupport">–graphviz-uses, –graphviz-classes, –link-gv-uses, –link-gv-classes</a></li>
+  <li><a href="FileAsHeaderOrFooter">–header, –footer</a></li>
+  <li><a href="HtmlHeadBodyBeginEndOptions">–html-head, –html-body-begin, –html-body-end</a></li>
+  <li><a href="IgnoreLeadingOption">–ignore-leading</a></li>
+  <li><a href="IgnoreMarkerOption">–ignore-marker</a></li>
+  <li><a href="IntroductionAndConclusion">–introduction, –conclusion, -A, –additional</a></li>
+  <li><a href="ImplicitVisibilityOption">–implicit-visibility</a></li>
+  <li><a href="TrueFalseNilTag">–lowercase-keywords</a></li>
+  <li><a href="IncludeByVisibility">–visible-members</a></li>
+  <li><a href="IncludeCreationTimeOption">–include-creation-time</a></li>
+  <li><a href="IncludeInSearchPath">–include</a></li>
+  <li><a href="LinkLookOption">–link-look</a></li>
+  <li><a href="MarkdownOption">–markdown</a></li>
+  <li><a href="NameOption">–name</a></li>
+  <li><a href="NoMacroOption">–no-macro</a></li>
+  <li><a href="OutputLanguage">–language</a></li>
+  <li><a href="OutputOption">–output</a></li>
+  <li><a href="ReadDescriptionFromFile">–description</a></li>
+  <li><a href="SortOption">–sort</a></li>
+  <li><a href="SpellChecking">–spell-check, –spell-check-ignore-words</a></li>
+  <li><a href="UseTipueSearchOption">–use-tipue-search</a></li>
+  <li><a href="WriteUsesList">–write-uses-list</a></li>
+  <li>[@<config-file.txt>](ConfigFileOption)</config-file.txt></li>
+  <li><a href="ImplementationCommentsOption">–implementation-comments</a></li>
+</ul>
+
+<p>Development: ::</p>
 <ul>
-<li>
-<p><a href="HtmlOutput">--format=html</a></p>
-</li>
-<li>
-<p><a href="HtmlHelp">--format=htmlhelp</a></p>
-</li>
-<li>
-<p><a href="LatexOutput">--format=latex</a></p>
-</li>
-<li>
-<p><a href="Latex2RtfOutput">--format=latex2rtf</a></p>
-</li>
-<li>
-<p><a href="SimpleXmlOutput">--format=simplexml</a></p>
-</li>
+  <li><a href="CompilingPasDoc">Compiling</a></li>
+  <li><a href="DevelopmentSnapshots">Development Snapshots</a></li>
+  <li><a href="ReleaseMaking">Release Making</a></li>
 </ul>
-</div>
-</li>
-<li>
-<p><a href="AutoAbstractOption">--auto-abstract</a></p>
-</li>
-<li>
-<p><a href="AutoBackComments">--auto-back-comments</a></p>
-</li>
-<li>
-<p><a href="AutoLinkOption">--auto-link, --auto-link-exclude</a></p>
-</li>
-<li>
-<p><a href="CacheOption">--cache</a></p>
-</li>
-<li>
-<p><a href="CommentMarker">--marker, --staronly, --marker-optional</a></p>
-</li>
-<li>
-<p><a href="ConditionalDefines">--define, --conditionals</a></p>
-</li>
-<li>
-<p><a href="CssOption">--css</a></p>
-</li>
-<li>
-<p><a href="DocumentationTitle">--title</a></p>
-</li>
-<li>
-<p><a href="ExcludeGeneratorOption">--exclude-generator</a></p>
-</li>
-<li>
-<p><a href="ExternalClassHierarchy">--external-class-hierarchy</a></p>
-</li>
-<li>
-<p><a href="GraphVizSupport">--graphviz-uses, --graphviz-classes, --link-gv-uses, --link-gv-classes</a></p>
-</li>
-<li>
-<p><a href="FileAsHeaderOrFooter">--header, --footer</a></p>
-</li>
-<li>
-<p><a href="HtmlHeadBodyBeginEndOptions">--html-head, --html-body-begin, --html-body-end</a></p>
-</li>
-<li>
-<p><a href="IgnoreLeadingOption">--ignore-leading</a></p>
-</li>
-<li>
-<p><a href="IgnoreMarkerOption">--ignore-marker</a></p>
-</li>
-<li>
-<p><a href="IntroductionAndConclusion">--introduction, --conclusion, -A, --additional</a></p>
-</li>
-<li>
-<p><a href="ImplicitVisibilityOption">--implicit-visibility</a></p>
-</li>
-<li>
-<p><a href="TrueFalseNilTag">--lowercase-keywords</a></p>
-</li>
-<li>
-<p><a href="IncludeByVisibility">--visible-members</a></p>
-</li>
-<li>
-<p><a href="IncludeCreationTimeOption">--include-creation-time</a></p>
-</li>
-<li>
-<p><a href="IncludeInSearchPath">--include</a></p>
-</li>
-<li>
-<p><a href="LinkLookOption">--link-look</a></p>
-</li>
-<li>
-<p><a href="MarkdownOption">--markdown</a></p>
-</li>
-<li>
-<p><a href="NameOption">--name</a></p>
-</li>
-<li>
-<p><a href="NoMacroOption">--no-macro</a></p>
-</li>
-<li>
-<p><a href="OutputLanguage">--language</a></p>
-</li>
-<li>
-<p><a href="OutputOption">--output</a></p>
-</li>
-<li>
-<p><a href="ReadDescriptionFromFile">--description</a></p>
-</li>
-<li>
-<p><a href="SortOption">--sort</a></p>
-</li>
-<li>
-<p><a href="SpellChecking">--spell-check, --spell-check-ignore-words</a></p>
-</li>
-<li>
-<p><a href="UseTipueSearchOption">--use-tipue-search</a></p>
-</li>
-<li>
-<p><a href="WriteUsesList">--write-uses-list</a></p>
-</li>
-<li>
-<p><a href="ConfigFileOption">@&lt;config-file.txt&gt;</a></p>
-</li>
-<li>
-<p><a href="ImplementationCommentsOption">--implementation-comments</a></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1">Development: </dt>
-<dd>
-<div class="ulist">
+
+<p><a href="CategoryHomepage">Developers pages</a>: ::</p>
 <ul>
-<li>
-<p><a href="CompilingPasDoc">Compiling</a></p>
-</li>
-<li>
-<p><a href="DevelopmentSnapshots">Development Snapshots</a></p>
-</li>
-<li>
-<p><a href="ReleaseMaking">Release Making</a></p>
-</li>
+  <li><a href="DoDi">Do Di</a></li>
+  <li><a href="GarfieldFr">Garfield Fr</a></li>
+  <li><a href="JohannesBerg">Johannes Berg</a></li>
+  <li><a href="MichalisKamburelis">Michalis Kamburelis</a></li>
+  <li><a href="ThomasMueller">Thomas Mueller</a></li>
 </ul>
-</div>
-</dd>
-<dt class="hdlist1"><a href="CategoryHomepage">Developers pages</a>: </dt>
-<dd>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="DoDi">Do Di</a></p>
-</li>
-<li>
-<p><a href="GarfieldFr">Garfield Fr</a></p>
-</li>
-<li>
-<p><a href="JohannesBerg">Johannes Berg</a></p>
-</li>
-<li>
-<p><a href="MichalisKamburelis">Michalis Kamburelis</a></p>
-</li>
-<li>
-<p><a href="ThomasMueller">Thomas Mueller</a></p>
-</li>
-</ul>
-</div>
-</dd>
-</dl>
-</div>
+
 
       </div> <!--div id="layout-sidebar" -->
     </div> <!--div id="layout-container" -->
