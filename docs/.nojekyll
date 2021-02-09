@@ -1,0 +1,2 @@
+Do not ignore the _tipue_results.html file when publishing on GitHub pages.
+See https://github.com/jekyll/jekyll/issues/55 .
