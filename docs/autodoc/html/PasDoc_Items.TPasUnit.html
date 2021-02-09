@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Items: Class TPasUnit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TPasUnit"></span><h1 class="cio">Class TPasUnit</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Items.html">PasDoc_Items</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TPasUnit = class(<a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+extends <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> to store anything about a unit, its constants, types etc.; also provides methods for parsing a complete unit.
+
+<p>Note: Remember to always set <a class="normal" href="PasDoc_Items.TPasUnit.html#CacheDateTime">CacheDateTime</a> after deserializing this unit.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="PasDoc_Serialize.TSerializable.html">TSerializable</a></li>
+<li class="ancestor"><a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a></li>
+<li class="ancestor"><a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a></li>
+<li class="thisitem">TPasUnit</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FTypes">FTypes</a></strong>: <a href="PasDoc_Items.TPasTypes.html">TPasTypes</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FVariables">FVariables</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FCIOs">FCIOs</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FConstants">FConstants</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FFuncsProcs">FFuncsProcs</a></strong>: <a href="PasDoc_Items.TPasMethods.html">TPasMethods</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FUsesUnits">FUsesUnits</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FSourceFilename">FSourceFilename</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FOutputFileName">FOutputFileName</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FCacheDateTime">FCacheDateTime</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FSourceFileDateTime">FSourceFileDateTime</a></strong>: TDateTime;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FIsUnit">FIsUnit</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasUnit.html#FIsProgram">FIsProgram</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#Serialize">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#Deserialize">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TPasUnit.html#Create">Create</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TPasUnit.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#AddCIO">AddCIO</a></strong>(const i: <a href="PasDoc_Items.TPasCio.html">TPasCio</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#AddConstant">AddConstant</a></strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#AddType">AddType</a></strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#AddVariable">AddVariable</a></strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasUnit.html#FindInsideSomeClass">FindInsideSomeClass</a></strong>(const AClassName, ItemInsideClass: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasUnit.html#FindInsideSomeEnum">FindInsideSomeEnum</a></strong>(const EnumName, EnumMember: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasUnit.html#FindItem">FindItem</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasUnit.html#Sort">Sort</a></strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasUnit.html#FileNewerThanCache">FileNewerThanCache</a></strong>(const FileName: string): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasUnit.html#BasePath">BasePath</a></strong>: string; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#CIOs">CIOs</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FCIOs">FCIOs</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#Constants">Constants</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FConstants">FConstants</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#FuncsProcs">FuncsProcs</a></strong>: <a href="PasDoc_Items.TPasMethods.html">TPasMethods</a> read <a href="PasDoc_Items.TPasUnit.html#FFuncsProcs">FFuncsProcs</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#UsesUnits">UsesUnits</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read <a href="PasDoc_Items.TPasUnit.html#FUsesUnits">FUsesUnits</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#Types">Types</a></strong>: <a href="PasDoc_Items.TPasTypes.html">TPasTypes</a> read <a href="PasDoc_Items.TPasUnit.html#FTypes">FTypes</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#Variables">Variables</a></strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FVariables">FVariables</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#OutputFileName">OutputFileName</a></strong>: string read <a href="PasDoc_Items.TPasUnit.html#FOutputFileName">FOutputFileName</a> write <a href="PasDoc_Items.TPasUnit.html#FOutputFileName">FOutputFileName</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#SourceFileName">SourceFileName</a></strong>: string read <a href="PasDoc_Items.TPasUnit.html#FSourceFilename">FSourceFilename</a> write <a href="PasDoc_Items.TPasUnit.html#FSourceFilename">FSourceFilename</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#SourceFileDateTime">SourceFileDateTime</a></strong>: TDateTime
+      read <a href="PasDoc_Items.TPasUnit.html#FSourceFileDateTime">FSourceFileDateTime</a> write <a href="PasDoc_Items.TPasUnit.html#FSourceFileDateTime">FSourceFileDateTime</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#CacheDateTime">CacheDateTime</a></strong>: TDateTime
+      read <a href="PasDoc_Items.TPasUnit.html#FCacheDateTime">FCacheDateTime</a> write <a href="PasDoc_Items.TPasUnit.html#FCacheDateTime">FCacheDateTime</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#IsUnit">IsUnit</a></strong>: boolean read <a href="PasDoc_Items.TPasUnit.html#FIsUnit">FIsUnit</a> write <a href="PasDoc_Items.TPasUnit.html#FIsUnit">FIsUnit</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasUnit.html#IsProgram">IsProgram</a></strong>: boolean read <a href="PasDoc_Items.TPasUnit.html#FIsProgram">FIsProgram</a> write <a href="PasDoc_Items.TPasUnit.html#FIsProgram">FIsProgram</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FTypes"></span><code><strong>FTypes</strong>: <a href="PasDoc_Items.TPasTypes.html">TPasTypes</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FVariables"></span><code><strong>FVariables</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCIOs"></span><code><strong>FCIOs</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FConstants"></span><code><strong>FConstants</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FFuncsProcs"></span><code><strong>FFuncsProcs</strong>: <a href="PasDoc_Items.TPasMethods.html">TPasMethods</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUsesUnits"></span><code><strong>FUsesUnits</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSourceFilename"></span><code><strong>FSourceFilename</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOutputFileName"></span><code><strong>FOutputFileName</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FCacheDateTime"></span><code><strong>FCacheDateTime</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FSourceFileDateTime"></span><code><strong>FSourceFileDateTime</strong>: TDateTime;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FIsUnit"></span><code><strong>FIsUnit</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FIsProgram"></span><code><strong>FIsProgram</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Serialize"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Deserialize"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddCIO"></span><code>procedure <strong>AddCIO</strong>(const i: <a href="PasDoc_Items.TPasCio.html">TPasCio</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddConstant"></span><code>procedure <strong>AddConstant</strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddType"></span><code>procedure <strong>AddType</strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddVariable"></span><code>procedure <strong>AddVariable</strong>(const i: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindInsideSomeClass"></span><code>function <strong>FindInsideSomeClass</strong>(const AClassName, ItemInsideClass: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindInsideSomeEnum"></span><code>function <strong>FindInsideSomeEnum</strong>(const EnumName, EnumMember: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindItem"></span><code>function <strong>FindItem</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Sort"></span><code>procedure <strong>Sort</strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FileNewerThanCache"></span><code>function <strong>FileNewerThanCache</strong>(const FileName: string): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns if unit WasDeserialized, and file FileName exists, and file FileName is newer than CacheDateTime.
+
+<p>So if FileName contains some info generated from information of this unit, then we can somehow assume that FileName still contains valid information and we don't have to write it once again.
+
+<p>Sure, we're not really 100% sure that FileName still contains valid information, but that's how current approach to cache works.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BasePath"></span><code>function <strong>BasePath</strong>: string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CIOs"></span><code>property <strong>CIOs</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FCIOs">FCIOs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of classes, interfaces, objects, and records defined in this unit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Constants"></span><code>property <strong>Constants</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FConstants">FConstants</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of constants defined in this unit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FuncsProcs"></span><code>property <strong>FuncsProcs</strong>: <a href="PasDoc_Items.TPasMethods.html">TPasMethods</a> read <a href="PasDoc_Items.TPasUnit.html#FFuncsProcs">FFuncsProcs</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of functions and procedures defined in this unit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UsesUnits"></span><code>property <strong>UsesUnits</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read <a href="PasDoc_Items.TPasUnit.html#FUsesUnits">FUsesUnits</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The names of all units mentioned in a uses clause in the interface section of this unit.
+
+<p>This is never nil.
+
+<p>After <a class="normal" href="PasDoc_Gen.TDocGenerator.html#BuildLinks">TDocGenerator.BuildLinks</a>, for every i: UsesUnits.Objects[i] will point to TPasUnit object with Name = UsesUnits[i] (or nil, if pasdoc's didn't parse such unit). In other words, you will be able to use UsesUnits.Objects[i] to obtain given unit's instance, as parsed by pasdoc.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Types"></span><code>property <strong>Types</strong>: <a href="PasDoc_Items.TPasTypes.html">TPasTypes</a> read <a href="PasDoc_Items.TPasUnit.html#FTypes">FTypes</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of types defined in this unit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Variables"></span><code>property <strong>Variables</strong>: <a href="PasDoc_Items.TPasItems.html">TPasItems</a> read <a href="PasDoc_Items.TPasUnit.html#FVariables">FVariables</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of variables defined in this unit</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OutputFileName"></span><code>property <strong>OutputFileName</strong>: string read <a href="PasDoc_Items.TPasUnit.html#FOutputFileName">FOutputFileName</a> write <a href="PasDoc_Items.TPasUnit.html#FOutputFileName">FOutputFileName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+name of documentation output file THIS SHOULD NOT BE HERE!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SourceFileName"></span><code>property <strong>SourceFileName</strong>: string read <a href="PasDoc_Items.TPasUnit.html#FSourceFilename">FSourceFilename</a> write <a href="PasDoc_Items.TPasUnit.html#FSourceFilename">FSourceFilename</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SourceFileDateTime"></span><code>property <strong>SourceFileDateTime</strong>: TDateTime
+      read <a href="PasDoc_Items.TPasUnit.html#FSourceFileDateTime">FSourceFileDateTime</a> write <a href="PasDoc_Items.TPasUnit.html#FSourceFileDateTime">FSourceFileDateTime</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CacheDateTime"></span><code>property <strong>CacheDateTime</strong>: TDateTime
+      read <a href="PasDoc_Items.TPasUnit.html#FCacheDateTime">FCacheDateTime</a> write <a href="PasDoc_Items.TPasUnit.html#FCacheDateTime">FCacheDateTime</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If WasDeserialized then this specifies the datetime of a cache data of this unit, i.e. when cache data was generated. If cache was obtained from a file then this is just the cache file modification date/time.
+
+<p>If not WasDeserialized then this property has undefined value &ndash; don't use it.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsUnit"></span><code>property <strong>IsUnit</strong>: boolean read <a href="PasDoc_Items.TPasUnit.html#FIsUnit">FIsUnit</a> write <a href="PasDoc_Items.TPasUnit.html#FIsUnit">FIsUnit</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If <code>False</code>, then this is a program or library file, not a regular unit (though it's treated by pasdoc almost like a unit, so we use TPasUnit class for this).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsProgram"></span><code>property <strong>IsProgram</strong>: boolean read <a href="PasDoc_Items.TPasUnit.html#FIsProgram">FIsProgram</a> write <a href="PasDoc_Items.TPasUnit.html#FIsProgram">FIsProgram</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

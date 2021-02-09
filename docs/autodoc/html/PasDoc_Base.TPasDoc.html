@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Base: Class TPasDoc</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TPasDoc"></span><h1 class="cio">Class TPasDoc</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Base.html">PasDoc_Base</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TPasDoc = class(TComponent)</code></p>
+<h2 class="description">Description</h2>
+<p>
+The main object in the pasdoc application; first scans parameters, then parses files. All parsed units are then given to documentation generator, which creates one or more documentation output files.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TPasDoc</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#RemoveExcludedItems">RemoveExcludedItems</a></strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#Notification">Notification</a></strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Base.TPasDoc.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Base.TPasDoc.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#AddSourceFileNames">AddSourceFileNames</a></strong>(const AFileNames: TStringList);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#AddSourceFileNamesFromFile">AddSourceFileNamesFromFile</a></strong>(const FileName: string; DashMeansStdin: boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#DoError">DoError</a></strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#DoMessage">DoMessage</a></strong>(const AVerbosity: Cardinal; const AMessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#GenMessage">GenMessage</a></strong>(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#Execute">Execute</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Units">Units</a></strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read FUnits;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Conclusion">Conclusion</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Introduction">Introduction</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AdditionalFiles">AdditionalFiles</a></strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#DescriptionFileNames">DescriptionFileNames</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>
+      read FDescriptionFileNames write SetDescriptionFileNames;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Directives">Directives</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FDirectives write SetDirectives;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IncludeDirectories">IncludeDirectories</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeDirectories write
+      SetIncludeDirectories;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#OnWarning">OnWarning</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage stored false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ProjectName">ProjectName</a></strong>: string read FProjectName write FProjectName;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#SourceFileNames">SourceFileNames</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FSourceFileNames write
+      SetSourceFileNames;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Title">Title</a></strong>: string read FTitle write FTitle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Verbosity">Verbosity</a></strong>: Cardinal read FVerbosity write FVerbosity
+      default <a href="PasDoc_Base.html#DEFAULT_VERBOSITY_LEVEL">DEFAULT_VERBOSITY_LEVEL</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#StarOnly">StarOnly</a></strong>: boolean read GetStarOnly write SetStarOnly stored false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#CommentMarkers">CommentMarkers</a></strong>: TStringList read FCommentMarkers write SetCommentMarkers;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IgnoreMarkers">IgnoreMarkers</a></strong>: TStringList read FIgnoreMarkers write SetIgnoreMarkers;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#MarkerOptional">MarkerOptional</a></strong>: boolean read FMarkerOptional write FMarkerOptional
+      default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IgnoreLeading">IgnoreLeading</a></strong>: string read FIgnoreLeading write FIgnoreLeading;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Generator">Generator</a></strong>: <a href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> read FGenerator write SetGenerator;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ShowVisibilities">ShowVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FShowVisibilities write FShowVisibilities;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#CacheDir">CacheDir</a></strong>: string read FCacheDir write FCacheDir;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#SortSettings">SortSettings</a></strong>: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>
+      read FSortSettings write FSortSettings default [];</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IntroductionFileName">IntroductionFileName</a></strong>: string read FIntroductionFileName
+      write FIntroductionFileName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ConclusionFileName">ConclusionFileName</a></strong>: string read FConclusionFileName
+      write FConclusionFileName;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AdditionalFilesNames">AdditionalFilesNames</a></strong>: TStringList read FAdditionalFilesNames;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ImplicitVisibility">ImplicitVisibility</a></strong>: <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>
+      read FImplicitVisibility write FImplicitVisibility default <a href="PasDoc_Types.html#ivPublic">ivPublic</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#HandleMacros">HandleMacros</a></strong>: boolean
+      read FHandleMacros write FHandleMacros default true;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AutoLink">AutoLink</a></strong>: boolean
+      read FAutoLink write FAutoLink default false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AutoBackComments">AutoBackComments</a></strong>: boolean
+      read FAutoBackComments write FAutoBackComments default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#InfoMergeType">InfoMergeType</a></strong>: <a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>
+      read FInfoMergeType write FInfoMergeType;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RemoveExcludedItems"></span><code>procedure <strong>RemoveExcludedItems</strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches the description of each TPasUnit item in the collection for an excluded tag. If one is found, the item is removed from the collection. If not, the fields, methods and properties collections are called with RemoveExcludedItems If the collection is empty after removal of all items, it is disposed of and the variable is set to nil.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Notification"></span><code>procedure <strong>Notification</strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates object and sets fields to default values.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddSourceFileNames"></span><code>procedure <strong>AddSourceFileNames</strong>(const AFileNames: TStringList);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Adds source filenames from a stringlist</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddSourceFileNamesFromFile"></span><code>procedure <strong>AddSourceFileNamesFromFile</strong>(const FileName: string; DashMeansStdin: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads names of Pascal unit source code files from a text file. Adds all file names to <a class="normal" href="PasDoc_Base.TPasDoc.html#SourceFileNames">SourceFileNames</a>. If DashMeansStdin and AFileName = '-' then it will load filenames from stdin.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoError"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Raises an exception.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoMessage"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const AMessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Forwards a message to the <a class="normal" href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a> event.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GenMessage"></span><code>procedure <strong>GenMessage</strong>(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+for Generator messages</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Execute"></span><code>procedure <strong>Execute</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Starts creating the documentation.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Units"></span><code>property <strong>Units</strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read FUnits;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Units</code> holds the units that have been parsed.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Conclusion"></span><code>property <strong>Conclusion</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Conclusion</code> holds the conclusion.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Introduction"></span><code>property <strong>Introduction</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Introduction</code> holds the introduction.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AdditionalFiles"></span><code>property <strong>AdditionalFiles</strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>AdditionalFiles</code> holds the additional external files.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DescriptionFileNames"></span><code>property <strong>DescriptionFileNames</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>
+      read FDescriptionFileNames write SetDescriptionFileNames;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Directives"></span><code>property <strong>Directives</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FDirectives write SetDirectives;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IncludeDirectories"></span><code>property <strong>IncludeDirectories</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeDirectories write
+      SetIncludeDirectories;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnWarning"></span><code>property <strong>OnWarning</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage stored false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is deprecated name for <a class="normal" href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProjectName"></span><code>property <strong>ProjectName</strong>: string read FProjectName write FProjectName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The name PasDoc shall give to this documentation project, also used to name some of the output files.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SourceFileNames"></span><code>property <strong>SourceFileNames</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FSourceFileNames write
+      SetSourceFileNames;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>: string read FTitle write FTitle;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read FVerbosity write FVerbosity
+      default <a href="PasDoc_Base.html#DEFAULT_VERBOSITY_LEVEL">DEFAULT_VERBOSITY_LEVEL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="StarOnly"></span><code>property <strong>StarOnly</strong>: boolean read GetStarOnly write SetStarOnly stored false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CommentMarkers"></span><code>property <strong>CommentMarkers</strong>: TStringList read FCommentMarkers write SetCommentMarkers;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IgnoreMarkers"></span><code>property <strong>IgnoreMarkers</strong>: TStringList read FIgnoreMarkers write SetIgnoreMarkers;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MarkerOptional"></span><code>property <strong>MarkerOptional</strong>: boolean read FMarkerOptional write FMarkerOptional
+      default false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IgnoreLeading"></span><code>property <strong>IgnoreLeading</strong>: string read FIgnoreLeading write FIgnoreLeading;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Generator"></span><code>property <strong>Generator</strong>: <a href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> read FGenerator write SetGenerator;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ShowVisibilities"></span><code>property <strong>ShowVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FShowVisibilities write FShowVisibilities;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CacheDir"></span><code>property <strong>CacheDir</strong>: string read FCacheDir write FCacheDir;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SortSettings"></span><code>property <strong>SortSettings</strong>: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>
+      read FSortSettings write FSortSettings default [];</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This determines how items inside will be sorted. See [<a href="https://github.com/pasdoc/pasdoc/wiki/SortOption">https://github.com/pasdoc/pasdoc/wiki/SortOption</a>].</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IntroductionFileName"></span><code>property <strong>IntroductionFileName</strong>: string read FIntroductionFileName
+      write FIntroductionFileName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ConclusionFileName"></span><code>property <strong>ConclusionFileName</strong>: string read FConclusionFileName
+      write FConclusionFileName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AdditionalFilesNames"></span><code>property <strong>AdditionalFilesNames</strong>: TStringList read FAdditionalFilesNames;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ImplicitVisibility"></span><code>property <strong>ImplicitVisibility</strong>: <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>
+      read FImplicitVisibility write FImplicitVisibility default <a href="PasDoc_Types.html#ivPublic">ivPublic</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See command-line option --implicit-visibility documentation at [<a href="https://github.com/pasdoc/pasdoc/wiki/ImplicitVisibilityOption">https://github.com/pasdoc/pasdoc/wiki/ImplicitVisibilityOption</a>]. This will be passed to parser instance.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="HandleMacros"></span><code>property <strong>HandleMacros</strong>: boolean
+      read FHandleMacros write FHandleMacros default true;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoLink"></span><code>property <strong>AutoLink</strong>: boolean
+      read FAutoLink write FAutoLink default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This controls auto-linking, see [<a href="https://github.com/pasdoc/pasdoc/wiki/AutoLinkOption">https://github.com/pasdoc/pasdoc/wiki/AutoLinkOption</a>]</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoBackComments"></span><code>property <strong>AutoBackComments</strong>: boolean
+      read FAutoBackComments write FAutoBackComments default false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="InfoMergeType"></span><code>property <strong>InfoMergeType</strong>: <a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>
+      read FInfoMergeType write FInfoMergeType;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

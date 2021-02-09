@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Versions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Versions</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section">Classes, Interfaces, Objects and Records</div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Information about PasDoc and compilers version.</p>
+<span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Versions.html#COMPILER_NAME">COMPILER_NAME</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Versions.html#PASDOC_FULL_INFO">PASDOC_FULL_INFO</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#COMPILER_BITS">COMPILER_BITS</a></strong> =   '32' ;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a></strong> = 'PasDoc';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_DATE">PASDOC_DATE</a></strong> = '2021-02-07';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a></strong> = '0.16.0';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_NAME_AND_VERSION">PASDOC_NAME_AND_VERSION</a></strong> = <a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a> + ' ' + <a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_HOMEPAGE">PASDOC_HOMEPAGE</a></strong> = 'https://pasdoc.github.io/';</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COMPILER_NAME"></span><code>function <strong>COMPILER_NAME</strong>: string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Nice compiler name. This is a function only because we can't nicely declare it as a constant. But this behaves like a constant, i.e. every time you call it it returns the same thing (as long as this is the same binary).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_FULL_INFO"></span><code>function <strong>PASDOC_FULL_INFO</strong>: string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns pasdoc name, version, used compiler version, etc.
+
+<p>This is a function only because we can't nicely declare it as a constant. But this behaves like a constant, i.e. every time you call it it returns the same thing (as long as this is the same binary).</p>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="COMPILER_BITS"></span><code><strong>COMPILER_BITS</strong> =   '32' ;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_NAME"></span><code><strong>PASDOC_NAME</strong> = 'PasDoc';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_DATE"></span><code><strong>PASDOC_DATE</strong> = '2021-02-07';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Date of last pasdoc release.
+
+<p>We used to have this constant set to CVS/SVN <code>$ Date</code> keyword, but: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>That's not a really correct indication of pasdoc release. <code>$ Date</code> is only the date when this file, <code>PasDoc_Base.pas</code>, was last modified.
+
+<p>As it happens, always when you make an official release you have to manually change PASDOC_VERSION constant in this file below. So PASDOC_DATE was (at the time when the official release was made) updated to current date. But, since you have to change PASDOC_VERSION constant manually anyway, then it's not much of a problem to also update PASDOC_DATE manually.
+
+<p>For unofficial releases (i.e. when pasdoc is simply compiled from SVN by anyone, or when it's packaged for [<a href="https://github.com/pasdoc/pasdoc/wiki/DevelopmentSnapshots">https://github.com/pasdoc/pasdoc/wiki/DevelopmentSnapshots</a>]), PASDOC_DATE has no clear meaning. It's not the date of this release (since you don't update the PASDOC_VERSION constant) and it's not the date of last official release (since some commits possibly happened to <code>PasDoc_Base.pas</code> since last release). </p></li>
+  <li><p>SVN makes this date look bad for the purpose of PASDOC_FULL_INFO. It's too long: contains the time, day of the week, and a descriptive version. Like </p>
+
+<pre class="preformatted">2006-11-15 07:12:34 +0100 (Wed, 15 Nov 2006)</pre>
+
+<p>
+
+<p>Moreover, it contains indication of local user's system time, and the words (day of the week and month's name) are localized. So it depends on the locale developer has set (you can avoid localization of the words by doing things like <code>export LANG=C</code> before SVN operations, but it's too error-prone). </p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_VERSION"></span><code><strong>PASDOC_VERSION</strong> = '0.16.0';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_NAME_AND_VERSION"></span><code><strong>PASDOC_NAME_AND_VERSION</strong> = <a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a> + ' ' + <a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PASDOC_HOMEPAGE"></span><code><strong>PASDOC_HOMEPAGE</strong> = 'https://pasdoc.github.io/';</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

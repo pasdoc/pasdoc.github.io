@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Hashes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Hashes</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+This unit implements an associative array. Before writing this unit, I've always missed Perl commands like <code>$h{abc}='def'</code> in Pascal.
+
+<p>
+
+<p>Version 0.9.1 (works fine, don't know a bug, but 1.0? No, error checks are missing!)
+
+<p><em> This library is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</em>
+
+<p><em> This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library General Public License for more details.</em>
+
+<p><em> You should have received a copy of the GNU Library General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA</em>
+
+<p>Thanks to: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Larry Wall for perl! And because I found a way how to implement a hash in perl's source code (hv.c and hv.h). This is not a direct translation from C to Pascal, but the algortithms are more or less the same.</p></li>
+</ul>
+
+<p>
+
+<p>Be warned: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>There is NOT a single ERROR CHECK in this unit. So expect anything! Especially there are NO checks on NEW and GETMEM functions &mdash; this might be dangerous on machines with low memory.</p></li>
+</ul>
+
+<p>
+
+<p>Programmer's information: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>you need Freepascal (<a href="http://www.freepascal.org">http://www.freepascal.org</a>) or Delphi (<a href="http://www.borland.com">http://www.borland.com</a>) to compile this unit</p></li>
+  <li><p>I recommend that you use Ansistrings {$H+} to be able to use keys longer than 255 chars</p></li>
+</ul>
+
+<p>
+
+<p>How to use this unit:
+
+<p></p>
+
+<pre class="preformatted">
+Simply put this unit in your uses line. You can use a new class - THash.
+
+Initialize a hash (assuming &quot;var h: THash;&quot;):
+h:=THash.Create;
+
+Save a String:
+h.SetString('key','value');          //perl: $h{key}='value'
+
+Get the String back:
+string_var:=h.GetString('key');      //perl: $string_var=$h{key}
+returns '' if 'key' is not set
+
+Test if a key has been set:
+if h.KeyExists('key') then...        //perl: if (exists $h{key}) ...
+returns a boolean
+
+Delete a key
+h.DeleteKey('key');                  //perl: delete $h{key};
+
+Which keys do exist?
+stringlist:=h.Keys;                  //perl: @list=keys %h;
+returns a TStringList
+
+Which keys do exist beginning with a special string?
+stinglist:=h.Keys('abc');
+returns all keys beginning with 'abc'  //perl: @list=grep /&circ;abc/, keys %h;
+
+How many keys are there?
+number_of_keys:=h.Count;             //perl: $number=scalar keys %hash;
+
+How many keys fit in memory allocated by THash?
+c:=h.Capacity; (property)
+THash automatically increases h.Capacity if needed.
+This property is similar to Delphi's TList.Capacity property.
+Note #1: You can't decrease h.Capacity.
+Note #2: Capacity must be 2**n -- Create sets Capacity:=8;
+         The same: Capacity:=17; , Capacity:=32;
+
+I know there will be 4097 key/values in my hash. I don't want
+the hash's capacity to be 8192 (wasting 50% ram). What to do?
+h.MaxCapacity:=4096; =&gt; Capacity will never be &gt; 4096.
+Note: You can store more than MaxCapacity key/values in the
+      hash (as many as you want) but Count should be &gt;= Capacity
+      for best performance.
+MaxCapacity is -1 by default, meaning no limit.
+
+Delete the hash
+h.Free;    OR
+h.Destroy;
+
+Instead of just strings you can also save objects in my hash -
+anything that is a pointer can be saved. Similar to SetString
+and GetString  there are SetObject  and GetObject. The latter
+returns nil if the key is unknown.
+You can use both Set/GetString and Set/GetObject for a single
+key string - no problem. But if DeleteKey is called, both the
+string and the pointer are lost.
+If you want to store a pointer  and a string, it is faster to
+call  SetStringObject(key,string,pointer)  than SetString and
+SetObject. The same is true getting the data back - GetString
+and GetObject are  significantly slower  then a singe call to
+GetStringObject(key, var string, var pointer).
+
+Happy programming!</pre>
+
+<p></p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="PasDoc_Hashes.THashEntry.html"><code>THashEntry</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Hashes.THash.html"><code>THash</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Hashes.TObjectHash.html"><code>TObjectHash</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Hashes.html#PPHashEntry">PPHashEntry</a></strong>=&circ;<a href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a></strong>=&circ;<a href="PasDoc_Hashes.THashEntry.html">THashEntry</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Hashes.html#TFakeArray">TFakeArray</a></strong>=array[0..0] of <a href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Hashes.html#PFakeArray">PFakeArray</a></strong>=&circ;<a href="PasDoc_Hashes.html#TFakeArray">TFakeArray</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PPHashEntry"></span><code><strong>PPHashEntry</strong>=&circ;<a href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PHashEntry"></span><code><strong>PHashEntry</strong>=&circ;<a href="PasDoc_Hashes.THashEntry.html">THashEntry</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TFakeArray"></span><code><strong>TFakeArray</strong>=array[0..0] of <a href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+in FPC, I can simply use PPHashEntry as an array of PHashEntry - Delphi doesn't allow that. I need this stupid array[0..0] definition! From Delphi4, I could use a dynamic array.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PFakeArray"></span><code><strong>PFakeArray</strong>=&circ;<a href="PasDoc_Hashes.html#TFakeArray">TFakeArray</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Author</h2>
+<ul class="authors">
+<li>Copyright (C) 2001-2014  Wolf Behrenhoff &lt;<a href="mailto:wolf@behrenhoff.de">wolf@behrenhoff.de</a>&gt; and PasDoc developers</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

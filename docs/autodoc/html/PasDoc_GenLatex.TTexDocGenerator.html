@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_GenLatex: Class TTexDocGenerator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TTexDocGenerator"></span><h1 class="cio">Class TTexDocGenerator</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_GenLatex.html">PasDoc_GenLatex</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTexDocGenerator = class(<a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+generates latex documentation</p>
+<p>
+ Extends <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> and overwrites many of its methods to generate output in LaTex format.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="ancestor"><a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a></li>
+<li class="thisitem">TTexDocGenerator</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#ConvertString">ConvertString</a></strong>(const s: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#ConvertChar">ConvertChar</a></strong>(c: char): String; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#WriteUnit">WriteUnit</a></strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#LatexString">LatexString</a></strong>(const S: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#CodeString">CodeString</a></strong>(const s: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#CreateLink">CreateLink</a></strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#WriteStartOfCode">WriteStartOfCode</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#WriteEndOfCode">WriteEndOfCode</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#Paragraph">Paragraph</a></strong>: string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#ShortDash">ShortDash</a></strong>: string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#LineBreak">LineBreak</a></strong>: string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#URLLink">URLLink</a></strong>(const URL: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#URLLink">URLLink</a></strong>(const URL, LinkDisplay: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#WriteExternalCore">WriteExternalCore</a></strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatKeyWord">FormatKeyWord</a></strong>(AString: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatCompilerComment">FormatCompilerComment</a></strong>(AString: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatComment">FormatComment</a></strong>(AString: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatAnchor">FormatAnchor</a></strong>(const Anchor: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#MakeItemLink">MakeItemLink</a></strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkCaption: string; const LinkContext: <a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a>): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatBold">FormatBold</a></strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatItalic">FormatItalic</a></strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatWarning">FormatWarning</a></strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatNote">FormatNote</a></strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPreformatted">FormatPreformatted</a></strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatImage">FormatImage</a></strong>(FileNames: TStringList): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatList">FormatList</a></strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatTable">FormatTable</a></strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode">FormatPascalCode</a></strong>(const Line: string): string; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#GetFileExtension">GetFileExtension</a></strong>: string; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#WriteDocumentation">WriteDocumentation</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#EscapeURL">EscapeURL</a></strong>(const AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#FormatSection">FormatSection</a></strong>(HL: integer; const Anchor: string; const Caption: string): string; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#Latex2rtf">Latex2rtf</a></strong>: boolean read FLatex2rtf write FLatex2rtf default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_GenLatex.TTexDocGenerator.html#LatexHead">LatexHead</a></strong>: TStrings read FLatexHead write SetLatexHead;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ConvertString"></span><code>function <strong>ConvertString</strong>(const s: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ConvertChar"></span><code>function <strong>ConvertChar</strong>(c: char): String; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Called by <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#ConvertString">ConvertString</a> to convert a character. Will convert special characters to their html escape sequence -&gt; test</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteUnit"></span><code>procedure <strong>WriteUnit</strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LatexString"></span><code>function <strong>LatexString</strong>(const S: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CodeString"></span><code>function <strong>CodeString</strong>(const s: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Makes a String look like a coded String, i.e. '\begin{ttfamily}TheString\end{ttfamily}' in LaTeX. }</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateLink"></span><code>function <strong>CreateLink</strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns a link to an anchor within a document. LaTeX simply concatenates the strings with either a &quot;-&quot; or &quot;.&quot; character between them.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteStartOfCode"></span><code>procedure <strong>WriteStartOfCode</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteEndOfCode"></span><code>procedure <strong>WriteEndOfCode</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Paragraph"></span><code>function <strong>Paragraph</strong>: string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ShortDash"></span><code>function <strong>ShortDash</strong>: string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LineBreak"></span><code>function <strong>LineBreak</strong>: string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="URLLink"></span><code>function <strong>URLLink</strong>(const URL: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="URLLink"></span><code>function <strong>URLLink</strong>(const URL, LinkDisplay: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteExternalCore"></span><code>procedure <strong>WriteExternalCore</strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatKeyWord"></span><code>function <strong>FormatKeyWord</strong>(AString: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatKeyWord</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode">FormatPascalCode</a> to return AString in a bold font.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatCompilerComment"></span><code>function <strong>FormatCompilerComment</strong>(AString: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatCompilerComment</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode">FormatPascalCode</a> to return AString in italics.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatComment"></span><code>function <strong>FormatComment</strong>(AString: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatComment</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode">FormatPascalCode</a> to return AString in italics.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatAnchor"></span><code>function <strong>FormatAnchor</strong>(const Anchor: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MakeItemLink"></span><code>function <strong>MakeItemLink</strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkCaption: string; const LinkContext: <a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a>): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatBold"></span><code>function <strong>FormatBold</strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatItalic"></span><code>function <strong>FormatItalic</strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatWarning"></span><code>function <strong>FormatWarning</strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatNote"></span><code>function <strong>FormatNote</strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatPreformatted"></span><code>function <strong>FormatPreformatted</strong>(const Text: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatImage"></span><code>function <strong>FormatImage</strong>(FileNames: TStringList): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatList"></span><code>function <strong>FormatList</strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatTable"></span><code>function <strong>FormatTable</strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FormatPascalCode"></span><code>function <strong>FormatPascalCode</strong>(const Line: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatPascalCode</code> is intended to format Line as if it were Object Pascal code in Delphi or Lazarus. However, unlike Lazarus and Delphi, colored text is not used because printing colored text tends to be much more expensive than printing all black text.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFileExtension"></span><code>function <strong>GetFileExtension</strong>: string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns Latex file extension &quot;.tex&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WriteDocumentation"></span><code>procedure <strong>WriteDocumentation</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The method that does everything &mdash; writes documentation for all units and creates overview files.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EscapeURL"></span><code>function <strong>EscapeURL</strong>(const AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FormatSection"></span><code>function <strong>FormatSection</strong>(HL: integer; const Anchor: string; const Caption: string): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Latex2rtf"></span><code>property <strong>Latex2rtf</strong>: boolean read FLatex2rtf write FLatex2rtf default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Indicate if the output must be simplified for latex2rtf</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="LatexHead"></span><code>property <strong>LatexHead</strong>: TStrings read FLatexHead write SetLatexHead;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The strings in <code>LatexHead</code> are inserted directly into the preamble of the LaTeX document. Therefore they must be valid LaTeX code.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

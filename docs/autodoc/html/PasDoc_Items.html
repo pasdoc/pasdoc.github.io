@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Items</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Items</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+defines all items that can appear within a Pascal unit's interface</p>
+<p>
+        
+
+<p>For each item (type, variable, class etc.) that may appear in a Pascal source code file and can thus be taken into the documentation, this unit provides an object type which will store name, unit, description and more on this item.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li><li><a href="PasDoc_Hashes.html">PasDoc_Hashes</a></li><li>Classes</li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Serialize.html">PasDoc_Serialize</a></li><li><a href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li><li><a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="PasDoc_Items.TRawDescriptionInfo.html"><code>TRawDescriptionInfo</code></a></td>
+<td class="itemdesc">Raw description, in other words: the contents of comment before given item.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TBaseItem.html"><code>TBaseItem</code></a></td>
+<td class="itemdesc">This is a basic item class, that is linkable, and has some <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a>.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasItem.html"><code>TPasItem</code></a></td>
+<td class="itemdesc">This is a <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> descendant that is always declared inside some Pascal source file.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasConstant.html"><code>TPasConstant</code></a></td>
+<td class="itemdesc">Pascal constant.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasFieldVariable.html"><code>TPasFieldVariable</code></a></td>
+<td class="itemdesc">Pascal global variable or field or nested constant of CIO.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasType.html"><code>TPasType</code></a></td>
+<td class="itemdesc">Pascal type (but not a procedural type &mdash; these are expressed as <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod</a>.)</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasEnum.html"><code>TPasEnum</code></a></td>
+<td class="itemdesc">Enumerated type.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasMethod.html"><code>TPasMethod</code></a></td>
+<td class="itemdesc">This represents: </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>global function/procedure,</p></li>
+  <li value="2"><p>method (function/procedure of a class/interface/object),</p></li>
+  <li value="3"><p>pointer type to one of the above (in this case Name is the type name).</p></li>
+</ol>
+
+<p></td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasProperty.html"><code>TPasProperty</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasCio.html"><code>TPasCio</code></a></td>
+<td class="itemdesc">Extends <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> to store all items in a class / an object, e.g. fields.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.EAnchorAlreadyExists.html"><code>EAnchorAlreadyExists</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TExternalItem.html"><code>TExternalItem</code></a></td>
+<td class="itemdesc"><code>TExternalItem</code> extends <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> to store extra information about a project.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TExternalItemList.html"><code>TExternalItemList</code></a></td>
+<td class="itemdesc"><code>TExternalItemList</code> extends <a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a> to store non-nil instances of <a class="normal" href="PasDoc_Items.TExternalItem.html">TExternalItem</a></td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TAnchorItem.html"><code>TAnchorItem</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasUnit.html"><code>TPasUnit</code></a></td>
+<td class="itemdesc">extends <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> to store anything about a unit, its constants, types etc.; also provides methods for parsing a complete unit.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TBaseItems.html"><code>TBaseItems</code></a></td>
+<td class="itemdesc">Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a>s.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasItems.html"><code>TPasItems</code></a></td>
+<td class="itemdesc">Container class to store a list of <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>s.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasMethods.html"><code>TPasMethods</code></a></td>
+<td class="itemdesc">Collection of methods.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasProperties.html"><code>TPasProperties</code></a></td>
+<td class="itemdesc">Collection of properties.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasNestedCios.html"><code>TPasNestedCios</code></a></td>
+<td class="itemdesc">Collection of classes / records / interfaces.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasTypes.html"><code>TPasTypes</code></a></td>
+<td class="itemdesc">Collection of types.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasUnits.html"><code>TPasUnits</code></a></td>
+<td class="itemdesc">Collection of units.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#MethodTypeToString">MethodTypeToString</a></strong>(const MethodType: <a href="PasDoc_Items.html#TMethodType">TMethodType</a>): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisibilitiesToStr">VisibilitiesToStr</a></strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisToStr">VisToStr</a></strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TVisibility">TVisibility</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TVisibilities">TVisibilities</a></strong> = set of <a href="PasDoc_Items.html#TVisibility">TVisibility</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a></strong> = &circ;<a href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#THintDirective">THintDirective</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#THintDirectives">THintDirectives</a></strong> = set of <a href="PasDoc_Items.html#THintDirective">THintDirective</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TMethodType">TMethodType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TCIOType">TCIOType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TClassDirective">TClassDirective</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#VisibilityStr">VisibilityStr</a></strong>: array[<a href="PasDoc_Items.html#TVisibility">TVisibility</a>] of string[16] =
+  (
+   'published',
+   'public',
+   'protected',
+   'strict protected',
+   'private',
+   'strict private',
+   'automated',
+   'implicit'
+  );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#AllVisibilities">AllVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#DefaultVisibilities">DefaultVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> =
+    [<a href="PasDoc_Items.html#viProtected">viProtected</a>, <a href="PasDoc_Items.html#viPublic">viPublic</a>, <a href="PasDoc_Items.html#viPublished">viPublished</a>, <a href="PasDoc_Items.html#viAutomated">viAutomated</a>];</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#InfoMergeTypeStr">InfoMergeTypeStr</a></strong>: array[<a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>] of string = (
+    'none',
+    'prefer-interface',
+    'join',
+    'prefer-implementation'
+  );</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#CIORecordType">CIORecordType</a></strong> = [<a href="PasDoc_Items.html#CIO_RECORD">CIO_RECORD</a>, <a href="PasDoc_Items.html#CIO_PACKEDRECORD">CIO_PACKEDRECORD</a>];</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#CIONonHierarchy">CIONonHierarchy</a></strong> = <a href="PasDoc_Items.html#CIORecordType">CIORecordType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#EmptyRawDescriptionInfo">EmptyRawDescriptionInfo</a></strong>: <a href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a> =
+  ( Content: ''; StreamName: ''; BeginPosition: -1; EndPosition: -1; );</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MethodTypeToString"></span><code>function <strong>MethodTypeToString</strong>(const MethodType: <a href="PasDoc_Items.html#TMethodType">TMethodType</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns lowercased keyword associated with given method type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="VisibilitiesToStr"></span><code>function <strong>VisibilitiesToStr</strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns VisibilityStr for each value in Visibilities, delimited by commas.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="VisToStr"></span><code>function <strong>VisToStr</strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TVisibility"></span><code><strong>TVisibility</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Visibility of a field/method.</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="viPublished">viPublished</span>: indicates field or method is published</li>
+<li>
+<span id="viPublic">viPublic</span>: indicates field or method is public</li>
+<li>
+<span id="viProtected">viProtected</span>: indicates field or method is protected</li>
+<li>
+<span id="viStrictProtected">viStrictProtected</span>: indicates field or method is strict protected</li>
+<li>
+<span id="viPrivate">viPrivate</span>: indicates field or method is private</li>
+<li>
+<span id="viStrictPrivate">viStrictPrivate</span>: indicates field or method is strict private</li>
+<li>
+<span id="viAutomated">viAutomated</span>: indicates field or method is automated</li>
+<li>
+<span id="viImplicit">viImplicit</span>: implicit visibility, marks the implicit members if user used --implicit-visibility=implicit command-line option.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TVisibilities"></span><code><strong>TVisibilities</strong> = set of <a href="PasDoc_Items.html#TVisibility">TVisibility</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TInfoMergeType"></span><code><strong>TInfoMergeType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Type of merging intf section and impl section metadata of an item</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="imtNone">imtNone</span>: impl section is not scanned - default behavior</li>
+<li>
+<span id="imtPreferIntf">imtPreferIntf</span>: data is taken from intf, if it's empty - from impl</li>
+<li>
+<span id="imtJoin">imtJoin</span>: data is concatenated</li>
+<li>
+<span id="imtPreferImpl">imtPreferImpl</span>: data is taken from impl, if it's empty - from intf</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PRawDescriptionInfo"></span><code><strong>PRawDescriptionInfo</strong> = &circ;<a href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THintDirective"></span><code><strong>THintDirective</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="hdDeprecated">hdDeprecated</span></li>
+<li>
+<span id="hdPlatform">hdPlatform</span></li>
+<li>
+<span id="hdLibrary">hdLibrary</span></li>
+<li>
+<span id="hdExperimental">hdExperimental</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="THintDirectives"></span><code><strong>THintDirectives</strong> = set of <a href="PasDoc_Items.html#THintDirective">THintDirective</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TMethodType"></span><code><strong>TMethodType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Methodtype for <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod</a></p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="METHOD_CONSTRUCTOR">METHOD_CONSTRUCTOR</span></li>
+<li>
+<span id="METHOD_DESTRUCTOR">METHOD_DESTRUCTOR</span></li>
+<li>
+<span id="METHOD_FUNCTION">METHOD_FUNCTION</span></li>
+<li>
+<span id="METHOD_PROCEDURE">METHOD_PROCEDURE</span></li>
+<li>
+<span id="METHOD_OPERATOR">METHOD_OPERATOR</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TCIOType"></span><code><strong>TCIOType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a> item</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="CIO_CLASS">CIO_CLASS</span></li>
+<li>
+<span id="CIO_PACKEDCLASS">CIO_PACKEDCLASS</span></li>
+<li>
+<span id="CIO_DISPINTERFACE">CIO_DISPINTERFACE</span></li>
+<li>
+<span id="CIO_INTERFACE">CIO_INTERFACE</span></li>
+<li>
+<span id="CIO_OBJECT">CIO_OBJECT</span></li>
+<li>
+<span id="CIO_PACKEDOBJECT">CIO_PACKEDOBJECT</span></li>
+<li>
+<span id="CIO_RECORD">CIO_RECORD</span></li>
+<li>
+<span id="CIO_PACKEDRECORD">CIO_PACKEDRECORD</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TClassDirective"></span><code><strong>TClassDirective</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="CT_NONE">CT_NONE</span></li>
+<li>
+<span id="CT_ABSTRACT">CT_ABSTRACT</span></li>
+<li>
+<span id="CT_SEALED">CT_SEALED</span></li>
+<li>
+<span id="CT_HELPER">CT_HELPER</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="VisibilityStr"></span><code><strong>VisibilityStr</strong>: array[<a href="PasDoc_Items.html#TVisibility">TVisibility</a>] of string[16] =
+  (
+   'published',
+   'public',
+   'protected',
+   'strict protected',
+   'private',
+   'strict private',
+   'automated',
+   'implicit'
+  );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="AllVisibilities"></span><code><strong>AllVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultVisibilities"></span><code><strong>DefaultVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> =
+    [<a href="PasDoc_Items.html#viProtected">viProtected</a>, <a href="PasDoc_Items.html#viPublic">viPublic</a>, <a href="PasDoc_Items.html#viPublished">viPublished</a>, <a href="PasDoc_Items.html#viAutomated">viAutomated</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="InfoMergeTypeStr"></span><code><strong>InfoMergeTypeStr</strong>: array[<a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>] of string = (
+    'none',
+    'prefer-interface',
+    'join',
+    'prefer-implementation'
+  );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CIORecordType"></span><code><strong>CIORecordType</strong> = [<a href="PasDoc_Items.html#CIO_RECORD">CIO_RECORD</a>, <a href="PasDoc_Items.html#CIO_PACKEDRECORD">CIO_PACKEDRECORD</a>];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CIONonHierarchy"></span><code><strong>CIONonHierarchy</strong> = <a href="PasDoc_Items.html#CIORecordType">CIORecordType</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="EmptyRawDescriptionInfo"></span><code><strong>EmptyRawDescriptionInfo</strong>: <a href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a> =
+  ( Content: ''; StreamName: ''; BeginPosition: -1; EndPosition: -1; );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Ralf Junker (<a href="mailto:delphi@zeitungsjunge.de">delphi@zeitungsjunge.de</a>)</li>
+<li>Marco Schmidt (<a href="mailto:marcoschmidt@geocities.com">marcoschmidt@geocities.com</a>)</li>
+<li>Michalis Kamburelis</li>
+<li>Richard B. Winston &lt;<a href="mailto:rbwinst@usgs.gov">rbwinst@usgs.gov</a>&gt;</li>
+<li>Damien Honeyford</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<h2 class="created">Created</h2>
+<p>
+11 Mar 1999
+</p>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

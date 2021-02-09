@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Types</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Types</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Basic types.</p>
+<p>
+   </p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>StrUtils</li><li>Types</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Types.EPasDoc.html"><code>EPasDoc</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#SplitNameParts">SplitNameParts</a></strong>(S: string; out NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#OneNamePart">OneNamePart</a></strong>(const S: string): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#GlueNameParts">GlueNameParts</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TBytes">TBytes</a></strong> = array of Byte;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#UnicodeString">UnicodeString</a></strong> = WideString;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#RawByteString">RawByteString</a></strong> = AnsiString;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TStringArray">TStringArray</a></strong> = TStringDynArray;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TNameParts">TNameParts</a></strong> = <a href="PasDoc_Types.html#TStringArray">TStringArray</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a></strong> = procedure(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TCharSet">TCharSet</a></strong> = set of AnsiChar;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#MaxNameParts">MaxNameParts</a></strong> = 3;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF16">CP_UTF16</a></strong>      = 1200;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF16Be">CP_UTF16Be</a></strong>    = 1201;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF32">CP_UTF32</a></strong>      = 12000;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF32Be">CP_UTF32Be</a></strong>    = 12001;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SplitNameParts"></span><code>function <strong>SplitNameParts</strong>(S: string; out NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Splits S, which can be made of any number of parts, separated by dots (Delphi namespaces, like PasDoc.Output.HTML.TWriter.Write). If S is not a valid identifier, <code>False</code> is returned, otherwise <code>True</code> is returned and splitted name is returned as NameParts.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OneNamePart"></span><code>function <strong>OneNamePart</strong>(const S: string): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Simply returns an array with Length = 1 and one item = S.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="GlueNameParts"></span><code>function <strong>GlueNameParts</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Simply concatenates all NameParts with dot.</p>
+</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TBytes"></span><code><strong>TBytes</strong> = array of Byte;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="UnicodeString"></span><code><strong>UnicodeString</strong> = WideString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RawByteString"></span><code><strong>RawByteString</strong> = AnsiString;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TStringArray"></span><code><strong>TStringArray</strong> = TStringDynArray;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TNameParts"></span><code><strong>TNameParts</strong> = <a href="PasDoc_Types.html#TStringArray">TStringArray</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This represents parts of a qualified name of some item.
+
+<p>User supplies such name by separating each part with dot, e.g. 'UnitName.ClassName.ProcedureName', then <a class="normal" href="PasDoc_Types.html#SplitNameParts">SplitNameParts</a> converts it to TNameParts like ['UnitName', 'ClassName', 'ProcedureName']. Length must be <em>always</em> between 1 and <a class="normal" href="PasDoc_Types.html#MaxNameParts">MaxNameParts</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TPasDocMessageType"></span><code><strong>TPasDocMessageType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="pmtPlainText">pmtPlainText</span></li>
+<li>
+<span id="pmtInformation">pmtInformation</span></li>
+<li>
+<span id="pmtWarning">pmtWarning</span></li>
+<li>
+<span id="pmtError">pmtError</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TPasDocMessageEvent"></span><code><strong>TPasDocMessageEvent</strong> = procedure(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TCharSet"></span><code><strong>TCharSet</strong> = set of AnsiChar;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TImplicitVisibility"></span><code><strong>TImplicitVisibility</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+See command-line option --implicit-visibility documentation at [<a href="https://github.com/pasdoc/pasdoc/wiki/ImplicitVisibilityOption">https://github.com/pasdoc/pasdoc/wiki/ImplicitVisibilityOption</a>]</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="ivPublic">ivPublic</span></li>
+<li>
+<span id="ivPublished">ivPublished</span></li>
+<li>
+<span id="ivImplicit">ivImplicit</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MaxNameParts"></span><code><strong>MaxNameParts</strong> = 3;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CP_UTF16"></span><code><strong>CP_UTF16</strong>      = 1200;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Windows Unicode code page ID</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CP_UTF16Be"></span><code><strong>CP_UTF16Be</strong>    = 1201;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CP_UTF32"></span><code><strong>CP_UTF32</strong>      = 12000;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CP_UTF32Be"></span><code><strong>CP_UTF32Be</strong>    = 12001;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Michalis Kamburelis</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

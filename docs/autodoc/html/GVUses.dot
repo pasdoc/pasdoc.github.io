@@ -1,0 +1,144 @@
+DiGraph Uses {
+  "PasDoc_Aspell" -> "SysUtils"
+  "PasDoc_Aspell" -> "Classes"
+  "PasDoc_Aspell" -> "PasDoc_ProcessLineTalk"
+  "PasDoc_Aspell" -> "PasDoc_ObjectVector"
+  "PasDoc_Aspell" -> "PasDoc_Types"
+  "PasDoc_Aspell" [href="PasDoc_Aspell.html"]
+  "PasDoc_Base" -> "SysUtils"
+  "PasDoc_Base" -> "Classes"
+  "PasDoc_Base" -> "PasDoc_Items"
+  "PasDoc_Base" -> "PasDoc_Languages"
+  "PasDoc_Base" -> "PasDoc_Gen"
+  "PasDoc_Base" -> "PasDoc_Types"
+  "PasDoc_Base" -> "PasDoc_StringVector"
+  "PasDoc_Base" -> "PasDoc_SortSettings"
+  "PasDoc_Base" -> "PasDoc_StreamUtils"
+  "PasDoc_Base" -> "PasDoc_TagManager"
+  "PasDoc_Base" [href="PasDoc_Base.html"]
+  "PasDoc_Gen" -> "PasDoc_Items"
+  "PasDoc_Gen" -> "PasDoc_Languages"
+  "PasDoc_Gen" -> "PasDoc_StringVector"
+  "PasDoc_Gen" -> "PasDoc_ObjectVector"
+  "PasDoc_Gen" -> "PasDoc_HierarchyTree"
+  "PasDoc_Gen" -> "PasDoc_Types"
+  "PasDoc_Gen" -> "Classes"
+  "PasDoc_Gen" -> "PasDoc_TagManager"
+  "PasDoc_Gen" -> "PasDoc_Aspell"
+  "PasDoc_Gen" -> "PasDoc_StreamUtils"
+  "PasDoc_Gen" -> "PasDoc_StringPairVector"
+  "PasDoc_Gen" [href="PasDoc_Gen.html"]
+  "PasDoc_GenHtml" -> "PasDoc_Utils"
+  "PasDoc_GenHtml" -> "PasDoc_Gen"
+  "PasDoc_GenHtml" -> "PasDoc_Items"
+  "PasDoc_GenHtml" -> "PasDoc_Languages"
+  "PasDoc_GenHtml" -> "PasDoc_StringVector"
+  "PasDoc_GenHtml" -> "PasDoc_Types"
+  "PasDoc_GenHtml" -> "Classes"
+  "PasDoc_GenHtml" -> "PasDoc_StringPairVector"
+  "PasDoc_GenHtml" [href="PasDoc_GenHtml.html"]
+  "PasDoc_GenHtmlHelp" -> "PasDoc_GenHtml"
+  "PasDoc_GenHtmlHelp" -> "PasDoc_Utils"
+  "PasDoc_GenHtmlHelp" -> "PasDoc_SortSettings"
+  "PasDoc_GenHtmlHelp" [href="PasDoc_GenHtmlHelp.html"]
+  "PasDoc_GenLatex" -> "PasDoc_Gen"
+  "PasDoc_GenLatex" -> "PasDoc_Items"
+  "PasDoc_GenLatex" -> "PasDoc_Languages"
+  "PasDoc_GenLatex" -> "PasDoc_StringVector"
+  "PasDoc_GenLatex" -> "PasDoc_Types"
+  "PasDoc_GenLatex" -> "Classes"
+  "PasDoc_GenLatex" [href="PasDoc_GenLatex.html"]
+  "PasDoc_GenSimpleXML" -> "PasDoc_Utils"
+  "PasDoc_GenSimpleXML" -> "PasDoc_Gen"
+  "PasDoc_GenSimpleXML" -> "PasDoc_Items"
+  "PasDoc_GenSimpleXML" -> "PasDoc_Languages"
+  "PasDoc_GenSimpleXML" -> "PasDoc_StringVector"
+  "PasDoc_GenSimpleXML" -> "PasDoc_Types"
+  "PasDoc_GenSimpleXML" -> "Classes"
+  "PasDoc_GenSimpleXML" -> "PasDoc_StringPairVector"
+  "PasDoc_GenSimpleXML" [href="PasDoc_GenSimpleXML.html"]
+  "PasDoc_Hashes" -> "SysUtils"
+  "PasDoc_Hashes" -> "Classes"
+  "PasDoc_Hashes" [href="PasDoc_Hashes.html"]
+  "PasDoc_HierarchyTree" -> "Classes"
+  "PasDoc_HierarchyTree" -> "PasDoc_Items"
+  "PasDoc_HierarchyTree" [href="PasDoc_HierarchyTree.html"]
+  "PasDoc_Items" -> "SysUtils"
+  "PasDoc_Items" -> "PasDoc_Types"
+  "PasDoc_Items" -> "PasDoc_StringVector"
+  "PasDoc_Items" -> "PasDoc_ObjectVector"
+  "PasDoc_Items" -> "PasDoc_Hashes"
+  "PasDoc_Items" -> "Classes"
+  "PasDoc_Items" -> "PasDoc_TagManager"
+  "PasDoc_Items" -> "PasDoc_Serialize"
+  "PasDoc_Items" -> "PasDoc_SortSettings"
+  "PasDoc_Items" -> "PasDoc_StringPairVector"
+  "PasDoc_Items" -> "PasDoc_Tokenizer"
+  "PasDoc_Items" [href="PasDoc_Items.html"]
+  "PasDoc_Languages" [href="PasDoc_Languages.html"]
+  "PasDoc_Main" [href="PasDoc_Main.html"]
+  "PasDoc_ObjectVector" -> "Contnrs"
+  "PasDoc_ObjectVector" -> "Classes"
+  "PasDoc_ObjectVector" [href="PasDoc_ObjectVector.html"]
+  "PasDoc_OptionParser" -> "Classes"
+  "PasDoc_OptionParser" [href="PasDoc_OptionParser.html"]
+  "PasDoc_Parser" -> "SysUtils"
+  "PasDoc_Parser" -> "Classes"
+  "PasDoc_Parser" -> "Contnrs"
+  "PasDoc_Parser" -> "StrUtils"
+  "PasDoc_Parser" -> "PasDoc_Types"
+  "PasDoc_Parser" -> "PasDoc_Items"
+  "PasDoc_Parser" -> "PasDoc_Scanner"
+  "PasDoc_Parser" -> "PasDoc_Tokenizer"
+  "PasDoc_Parser" -> "PasDoc_StringPairVector"
+  "PasDoc_Parser" -> "PasDoc_StringVector"
+  "PasDoc_Parser" [href="PasDoc_Parser.html"]
+  "PasDoc_ProcessLineTalk" -> "SysUtils"
+  "PasDoc_ProcessLineTalk" -> "Classes"
+  "PasDoc_ProcessLineTalk" [href="PasDoc_ProcessLineTalk.html"]
+  "PasDoc_Reg" [href="PasDoc_Reg.html"]
+  "PasDoc_Scanner" -> "SysUtils"
+  "PasDoc_Scanner" -> "Classes"
+  "PasDoc_Scanner" -> "PasDoc_Types"
+  "PasDoc_Scanner" -> "PasDoc_Tokenizer"
+  "PasDoc_Scanner" -> "PasDoc_StringVector"
+  "PasDoc_Scanner" -> "PasDoc_StreamUtils"
+  "PasDoc_Scanner" -> "PasDoc_StringPairVector"
+  "PasDoc_Scanner" [href="PasDoc_Scanner.html"]
+  "PasDoc_Serialize" -> "Classes"
+  "PasDoc_Serialize" -> "SysUtils"
+  "PasDoc_Serialize" -> "PasDoc_StreamUtils"
+  "PasDoc_Serialize" [href="PasDoc_Serialize.html"]
+  "PasDoc_SortSettings" -> "SysUtils"
+  "PasDoc_SortSettings" [href="PasDoc_SortSettings.html"]
+  "PasDoc_StreamUtils" -> "SysUtils"
+  "PasDoc_StreamUtils" -> "Classes"
+  "PasDoc_StreamUtils" -> "PasDoc_Types"
+  "PasDoc_StreamUtils" [href="PasDoc_StreamUtils.html"]
+  "PasDoc_StringPairVector" -> "Classes"
+  "PasDoc_StringPairVector" -> "PasDoc_ObjectVector"
+  "PasDoc_StringPairVector" [href="PasDoc_StringPairVector.html"]
+  "PasDoc_StringVector" -> "Classes"
+  "PasDoc_StringVector" [href="PasDoc_StringVector.html"]
+  "PasDoc_TagManager" -> "SysUtils"
+  "PasDoc_TagManager" -> "Classes"
+  "PasDoc_TagManager" -> "PasDoc_Types"
+  "PasDoc_TagManager" -> "PasDoc_ObjectVector"
+  "PasDoc_TagManager" [href="PasDoc_TagManager.html"]
+  "PasDoc_Tipue" -> "PasDoc_Utils"
+  "PasDoc_Tipue" -> "PasDoc_Items"
+  "PasDoc_Tipue" [href="PasDoc_Tipue.html"]
+  "PasDoc_Tokenizer" -> "Classes"
+  "PasDoc_Tokenizer" -> "PasDoc_Utils"
+  "PasDoc_Tokenizer" -> "PasDoc_Types"
+  "PasDoc_Tokenizer" -> "PasDoc_StreamUtils"
+  "PasDoc_Tokenizer" [href="PasDoc_Tokenizer.html"]
+  "PasDoc_Types" -> "SysUtils"
+  "PasDoc_Types" -> "StrUtils"
+  "PasDoc_Types" -> "Types"
+  "PasDoc_Types" [href="PasDoc_Types.html"]
+  "PasDoc_Utils" -> "SysUtils"
+  "PasDoc_Utils" -> "PasDoc_Types"
+  "PasDoc_Utils" [href="PasDoc_Utils.html"]
+  "PasDoc_Versions" [href="PasDoc_Versions.html"]
+}

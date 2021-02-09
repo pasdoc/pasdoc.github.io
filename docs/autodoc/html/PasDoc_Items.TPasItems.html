@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Items: Class TPasItems</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TPasItems"></span><h1 class="cio">Class TPasItems</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Items.html">PasDoc_Items</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TPasItems = class(<a class="normal" href="PasDoc_Items.TBaseItems.html">TBaseItems</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+Container class to store a list of <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>s.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TList</li>
+<li class="ancestor">TObjectList</li>
+<li class="ancestor"><a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></li>
+<li class="ancestor"><a class="normal" href="PasDoc_Items.TBaseItems.html">TBaseItems</a></li>
+<li class="thisitem">TPasItems</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasItems.html#FindListItem">FindListItem</a></strong>(const AName: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#CopyItems">CopyItems</a></strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#CountCIO">CountCIO</a></strong>(var c, i, o: Integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#RemovePrivateItems">RemovePrivateItems</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#SortDeep">SortDeep</a></strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#SortOnlyInsideItems">SortOnlyInsideItems</a></strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#SortShallow">SortShallow</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasItems.html#SetFullDeclaration">SetFullDeclaration</a></strong>(PrefixName: boolean; const Suffix: string);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasItems.html#PasItemAt">PasItemAt</a></strong>[constAIndex:Integer]: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read GetPasItemAt
+      write SetPasItemAt;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindListItem"></span><code>function <strong>FindListItem</strong>(const AName: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A comfortable routine that just calls inherited and casts result to TPasItem, since every item on this list must be always TPasItem.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CopyItems"></span><code>procedure <strong>CopyItems</strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Copies all Items from c to this object, not changing c at all.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CountCIO"></span><code>procedure <strong>CountCIO</strong>(var c, i, o: Integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Counts classes, interfaces and objects within this collection.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RemovePrivateItems"></span><code>procedure <strong>RemovePrivateItems</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Checks each element's Visibility field and removes all elements with a value of viPrivate.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SortDeep"></span><code>procedure <strong>SortDeep</strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This sorts all items on this list by their name, and also calls <a class="normal" href="PasDoc_Items.TPasItem.html#Sort">Sort(SortSettings)</a> for each of these items. This way it sorts recursively everything in this list.
+
+<p>This is equivalent to doing both <a class="normal" href="PasDoc_Items.TPasItems.html#SortShallow">SortShallow</a> and <a class="normal" href="PasDoc_Items.TPasItems.html#SortOnlyInsideItems">SortOnlyInsideItems</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SortOnlyInsideItems"></span><code>procedure <strong>SortOnlyInsideItems</strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This calls <a class="normal" href="PasDoc_Items.TPasItem.html#Sort">Sort(SortSettings)</a> for each of items on the list. It does <em>not</em> sort the items on this list.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SortShallow"></span><code>procedure <strong>SortShallow</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This sorts all items on this list by their name. Unlike <a class="normal" href="PasDoc_Items.TPasItems.html#SortDeep">SortDeep</a>, it does <em>not</em> call <a class="normal" href="PasDoc_Items.TPasItem.html#Sort">Sort</a> for each of these items. So &quot;items inside items&quot; (e.g. class methods, if this list contains TPasCio objects) remain unsorted.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetFullDeclaration"></span><code>procedure <strong>SetFullDeclaration</strong>(PrefixName: boolean; const Suffix: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sets FullDeclaration of every item to </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Name of this item (only if PrefixName)</p></li>
+  <li value="2"><p>+ Suffix.</p></li>
+</ol>
+
+<p> Very useful if you have a couple of items that share a common declaration in source file, e.g. variables or fields declared like </p>
+
+<pre class="longcode">
+A, B: Integer;</pre>
+
+<p></p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PasItemAt"></span><code>property <strong>PasItemAt</strong>[constAIndex:Integer]: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read GetPasItemAt
+      write SetPasItemAt;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

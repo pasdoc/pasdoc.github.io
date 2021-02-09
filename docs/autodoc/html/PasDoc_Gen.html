@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Gen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Gen</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+basic doc generator object</p>
+<p>
+             
+
+<p><code>PasDoc_Gen</code> contains the basic documentation generator object <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>. It is not sufficient by itself but the basis for all generators that produce documentation in a specific format like HTML or LaTex. They override <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>'s virtual methods.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a href="PasDoc_Items.html">PasDoc_Items</a></li><li><a href="PasDoc_Languages.html">PasDoc_Languages</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li><li><a href="PasDoc_HierarchyTree.html">PasDoc_HierarchyTree</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li>Classes</li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Aspell.html">PasDoc_Aspell</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="PasDoc_Gen.TOverviewFileInfo.html"><code>TOverviewFileInfo</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Gen.TListItemData.html"><code>TListItemData</code></a></td>
+<td class="itemdesc">Collected information about @xxxList item.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Gen.TListData.html"><code>TListData</code></a></td>
+<td class="itemdesc">Collected information about @xxxList content.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Gen.TRowData.html"><code>TRowData</code></a></td>
+<td class="itemdesc">Collected information about @row (or @rowHead).</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Gen.TTableData.html"><code>TTableData</code></a></td>
+<td class="itemdesc">Collected information about @table.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Gen.TDocGenerator.html"><code>TDocGenerator</code></a></td>
+<td class="itemdesc">basic documentation generator object</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a></strong> = Low(<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>) .. <a href="PasDoc_Gen.html#ofIdentifiers">ofIdentifiers</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TListType">TListType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TListItemSpacing">TListItemSpacing</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#OverviewFilesInfo">OverviewFilesInfo</a></strong>: array[<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>] of <a href="PasDoc_Gen.TOverviewFileInfo.html">TOverviewFileInfo</a> = (
+    (BaseFileName: 'AllUnits'      ; TranslationId: <a href="PasDoc_Languages.html#trUnits">trUnits</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineUnits">trHeadlineUnits</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
+    (BaseFileName: 'ClassHierarchy'; TranslationId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a>        ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a> ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
+    (BaseFileName: 'AllClasses'    ; TranslationId: <a href="PasDoc_Languages.html#trCio">trCio</a>                   ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineCio">trHeadlineCio</a>                   ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
+    (BaseFileName: 'AllTypes'      ; TranslationId: <a href="PasDoc_Languages.html#trTypes">trTypes</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineTypes">trHeadlineTypes</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoTypes">trNoTypes</a>          ; ),
+    (BaseFileName: 'AllVariables'  ; TranslationId: <a href="PasDoc_Languages.html#trVariables">trVariables</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineVariables">trHeadlineVariables</a>             ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoVariables">trNoVariables</a>      ; ),
+    (BaseFileName: 'AllConstants'  ; TranslationId: <a href="PasDoc_Languages.html#trConstants">trConstants</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineConstants">trHeadlineConstants</a>             ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoConstants">trNoConstants</a>      ; ),
+    (BaseFileName: 'AllFunctions'  ; TranslationId: <a href="PasDoc_Languages.html#trFunctionsAndProcedures">trFunctionsAndProcedures</a>; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineFunctionsAndProcedures">trHeadlineFunctionsAndProcedures</a>; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoFunctions">trNoFunctions</a>      ; ),
+    (BaseFileName: 'AllIdentifiers'; TranslationId: <a href="PasDoc_Languages.html#trIdentifiers">trIdentifiers</a>           ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineIdentifiers">trHeadlineIdentifiers</a>           ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoIdentifiers">trNoIdentifiers</a>    ; ),
+    (BaseFileName: 'GVUses'        ; TranslationId: <a href="PasDoc_Languages.html#trGvUses">trGvUses</a>                ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trGvUses">trGvUses</a>         ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
+    (BaseFileName: 'GVClasses'     ; TranslationId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>      ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a> ; )
+  );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#LowCreatedOverviewFile">LowCreatedOverviewFile</a></strong> = Low(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.html#HighCreatedOverviewFile">HighCreatedOverviewFile</a></strong> = High(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOverviewFile"></span><code><strong>TOverviewFile</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Overview files that pasdoc generates for multiple-document-formats like HTML (see <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a>).
+
+<p>But not all of them are supposed to be generated by pasdoc, some must be generated by external programs by user, e.g. uses and class diagrams must be made by user using programs such as GraphViz. See type TCreatedOverviewFile for subrange type of TOverviewFile that specifies only overview files that are really supposed to be made by pasdoc.</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="ofUnits">ofUnits</span></li>
+<li>
+<span id="ofClassHierarchy">ofClassHierarchy</span></li>
+<li>
+<span id="ofCios">ofCios</span></li>
+<li>
+<span id="ofTypes">ofTypes</span></li>
+<li>
+<span id="ofVariables">ofVariables</span></li>
+<li>
+<span id="ofConstants">ofConstants</span></li>
+<li>
+<span id="ofFunctionsAndProcedures">ofFunctionsAndProcedures</span></li>
+<li>
+<span id="ofIdentifiers">ofIdentifiers</span></li>
+<li>
+<span id="ofGraphVizUses">ofGraphVizUses</span></li>
+<li>
+<span id="ofGraphVizClasses">ofGraphVizClasses</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TCreatedOverviewFile"></span><code><strong>TCreatedOverviewFile</strong> = Low(<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>) .. <a href="PasDoc_Gen.html#ofIdentifiers">ofIdentifiers</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLinkLook"></span><code><strong>TLinkLook</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="llDefault">llDefault</span></li>
+<li>
+<span id="llFull">llFull</span></li>
+<li>
+<span id="llStripped">llStripped</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLinkContext"></span><code><strong>TLinkContext</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLink">TDocGenerator.MakeItemLink</a></p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="lcCode">lcCode</span>: This means that link is inside some larger code piece, e.g. within FullDeclaration of some item etc. This means that we <em>may</em> be inside a context where used font has constant width.</li>
+<li>
+<span id="lcNormal">lcNormal</span>: This means that link is inside some &quot;normal&quot; description text.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TListType"></span><code><strong>TListType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="ltUnordered">ltUnordered</span></li>
+<li>
+<span id="ltOrdered">ltOrdered</span></li>
+<li>
+<span id="ltDefinition">ltDefinition</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TListItemSpacing"></span><code><strong>TListItemSpacing</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="lisCompact">lisCompact</span></li>
+<li>
+<span id="lisParagraph">lisParagraph</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OverviewFilesInfo"></span><code><strong>OverviewFilesInfo</strong>: array[<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>] of <a href="PasDoc_Gen.TOverviewFileInfo.html">TOverviewFileInfo</a> = (
+    (BaseFileName: 'AllUnits'      ; TranslationId: <a href="PasDoc_Languages.html#trUnits">trUnits</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineUnits">trHeadlineUnits</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
+    (BaseFileName: 'ClassHierarchy'; TranslationId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a>        ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a> ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
+    (BaseFileName: 'AllClasses'    ; TranslationId: <a href="PasDoc_Languages.html#trCio">trCio</a>                   ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineCio">trHeadlineCio</a>                   ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
+    (BaseFileName: 'AllTypes'      ; TranslationId: <a href="PasDoc_Languages.html#trTypes">trTypes</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineTypes">trHeadlineTypes</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoTypes">trNoTypes</a>          ; ),
+    (BaseFileName: 'AllVariables'  ; TranslationId: <a href="PasDoc_Languages.html#trVariables">trVariables</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineVariables">trHeadlineVariables</a>             ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoVariables">trNoVariables</a>      ; ),
+    (BaseFileName: 'AllConstants'  ; TranslationId: <a href="PasDoc_Languages.html#trConstants">trConstants</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineConstants">trHeadlineConstants</a>             ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoConstants">trNoConstants</a>      ; ),
+    (BaseFileName: 'AllFunctions'  ; TranslationId: <a href="PasDoc_Languages.html#trFunctionsAndProcedures">trFunctionsAndProcedures</a>; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineFunctionsAndProcedures">trHeadlineFunctionsAndProcedures</a>; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoFunctions">trNoFunctions</a>      ; ),
+    (BaseFileName: 'AllIdentifiers'; TranslationId: <a href="PasDoc_Languages.html#trIdentifiers">trIdentifiers</a>           ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineIdentifiers">trHeadlineIdentifiers</a>           ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoIdentifiers">trNoIdentifiers</a>    ; ),
+    (BaseFileName: 'GVUses'        ; TranslationId: <a href="PasDoc_Languages.html#trGvUses">trGvUses</a>                ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trGvUses">trGvUses</a>         ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
+    (BaseFileName: 'GVClasses'     ; TranslationId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>      ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a> ; )
+  );</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LowCreatedOverviewFile"></span><code><strong>LowCreatedOverviewFile</strong> = Low(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Using High(TCreatedOverviewFile) or High(Overview) where Overview: TCreatedOverviewFile in PasDoc_GenHtml produces internal error in FPC 2.0.0. Same for Low(TCreatedOverviewFile).
+
+<p>This is submitted as FPC bug 4140, [<a href="http://www.freepascal.org/bugs/showrec.php3?ID=4140">http://www.freepascal.org/bugs/showrec.php3?ID=4140</a>]. Fixed in FPC 2.0.1 and FPC 2.1.1.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="HighCreatedOverviewFile"></span><code><strong>HighCreatedOverviewFile</strong> = High(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Ralf Junker (<a href="mailto:delphi@zeitungsjunge.de">delphi@zeitungsjunge.de</a>)</li>
+<li>Ivan Montes Velencoso (<a href="mailto:senbei@teleline.es">senbei@teleline.es</a>)</li>
+<li>Marco Schmidt (<a href="mailto:marcoschmidt@geocities.com">marcoschmidt@geocities.com</a>)</li>
+<li>Philippe Jean Dit Bailleul (<a href="mailto:jdb@abacom.com">jdb@abacom.com</a>)</li>
+<li>Rodrigo Urubatan Ferreira Jardim (<a href="mailto:rodrigo@netscape.net">rodrigo@netscape.net</a>)</li>
+<li>Grzegorz Skoczylas &lt;<a href="mailto:gskoczylas@rekord.pl">gskoczylas@rekord.pl</a>&gt;</li>
+<li>Pierre Woestyn &lt;<a href="mailto:pwoestyn@users.sourceforge.net">pwoestyn@users.sourceforge.net</a>&gt;</li>
+<li>Michalis Kamburelis</li>
+<li>Richard B. Winston &lt;<a href="mailto:rbwinst@usgs.gov">rbwinst@usgs.gov</a>&gt;</li>
+<li>Ascanio Pressato</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<h2 class="created">Created</h2>
+<p>
+30 Aug 1998
+</p>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

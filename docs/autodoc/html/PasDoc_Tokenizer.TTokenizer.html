@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Tokenizer: Class TTokenizer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TTokenizer"></span><h1 class="cio">Class TTokenizer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTokenizer = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+Converts an input TStream to a sequence of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTokenizer</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a></strong>: Cardinal;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#BufferedChar">BufferedChar</a></strong>: Char;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#EOS">EOS</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#IsCharBuffered">IsCharBuffered</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#Row">Row</a></strong>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a></strong>: TStream;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FStreamPath">FStreamPath</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#DoError">DoError</a></strong>(const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#DoMessage">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CheckForDirective">CheckForDirective</a></strong>(const t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ConsumeChar">ConsumeChar</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CreateSymbolToken">CreateSymbolToken</a></strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>; const s: string): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CreateSymbolToken">CreateSymbolToken</a></strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetChar">GetChar</a></strong>(out c: AnsiChar): Integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#PeekChar">PeekChar</a></strong>(out c: Char): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType1">ReadCommentType1</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType2">ReadCommentType2</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType3">ReadCommentType3</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadAttAssemblerRegister">ReadAttAssemblerRegister</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadLiteralString">ReadLiteralString</a></strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadToken">ReadToken</a></strong>(c: Char; const s: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Create">Create</a></strong>( const AStream: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamPath: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#HasData">HasData</a></strong>: Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetStreamInfo">GetStreamInfo</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetToken">GetToken</a></strong>(const NilOnEnd: Boolean = false): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#UnGetToken">UnGetToken</a></strong>(var T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#SkipUntilCompilerDirective">SkipUntilCompilerDirective</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Verbosity">Verbosity</a></strong>: Cardinal read <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#StreamName">StreamName</a></strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#StreamPath">StreamPath</a></strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamPath">FStreamPath</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FOnMessage"></span><code><strong>FOnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FVerbosity"></span><code><strong>FVerbosity</strong>: Cardinal;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="BufferedChar"></span><code><strong>BufferedChar</strong>: Char;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#IsCharBuffered">IsCharBuffered</a> is true, this field contains the buffered character</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EOS"></span><code><strong>EOS</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+true if end of stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a> has been reached, false otherwise</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="IsCharBuffered"></span><code><strong>IsCharBuffered</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+if this is true, <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#BufferedChar">BufferedChar</a> contains a buffered character; the next call to <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#GetChar">GetChar</a> or <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#PeekChar">PeekChar</a> will return this character, not the next in the associated stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Row"></span><code><strong>Row</strong>: Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+current row in stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a>; useful when giving error messages</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Stream"></span><code><strong>Stream</strong>: TStream;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+the input stream this tokenizer is working on</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FStreamName"></span><code><strong>FStreamName</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FStreamPath"></span><code><strong>FStreamPath</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoError"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoMessage"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckForDirective"></span><code>procedure <strong>CheckForDirective</strong>(const t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ConsumeChar"></span><code>procedure <strong>ConsumeChar</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateSymbolToken"></span><code>function <strong>CreateSymbolToken</strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>; const s: string): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateSymbolToken"></span><code>function <strong>CreateSymbolToken</strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Uses default symbol representation, from SymbolNames[st]</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetChar"></span><code>function <strong>GetChar</strong>(out c: AnsiChar): Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns 1 on success or 0 on failure</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="PeekChar"></span><code>function <strong>PeekChar</strong>(out c: Char): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadCommentType1"></span><code>function <strong>ReadCommentType1</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadCommentType2"></span><code>function <strong>ReadCommentType2</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadCommentType3"></span><code>function <strong>ReadCommentType3</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadAttAssemblerRegister"></span><code>function <strong>ReadAttAssemblerRegister</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadLiteralString"></span><code>function <strong>ReadLiteralString</strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ReadToken"></span><code>function <strong>ReadToken</strong>(c: Char; const s: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>( const AStream: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamPath: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates a TTokenizer and associates it with given input TStream. Note that AStream will be freed when this object will be freed.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Releases all dynamically allocated memory.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="HasData"></span><code>function <strong>HasData</strong>: Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetStreamInfo"></span><code>function <strong>GetStreamInfo</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetToken"></span><code>function <strong>GetToken</strong>(const NilOnEnd: Boolean = false): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="UnGetToken"></span><code>procedure <strong>UnGetToken</strong>(var T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Makes the token T next to be returned by GetToken. Also sets T to <code>Nil</code>, to prevent you from freeing it accidentally.
+
+<p>You cannot have more than one &quot;unget&quot; token. If you only call UnGetToken after some GetToken, you are safe.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SkipUntilCompilerDirective"></span><code>function <strong>SkipUntilCompilerDirective</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Skip all chars until it encounters some compiler directive, like $ELSE or $ENDIF. Returns either <code>Nil</code> or a token with MyType = TOK_DIRECTIVE.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StreamName"></span><code>property <strong>StreamName</strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StreamPath"></span><code>property <strong>StreamPath</strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamPath">FStreamPath</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is the path where the underlying file of this stream is located.
+
+<p>It may be an absolute path or a relative path. Relative paths are always resolved vs pasdoc current directory. This way user can give relative paths in command-line when writing Pascal source filenames to parse.
+
+<p>In particular, this may be '' to indicate current dir.
+
+<p>It's always specified like it was processed by IncludeTrailingPathDelimiter, so it has trailing PathDelim included (unless it was '', in which case it remains empty).</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

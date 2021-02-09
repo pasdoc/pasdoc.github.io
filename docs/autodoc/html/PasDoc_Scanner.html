@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Scanner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Scanner</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Simple Pascal scanner.</p>
+<p>
+    
+
+<p>
+
+<p>The scanner object <a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a> returns tokens from a Pascal language character input stream. It uses the <a class="normal" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a> unit to get tokens, regarding conditional directives that might lead to including another files or will add or delete conditional symbols. Also handles FPC macros (when HandleMacros is true). So, this scanner is a combined tokenizer and pre-processor.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Scanner.ETokenizerStreamEnd.html"><code>ETokenizerStreamEnd</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Scanner.EInvalidIfCondition.html"><code>EInvalidIfCondition</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Scanner.TScanner.html"><code>TScanner</code></a></td>
+<td class="itemdesc">This class scans one unit using one or more <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> objects to scan the unit and all nested include files.</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Scanner.html#TUpperCaseLetter">TUpperCaseLetter</a></strong> = 'A'..'Z';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Scanner.html#TSwitchOptions">TSwitchOptions</a></strong> = array[<a href="PasDoc_Scanner.html#TUpperCaseLetter">TUpperCaseLetter</a>] of Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Scanner.html#TDirectiveType">TDirectiveType</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Scanner.html#MAX_TOKENIZERS">MAX_TOKENIZERS</a></strong> = 32;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TUpperCaseLetter"></span><code><strong>TUpperCaseLetter</strong> = 'A'..'Z';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+subrange type that has the 26 lower case letters from a to z</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSwitchOptions"></span><code><strong>TSwitchOptions</strong> = array[<a href="PasDoc_Scanner.html#TUpperCaseLetter">TUpperCaseLetter</a>] of Boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+an array of boolean values, index type is <a class="normal" href="PasDoc_Scanner.html#TUpperCaseLetter">TUpperCaseLetter</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TDirectiveType"></span><code><strong>TDirectiveType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+All directives a scanner is going to regard.</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="DT_UNKNOWN">DT_UNKNOWN</span></li>
+<li>
+<span id="DT_DEFINE">DT_DEFINE</span></li>
+<li>
+<span id="DT_ELSE">DT_ELSE</span></li>
+<li>
+<span id="DT_ENDIF">DT_ENDIF</span></li>
+<li>
+<span id="DT_IFDEF">DT_IFDEF</span></li>
+<li>
+<span id="DT_IFNDEF">DT_IFNDEF</span></li>
+<li>
+<span id="DT_IFOPT">DT_IFOPT</span></li>
+<li>
+<span id="DT_INCLUDE_FILE">DT_INCLUDE_FILE</span></li>
+<li>
+<span id="DT_UNDEF">DT_UNDEF</span></li>
+<li>
+<span id="DT_INCLUDE_FILE_2">DT_INCLUDE_FILE_2</span></li>
+<li>
+<span id="DT_IF">DT_IF</span></li>
+<li>
+<span id="DT_ELSEIF">DT_ELSEIF</span></li>
+<li>
+<span id="DT_IFEND">DT_IFEND</span></li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="MAX_TOKENIZERS"></span><code><strong>MAX_TOKENIZERS</strong> = 32;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+maximum number of streams we can recurse into; first one is the unit stream, any other stream an include file; current value is 32, increase this if you have more include files recursively including others</p>
+</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Ralf Junker (<a href="mailto:delphi@zeitungsjunge.de">delphi@zeitungsjunge.de</a>)</li>
+<li>Marco Schmidt (<a href="mailto:marcoschmidt@geocities.com">marcoschmidt@geocities.com</a>)</li>
+<li>Michalis Kamburelis</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

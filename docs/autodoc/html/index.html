@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: Overview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="externalitem">Pasdoc Sources Overview</h1>
+ 
+
+<p>This is the documentation of the pasdoc sources, intended for pasdoc developers. For user's documentation see [<a href="https://pasdoc.github.io/">https://pasdoc.github.io/</a>].
+
+<p>Contents: <ol>
+<li><a href="#SecParsing">Parsing</a>
+</li>
+<li><a href="#SecStoring">Storing</a>
+</li>
+<li><a href="#SecGenerators">Generators</a>
+</li>
+<li><a href="#SecNotes">Notes</a>
+</li>
+</ol>
+
+
+<p>General overview of the data flow in pasdoc:
+
+<p><h2 class=""><span id="SecParsing"></span>Parsing</h2>
+
+
+<p><a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> reads the source file, and converts it to a series of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a>s.
+
+<p><a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a> uses an underlying <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> and also returns a series of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a>s, but in addition it understands and interprets $define, $ifdef and similar compiler directives. While <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> simply returns all tokens, <a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a> returns only those tokens that are not &quot;$ifdefed out&quot;. E.g. if WIN32 is not defined then the <a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a> returns only tokens &quot;<code>const LineEnding = #10;</code>&quot; for the following code: </p>
+
+<pre class="longcode"><span class="pascal_keyword">const</span> LineEnding = <span class="pascal_compiler_comment">{$ifdef WIN32}</span> <span class="pascal_string">#13#10</span> <span class="pascal_compiler_comment">{$else}</span> <span class="pascal_string">#10</span> <span class="pascal_compiler_comment">{$endif}</span>;</pre>
+
+<p>
+
+<p>Finally <a class="normal" href="PasDoc_Parser.TParser.html">TParser</a> uses an underlying <a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a> and interprets the series of tokens, as e.g. &quot;here I see a declaration of variable Foo, of type Integer&quot;. The Parser stores everything it reads in a <a class="normal" href="PasDoc_Items.TPasUnit.html">TPasUnit</a> instance.
+
+<p>If you ever wrote a program that interprets a text language, you will see that there is nothing special here: We have a lexer (<a class="normal" href="PasDoc_Scanner.TScanner.html">TScanner</a>, a simplified lexer in <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a>) and a parser (<a class="normal" href="PasDoc_Parser.TParser.html">TParser</a>).
+
+<p>It is important to note that pasdoc's parser is somewhat unusual, compared to &quot;normal&quot; parsers that are used e.g. in Pascal compilers.
+
+<p></p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p> Pasdoc's parser does not read the implementation section of a unit file (although this may change some day, see [<a href="https://github.com/pasdoc/pasdoc/wiki/WantedFeaturesParsingImplementation">https://github.com/pasdoc/pasdoc/wiki/WantedFeaturesParsingImplementation</a>]).</p></li>
+  <li value="2"><p> Pasdoc's parser is &quot;cheating&quot;: It does not really understand everything it reads. E.g. the parameter section of a procedure declaration is parsed &quot;blindly&quot;, by simply reading tokens up to a matching closing parenthesis. Such cheating obviously simplifies the parser implementation, but it also makes pasdoc's parser &quot;dumber&quot;, see [<a href="https://github.com/pasdoc/pasdoc/wiki/ToDoParser">https://github.com/pasdoc/pasdoc/wiki/ToDoParser</a>].</p></li>
+  <li value="3"><p> Pasdoc's parser collects the comments before each declaration, since these comments must be converted and placed in the final documentation (while &quot;normal&quot; parsers usually treat comments as a meaningless white-space).</p></li>
+</ol>
+
+<p>
+
+<p><h2 class=""><span id="SecStoring"></span>Storing</h2>
+
+
+<p>The unit <a class="normal" href="PasDoc_Items.html">PasDoc_Items</a> provides a comfortable class hierarchy to store a parsed Pascal source tree. <a class="normal" href="PasDoc_Items.TPasUnit.html">TPasUnit</a> is a &quot;root class&quot; (container-wise), it contains references to all other items within a unit, every item is some instance of <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>.
+
+<p><h2 class=""><span id="SecGenerators"></span>Generators</h2>
+
+
+<p>The last link in the chain are the generators. A generator uses the stored <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> tree and generates the final documentation. The base abstract class for a generator is <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>, this provides some general mechanisms used by all generators. From <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> descend more specialized generator classes, like <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a>, <a class="normal" href="PasDoc_GenHtml.THTMLDocGenerator.html">THTMLDocGenerator</a>, <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a> and others.
+
+<p><h2 class=""><span id="SecNotes"></span>Notes</h2>
+
+
+<p>Note that the parser and the generators do not communicate with each other directly. The parser stores things in the <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> tree. Generators read and process the <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> tree.
+
+<p>So the parser cannot do any stupid thing like messing with some HTML-specific or LaTeX-specific issues of generating documentation. And the generator cannot deal with parsing Pascal source code.
+
+<p>Actually, this makes the implementation of the generator independent enough to be used in other cases, e.g. to generate an &quot;introduction&quot; file for the final documentation, like the one you are reading right now.<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

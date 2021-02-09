@@ -1,0 +1,163 @@
+DiGraph Classes {
+  "Exception" -> "TObject"
+  "EAnchorAlreadyExists" -> "Exception"
+  "EAnchorAlreadyExists" [href="PasDoc_Items.EAnchorAlreadyExists.html"]
+  "EInternalParserError" -> "Exception"
+  "EInternalParserError" [href="PasDoc_Parser.EInternalParserError.html"]
+  "EInvalidCacheFileVersion" -> "Exception"
+  "EInvalidCacheFileVersion" [href="PasDoc_Serialize.EInvalidCacheFileVersion.html"]
+  "EInvalidSortSetting" -> "Exception"
+  "EInvalidSortSetting" [href="PasDoc_SortSettings.EInvalidSortSetting.html"]
+  "EPasDoc" -> "Exception"
+  "EPasDoc" [href="PasDoc_Types.EPasDoc.html"]
+  "EInvalidIfCondition" -> "EPasDoc"
+  "EInvalidIfCondition" [href="PasDoc_Scanner.EInvalidIfCondition.html"]
+  "ETokenizerStreamEnd" -> "EPasDoc"
+  "ETokenizerStreamEnd" [href="PasDoc_Scanner.ETokenizerStreamEnd.html"]
+  "ESerializedException" -> "Exception"
+  "ESerializedException" [href="PasDoc_Serialize.ESerializedException.html"]
+  "TAspellProcess" -> "TObject"
+  "TAspellProcess" [href="PasDoc_Aspell.TAspellProcess.html"]
+  "THash" -> "TObject"
+  "THash" [href="PasDoc_Hashes.THash.html"]
+  "TObjectHash" -> "THash"
+  "TObjectHash" [href="PasDoc_Hashes.TObjectHash.html"]
+  "TList" -> "TObject"
+  "TObjectList" -> "TList"
+  "TObjectVector" -> "TObjectList"
+  "TObjectVector" [href="PasDoc_ObjectVector.TObjectVector.html"]
+  "TBaseItems" -> "TObjectVector"
+  "TBaseItems" [href="PasDoc_Items.TBaseItems.html"]
+  "TPasItems" -> "TBaseItems"
+  "TPasItems" [href="PasDoc_Items.TPasItems.html"]
+  "TPasMethods" -> "TPasItems"
+  "TPasMethods" [href="PasDoc_Items.TPasMethods.html"]
+  "TPasNestedCios" -> "TPasItems"
+  "TPasNestedCios" [href="PasDoc_Items.TPasNestedCios.html"]
+  "TPasProperties" -> "TPasItems"
+  "TPasProperties" [href="PasDoc_Items.TPasProperties.html"]
+  "TPasTypes" -> "TPasItems"
+  "TPasTypes" [href="PasDoc_Items.TPasTypes.html"]
+  "TPasUnits" -> "TPasItems"
+  "TPasUnits" [href="PasDoc_Items.TPasUnits.html"]
+  "TExternalItemList" -> "TObjectVector"
+  "TExternalItemList" [href="PasDoc_Items.TExternalItemList.html"]
+  "TListData" -> "TObjectVector"
+  "TListData" [href="PasDoc_Gen.TListData.html"]
+  "TStringPairVector" -> "TObjectVector"
+  "TStringPairVector" [href="PasDoc_StringPairVector.TStringPairVector.html"]
+  "TTableData" -> "TObjectVector"
+  "TTableData" [href="PasDoc_Gen.TTableData.html"]
+  "TTagVector" -> "TObjectVector"
+  "TTagVector" [href="PasDoc_TagManager.TTagVector.html"]
+  "TListItemData" -> "TObject"
+  "TListItemData" [href="PasDoc_Gen.TListItemData.html"]
+  "TOption" -> "TObject"
+  "TOption" [href="PasDoc_OptionParser.TOption.html"]
+  "TBoolOption" -> "TOption"
+  "TBoolOption" [href="PasDoc_OptionParser.TBoolOption.html"]
+  "TValueOption" -> "TOption"
+  "TValueOption" [href="PasDoc_OptionParser.TValueOption.html"]
+  "TIntegerOption" -> "TValueOption"
+  "TIntegerOption" [href="PasDoc_OptionParser.TIntegerOption.html"]
+  "TSetOption" -> "TValueOption"
+  "TSetOption" [href="PasDoc_OptionParser.TSetOption.html"]
+  "TStringOption" -> "TValueOption"
+  "TStringOption" [href="PasDoc_OptionParser.TStringOption.html"]
+  "TStringOptionList" -> "TValueOption"
+  "TStringOptionList" [href="PasDoc_OptionParser.TStringOptionList.html"]
+  "TPathListOption" -> "TStringOptionList"
+  "TPathListOption" [href="PasDoc_OptionParser.TPathListOption.html"]
+  "TOptionParser" -> "TObject"
+  "TOptionParser" [href="PasDoc_OptionParser.TOptionParser.html"]
+  "TOrderedList" -> "TObject"
+  "TStack" -> "TOrderedList"
+  "TObjectStack" -> "TStack"
+  "TPasCioHelperStack" -> "TObjectStack"
+  "TPasCioHelperStack" [href="PasDoc_Parser.TPasCioHelperStack.html"]
+  "TParser" -> "TObject"
+  "TParser" [href="PasDoc_Parser.TParser.html"]
+  "TPasCioHelper" -> "TObject"
+  "TPasCioHelper" [href="PasDoc_Parser.TPasCioHelper.html"]
+  "TPasDocLanguages" -> "TObject"
+  "TPasDocLanguages" [href="PasDoc_Languages.TPasDocLanguages.html"]
+  "TPasItemNode" -> "TObject"
+  "TPasItemNode" [href="PasDoc_HierarchyTree.TPasItemNode.html"]
+  "TPersistent" -> "TObject"
+  "TComponent" -> "TPersistent"
+  "TDocGenerator" -> "TComponent"
+  "TDocGenerator" [href="PasDoc_Gen.TDocGenerator.html"]
+  "TGenericHTMLDocGenerator" -> "TDocGenerator"
+  "TGenericHTMLDocGenerator" [href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html"]
+  "THTMLDocGenerator" -> "TGenericHTMLDocGenerator"
+  "THTMLDocGenerator" [href="PasDoc_GenHtml.THTMLDocGenerator.html"]
+  "THTMLHelpDocGenerator" -> "TGenericHTMLDocGenerator"
+  "THTMLHelpDocGenerator" [href="PasDoc_GenHtmlHelp.THTMLHelpDocGenerator.html"]
+  "TSimpleXMLDocGenerator" -> "TDocGenerator"
+  "TSimpleXMLDocGenerator" [href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html"]
+  "TTexDocGenerator" -> "TDocGenerator"
+  "TTexDocGenerator" [href="PasDoc_GenLatex.TTexDocGenerator.html"]
+  "TPasDoc" -> "TComponent"
+  "TPasDoc" [href="PasDoc_Base.TPasDoc.html"]
+  "TProcessLineTalk" -> "TComponent"
+  "TProcessLineTalk" [href="PasDoc_ProcessLineTalk.TProcessLineTalk.html"]
+  "TStrings" -> "TPersistent"
+  "TStringList" -> "TStrings"
+  "TStringVector" -> "TStringList"
+  "TStringVector" [href="PasDoc_StringVector.TStringVector.html"]
+  "TRawDescriptionInfoList" -> "TObject"
+  "TRawDescriptionInfoList" [href="PasDoc_Parser.TRawDescriptionInfoList.html"]
+  "TRowData" -> "TObject"
+  "TRowData" [href="PasDoc_Gen.TRowData.html"]
+  "TScanner" -> "TObject"
+  "TScanner" [href="PasDoc_Scanner.TScanner.html"]
+  "TSerializable" -> "TObject"
+  "TSerializable" [href="PasDoc_Serialize.TSerializable.html"]
+  "TBaseItem" -> "TSerializable"
+  "TBaseItem" [href="PasDoc_Items.TBaseItem.html"]
+  "TAnchorItem" -> "TBaseItem"
+  "TAnchorItem" [href="PasDoc_Items.TAnchorItem.html"]
+  "TExternalItem" -> "TBaseItem"
+  "TExternalItem" [href="PasDoc_Items.TExternalItem.html"]
+  "TPasItem" -> "TBaseItem"
+  "TPasItem" [href="PasDoc_Items.TPasItem.html"]
+  "TPasConstant" -> "TPasItem"
+  "TPasConstant" [href="PasDoc_Items.TPasConstant.html"]
+  "TPasFieldVariable" -> "TPasItem"
+  "TPasFieldVariable" [href="PasDoc_Items.TPasFieldVariable.html"]
+  "TPasMethod" -> "TPasItem"
+  "TPasMethod" [href="PasDoc_Items.TPasMethod.html"]
+  "TPasProperty" -> "TPasItem"
+  "TPasProperty" [href="PasDoc_Items.TPasProperty.html"]
+  "TPasType" -> "TPasItem"
+  "TPasType" [href="PasDoc_Items.TPasType.html"]
+  "TPasCio" -> "TPasType"
+  "TPasCio" [href="PasDoc_Items.TPasCio.html"]
+  "TPasEnum" -> "TPasType"
+  "TPasEnum" [href="PasDoc_Items.TPasEnum.html"]
+  "TPasUnit" -> "TPasItem"
+  "TPasUnit" [href="PasDoc_Items.TPasUnit.html"]
+  "TSpellingError" -> "TObject"
+  "TSpellingError" [href="PasDoc_Aspell.TSpellingError.html"]
+  "TStream" -> "TObject"
+  "TBufferedStream" -> "TStream"
+  "TBufferedStream" [href="PasDoc_StreamUtils.TBufferedStream.html"]
+  "TStringCardinalTree" -> "TObject"
+  "TStringCardinalTree" [href="PasDoc_HierarchyTree.TStringCardinalTree.html"]
+  "TStringPair" -> "TObject"
+  "TStringPair" [href="PasDoc_StringPairVector.TStringPair.html"]
+  "TTag" -> "TObject"
+  "TTag" [href="PasDoc_TagManager.TTag.html"]
+  "TNonSelfTag" -> "TTag"
+  "TNonSelfTag" [href="PasDoc_TagManager.TNonSelfTag.html"]
+  "TTopLevelTag" -> "TTag"
+  "TTopLevelTag" [href="PasDoc_TagManager.TTopLevelTag.html"]
+  "TTagManager" -> "TObject"
+  "TTagManager" [href="PasDoc_TagManager.TTagManager.html"]
+  "TTextReader" -> "TObject"
+  "TTextReader" [href="PasDoc_ProcessLineTalk.TTextReader.html"]
+  "TToken" -> "TObject"
+  "TToken" [href="PasDoc_Tokenizer.TToken.html"]
+  "TTokenizer" -> "TObject"
+  "TTokenizer" [href="PasDoc_Tokenizer.TTokenizer.html"]
+}

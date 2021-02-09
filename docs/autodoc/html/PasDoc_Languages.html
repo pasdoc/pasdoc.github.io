@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Languages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Languages</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section">Uses</div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+PasDoc language definitions and translations.</p>
+<p>
+                            </p>
+<span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="PasDoc_Languages.TLanguageRecord.html"><code>TLanguageRecord</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Languages.TPasDocLanguages.html"><code>TPasDocLanguages</code></a></td>
+<td class="itemdesc">Language class to hold all translated strings</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromIndex">LanguageFromIndex</a></strong>(i: integer): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromID">LanguageFromID</a></strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#SyntaxFromIndex">SyntaxFromIndex</a></strong>(i: integer): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#SyntaxFromID">SyntaxFromID</a></strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#IDfromLanguage">IDfromLanguage</a></strong>(const s: string): <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#Translation">Translation</a></strong>(id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>; lang: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromStr">LanguageFromStr</a></strong>(S: string; out LanguageId: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageDescriptor">LanguageDescriptor</a></strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageCode">LanguageCode</a></strong>(const Language: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#RTransTable">RTransTable</a></strong> = array[<a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>] of string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#PTransTable">PTransTable</a></strong> = &circ;<a href="PasDoc_Languages.html#RTransTable">RTransTable</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a></strong> = &circ;<a href="PasDoc_Languages.TLanguageRecord.html">TLanguageRecord</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#DEFAULT_LANGUAGE">DEFAULT_LANGUAGE</a></strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#lgDefault">lgDefault</a></strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LanguageFromIndex"></span><code>function <strong>LanguageFromIndex</strong>(i: integer): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Full language name</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LanguageFromID"></span><code>function <strong>LanguageFromID</strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SyntaxFromIndex"></span><code>function <strong>SyntaxFromIndex</strong>(i: integer): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Language abbreviation</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SyntaxFromID"></span><code>function <strong>SyntaxFromID</strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IDfromLanguage"></span><code>function <strong>IDfromLanguage</strong>(const s: string): <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Search for language by short or long name</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Translation"></span><code>function <strong>Translation</strong>(id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>; lang: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Manual translation of id into lang</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LanguageFromStr"></span><code>function <strong>LanguageFromStr</strong>(S: string; out LanguageId: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Find a language with Syntax = S (case ignored). Returns <code>True</code> and sets LanguageId if found, otherwise returns <code>False</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LanguageDescriptor"></span><code>function <strong>LanguageDescriptor</strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+access LANGUAGE_ARRAY</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="LanguageCode"></span><code>function <strong>LanguageCode</strong>(const Language: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Language code, using an official standardardized language names, suitable for Aspell or HTML.</p>
+</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TLanguageID"></span><code><strong>TLanguageID</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+An enumeration type of all supported languages</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="lgBosnian">lgBosnian</span></li>
+<li>
+<span id="lgBrazilian_1252">lgBrazilian_1252</span></li>
+<li>
+<span id="lgBrazilian_utf8">lgBrazilian_utf8</span></li>
+<li>
+<span id="lgBulgarian">lgBulgarian</span></li>
+<li>
+<span id="lgCatalan">lgCatalan</span></li>
+<li>
+<span id="lgChinese_gb2312">lgChinese_gb2312</span></li>
+<li>
+<span id="lgCroatian">lgCroatian</span></li>
+<li>
+<span id="lgDanish">lgDanish</span></li>
+<li>
+<span id="lgDutch">lgDutch</span></li>
+<li>
+<span id="lgEnglish">lgEnglish</span></li>
+<li>
+<span id="lgFrench_ISO_8859_15">lgFrench_ISO_8859_15</span></li>
+<li>
+<span id="lgFrench_UTF_8">lgFrench_UTF_8</span></li>
+<li>
+<span id="lgGerman_ISO_8859_15">lgGerman_ISO_8859_15</span></li>
+<li>
+<span id="lgGerman_UTF_8">lgGerman_UTF_8</span></li>
+<li>
+<span id="lgIndonesian">lgIndonesian</span></li>
+<li>
+<span id="lgItalian">lgItalian</span></li>
+<li>
+<span id="lgJavanese">lgJavanese</span></li>
+<li>
+<span id="lgPolish_CP1250">lgPolish_CP1250</span></li>
+<li>
+<span id="lgPolish_ISO_8859_2">lgPolish_ISO_8859_2</span></li>
+<li>
+<span id="lgRussian_1251">lgRussian_1251</span></li>
+<li>
+<span id="lgRussian_utf8">lgRussian_utf8</span></li>
+<li>
+<span id="lgRussian_866">lgRussian_866</span></li>
+<li>
+<span id="lgRussian_koi8">lgRussian_koi8</span></li>
+<li>
+<span id="lgSlovak">lgSlovak</span></li>
+<li>
+<span id="lgSpanish">lgSpanish</span></li>
+<li>
+<span id="lgSwedish">lgSwedish</span></li>
+<li>
+<span id="lgHungarian_1250">lgHungarian_1250</span></li>
+<li>
+<span id="lgCzech_CP1250">lgCzech_CP1250</span></li>
+<li>
+<span id="lgCzech_ISO_8859_2">lgCzech_ISO_8859_2</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTranslationID"></span><code><strong>TTranslationID</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+An enumeration type of all static output texts. Warning: count and order changed!</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="trNoTrans">trNoTrans</span>: no translation ID assigned, so far</li>
+<li>
+<span id="trLanguage">trLanguage</span>: the language name (English, ASCII), e.g. for file names.</li>
+<li>
+<span id="trUnits">trUnits</span>: map</li>
+<li>
+<span id="trClassHierarchy">trClassHierarchy</span></li>
+<li>
+<span id="trCio">trCio</span></li>
+<li>
+<span id="trNestedCR">trNestedCR</span></li>
+<li>
+<span id="trNestedTypes">trNestedTypes</span></li>
+<li>
+<span id="trIdentifiers">trIdentifiers</span></li>
+<li>
+<span id="trGvUses">trGvUses</span></li>
+<li>
+<span id="trGvClasses">trGvClasses</span></li>
+<li>
+<span id="trClasses">trClasses</span>: tables and members</li>
+<li>
+<span id="trClass">trClass</span></li>
+<li>
+<span id="trDispInterface">trDispInterface</span></li>
+<li>
+<span id="trInterface">trInterface</span></li>
+<li>
+<span id="trObjects">trObjects</span></li>
+<li>
+<span id="trObject">trObject</span></li>
+<li>
+<span id="trRecord">trRecord</span></li>
+<li>
+<span id="trPacked">trPacked</span></li>
+<li>
+<span id="trHierarchy">trHierarchy</span></li>
+<li>
+<span id="trFields">trFields</span></li>
+<li>
+<span id="trMethods">trMethods</span></li>
+<li>
+<span id="trProperties">trProperties</span></li>
+<li>
+<span id="trLibrary">trLibrary</span></li>
+<li>
+<span id="trPackage">trPackage</span></li>
+<li>
+<span id="trProgram">trProgram</span></li>
+<li>
+<span id="trUnit">trUnit</span></li>
+<li>
+<span id="trUses">trUses</span></li>
+<li>
+<span id="trConstants">trConstants</span></li>
+<li>
+<span id="trFunctionsAndProcedures">trFunctionsAndProcedures</span></li>
+<li>
+<span id="trTypes">trTypes</span></li>
+<li>
+<span id="trType">trType</span></li>
+<li>
+<span id="trVariables">trVariables</span></li>
+<li>
+<span id="trAuthors">trAuthors</span></li>
+<li>
+<span id="trAuthor">trAuthor</span></li>
+<li>
+<span id="trCreated">trCreated</span></li>
+<li>
+<span id="trLastModified">trLastModified</span></li>
+<li>
+<span id="trSubroutine">trSubroutine</span></li>
+<li>
+<span id="trParameters">trParameters</span></li>
+<li>
+<span id="trReturns">trReturns</span></li>
+<li>
+<span id="trExceptionsRaised">trExceptionsRaised</span></li>
+<li>
+<span id="trExceptions">trExceptions</span></li>
+<li>
+<span id="trException">trException</span></li>
+<li>
+<span id="trEnum">trEnum</span></li>
+<li>
+<span id="trVisibility">trVisibility</span>: visibilities</li>
+<li>
+<span id="trPrivate">trPrivate</span></li>
+<li>
+<span id="trStrictPrivate">trStrictPrivate</span></li>
+<li>
+<span id="trProtected">trProtected</span></li>
+<li>
+<span id="trStrictProtected">trStrictProtected</span></li>
+<li>
+<span id="trPublic">trPublic</span></li>
+<li>
+<span id="trPublished">trPublished</span></li>
+<li>
+<span id="trAutomated">trAutomated</span></li>
+<li>
+<span id="trImplicit">trImplicit</span></li>
+<li>
+<span id="trDeprecated">trDeprecated</span>: hints</li>
+<li>
+<span id="trPlatformSpecific">trPlatformSpecific</span></li>
+<li>
+<span id="trLibrarySpecific">trLibrarySpecific</span></li>
+<li>
+<span id="trExperimental">trExperimental</span></li>
+<li>
+<span id="trOverview">trOverview</span>: headings</li>
+<li>
+<span id="trIntroduction">trIntroduction</span></li>
+<li>
+<span id="trConclusion">trConclusion</span></li>
+<li>
+<span id="trAdditionalFile">trAdditionalFile</span></li>
+<li>
+<span id="trEnclosingClass">trEnclosingClass</span></li>
+<li>
+<span id="trHeadlineCio">trHeadlineCio</span></li>
+<li>
+<span id="trHeadlineConstants">trHeadlineConstants</span></li>
+<li>
+<span id="trHeadlineFunctionsAndProcedures">trHeadlineFunctionsAndProcedures</span></li>
+<li>
+<span id="trHeadlineIdentifiers">trHeadlineIdentifiers</span></li>
+<li>
+<span id="trHeadlineTypes">trHeadlineTypes</span></li>
+<li>
+<span id="trHeadlineUnits">trHeadlineUnits</span></li>
+<li>
+<span id="trHeadlineVariables">trHeadlineVariables</span></li>
+<li>
+<span id="trSummaryCio">trSummaryCio</span></li>
+<li>
+<span id="trDeclaration">trDeclaration</span>: column headings</li>
+<li>
+<span id="trDescription">trDescription</span>: as column OR section heading!</li>
+<li>
+<span id="trDescriptions">trDescriptions</span>: section heading for detailed descriptions</li>
+<li>
+<span id="trName">trName</span></li>
+<li>
+<span id="trValues">trValues</span></li>
+<li>
+<span id="trWarningTag">trWarningTag</span>: tags with inbuilt heading</li>
+<li>
+<span id="trNoteTag">trNoteTag</span></li>
+<li>
+<span id="trNone">trNone</span>: empty tables</li>
+<li>
+<span id="trNoCIOs">trNoCIOs</span></li>
+<li>
+<span id="trNoCIOsForHierarchy">trNoCIOsForHierarchy</span></li>
+<li>
+<span id="trNoTypes">trNoTypes</span></li>
+<li>
+<span id="trNoVariables">trNoVariables</span></li>
+<li>
+<span id="trNoConstants">trNoConstants</span></li>
+<li>
+<span id="trNoFunctions">trNoFunctions</span></li>
+<li>
+<span id="trNoIdentifiers">trNoIdentifiers</span></li>
+<li>
+<span id="trHelp">trHelp</span>: misc</li>
+<li>
+<span id="trLegend">trLegend</span></li>
+<li>
+<span id="trMarker">trMarker</span></li>
+<li>
+<span id="trWarningOverwrite">trWarningOverwrite</span></li>
+<li>
+<span id="trWarning">trWarning</span></li>
+<li>
+<span id="trGeneratedBy">trGeneratedBy</span></li>
+<li>
+<span id="trGeneratedOn">trGeneratedOn</span></li>
+<li>
+<span id="trOnDateTime">trOnDateTime</span></li>
+<li>
+<span id="trSearch">trSearch</span></li>
+<li>
+<span id="trSeeAlso">trSeeAlso</span></li>
+<li>
+<span id="trNested">trNested</span></li>
+<li>
+<span id="trAttributes">trAttributes</span>: add more here</li>
+<li>
+<span id="trDummy">trDummy</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="RTransTable"></span><code><strong>RTransTable</strong> = array[<a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>] of string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+array holding the translated strings, or empty for default (English) text.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PTransTable"></span><code><strong>PTransTable</strong> = &circ;<a href="PasDoc_Languages.html#RTransTable">RTransTable</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="PLanguageRecord"></span><code><strong>PLanguageRecord</strong> = &circ;<a href="PasDoc_Languages.TLanguageRecord.html">TLanguageRecord</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+language descriptor</p>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DEFAULT_LANGUAGE"></span><code><strong>DEFAULT_LANGUAGE</strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="lgDefault"></span><code><strong>lgDefault</strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;johannes AT sipsolutions.de&gt;</li>
+<li>Ralf Junker &lt;delphi AT zeitungsjunge.de&gt;</li>
+<li>Andrew Andreev &lt;andrew AT alteragate.net&gt; (Bulgarian translation)</li>
+<li>Alexander Lisnevsky &lt;alisnevsky AT yandex.ru&gt; (Russian translation)</li>
+<li>Hendy Irawan &lt;ceefour AT gauldong.net&gt; (Indonesian and Javanese translation)</li>
+<li>Ivan Montes Velencoso (Catalan and Spanish translations)</li>
+<li>Javi (Spanish translation)</li>
+<li>Jean Dit Bailleul (Frensh translation)</li>
+<li>Marc Weustinks (Dutch translation)</li>
+<li>Martin Hansen &lt;mh AT geus.dk&gt; (Danish translation)</li>
+<li>Michele Bersini &lt;michele.bersini AT smartit.it&gt; (Italian translation)</li>
+<li>Peter Simkovic &lt;simkovic_jr AT manal.sk&gt; (Slovak translation)</li>
+<li>Peter Th_rnqvist &lt;pt AT timemetrics.se&gt; (Swedish translation)</li>
+<li>Rodrigo Urubatan Ferreira Jardim &lt;rodrigo AT netscape.net&gt; (Brasilian translation)</li>
+<li>Alexandre da Silva &lt;simpsomboy AT gmail.com&gt; (Brasilian translation - Update)</li>
+<li>Alexsander da Rosa &lt;alex AT rednaxel.com&gt; (Brasilian translation - UTF8)</li>
+<li>Vitaly Kovalenko &lt;v_l_kovalenko AT alsy.by&gt; (Russian translation)</li>
+<li>Grzegorz Skoczylas &lt;gskoczylas AT rekord.pl&gt; (corrected Polish translation)</li>
+<li>Jonas Gergo &lt;jonas.gergo AT ch...&gt; (Hungarian translation)</li>
+<li>Michalis Kamburelis</li>
+<li>Ascanio Pressato (Some Italian translation)</li>
+<li>JBarbero Quiter (updated Spanish translation)</li>
+<li>Liu Chuanjun &lt;1000copy AT gmail.com&gt; (Chinese gb2312 translation)</li>
+<li>Liu Da &lt;xmacmail AT gmail.com&gt; (Chinese gb2312 translation)</li>
+<li>DoDi</li>
+<li>Rene Mihula &lt;<a href="mailto:rene.mihula@gmail.com">rene.mihula@gmail.com</a>&gt; (Czech translation)</li>
+<li>Yann Merignac (French translation)</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

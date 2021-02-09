@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_GenHtml</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_GenHtml</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Provides HTML document generator object.</p>
+<p>
+              
+
+<p>Implements an object to generate HTML documentation, overriding many of <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>'s virtual methods.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li><a href="PasDoc_Utils.html">PasDoc_Utils</a></li><li><a href="PasDoc_Gen.html">PasDoc_Gen</a></li><li><a href="PasDoc_Items.html">PasDoc_Items</a></li><li><a href="PasDoc_Languages.html">PasDoc_Languages</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li>Classes</li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html"><code>TGenericHTMLDocGenerator</code></a></td>
+<td class="itemdesc">generates HTML documentation</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_GenHtml.THTMLDocGenerator.html"><code>THTMLDocGenerator</code></a></td>
+<td class="itemdesc">Right now this is the same thing as TGenericHTMLDocGenerator.</td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_GenHtml.html#DefaultPasdocCss">DefaultPasdocCss</a></strong> = 
+
+'/*' + LineEnding +
+'  Copyright 1998-2018 PasDoc developers.' + LineEnding +
+'' + LineEnding +
+'  This file is part of &quot;PasDoc&quot;.' + LineEnding +
+'' + LineEnding +
+'  &quot;PasDoc&quot; is free software; you can redistribute it and/or modify' + LineEnding +
+'  it under the terms of the GNU General Public License as published by' + LineEnding +
+'  the Free Software Foundation; either version 2 of the License, or' + LineEnding +
+'  (at your option) any later version.' + LineEnding +
+'' + LineEnding +
+'  &quot;PasDoc&quot; is distributed in the hope that it will be useful,' + LineEnding +
+'  but WITHOUT ANY WARRANTY; without even the implied warranty of' + LineEnding +
+'  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the' + LineEnding +
+'  GNU General Public License for more details.' + LineEnding +
+'' + LineEnding +
+'  You should have received a copy of the GNU General Public License' + LineEnding +
+'  along with &quot;PasDoc&quot;; if not, write to the Free Software' + LineEnding +
+'  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA' + LineEnding +
+'' + LineEnding +
+'  ----------------------------------------------------------------------------' + LineEnding +
+'*/' + LineEnding +
+'' + LineEnding +
+'body, html {' + LineEnding +
+'  margin: 0;' + LineEnding +
+'  padding: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'body {' + LineEnding +
+'  font-family: Verdana,Arial;' + LineEnding +
+'  color: black;' + LineEnding +
+'  background-color: white;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.container {' + LineEnding +
+'  width: 100%;' + LineEnding +
+'  height: 100%;' + LineEnding +
+'  border-spacing: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.navigation {' + LineEnding +
+'  float: left;' + LineEnding +
+'  width: 20em; /* must match .content margin-left */' + LineEnding +
+'  height: 100%;' + LineEnding +
+'  color: white;' + LineEnding +
+'  background-color: #787878;' + LineEnding +
+'  position: fixed;' + LineEnding +
+'  margin: 0;' + LineEnding +
+'  box-sizing: border-box; /* without this, you could not have padding here, it would overlap with .content, causing errors on narrow screens */' + LineEnding +
+'  padding: 1em;' + LineEnding +
+'}' + LineEnding +
+'.navigation ul {' + LineEnding +
+'  margin: 0em;' + LineEnding +
+'  padding: 0em;' + LineEnding +
+'}' + LineEnding +
+'.navigation li {' + LineEnding +
+'  list-style-type: none;' + LineEnding +
+'  margin: 0.2em 0em 0em 0em;' + LineEnding +
+'  padding: 0.25em;' + LineEnding +
+'}' + LineEnding +
+'.navigation h2 {' + LineEnding +
+'  text-align: center;' + LineEnding +
+'  margin: 0em;' + LineEnding +
+'  padding: 0.5em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.content {' + LineEnding +
+'  margin-left: 20em; /* must match .navigation width */' + LineEnding +
+'  box-sizing: border-box; /* without this, you could not have padding here, it would overlap with .navigation, causing errors on narrow screens */' + LineEnding +
+'  padding: 1em;' + LineEnding +
+'}' + LineEnding +
+'.content h1 {' + LineEnding +
+'  margin-top: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.appinfo {' + LineEnding +
+'  float: right;' + LineEnding +
+'  text-align: right;' + LineEnding +
+'  margin-bottom: 1em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'img { border:0px; }' + LineEnding +
+'' + LineEnding +
+'hr {' + LineEnding +
+'  border-bottom: medium none;' + LineEnding +
+'  border-top: thin solid #888;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'a:link {color:#C91E0C; text-decoration: none; }' + LineEnding +
+'a:visited {color:#7E5C31; text-decoration: none; }' + LineEnding +
+'a:hover {text-decoration: underline; }' + LineEnding +
+'a:active {text-decoration: underline; }' + LineEnding +
+'' + LineEnding +
+'.navigation a:link { color: white; text-decoration: none; }' + LineEnding +
+'.navigation a:visited { color: white; text-decoration: none; }' + LineEnding +
+'.navigation a:hover { color: white; font-weight: bold; text-decoration: none; }' + LineEnding +
+'.navigation a:active { color: white; text-decoration: none; }' + LineEnding +
+'' + LineEnding +
+'a.bold:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'a.bold:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'a.bold:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'a.bold:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'a.section {color: green; text-decoration: none; font-weight: bold; }' + LineEnding +
+'a.section:hover {color: green; text-decoration: underline; font-weight: bold; }' + LineEnding +
+'' + LineEnding +
+'ul.useslist a:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'ul.useslist a:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'ul.useslist a:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'ul.useslist a:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'ul.hierarchy { list-style-type:none; }' + LineEnding +
+'ul.hierarchylevel { list-style-type:none; }' + LineEnding +
+'' + LineEnding +
+'p.unitlink a:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'p.unitlink a:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'p.unitlink a:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'p.unitlink a:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'tr.list { background: #FFBF44; }' + LineEnding +
+'tr.list2 { background: #FFC982; }' + LineEnding +
+'tr.listheader { background: #C91E0C; color: white; }' + LineEnding +
+'' + LineEnding +
+'table.wide_list { border-spacing:2px; width:100%; }' + LineEnding +
+'table.wide_list td { vertical-align:top; padding:4px; }' + LineEnding +
+'' + LineEnding +
+'table.markerlegend { width:auto; }' + LineEnding +
+'table.markerlegend td.legendmarker { text-align:center; }' + LineEnding +
+'' + LineEnding +
+'.sections { background:white; }' + LineEnding +
+'.sections .one_section {' + LineEnding +
+'  background:lightgray;' + LineEnding +
+'  display: inline-block;' + LineEnding +
+'  margin: 0.2em;' + LineEnding +
+'  padding: 0.5em 1em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'table.summary td.itemcode { width:100%; }' + LineEnding +
+'table.detail td.itemcode { width:100%; }' + LineEnding +
+'' + LineEnding +
+'td.itemname {white-space:nowrap; }' + LineEnding +
+'td.itemunit {white-space:nowrap; }' + LineEnding +
+'td.itemdesc { width:100%; }' + LineEnding +
+'' + LineEnding +
+'div.nodescription { color:red; }' + LineEnding +
+'dl.parameters dt {' + LineEnding +
+'  color:blue;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'code {' + LineEnding +
+'  font-family: monospace;' + LineEnding +
+'  font-size:1.2em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* style for warning and note tag */' + LineEnding +
+'dl.tag.warning {' + LineEnding +
+'  margin-left:-2px;' + LineEnding +
+'  padding-left: 3px;' + LineEnding +
+'  border-left:4px solid;' + LineEnding +
+'  border-color: #FF0000;' + LineEnding +
+'}' + LineEnding +
+'dl.tag.note {' + LineEnding +
+'  margin-left:-2px;' + LineEnding +
+'  padding-left: 3px;' + LineEnding +
+'  border-left:4px solid;' + LineEnding +
+'  border-color: #D0C000;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* Various browsers have various default styles for &lt;h6&gt;,' + LineEnding +
+'   sometimes ugly for our purposes, so it''s best to set things' + LineEnding +
+'   like font-size and font-weight in out pasdoc.css explicitly. */' + LineEnding +
+'h6.description_section {' + LineEnding +
+'  /* font-size 100% means that it has the same font size as the' + LineEnding +
+'     parent element, i.e. normal description text */' + LineEnding +
+'  font-size: 100%;' + LineEnding +
+'  font-weight: bold;' + LineEnding +
+'  /* By default browsers usually have some large margin-bottom and' + LineEnding +
+'     margin-top for &lt;h1-6&gt; tags. In our case, margin-bottom is' + LineEnding +
+'     unnecessary, we want to visually show that description_section' + LineEnding +
+'     is closely related to content below. In this situation' + LineEnding +
+'     (where the font size is just as a normal text), smaller bottom' + LineEnding +
+'     margin seems to look good. */' + LineEnding +
+'  margin-top: 1.4em;' + LineEnding +
+'  margin-bottom: 0em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* Style applied to Pascal code in documentation' + LineEnding +
+'   (e.g. produced by @longcode tag) } */' + LineEnding +
+'.longcode {' + LineEnding +
+'  font-family: monospace;' + LineEnding +
+'  font-size: 1.2em;' + LineEnding +
+'  background-color: #eee;' + LineEnding +
+'  padding: 0.5em;' + LineEnding +
+'  border: thin solid #ccc;' + LineEnding +
+'}' + LineEnding +
+'span.pascal_string { color: #000080; }' + LineEnding +
+'span.pascal_keyword { font-weight: bolder; }' + LineEnding +
+'span.pascal_comment { color: #000080; font-style: italic; }' + LineEnding +
+'span.pascal_compiler_comment { color: #008000; }' + LineEnding +
+'span.pascal_numeric { }' + LineEnding +
+'span.pascal_hex { }' + LineEnding +
+'' + LineEnding +
+'p.hint_directive { color: red; }' + LineEnding +
+'' + LineEnding +
+'input#search_text { }' + LineEnding +
+'input#search_submit_button { }' + LineEnding +
+'' + LineEnding +
+'acronym.mispelling { background-color: #f00; }' + LineEnding +
+'' + LineEnding +
+'/* Actually this reduces vertical space between *every* paragraph' + LineEnding +
+'   inside list with @itemSpacing(compact).' + LineEnding +
+'   While we would like to reduce this space only for the' + LineEnding +
+'   top of 1st and bottom of last paragraph within each list item.' + LineEnding +
+'   But, well, user probably will not do any paragraph breaks' + LineEnding +
+'   within a list with @itemSpacing(compact) anyway, so it''s' + LineEnding +
+'   acceptable solution. */' + LineEnding +
+'ul.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'ol.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'dl.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'' + LineEnding +
+'/* Style for table created by @table tags:' + LineEnding +
+'   just some thin border.' + LineEnding +
+'' + LineEnding +
+'   This way we have some borders around the cells' + LineEnding +
+'   (so cells are visibly separated), but the border' + LineEnding +
+'   &quot;blends with the background&quot; so it doesn''t look too ugly.' + LineEnding +
+'   Hopefully it looks satisfactory in most cases and for most' + LineEnding +
+'   people.' + LineEnding +
+'' + LineEnding +
+'   We add padding for cells, otherwise they look too close.' + LineEnding +
+'   This is normal thing to do when border-collapse is set to' + LineEnding +
+'   collapse (because this eliminates spacing between cells).' + LineEnding +
+'*/' + LineEnding +
+'table.table_tag { border-collapse: collapse; }' + LineEnding +
+'table.table_tag td { border: 1pt solid gray; padding: 0.3em; }' + LineEnding +
+'table.table_tag th { border: 1pt solid gray; padding: 0.3em; }' + LineEnding +
+'' + LineEnding +
+'table.detail {' + LineEnding +
+'  border: 1pt solid gray;' + LineEnding +
+'  margin-top: 0.3em;' + LineEnding +
+'  margin-bottom: 0.3em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.search-form { white-space: nowrap; }' + LineEnding +
+'.search-input input { max-width: 80%; } /* this provides some safe space to always fit even on very narrow screens */' + LineEnding +
+'.search-input input, .search-button { display: inline-block; vertical-align: middle; }' + LineEnding +
+'.search-input { display: inline-block; }' + LineEnding +
+'' + LineEnding +
+'/* Do not make extra vertical space at the beginning/end of table cells.' + LineEnding +
+'   We need &quot;&gt;&quot; selector, to not change paragraphs inside lists inside' + LineEnding +
+'   table cells. */' + LineEnding +
+'table.table_tag td &gt; p:first-child,' + LineEnding +
+'table.table_tag th &gt; p:first-child,' + LineEnding +
+'       td.itemdesc &gt; p:first-child { margin-top: 0em; }' + LineEnding +
+'' + LineEnding +
+'table.table_tag td &gt; p:last-child,' + LineEnding +
+'table.table_tag th &gt; p:last-child,' + LineEnding +
+'       td.itemdesc &gt; p:last-child { margin-bottom: 0em; }' + LineEnding +
+''
+;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefaultPasdocCss"></span><code><strong>DefaultPasdocCss</strong> = 
+
+'/*' + LineEnding +
+'  Copyright 1998-2018 PasDoc developers.' + LineEnding +
+'' + LineEnding +
+'  This file is part of &quot;PasDoc&quot;.' + LineEnding +
+'' + LineEnding +
+'  &quot;PasDoc&quot; is free software; you can redistribute it and/or modify' + LineEnding +
+'  it under the terms of the GNU General Public License as published by' + LineEnding +
+'  the Free Software Foundation; either version 2 of the License, or' + LineEnding +
+'  (at your option) any later version.' + LineEnding +
+'' + LineEnding +
+'  &quot;PasDoc&quot; is distributed in the hope that it will be useful,' + LineEnding +
+'  but WITHOUT ANY WARRANTY; without even the implied warranty of' + LineEnding +
+'  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the' + LineEnding +
+'  GNU General Public License for more details.' + LineEnding +
+'' + LineEnding +
+'  You should have received a copy of the GNU General Public License' + LineEnding +
+'  along with &quot;PasDoc&quot;; if not, write to the Free Software' + LineEnding +
+'  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA' + LineEnding +
+'' + LineEnding +
+'  ----------------------------------------------------------------------------' + LineEnding +
+'*/' + LineEnding +
+'' + LineEnding +
+'body, html {' + LineEnding +
+'  margin: 0;' + LineEnding +
+'  padding: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'body {' + LineEnding +
+'  font-family: Verdana,Arial;' + LineEnding +
+'  color: black;' + LineEnding +
+'  background-color: white;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.container {' + LineEnding +
+'  width: 100%;' + LineEnding +
+'  height: 100%;' + LineEnding +
+'  border-spacing: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.navigation {' + LineEnding +
+'  float: left;' + LineEnding +
+'  width: 20em; /* must match .content margin-left */' + LineEnding +
+'  height: 100%;' + LineEnding +
+'  color: white;' + LineEnding +
+'  background-color: #787878;' + LineEnding +
+'  position: fixed;' + LineEnding +
+'  margin: 0;' + LineEnding +
+'  box-sizing: border-box; /* without this, you could not have padding here, it would overlap with .content, causing errors on narrow screens */' + LineEnding +
+'  padding: 1em;' + LineEnding +
+'}' + LineEnding +
+'.navigation ul {' + LineEnding +
+'  margin: 0em;' + LineEnding +
+'  padding: 0em;' + LineEnding +
+'}' + LineEnding +
+'.navigation li {' + LineEnding +
+'  list-style-type: none;' + LineEnding +
+'  margin: 0.2em 0em 0em 0em;' + LineEnding +
+'  padding: 0.25em;' + LineEnding +
+'}' + LineEnding +
+'.navigation h2 {' + LineEnding +
+'  text-align: center;' + LineEnding +
+'  margin: 0em;' + LineEnding +
+'  padding: 0.5em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.content {' + LineEnding +
+'  margin-left: 20em; /* must match .navigation width */' + LineEnding +
+'  box-sizing: border-box; /* without this, you could not have padding here, it would overlap with .navigation, causing errors on narrow screens */' + LineEnding +
+'  padding: 1em;' + LineEnding +
+'}' + LineEnding +
+'.content h1 {' + LineEnding +
+'  margin-top: 0;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.appinfo {' + LineEnding +
+'  float: right;' + LineEnding +
+'  text-align: right;' + LineEnding +
+'  margin-bottom: 1em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'img { border:0px; }' + LineEnding +
+'' + LineEnding +
+'hr {' + LineEnding +
+'  border-bottom: medium none;' + LineEnding +
+'  border-top: thin solid #888;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'a:link {color:#C91E0C; text-decoration: none; }' + LineEnding +
+'a:visited {color:#7E5C31; text-decoration: none; }' + LineEnding +
+'a:hover {text-decoration: underline; }' + LineEnding +
+'a:active {text-decoration: underline; }' + LineEnding +
+'' + LineEnding +
+'.navigation a:link { color: white; text-decoration: none; }' + LineEnding +
+'.navigation a:visited { color: white; text-decoration: none; }' + LineEnding +
+'.navigation a:hover { color: white; font-weight: bold; text-decoration: none; }' + LineEnding +
+'.navigation a:active { color: white; text-decoration: none; }' + LineEnding +
+'' + LineEnding +
+'a.bold:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'a.bold:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'a.bold:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'a.bold:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'a.section {color: green; text-decoration: none; font-weight: bold; }' + LineEnding +
+'a.section:hover {color: green; text-decoration: underline; font-weight: bold; }' + LineEnding +
+'' + LineEnding +
+'ul.useslist a:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'ul.useslist a:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'ul.useslist a:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'ul.useslist a:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'ul.hierarchy { list-style-type:none; }' + LineEnding +
+'ul.hierarchylevel { list-style-type:none; }' + LineEnding +
+'' + LineEnding +
+'p.unitlink a:link {color:#C91E0C; text-decoration: none; font-weight:bold; }' + LineEnding +
+'p.unitlink a:visited {color:#7E5C31; text-decoration: none; font-weight:bold; }' + LineEnding +
+'p.unitlink a:hover {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'p.unitlink a:active {text-decoration: underline; font-weight:bold; }' + LineEnding +
+'' + LineEnding +
+'tr.list { background: #FFBF44; }' + LineEnding +
+'tr.list2 { background: #FFC982; }' + LineEnding +
+'tr.listheader { background: #C91E0C; color: white; }' + LineEnding +
+'' + LineEnding +
+'table.wide_list { border-spacing:2px; width:100%; }' + LineEnding +
+'table.wide_list td { vertical-align:top; padding:4px; }' + LineEnding +
+'' + LineEnding +
+'table.markerlegend { width:auto; }' + LineEnding +
+'table.markerlegend td.legendmarker { text-align:center; }' + LineEnding +
+'' + LineEnding +
+'.sections { background:white; }' + LineEnding +
+'.sections .one_section {' + LineEnding +
+'  background:lightgray;' + LineEnding +
+'  display: inline-block;' + LineEnding +
+'  margin: 0.2em;' + LineEnding +
+'  padding: 0.5em 1em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'table.summary td.itemcode { width:100%; }' + LineEnding +
+'table.detail td.itemcode { width:100%; }' + LineEnding +
+'' + LineEnding +
+'td.itemname {white-space:nowrap; }' + LineEnding +
+'td.itemunit {white-space:nowrap; }' + LineEnding +
+'td.itemdesc { width:100%; }' + LineEnding +
+'' + LineEnding +
+'div.nodescription { color:red; }' + LineEnding +
+'dl.parameters dt {' + LineEnding +
+'  color:blue;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'code {' + LineEnding +
+'  font-family: monospace;' + LineEnding +
+'  font-size:1.2em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* style for warning and note tag */' + LineEnding +
+'dl.tag.warning {' + LineEnding +
+'  margin-left:-2px;' + LineEnding +
+'  padding-left: 3px;' + LineEnding +
+'  border-left:4px solid;' + LineEnding +
+'  border-color: #FF0000;' + LineEnding +
+'}' + LineEnding +
+'dl.tag.note {' + LineEnding +
+'  margin-left:-2px;' + LineEnding +
+'  padding-left: 3px;' + LineEnding +
+'  border-left:4px solid;' + LineEnding +
+'  border-color: #D0C000;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* Various browsers have various default styles for &lt;h6&gt;,' + LineEnding +
+'   sometimes ugly for our purposes, so it''s best to set things' + LineEnding +
+'   like font-size and font-weight in out pasdoc.css explicitly. */' + LineEnding +
+'h6.description_section {' + LineEnding +
+'  /* font-size 100% means that it has the same font size as the' + LineEnding +
+'     parent element, i.e. normal description text */' + LineEnding +
+'  font-size: 100%;' + LineEnding +
+'  font-weight: bold;' + LineEnding +
+'  /* By default browsers usually have some large margin-bottom and' + LineEnding +
+'     margin-top for &lt;h1-6&gt; tags. In our case, margin-bottom is' + LineEnding +
+'     unnecessary, we want to visually show that description_section' + LineEnding +
+'     is closely related to content below. In this situation' + LineEnding +
+'     (where the font size is just as a normal text), smaller bottom' + LineEnding +
+'     margin seems to look good. */' + LineEnding +
+'  margin-top: 1.4em;' + LineEnding +
+'  margin-bottom: 0em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'/* Style applied to Pascal code in documentation' + LineEnding +
+'   (e.g. produced by @longcode tag) } */' + LineEnding +
+'.longcode {' + LineEnding +
+'  font-family: monospace;' + LineEnding +
+'  font-size: 1.2em;' + LineEnding +
+'  background-color: #eee;' + LineEnding +
+'  padding: 0.5em;' + LineEnding +
+'  border: thin solid #ccc;' + LineEnding +
+'}' + LineEnding +
+'span.pascal_string { color: #000080; }' + LineEnding +
+'span.pascal_keyword { font-weight: bolder; }' + LineEnding +
+'span.pascal_comment { color: #000080; font-style: italic; }' + LineEnding +
+'span.pascal_compiler_comment { color: #008000; }' + LineEnding +
+'span.pascal_numeric { }' + LineEnding +
+'span.pascal_hex { }' + LineEnding +
+'' + LineEnding +
+'p.hint_directive { color: red; }' + LineEnding +
+'' + LineEnding +
+'input#search_text { }' + LineEnding +
+'input#search_submit_button { }' + LineEnding +
+'' + LineEnding +
+'acronym.mispelling { background-color: #f00; }' + LineEnding +
+'' + LineEnding +
+'/* Actually this reduces vertical space between *every* paragraph' + LineEnding +
+'   inside list with @itemSpacing(compact).' + LineEnding +
+'   While we would like to reduce this space only for the' + LineEnding +
+'   top of 1st and bottom of last paragraph within each list item.' + LineEnding +
+'   But, well, user probably will not do any paragraph breaks' + LineEnding +
+'   within a list with @itemSpacing(compact) anyway, so it''s' + LineEnding +
+'   acceptable solution. */' + LineEnding +
+'ul.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'ol.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'dl.compact_spacing p { margin-top: 0em; margin-bottom: 0em; }' + LineEnding +
+'' + LineEnding +
+'/* Style for table created by @table tags:' + LineEnding +
+'   just some thin border.' + LineEnding +
+'' + LineEnding +
+'   This way we have some borders around the cells' + LineEnding +
+'   (so cells are visibly separated), but the border' + LineEnding +
+'   &quot;blends with the background&quot; so it doesn''t look too ugly.' + LineEnding +
+'   Hopefully it looks satisfactory in most cases and for most' + LineEnding +
+'   people.' + LineEnding +
+'' + LineEnding +
+'   We add padding for cells, otherwise they look too close.' + LineEnding +
+'   This is normal thing to do when border-collapse is set to' + LineEnding +
+'   collapse (because this eliminates spacing between cells).' + LineEnding +
+'*/' + LineEnding +
+'table.table_tag { border-collapse: collapse; }' + LineEnding +
+'table.table_tag td { border: 1pt solid gray; padding: 0.3em; }' + LineEnding +
+'table.table_tag th { border: 1pt solid gray; padding: 0.3em; }' + LineEnding +
+'' + LineEnding +
+'table.detail {' + LineEnding +
+'  border: 1pt solid gray;' + LineEnding +
+'  margin-top: 0.3em;' + LineEnding +
+'  margin-bottom: 0.3em;' + LineEnding +
+'}' + LineEnding +
+'' + LineEnding +
+'.search-form { white-space: nowrap; }' + LineEnding +
+'.search-input input { max-width: 80%; } /* this provides some safe space to always fit even on very narrow screens */' + LineEnding +
+'.search-input input, .search-button { display: inline-block; vertical-align: middle; }' + LineEnding +
+'.search-input { display: inline-block; }' + LineEnding +
+'' + LineEnding +
+'/* Do not make extra vertical space at the beginning/end of table cells.' + LineEnding +
+'   We need &quot;&gt;&quot; selector, to not change paragraphs inside lists inside' + LineEnding +
+'   table cells. */' + LineEnding +
+'table.table_tag td &gt; p:first-child,' + LineEnding +
+'table.table_tag th &gt; p:first-child,' + LineEnding +
+'       td.itemdesc &gt; p:first-child { margin-top: 0em; }' + LineEnding +
+'' + LineEnding +
+'table.table_tag td &gt; p:last-child,' + LineEnding +
+'table.table_tag th &gt; p:last-child,' + LineEnding +
+'       td.itemdesc &gt; p:last-child { margin-bottom: 0em; }' + LineEnding +
+''
+;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Ralf Junker (<a href="mailto:delphi@zeitungsjunge.de">delphi@zeitungsjunge.de</a>)</li>
+<li>Alexander Lisnevsky (<a href="mailto:alisnevsky@yandex.ru">alisnevsky@yandex.ru</a>)</li>
+<li>Erwin Scheuch-Heilig (<a href="mailto:ScheuchHeilig@t-online.de">ScheuchHeilig@t-online.de</a>)</li>
+<li>Marco Schmidt (<a href="mailto:marcoschmidt@geocities.com">marcoschmidt@geocities.com</a>)</li>
+<li>Hendy Irawan (<a href="mailto:ceefour@gauldong.net">ceefour@gauldong.net</a>)</li>
+<li>Wim van der Vegt (<a href="mailto:wvd_vegt@knoware.nl">wvd_vegt@knoware.nl</a>)</li>
+<li>Thomas Mueller (<a href="http://www.dummzeuch.de">www.dummzeuch.de</a>)</li>
+<li>David Berg (HTML Layout) &lt;<a href="mailto:david@sipsolutions.de">david@sipsolutions.de</a>&gt;</li>
+<li>Grzegorz Skoczylas &lt;<a href="mailto:gskoczylas@rekord.pl">gskoczylas@rekord.pl</a>&gt;</li>
+<li>Michalis Kamburelis</li>
+<li>Richard B. Winston &lt;<a href="mailto:rbwinst@usgs.gov">rbwinst@usgs.gov</a>&gt;</li>
+<li>Ascanio Pressato</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

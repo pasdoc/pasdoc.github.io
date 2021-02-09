@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Tokenizer: Class TToken</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TToken"></span><h1 class="cio">Class TToken</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TToken = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+Stores the exact type and additional information on one token.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TToken</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TToken.html#Data">Data</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TToken.html#MyType">MyType</a></strong>: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TToken.html#Info">Info</a></strong>: record</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TToken.html#CommentContent">CommentContent</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TToken.html#StringContent">StringContent</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Tokenizer.TToken.html#Create">Create</a></strong>(const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TToken.html#GetTypeName">GetTypeName</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TToken.html#IsSymbol">IsSymbol</a></strong>(const ASymbolType: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TToken.html#IsKeyWord">IsKeyWord</a></strong>(const AKeyWord: <a href="PasDoc_Tokenizer.html#TKeyword">TKeyWord</a>): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TToken.html#IsStandardDirective">IsStandardDirective</a></strong>( const AStandardDirective: <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TToken.html#Description">Description</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TToken.html#StreamName">StreamName</a></strong>: string read FStreamName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TToken.html#BeginPosition">BeginPosition</a></strong>: Int64 read FBeginPosition;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TToken.html#EndPosition">EndPosition</a></strong>: Int64 read FEndPosition;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Data"></span><code><strong>Data</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+the exact character representation of this token as it was found in the input file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MyType"></span><code><strong>MyType</strong>: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+the type of this token as <a class="normal" href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Info"></span><code><strong>Info</strong>: record</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+additional information on this token as a variant record depending on the token's MyType</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CommentContent"></span><code><strong>CommentContent</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Contents of a comment token. This is defined only when MyType is in TokenCommentTypes or is TOK_DIRECTIVE. This is the text within the comment <em>without</em> comment delimiters. For TOK_DIRECTIVE you can safely assume that CommentContent[1] = '$'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StringContent"></span><code><strong>StringContent</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Contents of the string token, that is: the value of the string literal. D only when MyType is TOK_STRING.</p>
+</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Create a token of and assign the argument token type to <a class="normal" href="PasDoc_Tokenizer.TToken.html#MyType">MyType</a></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetTypeName"></span><code>function <strong>GetTypeName</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsSymbol"></span><code>function <strong>IsSymbol</strong>(const ASymbolType: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Does <a class="normal" href="PasDoc_Tokenizer.TToken.html#MyType">MyType</a> is TOK_SYMBOL and Info.SymbolType is ASymbolType ?</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsKeyWord"></span><code>function <strong>IsKeyWord</strong>(const AKeyWord: <a href="PasDoc_Tokenizer.html#TKeyword">TKeyWord</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Does <a class="normal" href="PasDoc_Tokenizer.TToken.html#MyType">MyType</a> is TOK_KEYWORD and Info.KeyWord is AKeyWord ?</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsStandardDirective"></span><code>function <strong>IsStandardDirective</strong>( const AStandardDirective: <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Does <a class="normal" href="PasDoc_Tokenizer.TToken.html#MyType">MyType</a> is TOK_IDENTIFIER and Info.StandardDirective is AStandardDirective ?</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Description"></span><code>function <strong>Description</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Few words long description of this token. Describes MyType and Data (for those tokens that tend to have short Data). Starts with lower letter.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StreamName"></span><code>property <strong>StreamName</strong>: string read FStreamName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>StreamName</code> is the name of the TStream from which this <code>TToken</code> was read. It is currently used to set <a class="normal" href="PasDoc_Items.TRawDescriptionInfo.html#StreamName">TRawDescriptionInfo.StreamName</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BeginPosition"></span><code>property <strong>BeginPosition</strong>: Int64 read FBeginPosition;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>BeginPosition</code> is the position in the stream of the start of the token. It is currently used to set <a class="normal" href="PasDoc_Items.TRawDescriptionInfo.html#BeginPosition">TRawDescriptionInfo.BeginPosition</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EndPosition"></span><code>property <strong>EndPosition</strong>: Int64 read FEndPosition;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>EndPosition</code> is the position in the stream of the character immediately after the end of the token. It is currently used to set <a class="normal" href="PasDoc_Items.TRawDescriptionInfo.html#EndPosition">TRawDescriptionInfo.EndPosition</a>.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

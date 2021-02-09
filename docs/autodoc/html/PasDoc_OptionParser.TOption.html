@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_OptionParser: Class TOption</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TOption"></span><h1 class="cio">Class TOption</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TOption = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+abstract base class for options</p>
+<p>
+ This class implements all the basic functionality and provides abstract methods for the <a class="normal" href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a> class to call, which are overridden by descendants. It also provides function to write the explanation.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TOption</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a></strong>: char;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a></strong>: string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a></strong>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FParser">FParser</a></strong>: <a href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_OptionParser.TOption.html#ParseOption">ParseOption</a></strong>(const AWords: TStrings): boolean; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_OptionParser.TOption.html#Create">Create</a></strong>(const AShort:char; const ALong: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_OptionParser.TOption.html#CreateEx">CreateEx</a></strong>(const AShort:char; const ALong: string; const AShortCaseSensitive, ALongCaseSensitive: boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_OptionParser.TOption.html#GetOptionWidth">GetOptionWidth</a></strong>: Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_OptionParser.TOption.html#WriteExplanation">WriteExplanation</a></strong>(const AOptWidth: Integer);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#ShortForm">ShortForm</a></strong>: char read <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a> write <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#LongForm">LongForm</a></strong>: string read <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a> write <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#ShortCaseSensitive">ShortCaseSensitive</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a> write <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#LongCaseSensitive">LongCaseSensitive</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a> write <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#WasSpecified">WasSpecified</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#Explanation">Explanation</a></strong>: string read <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a> write <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FShort"></span><code><strong>FShort</strong>: char;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLong"></span><code><strong>FLong</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FShortSens"></span><code><strong>FShortSens</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLongSens"></span><code><strong>FLongSens</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FExplanation"></span><code><strong>FExplanation</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FWasSpecified"></span><code><strong>FWasSpecified</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FParser"></span><code><strong>FParser</strong>: <a href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ParseOption"></span><code>function <strong>ParseOption</strong>(const AWords: TStrings): boolean; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AShort:char; const ALong: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Create a new Option. Set AShort to #0 in order to have no short option. Technically you can set ALong to '' to have no long option, but in practive *every* option should have long form. Don't override this in descendants (this always simply calls CreateEx). Override only CreateEx.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateEx"></span><code>constructor <strong>CreateEx</strong>(const AShort:char; const ALong: string; const AShortCaseSensitive, ALongCaseSensitive: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetOptionWidth"></span><code>function <strong>GetOptionWidth</strong>: Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+returns the width of the string &quot;-s, --long-option&quot; where s is the short option. Removes non-existant options (longoption = '' or shortoption = #0)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WriteExplanation"></span><code>procedure <strong>WriteExplanation</strong>(const AOptWidth: Integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+writes the wrapped explanation including option format, AOptWidth determines how much it is indented &amp; wrapped</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShortForm"></span><code>property <strong>ShortForm</strong>: char read <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a> write <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Short form of the option &mdash; single character &mdash; if #0 then not used</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LongForm"></span><code>property <strong>LongForm</strong>: string read <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a> write <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+long form of the option &mdash; string &mdash; if empty, then not used</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShortCaseSensitive"></span><code>property <strong>ShortCaseSensitive</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a> write <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+specified whether the short form should be case sensitive or not</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LongCaseSensitive"></span><code>property <strong>LongCaseSensitive</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a> write <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+specifies whether the long form should be case sensitive or not</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WasSpecified"></span><code>property <strong>WasSpecified</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+signifies if the option was specified at least once</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Explanation"></span><code>property <strong>Explanation</strong>: string read <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a> write <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+explanation for the option, see also <a class="normal" href="PasDoc_OptionParser.TOption.html#WriteExplanation">WriteExplanation</a></p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

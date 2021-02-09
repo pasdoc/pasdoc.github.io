@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Tokenizer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_Tokenizer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Simple Pascal tokenizer.</p>
+<p>
+     
+
+<p>The <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> object creates <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects (tokens) for the Pascal programming language from a character input stream.
+
+<p>The <a class="normal" href="PasDoc_Scanner.html">PasDoc_Scanner</a> unit does the same (it actually uses this unit's tokenizer), with the exception that it evaluates compiler directives, which are comments that start with a dollar sign.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li><li><a href="PasDoc_Utils.html">PasDoc_Utils</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Tokenizer.TToken.html"><code>TToken</code></a></td>
+<td class="itemdesc">Stores the exact type and additional information on one token.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Tokenizer.TTokenizer.html"><code>TTokenizer</code></a></td>
+<td class="itemdesc">Converts an input TStream to a sequence of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#StandardDirectiveByName">StandardDirectiveByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#KeyWordByName">KeyWordByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TStandardDirectives">TStandardDirectives</a></strong> = set of <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a></strong> = (...);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TOKEN_TYPE_NAMES">TOKEN_TYPE_NAMES</a></strong>: array[<a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>] of string =
+  ( 'whitespace', 'comment ((**)-style)', 'comment ({}-style)',
+    'comment (///-style)',
+    'comment (//-style)', 'identifier', 'number', 'string', 'symbol',
+    'directive', 'reserved word', 'AT&amp;T assembler register name');</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#TokenCommentTypes">TokenCommentTypes</a></strong>: set of <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a> =
+  [ <a href="PasDoc_Tokenizer.html#TOK_COMMENT_PAS">TOK_COMMENT_PAS</a>, <a href="PasDoc_Tokenizer.html#TOK_COMMENT_EXT">TOK_COMMENT_EXT</a>,
+  <a href="PasDoc_Tokenizer.html#TOK_COMMENT_HELPINSIGHT">TOK_COMMENT_HELPINSIGHT</a>,
+  <a href="PasDoc_Tokenizer.html#TOK_COMMENT_CSTYLE">TOK_COMMENT_CSTYLE</a> ];</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#SymbolNames">SymbolNames</a></strong>: array[<a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>] of string =
+  ( '+', '-', '*', '/', '=', '&lt;', '&lt;=', '&gt;', '&gt;=', '[', ']', ',',
+    '(', ')', ':', ';', '&circ;', '.', '@', '$', ':=', '..', '**', '\' );</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#KeyWordArray">KeyWordArray</a></strong>: array[Low(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)..High(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)] of string =
+  ('x', 
+    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'CONST',
+    'CONSTRUCTOR', 'DESTRUCTOR', 'DISPINTERFACE', 'DIV',  'DO', 'DOWNTO',
+    'ELSE', 'END', 'EXCEPT', 'EXPORTS', 'FILE', 'FINALIZATION',
+    'FINALLY', 'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
+    'IN', 'INHERITED', 'INITIALIZATION', 'INLINE', 'INTERFACE',
+    'IS', 'LABEL', 'LIBRARY', 'MOD', 'NIL', 'NOT', 'OBJECT', 'OF',
+    'ON', 'OR', 'PACKED', 'PROCEDURE', 'PROGRAM', 'PROPERTY',
+    'RAISE', 'RECORD', 'REPEAT', 'RESOURCESTRING', 'SET', 'SHL',
+    'SHR', 'STRING', 'THEN', 'THREADVAR', 'TO', 'TRY', 'TYPE',
+    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR');</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#StandardDirectiveArray">StandardDirectiveArray</a></strong>:
+    array[Low(<a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>)..High(<a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>)] of PChar =
+  ('x', 
+    'ABSOLUTE', 'ABSTRACT', 'APIENTRY', 'ASSEMBLER', 'AUTOMATED',
+    'CDECL', 'CVAR', 'DEFAULT', 'DISPID', 'DYNAMIC', 'EXPERIMENTAL', 'EXPORT', 'EXTERNAL',
+    'FAR', 'FORWARD', 'GENERIC', 'HELPER', 'INDEX', 'INLINE', 'MESSAGE', 'NAME', 'NEAR',
+    'NODEFAULT', 'OPERATOR', 'OUT', 'OVERLOAD', 'OVERRIDE', 'PASCAL', 'PRIVATE',
+    'PROTECTED', 'PUBLIC', 'PUBLISHED', 'READ', 'REFERENCE', 'REGISTER',
+    'REINTRODUCE', 'RESIDENT', 'SEALED', 'SPECIALIZE', 'STATIC',
+    'STDCALL', 'STORED', 'STRICT', 'VIRTUAL',
+    'WRITE', 'DEPRECATED', 'SAFECALL', 'PLATFORM', 'VARARGS', 'FINAL');</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="StandardDirectiveByName"></span><code>function <strong>StandardDirectiveByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Checks is Name (case ignored) some Pascal keyword. Returns SD_INVALIDSTANDARDDIRECTIVE if not.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="KeyWordByName"></span><code>function <strong>KeyWordByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Checks is Name (case ignored) some Pascal standard directive. Returns KEY_INVALIDKEYWORD if not.</p>
+</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTokenType"></span><code><strong>TTokenType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+enumeration type that provides all types of tokens; each token's name starts with TOK_.
+
+<p>TOK_DIRECTIVE is a compiler directive (like $ifdef, $define).
+
+<p>Note that tokenizer is not able to tell whether you used standard directive (e.g. 'Register') as an identifier (e.g. you're declaring procedure named 'Register') or as a real standard directive (e.g. a calling specifier 'register'). So there is <em>no</em> value like TOK_STANDARD_DIRECTIVE here, standard directives are always reported as TOK_IDENTIFIER. You can check TToken.Info.StandardDirective to know whether this identifier is <em>maybe</em> used as real standard directive.</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="TOK_WHITESPACE">TOK_WHITESPACE</span></li>
+<li>
+<span id="TOK_COMMENT_PAS">TOK_COMMENT_PAS</span></li>
+<li>
+<span id="TOK_COMMENT_EXT">TOK_COMMENT_EXT</span></li>
+<li>
+<span id="TOK_COMMENT_HELPINSIGHT">TOK_COMMENT_HELPINSIGHT</span></li>
+<li>
+<span id="TOK_COMMENT_CSTYLE">TOK_COMMENT_CSTYLE</span></li>
+<li>
+<span id="TOK_IDENTIFIER">TOK_IDENTIFIER</span></li>
+<li>
+<span id="TOK_NUMBER">TOK_NUMBER</span></li>
+<li>
+<span id="TOK_STRING">TOK_STRING</span></li>
+<li>
+<span id="TOK_SYMBOL">TOK_SYMBOL</span></li>
+<li>
+<span id="TOK_DIRECTIVE">TOK_DIRECTIVE</span></li>
+<li>
+<span id="TOK_KEYWORD">TOK_KEYWORD</span></li>
+<li>
+<span id="TOK_ATT_ASSEMBLER_REGISTER">TOK_ATT_ASSEMBLER_REGISTER</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TKeyword"></span><code><strong>TKeyword</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="KEY_INVALIDKEYWORD">KEY_INVALIDKEYWORD</span></li>
+<li>
+<span id="KEY_AND">KEY_AND</span></li>
+<li>
+<span id="KEY_ARRAY">KEY_ARRAY</span></li>
+<li>
+<span id="KEY_AS">KEY_AS</span></li>
+<li>
+<span id="KEY_ASM">KEY_ASM</span></li>
+<li>
+<span id="KEY_BEGIN">KEY_BEGIN</span></li>
+<li>
+<span id="KEY_CASE">KEY_CASE</span></li>
+<li>
+<span id="KEY_CLASS">KEY_CLASS</span></li>
+<li>
+<span id="KEY_CONST">KEY_CONST</span></li>
+<li>
+<span id="KEY_CONSTRUCTOR">KEY_CONSTRUCTOR</span></li>
+<li>
+<span id="KEY_DESTRUCTOR">KEY_DESTRUCTOR</span></li>
+<li>
+<span id="KEY_DISPINTERFACE">KEY_DISPINTERFACE</span></li>
+<li>
+<span id="KEY_DIV">KEY_DIV</span></li>
+<li>
+<span id="KEY_DO">KEY_DO</span></li>
+<li>
+<span id="KEY_DOWNTO">KEY_DOWNTO</span></li>
+<li>
+<span id="KEY_ELSE">KEY_ELSE</span></li>
+<li>
+<span id="KEY_END">KEY_END</span></li>
+<li>
+<span id="KEY_EXCEPT">KEY_EXCEPT</span></li>
+<li>
+<span id="KEY_EXPORTS">KEY_EXPORTS</span></li>
+<li>
+<span id="KEY_FILE">KEY_FILE</span></li>
+<li>
+<span id="KEY_FINALIZATION">KEY_FINALIZATION</span></li>
+<li>
+<span id="KEY_FINALLY">KEY_FINALLY</span></li>
+<li>
+<span id="KEY_FOR">KEY_FOR</span></li>
+<li>
+<span id="KEY_FUNCTION">KEY_FUNCTION</span></li>
+<li>
+<span id="KEY_GOTO">KEY_GOTO</span></li>
+<li>
+<span id="KEY_IF">KEY_IF</span></li>
+<li>
+<span id="KEY_IMPLEMENTATION">KEY_IMPLEMENTATION</span></li>
+<li>
+<span id="KEY_IN">KEY_IN</span></li>
+<li>
+<span id="KEY_INHERITED">KEY_INHERITED</span></li>
+<li>
+<span id="KEY_INITIALIZATION">KEY_INITIALIZATION</span></li>
+<li>
+<span id="KEY_INLINE">KEY_INLINE</span></li>
+<li>
+<span id="KEY_INTERFACE">KEY_INTERFACE</span></li>
+<li>
+<span id="KEY_IS">KEY_IS</span></li>
+<li>
+<span id="KEY_LABEL">KEY_LABEL</span></li>
+<li>
+<span id="KEY_LIBRARY">KEY_LIBRARY</span></li>
+<li>
+<span id="KEY_MOD">KEY_MOD</span></li>
+<li>
+<span id="KEY_NIL">KEY_NIL</span></li>
+<li>
+<span id="KEY_NOT">KEY_NOT</span></li>
+<li>
+<span id="KEY_OBJECT">KEY_OBJECT</span></li>
+<li>
+<span id="KEY_OF">KEY_OF</span></li>
+<li>
+<span id="KEY_ON">KEY_ON</span></li>
+<li>
+<span id="KEY_OR">KEY_OR</span></li>
+<li>
+<span id="KEY_PACKED">KEY_PACKED</span></li>
+<li>
+<span id="KEY_PROCEDURE">KEY_PROCEDURE</span></li>
+<li>
+<span id="KEY_PROGRAM">KEY_PROGRAM</span></li>
+<li>
+<span id="KEY_PROPERTY">KEY_PROPERTY</span></li>
+<li>
+<span id="KEY_RAISE">KEY_RAISE</span></li>
+<li>
+<span id="KEY_RECORD">KEY_RECORD</span></li>
+<li>
+<span id="KEY_REPEAT">KEY_REPEAT</span></li>
+<li>
+<span id="KEY_RESOURCESTRING">KEY_RESOURCESTRING</span></li>
+<li>
+<span id="KEY_SET">KEY_SET</span></li>
+<li>
+<span id="KEY_SHL">KEY_SHL</span></li>
+<li>
+<span id="KEY_SHR">KEY_SHR</span></li>
+<li>
+<span id="KEY_STRING">KEY_STRING</span></li>
+<li>
+<span id="KEY_THEN">KEY_THEN</span></li>
+<li>
+<span id="KEY_THREADVAR">KEY_THREADVAR</span></li>
+<li>
+<span id="KEY_TO">KEY_TO</span></li>
+<li>
+<span id="KEY_TRY">KEY_TRY</span></li>
+<li>
+<span id="KEY_TYPE">KEY_TYPE</span></li>
+<li>
+<span id="KEY_UNIT">KEY_UNIT</span></li>
+<li>
+<span id="KEY_UNTIL">KEY_UNTIL</span></li>
+<li>
+<span id="KEY_USES">KEY_USES</span></li>
+<li>
+<span id="KEY_VAR">KEY_VAR</span></li>
+<li>
+<span id="KEY_WHILE">KEY_WHILE</span></li>
+<li>
+<span id="KEY_WITH">KEY_WITH</span></li>
+<li>
+<span id="KEY_XOR">KEY_XOR</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TStandardDirective"></span><code><strong>TStandardDirective</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="SD_INVALIDSTANDARDDIRECTIVE">SD_INVALIDSTANDARDDIRECTIVE</span></li>
+<li>
+<span id="SD_ABSOLUTE">SD_ABSOLUTE</span></li>
+<li>
+<span id="SD_ABSTRACT">SD_ABSTRACT</span></li>
+<li>
+<span id="SD_APIENTRY">SD_APIENTRY</span></li>
+<li>
+<span id="SD_ASSEMBLER">SD_ASSEMBLER</span></li>
+<li>
+<span id="SD_AUTOMATED">SD_AUTOMATED</span></li>
+<li>
+<span id="SD_CDECL">SD_CDECL</span></li>
+<li>
+<span id="SD_CVAR">SD_CVAR</span></li>
+<li>
+<span id="SD_DEFAULT">SD_DEFAULT</span></li>
+<li>
+<span id="SD_DISPID">SD_DISPID</span></li>
+<li>
+<span id="SD_DYNAMIC">SD_DYNAMIC</span></li>
+<li>
+<span id="SD_EXPERIMENTAL">SD_EXPERIMENTAL</span></li>
+<li>
+<span id="SD_EXPORT">SD_EXPORT</span></li>
+<li>
+<span id="SD_EXTERNAL">SD_EXTERNAL</span></li>
+<li>
+<span id="SD_FAR">SD_FAR</span></li>
+<li>
+<span id="SD_FORWARD">SD_FORWARD</span></li>
+<li>
+<span id="SD_GENERIC">SD_GENERIC</span></li>
+<li>
+<span id="SD_HELPER">SD_HELPER</span></li>
+<li>
+<span id="SD_INDEX">SD_INDEX</span></li>
+<li>
+<span id="SD_INLINE">SD_INLINE</span></li>
+<li>
+<span id="SD_MESSAGE">SD_MESSAGE</span></li>
+<li>
+<span id="SD_NAME">SD_NAME</span></li>
+<li>
+<span id="SD_NEAR">SD_NEAR</span></li>
+<li>
+<span id="SD_NODEFAULT">SD_NODEFAULT</span></li>
+<li>
+<span id="SD_OPERATOR">SD_OPERATOR</span></li>
+<li>
+<span id="SD_OUT">SD_OUT</span></li>
+<li>
+<span id="SD_OVERLOAD">SD_OVERLOAD</span></li>
+<li>
+<span id="SD_OVERRIDE">SD_OVERRIDE</span></li>
+<li>
+<span id="SD_PASCAL">SD_PASCAL</span></li>
+<li>
+<span id="SD_PRIVATE">SD_PRIVATE</span></li>
+<li>
+<span id="SD_PROTECTED">SD_PROTECTED</span></li>
+<li>
+<span id="SD_PUBLIC">SD_PUBLIC</span></li>
+<li>
+<span id="SD_PUBLISHED">SD_PUBLISHED</span></li>
+<li>
+<span id="SD_READ">SD_READ</span></li>
+<li>
+<span id="SD_REFERENCE">SD_REFERENCE</span></li>
+<li>
+<span id="SD_REGISTER">SD_REGISTER</span></li>
+<li>
+<span id="SD_REINTRODUCE">SD_REINTRODUCE</span></li>
+<li>
+<span id="SD_RESIDENT">SD_RESIDENT</span></li>
+<li>
+<span id="SD_SEALED">SD_SEALED</span></li>
+<li>
+<span id="SD_SPECIALIZE">SD_SPECIALIZE</span></li>
+<li>
+<span id="SD_STATIC">SD_STATIC</span></li>
+<li>
+<span id="SD_STDCALL">SD_STDCALL</span></li>
+<li>
+<span id="SD_STORED">SD_STORED</span></li>
+<li>
+<span id="SD_STRICT">SD_STRICT</span></li>
+<li>
+<span id="SD_VIRTUAL">SD_VIRTUAL</span></li>
+<li>
+<span id="SD_WRITE">SD_WRITE</span></li>
+<li>
+<span id="SD_DEPRECATED">SD_DEPRECATED</span></li>
+<li>
+<span id="SD_SAFECALL">SD_SAFECALL</span></li>
+<li>
+<span id="SD_PLATFORM">SD_PLATFORM</span></li>
+<li>
+<span id="SD_VARARGS">SD_VARARGS</span></li>
+<li>
+<span id="SD_FINAL">SD_FINAL</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TStandardDirectives"></span><code><strong>TStandardDirectives</strong> = set of <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TSymbolType"></span><code><strong>TSymbolType</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+enumeration type that provides all types of symbols; each symbol's name starts with SYM_</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="SYM_PLUS">SYM_PLUS</span></li>
+<li>
+<span id="SYM_MINUS">SYM_MINUS</span></li>
+<li>
+<span id="SYM_ASTERISK">SYM_ASTERISK</span></li>
+<li>
+<span id="SYM_SLASH">SYM_SLASH</span></li>
+<li>
+<span id="SYM_EQUAL">SYM_EQUAL</span></li>
+<li>
+<span id="SYM_LESS_THAN">SYM_LESS_THAN</span></li>
+<li>
+<span id="SYM_LESS_THAN_EQUAL">SYM_LESS_THAN_EQUAL</span></li>
+<li>
+<span id="SYM_GREATER_THAN">SYM_GREATER_THAN</span></li>
+<li>
+<span id="SYM_GREATER_THAN_EQUAL">SYM_GREATER_THAN_EQUAL</span></li>
+<li>
+<span id="SYM_LEFT_BRACKET">SYM_LEFT_BRACKET</span></li>
+<li>
+<span id="SYM_RIGHT_BRACKET">SYM_RIGHT_BRACKET</span></li>
+<li>
+<span id="SYM_COMMA">SYM_COMMA</span></li>
+<li>
+<span id="SYM_LEFT_PARENTHESIS">SYM_LEFT_PARENTHESIS</span></li>
+<li>
+<span id="SYM_RIGHT_PARENTHESIS">SYM_RIGHT_PARENTHESIS</span></li>
+<li>
+<span id="SYM_COLON">SYM_COLON</span></li>
+<li>
+<span id="SYM_SEMICOLON">SYM_SEMICOLON</span></li>
+<li>
+<span id="SYM_DEREFERENCE">SYM_DEREFERENCE</span></li>
+<li>
+<span id="SYM_PERIOD">SYM_PERIOD</span></li>
+<li>
+<span id="SYM_AT">SYM_AT</span></li>
+<li>
+<span id="SYM_DOLLAR">SYM_DOLLAR</span></li>
+<li>
+<span id="SYM_ASSIGN">SYM_ASSIGN</span></li>
+<li>
+<span id="SYM_RANGE">SYM_RANGE</span></li>
+<li>
+<span id="SYM_POWER">SYM_POWER</span></li>
+<li>
+<span id="SYM_BACKSLASH">SYM_BACKSLASH</span>: SYM_BACKSLASH may occur when writing char constant &quot;&circ;\&quot;, see ../../tests/ok_caret_character.pas</li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOKEN_TYPE_NAMES"></span><code><strong>TOKEN_TYPE_NAMES</strong>: array[<a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>] of string =
+  ( 'whitespace', 'comment ((**)-style)', 'comment ({}-style)',
+    'comment (///-style)',
+    'comment (//-style)', 'identifier', 'number', 'string', 'symbol',
+    'directive', 'reserved word', 'AT&amp;T assembler register name');</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Names of the token types. All start with lower letter. They should somehow describe (in a few short words) given TTokenType.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TokenCommentTypes"></span><code><strong>TokenCommentTypes</strong>: set of <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a> =
+  [ <a href="PasDoc_Tokenizer.html#TOK_COMMENT_PAS">TOK_COMMENT_PAS</a>, <a href="PasDoc_Tokenizer.html#TOK_COMMENT_EXT">TOK_COMMENT_EXT</a>,
+  <a href="PasDoc_Tokenizer.html#TOK_COMMENT_HELPINSIGHT">TOK_COMMENT_HELPINSIGHT</a>,
+  <a href="PasDoc_Tokenizer.html#TOK_COMMENT_CSTYLE">TOK_COMMENT_CSTYLE</a> ];</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SymbolNames"></span><code><strong>SymbolNames</strong>: array[<a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>] of string =
+  ( '+', '-', '*', '/', '=', '&lt;', '&lt;=', '&gt;', '&gt;=', '[', ']', ',',
+    '(', ')', ':', ';', '&circ;', '.', '@', '$', ':=', '..', '**', '\' );</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Symbols as strings. They can be useful to have some mapping TSymbolType -&gt; string, but remember that actually some symbols in tokenizer have multiple possible representations, e.g. &quot;right bracket&quot; is usually given as &quot;]&quot; but can also be written as &quot;.)&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="KeyWordArray"></span><code><strong>KeyWordArray</strong>: array[Low(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)..High(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)] of string =
+  ('x', 
+    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'CONST',
+    'CONSTRUCTOR', 'DESTRUCTOR', 'DISPINTERFACE', 'DIV',  'DO', 'DOWNTO',
+    'ELSE', 'END', 'EXCEPT', 'EXPORTS', 'FILE', 'FINALIZATION',
+    'FINALLY', 'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
+    'IN', 'INHERITED', 'INITIALIZATION', 'INLINE', 'INTERFACE',
+    'IS', 'LABEL', 'LIBRARY', 'MOD', 'NIL', 'NOT', 'OBJECT', 'OF',
+    'ON', 'OR', 'PACKED', 'PROCEDURE', 'PROGRAM', 'PROPERTY',
+    'RAISE', 'RECORD', 'REPEAT', 'RESOURCESTRING', 'SET', 'SHL',
+    'SHR', 'STRING', 'THEN', 'THREADVAR', 'TO', 'TRY', 'TYPE',
+    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR');</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+all Object Pascal keywords</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="StandardDirectiveArray"></span><code><strong>StandardDirectiveArray</strong>:
+    array[Low(<a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>)..High(<a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>)] of PChar =
+  ('x', 
+    'ABSOLUTE', 'ABSTRACT', 'APIENTRY', 'ASSEMBLER', 'AUTOMATED',
+    'CDECL', 'CVAR', 'DEFAULT', 'DISPID', 'DYNAMIC', 'EXPERIMENTAL', 'EXPORT', 'EXTERNAL',
+    'FAR', 'FORWARD', 'GENERIC', 'HELPER', 'INDEX', 'INLINE', 'MESSAGE', 'NAME', 'NEAR',
+    'NODEFAULT', 'OPERATOR', 'OUT', 'OVERLOAD', 'OVERRIDE', 'PASCAL', 'PRIVATE',
+    'PROTECTED', 'PUBLIC', 'PUBLISHED', 'READ', 'REFERENCE', 'REGISTER',
+    'REINTRODUCE', 'RESIDENT', 'SEALED', 'SPECIALIZE', 'STATIC',
+    'STDCALL', 'STORED', 'STRICT', 'VIRTUAL',
+    'WRITE', 'DEPRECATED', 'SAFECALL', 'PLATFORM', 'VARARGS', 'FINAL');</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Object Pascal directives</p>
+</td></tr>
+</table>
+<h2 class="authors">Authors</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+<li>Ralf Junker (<a href="mailto:delphi@zeitungsjunge.de">delphi@zeitungsjunge.de</a>)</li>
+<li>Marco Schmidt (<a href="mailto:marcoschmidt@geocities.com">marcoschmidt@geocities.com</a>)</li>
+<li>Michalis Kamburelis</li>
+<li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

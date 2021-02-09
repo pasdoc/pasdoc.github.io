@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_StringPairVector: Class TStringPairVector</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TStringPairVector"></span><h1 class="cio">Class TStringPairVector</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TStringPairVector = class(<a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+List of string pairs. This class contains only non-nil objects of class TStringPair.
+
+<p>Using this class instead of TStringList (with it's Name and Value properties) is often better, because this allows both Name and Value of each pair to safely contain any special characters (including '=' and newline markers). It's also faster, since it doesn't try to encode Name and Value into one string.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TList</li>
+<li class="ancestor">TObjectList</li>
+<li class="ancestor"><a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></li>
+<li class="thisitem">TStringPairVector</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#Text">Text</a></strong>(const NameValueSepapator, ItemSeparator: string): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#FindName">FindName</a></strong>(const Name: string; IgnoreCase: boolean = true): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#DeleteName">DeleteName</a></strong>(const Name: string; IgnoreCase: boolean = true): boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#LoadFromBinaryStream">LoadFromBinaryStream</a></strong>(Stream: TStream);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#SaveToBinaryStream">SaveToBinaryStream</a></strong>(Stream: TStream);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#FirstName">FirstName</a></strong>: string;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#Items">Items</a></strong>[i:Integer]: <a href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> read GetItems write SetItems;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Text"></span><code>function <strong>Text</strong>(const NameValueSepapator, ItemSeparator: string): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns all items Names and Values glued together. For every item, string Name + NameValueSepapator + Value is constructed. Then all such strings for every items all concatenated with ItemSeparator.
+
+<p>Remember that the very idea of <a class="normal" href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> and <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a> is that Name and Value strings may contain any special characters, including things you give here as NameValueSepapator and ItemSeparator. So it's practically impossible to later convert such Text back to items and Names/Value pairs.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindName"></span><code>function <strong>FindName</strong>(const Name: string; IgnoreCase: boolean = true): Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Finds a string pair with given Name. Returns -1 if not found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DeleteName"></span><code>function <strong>DeleteName</strong>(const Name: string; IgnoreCase: boolean = true): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Removes first string pair with given Name. Returns if some pair was removed.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LoadFromBinaryStream"></span><code>procedure <strong>LoadFromBinaryStream</strong>(Stream: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Load from a stream using the binary format. For each item, it's Name and Value are saved. (TStringPair.Data pointers are <em>not</em> saved.)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SaveToBinaryStream"></span><code>procedure <strong>SaveToBinaryStream</strong>(Stream: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Save to a stream, in a format readable by <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html#LoadFromBinaryStream">LoadFromBinaryStream</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FirstName"></span><code>function <strong>FirstName</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Name of first item, or '' if list empty.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>[i:Integer]: <a href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> read GetItems write SetItems;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

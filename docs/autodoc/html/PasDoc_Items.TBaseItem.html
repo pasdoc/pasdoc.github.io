@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Items: Class TBaseItem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TBaseItem"></span><h1 class="cio">Class TBaseItem</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Items.html">PasDoc_Items</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TBaseItem = class(<a class="normal" href="PasDoc_Serialize.TSerializable.html">TSerializable</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+This is a basic item class, that is linkable, and has some <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a>.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="PasDoc_Serialize.TSerializable.html">TSerializable</a></li>
+<li class="thisitem">TBaseItem</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Serialize">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Deserialize">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TBaseItem.html#Create">Create</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TBaseItem.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#RegisterTags">RegisterTags</a></strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItem">FindItem</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItemMaybeInAncestors">FindItemMaybeInAncestors</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindName">FindName</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#RawDescriptionInfo">RawDescriptionInfo</a></strong>: <a href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#QualifiedName">QualifiedName</a></strong>: String; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#BasePath">BasePath</a></strong>: string; virtual;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#DetailedDescription">DetailedDescription</a></strong>: string
+      read FDetailedDescription write FDetailedDescription;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a></strong>: string
+      read GetRawDescription write WriteRawDescription;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#FullLink">FullLink</a></strong>: string read FFullLink write FFullLink;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#LastMod">LastMod</a></strong>: string read FLastMod write FLastMod;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Name">Name</a></strong>: string read FName write FName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Authors">Authors</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FAuthors write SetAuthors;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Created">Created</a></strong>: string read FCreated;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#AutoLinkHereAllowed">AutoLinkHereAllowed</a></strong>: boolean
+      read FAutoLinkHereAllowed write FAutoLinkHereAllowed default true;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Serialize"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Serialization of TPasItem need to store in stream only data that is generated by parser. That's because current approach treats &quot;loading from cache&quot; as equivalent to parsing a unit and stores to cache right after parsing a unit. So what is generated by parser must be written to cache.
+
+<p>That said,
+
+<p></p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p> It will not break anything if you will accidentally store in cache something that is not generated by parser. That's because saving to cache will be done anyway right after doing parsing, so properties not initialized by parser will have their initial values anyway. You're just wasting memory for cache, and some cache saving/loading time.</p></li>
+  <li value="2"><p> For now, in implementation of serialize/deserialize we try to add even things not generated by parser in a commented out code. This way if approach to cache will change some day, we will be able to use this code.</p></li>
+</ol>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Deserialize"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RegisterTags"></span><code>procedure <strong>RegisterTags</strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+It registers <a class="normal" href="PasDoc_TagManager.TTag.html">TTag</a>s that init <a class="normal" href="PasDoc_Items.TBaseItem.html#Authors">Authors</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#Created">Created</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#LastMod">LastMod</a> and remove relevant tags from description. You can override it to add more handlers.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindItem"></span><code>function <strong>FindItem</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Search for an item called ItemName <em>inside this Pascal item</em>. For units, it searches for items declared <em>inside this unit</em> (like a procedure, or a class in this unit). For classes it searches for items declared <em>within this class</em> (like a method or a property). For an enumerated type, it searches for members of this enumerated type.
+
+<p>All normal rules of ObjectPascal scope apply, which means that e.g. if this item is a unit, <code>FindItem</code> searches for a class named ItemName but it <em>doesn't</em> search for a method named ItemName inside some class of this unit. Just like in ObjectPascal the scope of identifiers declared within the class always stays within the class. Of course, in ObjectPascal you can qualify a method name with a class name, and you can also do such qualified links in pasdoc, but this is not handled by this routine (see <a class="normal" href="PasDoc_Items.TBaseItem.html#FindName">FindName</a> instead).
+
+<p>Returns nil if not found.
+
+<p>Note that it never compares ItemName with Self.Name. You may want to check this yourself if you want.
+
+<p>Note that for TPasItem descendants, it always returns also some TPasItem descendant (so if you use this method with some TPasItem instance, you can safely cast result of this method to TPasItem).
+
+<p>Implementation in this class always returns nil. Override as necessary.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindItemMaybeInAncestors"></span><code>function <strong>FindItemMaybeInAncestors</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is just like <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem">FindItem</a>, but in case of classes or such it should also search within ancestors. In this class, the default implementation just calls FindItem.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FindName"></span><code>function <strong>FindName</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Do all you can to find link specified by NameParts.
+
+<p>While searching this tries to mimic ObjectPascal identifier scope as much as it can. It seaches within this item, but also within class enclosing this item, within ancestors of this class, within unit enclosing this item, then within units used by unit of this item.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RawDescriptionInfo"></span><code>function <strong>RawDescriptionInfo</strong>: <a href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Full info about <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a> of this item, including it's filename and position.
+
+<p>This is intended to be initialized by parser.
+
+<p>This returns <a class="normal" href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a> instead of just <a class="normal" href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a> to allow natural setting of properties of this record (otherwise </p>
+
+<pre class="longcode">Item.RawDescriptionInfo.StreamName := <span class="pascal_string">'foo'</span>;</pre>
+
+<p> would not work as expected) .</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="QualifiedName"></span><code>function <strong>QualifiedName</strong>: String; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the qualified name of the item. This is intended to return a concise and not ambigous name. E.g. in case of TPasItem it is overridden to return Name qualified by class name and unit name.
+
+<p>In this class this simply returns Name.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BasePath"></span><code>function <strong>BasePath</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The full (absolute) path used to resolve filenames in this item's descriptions. Must always end with PathDelim. In this class, this simply returns GetCurrentDir (with PathDelim added if needed).</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DetailedDescription"></span><code>property <strong>DetailedDescription</strong>: string
+      read FDetailedDescription write FDetailedDescription;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Detailed description of this item.
+
+<p>In case of TPasItem, this is something more elaborate than <a class="normal" href="PasDoc_Items.TPasItem.html#AbstractDescription">TPasItem.AbstractDescription</a>.
+
+<p>This is already in the form suitable for final output, ready to be put inside final documentation.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RawDescription"></span><code>property <strong>RawDescription</strong>: string
+      read GetRawDescription write WriteRawDescription;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This stores unexpanded version (as specified in user's comment in source code of parsed units) of description of this item.
+
+<p>Actually, this is just a shortcut to <code><a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescriptionInfo">RawDescriptionInfo</a>.Content</code></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FullLink"></span><code>property <strong>FullLink</strong>: string read FFullLink write FFullLink;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+a full link that should be enough to link this item from anywhere else</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LastMod"></span><code>property <strong>LastMod</strong>: string read FLastMod write FLastMod;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Contains '' or string with date of last modification. This string is already in the form suitable for final output format (i.e. already processed by TDocGenerator.ConvertString).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>: string read FName write FName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+name of the item</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Authors"></span><code>property <strong>Authors</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FAuthors write SetAuthors;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of strings, each representing one author of this item</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Created"></span><code>property <strong>Created</strong>: string read FCreated;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Contains '' or string with date of creation. This string is already in the form suitable for final output format (i.e. already processed by TDocGenerator.ConvertString).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AutoLinkHereAllowed"></span><code>property <strong>AutoLinkHereAllowed</strong>: boolean
+      read FAutoLinkHereAllowed write FAutoLinkHereAllowed default true;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Is auto-link mechanism allowed to create link to this item ? This may be set to <code>False</code> by @noAutoLinkHere tag in item's description.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

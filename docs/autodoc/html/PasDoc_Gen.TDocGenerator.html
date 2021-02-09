@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_Gen: Class TDocGenerator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TDocGenerator"></span><h1 class="cio">Class TDocGenerator</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_Gen.html">PasDoc_Gen</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TDocGenerator = class(TComponent)</code></p>
+<h2 class="description">Description</h2>
+<p>
+basic documentation generator object</p>
+<p>
+ This abstract object will do the complete process of writing documentation files. It will be given the collection of units that was the result of the parsing process and a configuration object that was created from default values and program parameters. Depending on the output format, one or more files may be created (HTML will create several, Tex only one).</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TDocGenerator</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.TDocGenerator.html#FLanguage">FLanguage</a></strong>: <a href="PasDoc_Languages.TPasDocLanguages.html">TPasDocLanguages</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.TDocGenerator.html#FClassHierarchy">FClassHierarchy</a></strong>: <a href="PasDoc_HierarchyTree.TStringCardinalTree.html">TStringCardinalTree</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a></strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#DoError">DoError</a></strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#DoMessage">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#CreateClassHierarchy">CreateClassHierarchy</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#MakeItemLink">MakeItemLink</a></strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkCaption: string; const LinkContext: <a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a>): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteCodeWithLinksCommon">WriteCodeWithLinksCommon</a></strong>(const Item: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; const Code: string; WriteItemLink: boolean; const NameLinkBegin, NameLinkEnd: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#CloseStream">CloseStream</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#CodeString">CodeString</a></strong>(const s: string): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a></strong>(const s: string): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#ConvertChar">ConvertChar</a></strong>(c: char): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#CreateLink">CreateLink</a></strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#CreateStream">CreateStream</a></strong>(const AName: string): Boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#ExtractEmailAddress">ExtractEmailAddress</a></strong>(s: string; out S1, S2, EmailAddress: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FixEmailaddressWithoutMailTo">FixEmailaddressWithoutMailTo</a></strong>(const PossibleEmailAddress: String): String;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#ExtractWebAddress">ExtractWebAddress</a></strong>(s: string; out S1, S2, WebAddress: string): Boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FindGlobal">FindGlobal</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FindGlobalPasItem">FindGlobalPasItem</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FindGlobalPasItem">FindGlobalPasItem</a></strong>(const ItemName: String): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#GetClassDirectiveName">GetClassDirectiveName</a></strong>(Directive: <a href="PasDoc_Items.html#TClassDirective">TClassDirective</a>): string;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#GetCIOTypeName">GetCIOTypeName</a></strong>(MyType: <a href="PasDoc_Items.html#TCIOType">TCIOType</a>): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#LoadDescriptionFile">LoadDescriptionFile</a></strong>(n: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#SearchItem">SearchItem</a></strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; WarningIfNotSplittable: boolean): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#SearchLink">SearchLink</a></strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkDisplay: string; const WarningIfLinkNotFound: boolean; out FoundItem: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#SearchLink">SearchLink</a></strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkDisplay: string; const WarningIfLinkNotFound: boolean): string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#StoreDescription">StoreDescription</a></strong>(ItemName: string; var t: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteConverted">WriteConverted</a></strong>(const s: string; Newline: boolean); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteConverted">WriteConverted</a></strong>(const s: string); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteConvertedLine">WriteConvertedLine</a></strong>(const s: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteDirect">WriteDirect</a></strong>(const t: string; Newline: boolean); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteDirect">WriteDirect</a></strong>(const t: string); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteDirectLine">WriteDirectLine</a></strong>(const t: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteUnit">WriteUnit</a></strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteUnits">WriteUnits</a></strong>(const HL: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteStartOfCode">WriteStartOfCode</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteEndOfCode">WriteEndOfCode</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteGVUses">WriteGVUses</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteGVClasses">WriteGVClasses</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#StartSpellChecking">StartSpellChecking</a></strong>(const AMode: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#CheckString">CheckString</a></strong>(const AString: string; const AErrors: <a href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#EndSpellChecking">EndSpellChecking</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatPascalCode">FormatPascalCode</a></strong>(const Line: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatNormalCode">FormatNormalCode</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatComment">FormatComment</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatHex">FormatHex</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatNumeric">FormatNumeric</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatFloat">FormatFloat</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatString">FormatString</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatKeyWord">FormatKeyWord</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatCompilerComment">FormatCompilerComment</a></strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#Paragraph">Paragraph</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#ShortDash">ShortDash</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#EnDash">EnDash</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#EmDash">EmDash</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#HtmlString">HtmlString</a></strong>(const S: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#LatexString">LatexString</a></strong>(const S: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#LineBreak">LineBreak</a></strong>: string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#URLLink">URLLink</a></strong>(const URL: string): string; overload; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#URLLink">URLLink</a></strong>(const URL, LinkDisplay: string): string; overload; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteExternal">WriteExternal</a></strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteExternalCore">WriteExternalCore</a></strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteConclusion">WriteConclusion</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteIntroduction">WriteIntroduction</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteAdditionalFiles">WriteAdditionalFiles</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatSection">FormatSection</a></strong>(HL: integer; const Anchor: string; const Caption: string): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatAnchor">FormatAnchor</a></strong>(const Anchor: string): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatBold">FormatBold</a></strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatItalic">FormatItalic</a></strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatWarning">FormatWarning</a></strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatNote">FormatNote</a></strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatPreformatted">FormatPreformatted</a></strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatImage">FormatImage</a></strong>(FileNames: TStringList): string; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatList">FormatList</a></strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatTable">FormatTable</a></strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#FormatTableOfContents">FormatTableOfContents</a></strong>(Sections: <a href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a>): string; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#BuildLinks">BuildLinks</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#ExpandDescriptions">ExpandDescriptions</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.TDocGenerator.html#GetFileExtension">GetFileExtension</a></strong>: string; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#LoadDescriptionFiles">LoadDescriptionFiles</a></strong>(const c: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteDocumentation">WriteDocumentation</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Gen.TDocGenerator.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Gen.TDocGenerator.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Gen.TDocGenerator.html#ParseAbbreviationsFile">ParseAbbreviationsFile</a></strong>(const AFileName: string);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#CurrentStream">CurrentStream</a></strong>: TStream read FCurrentStream;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Units">Units</a></strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a> write <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Introduction">Introduction</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction
+      write FIntroduction;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Conclusion">Conclusion</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion write FConclusion;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#AdditionalFiles">AdditionalFiles</a></strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles write FAdditionalFiles;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Language">Language</a></strong>: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a> read GetLanguage write SetLanguage
+      default <a href="PasDoc_Languages.html#DEFAULT_LANGUAGE">DEFAULT_LANGUAGE</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#ProjectName">ProjectName</a></strong>: string read FProjectName write FProjectName;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#ExcludeGenerator">ExcludeGenerator</a></strong>: Boolean
+      read FExcludeGenerator write FExcludeGenerator default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#IncludeCreationTime">IncludeCreationTime</a></strong>: Boolean
+      read FIncludeCreationTime write FIncludeCreationTime default false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#UseLowercaseKeywords">UseLowercaseKeywords</a></strong>: Boolean
+      read FUseLowercaseKeywords write FUseLowercaseKeywords default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Title">Title</a></strong>: string read FTitle write FTitle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#DestinationDirectory">DestinationDirectory</a></strong>: string read FDestDir write SetDestDir;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#OutputGraphVizUses">OutputGraphVizUses</a></strong>: boolean read FGraphVizUses write FGraphVizUses
+      default false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#OutputGraphVizClassHierarchy">OutputGraphVizClassHierarchy</a></strong>: boolean
+      read FGraphVizClasses write FGraphVizClasses default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#LinkGraphVizUses">LinkGraphVizUses</a></strong>: string read FLinkGraphVizUses write FLinkGraphVizUses;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#LinkGraphVizClasses">LinkGraphVizClasses</a></strong>: string read FLinkGraphVizClasses write FLinkGraphVizClasses;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Abbreviations">Abbreviations</a></strong>: TStringList read FAbbreviations write SetAbbreviations;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#CheckSpelling">CheckSpelling</a></strong>: boolean read FCheckSpelling write FCheckSpelling
+      default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#AspellLanguage">AspellLanguage</a></strong>: string read FAspellLanguage write FAspellLanguage;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#SpellCheckIgnoreWords">SpellCheckIgnoreWords</a></strong>: TStringList
+      read FSpellCheckIgnoreWords write SetSpellCheckIgnoreWords;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#AutoAbstract">AutoAbstract</a></strong>: boolean read FAutoAbstract write FAutoAbstract default false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#LinkLook">LinkLook</a></strong>: <a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a> read FLinkLook write FLinkLook default <a href="PasDoc_Gen.html#llDefault">llDefault</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#WriteUsesClause">WriteUsesClause</a></strong>: boolean
+      read FWriteUsesClause write FWriteUsesClause default false;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#AutoLink">AutoLink</a></strong>: boolean
+      read FAutoLink write FAutoLink default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#AutoLinkExclude">AutoLinkExclude</a></strong>: TStringList read FAutoLinkExclude;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#ExternalClassHierarchy">ExternalClassHierarchy</a></strong>: TStrings
+      read FExternalClassHierarchy write SetExternalClassHierarchy
+      stored StoredExternalClassHierarchy;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Gen.TDocGenerator.html#Markdown">Markdown</a></strong>: boolean
+      read FMarkdown write FMarkdown default false;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FLanguage"></span><code><strong>FLanguage</strong>: <a href="PasDoc_Languages.TPasDocLanguages.html">TPasDocLanguages</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+the (human) output language of the documentation file(s)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FClassHierarchy"></span><code><strong>FClassHierarchy</strong>: <a href="PasDoc_HierarchyTree.TStringCardinalTree.html">TStringCardinalTree</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FUnits"></span><code><strong>FUnits</strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+list of all units that were successfully parsed</p>
+</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoError"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoMessage"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateClassHierarchy"></span><code>procedure <strong>CreateClassHierarchy</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="MakeItemLink"></span><code>function <strong>MakeItemLink</strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkCaption: string; const LinkContext: <a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a>): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return a link to item Item which will be displayed as LinkCaption. Returned string may be directly inserted inside output documentation. LinkCaption will be always converted using ConvertString before writing, so don't worry about doing this yourself when calling this method.
+
+<p>LinkContext may be used in some descendants to present the link differently, see <a class="normal" href="PasDoc_Gen.html#TLinkContext">TLinkContext</a> for it's meaning.
+
+<p>If some output format doesn't support this feature, it can return simply ConvertString(LinkCaption). This is the default implementation of this method in this class.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteCodeWithLinksCommon"></span><code>procedure <strong>WriteCodeWithLinksCommon</strong>(const Item: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; const Code: string; WriteItemLink: boolean; const NameLinkBegin, NameLinkEnd: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This writes Code as a Pascal code. Links inside the code are resolved from Item. If WriteItemLink then Item.Name is made a link. Item.Name is printed between NameLinkBegin and NameLinkEnd.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CloseStream"></span><code>procedure <strong>CloseStream</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If field <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CurrentStream">CurrentStream</a> is assigned, it is disposed and set to nil.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CodeString"></span><code>function <strong>CodeString</strong>(const s: string): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Makes a String look like a coded String, i.e. &lt;CODE&gt;TheString&lt;/CODE&gt; in Html.</p>
+<p>
+  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>s</dt>
+<dd>is the string to format</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return">the formatted string</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ConvertString"></span><code>function <strong>ConvertString</strong>(const s: string): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Converts for each character in S, thus assembling a String that is returned and can be written to the documentation file.
+
+<p>The @ character should not be converted, this will be done later on.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ConvertChar"></span><code>function <strong>ConvertChar</strong>(c: char): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Converts a character to its converted form. This method should always be called to add characters to a string.
+
+<p>@ should also be converted by this routine.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateLink"></span><code>function <strong>CreateLink</strong>(const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This function is supposed to return a reference to an item, that is the name combined with some linking information like a hyperlink element in HTML or a page number in Tex.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CreateStream"></span><code>function <strong>CreateStream</strong>(const AName: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Open output stream in the destination directory. If <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CurrentStream">CurrentStream</a> still exists (&lt;&gt; nil), it is closed. Then, a new output stream in the destination directory is created and assigned to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CurrentStream">CurrentStream</a>. The file is overwritten if exists.
+
+<p>Use this only for text files that you want to write using WriteXxx methods of this class (like WriteConverted). There's no point to use if for other files.
+
+<p>Returns <code>True</code> if creation was successful, <code>False</code> otherwise. When it returns <code>False</code>, the error message was already shown by DoMessage.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ExtractEmailAddress"></span><code>function <strong>ExtractEmailAddress</strong>(s: string; out S1, S2, EmailAddress: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches for an email address in String S. Searches for first appearance of the @ character</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FixEmailaddressWithoutMailTo"></span><code>function <strong>FixEmailaddressWithoutMailTo</strong>(const PossibleEmailAddress: String): String;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches for an email address in PossibleEmailAddress and appends mailto: if it's an email address and mailto: wasn't provided. Otherwise it simply returns the input.
+
+<p>Needed to link email addresses properly which doesn't start with mailto:</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ExtractWebAddress"></span><code>function <strong>ExtractWebAddress</strong>(s: string; out S1, S2, WebAddress: string): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches for a web address in String S. It must either contain a <a href="http://">http://</a> or start with www.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindGlobal"></span><code>function <strong>FindGlobal</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches all items in all units (given by field <a class="normal" href="PasDoc_Gen.TDocGenerator.html#Units">Units</a>) for item with NameParts. Returns a pointer to the item on success, nil otherwise.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindGlobalPasItem"></span><code>function <strong>FindGlobalPasItem</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Find a Pascal item, searching global namespace. Returns <code>Nil</code> if not found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FindGlobalPasItem"></span><code>function <strong>FindGlobalPasItem</strong>(const ItemName: String): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Find a Pascal item, searching global namespace. Assumes that Name is only one component (not something with dots inside). Returns <code>Nil</code> if not found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetClassDirectiveName"></span><code>function <strong>GetClassDirectiveName</strong>(Directive: <a href="PasDoc_Items.html#TClassDirective">TClassDirective</a>): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>GetClassDirectiveName</code> returns ' abstract', or ' sealed' for classes that abstract or sealed respectively. <code>GetClassDirectiveName</code> is used by <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a> and <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a> in writing the declaration of the class.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetCIOTypeName"></span><code>function <strong>GetCIOTypeName</strong>(MyType: <a href="PasDoc_Items.html#TCIOType">TCIOType</a>): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>GetCIOTypeName</code> writes a translation of MyType based on the current language. However, 'record' and 'packed record' are not translated.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LoadDescriptionFile"></span><code>procedure <strong>LoadDescriptionFile</strong>(n: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Loads descriptions from file N and replaces or fills the corresponding comment sections of items.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SearchItem"></span><code>function <strong>SearchItem</strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; WarningIfNotSplittable: boolean): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches for item with name S.
+
+<p>If S is not splittable by SplitNameParts, returns nil. If WarningIfNotSplittable, additionally does DoMessage with appropriate warning.
+
+<p>Else (if S is &quot;splittable&quot;), seeks for S (first trying Item.FindName, if Item is not nil, then trying FindGlobal). Returns nil if not found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SearchLink"></span><code>function <strong>SearchLink</strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkDisplay: string; const WarningIfLinkNotFound: boolean; out FoundItem: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Searches for an item of name S which was linked in the description of Item. Starts search within item, then does a search on all items in all units using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FindGlobal">FindGlobal</a>. Returns a link as String on success.
+
+<p>If S is not splittable by SplitNameParts, it always does DoMessage with appropriate warning and returns something like 'UNKNOWN' (no matter what is the value of WarningIfLinkNotFound). FoundItem will be set to nil in this case.
+
+<p>When item will not be found then: </p>
+
+<ul class="paragraph_spacing">
+  <li><p> if WarningIfLinkNotFound is true then it returns CodeString(ConvertString(S)) and makes DoMessage with appropriate warning.</p></li>
+  <li><p>else it returns '' (and does not do any DoMessage)</p></li>
+</ul>
+
+<p>
+
+<p>If LinkDisplay is not '', then it specifies explicite the display text for link. Else how exactly link does look like is controlled by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#LinkLook">LinkLook</a> property.
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>FoundItem</dt>
+<dd>is the found item instance or nil if not found.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SearchLink"></span><code>function <strong>SearchLink</strong>(s: string; const Item: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; const LinkDisplay: string; const WarningIfLinkNotFound: boolean): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Just like previous overloaded version, but this doesn't return FoundItem (in case you don't need it).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="StoreDescription"></span><code>procedure <strong>StoreDescription</strong>(ItemName: string; var t: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteConverted"></span><code>procedure <strong>WriteConverted</strong>(const s: string; Newline: boolean); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a>. Then optionally writes LineEnding.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteConverted"></span><code>procedure <strong>WriteConverted</strong>(const s: string); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a>. No LineEnding at the end.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteConvertedLine"></span><code>procedure <strong>WriteConvertedLine</strong>(const s: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a>. Then writes LineEnding.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteDirect"></span><code>procedure <strong>WriteDirect</strong>(const t: string; Newline: boolean); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Simply writes T to CurrentStream, with optional LineEnding.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteDirect"></span><code>procedure <strong>WriteDirect</strong>(const t: string); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Simply writes T to CurrentStream.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteDirectLine"></span><code>procedure <strong>WriteDirectLine</strong>(const t: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Simply writes T followed by LineEnding to CurrentStream.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteUnit"></span><code>procedure <strong>WriteUnit</strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteUnits"></span><code>procedure <strong>WriteUnits</strong>(const HL: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Writes documentation for all units, calling <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit">WriteUnit</a> for each unit.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteStartOfCode"></span><code>procedure <strong>WriteStartOfCode</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteEndOfCode"></span><code>procedure <strong>WriteEndOfCode</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteGVUses"></span><code>procedure <strong>WriteGVUses</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+output graphviz uses tree</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteGVClasses"></span><code>procedure <strong>WriteGVClasses</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+output graphviz class tree</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="StartSpellChecking"></span><code>procedure <strong>StartSpellChecking</strong>(const AMode: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+starts the spell checker</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CheckString"></span><code>procedure <strong>CheckString</strong>(const AString: string; const AErrors: <a href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If CheckSpelling and spell checking was successfully started, this will run <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString">FAspellProcess.CheckString</a> and will report all errors using DoMessage with mtWarning.
+
+<p>Otherwise this just clears AErrors, which means that no errors were found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EndSpellChecking"></span><code>procedure <strong>EndSpellChecking</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+closes the spellchecker</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatPascalCode"></span><code>function <strong>FormatPascalCode</strong>(const Line: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatPascalCode will cause Line to be formatted in the way that Pascal code is formatted in Delphi. Note that given Line is taken directly from what user put inside </p>
+
+<pre class="longcode"></pre>
+
+<p>, it is not even processed by ConvertString. You should process it with ConvertString if you want.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatNormalCode"></span><code>function <strong>FormatNormalCode</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will cause AString to be formatted in the way that normal Pascal statements (not keywords, strings, comments, etc.) look in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatComment"></span><code>function <strong>FormatComment</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatComment will cause AString to be formatted in the way that comments other than compiler directives are formatted in Delphi. See: <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatCompilerComment">FormatCompilerComment</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatHex"></span><code>function <strong>FormatHex</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatHex will cause AString to be formatted in the way that Hex are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatNumeric"></span><code>function <strong>FormatNumeric</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatNumeric will cause AString to be formatted in the way that Numeric are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatFloat"></span><code>function <strong>FormatFloat</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatFloat will cause AString to be formatted in the way that Float are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatString"></span><code>function <strong>FormatString</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatString will cause AString to be formatted in the way that strings are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatKeyWord"></span><code>function <strong>FormatKeyWord</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatKeyWord will cause AString to be formatted in the way that reserved words are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatCompilerComment"></span><code>function <strong>FormatCompilerComment</strong>(AString: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+FormatCompilerComment will cause AString to be formatted in the way that compiler directives are formatted in Delphi.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Paragraph"></span><code>function <strong>Paragraph</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is paragraph marker in output documentation.
+
+<p>Default implementation in this class simply returns ' ' (one space).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="ShortDash"></span><code>function <strong>ShortDash</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="PasDoc_TagManager.TTagManager.html#ShortDash">TTagManager.ShortDash</a>. Default implementation in this class returns '-'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EnDash"></span><code>function <strong>EnDash</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="PasDoc_TagManager.TTagManager.html#EnDash">TTagManager.EnDash</a>. Default implementation in this class returns '--'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="EmDash"></span><code>function <strong>EmDash</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+See <a class="normal" href="PasDoc_TagManager.TTagManager.html#EmDash">TTagManager.EmDash</a>. Default implementation in this class returns '---'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="HtmlString"></span><code>function <strong>HtmlString</strong>(const S: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+S is guaranteed (guaranteed by the user) to be correct html content, this is taken directly from parameters of tag. Override this function to decide what to put in output on such thing.
+
+<p>Note that S is not processed in any way, even with ConvertString. So you're able to copy user's input inside @html() verbatim to the output.
+
+<p>The default implementation is this class simply discards it, i.e. returns always ''. Generators that know what to do with HTML can override this with simple &quot;Result := S&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LatexString"></span><code>function <strong>LatexString</strong>(const S: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is equivalent of <a class="normal" href="PasDoc_Gen.TDocGenerator.html#HtmlString">HtmlString</a> for @latex tag.
+
+<p>The default implementation is this class simply discards it, i.e. returns always ''. Generators that know what to do with raw LaTeX markup can override this with simple &quot;Result := S&quot;.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="LineBreak"></span><code>function <strong>LineBreak</strong>: string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns markup that forces line break in given output format (e.g. '&lt;br&gt;' in html or '\\' in LaTeX).</p>
+<p>
+
+
+<p>It is used on <br> tag (but may also be used on other occasions in the future).
+
+<p>In this class it returns '', because it's valid for an output generator to simply ignore <br> tags if linebreaks can't be expressed in given output format.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="URLLink"></span><code>function <strong>URLLink</strong>(const URL: string): string; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This should return markup upon finding URL in description. E.g. HTML generator will want to wrap this in &lt;a href=&quot;...&quot;&gt;...&lt;/a&gt;.
+
+<p>Note that passed here URL is <em>not</em> processed by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a> (because sometimes it could be undesirable). If you want you can process URL with ConvertString when overriding this method.
+
+<p>Default implementation in this class simply returns ConvertString(URL). This is good if your documentation format does not support anything like URL links.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="URLLink"></span><code>function <strong>URLLink</strong>(const URL, LinkDisplay: string): string; overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns the Text which will be shown for an URL tag.
+
+<p>URL is a link to a website or e-mail address. LinkDisplay is an optional parameter which will be used as the display name of the URL.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteExternal"></span><code>procedure <strong>WriteExternal</strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>WriteExternal</code> is used to write the introduction and conclusion of the project.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteExternalCore"></span><code>procedure <strong>WriteExternalCore</strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal">WriteExternal</a> when ExternalItem.Title and ShortTitle are already set, message about generating appropriate item is printed etc. This should write ExternalItem, including ExternalItem.DetailedDescription, ExternalItem.Authors, ExternalItem.Created, ExternalItem.LastMod.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteConclusion"></span><code>procedure <strong>WriteConclusion</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>WriteConclusion</code> writes a conclusion for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal">WriteExternal</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteIntroduction"></span><code>procedure <strong>WriteIntroduction</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>WriteIntroduction</code> writes an introduction for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal">WriteExternal</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="WriteAdditionalFiles"></span><code>procedure <strong>WriteAdditionalFiles</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>WriteAdditionalFiles</code> writes the other files for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal">WriteExternal</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatSection"></span><code>function <strong>FormatSection</strong>(HL: integer; const Anchor: string; const Caption: string): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatSection</code> writes a section heading and a link-anchor;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatAnchor"></span><code>function <strong>FormatAnchor</strong>(const Anchor: string): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>FormatAnchor</code> writes a link-anchor;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatBold"></span><code>function <strong>FormatBold</strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns Text formatted using bold font.
+
+<p>Given Text is already in the final output format (with characters converted using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString">ConvertString</a>, @-tags expanded etc.).
+
+<p>Implementation of this method in this class simply returns <code>Result := Text</code>. Output generators that can somehow express bold formatting (or at least emphasis of some text) should override this.
+
+<p></p>
+<h6 class="description_section">See also</h6>
+<dl class="see_also">
+  <dt><a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatItalic">FormatItalic</a></dt>
+  <dd>This returns Text formatted using italic font.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatItalic"></span><code>function <strong>FormatItalic</strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns Text formatted using italic font. Analogous to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold">FormatBold</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatWarning"></span><code>function <strong>FormatWarning</strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns Text using bold font by calling FormatBold(Text).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatNote"></span><code>function <strong>FormatNote</strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns Text using italic font by calling FormatItalic(Text).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatPreformatted"></span><code>function <strong>FormatPreformatted</strong>(const Text: string): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This returns Text preserving spaces and line breaks. Note that Text passed here is not yet converted with ConvertString. The implementation of this method in this class just returns ConvertString(Text).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatImage"></span><code>function <strong>FormatImage</strong>(FileNames: TStringList): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Return markup to show an image. FileNames is a list of possible filenames of the image. FileNames always contains at least one item (i.e. FileNames.Count &gt;= 1), never contains empty lines (i.e. Trim(FileNames[I]) &lt;&gt; ''), and contains only absolute filenames.
+
+<p>E.g. HTML generator will want to choose the best format for HTML, then somehow copy the image from FileNames[Chosen] and wrap this in &lt;img src=&quot;...&quot;&gt;.
+
+<p>Implementation of this method in this class simply shows <code>FileNames[0]</code>. Output generators should override this.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatList"></span><code>function <strong>FormatList</strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Format a list from given ListData.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatTable"></span><code>function <strong>FormatTable</strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This should return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FormatTableOfContents"></span><code>function <strong>FormatTableOfContents</strong>(Sections: <a href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a>): string; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Override this if you want to insert something on @tableOfContents tag. As a parameter you get already prepared tree of sections that your table of contents should show. Each item of Sections is a section on the level 1. Item's Name is section name, item's Value is section caption, item's Data is a TStringPairVector instance that describes subsections (on level 2) below this section. And so on, recursively.
+
+<p>Sections given here are never nil, and item's Data is never nil. But of course they may contain 0 items, and this should be a signal to you that given section doesn't have any subsections.
+
+<p>Default implementation of this method in this class just returns empty string.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BuildLinks"></span><code>procedure <strong>BuildLinks</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates anchors and links for all items in all units.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ExpandDescriptions"></span><code>procedure <strong>ExpandDescriptions</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Expands description for each item in each unit of <a class="normal" href="PasDoc_Gen.TDocGenerator.html#Units">Units</a>. &quot;Expands description&quot; means that TTagManager.Execute is called, and item's DetailedDescription, AbstractDescription, AbstractDescriptionWasAutomatic (and many others, set by @-tags handlers) properties are calculated.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GetFileExtension"></span><code>function <strong>GetFileExtension</strong>: string; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Abstract function that provides file extension for documentation format. Must be overwritten by descendants.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LoadDescriptionFiles"></span><code>procedure <strong>LoadDescriptionFiles</strong>(const c: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Assumes C contains file names as PString variables. Calls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#LoadDescriptionFile">LoadDescriptionFile</a> with each file name.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="WriteDocumentation"></span><code>procedure <strong>WriteDocumentation</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Must be overwritten, writes all documentation. Will create either a single file or one file for each unit and each class, interface or object, depending on output format.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ParseAbbreviationsFile"></span><code>procedure <strong>ParseAbbreviationsFile</strong>(const AFileName: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="CurrentStream"></span><code>property <strong>CurrentStream</strong>: TStream read FCurrentStream;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Units"></span><code>property <strong>Units</strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a> write <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Introduction"></span><code>property <strong>Introduction</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction
+      write FIntroduction;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Conclusion"></span><code>property <strong>Conclusion</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion write FConclusion;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AdditionalFiles"></span><code>property <strong>AdditionalFiles</strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles write FAdditionalFiles;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Callback receiving messages from generator.
+
+<p>This is usually used internally by TPasDoc class, that assigns it's internal callback here when using this generator. Also, for the above reason, do not make this published.
+
+<p>See TPasDoc.OnMessage for something more useful for final programs.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Language"></span><code>property <strong>Language</strong>: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a> read GetLanguage write SetLanguage
+      default <a href="PasDoc_Languages.html#DEFAULT_LANGUAGE">DEFAULT_LANGUAGE</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+the (human) output language of the documentation file(s)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ProjectName"></span><code>property <strong>ProjectName</strong>: string read FProjectName write FProjectName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Name of the project to create.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ExcludeGenerator"></span><code>property <strong>ExcludeGenerator</strong>: Boolean
+      read FExcludeGenerator write FExcludeGenerator default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+&quot;Generator info&quot; are things that can change with each invocation of pasdoc, with different pasdoc binary etc.
+
+<p>This includes </p>
+
+<ul class="paragraph_spacing">
+  <li><p>pasdoc's compiler name and version,</p></li>
+  <li><p>pasdoc's version and time of compilation</p></li>
+</ul>
+
+<p> See [<a href="https://github.com/pasdoc/pasdoc/wiki/ExcludeGeneratorOption">https://github.com/pasdoc/pasdoc/wiki/ExcludeGeneratorOption</a>]. Default value is false (i.e. show them), as this information is generally considered useful.
+
+<p>Setting this to true is useful for automatically comparing two versions of pasdoc's output (e.g. when trying to automate pasdoc's tests).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IncludeCreationTime"></span><code>property <strong>IncludeCreationTime</strong>: Boolean
+      read FIncludeCreationTime write FIncludeCreationTime default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Show creation time in the output.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="UseLowercaseKeywords"></span><code>property <strong>UseLowercaseKeywords</strong>: Boolean
+      read FUseLowercaseKeywords write FUseLowercaseKeywords default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Setting to define how literal tag keywords should appear in documentaion.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>: string read FTitle write FTitle;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Title of the documentation, supplied by user. May be empty. See <a class="normal" href="PasDoc_Base.TPasDoc.html#Title">TPasDoc.Title</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="DestinationDirectory"></span><code>property <strong>DestinationDirectory</strong>: string read FDestDir write SetDestDir;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Destination directory for documentation. Must include terminating forward slash or backslash so that valid file names can be created by concatenating DestinationDirectory and a pathless file name.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OutputGraphVizUses"></span><code>property <strong>OutputGraphVizUses</strong>: boolean read FGraphVizUses write FGraphVizUses
+      default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+generate a GraphViz diagram for the units dependencies</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="OutputGraphVizClassHierarchy"></span><code>property <strong>OutputGraphVizClassHierarchy</strong>: boolean
+      read FGraphVizClasses write FGraphVizClasses default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+generate a GraphViz diagram for the Class hierarchy</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="LinkGraphVizUses"></span><code>property <strong>LinkGraphVizUses</strong>: string read FLinkGraphVizUses write FLinkGraphVizUses;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+link the GraphViz uses diagram</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="LinkGraphVizClasses"></span><code>property <strong>LinkGraphVizClasses</strong>: string read FLinkGraphVizClasses write FLinkGraphVizClasses;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+link the GraphViz classes diagram</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Abbreviations"></span><code>property <strong>Abbreviations</strong>: TStringList read FAbbreviations write SetAbbreviations;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="CheckSpelling"></span><code>property <strong>CheckSpelling</strong>: boolean read FCheckSpelling write FCheckSpelling
+      default false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AspellLanguage"></span><code>property <strong>AspellLanguage</strong>: string read FAspellLanguage write FAspellLanguage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="SpellCheckIgnoreWords"></span><code>property <strong>SpellCheckIgnoreWords</strong>: TStringList
+      read FSpellCheckIgnoreWords write SetSpellCheckIgnoreWords;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoAbstract"></span><code>property <strong>AutoAbstract</strong>: boolean read FAutoAbstract write FAutoAbstract default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The meaning of this is just like --auto-abstract command-line option. It is used in <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ExpandDescriptions">ExpandDescriptions</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="LinkLook"></span><code>property <strong>LinkLook</strong>: <a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a> read FLinkLook write FLinkLook default <a href="PasDoc_Gen.html#llDefault">llDefault</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This controls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SearchLink">SearchLink</a> behavior, as described in [<a href="https://github.com/pasdoc/pasdoc/wiki/LinkLookOption">https://github.com/pasdoc/pasdoc/wiki/LinkLookOption</a>].</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="WriteUsesClause"></span><code>property <strong>WriteUsesClause</strong>: boolean
+      read FWriteUsesClause write FWriteUsesClause default false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoLink"></span><code>property <strong>AutoLink</strong>: boolean
+      read FAutoLink write FAutoLink default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This controls auto-linking, see [<a href="https://github.com/pasdoc/pasdoc/wiki/AutoLinkOption">https://github.com/pasdoc/pasdoc/wiki/AutoLinkOption</a>]</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="AutoLinkExclude"></span><code>property <strong>AutoLinkExclude</strong>: TStringList read FAutoLinkExclude;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="ExternalClassHierarchy"></span><code>property <strong>ExternalClassHierarchy</strong>: TStrings
+      read FExternalClassHierarchy write SetExternalClassHierarchy
+      stored StoredExternalClassHierarchy;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Markdown"></span><code>property <strong>Markdown</strong>: boolean
+      read FMarkdown write FMarkdown default false;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

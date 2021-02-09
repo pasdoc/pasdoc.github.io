@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_OptionParser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_OptionParser</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+The <code>PasDoc_OptionParser</code> unit &mdash; easing command line parsing</p>
+<p>
+ 
+
+<p>To use this unit, create an object of <a class="normal" href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a> and add options to it, each option descends from <a class="normal" href="PasDoc_OptionParser.TOption.html">TOption</a>. Then, call your object's <a class="normal" href="PasDoc_OptionParser.TOptionParser.html#ParseOptions">TOptionParser.ParseOptions</a> method and options are parsed. After parsing, examine your option objects.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>Classes</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TOption.html"><code>TOption</code></a></td>
+<td class="itemdesc">abstract base class for options</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TBoolOption.html"><code>TBoolOption</code></a></td>
+<td class="itemdesc">simple boolean option</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TValueOption.html"><code>TValueOption</code></a></td>
+<td class="itemdesc">base class for all options that values</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TIntegerOption.html"><code>TIntegerOption</code></a></td>
+<td class="itemdesc">Integer option</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TStringOption.html"><code>TStringOption</code></a></td>
+<td class="itemdesc">String option</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TStringOptionList.html"><code>TStringOptionList</code></a></td>
+<td class="itemdesc">stringlist option</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TPathListOption.html"><code>TPathListOption</code></a></td>
+<td class="itemdesc">pathlist option</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TSetOption.html"><code>TSetOption</code></a></td>
+<td class="itemdesc">useful for making a choice of things</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TOptionParser.html"><code>TOptionParser</code></a></td>
+<td class="itemdesc">OptionParser &mdash; instantiate one of these for commandline parsing</td>
+</tr>
+</table>
+<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#DefShortOptionChar">DefShortOptionChar</a></strong> = '-';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#DefLongOptionString">DefLongOptionString</a></strong> = '--';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionFileChar">OptionFileChar</a></strong> = '@';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#CfgMacroCfgPath">CfgMacroCfgPath</a></strong> = '$CFG_PATH';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionIndent">OptionIndent</a></strong> = '  ';</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionSep">OptionSep</a></strong> = '  ';</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#ConsoleWidth">ConsoleWidth</a></strong> = 80;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefShortOptionChar"></span><code><strong>DefShortOptionChar</strong> = '-';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+default short option character used</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="DefLongOptionString"></span><code><strong>DefLongOptionString</strong> = '--';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+default long option string used</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OptionFileChar"></span><code><strong>OptionFileChar</strong> = '@';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Marks &quot;include config file&quot; option</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CfgMacroCfgPath"></span><code><strong>CfgMacroCfgPath</strong> = '$CFG_PATH';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Special substitution that, if found inside a config file, will be replaced with actual path of the file</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OptionIndent"></span><code><strong>OptionIndent</strong> = '  ';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Indentation of option's name from the start of console line</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="OptionSep"></span><code><strong>OptionSep</strong> = '  ';</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Separator between option's name and explanation</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="ConsoleWidth"></span><code><strong>ConsoleWidth</strong> = 80;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Width of console</p>
+</td></tr>
+</table>
+<h2 class="authors">Author</h2>
+<ul class="authors">
+<li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
+</ul>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

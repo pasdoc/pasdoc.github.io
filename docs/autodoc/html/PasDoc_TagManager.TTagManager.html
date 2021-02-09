@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_TagManager: Class TTagManager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TTagManager"></span><h1 class="cio">Class TTagManager</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_TagManager.html">PasDoc_TagManager</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTagManager = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTagManager</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_TagManager.TTagManager.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_TagManager.TTagManager.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTagManager.html#DoMessage">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTagManager.html#DoMessageNonPre">DoMessageNonPre</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a></strong>(const Description: string; AutoLink: boolean; WantFirstSentenceEnd: boolean; out FirstSentenceEnd: Integer): string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a></strong>(const Description: string; AutoLink: boolean): string; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTagManager.html#CoreExecute">CoreExecute</a></strong>(const Description: string; AutoLink: boolean; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; WantFirstSentenceEnd: boolean; out FirstSentenceEnd: Integer): string; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTagManager.html#CoreExecute">CoreExecute</a></strong>(const Description: string; AutoLink: boolean; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject): string; overload;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#Paragraph">Paragraph</a></strong>: string read FParagraph write FParagraph;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#Space">Space</a></strong>: string read FSpace write FSpace;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#ShortDash">ShortDash</a></strong>: string read FShortDash write FShortDash;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#EnDash">EnDash</a></strong>: string read FEnDash write FEnDash;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#EmDash">EmDash</a></strong>: string read FEmDash write FEmDash;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#URLLink">URLLink</a></strong>: <a href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a> read FURLLink write FURLLink;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#OnTryAutoLink">OnTryAutoLink</a></strong>: <a href="PasDoc_TagManager.html#TTryAutoLinkEvent">TTryAutoLinkEvent</a>
+      read FOnTryAutoLink write FOnTryAutoLink;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#ConvertString">ConvertString</a></strong>: <a href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a>
+      read FConvertString write FConvertString;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#Abbreviations">Abbreviations</a></strong>: TStringList read FAbbreviations write FAbbreviations;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#PreExecute">PreExecute</a></strong>: boolean
+      read FPreExecute write FPreExecute;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTagManager.html#Markdown">Markdown</a></strong>: boolean
+      read FMarkdown write FMarkdown default false;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoMessage"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Call OnMessage (if assigned) with given params.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoMessageNonPre"></span><code>procedure <strong>DoMessageNonPre</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Call <a class="normal" href="PasDoc_TagManager.TTagManager.html#DoMessage">DoMessage</a> only if <a class="normal" href="PasDoc_TagManager.TTagManager.html#PreExecute">PreExecute</a> is <code>False</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Execute"></span><code>function <strong>Execute</strong>(const Description: string; AutoLink: boolean; WantFirstSentenceEnd: boolean; out FirstSentenceEnd: Integer): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This method is the very essence of this class and this unit. It expands Description, which means that it processes Description (text supplied by user in some comment in parsed unit) into something ready to be included in output documentation. This means that this handles parsing @-tags, inserting paragraph markers, recognizing URLs in Description and correctly translating it, and translating rest of the &quot;normal&quot; text via ConvertString.
+
+<p>If WantFirstSentenceEnd then we will look for '.' char followed by any whitespace in Description. Moreover, this '.' must be outside of any @-tags parameter. Under FirstSentenceEnd we will return the number of beginning characters <em>in the output string</em> that will include correspong '.' character (note that this definition takes into account that ConvertString may translate '.' into something longer). If no such character exists in Description, FirstSentenceEnd will be set to Length(Result), so the whole Description will be treated as it's first sentence.
+
+<p>If WantFirstSentenceEnd, FirstSentenceEnd will not be set.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Execute"></span><code>function <strong>Execute</strong>(const Description: string; AutoLink: boolean): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is equivalent to Execute(Description, AutoLink, false, Dummy)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CoreExecute"></span><code>function <strong>CoreExecute</strong>(const Description: string; AutoLink: boolean; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; WantFirstSentenceEnd: boolean; out FirstSentenceEnd: Integer): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is the underlying version of Execute. Use with caution!
+
+<p>If EnclosingTag = nil then this is understood to be toplevel of description, which means that all tags are allowed inside.
+
+<p>If EnclosingTag &lt;&gt; nil then this is not toplevel.
+
+<p>EnclosingTagData returns collected data for given EnclosingTag. You should init it to EnclosingTag.CreateOccurenceData. It will be passed as EnclosingTagData to each of @-tags found inside Description.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CoreExecute"></span><code>function <strong>CoreExecute</strong>(const Description: string; AutoLink: boolean; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject): string; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be used to print messages from within <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a>.
+
+<p>Note that in this unit we essentialy &quot;don't know&quot; that parsed Description string is probably attached to some TPasItem. It's good that we don't know it (because it makes this class more flexible). But it also means that OnMessage that you assign here may want to add to passed AMessage something like + ' (Expanded_TPasItem_Name)', see e.g. TDocGenerator.DoMessageFromExpandDescription. Maybe in the future we will do some descendant of this class, like TTagManagerForPasItem.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Paragraph"></span><code>property <strong>Paragraph</strong>: string read FParagraph write FParagraph;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be inserted on paragraph marker (two consecutive newlines, see wiki page WritingDocumentation) in the text. This should specify how paragraphs are marked in particular output format, e.g. html generator may set this to '&lt;p&gt;'.
+
+<p>Default value is ' ' (one space).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Space"></span><code>property <strong>Space</strong>: string read FSpace write FSpace;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be inserted on each whitespace sequence (but not on paragraph break). This is consistent with [<a href="https://github.com/pasdoc/pasdoc/wiki/WritingDocumentation">https://github.com/pasdoc/pasdoc/wiki/WritingDocumentation</a>] that clearly says that &quot;amount of whitespace does not matter&quot;.
+
+<p>Although in some pasdoc output formats amount of whitespace also does not matter (e.g. HTML and LaTeX) but in other (e.g. plain text) it matters, so such space compression is needed. In other output formats (no examples yet) it may need to be expressed by something else than simple space, that's why this property is exposed.
+
+<p>Default value is ' ' (one space).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ShortDash"></span><code>property <strong>ShortDash</strong>: string read FShortDash write FShortDash;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be inserted on <code>@-</code> in description, and on a normal single dash in description that is not a part of en-dash or em-dash. This should produce just a short dash.
+
+<p>Default value is '-'.
+
+<p>You will never get any '-' character to be converted by ConvertString. Convertion of '-' is controlled solely by XxxDash properties of tag manager.
+
+<p> </p>
+<h6 class="description_section">See also</h6>
+<dl class="see_also">
+  <dt><a class="normal" href="PasDoc_TagManager.TTagManager.html#EnDash">EnDash</a></dt>
+  <dd>This will be inserted on <code>--</code> in description.</dd>
+  <dt><a class="normal" href="PasDoc_TagManager.TTagManager.html#EmDash">EmDash</a></dt>
+  <dd>This will be inserted on <code>---</code> in description.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EnDash"></span><code>property <strong>EnDash</strong>: string read FEnDash write FEnDash;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be inserted on <code>--</code> in description. This should produce en-dash (as in LaTeX). Default value is '--'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="EmDash"></span><code>property <strong>EmDash</strong>: string read FEmDash write FEmDash;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be inserted on <code>---</code> in description. This should produce em-dash (as in LaTeX). Default value is '---'.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="URLLink"></span><code>property <strong>URLLink</strong>: <a href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a> read FURLLink write FURLLink;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be called from <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a> when URL will be found in Description. Note that passed here URL will <em>not</em> be processed by <a class="normal" href="PasDoc_TagManager.TTagManager.html#ConvertString">ConvertString</a>.
+
+<p>This tells what to put in result on URL. If this is not assigned, then ConvertString(URL) will be appended to Result in <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnTryAutoLink"></span><code>property <strong>OnTryAutoLink</strong>: <a href="PasDoc_TagManager.html#TTryAutoLinkEvent">TTryAutoLinkEvent</a>
+      read FOnTryAutoLink write FOnTryAutoLink;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This should check does QualifiedIdentifier looks like a name of some existing identifier. If yes, sets AutoLinked to true and sets QualifiedIdentifierReplacement to a link to QualifiedIdentifier (QualifiedIdentifierReplacement should be ready to be put in final documentation, i.e. already in the final output format). By default AutoLinked is false.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ConvertString"></span><code>property <strong>ConvertString</strong>: <a href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a>
+      read FConvertString write FConvertString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Abbreviations"></span><code>property <strong>Abbreviations</strong>: TStringList read FAbbreviations write FAbbreviations;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PreExecute"></span><code>property <strong>PreExecute</strong>: boolean
+      read FPreExecute write FPreExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+When <code>PreExecute</code> is <code>True</code>, tag manager will work a little differently than usual:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>Instead of <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a>, <a class="normal" href="PasDoc_TagManager.TTag.html#PreExecute">TTag.PreExecute</a> will be called.</p></li>
+  <li><p>Various warnings will <em>not</em> be reported.
+
+<p>Assumption is that you will later process the same text with <code>PreExecute</code> set to <code>False</code> to get all the warnings.</p></li>
+  <li><p>AutoLink will not be used (like it was always false). Also the result of <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a> will be pretty much random and meaningless (so you should ignore it). Also this means that the TagParameter for tags with toRecursiveTags should be ignored, because it will be something incorrect. This means that only tags without toRecursiveTags should actually use TagParameter in their OnPreExecute handlers.
+
+<p>Assumption is that you actually don't care about the result of <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">Execute</a> methods, and you will later process the same text with <code>PreExecute</code> set to <code>False</code> to get the proper output.
+
+<p>The goal is to make execution with PreExecute set to <code>True</code> as fast as possible.</p></li>
+</ul>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Markdown"></span><code>property <strong>Markdown</strong>: boolean
+      read FMarkdown write FMarkdown default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+When <code>Markdown</code> is <code>True</code>, Markdown syntax is considered</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

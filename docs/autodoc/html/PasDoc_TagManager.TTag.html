@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_TagManager: Class TTag</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<span id="TTag"></span><h1 class="cio">Class TTag</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="PasDoc_TagManager.html">PasDoc_TagManager</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTag = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTag</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_TagManager.TTag.html#Create">Create</a></strong>(ATagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const AName: string; AOnPreExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; AOnExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; const ATagOptions: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTag.html#PreExecute">PreExecute</a></strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTag.html#Execute">Execute</a></strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTag.html#AllowedInside">AllowedInside</a></strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTag.html#CreateOccurenceData">CreateOccurenceData</a></strong>: TObject; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTag.html#DestroyOccurenceData">DestroyOccurenceData</a></strong>(Value: TObject); virtual;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#TagOptions">TagOptions</a></strong>: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a> read FTagOptions write FTagOptions;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#TagManager">TagManager</a></strong>: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a> read FTagManager;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#Name">Name</a></strong>: string read FName write FName;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#OnPreExecute">OnPreExecute</a></strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnPreExecute write FOnPreExecute;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a></strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnExecute write FOnExecute;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTag.html#OnAllowedInside">OnAllowedInside</a></strong>: <a href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a>
+      read FOnAllowedInside write FOnAllowedInside;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(ATagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const AName: string; AOnPreExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; AOnExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; const ATagOptions: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Note that AName will be converted to lowercase before assigning to Name.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PreExecute"></span><code>procedure <strong>PreExecute</strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is completely analogous to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">Execute</a> but used when <a class="normal" href="PasDoc_TagManager.TTagManager.html#PreExecute">TTagManager.PreExecute</a> is <code>True</code>. In this class this simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnPreExecute">OnPreExecute</a>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Execute"></span><code>procedure <strong>Execute</strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be used to do main work when this @-tag occured in description.
+
+<p>EnclosingTag parameter specifies enclosing tag. This is useful for tags that must behave differently in different contexts, e.g. in plain-text output @item tag will behave differently inside @orderedList and @unorderedList. EnclosingTag is nil when the tag occured at top level of the description.
+
+<p>ThisTagData and EnclosingTagData form a mechanism to pass arbitraty data between child tags enclosed within one parent tag. Example uses:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>This is the way for multiple @item tags inside @orderedList tag to count themselves (to provide list item numbers, for pasdoc output formats that can't automatically number list items).</p></li>
+  <li><p>This is the way for @itemSpacing tag to communicate with enclosing @orderedList tag to specify list style. </p></li>
+  <li><p>And this is the way for @cell tags to be collected inside rows data and then @rows tags to be collected inside table data. Thanks to such collecting <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable">TDocGenerator.FormatTable</a> receives at once all information about given table, and can use it to format table.</p></li>
+</ul>
+
+<p>
+
+<p>How does this XxxTagData mechanism work:
+
+<p>When we start parsing parameter of some tag with toRecursiveTags, we create a new pointer inited to <a class="normal" href="PasDoc_TagManager.TTag.html#CreateOccurenceData">CreateOccurenceData</a>. When @-tags occur inside this parameter, we pass them this pointer as EnclosingTagData (this way all @-tags with the same parent can use this pointer to communicate with each other). At the end, when parameter was parsed, we call given tag's Execute method passing the resulting pointer as ThisTagData (this way @-tags with the same parent can use this pointer to pass some data to their parent).
+
+<p>In this class this method simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a> (if assigned).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AllowedInside"></span><code>function <strong>AllowedInside</strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be checked always when this tag occurs within description. Given EnclosingTag is enclosing tag, nil if we're in top level. If this returns false then this tag will not be allowed inside EnclosingTag.
+
+<p>In this class this method </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p> Assumes that Result = true if we're at top level or EnclosingTag.TagOptions contains toAllowOtherTagsInsideByDefault. Else it assumes Result = false.</p></li>
+  <li value="2"><p> Then it calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnAllowedInside">OnAllowedInside(Self, EnclosingTag, Result)</a> (if OnAllowedInside is assigned).</p></li>
+</ol>
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CreateOccurenceData"></span><code>function <strong>CreateOccurenceData</strong>: TObject; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+In this class this simply returns <code>Nil</code>.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DestroyOccurenceData"></span><code>procedure <strong>DestroyOccurenceData</strong>(Value: TObject); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+In this class this simply does <code>Value.Free</code>.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagOptions"></span><code>property <strong>TagOptions</strong>: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a> read FTagOptions write FTagOptions;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagManager"></span><code>property <strong>TagManager</strong>: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a> read FTagManager;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+TagManager that will recognize and handle this tag. Note that the tag instance is owned by this tag manager (i.e. it will be freed inside this tag manager). It can be nil if no tag manager currently owns this tag.
+
+<p>Note that it's very useful in <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">Execute</a> or <a class="normal" href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a> implementations.
+
+<p>E.g. you can use it to report a message by <code>TagManager.DoMessage(...)</code>, this is e.g. used by implementation of TPasItem.StoreAbstractTag.
+
+<p>You could also use this to manually force recursive behavior of a given tag. I.e let's suppose that you have a tag with TagOptions = [toParameterRequired], so the TagParameter parameter passed to handler was not recursively expanded. Then you can do inside your handler </p>
+
+<pre class="longcode">NewTagParameter := TagManager.Execute(TagParameter, <span class="pascal_numeric"></span>...)</pre>
+
+<p> and this way you have explicitly recursively expanded the tag.
+
+<p>Scenario above is actually used in implementation of @noAutoLink tag. There I call TagManager.Execute with parameter <code>AutoLink</code> set to false thus preventing auto-linking inside text within @noAutoLink.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>: string read FName write FName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Name of the tag, that must be specified by user after the &quot;@&quot; sign. Value of this property must always be lowercase.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnPreExecute"></span><code>property <strong>OnPreExecute</strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnPreExecute write FOnPreExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnExecute"></span><code>property <strong>OnExecute</strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnExecute write FOnExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnAllowedInside"></span><code>property <strong>OnAllowedInside</strong>: <a href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a>
+      read FOnAllowedInside write FOnAllowedInside;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>

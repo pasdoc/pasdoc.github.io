@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PasDoc's autodoc: PasDoc_TagManager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.15.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
+
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2><a href="index.html" class="navigation">PasDoc's autodoc</a></h2><p><a href="introduction.html" class="navigation">Overview</a></p><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p><p><a href="GVUses.jpg" class="navigation">Unit dependency graph</a></p><p><a href="GVClasses.jpg" class="navigation">Classes hierarchy graph</a></p><form class="search-form" action="_tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input"></div><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></form>
+<div style="clear: both"></div>
+</td><td class="content">
+<h1 class="unit">Unit PasDoc_TagManager</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Collects information about available @-tags and can parse text with tags.</p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_TagManager.TTag.html"><code>TTag</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_TagManager.TTopLevelTag.html"><code>TTopLevelTag</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_TagManager.TNonSelfTag.html"><code>TNonSelfTag</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_TagManager.TTagVector.html"><code>TTagVector</code></a></td>
+<td class="itemdesc">All Items of this list must be non-nil TTag objects.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_TagManager.TTagManager.html"><code>TTagManager</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a></strong> = procedure(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a></strong> = procedure( ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var Allowed: boolean) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a></strong> = function(const s: string): string of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TTagOption">TTagOption</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a></strong> = set of <a href="PasDoc_TagManager.html#TTagOption">TTagOption</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="PasDoc_TagManager.html#TTryAutoLinkEvent">TTryAutoLinkEvent</a></strong> = procedure(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const QualifiedIdentifier: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>; out QualifiedIdentifierReplacement: string; var AutoLinked: boolean) of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTagExecuteEvent"></span><code><strong>TTagExecuteEvent</strong> = procedure(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">See also</h6>
+<dl class="see_also">
+  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a></dt>
+  <dd>This will be used to do main work when this @-tag occured in description.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTagAllowedInsideEvent"></span><code><strong>TTagAllowedInsideEvent</strong> = procedure( ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var Allowed: boolean) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">See also</h6>
+<dl class="see_also">
+  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside">TTag.AllowedInside</a></dt>
+  <dd>This will be checked always when this tag occurs within description.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TStringConverter"></span><code><strong>TStringConverter</strong> = function(const s: string): string of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTagOption"></span><code><strong>TTagOption</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="toParameterRequired">toParameterRequired</span>: This means that tag expects parameters. If this is not included in TagOptions then tag should not be given any parameters, i.e. TagParameter passed to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a> should be ''. We will display a warning if user will try to give some parameters for such tag.</li>
+<li>
+<span id="toRecursiveTags">toRecursiveTags</span>: This means that parameters of this tag will be expanded before passing them to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a>. This means that we will expand recursive tags inside parameters, that we will ConvertString inside parameters, that we will handle paragraphs inside parameters etc. &mdash; all that does <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">TTagManager.Execute</a>.
+
+<p>If toParameterRequired is not present in TTagOptions then it's not important whether you included toRecursiveTags.
+
+<p>It's useful for some tags to include toParameterRequired without including toRecursiveTags, e.g. @longcode or @html, that want to get their parameters &quot;verbatim&quot;, not processed.
+
+<p><strong>If toRecursiveTags is not included in tag options:</strong> Then <em>everything</em> is allowed within parameter of this tag, but nothing is interpreted. E.g. you can freely use @ char, and even write various @-tags inside @html tag &mdash; this doesn't matter, because @-tags will not be interpreted (they will not be even searched !) inside @html tag. In other words, @ character means literally &quot;@&quot; inside @html, nothing more. The only exception are double @@, @( and @): we still treat them specially, to allow escaping the default parenthesis matching rules. Unless toRecursiveTagsManually is present.</li>
+<li>
+<span id="toRecursiveTagsManually">toRecursiveTagsManually</span>: Use this, instead of toRecursiveTags, if the implementation of your tag calls (always!) TagManager.CoreExecute on given TagParameter. This means that your tag is expanded recursively (it handles -tags inside), but you do it manually (instead of allowing toRecursiveTags to do the job). In this case, TagParameter given will be really absolutely unmodified (even the special @@, @( and @) will not be handled), because we know that it will be handled later by special CoreExecute call.
+
+<p>Never use both flags toRecursiveTags and toRecursiveTagsManually.</li>
+<li>
+<span id="toAllowOtherTagsInsideByDefault">toAllowOtherTagsInsideByDefault</span>: This is meaningful only if toRecursiveTags is included. Then toAllowOtherTagsInsideByDefault determines are other tags allowed by the default implementation of <a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside">TTag.AllowedInside</a>.</li>
+<li>
+<span id="toAllowNormalTextInside">toAllowNormalTextInside</span>: This is meaningful only if toRecursiveTags is included. Then <code>toAllowNormalTextInside</code> says that normal text is allowed inside parameter of this tag. <em>&quot;Normal text&quot;</em> is anything except other @-tags: normal text, paragraph breaks, various dashes, URLs, and literal @ character (expressed by @@ in descriptions).
+
+<p>If <code>toAllowNormalTextInside</code> will not be included, then normal text (not enclosed within other @-tags) will not be allowed inside. Only whitespace will be allowed, and it will be ignored anyway (i.e. will not be passed to ConvertString, empty line will not produce any Paragraph etc.). This is useful for tags like @orderedList that should only contain other @item tags inside.</li>
+<li>
+<span id="toFirstWordVerbatim">toFirstWordVerbatim</span>: This is useful for tags like @raises and @param that treat 1st word of their descriptions very specially (where &quot;what exactly is the 1st word&quot; is defined by the <a class="normal" href="PasDoc_Utils.html#ExtractFirstWord">ExtractFirstWord</a> function). This tells pasdoc to leave the beginning of tag parameter (the first word and the eventual whitespace before it) as it is in the parameter. Don't search there for @-tags, URLs, -- or other special dashes, don't insert paragraphs, don't try to auto-link it.
+
+<p>This is meaningful only if toRecursiveTags is included (otherwise the whole tag parameters are always preserved &quot;verbatim&quot;).
+
+<p>TODO: in the future TTagExecuteEvent should just get this &quot;first word&quot; as a separate parameter, separated from TagParameters. Also, this word should not be converted by ConvertString.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTagOptions"></span><code><strong>TTagOptions</strong> = set of <a href="PasDoc_TagManager.html#TTagOption">TTagOption</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TTryAutoLinkEvent"></span><code><strong>TTryAutoLinkEvent</strong> = procedure(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const QualifiedIdentifier: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>; out QualifiedIdentifierReplacement: string; var AutoLinked: boolean) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://github.com/pasdoc/pasdoc/wiki">PasDoc 0.15.0</a>. </em>
+</span>
+</td></tr></table></body></html>
