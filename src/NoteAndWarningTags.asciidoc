@@ -1,0 +1,15 @@
+The `@note` and `@warning` tags allow to display a nicely formatted box with a note (something of particular interest to the reader) or a warning.
+
+Their content can be anything, other @-tags inside are expanded too. For example this works:
+
+```pascal
+{
+  @note(Please open your eyes while reading)
+  @note(Please check @link(Create) for more details)
+  @note(For more infos see @url(https://example.com/))
+
+  @warning(test)
+  @warning(hello @italic(world)!)
+  @warning(Does this work? - @bold(Yes.))
+}
+```

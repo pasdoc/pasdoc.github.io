@@ -1,0 +1,29 @@
+Tag `@url` creates a link to the given URL. It can link to any URL protocol (http, https, anything else that the browser supports). For example:
+
+```pascal
+{ Links:
+
+  @url(https://github.com/pasdoc/pasdoc/issues/36 this issue is urgent)
+
+  @url(https://github.com/pasdoc/pasdoc/issues/55)
+
+  @url(https://www.gnutls.org GnuTLS library)
+}
+```
+
+You can link to an email address. Providing the `mailto:` protocol is optional in this case. So all of these work:
+
+```pascal
+{ Mails (without explicit @code(mailto:) protocol):
+
+  @url(admin@github.com)
+
+  @url(fpc-devel@lists.freepascal.org FPC Mailing List)
+
+  Mails (with explicit @code(mailto:) protocol):
+
+  @url(mailto:admin@github.com)
+
+  @url(mailto:fpc-devel@lists.freepascal.org FPC Mailing List)
+}
+```
