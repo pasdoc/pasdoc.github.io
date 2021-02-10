@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d464b9a532f6cf7eb9d562ceb524135d589f5c33">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ed404048ceb79c7bf9bfc907516bbda02c4c87ff">
   </head>
   <body>
     <div id="layout-container">
@@ -78,15 +78,43 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-compile-and-test-all-releases"><a id="compile-and-test-all-releases"></a> Compile and test all releases</h2>
+<h2 id="_-update-docs"><a id="update-docs"></a> Update docs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Note: This step is in practice automated now, using <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> to automatically test and build PasDoc. The commands performed by Jenkins are configured in <code>Jenkinsfile</code> in the PasDoc repository.</p>
+<p>Remove from the documentation text</p>
+</div>
+<div class="paragraph">
+<p><em>Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use <a href="DevelopmentSnapshots">DevelopmentSnapshots</a> to use this feature.</em></p>
+</div>
+<div class="paragraph">
+<p>(where <em>x.y.z</em> is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase <em>Note that this feature is not available in latest released pasdoc version</em>. (For GitHub wiki, you can clone it and then just grep locally.)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-build-and-test-all-releases-automated-now"><a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Note: This step is in practice automated now, using <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> to automatically test and build PasDoc. The commands performed by Jenkins are configured in <code>Jenkinsfile</code> in the PasDoc repository.</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Make sure you have the latest stable FPC and Lazarus versions.</p>
+</li>
+<li>
+<p>Run all the tests by</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make tests</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are various comments inside <code>tests/run_all_tests.sh</code> about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.</p>
+</div>
+<div class="paragraph">
+<p>To be sure, you should run these tests on all targets.</p>
+</div>
 </li>
 <li>
 <p>To build for the current platform (OS and architecture) call this:</p>
@@ -116,107 +144,36 @@
 </div>
 </li>
 <li>
-<p>Run all the tests by</p>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make tests</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>There are various comments inside <code>tests/run_all_tests.sh</code> about what is really happening. It runs various other tests we have prepared, it even compares the output with some "designated correct" output.</p>
-</div>
-<div class="paragraph">
-<p>To be sure, you should run these tests on all targets.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-update-docs"><a id="update-docs"></a> Update docs</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Remove from the documentation text</p>
-</div>
-<div class="paragraph">
-<p><em>Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use <a href="DevelopmentSnapshots">DevelopmentSnapshots</a> to use this feature.</em></p>
-</div>
-<div class="paragraph">
-<p>(where <em>x.y.z</em> is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase <em>Note that this feature is not available in latest released pasdoc version</em>. (For GitHub wiki, you can clone it and then just grep locally.)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-compile-and-test-pasdoc_gui"><a id="compile-and-test-pasdoc_gui"></a> Compile and test pasdoc_gui</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Get latest stable FPC.</p>
-</li>
-<li>
-<p>Get latest stable Lazarus.</p>
-</li>
-<li>
-<p>Compile <a href="PasDocGui">PasDocGui</a> from command-line using lazbuild:</p>
+<p>The <code>make dist-&#8230;&#8203;</code> will automatically compile and include <code>pasdoc_gui</code> binary (using <code>lazbuild</code> to compile Lazarus package and project in batch mode). But you can also compile it manually:</p>
 <div class="listingblock">
 <div class="content">
 <pre>lazbuild source/packages/lazarus/pasdoc_package.lpk
 lazbuild source/gui/pasdoc_gui.lpi</pre>
 </div>
 </div>
-</li>
-<li>
-<p>Compile <a href="PasDocGui">PasDocGui</a> interactively, from within Lazarus.</p>
-</li>
-<li>
-<p>Test pasdoc_gui: for basic test, open the project with pasdoc&#8217;s autodoc source/autodoc/autodoc.pds and hit "Generate".</p>
+<div class="paragraph">
+<p>For basic test of  pasdoc_gui, open the project with pasdoc&#8217;s autodoc source/autodoc/autodoc.pds and hit "Generate".</p>
+</div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>For platforms where pasdoc_gui is included in releases, the <code>make dist-&#8230;&#8203;</code> will automatically compile and include <code>pasdoc_gui</code> binary (using lazbuild to compile Lazarus package and project in batch mode).</p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-recompile-and-archive-all-releases"><a id="recompile-and-archive-all-releases"></a> Recompile and archive all releases</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Use make dist-&lt;os/arch&gt;. This will do clean, then appropriate build-&lt;compiler&gt;-&lt;os/arch&gt;, then will produce archive named like pasdoc-&lt;version&gt;-&lt;os/arch&gt;. This is the archive you want to release.</p>
-</div>
-<div class="paragraph">
-<p>Source archive is made by make dist-src.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-release-files-using-sourceforge-file-release-system"><a id="release-files-using-sourceforge-file-release-system"></a> Release files using sourceforge file release system</h2>
+<h2 id="_-release-files-using-github"><a id="release-files-using-sourceforge-file-release-system"></a> Release files using GitHub</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Upload on <code>sftp://kambi,<a href="mailto:pasdoc@frs.sourceforge.net">pasdoc@frs.sourceforge.net</a>/home/frs/project/p/pa/pasdoc</code> (edit this to include your SourceForge username).</p>
+<p>Create a tag by <code>make tag</code></p>
 </li>
 <li>
-<p>Package name for archives with compiled version (created by make dist-&lt;os/arch&gt;) is <em>PasDoc os-arch</em>. Package name for source archive (the one created by make dist-src) is <em>PasDoc Sources</em>.</p>
+<p>Go to <a href="https://github.com/pasdoc/pasdoc/releases" class="bare">https://github.com/pasdoc/pasdoc/releases</a> and create a new release from tag</p>
 </li>
 <li>
-<p>Remember to mark files that should be the default download on some systems (Linux, Windows). For Linux, mark 64-bit version to download by default, as 64-bit is more popular now.</p>
-</li>
-<li>
-<p>Download the uploaded files and compare with originals, or check md5sums, to be absolutely sure they are Ok.</p>
+<p>Upload there the release. Right now Michalis has this automated by <a href="https://github.com/github-release/github-release">github-release</a> on <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> server.</p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_tag-in-version-control">Tag in version control</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Add a tag x.y.z to version control by <code>make tag</code>.</p>
 </div>
 </div>
 </div>
@@ -226,19 +183,17 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>In our <a href="https://sourceforge.net/p/pasdoc/bugs/">bugs tracker</a>, add a group <em>x.y.z</em></p>
-</li>
-<li>
 <p>It&#8217;s a good idea to upload <a href="PasDocAutoDoc">PasDocAutoDoc</a> at this time, like this:</p>
 <div class="listingblock">
 <div class="content">
 <pre>cd pasdoc/source/autodoc/
-make clean public upload SF_USERNAME=my_user_name</pre>
+make clean public upload
+
+cd  ../../../pasdoc.github.io/
+git commit -m "Updated autodoc"
+git push</pre>
 </div>
 </div>
-</li>
-<li>
-<p>Send mail about release to our pasdoc-main mailing list.</p>
 </li>
 <li>
 <p><a href="https://sourceforge.net/p/pasdoc/news/">Submit news item</a> <em>PasDoc x.y.z released</em></p>
@@ -250,13 +205,10 @@ make clean public upload SF_USERNAME=my_user_name</pre>
 <p>Announce new release on <a href="http://lazarus.freepascal.org/">Lazarus forum</a>.</p>
 </li>
 <li>
-<p>Announce new release on FB, G+</p>
-</li>
-<li>
 <p>Send an update to <a href="http://directory.fsf.org/project/pasdoc/">FSF directory</a>.</p>
 </li>
 <li>
-<p>Prepare for next release: ChangeLog file should start with line</p>
+<p>Prepare for next release: ChangeLog.md file should start with line</p>
 <div class="listingblock">
 <div class="content">
 <pre>[Next release -- release date and new version number unknown yet...]</pre>
@@ -272,13 +224,13 @@ changing the project&#8217;s description:</p>
 <div class="ulist">
 <ul>
 <li>
+<p>on <a href="https://github.com/pasdoc/pasdoc/">GitHub</a></p>
+</li>
+<li>
 <p>on <a href="https://sourceforge.net/projects/pasdoc/">SF project page</a></p>
 </li>
 <li>
 <p>on <a href="http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc">Lazarus wiki "Projects Using Lazarus" page</a></p>
-</li>
-<li>
-<p>on <a href="https://www.ohloh.net/p/PasDoc">ohloh page</a></p>
 </li>
 </ul>
 </div>
