@@ -19,8 +19,7 @@ write (using red font, configurable via CSS) "Warning: this symbol is
 deprecated."
 
 For more examples see
-https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_deprecated_tag.pas[test unit tests/ok_deprecated_tag.pas] and
-http://pasdoc.sourceforge.net/correct_tests_output/html/ok_deprecated_tag.html[html output for this test unit].
+https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_deprecated_tag.pas[test unit ok_deprecated_tag.pas].
 
 ## [[hint-directives]] Hint directives
 
@@ -53,4 +52,4 @@ hint directives for any types are allowed). But pasdoc's @deprecated tag
 may be freely specified for _any_ item in your unit, including
 properties and any types.
 
-pasdoc generates appropriate "red warnings" for all hint directives in the final documentation. See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_hint_directives.pas[test unit tests/ok_hint_directives.pas] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_hint_directives.html[html output for this unit].
+pasdoc generates appropriate "red warnings" for all hint directives in the final documentation. See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_hint_directives.pas[test unit ok_hint_directives.pas].

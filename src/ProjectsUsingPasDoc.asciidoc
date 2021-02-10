@@ -1,10 +1,10 @@
 ## [[projects-using-pasdoc]] Projects using PasDoc
 
-If you use link:index[PasDoc], your are most welcome to add your project to this page. Or you can send a mail about your project to our mailing list: http://lists.sourceforge.net/lists/listinfo/pasdoc-main .
+If you use link:index[PasDoc], your are most welcome to add your project to this page.
 
 * http://allegro-pas.sf.net/[Allegro.pas] - A wrapper to allow Pascal language to use the http://alleg.sf.net/[Allegro game programming library].
 * http://brookframework.org/[Brook framework] - Complete framework for web applications.
-* http://castle-engine.sourceforge.net/[Castle Game Engine] - Cross-platform 3D and 2D game engine with a lot of graphic effects and a scene graph based on X3D.
+* https://castle-engine.io/[Castle Game Engine] - Cross-platform 3D and 2D game engine, with an editor, lots of graphic effects, support for glTF, X3D and many other formats.
 * http://dzchart.berlios.de[dzChart] - Chart component for Delphi/Kylix.
 * http://fblib.altervista.org/[FBLib] - Open source Firebird library.
 * http://geoblock.sourceforge.net/[Geoblock] - Integrated open source software for 2D/3D modelling, computational geometry and visualization of spatial datasets based on GLScene.

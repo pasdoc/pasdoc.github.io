@@ -50,6 +50,4 @@ ignored.
 link:index[PasDoc] includes a built-in hierarchy of basic RTL
 classes. You're welcome to extend it, or provide alternatives (for
 example, more suitable for Delphi RTL). You can share your files
-e.g. on our
-http://lists.sourceforge.net/lists/listinfo/pasdoc-main[pasdoc-main mailing list].
-We'll collect the submissions in the repository, and link to them here.
+e.g. on this wiki.

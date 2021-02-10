@@ -1,6 +1,6 @@
 PasDoc, documentation generator for Pascal: ::
 * link:index[PasDoc]
-* https://sourceforge.net/projects/pasdoc/files/[Download]
+* https://github.com/pasdoc/pasdoc/releases/latest[Download]
 
 
 Features: ::

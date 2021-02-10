@@ -3,7 +3,6 @@ Of course PasDoc sources can be processed by PasDoc itself.
 Browse documentation that pasdoc generated for itself (we call it
 "autodoc") in various formats:
 
-* http://pasdoc.sourceforge.net/autodoc/html/index.html[HTML]
-* http://pasdoc.sourceforge.net/autodoc/latex/docs.pdf[PDF]
-
-* http://pasdoc.sourceforge.net/autodoc/latex/docs.tex[LaTeX sources of PDF docs]
+* https://pasdoc.github.io/autodoc/html/index.html[HTML]
+* https://pasdoc.github.io/autodoc/latex/docs.pdf[PDF]
+* https://pasdoc.github.io/autodoc/latex/docs.tex[LaTeX sources of PDF docs]

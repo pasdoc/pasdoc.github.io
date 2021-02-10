@@ -71,4 +71,4 @@ type
 
 ## [[example-unit]] Example unit
 
-See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_auto_abstract.pas[test unit of this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_auto_abstract/[pasdoc output for this test (with --auto-abstract option)].
+See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_auto_abstract.pas[test unit of this feature].

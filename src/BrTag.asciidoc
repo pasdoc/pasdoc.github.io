@@ -14,10 +14,7 @@ Example:
 procedure TestLineBreak;
 ----
 
-See
-http://pasdoc.sourceforge.net/correct_tests_output/html/ok_line_break.html[pasdoc output for this example].
-
-Note that it's not adviced to use this tag too often, since it makes
+Note that it's not advised to use this tag too often, since it makes
 documentation ugly. In HTML, browser window should determine line width,
 in LaTeX, page width should determine line width, and so on. If you want
 to start new paragraph you should just insert an empty line (see

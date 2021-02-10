@@ -152,4 +152,4 @@ This will produce the list with four items "Blah" numbered 1, 2, 10, 11.
 
 ## [[more-complicated-example]] More complicated example
 
-See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_lists.pas[test unit of these tags] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_lists/ok_lists.html[HTML output for this test unit].
+See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_lists.pas[test unit of these tags].

@@ -61,4 +61,4 @@ type
 
 ## [[more-examples]] More examples
 
-For more examples and tests of these tags see https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_value_member_tags.pas[test unit ok_value_member_tags.pas] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_value_member_tags.html[html output for this test unit].
+For more examples and tests of these tags see https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_value_member_tags.pas[test unit ok_value_member_tags.pas].

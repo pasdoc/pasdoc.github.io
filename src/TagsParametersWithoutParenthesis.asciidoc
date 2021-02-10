@@ -39,7 +39,7 @@ procedure Print(const S: string);
 ----
 
 
-For more comments and examples of use you can take a look at https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_tag_params_no_parens.pas[test unit for this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_tag_params_no_parens.html[pasdoc's output for this test unit].
+For more comments and examples of use you can take a look at https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_tag_params_no_parens.pas[test unit for this feature].
 
 Advantages of not enclosing tag parameters in parenthesis are
 

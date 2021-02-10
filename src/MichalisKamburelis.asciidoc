@@ -1,5 +1,5 @@
 I'm one of pasdoc's developers. I use pasdoc most of all to document my
-http://castle-engine.sourceforge.net/[Castle Game Engine], an
+https://castle-engine.io/[Castle Game Engine], an
 open-source 3D and 2D game engine for Object Pascal. My webpage is
 http://michalis.ii.uni.wroc.pl/~michalis/
 
@@ -9,10 +9,9 @@ http://michalis.ii.uni.wroc.pl/~michalis/
 
 When adding new end-user visible feature, remember to always
 
-* add an entry to ChangeLog
+* add an entry to ChangeLog.md
 * add a testcase to tests/
 * add a documentation to wiki
-* make sure that http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] is informed about it
 
 '''''
 

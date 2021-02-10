@@ -1,6 +1,4 @@
-Below I tried to summarize link:index[PasDoc]
-(http://pasdoc.sourceforge.net/) and FpDoc
-(http://www.freepascal.org/docs-html/fpdoc/fpdoc.html) differences. This
+Below I tried to summarize https://pasdoc.github.io/[PasDoc] and http://www.freepascal.org/docs-html/fpdoc/fpdoc.html[FpDoc] differences. This
 is written by link:MichalisKamburelis[MichalisKamburelis], an author
 of link:index[PasDoc] -- but I tried to be as objective as I can.
 Feel welcome to edit and improve this page.

@@ -55,5 +55,5 @@ Insert table of contents here.
 
 ## [[more-examples]] More examples
 
-* See the https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction_conclusion.pas[test unit of this feature] and the https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_introduction.txt[accompanying test introduction file] and the http://pasdoc.sourceforge.net/correct_tests_output/html/ok_introduction_conclusion/[HTML output of this test unit and introduction].
+* See the https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_introduction.txt[test introduction file].
 * See also link:PasDocAutoDoc[PasDocAutoDoc] -- there's an "Overview" page included, and it was generated using --introduction command-line option.

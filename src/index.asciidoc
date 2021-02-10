@@ -8,12 +8,12 @@ and from external files.
 
 Download:
 
-* Stable PasDoc release is at
-https://sourceforge.net/projects/pasdoc/files/[Sourceforge download page]. In the future, binary releases will be https://github.com/pasdoc/pasdoc/releases[published as GitHub releases].
+* Latest stable PasDoc release
+https://github.com/pasdoc/pasdoc/releases/latest[can be downloaded from here].
 
 * Unstable (automatic build after every commit, published once automatic tests pass) releases are available at link:DevelopmentSnapshots[DevelopmentSnapshots].
 
-You can watch our https://sourceforge.net/p/pasdoc/news/[news page] to be notified about the new releases.
+You can watch our https://github.com/pasdoc/pasdoc/releases[releases page] to be notified about the new releases.
 
 ## Usage
 

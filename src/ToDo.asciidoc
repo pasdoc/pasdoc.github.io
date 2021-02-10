@@ -2,7 +2,7 @@ Things that are (or were) planned to be done at some point:
 
 **This page grew into a large collection of TODOs, with wildly varying chances of being actually finished by some developer.** Although we tried to manage it, it's not organized properly enough.
 
-**Please report new wanted features to the https://sourceforge.net/p/pasdoc/feature-requests/[feature requests] or https://sourceforge.net/p/pasdoc/bugs/[bugs] issue trackers**, not by editing this page. Consider also asking first on our https://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list].
+**Please report new wanted features as https://github.com/pasdoc/pasdoc/issues[issues]**, not by editing this page. 
 
 (Things already done are on link:ToDoClosed[ToDoClosed].)
 
@@ -42,5 +42,5 @@ Adding new tags to pasdoc code is trivial now, basically you just do
 TagManager.AddHandler('...', {$IFDEF FPC}@{$ENDIF} TagHandlerProc, [...], [...]);
 ----
 +
-and implement TagHandlerProc. So it seems that allowing user to specify via command-line some so/dll/dylib with a hook like RegisterTagHandlers that is called from TDocGenerator.ExpandDescription is not a big deal. If anyone has a usable idea for using such plugin-system, please speak up on http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list], and we can see into this --link:MichalisKamburelis[MichalisKamburelis].
+and implement TagHandlerProc. So it seems that allowing user to specify via command-line some so/dll/dylib with a hook like RegisterTagHandlers that is called from TDocGenerator.ExpandDescription is not a big deal. If anyone has a usable idea for using such plugin-system, please report e.g. on https://github.com/pasdoc/pasdoc/issues[issues], and we can see into this --link:MichalisKamburelis[MichalisKamburelis].
 * parse units in dependency order, ie. when a unit is encountered that uses another unit, then try parsing that other unit first. If it cannot be found, then write a warning. Allow giving a list of units that should not be warned about, and ship a default RTL list.

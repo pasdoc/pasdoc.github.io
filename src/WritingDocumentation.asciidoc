@@ -57,7 +57,7 @@ TMyClass = class
 ## [[automatic-recognition-of-urls]] Automatic recognition of URLs
 
 Pasdoc automatically recognizes URLs (like
-http://pasdoc.sourceforge.net/) in your comments and appropriately
+https://pasdoc.github.io/ ) in your comments and appropriately
 presents them in the output format, so that user reading generated
 documentation is able to easily navigate to given URL. E.g. in case of
 link:HtmlOutput[HtmlOutput] URLs will be converted to links

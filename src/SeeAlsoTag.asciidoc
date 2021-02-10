@@ -30,4 +30,4 @@ function StrToInt(const Value: string): Int64;
 
 ## [[more-advanced-example]] More advanced example
 
-See https://raw.githubusercontent.com/pasdoc/pasdoc/master/tests/ok_see_also.pas[test unit of this feature] and http://pasdoc.sourceforge.net/correct_tests_output/html/ok_see_also/index.html[HTML output for this test].
+See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_see_also.pas[test unit of this feature].
