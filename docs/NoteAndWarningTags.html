@@ -10,11 +10,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
-<link rel="canonical" href="https://pasdoc.github.io//PasDocFpDocComparison.html" />
-<meta property="og:url" content="https://pasdoc.github.io//PasDocFpDocComparison.html" />
+<link rel="canonical" href="https://pasdoc.github.io//NoteAndWarningTags.html" />
+<meta property="og:url" content="https://pasdoc.github.io//NoteAndWarningTags.html" />
 <meta property="og:site_name" content="PasDoc" />
 <script type="application/ld+json">
-{"description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//PasDocFpDocComparison.html","headline":"PasDoc","@context":"https://schema.org"}</script>
+{"description":"Documentation tool for Pascal source code","@type":"WebPage","url":"https://pasdoc.github.io//NoteAndWarningTags.html","headline":"PasDoc","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,74 +31,28 @@
         <section class="main-content">
           
           <section class="short-page-header">
-            <h1><a class="main-page-link" href="index">PasDoc</a> » PasDocFpDocComparison</h1>
+            <h1><a class="main-page-link" href="index">PasDoc</a> » NoteAndWarningTags</h1>
           </section>
           
 
           <div class="paragraph">
-<p>Below I tried to summarize <a href="https://pasdoc.github.io/">PasDoc</a> and <a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html">FpDoc</a> differences. This
-is written by <a href="MichalisKamburelis">MichalisKamburelis</a>, an author
-of <a href="index">PasDoc</a>&#8201;&#8212;&#8201;but I tried to be as objective as I can.
-Feel welcome to edit and improve this page.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>FpDoc keeps descriptions in separate XML files. <a href="index">PasDoc</a>
-keeps descriptions inside comments in the source interface, or inside
-external files (one file for many descriptions, or one file with one
-description using @include).</p>
-</li>
-<li>
-<p>Formatting in <a href="index">PasDoc</a> is
-done using @tags (similar to javadoc and such), like
-@bold(This is bold text). Formatting in FpDoc is done using XML elements
-(similar to HTML), like &lt;b&gt;This is bold text&lt;/b&gt;. Both projects support
-a lot of formatting options, you can compare the list of @tags on
-<a href="SupportedTags">SupportedTags</a> with the "Tag reference" on
-<a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html" class="bare">http://www.freepascal.org/docs-html/fpdoc/fpdoc.html</a> .</p>
-</li>
-<li>
-<p>For a list of
-supported command-line options and formatting compare
-<a href="http://www.freepascal.org/docs-html/fpdoc/fpdoc.html" class="bare">http://www.freepascal.org/docs-html/fpdoc/fpdoc.html</a> with
-<a href="CommandLine">CommandLine</a> . Both projects support a lot
-of options, the differences are in details.</p>
-</li>
-<li>
-<p>Some advanced features of
-<a href="index">PasDoc</a> are listed on
-<a href="AdvancedFeatures">AdvancedFeatures</a> . Most of them are not available
-in fpdoc as far as I know.</p>
-</li>
-<li>
-<p>Both programs support many output formats
-including HTML and LaTeX.</p>
-<div class="paragraph">
-<p><a href="index">PasDoc</a> has an output called htmlhelp, while fpdoc has chm output, although I didn&#8217;t compare them personally. <a href="index">PasDoc</a> also has <a href="SimpleXmlOutput">simplexml</a> output, and latex2rtf output.</p>
+<p>The <code>@note</code> and <code>@warning</code> tags allow to display a nicely formatted box with a note (something of particular interest to the reader) or a warning.</p>
 </div>
 <div class="paragraph">
-<p>You can see sample output of pasdoc e.g. here <a href="PasDocAutoDoc">PasDocAutoDoc</a> . Sample fpdoc output is the FPC reference.</p>
+<p>Their content can be anything, other @-tags inside are expanded too. For example this works:</p>
 </div>
-</li>
-<li>
-<p><a href="index">PasDoc</a> has a simple cross-platform
-GUI (in addition to the command-line of course).</p>
-</li>
-<li>
-<p>FpDoc has
-<a href="http://wiki.freepascal.org/FPDoc_Editor" class="bare">http://wiki.freepascal.org/FPDoc_Editor</a> .</p>
-</li>
-<li>
-<p><a href="index">PasDoc</a> also
-has some useful tools like Pascal preprocessor and file_to_pascal_string
-.</p>
-</li>
-<li>
-<p>On the other hand, fpdoc is written using fcl-passrc parser, that
-can be more easily used by other projects.</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{</span>
+<span style="color: #408080; font-style: italic">  @note(Please open your eyes while reading)</span>
+<span style="color: #408080; font-style: italic">  @note(Please check @link(Create) for more details)</span>
+<span style="color: #408080; font-style: italic">  @note(For more infos see @url(https://example.com/))</span>
+
+<span style="color: #408080; font-style: italic">  @warning(test)</span>
+<span style="color: #408080; font-style: italic">  @warning(hello @italic(world)!)</span>
+<span style="color: #408080; font-style: italic">  @warning(Does this work? - @bold(Yes.))</span>
+<span style="color: #408080; font-style: italic">}</span></code></pre>
+</div>
 </div>
 
           <footer class="site-footer">
