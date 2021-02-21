@@ -64,6 +64,7 @@ empty line between abstract description and the rest here):
 ----
 type
   { Short description of this class.
+    
     More elaborate description of this class. }
   TMyClass = class
   ...
