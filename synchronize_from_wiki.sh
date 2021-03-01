@@ -19,7 +19,7 @@ for F in src/*.asciidoc; do
   sed --in-place -e 's|link:Home\[PasDoc\]|link:index[PasDoc]|' "$F"
   sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
   sed --in-place -e 's|link:Home\[Home\]|link:index[PasDoc]|' "$F"
-  sed --in-place -e 's|link:Home\[on the main page\]|link:index[PasDoc]|' "$F"
+  sed --in-place -e 's|link:Home\[on the main page\]|link:index[on the main page]|' "$F"
 done
 
 if ls ../pasdoc.wiki/*.md > /dev/null 2>&1; then
