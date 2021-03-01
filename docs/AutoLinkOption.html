@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6eefe9d7a6532d60841cdff3112c8d2eb9b4147e">
+    <link rel="stylesheet" href="/assets/css/style.css?v=d8e6ae59098ea2a15b7773a939f3869c90dceb6e">
   </head>
   <body>
     <div id="layout-container">
@@ -147,7 +147,7 @@ Destroy</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The whole idea of auto-linking is that you will have to seldom use <code>@noAutoLink</code> and <code>@noAutoLinkHere</code> tags, but on the other hand you will almost never have to use <code>@link</code> tag. Without auto-linking, there&#8217;s no need to ever use <code>@noAutoLink</code> or <code>@noAutoLinkHere</code> tags (they don&#8217;t change anything), but you have to very often use @link tag.</p>
+<p>The idea of auto-linking is that you will have to sometimes add <code>@noAutoLink</code> and <code>@noAutoLinkHere</code> tags, but on the other hand you will be able to avoid a lot of <code>@link</code> tags. Without auto-linking, there&#8217;s no need to ever use <code>@noAutoLink</code> or <code>@noAutoLinkHere</code> tags (they don&#8217;t change anything), but you have to very often use the <code>@link</code> tag.</p>
 </div>
 </div>
 </div>
@@ -197,7 +197,7 @@ Destroy</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Note that actually whole <em>qualified identifiers</em> are subject to auto-linking. This means that you can e.g. write TMyClass.MyField and it will be turned into a link if there exists a class named TMyClass with a field MyField. Similar for things like e.g. MyUnit.MyVariable or even MyUnit.TMyClass.MyField.</p>
+<p>Note that actually whole <em>qualified identifiers</em> are subject to auto-linking. This means that you can e.g. write <code>TMyClass.MyField</code> and it will be turned into a link if there exists a class named <code>TMyClass</code> with a field <code>MyField</code>. Similar for things like e.g. <code>MyUnit.MyVariable</code> or even <code>MyUnit.TMyClass.MyField</code>.</p>
 </li>
 <li>
 <p>Auto-linking in pasdoc is quite similar to idea of links in doxygen.</p>
