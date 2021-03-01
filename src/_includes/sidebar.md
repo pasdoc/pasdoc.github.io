@@ -63,6 +63,8 @@
 
 * [@member, @value](MemberValueTag)
 
+* [@noAutoLink, @noAutoLinkHere](AutoLinkOption)
+
 * [@note, @warning](NoteAndWarningTags)
 
 * [@param, @returns, @raises](ParamReturnsRaisesTag)

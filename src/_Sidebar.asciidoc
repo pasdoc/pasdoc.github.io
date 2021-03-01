@@ -35,6 +35,7 @@ link:SupportedTags[Supported Tags]: ::
 * link:ListTags[@orderedList, @unorderedList, @definitionList, @item, @itemLabel, @itemSpacing, @itemSetNumber]
 * link:LongcodeTag[@longCode]
 * link:MemberValueTag[@member, @value]
+* link:AutoLinkOption[@noAutoLink, @noAutoLinkHere]
 * link:NoteAndWarningTags[@note, @warning]
 * link:ParamReturnsRaisesTag[@param, @returns, @raises]
 * link:PreformattedTag[@preformatted]

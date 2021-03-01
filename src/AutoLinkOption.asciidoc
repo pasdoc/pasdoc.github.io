@@ -83,7 +83,7 @@ procedure This;
 procedure Foo;
 ----
 
-The whole idea of auto-linking is that you will have to seldom use `@noAutoLink` and `@noAutoLinkHere` tags, but on the other hand you will almost never have to use `@link` tag. Without auto-linking, there's no need to ever use `@noAutoLink` or `@noAutoLinkHere` tags (they don't change anything), but you have to very often use @link tag.
+The idea of auto-linking is that you will have to sometimes add `@noAutoLink` and `@noAutoLinkHere` tags, but on the other hand you will be able to avoid a lot of `@link` tags. Without auto-linking, there's no need to ever use `@noAutoLink` or `@noAutoLinkHere` tags (they don't change anything), but you have to very often use the `@link` tag.
 
 ## [[details]] Details
 
@@ -119,5 +119,5 @@ So the text "MyProcedure" will be specially formatted in the output (usually usi
 
 ### [[other-details]] Other details
 
-* Note that actually whole _qualified identifiers_ are subject to auto-linking. This means that you can e.g. write TMyClass.MyField and it will be turned into a link if there exists a class named TMyClass with a field MyField. Similar for things like e.g. MyUnit.MyVariable or even MyUnit.TMyClass.MyField.
+* Note that actually whole _qualified identifiers_ are subject to auto-linking. This means that you can e.g. write `TMyClass.MyField` and it will be turned into a link if there exists a class named `TMyClass` with a field `MyField`. Similar for things like e.g. `MyUnit.MyVariable` or even `MyUnit.TMyClass.MyField`.
 * Auto-linking in pasdoc is quite similar to idea of links in doxygen.
