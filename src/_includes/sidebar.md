@@ -1,7 +1,7 @@
 
 # [PasDoc](index)
 
-* [Download](https://sourceforge.net/projects/pasdoc/files/)
+* [Download](https://github.com/pasdoc/pasdoc/releases/latest)
 
 ## Features:
 
