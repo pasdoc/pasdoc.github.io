@@ -12,7 +12,7 @@ group :jekyll_plugins do
 #  gem "jekyll-theme-hyde"
 
   # For highlighting by https://github.com/asciidoctor/jekyll-asciidoc
-  gem 'pygments.rb', '~> 1.1.2'
+  gem 'pygments.rb', '~> 2.1.0'
 end
 
 # Note: As we actually run Jekyll manually, this could possibly be done by "pure"

@@ -228,7 +228,6 @@ GEM
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     minitest (5.15.0)
-    multi_json (1.15.0)
     multipart-post (2.1.1)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
@@ -238,8 +237,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.1.1)
-    pygments.rb (1.1.2)
-      multi_json (>= 1.0.0)
+    pygments.rb (2.1.0)
     racc (1.6.0)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -280,7 +278,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 209)
   jekyll-asciidoc
-  pygments.rb (~> 1.1.2)
+  pygments.rb (~> 2.1.0)
 
 BUNDLED WITH
    2.3.2
