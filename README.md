@@ -36,6 +36,8 @@ sudo gem install jekyll bundler
 bundle install
 ```
 
+If there's a problem with dependencies at `bundle install`, occasionally updating everything to use newest version helps. This is done by `bundle update`, which updates `Gemfile.lock`. I will do this in this repo when necessary, you can also do it locally and ping me if I should do it here.
+
 Regenerate site
 
 ```
