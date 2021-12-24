@@ -147,6 +147,127 @@ as a marker together with `--marker-optional`.
 
 The title is in quotes completely because it contains spaces.
 
+### [[fr0st-example]] Fr0sT-Brutal example
+
+Here is setup that I use for my project. It is tuned for the best 
+possible natural look - minimum of special marks, usual `//` comments 
+style, Markdown formatting.
+
+`pasdoc.opt` file
+----
+name=SChannel helper
+title=SChannel helper
+format=html
+auto-abstract
+auto-link
+auto-link-exclude=$CFG_PATH\autolink-excl
+define=MSWINDOWS
+markdown
+ignore-marker= ~~
+ignore-marker=TODO
+auto-back-comments
+visible-members=public,published,automated
+implementation-comments=join
+output=$CFG_PATH\docs
+----
+
+`autolink-excl` file
+----
+find
+create
+destroy
+get
+add
+delete
+count
+clear
+push
+init
+fin
+stage
+secure
+shutdown
+----
+
+`run.bat` file
+----
+@ECHO OFF 
+
+SETLOCAL
+
+SET CDir=%~dp0%
+SET PasDoc=D:\Coding\PasDoc\pasdoc.exe
+
+CALL "%PasDoc%" "@%CDir%\pasdoc.opt" "%CDir%\..\IcsSChannelSocket.pas" "%CDir%\..\SChannel.*.pas" || PAUSE
+----
+
+Here I use PasDoc's ability to take options from file which is enabled by
+`"@%optfilename%"` argument.
+
+Let's examine non-trivial options inside:
+
+* `auto-link` - I want to auto generate cross-links for all identifiers...
+* `auto-link-exclude=$CFG_PATH\autolink-excl` - ...but ignore some common
+words used for naming of some identifiers
+* `define=MSWINDOWS` - consider compiler define `MSWINDOWS` is set to include
+conditional regions
+* `markdown` - comments are formatted using Markdown
+* `ignore-marker= ~~` - comments starting with space-and-double-tilda (`// ~~`)
+are skipped so I can use them for structuring:
+
+----
+// ~~ Init utils - usually not to be called by user ~~
+
+// Mainly for internal use
+procedure ...;
+
+...
+
+// ~~ Global init and fin ~~
+
+// Load global stuff
+procedure Init;
+
+...
+
+// ~~ Session init and fin ~~
+
+// Init the session
+procedure InitSession;
+...
+----
+
+* `ignore-marker=TODO` - comments that look like `//TODO` are ignored as well
+* `auto-back-comments` - one-line comments after an identifier are considered 
+linked to that identifier without additional special char `<`
+* `visible-members=public,published,automated` - visibility of members for public
+docs
+* `implementation-comments=join` - join comments taken from interface and
+implementation sections of a unit allowing having both brief description at the 
+beginning and full specification inside.
+
+----
+interface
+
+// Function to prepare all necessary handshake data. No transport level actions.
+// @raises ESSPIError on error
+function DoClientHandshake(var SessionData: TSessionData; var HandShakeData: THandShakeData): SECURITY_STATUS;
+
+implementation
+
+{
+ Function to prepare all necessary handshake data. No transport level actions.
+   @param SessionData - [IN/OUT] record with session data
+   @param HandShakeData - [IN/OUT] record with handshake data
+   @raises ESSPIError on error
+
+... very long description
+}
+function DoClientHandshake(var SessionData: TSessionData; var HandShakeData: THandShakeData): SECURITY_STATUS;
+----
+
+Check the generated docs https://fr0st-brutal.github.io/Delphi_SChannelTLS/docs/index.html[here]
+
 ### [[pasdoc-autodoc]] PasDoc autodoc
 
 PasDoc sources are parsed by PasDoc itself. Resulting documentation is available for viewing on link:PasDocAutoDoc[PasDocAutoDoc] page. You can see how this is done in PasDoc sources in https://raw.githubusercontent.com/pasdoc/pasdoc/master/source/autodoc/Makefile[source/autodoc/Makefile].
