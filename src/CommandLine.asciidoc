@@ -56,6 +56,7 @@ Output format:
 * link:LatexOutput[latex]
 * link:Latex2RtfOutput[latex2rtf]
 * link:SimpleXmlOutput[simplexml]
+* link:PhpOutput[php]
 
 link:OutputOption[-E, --output]::
 Specify output path

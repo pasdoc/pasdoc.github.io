@@ -93,6 +93,7 @@
     * [\--format=latex](LatexOutput)
     * [\--format=latex2rtf](Latex2RtfOutput)
     * [\--format=simplexml](SimpleXmlOutput)
+    * [\--format=php](PhpOutput)
 
 * [\--auto-abstract](AutoAbstractOption)
 
