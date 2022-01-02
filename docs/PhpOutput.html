@@ -19,7 +19,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=e1d22f20aacc9abce539935459aadc80054c292c">
+    <link rel="stylesheet" href="/assets/css/style.css?v=cba3f620b703892e2b7eac48e47e62f0f4092489">
   </head>
   <body>
     <div id="layout-container">
@@ -36,6 +36,9 @@
           
 
           <div class="paragraph">
+<p><strong>This is new feature in upcoming PasDoc 0.17.0. Not yet available in stable 0.16.0.</strong></p>
+</div>
+<div class="paragraph">
 <p>PHP output of PasDoc generates a map that can be used to find identifiers in your HTML documentation.</p>
 </div>
 <div class="paragraph">
@@ -62,7 +65,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="php"><span></span><span style="color: #008000; font-weight: bold">global</span> <span style="color: #19177C">$pasdoc</span>;
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="php"><span></span><span style="color: #666666">&lt;?</span>php
+<span style="color: #008000; font-weight: bold">global</span> <span style="color: #19177C">$pasdoc</span>;
 <span style="color: #19177C">$pasdoc</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">array</span>(
   <span style="color: #BA2121">&#39;Foo&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #008000; font-weight: bold">array</span>(<span style="color: #BA2121">&#39;html_filename&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #BA2121">&#39;UnitWithConstants.html#Foo&#39;</span>, <span style="color: #BA2121">&#39;type&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #BA2121">&#39;constant&#39;</span>),
   <span style="color: #BA2121">&#39;Bar&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #008000; font-weight: bold">array</span>(<span style="color: #BA2121">&#39;html_filename&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #BA2121">&#39;UnitWithConstants.html#Bar&#39;</span>, <span style="color: #BA2121">&#39;type&#39;</span> <span style="color: #666666">=&gt;</span> <span style="color: #BA2121">&#39;constant&#39;</span>),
