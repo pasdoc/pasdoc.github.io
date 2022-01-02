@@ -22,10 +22,14 @@ link:WritingDocumentation[WritingDocumentation] and
 link:SupportedTags[SupportedTags] for information on how to document
 your source code.
 
-Available output formats are link:HtmlOutput[HTML],
-link:HtmlHelp[HtmlHelp], link:LatexOutput[LaTeX],
-link:Latex2RtfOutput[Latex2rtf], link:SimpleXmlOutput[SimpleXml].
-More output formats may be added in the future.
+Available output formats are 
+
+* link:HtmlOutput[HTML] - modern webpage documenting your project
+* link:HtmlHelp[HtmlHelp]
+* link:LatexOutput[LaTeX] - you can use this to generate PDF or PS using LaTeX tools like `pdflatex`
+* link:Latex2RtfOutput[Latex2rtf]
+* link:SimpleXmlOutput[SimpleXml] - useful to process obtained information using further tools
+* link:PhpOutput[PHP] - PHP map from Pascal identifier -> HTML link, to implement searching/enumeration in PHP websites
 
 Check out the link:CommandLine[CommandLine] to get a better feeling
 for how PasDoc works. There is also a GUI interface, see
