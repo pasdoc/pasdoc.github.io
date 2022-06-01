@@ -44,8 +44,8 @@ Regenerate site
 make
 ```
 
-Then just commit + push the static files inside `docs/`
-(they need to be in repo, to be served by https://pasdoc.github.io/ ).
+This even makes automatic `git add` + `git commit` of stuff in `docs/`.
+You should just `git push` the repository commits and watch the new content being served by https://pasdoc.github.io/ .
 
 To preview offline, do
 
