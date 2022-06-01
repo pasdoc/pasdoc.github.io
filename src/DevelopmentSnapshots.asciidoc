@@ -4,11 +4,12 @@ https://jenkins.castle-engine.io/public/builds/pasdoc/
 
 In particular:
 
-* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-linux-x86_64.tar.gz[latest build for Linux (64-bit, x86_64)]
-* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-win64.zip[latest build for Windows (64-bit, x86_64)]
-* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-win32.zip[latest build for Windows 32-bit]
-* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-linux-arm.tar.gz[latest build for Linux Arm (32-bit) (like Raspberry Pi)]
-* https://github.com/pasdoc/pasdoc/[latest source code on GitHub, there's a zip download available too]
+* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-linux-x86_64.tar.gz[latest build for Linux (x86_64)]
+* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-win64.zip[latest build for Windows (x86_64)]
+* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-win32.zip[latest build for Windows (i386, i.e. 32-bit)]
+* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-linux-arm.tar.gz[latest build for Raspberry Pi and similar (Linux / Arm)]
+* https://jenkins.castle-engine.io/public/builds/pasdoc/pasdoc-0.16.0-darwin-x86_64.zip[latest build for macOS (x86_64)]
+* https://github.com/pasdoc/pasdoc/[latest source code on GitHub]
 
 These snapshots look like regular link:index[PasDoc] releases, but are actually compiled automatically from https://github.com/pasdoc/pasdoc[current GitHub code].
 
