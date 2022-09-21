@@ -80,7 +80,7 @@ link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation].
 Patches are welcome. – link:MichalisKamburelis[MichalisKamburelis]
 
 * support for inline comments (like the ones in
-link:JavaDoc[JavaDoc]) +
+JavaDoc) +
 now I have to comment out vars like this:
 +
 [source,pascal]
@@ -384,12 +384,12 @@ more info about this. – link:MichalisKamburelis[MichalisKamburelis]
 
 * It would be nice to be able to skip "n" characters from the begining
 of the comment at least for those making their documentation in
-link:ModelMaker[ModelMaker] that adds a special signature to the
+ModelMaker that adds a special signature to the
 begining of the comment.
 +
 Can you describe in more detail what "special signature" is added by
-link:ModelMaker[ModelMaker] (bear in my mind that I never used
-link:ModelMaker[ModelMaker] and I'm completely alien to it) ? Maybe
+ModelMaker (bear in my mind that I never used
+ModelMaker and I'm completely alien to it) ? Maybe
 what you want is already possible via --marker <marker>
 link:CommandLine[CommandLine] option, see
 link:CommentMarker[CommentMarker] page ? It would be easy to add some

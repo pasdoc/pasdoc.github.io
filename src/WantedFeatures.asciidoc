@@ -21,7 +21,7 @@ sources.
 * Additional special tags and more
 +
 I'm using a wide range of several documents processors
-(link:JavaDoc[JavaDoc], link:CppDoc[CppDoc], Doxygen ect.) for
+(JavaDoc, CppDoc, Doxygen ect.) for
 different languages. One common thing uniting these programs is their
 ability to describe more informations about the document, its
 relationship to the whole API ect. To make it short: I'm missing special
@@ -184,7 +184,7 @@ link:MichalisKamburelis[MichalisKamburelis]
 text, images or html in a point of a code comment. It would be very nice
 if this include directive also could build the name of the file to
 include by some kind of rule to the name of the class (include
-link:ModelMaker[ModelMaker] exported diagrams).
+ModelMaker exported diagrams).
 +
 link:MichalisKamburelis[MichalisKamburelis]: For me, this splits to a couple of sensible requests:
 +
