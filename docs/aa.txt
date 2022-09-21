@@ -1,0 +1,283 @@
+**This page grew into a large collection of wanted features, with wildly varying chances of being actually tackled by a developer.** Although we tried to manage it, it's not organized properly enough.
+
+**Please report new wanted features to the https://sourceforge.net/p/pasdoc/feature-requests/[feature requests] or https://sourceforge.net/p/pasdoc/bugs/[bugs] issue trackers**, not by editing this page. Consider also asking first on our https://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] to know if there are ready alternatives, or if feature seems interesting enough to be implemented real soon by someone.
+
+(Features already done are on link:WantedFeaturesClosed[WantedFeaturesClosed].)
+
+List of wanted features:
+
+* Parse TODO items and save them in a table in a separate file similar
+to AllVariables.html, AllTypes.html, etc.
+* Support for the ampersand
+operator
++
+The ampersand operator
+can be used to distinguish between keywords and identifiers
++
+link:MichalisKamburelis[MichalisKamburelis] answer: Patches for ampersand operator
+are welcome :) — it should be easy by modifying only PasDoc_Tokenizer
+sources.
+
+* Additional special tags and more
++
+I'm using a wide range of several documents processors
+(JavaDoc, CppDoc, Doxygen ect.) for
+different languages. One common thing uniting these programs is their
+ability to describe more informations about the document, its
+relationship to the whole API ect. To make it short: I'm missing special
+tags like @version and @since. Both tags are commonly in use and should
+be introduced to link:Home[PasDoc]. It's very hard to find out when
+a unit ect. had been introduced to the API or had been changed in depth
+without such tags. Such informations including @author should appear at
+the top of the page and not at the bottom.
+
+* Comment grouping +
+Would it be possible to set a command line option for
+link:Home[PasDoc] to group related identifiers that are documented
+by one comment:
++
+[source,pascal]
+----
+//Similar Procedures
+procedure ProcA1;
+procedure ProcA2;
+procedure ProcA3;
+//Another Set of Similar Procedures
+procedure ProcB1;
+procedure ProcB2;
+procedure ProcB3;
+----
++
+My main reasoning is that each procedure does not necessarily require
+individual documentation and it would be helpful if one comment caused
+them to be grouped together in the HTML output. Just a thought.
++
+link:MichalisKamburelis[MichalisKamburelis]: I fully agree and I plan to do this by @groupBegin, @groupEnd tags. See
+the preliminary ideas on my homepage: link:MichalisKamburelis[MichalisKamburelis] .
+I don't think that we can do it without any @-tags (like your
+example), because this would tend to group too many things.
++
+I [link:DoDi[DoDi]] agree2, and suggest a more flexible system for
+grouping and nesting related items together. It should extend the
+currently fixed item classification, in e.g. classes with
+fields/methods/properties, or units with constants/variables/procedures.
+Every "container" (unit, CIO, enum) should have one complete list of all
+members (for link resolution), and any number of sub-lists, which can be
+built by the parser, "linker", or by the generators, based on tags or
+kind of scripts.
++
+I think that an empty line can be assumed as the end of grouped of
+identifiers to avoid implementing a any new tag. This is a common way of
+groupping related/overrided identifiers. Also if a comment precedes a
+block (for example const or var) it is related to all elements in the
+group.
+
+* "support to format multiple return values" +
+It would be really nice if @returns(...) could output return codes and
+descriptions in a more structured way - like the @params tag already
+does. Most intuivie way would be to allow more @returns tags for a
+single method, i.e. @returns(S_OK if successful) and @returns(E_FAIL if
+an error occured). S_OK and E_FAIL should be formated as 'label' of the
+return code and all following words are the description.
++
+link:MichalisKamburelis[MichalisKamburelis]: Seems like a good idea. But for backward compatibility, new tag should
+be named different, like @returnsValue. Old @returns with old behavior
+should stay.
++
+No problem, when the Result is treated like a parameter or any other
+(local) variable. The parser can provide all required (type)
+information, that only must be evaluated appropriately by the
+generators.
+
+* link:WantedFeaturesDocBook[WantedFeaturesDocBook] output
+* use a Delphi project (.dpr) file
+as input and process all files listed there
++
+This depends on doing
+link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation]
+(at least partially, just to parse the "program" keyword + program name
++ ";" + the uses clause (with the unit names optionally followed by "in"
++ (string) filename). It's quite easy actually :) –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* Delphi IDE-Plugin to build documentation for the current editor window
+on the fly and display it (should work great using the caching
+algorithm)
+
+* Delphi IDE-Plugin to show the documentation of a unit on a
+separate tab page of the editor window with clickable links to the
+actual implementation. (Yes, I am dreaming ;-) )
+* support for
+link:WantedFeaturesEnvironmentVariables[WantedFeaturesEnvironmentVariables] in addition to
+link:CommandLine[CommandLine] options, e.g. INCLUDE
+
+* optionally calculate correct line numbers and put those into the output
+* make caching work properly by putting the unit file's timestamp into
+the cache file and comparing it with the current on-disk timestamp. This
+should also expire any units that use this unit (which will
+automatically reparse descendent classes of classes in this unit that
+are defined in other units).
++
+implemented half of this (expires
+units, but not units that need the expired unit)
++
+implementing
+re-parsing is harder than it appears because units are not parsed in
+dependency order
+
+* ship files with defines from Delphi, Kylix and FPC
+(maybe even GPC) for different platforms.
++
+If someone wrote his source code, then he already _knows_ about the
+defines that he used (and that may be relevant to pass to pasdoc). In
+other words: It's a job of compiler writers to document what symbols are
+automatically defined by their compilers. After a programmer already
+wrote a source code using such-and-such compiler defines, this
+programmer already knows about these defines... So these files would
+only be useful as a comfortable daya
+for people too lazy to grep their own sources for $ifdef :) On the
+practical side: making such files complete is almost impossible, because
+each compiler/compiler mode/OS/processor/etc. results in a different set
+of defines, and it's tiresome to document them all (and maintain such
+documentation to keep it up-to-date with new compiler versions!). That
+said: if someone really wants to take a shot at preparing such files, go
+on, you are welcome to add them to this wiki. If you will do it well, we
+will include them in pasdoc. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* ability to deal with files that have the same name but are in
+different directories. How does one distinguish those without having
+search paths?
+* ability to link external documentation that was created
+by link:Home[PasDoc] (some mapping file class/function -> html file
+must exist for this)
+
+* Generating Labels and URL in Graphviz files to link images classes
+files in HTML (or HTML Help).
+http://home.so-net.net.tw/oodtsen/wingraphviz/index.htm[Look How to do in Clinet-side image map]. With this feature, it's possible to navigate
+in units/classes doc from graph! –link:GarfieldFr[GarfieldFr]
++
+I started doing this, now in GVClasses.dot and GVUses.dot graph nodes
+have proper href= attribute. So we can process them with
++
+----
+dot -Tcmapx GVUses.dot dot -Tcmapx GVClasses.dot
+----
++
+Now we have to use output of above calls from dot inside HTML files,
+like GVClasses.html and GVUses.html, and we will have client-side image
+maps assigned to graphviz images. This would require automatically
+calling dot program – this indeed should be done, I'll have to
+investigate how to implement it nicely, so that pasdoc will not fail if
+dot can't be executed. This should also remove some mess with four
+link:CommandLine[CommandLine] required to use graphviz – only two
+link:CommandLine[CommandLine] options shoud be needed for this. Also,
+you can process files to svg format, then you will have links included
+directly in svg file, and then we don't have to make client-side maps in
+HTML at all. Unfortunately, I don't know of any WWW browser that fully
+supports svg (allowing user to follow URLs from nodes) at this time...
+But pasdoc should not lose the possibility of using svg instead of some
+pixel-based format of images. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* It would be nice to have an Include directive able to include ASCI
+text, images or html in a point of a code comment. It would be very nice
+if this include directive also could build the name of the file to
+include by some kind of rule to the name of the class (include
+ModelMaker exported diagrams).
++
+link:MichalisKamburelis[MichalisKamburelis]: For me, this splits to a couple of sensible requests:
++
+** _Done_ I think that for including images, we should create new
+pasdoc tag, like @image(filename).
+** _Done_ For including text at the
+point of description, it could be useful to create a tag like
+@include(filename). Given file would be always interpreted as being
+written using normal pasdoc descriptions syntax (@-tags are interpreted,
+empty line means a paragraph, user can always use @html / @latex tags to
+force direct markup etc. – just like
+link:IntroductionAndConclusion[IntroductionAndConclusion] content).
+** Then we can allow user to use @classname, @name and similar tags as
+part of filename. E.g. @include(@classname.txt) before a class TStream
+would be equivalent to @include(TStream.txt).
+
+* Block "exclude tag" which allow exclude block of variables, constants,
+procedures from documentation. In some case is hard to write @exclude
+many time. I thing that tag as "@exclude_start" ... ... ...
+"@exclude_end" will be useful.
++
+Seems fine for me. Although I think that names should be @excludebegin
+and @excludeend (because begin/end pair is familiar to Pascal
+programmers, and we shouldn't use _ in the middle of the tag because 1.
+currently we don't allow _ in the middle of tag, so e.g. @name_some
+works 2. we have @classname instead of @class_name 3. in general Pascal
+programmers don't use _, they rather use link:CamelCase[CamelCase],
+so people would be more comfortable to write @excludeBegin and
+@excludeEnd than @exclude_begin and @exclude_end). –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* Allow tag expansion in another tag. For expamle: Parent for this class
+is @link(@inherited) +
++
+Note that this is already done in many cases, i.e. tags are expanded
+within other tags, e.g. you can use other @-tags inside tags @code,
+@raises, @returns, @bold, @italic, @abstract... However it's indeed not
+done for @link tag yet. That's because current expansion of @inherited
+and @name and such wouldn't be suitable for @link tag (because
+@inherited and @name add some presentational tags around returned name).
+As for your example, @link(@inherited) is not needed, you can already
+write just @inherited, this already produces a linked name. But indeed
+writing things like @link(@inherited.link:MethodName[MethodName])
+would be a nice feature to have. So I agree with this request, this
+should be made possible. Moreover, some request above (see @image and
+@include tag) also could use of this feature. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* Make multi-line //< comments glob together like // coments do. Or even
+a //< line followed by multiple // lines.
++
+The //< followed by // lines cannot be glued together – lines // are
+supposed to be attached to the next item. So
++
+[source,pascal]
+----
+procedure Item1; //< Description of Item1.
+// Description of Item2.
+procedure Item2;
+----
++
+must be parsed correctly. That said, glueing multiple adjacent //< lines
+is sensible. Patches to implement this are welcome. –
+link:MichalisKamburelis[MichalisKamburelis]
+
+* One item which would add a lot of value to link:Home[PasDoc]
+would be to include a means of documenting the functions/procedures that
+can be called on a particular class. atm, link:Home[PasDoc] will
+list all functions/procedures that a particular class _introduces_ - but
+there's no way of finding out what it's really capable of. For example,
+if you have:
++
+[source,pascal]
+----
+type
+  TClassOne = class(TComponent)
+  public
+    function MethodBase(): integer;
+  end;
+
+  TClassTwo = class(TClassOne)
+  public
+    function MethodSubclass(): integer;
+  end;
+----
++
+The page for TClassTwo will list
+"link:MethodSubclass[MethodSubclass]", but give no indication that
+"link:MethodBase[MethodBase]" can also be called on this subclass.
+This makes working with link:Home[PasDoc]'s output a lot more
+difficult than it needs to be; in order to find out what methods you can
+call on a particular class involves looking at the documentation for
+that class, then the parent class, then that parent's class... It would
+be _extremely_ useful if a layout similar to that which Delphi's help
+file offers would be implemented as an option, which would give an
+at-a-glace view of what any given class offers.
