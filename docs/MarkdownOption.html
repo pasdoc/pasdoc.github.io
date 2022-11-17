@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://pasdoc.github.io//MarkdownOption.html" />
 <meta property="og:site_name" content="PasDoc" />
 <script type="application/ld+json">
-{"headline":"PasDoc","@type":"WebPage","description":"Documentation tool for Pascal source code","url":"https://pasdoc.github.io//MarkdownOption.html","@context":"https://schema.org"}</script>
+{"@type":"WebPage","description":"Documentation tool for Pascal source code","url":"https://pasdoc.github.io//MarkdownOption.html","headline":"PasDoc","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=54696a4132595d9e5d851b8528e476a8df3c5917">
+    <link rel="stylesheet" href="/assets/css/style.css?v=a0fe59977088f64d64c2e3ebf50fe71bb36c378e">
   </head>
   <body>
     <div id="layout-container">
@@ -61,7 +61,30 @@
 <p>Inline code: <code>`code`</code> (output like <a href="CodeTag">@code tag</a>)</p>
 </li>
 <li>
-<p>Links: <code>[Link Title](<a href="https://example.org/link-target" class="bare">https://example.org/link-target</a>)</code> (output like <a href="UrlTag">@url tag</a>)</p>
+<p>Links to external URLs: <code>[Link Title](<a href="https://example.org/link-target" class="bare">https://example.org/link-target</a>)</code> (output like <a href="UrlTag">@url tag</a>)</p>
+</li>
+<li>
+<p>Links to Pascal items:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>(TODO, see <a href="https://github.com/pasdoc/pasdoc/issues/151">#151</a>) <code>[PascalItem]</code>, when not followed immediately by an opening parenthesis, is a simple link to the given Pascal identifier. The link will lead to <code>PascalItem</code> and will also display <code>PascalItem</code> title. You can always use qualified Pascal identifiers, like <code>UnitFoo.PascalItemInUnitFoo</code> or <code>TClassBar.PascalItemInTClassBar</code> or even <code>UnitFoo.TClassBar.PascalItemInTClassBar</code></p>
+</li>
+<li>
+<p>Alternatively, provide separate link title and target, using <code>#</code> to indicate that target is a Pascal item (not URL). Like this: <code>[Title of link](#PascalItem)</code>. This is compatible with <a href="https://www.doxygen.nl/manual/markdown.html">Doxygen</a>.</p>
+</li>
+<li>
+<p>Note: Use backslash to prevent turning something into links, <code>\[</code> in Markdown will result in outputting simple <code>[</code> character. For example this is not a link: <code>\[NotALink]</code>.</p>
+</li>
+<li>
+<p>Output of Pascal links is just like <a href="LinkTag">@link tag</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Multi-line code (preformatted text, output like <a href="PreformattedTag">@preformatted tag</a>):</p>
