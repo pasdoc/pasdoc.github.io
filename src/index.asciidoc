@@ -45,7 +45,7 @@ link:AdvancedFeatures[AdvancedFeatures] of PasDoc.
 
 ## Get involved
 
-https://github.com/orgs/pasdoc/teams/developers[We use GitHub Team Discussions] as our forum. You're welcome to join there, everyone is welcome :)
+https://github.com/pasdoc/pasdoc/discussions[We use GitHub Team Discussions] as our forum. You're welcome to join there, everyone is welcome :)
 
 You can also use the https://github.com/pasdoc/pasdoc/issues[GitHub issues] to report bugs and feature requests. If you would like to contribute, it's best to https://github.com/pasdoc/pasdoc/pulls[submit a pull request using GitHub], although you can also attach a patch file to an issue.
 
