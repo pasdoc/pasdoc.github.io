@@ -10,27 +10,11 @@ It is using
 * [Jekyll](https://jekyllrb.com/) (generate static HTMLs)
 * [jekyll-asciidoc](https://github.com/asciidoctor/jekyll-asciidoc) (generate static HTMLs from sources in [AsciiDoctor](https://asciidoctor.org/) format)
 
-The AsciiDoctor sources are in `src/` directory.
-
-You can edit sources in `src/` directly, or you can also edit [PasDoc wiki](https://github.com/pasdoc/pasdoc/wiki/) and we'll synchronize them both. In the future, we'll delete PasDoc wiki, and only maintain files in `src`.
+The AsciiDoctor sources are in `src/` directory. Just submit a [pull request](https://github.com/pasdoc/pasdoc.github.io/pulls) to modify these source files, we'll take care of the rest.
 
 ## Content
 
-If you want to edit the documentation contents, just edit our wiki:
-https://github.com/pasdoc/pasdoc/wiki .
-
-The wiki pages should use [AsciiDoctor](https://asciidoctor.org/) format.
-
-The website contents are auto-generated from wiki sources, by running
-
-```
-# Copies wiki contents to src/*.asciidoc,
-# doing some necessary replacements.
-# Assumes you have wiki GIT repository cloned in ../pasdoc.wiki/ , get by:
-#   git clone https://github.com/pasdoc/pasdoc.wiki.git
-./synchronize_from_wiki.sh
-make
-```
+The files in `src/` should use [AsciiDoctor](https://asciidoctor.org/) format.
 
 ## How is the site generated
 
