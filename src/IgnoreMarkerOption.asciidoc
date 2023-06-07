@@ -1,4 +1,6 @@
-Use `--ignore-marker XXX` to instruct PasDoc to explicitly ignore comments that start with given marker. 
+:doctitle: --ignore-marker command-line option
+
+Use `--ignore-marker XXX` to instruct PasDoc to explicitly ignore comments that start with given marker.
 
 This allows to use "marker" to _reject_ specific comments (in contrast to using link:CommentMarker[--marker] option to _accept_ specific comments).
 

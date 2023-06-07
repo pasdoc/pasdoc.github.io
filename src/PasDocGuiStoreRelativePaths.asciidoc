@@ -1,3 +1,5 @@
+:doctitle: GUI: Store Relative Paths
+
 Checkbox _Store only relative paths in project file_ on PasDocGui_:
 
 If this is checked (the default), all paths (like Pascal units filenames, include files paths, output path, filenames of introduction and css files) are stored as relative paths inside the `xxx.pds` file.

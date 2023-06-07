@@ -1,3 +1,5 @@
+:doctitle: Introduction and Conclusion Files
+
 You can use the link:CommandLine[CommandLine] options `--introduction=FILE-NAME` and `--conclusion=FILE-NAME` to add additional special pages to your documentation.
 
 Since PasDoc 0.16.0 you can also use option `--additional=FILE-NAME` to provide any number of additional files. Option `--additional` can be shortened to `-A`.

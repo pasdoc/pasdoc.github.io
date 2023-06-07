@@ -1,3 +1,5 @@
+:doctitle: @includeCode tag
+
 The tag `@includeCode` includes an external file inside the documentation,
 treating it as Pascal source code. The included code will be nicely
 displayed (with colors, bold keywords and so on). This is useful to show

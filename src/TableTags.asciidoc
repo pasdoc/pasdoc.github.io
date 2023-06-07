@@ -1,3 +1,5 @@
+:doctitle: Tags to create tables: @table, @row, @rowHead, @cell
+
 You can create tables using @table tag. Within @table tag, only two tags
 are allowed: @row and @rowHead. @rowHead creates a heading row (usually
 you will put only one such row as the first row of the table), @row

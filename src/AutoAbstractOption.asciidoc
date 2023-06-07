@@ -1,3 +1,5 @@
+:doctitle: --auto-abstract command-line option
+
 ## [[overview]] Overview
 
 If you run pasdoc with --auto-abstract link:CommandLine[CommandLine]

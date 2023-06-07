@@ -1,3 +1,5 @@
+:doctitle: Developer Homepages
+
 User homepages (personal notes) on the wiki:
 
 * link:DoDi[DoDi]

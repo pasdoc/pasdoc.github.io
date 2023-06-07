@@ -1,3 +1,5 @@
+:doctitle: @link tag
+
 Inside a description of one item you can place a link to another item
 using @link link:SupportedTags[tag]. Depending on the type of output,
 these links could be hyperlinks (in HTML) or page references (in LaTeX).

@@ -1,3 +1,5 @@
+:doctitle: --sort command-line option
+
 By default, when pasdoc generates the documentation, it shows items in
 the same order as they were declared in your source files. This makes
 sense if the order of declarations in your code is reasonable,

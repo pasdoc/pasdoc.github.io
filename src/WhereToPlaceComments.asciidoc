@@ -1,3 +1,5 @@
+:doctitle: Where To Place Comments
+
 ## [[basic-rule]] Basic rule
 
 If you want to assign some description to your item (where _item_ means

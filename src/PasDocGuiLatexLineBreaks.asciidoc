@@ -1,4 +1,4 @@
-## Line breaks option on _LaTeX options_ page of PasDocGui
+:doctitle: GUI: Line breaks in _LaTeX options_
 
 When a document is processed, sometimes there is too much text to fit on a line but moving it to the next line would make the line too short. LaTeX has two options for handling this:
 

@@ -1,3 +1,5 @@
+:doctitle: @longCode tag
+
 link:index[PasDoc] uses the tag @longcode to mark example code which
 is preformatted so the layout should not be changed in the output. In
 addition link:index[PasDoc] will add code highlighting like in the

@@ -1,3 +1,5 @@
+:doctitle: @latex tag
+
 The @latex tag is the equivalent of the link:HtmlTag[@html tag] for
 LaTeX output formats. Text inside a @latex(...) tag will be copied
 verbatim when pasdoc generates documentation in

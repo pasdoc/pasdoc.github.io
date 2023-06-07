@@ -1,3 +1,5 @@
+:doctitle: @param, @returns and @raises tags
+
 link:index[PasDoc] supports three link:SupportedTags[tags] for describing functions: @param, @returns and @raises.
 
 * @param marks the description of a function's parameter. First word in tag parameter must be the name of function's parameter.

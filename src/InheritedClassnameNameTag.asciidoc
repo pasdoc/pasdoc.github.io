@@ -1,3 +1,5 @@
+:doctitle: @name, @classname, @inheritedClass, @inherited tags
+
 Use the tag @name to insert the name of the current item.
 
 The following three tags may be used only within a class, i.e. when

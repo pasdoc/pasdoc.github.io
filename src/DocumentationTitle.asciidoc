@@ -1,3 +1,5 @@
+:doctitle: --title command-line option
+
 You can specify the title for the documentation using the --title or -T
 directive on the link:index[PasDoc]
 link:CommandLine[CommandLine].

@@ -1,3 +1,5 @@
+:doctitle: --visible-members command-line option
+
 The link:CommandLine[CommandLine] option `--visible-members` (short
 form is `-M`) controls what class members are visible in final
 documentation. The following visibility types are known:

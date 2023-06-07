@@ -1,3 +1,5 @@
+:doctitle: Matching @-tags parameters
+
 When you surround @-tags parameters in parentheses, then the end of the
 parameters is understood to be at the __matching closing parenthesis__.
 For example the following will be interpreted by pasdoc as you expect:

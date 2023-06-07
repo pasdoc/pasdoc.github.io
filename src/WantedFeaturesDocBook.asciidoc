@@ -1,3 +1,5 @@
+:doctitle: Wanted Feature: DocBook Output
+
 DocBook is a popular XML (and SGML) based standard to write technical
 documentation.
 

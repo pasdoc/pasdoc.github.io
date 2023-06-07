@@ -1,3 +1,5 @@
+:doctitle: --include command-line option
+
 Just like a Pascal compiler, link:index[PasDoc] understands $include
 compiler directive and reads include files. It searches for include
 files in the current directory and in all directories given with the

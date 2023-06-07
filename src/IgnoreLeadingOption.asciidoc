@@ -1,3 +1,5 @@
+:doctitle: --ignore-leading command-line option
+
 link:CommandLine[CommandLine] option
 `--ignore-leading=<leading-characters>` makes link:index[PasDoc]
 ignore <leading-characters> at the beginning of comment lines. This

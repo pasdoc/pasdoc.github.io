@@ -1,3 +1,5 @@
+:doctitle: Michalis Kamburelis
+
 I'm one of pasdoc's developers. I use pasdoc most of all to document my
 https://castle-engine.io/[Castle Game Engine], an
 open-source 3D and 2D game engine for Object Pascal. My webpage is
@@ -482,7 +484,7 @@ pasdoc descriptions are used within Pascal source files, and people
 don't like to have long lines in source files, and are often
 uncomfortable with viewing source files that have too long lines. This
 may seem like a small thing, but actually this means that many other
-rules of wiki engines must be different than pasdoc wiki-like syntax. 
+rules of wiki engines must be different than pasdoc wiki-like syntax.
 * Note that we can't diectly borrow ideas from
 http://www.maplefish.com/todd/aft.html[aft] because aft uses tab
 character to mark various things. But people are often uncomfortable

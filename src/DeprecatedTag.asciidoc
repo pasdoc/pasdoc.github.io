@@ -1,3 +1,5 @@
+:doctitle: @deprecated tag and parsing hint directives
+
 This page describes two closely related pasdoc features:
 
 ## [[deprecated-tag]] @deprecated tag

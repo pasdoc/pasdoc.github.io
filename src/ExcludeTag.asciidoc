@@ -1,3 +1,5 @@
+:doctitle: @exclude tag
+
 link:index[PasDoc] uses the link:SupportedTags[tag] @exclude to
 mark items that should not be in the documentation. This can be any type
 of item, e.g. a complete class, a method, a field etc.

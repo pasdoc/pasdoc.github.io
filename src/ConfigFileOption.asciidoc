@@ -1,6 +1,8 @@
+:doctitle: Configuration file for command-line options
+
 ## [[overview]] Overview
 
-Use special `@<path-to-file>` link:CommandLine[CommandLine] option to make pasdoc read options from file. This is similar to how FPC allows specifying config files. 
+Use special `@<path-to-file>` link:CommandLine[CommandLine] option to make pasdoc read options from file. This is similar to how FPC allows specifying config files.
 
 For example:
 

@@ -1,3 +1,5 @@
+:doctitle: Process of making new PasDoc release
+
 Release making process:
 
 ## Change version number

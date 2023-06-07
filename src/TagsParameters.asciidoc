@@ -1,3 +1,5 @@
+:doctitle: Processing @-tags
+
 Tags can be categorized into 3 groups, based on how they treat their
 parameters:
 

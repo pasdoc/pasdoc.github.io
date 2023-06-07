@@ -1,3 +1,5 @@
+:doctitle: Conditional processing and related command-line options --define, --conditionals
+
 ## [[overview]] Overview
 
 Pascal allows for _directives_ in the source code. These are comments that contain commands for the compiler introduced by the dollar sign.
@@ -27,7 +29,7 @@ procedure PrintText(S: String);
 
 As PasDoc parses Pascal files it must be able to correctly understand conditional directives. So it understands a number of directives dealing with conditional compilation: `$ifdef`, `$if`, `$else`, `$endif`, `$ifend`, `$ifopt`, `$define` and `$undef`.
 
-In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don't automatically define `MSWINDOWS`, even when you run PasDoc on Windows. The reason for this is that you probably want to generate *one* documentation that makes sense for *all* operating systems, *all* compiler versions and so on. It's up to you to decide which symbols should be defined to achieve this. 
+In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don't automatically define `MSWINDOWS`, even when you run PasDoc on Windows. The reason for this is that you probably want to generate *one* documentation that makes sense for *all* operating systems, *all* compiler versions and so on. It's up to you to decide which symbols should be defined to achieve this.
 
 You can tell PasDoc to have some symbol defined using the `--define` and `--conditionals`
 link:CommandLine[CommandLine] options described below. It's valid to specify multiple --define or --condtional options.
@@ -85,8 +87,8 @@ const NewLine = ;
 You have to make sure that the combination of symbols used by PasDoc "makes sense", i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:
 
 ```pascal
-const NewLine = 
-  {$ifdef PASDOC} 
+const NewLine =
+  {$ifdef PASDOC}
     'The value of this constant depends on the operating system'
   {$else}
     {$ifdef MSWINDOWS} #13#10 {$endif} {$ifdef POSIX} #10 {$endif}

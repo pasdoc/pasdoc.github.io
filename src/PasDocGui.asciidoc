@@ -1,3 +1,5 @@
+:doctitle: Using PasDoc GUI
+
 `pasdoc_gui` is a GUI interface to the whole link:index[PasDoc]
 functionality. You can find it inside pasdoc releases in the bin/
 subdirectory, along the traditional command-line pasdoc utility.

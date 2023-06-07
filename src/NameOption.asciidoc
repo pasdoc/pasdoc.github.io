@@ -1,3 +1,5 @@
+:doctitle: --name command-line option
+
 When the output format of the documentation is not HTML (such as
 link:LatexOutput[LaTeX generator], or
 link:HtmlHelp[HtmlHelp]), the option --name (or -N for short)

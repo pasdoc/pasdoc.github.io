@@ -1,3 +1,5 @@
+:doctitle: Compiling PasDoc from sources
+
 How to compile link:index[PasDoc]?
 
 ## [[fpc]] FPC

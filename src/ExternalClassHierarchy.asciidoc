@@ -1,3 +1,5 @@
+:doctitle: External class hierarchy
+
 To generate more complete class hierarchy diagrams (in HTML output and
 for http://www.graphviz.org/[GraphViz] graphs), link:index[PasDoc] needs to
 know about inheritance of the classes that are not included in your

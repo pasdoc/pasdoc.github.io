@@ -1,3 +1,5 @@
+:doctitle: --exclude-generator command-line option
+
 Pass to pasdoc --exclude-generator option to prevent including in the
 output various information about link:index[PasDoc] version.
 

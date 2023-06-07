@@ -1,3 +1,5 @@
+:doctitle: @include tag
+
 You can use @include link:SupportedTags[tag] to include text from
 another file into a description. For example:
 

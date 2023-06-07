@@ -1,8 +1,10 @@
-Hi! I'm pretty much the administrator of the PasDoc project currently.
+:doctitle: Johannes Berg
 
-Also check out my website at http://sipsolutions.com/
+Johannes Berg was the administrator of PasDoc project around 2003-2004.
 
-Another project I started is http://klf.sf.net/[KLF].
+Check out his website: http://sipsolutions.com/
+
+Another project started by him: http://klf.sf.net/[KLF].
 
 '''''
 

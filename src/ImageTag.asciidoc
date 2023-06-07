@@ -1,3 +1,5 @@
+:doctitle: @image tag
+
 ## [[basic-usage]] Basic usage
 
 You can use @image link:SupportedTags[tag] to include a given image file in the output. For example:
@@ -9,7 +11,7 @@ You can use @image link:SupportedTags[tag] to include a given image file in the 
 procedure DoSomething;
 ----
 
-File diagram.png must exist when you call pasdoc. It will be copied by pasdoc to the output directory. 
+File diagram.png must exist when you call pasdoc. It will be copied by pasdoc to the output directory.
 
 The filename is relative to the source file containing the `@image` tag. In the above example, the file `diagram.png` should be in the same directory as the source file. You can also use a relative filename, like `@image(../images/my.png)`. We recommend using slashes (`/`, Unix-style path separators) in the paths, as they will work on both Windows and Unix.
 
@@ -50,7 +52,7 @@ For example you can write
 { Diagram below shows how this procedure works:
   @image(
     diagram.eps
-    diagram.pdf 
+    diagram.pdf
     diagram.png
   ) }
 procedure DoSomething;

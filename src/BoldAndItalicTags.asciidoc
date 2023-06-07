@@ -1,3 +1,5 @@
+:doctitle: @bold and @italic tags
+
 Use tag @italic to format given text in __italic__. Use tag @bold to
 format given text in **bold**.
 

@@ -1,3 +1,5 @@
+:doctitle: TODO: Package Offline PasDoc docs
+
 We want to create offline documentation for pasdoc (to include in pasdoc release archives) generated automatically from content of this wiki.
 
 * The plan to handle this now is to clone GitHub wiki locally, and run Asciidoctor processing over a series of pages. We will use here the fact that all our wiki pages are written using Asciidoctor formatting.

@@ -1,3 +1,5 @@
+:doctitle: --auto-link command-line option
+
 ## [[overview]] Overview
 
 link:CommandLine[CommandLine] option `--auto-link` tells pasdoc to automatically turn identifiers into links inside your descriptions. In link:PasDocGui[PasDocGui] you can check the box _Automatically turn identifiers into links_, for the same effect.

@@ -1,3 +1,5 @@
+:doctitle: @html tag
+
 Parameters of the @html link:SupportedTags[tag] are passed verbatim
 to the HTML output format.
 

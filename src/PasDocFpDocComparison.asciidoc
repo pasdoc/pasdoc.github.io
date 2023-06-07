@@ -1,3 +1,5 @@
+:doctitle: PasDoc and FpDoc Comparison
+
 Below I tried to summarize https://pasdoc.github.io/[PasDoc] and http://www.freepascal.org/docs-html/fpdoc/fpdoc.html[FpDoc] differences. This
 is written by link:MichalisKamburelis[MichalisKamburelis], an author
 of link:index[PasDoc] -- but I tried to be as objective as I can.

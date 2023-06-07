@@ -1,3 +1,5 @@
+:doctitle: @member and @value tags
+
 This page describes @member and @value tags. Overall, their intention is
 similiar: they allow you to specify a description for some item
 (structure member or enumerated value) as part of the description of an

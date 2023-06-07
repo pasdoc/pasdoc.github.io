@@ -1,3 +1,5 @@
+:doctitle: @url tag
+
 Tag `@url` creates a link to the given URL. It can link to any URL protocol (http, https, anything else that the browser supports). For example:
 
 ```pascal

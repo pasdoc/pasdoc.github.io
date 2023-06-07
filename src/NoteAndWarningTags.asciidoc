@@ -1,3 +1,5 @@
+:doctitle: @note and @warning tags
+
 The `@note` and `@warning` tags allow to display a nicely formatted box with a note (something of particular interest to the reader) or a warning.
 
 Their content can be anything, other @-tags inside are expanded too. For example this works:

@@ -1,10 +1,12 @@
+:doctitle: Tipue search engine
+
 Pass the link:CommandLine[CommandLine] option `--use-tipue-search` to pasdoc (or check the _Use tipue search engine_ box in the link:PasDocGui[PasDocGui]) to instantly get a working "_Search_" box in the HTML output. It allows full text search on the generated documentation.
 
 The search is implemented using http://www.tipue.com/[Tipue]. It is a nice lightweight JavaScript search engine. You don't have to know how it works -- you need to _only_ pass the `--use-tipue-search` option to pasdoc, everything else is done automatically and you get a working "Search" box in your HTML documentation.
 
 ## Tipue is a client-side search engine
 
-Note that _Tipue_ is a client-side search engine (as it uses JavaScript for everything). This means that the whole work is done by your web browser. 
+Note that _Tipue_ is a client-side search engine (as it uses JavaScript for everything). This means that the whole work is done by your web browser.
 
 - On one hand, this is comfortable, as it allows the "search" functionality to "just work", no matter how you view the documentation (through an HTTP server or not). You don't need to configure anything. PasDoc puts all the files where they should be (Tipue, jQuery, generated index data for Tipue), and the search works.
 

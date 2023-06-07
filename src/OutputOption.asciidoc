@@ -1,3 +1,5 @@
+:doctitle: Choose PasDoc output directory
+
 Use link:CommandLine[CommandLine] option --output DIRECTORY (short
 form is -E DIRECTORY) to tell PasDoc where to write the output file(s).
 By default PasDoc writes output files to the current directory.

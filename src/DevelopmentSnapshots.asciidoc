@@ -1,3 +1,5 @@
+:doctitle: Development Snapshots
+
 Try the current development version of link:index[PasDoc] by downloading snapshot from here:
 
 https://jenkins.castle-engine.io/public/builds/pasdoc/

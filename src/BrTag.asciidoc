@@ -1,3 +1,5 @@
+:doctitle: @br tag
+
 Tag @br forces a line break. E.g. <br> in link:HtmlOutput[HtmlOutput]
 or \\ in link:LatexOutput[LatexOutput].
 

@@ -1,8 +1,8 @@
+:doctitle: Wanted Features (old TODOs)
+
 **This page grew into a large collection of wanted features, with wildly varying chances of being actually tackled by a developer.** Although we tried to manage it, it's not organized properly enough.
 
-**Please report new wanted features to the https://sourceforge.net/p/pasdoc/feature-requests/[feature requests] or https://sourceforge.net/p/pasdoc/bugs/[bugs] issue trackers**, not by editing this page. Consider also asking first on our https://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] to know if there are ready alternatives, or if feature seems interesting enough to be implemented real soon by someone.
-
-(Features already done are on link:WantedFeaturesClosed[WantedFeaturesClosed].)
+**Please report new wanted features to the https://github.com/pasdoc/pasdoc/issues[GitHub issues]**, not by editing this page.
 
 List of wanted features:
 
@@ -92,13 +92,6 @@ generators.
 * link:WantedFeaturesDocBook[WantedFeaturesDocBook] output
 * use a Delphi project (.dpr) file
 as input and process all files listed there
-+
-This depends on doing
-link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation]
-(at least partially, just to parse the "program" keyword + program name
-+ ";" + the uses clause (with the unit names optionally followed by "in"
-+ (string) filename). It's quite easy actually :) –
-link:MichalisKamburelis[MichalisKamburelis]
 
 * Delphi IDE-Plugin to build documentation for the current editor window
 on the fly and display it (should work great using the caching
@@ -107,9 +100,6 @@ algorithm)
 * Delphi IDE-Plugin to show the documentation of a unit on a
 separate tab page of the editor window with clickable links to the
 actual implementation. (Yes, I am dreaming ;-) )
-* support for
-link:WantedFeaturesEnvironmentVariables[WantedFeaturesEnvironmentVariables] in addition to
-link:CommandLine[CommandLine] options, e.g. INCLUDE
 
 * optionally calculate correct line numbers and put those into the output
 * make caching work properly by putting the unit file's timestamp into

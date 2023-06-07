@@ -1,3 +1,5 @@
+:doctitle: @seealso tag
+
 You can use @seealso tag to show a list of related items in description
 of a given item. Allowed parameters for @seealso tag and their meaning
 are the same as for link:LinkTag[@link tag]:

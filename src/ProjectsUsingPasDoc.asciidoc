@@ -1,4 +1,4 @@
-## [[projects-using-pasdoc]] Projects using PasDoc
+:doctitle: Projects using PasDoc
 
 If you use link:index[PasDoc], your are most welcome to add your project to this page.
 

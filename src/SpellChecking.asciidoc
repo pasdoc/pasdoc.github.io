@@ -1,3 +1,5 @@
+:doctitle: Spell-checking
+
 Pasdoc can use http://aspell.sourceforge.net/[Aspell] to
 check the spelling of your descriptions. Just run pasdoc with the
 link:CommandLine[CommandLine] option --spell-check. The

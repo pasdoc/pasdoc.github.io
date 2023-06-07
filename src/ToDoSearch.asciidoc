@@ -1,3 +1,5 @@
+:doctitle: TODO: Improve searching
+
 Things to do related to searching.
 
 * We may add some option like

@@ -1,3 +1,5 @@
+:doctitle: Advanced Features
+
 Summary of the most important non-obvious PasDoc features:
 
 * The documentation can be written in an external files (see the link:ReadDescriptionFromFile[--description] command-line option), not only in the source code.

@@ -1,3 +1,5 @@
+:doctitle: Wanted Features - Template Documentation
+
 Templates are written in OP via a pseudo class and an include file (see
 the link Thomas provided to his article).
 

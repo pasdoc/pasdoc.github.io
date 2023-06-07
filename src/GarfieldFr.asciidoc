@@ -1,3 +1,5 @@
+:doctitle: Garfield Fr
+
 Hi!!
 
 I'm a Delphi developper since V1 and before i was on Turbo Pascal since

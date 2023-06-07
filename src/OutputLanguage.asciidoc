@@ -1,3 +1,5 @@
+:doctitle: Select Language and Encoding
+
 link:index[PasDoc] supports many output languages.
 
 ## [[selecting-language]] Selecting language

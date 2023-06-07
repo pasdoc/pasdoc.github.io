@@ -1,3 +1,5 @@
+:doctitle: GraphViz support
+
 link:index[PasDoc] supports the http://www.graphviz.org/[GraphViz] package
 for generating simple unit uses and class inheritance graphs.
 

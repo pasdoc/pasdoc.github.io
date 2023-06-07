@@ -1,3 +1,5 @@
+:doctitle: Writing tag parameters without parenthesis
+
 You can also specify tag parameters without enclosing them in
 parenthesis. So you can write
 
@@ -27,7 +29,7 @@ parenthesis.
 
 Multiline parameters without parenthesis are also possible with the help
 of "line feed" char '\'. Put this char at the end of line and parameter
-will spread over line feed to the next line. This mechanism is similar to 
+will spread over line feed to the next line. This mechanism is similar to
 that used in shell scripts, C language and so on.
 
 [source,pascal]

@@ -1,10 +1,10 @@
+:doctitle: TODO (old - please use GitHub issues now)
+
 Things that are (or were) planned to be done at some point:
 
 **This page grew into a large collection of TODOs, with wildly varying chances of being actually finished by some developer.** Although we tried to manage it, it's not organized properly enough.
 
-**Please report new wanted features as https://github.com/pasdoc/pasdoc/issues[issues]**, not by editing this page. 
-
-(Things already done are on link:ToDoClosed[ToDoClosed].)
+**Please report new wanted features as https://github.com/pasdoc/pasdoc/issues[issues]**, not by editing this page.
 
 * _(Partially fixed)_
 link:ToDoImageAndIncludeTagRelativeFileNames[ToDoImageAndIncludeTagRelativeFileNames]
@@ -17,7 +17,6 @@ different path than unit.
 * link:ToDoSpellChecking[ToDoSpellChecking]
 * link:ToDoOfflineDocs[ToDoOfflineDocs]
 * https://github.com/pasdoc/pasdoc/tree/master/tests/testcases/todo[tests/testcases/todo/ directory of pasdoc sources] contains some ready test cases of known problems that should be fixed.
-* link:ToDoOverloadingLinking[ToDoOverloadingLinking]
 * Global properties (implemented by FPC) parsing could be improved.
 +
 They are parsed correctly since 2006-11-25. But for now they are added by parser to U.Variables list. This should be fixed, either 1. we should have separate Properties list for each unit or 2. we should rename U.Variables to U.VariablesProperties and change corresponding strings for translators to say "Variables and global properties" instead of "Variables". Michalis prefers the 2nd option (as global properties behave like variables from the outside, just like normal properties behave like fields from the outside), but the problem is: the text "Variables and global properties" may confuse Delphi users not familiar with concept of "global properties".

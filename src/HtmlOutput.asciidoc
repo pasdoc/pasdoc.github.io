@@ -1,3 +1,5 @@
+:doctitle: HTML Output
+
 Command-line option --format html (or -O html in short) makes pasdoc
 write HTML (Hypertext Markup Language) output. HTML files are usually
 viewed using web browsers, available on all modern computer systems.

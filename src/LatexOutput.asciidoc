@@ -1,3 +1,5 @@
+:doctitle: LaTeX output
+
 link:CommandLine[CommandLine] option `--format latex` (or -O latex for
 short) makes pasdoc write output that can be interpreted using LaTeX.
 This is the preferred output format for printing the documentation.

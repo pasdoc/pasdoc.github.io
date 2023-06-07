@@ -1,3 +1,5 @@
+:doctitle: HTML Help Output
+
 _HTML Help_ is a file format for documentation. The final documentation can be a single file with an extension `.chm` (for "_compiled html_"). It was designed by Microsoft, along with some proprietary tools to create and view it, but a number of cross-platform open-source viewers also exist now.
 
 As the name suggests, the format is based on HTML. Internally, a `.chm` file is just a collection of HTML files, with some extra information. See https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help[Wikipedia] and http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx[Microsoft documentation] for more information.

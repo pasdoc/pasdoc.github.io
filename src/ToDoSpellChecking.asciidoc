@@ -1,3 +1,5 @@
+:doctitle: TODO: Improve Spell-Checking
+
 Things related to link:SpellChecking[SpellChecking] that should be done:
 
 1. In link:LatexOutput[LatexOutput], misplaced words (and suggestions for them) are not shown. See TODO item at TGenericHTMLDocGenerator.WriteSpellChecked.

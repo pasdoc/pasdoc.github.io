@@ -1,3 +1,5 @@
+:doctitle: SimpleXML output
+
 Using link:CommandLine[CommandLine] option `--format simplexml` makes pasdoc output
 a simple XML document for each unit.
 

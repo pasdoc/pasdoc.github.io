@@ -1,3 +1,5 @@
+:doctitle: Examples of command-line usage
+
 These are link:CommandLine[CommandLine] examples for
 link:index[PasDoc].
 
@@ -149,8 +151,8 @@ The title is in quotes completely because it contains spaces.
 
 ### [[fr0st-example]] Fr0sT-Brutal example
 
-Here is setup that I use for my project. It is tuned for the best 
-possible natural look - minimum of special marks, usual `//` comments 
+Here is setup that I use for my project. It is tuned for the best
+possible natural look - minimum of special marks, usual `//` comments
 style, Markdown formatting.
 
 `pasdoc.opt` file
@@ -191,7 +193,7 @@ shutdown
 
 `run.bat` file
 ----
-@ECHO OFF 
+@ECHO OFF
 
 SETLOCAL
 
@@ -238,12 +240,12 @@ procedure InitSession;
 ----
 
 * `ignore-marker=TODO` - comments that look like `//TODO` are ignored as well
-* `auto-back-comments` - one-line comments after an identifier are considered 
+* `auto-back-comments` - one-line comments after an identifier are considered
 linked to that identifier without additional special char `<`
 * `visible-members=public,published,automated` - visibility of members for public
 docs
 * `implementation-comments=join` - join comments taken from interface and
-implementation sections of a unit allowing having both brief description at the 
+implementation sections of a unit allowing having both brief description at the
 beginning and full specification inside.
 
 ----

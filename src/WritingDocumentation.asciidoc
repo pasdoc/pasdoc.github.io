@@ -1,3 +1,5 @@
+:doctitle: Writing Documentation Comments
+
 PasDoc extracts documentation from the comments that you place in your
 source code (and from external files if you use the
 link:ReadDescriptionFromFile[--description] option).

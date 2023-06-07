@@ -4,6 +4,3 @@ Some things that must be improved in pasdoc parser (PasDoc_Parser.pas), to make 
 
 * `ParseProperty`: Parser must be able to understand where are property read and write specifiers names, to avoid including private specifier names in documentation (see Michalis' mail on http://lists.sourceforge.net/lists/listinfo/pasdoc-main[mailing list] "Full declaration of properties is shown" on 2005-05-29)
 * `ParseFieldsVariables` and `ParseRecordCase`: Parser must be improved to better understand record fields in records "case clauses" and to understand "records in records", to close pasdoc bug 1199354 completely.
-* `ParseCDFP`: parser must be improved to know what are the names of procedure's parameters, to check names and order of parameters in @param tag.
-
-See also link:WantedFeaturesParsingImplementation[WantedFeaturesParsingImplementation].

@@ -1,3 +1,5 @@
+:doctitle: --auto-back-comments command-line option
+
 Use `--auto-back-comments` to automatically assign a `//` comment to the preceding identifier on the same line.
 
 For example this will be parsed in a correct way if you call pasdoc with `--auto-back-comments`:

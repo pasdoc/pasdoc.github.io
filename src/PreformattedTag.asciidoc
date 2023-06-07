@@ -1,3 +1,5 @@
+:doctitle: @preformatted tag
+
 @preformatted tag is the analogy of HTML <pre> tag. Text inside
 @preformatted tag will be copied to documentation, preserving all
 whitespaces and newlines and using fixed-width font.

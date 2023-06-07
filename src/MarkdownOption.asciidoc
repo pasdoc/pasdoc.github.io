@@ -1,3 +1,5 @@
+:doctitle: --markdown command-line option
+
 ## [[overview]] Overview
 
 Run PasDoc with `--markdown` link:CommandLine[command-line option] to understand (a subset of) https://github.github.com/gfm[Markdown] syntax in the comments. This allows to specify various formatting options without link:SupportedTags[writing `@tags`], which sometimes looks much more readable.
@@ -11,23 +13,23 @@ Note that only a subset of Markdown syntax is supported.
 * Inline code: `++`code`++` (output like link:CodeTag[@code tag])
 * Links to external URLs: `[Link Title](https://example.org/link-target)` (output like link:UrlTag[@url tag])
 
-* Links to Pascal items: 
+* Links to Pascal items:
 +
 --
-* (TODO, see https://github.com/pasdoc/pasdoc/issues/151[#151]) `[PascalItem]`, when not followed immediately by an opening parenthesis, is a simple link to the given Pascal identifier. The link will lead to `PascalItem` and will also display `PascalItem` title. You can always use qualified Pascal identifiers, like `UnitFoo.PascalItemInUnitFoo` or `TClassBar.PascalItemInTClassBar` or even `UnitFoo.TClassBar.PascalItemInTClassBar` 
+* (TODO, see https://github.com/pasdoc/pasdoc/issues/151[#151]) `[PascalItem]`, when not followed immediately by an opening parenthesis, is a simple link to the given Pascal identifier. The link will lead to `PascalItem` and will also display `PascalItem` title. You can always use qualified Pascal identifiers, like `UnitFoo.PascalItemInUnitFoo` or `TClassBar.PascalItemInTClassBar` or even `UnitFoo.TClassBar.PascalItemInTClassBar`
 * Alternatively, provide separate link title and target, using `#` to indicate that target is a Pascal item (not URL). Like this: `[Title of link](#PascalItem)`. This is compatible with https://www.doxygen.nl/manual/markdown.html[Doxygen].
 * Note: Use backslash to prevent turning something into links, `\[` in Markdown will result in outputting simple `[` character. For example this is not a link: `\[NotALink]`.
 * Output of Pascal links is just like link:LinkTag[@link tag].
 --
 
-* Multi-line code (preformatted text, output like link:PreformattedTag[@preformatted tag]): 
+* Multi-line code (preformatted text, output like link:PreformattedTag[@preformatted tag]):
 +
 *Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
 +
-[source]  
+[source]
 ----
 '''
-Example 
+Example
 preformatted
 multi-line
 text.
@@ -35,11 +37,11 @@ text.
 ----
 
 
-* Multi-line Pascal code with syntax highlighting (output like link:LongCodeTag[@longCode tag]): 
+* Multi-line Pascal code with syntax highlighting (output like link:LongCodeTag[@longCode tag]):
 +
 *Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
 +
-[source]  
+[source]
 ----
 '''pascal
 if Foo then
@@ -50,7 +52,7 @@ if Foo then
 
 * Unordered lists (output like link:ListTags[@unorderedlist tag]):
 +
-[source]  
+[source]
 ----
 * item 1
 * item 2
@@ -81,19 +83,19 @@ Where:
 
 Nested lists are supported as well. Each nested list must be indented with at least one more whitespace character than the parent item:
 
-[source]  
+[source]
 ----
 * item 1
   * item 1.2
     * item 1.3
 ----
 
-Note that PasDoc implementation of lists is somewhat simpler and stricter than, f.i., GitHub has. 
+Note that PasDoc implementation of lists is somewhat simpler and stricter than, f.i., GitHub has.
 PasDoc is much about indents - almost always a content belonging to one nesting level has the same indent. Exception is for text content without **empty line** only.
 Rules of how PasDoc reads list item contents (hereafter **indent of a text line** means number of leading whitespace characters and **indent of a list item** means number of leading characters before first character of item content - that is, leading whitespace characters plus list marker).
 
 * List item with indent lesser than current means current list is finished
-[source]  
+[source]
 ----
  * item 1
   * item 1.2
@@ -101,14 +103,14 @@ Rules of how PasDoc reads list item contents (hereafter **indent of a text line*
 ----
 
 * List item with indent greater than current means nested list
-[source]  
+[source]
 ----
 * item 1
  * item 1.1
 ----
 
 * Line of text not preceded by **empty line** belongs to current item regardless of indent
-[source]  
+[source]
 ----
 * item 1
   * item 1.1
@@ -118,7 +120,7 @@ text 1.1
 
 * Line of text preceded by **empty line** must have the same or greater indent to belong to current item. Text with lesser indent means current list is finished
 
-[source]  
+[source]
 ----
 * item 1
   * item 1.1
@@ -132,7 +134,7 @@ text 1.1
 
 * List item with the same indent is considered sibling of current item within current list (even preceded by **empty line**!)
 
-[source]  
+[source]
 ----
 * item 1
 

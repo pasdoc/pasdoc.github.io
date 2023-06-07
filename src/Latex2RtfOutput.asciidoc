@@ -1,3 +1,5 @@
+:doctitle: Latex2rtf Output
+
 When you run pasdoc with link:CommandLine[CommandLine] option
 --format=latex2rtf you will get docs.tex file suitable for processing
 with http://latex2rtf.sourceforge.net/[latex2rtf].

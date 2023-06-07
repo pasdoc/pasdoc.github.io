@@ -1,3 +1,5 @@
+:doctitle: Comment markers
+
 A "comment marker" is a special marker in the comment that marks this
 comment for use by link:index[PasDoc]. By default, pasdoc doesn't
 require any comment marker: any comment that is placed right before

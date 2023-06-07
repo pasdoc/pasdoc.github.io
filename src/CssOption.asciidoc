@@ -1,3 +1,5 @@
+:doctitle: --css command-line option
+
 By default, pasdoc generates a pasdoc.css file in the generated
 documentation in link:HtmlOutput[HTML] and link:HtmlHelp[HtmlHelp]
 formats.

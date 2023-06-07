@@ -1,3 +1,5 @@
+:doctitle: --cache command-line option
+
 Using option --cache-dir DIR you tell pasdoc to use directory DIR as a cache. This means that
 
 * Before parsing a unit pasdoc checks whether a cache file for this unit exists in the cache directory (and is newer than the unit source file). If yes, then pasdoc reads processed information about this unit from the cache. There's no need to parse and process the unit once again.

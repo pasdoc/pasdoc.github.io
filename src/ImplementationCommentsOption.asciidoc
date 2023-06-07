@@ -1,3 +1,5 @@
+:doctitle: Parse implementation comments
+
 Use the `--implementation-comments` command-line option to parse the implementation section of a unit in addition to the interface section. This way you can place the documentation comments inside the implementation section, keeping the interface section shorter.
 
 ## Example
@@ -22,7 +24,7 @@ implementation
 { This method should do something.
   @param Par1 - parameter #1
   @param Par2 - parameter #2
-  
+
   @return Success flag
   @raises Exception on error
 }
@@ -34,7 +36,7 @@ end;
 { This method should do something extended.
   @param Par1 - parameter #1
   @param Par2 - parameter #2
-  
+
   @return Success flag
   @raises Exception on error
 }
@@ -60,7 +62,7 @@ type
     { This method should do something
       @param Par1 - parameter #1
       @param Par2 - parameter #2
-      
+
       @return Success flag
       @raises Exception on error
     }
@@ -69,7 +71,7 @@ type
     { This method should do something extended
       @param Par1 - parameter #1
       @param Par2 - parameter #2
-      
+
       @return Success flag
       @raises Exception on error
     }

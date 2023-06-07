@@ -1,3 +1,5 @@
+:doctitle: Wanted Feature: Delete First Char of Each Line in Comment Block
+
 The goal of this link:WantedFeatures[WantedFeatures] is to have a
 look better comment block in source code. I use this feature in
 http://phpdoc.org[PHPDoc]. This is not a very important feature.

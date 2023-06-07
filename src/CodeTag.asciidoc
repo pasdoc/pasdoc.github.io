@@ -1,3 +1,5 @@
+:doctitle: @code tag
+
 Use the tag @code for a short (inline) source code, or an identifier. Usually, this is presented with a fixed-width font.
 
 Example:

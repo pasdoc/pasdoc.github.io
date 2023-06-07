@@ -1,3 +1,5 @@
+:doctitle: Command-line
+
 link:index[PasDoc] is called like
 
 ----

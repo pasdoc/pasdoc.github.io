@@ -1,3 +1,5 @@
+:doctitle: TODO: Improve relative paths in @include and @image
+
 **As of 2008-06-15, this is corrected, and problem described below doesn't occur. However, the analogous problem is still noticeable when using @image or @include from Pascal include file {$I include.inc}. In other words, right now `TBaseItem.BasePath` takes current unit (or introduction/conclusion) path into account, but it still doesn't take Pascal includes into account. To be fixed (using `RawDescriptionInfo` filename, there's filename of included file) after 0.11.0.**
 
 link:IncludeTag[IncludeTag] and link:ImageTag[ImageTag] should be corrected to interpret given filename relative to filename where they were used. Right now, they are relative to current directory where pasdoc is run. This means that images (or included files) may be incorrectly not found, or may be mistaken with some other file.

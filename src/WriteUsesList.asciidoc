@@ -1,3 +1,5 @@
+:doctitle: --write-uses-list command-line option
+
 link:index[PasDoc] can optionally include the list of units in a
 unit's uses clause to that unit's description. Pass the
 --write-uses-list directive on the link:CommandLine[CommandLine] to

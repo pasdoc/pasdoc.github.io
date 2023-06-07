@@ -1,3 +1,5 @@
+:doctitle: --no-macro command-line option
+
 link:CommandLine[CommandLine] option --no-macro tells pasdoc to _not_
 handle macros. In link:PasDocGui[PasDocGui] you can uncheck the box
 __Recognize FPC macros syntax when parsing__.

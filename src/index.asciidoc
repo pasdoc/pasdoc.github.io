@@ -1,3 +1,5 @@
+:doctitle: PasDoc
+
 PasDoc is a documentation tool for the Object Pascal code
 (as implemented by http://www.freepascal.org/[FreePascal] and
 http://www.embarcadero.com/products/delphi[Delphi]).
@@ -22,7 +24,7 @@ link:WritingDocumentation[WritingDocumentation] and
 link:SupportedTags[SupportedTags] for information on how to document
 your source code.
 
-Available output formats are 
+Available output formats are
 
 * link:HtmlOutput[HTML] - modern webpage documenting your project
 * link:HtmlHelp[HtmlHelp]

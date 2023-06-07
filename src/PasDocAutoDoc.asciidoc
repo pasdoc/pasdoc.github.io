@@ -1,3 +1,5 @@
+:doctitle: PasDoc documentation made by PasDoc
+
 Of course PasDoc sources can be processed by PasDoc itself.
 
 Browse documentation that pasdoc generated for itself (we call it

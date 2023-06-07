@@ -1,3 +1,5 @@
+:doctitle: Command-line options for HTML output
+
 These three command-line options insert custom HTML code to every generated page.
 
 * `--html-head <filename.html>` adds content inside the HTML <head> element.

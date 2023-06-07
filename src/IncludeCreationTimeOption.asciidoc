@@ -1,2 +1,4 @@
+:doctitle: --include-creation-time command-line option
+
 Use --include-creation-time to show the creation time of the docs in the
 output. It is not shown by default since link:index[PasDoc] 0.14.0.
