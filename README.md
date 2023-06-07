@@ -1,4 +1,18 @@
-# [PasDoc website](https://pasdoc.github.io/) sources
+# PasDoc website
+
+## Overview
+
+Sources of PasDoc website on https://pasdoc.github.io/ .
+
+It is using
+
+* [GitHub Pages](https://pages.github.com) (publish static HTMLs)
+* [Jekyll](https://jekyllrb.com/) (generate static HTMLs)
+* [jekyll-asciidoc](https://github.com/asciidoctor/jekyll-asciidoc) (generate static HTMLs from sources in [AsciiDoctor](https://asciidoctor.org/) format)
+
+The AsciiDoctor sources are in `src/` directory.
+
+You can edit sources in `src/` directly, or you can also edit [PasDoc wiki](https://github.com/pasdoc/pasdoc/wiki/) and we'll synchronize them both. In the future, we'll delete PasDoc wiki, and only maintain files in `src`.
 
 ## Content
 
