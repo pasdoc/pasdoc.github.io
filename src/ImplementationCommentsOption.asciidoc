@@ -95,9 +95,10 @@ end.
 
 ## Possible arguments (how to merge information)
 
-The `--implementation-comments` option has three possible arguments, that determine how the information is merged:
+The `--implementation-comments` option has 4 possible arguments, that determine how the information is merged:
 
 |===============
+| `none` | (Default) Do not read implementation comments.
 | `prefer-interface` | Read both interface and implementation comments. Use whichever comment is
 non-empty. If they are both non-empty, use the interface comment.
 | `join` | Read both interface and implementation comments, and concatenate them. The concatenation
