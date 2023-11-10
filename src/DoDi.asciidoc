@@ -2,7 +2,7 @@
 
 Email: DrDiettrich1@aol.com
 
-### [[pasdoc-ideas]] PasDoc Ideas
+## [[pasdoc-ideas]] PasDoc Ideas
 
 When I started to work on the link:index[PasDoc] parser, I soon
 found me also working on the item classes and the generators. This is
