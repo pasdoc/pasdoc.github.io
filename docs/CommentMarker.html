@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=d2ea60bb894576f4b4a79c40863316395a304900">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ff8b36e457d77950177012da15b16ea4fcbd78c8">
   </head>
   <body>
     <div id="layout-container">
@@ -79,10 +79,37 @@ documentation.</p>
 <span style="color: #008000; font-weight: bold">function</span> <span style="color: #0000FF">WriteLn</span>(<span style="color: #008000; font-weight: bold">const</span> s<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span>)<span style="color: #666666">:</span> <span style="color: #B00040">boolean</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>You can use this option multiple times to specify multiple markers. We will recognize and strip one of the markers (the longest one).</p>
+</div>
 </dd>
 <dt class="hdlist1">--marker-optional</dt>
 <dd>
-<p>Do not require the markers given in <code>--marker &lt;marker&gt;</code> but remove them from the comment if they exist.</p>
+<p>Do not require the markers given in <code>--marker &lt;marker&gt;</code> but still remove them from the comments if they exist.</p>
+<div class="paragraph">
+<p>If you provide multiple markers (using multiple <code>--marker</code> options), we will remove the longest one that exists in the comment. For example this source code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">var</span>
+  <span style="color: #408080; font-style: italic">{* Some comment. }</span>
+  Marker1<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+
+  <span style="color: #408080; font-style: italic">{** Another comment. }</span>
+  Marker2<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&#8230;&#8203;will be properly processed by this pasdoc command line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc '--marker=*' '--marker=**' --marker-optional test.pas</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The order of <code>--marker</code> options on the command-line should not matter (internally, we sort them, to detect the longest first).</p>
+</div>
 </dd>
 </dl>
 </div>
