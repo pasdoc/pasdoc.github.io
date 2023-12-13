@@ -32,6 +32,27 @@ Example using `:` as marker:
   @returns(true if successfull and false if there is no console window.) }
 function WriteLn(const s: string): boolean;
 ----
++
+You can use this option multiple times to specify multiple markers. We will recognize and strip one of the markers (the longest one).
 
 --marker-optional::
-Do not require the markers given in `--marker <marker>` but remove them from the comment if they exist.
+Do not require the markers given in `--marker <marker>` but still remove them from the comments if they exist.
++
+If you provide multiple markers (using multiple `--marker` options), we will remove the longest one that exists in the comment. For example this source code:
++
+[source,pascal]
+----
+var
+  {* Some comment. }
+  Marker1: Integer;
+
+  {** Another comment. }
+  Marker2: Integer;
+----
++
+...will be properly processed by this pasdoc command line.
++
+----
+pasdoc '--marker=*' '--marker=**' --marker-optional test.pas
+----
+The order of `--marker` options on the command-line should not matter (internally, we sort them, to detect the longest first).
