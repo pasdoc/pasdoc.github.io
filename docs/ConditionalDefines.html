@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=8a73ab51162ec22ad9db9c21cd185dc5723b6992">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3a081e098b0acbd6eeb253676eabeda0bd475303">
   </head>
   <body>
     <div id="layout-container">
@@ -93,11 +93,52 @@ comma, as shown in the following example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>pasdoc --define DEBUG,FPC,MSWINDOWS</pre>
+<pre>pasdoc --define DEBUG,FPC,MSWINDOWS myunit.pas</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This defines three conditionals: DEBUG, FPC and MSWINDOWS.</p>
+</div>
+<div class="paragraph">
+<p>You can use the assignment operator to define a symbol with a value, like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --define FPC_FULLVERSION:=30202 --define LCL_FULLVERSION:=2020401 myunit.pas</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This makes the given symbol behave like a macro, that expands to the given value, both during normal Pascal code parsing and during conditional expression evaluation in <code>$if</code> / <code>$elseif</code>.</p>
+</div>
+<div class="paragraph">
+<p>This is useful to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Define values for useful symbols used in conditional expressions, like:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Special FPC <code>FPC_FULLVERSION</code> symbol (available only in conditional expressions in FPC, though in PasDoc it will be also expanded during normal Pascal code parsing)</p>
+</li>
+<li>
+<p><code>LCL_FULLVERSION</code> defined in Lazarus <code>LCLVersion</code> unit,</p>
+</li>
+<li>
+<p><a href="https://delphi.fandom.com/wiki/CompilerVersion_Constant">CompilerVersion</a> constant from Delphi.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Or to define FPC macros values at command-line.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -173,7 +214,25 @@ MSWINDOWS</pre>
 <h2 id="_support-for-if">Support for <code>$if</code></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>$if</code> directive allows to evaluate an expression, like <code>{$if defined(MSWINDOWS) and not defined(FPC)}</code>. Not all <code>$if</code> features supported by compilers (like FPC or Delphi) are supported right now by PasDoc. We support:</p>
+<p>The <code>$if</code> directive allows to evaluate an expression, like <code>{$if defined(MSWINDOWS) and not defined(FPC)}</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+We had a number of improvements to <code>$if</code> parsing since last PasDoc 0.16.0 release. For now, use <a href="DevelopmentShapshots">development snapshots</a> to get the latest version with full support for <code>$if</code> expressions.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Most of <code>$if</code> features supported by compilers (like FPC or Delphi) are now supported.</p>
+</div>
+<div class="paragraph">
+<p>We support:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -184,10 +243,13 @@ MSWINDOWS</pre>
 <p>Constants <code>false</code>, <code>true</code></p>
 </li>
 <li>
-<p>Composing the expression using <code>and</code>, <code>or</code>, <code>not</code> operations</p>
+<p>Composing the expression using <code>and</code>, <code>or</code>, <code>not</code>, <code>xor</code> operations</p>
 </li>
 <li>
-<p>Comparing (only Booleans for now) using <code>=</code></p>
+<p>Comparing (Booleans and Integers) using <code>=</code></p>
+</li>
+<li>
+<p>Addition, multiplication operatoers.</p>
 </li>
 </ul>
 </div>
@@ -201,9 +263,6 @@ MSWINDOWS</pre>
 </li>
 <li>
 <p><code>declared(identifier)</code> function</p>
-</li>
-<li>
-<p>Other comparisons, comparisons as integers, like <code>{$if CompilerVersion &gt; 20}</code></p>
 </li>
 </ul>
 </div>
