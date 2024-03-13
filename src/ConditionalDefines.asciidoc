@@ -42,10 +42,30 @@ a unit is started. Each define should be separated from the others by a
 comma, as shown in the following example:
 
 ----
-pasdoc --define DEBUG,FPC,MSWINDOWS
+pasdoc --define DEBUG,FPC,MSWINDOWS myunit.pas
 ----
 
 This defines three conditionals: DEBUG, FPC and MSWINDOWS.
+
+You can use the assignment operator to define a symbol with a value, like this:
+
+----
+pasdoc --define FPC_FULLVERSION:=30202 --define LCL_FULLVERSION:=2020401 myunit.pas
+----
+
+This makes the given symbol behave like a macro, that expands to the given value, both during normal Pascal code parsing and during conditional expression evaluation in `$if` / `$elseif`.
+
+This is useful to:
+
+- Define values for useful symbols used in conditional expressions, like:
++
+--
+- Special FPC `FPC_FULLVERSION` symbol (available only in conditional expressions in FPC, though in PasDoc it will be also expanded during normal Pascal code parsing)
+- `LCL_FULLVERSION` defined in Lazarus `LCLVersion` unit,
+- https://delphi.fandom.com/wiki/CompilerVersion_Constant[CompilerVersion] constant from Delphi.
+--
+
+- Or to define FPC macros values at command-line.
 
 ## [[conditionals-option]] --conditionals option
 
@@ -99,15 +119,21 @@ Make sure to execute PasDoc with command-line option `-d PASDOC` to make it work
 
 ## Support for `$if`
 
-The `$if` directive allows to evaluate an expression, like `{$if defined(MSWINDOWS) and not defined(FPC)}`. Not all `$if` features supported by compilers (like FPC or Delphi) are supported right now by PasDoc. We support:
+The `$if` directive allows to evaluate an expression, like `{$if defined(MSWINDOWS) and not defined(FPC)}`.
+
+NOTE: We had a number of improvements to `$if` parsing since last PasDoc 0.16.0 release. For now, use link:DevelopmentShapshots[development snapshots] to get the latest version with full support for `$if` expressions.
+
+Most of `$if` features supported by compilers (like FPC or Delphi) are now supported.
+
+We support:
 
 - Functions `defined(SYMBOL)`, `undefined(SYMBOL)`, `option(R+)`
 - Constants `false`, `true`
-- Composing the expression using `and`, `or`, `not` operations
-- Comparing (only Booleans for now) using `=`
+- Composing the expression using `and`, `or`, `not`, `xor` operations
+- Comparing (Booleans and Integers) using `=`
+- Addition, multiplication operatoers.
 
 In particular, some not supported features:
 
 - `sizeof(xxx)` function (not likely to be ever supported -- requires a compiler to determine it)
 - `declared(identifier)` function
-- Other comparisons, comparisons as integers, like `{$if CompilerVersion > 20}`
