@@ -12,9 +12,9 @@ Release making process:
 
 ## [[write-changelog-entry]] Write ChangeLog entry
 
-Make sure you have nice entry in https://github.com/pasdoc/pasdoc/blob/master/ChangeLog file in pasdoc sources.
+Make sure you have nice entry in https://github.com/pasdoc/pasdoc/blob/master/ChangeLog.md file in pasdoc sources.
 
-We try to write the ChangeLog entry _while_ developing PasDoc (each time someone does something significant, it's immediately added to the ChangeLog). So at this point, mainly _review and finalize (write new verion number and release date) ChangeLog entry_.
+We try to update this changelog file _while_ developing PasDoc (each time someone does something significant, it's immediately added to the changelog). So at this point, mainly _review and finalize (write new verion number and release date) changelog entry_.
 
 ## [[update-docs]] Update docs
 
