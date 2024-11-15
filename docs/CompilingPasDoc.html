@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=75a0dbae2d3adca1130fd4e5c6c8bce001b25ba7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=bc3a75ff581bf57249a4fe0c689319c103cf96dc">
   </head>
   <body>
     <div id="layout-container">
@@ -53,10 +53,27 @@
 <p>The preferred <a href="http://www.freepascal.org/">FreePascal</a> version should always be the latest stable FPC release. Any FPC &gt;= 2.6.0 is supported, although compilation with older versions is less extensively tested. Using the latest stable FPC is always the best option.</p>
 </div>
 <div class="paragraph">
-<p>Compile by simple make in top level sources directory.</p>
+<p>Compile by simply executing</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You must use GNU make. Under Linux this is the standard make, under Windows it is included with FPC installation (you can also get it with <a href="http://www.mingw.org/">MinGW</a> or <a href="http://www.cygwin.com/">Cygwin</a>), under FreeBSD it&#8217;s called gmake.</p>
+<p>in the main repository directory.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You must use GNU make. Under Linux this is the standard <code>make</code>. Under Windows it is included with FPC installation (you can also get it with <a href="http://www.mingw.org/">MinGW</a> or <a href="http://www.cygwin.com/">Cygwin</a>). Under FreeBSD it&#8217;s called <code>gmake</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_-lazarus"><a id="lazarus"></a> Lazarus</h3>
@@ -77,68 +94,47 @@
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_-fpc-2-0-0"><a id="fpc-2.0.0"></a> FPC &lt; 2.0.0</h3>
-<div class="paragraph">
-<p>Compatibility with FPC 1.0.10 was dropped after pasdoc 0.9.0 release. If you must compile with FPC 1.0.10, you should use pasdoc 0.9.0 sources, later sources will not compile with FPC 1.0.10. For reasoning, browse <a href="http://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a> archives for a thread <strong>"Drop compatibility with Delphi 5 and FPC 1.0.10 ?"</strong> around 2005-06-12.</p>
-</div>
-<div class="paragraph">
-<p>Compatibility with FPC 1.9.x was dropped at some point too.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-kylix-3"><a id="kylix-3"></a> Kylix 3</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_-compiling-from-the-ide"><a id="compiling-from-the-ide"></a> Compiling from the IDE</h3>
-<div class="paragraph">
-<p>The unit output path is set to the 'lib' subdirectory which must be created manually. This is to reduce clutter.</p>
-</div>
-<div class="paragraph">
-<p>The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. Sorry, you will have to live with that.</p>
-</div>
-<div class="paragraph">
-<p>Do not use the "&#8230;&#8203;" button to add directories to the search path, it will add absolute paths. Use relative paths instead.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_-compiling-using-the-makefile"><a id="compiling-using-the-makefile"></a> Compiling using the Makefile</h3>
-<div class="paragraph">
-<p>You can compile using the command make build-delphi-linux-x86</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_-older-kylix-versions"><a id="older-kylix-versions"></a> Older Kylix versions</h3>
-<div class="paragraph">
-<p>It is unknown whether the code compiles with older Kylix versions. Please report if you have any info.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_-delphi"><a id="delphi"></a> Delphi</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Supported Delphi versions are 5-7 and 2005.</p>
+<p>In theory, the project can support even Delphi versions &gt;= 5. However, it wasn&#8217;t tested with so old Delphi versions for a long time. Using Delphi &gt;= 11 is advised.</p>
 </div>
 <div class="sect2">
-<h3 id="_-compiling-from-the-ide-2"><a id="compiling-from-the-ide-1"></a> Compiling from the IDE</h3>
+<h3 id="_-compiling-from-the-ide"><a id="compiling-from-the-ide-1"></a> Compiling from the IDE</h3>
 <div class="paragraph">
-<p>The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. Sorry, you will have to live with that.</p>
+<p>Open the Delphi project in <code>source/console/</code> and build as usual.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. We may fix it, since we longer support Kylix.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_-compiling-using-the-makefile-2"><a id="compiling-using-the-makefile-1"></a> Compiling using the Makefile</h3>
+<h3 id="_-compiling-using-the-makefile"><a id="compiling-using-the-makefile-1"></a> Compiling using the Makefile</h3>
 <div class="paragraph">
-<p>You can compile using the command make build-delphi-win32</p>
+<p>You can compile using the command</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make build-delphi-win32</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_-delphi-5-specific-notes"><a id="delphi-5-specific-notes"></a> Delphi 5 specific notes</h3>
 <div class="paragraph">
-<p>You must do one specific thing to compile pasdoc with Delphi 5:</p>
+<p>You must do one specific thing to compile pasdoc with Delphi 5 (and not later):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -152,6 +148,9 @@
 <h3 id="_-using-fastmm-memory-manager"><a id="using-fastmm-memory-manager"></a> Using FastMM memory manager</h3>
 <div class="paragraph">
 <p>You can speed up pasdoc a little (about 17%) by using <a href="http://sourceforge.net/projects/fastmm">FastMM memory manager</a>. Just download FastMM, add it to your Delphi units path, and define symbol USE_FASTMM when compiling.</p>
+</div>
+<div class="paragraph">
+<p>This is not necessary with newer Delphi versions, as they already include FastMM.</p>
 </div>
 </div>
 </div>
