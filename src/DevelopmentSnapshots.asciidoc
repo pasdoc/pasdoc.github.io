@@ -6,12 +6,13 @@ https://github.com/pasdoc/pasdoc/releases/tag/snapshot
 
 The files available there are automatically build from the latest source (using https://github.com/pasdoc/pasdoc/tree/master/.github/workflows[GitHub Actions]).
 
-In particular:
+In particular, download latest builds for:
 
-* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-linux-x86_64.tar.gz[latest build for Linux (x86_64)]
-* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-win64.zip[latest build for Windows (x86_64)]
-* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-darwin-x86_64.zip[latest build for macOS (x86_64)]
-* https://github.com/pasdoc/pasdoc/[latest source code on GitHub]
+* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-linux-x86_64.tar.gz[Linux (x86_64)]
+* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-linux-arm.tar.gz[Linux (Arm, 32-bit) (Raspberry Pi)]
+* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-linux-aarch64.tar.gz[Linux (Aarch64, 64-bit) (Raspberry Pi, PineTab2)]
+* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-win64.zip[Windows (x86_64)]
+* https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.16.0-darwin-x86_64.zip[macOS (x86_64)]
 
 These snapshots look like regular link:index[PasDoc] releases, but are actually compiled automatically from https://github.com/pasdoc/pasdoc[current GitHub code].
 
