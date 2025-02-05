@@ -8,8 +8,8 @@ The way to work with pasdoc_gui is simple:
 
 1. Set the options as you wish. First of all, add the source files to
 process on the "Source Files" tab.
-2. Save your options as "pasdoc settings" (*.pds) file, this will allow you to load them back later. 3.
-Generate documentation by the big fat "Generate" button, or menu item
+2. Save your options as "pasdoc settings" (*.pds) file, this will allow you to load them back later.
+3. Generate documentation by the big fat "Generate" button, or menu item
 (shortcut F9). For link:HtmlOutput[HtmlOutput], we will automatically
 run WWW browser to view newly made documentation.
 
