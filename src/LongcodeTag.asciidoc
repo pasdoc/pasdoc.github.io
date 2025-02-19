@@ -1,26 +1,20 @@
 :doctitle: @longCode tag
 
-link:index[PasDoc] uses the tag @longcode to mark example code which
-is preformatted so the layout should not be changed in the output. In
-addition link:index[PasDoc] will add code highlighting like in the
-Delphi IDE (see also link:CodeTag[@code]).
+Use the tag `@longCode` to include a piece of Pascal code in the documentation. This is usually a short example how to use the identifier you're documenting.
 
-For compatibility with older pasdoc behaviour, you must specify an extra
-"marker" character at the beginning and at the end of text that will be
-formatted. Any character can be used but it is best to avoid the space
-character or any other character that cannot be seen. The common
-practice is to use "#" as the marker character. In previous pasdoc
-versions, this marker was used to mark end of longcode text. But
-currently longcode parameters are just parsed to the next matching
-closing parenthesis (just like parameters for any other tag).
+The Pascal code will be displayed:
 
-Example:
+- using a fixed-width font,
+- the formatting inside (whitespaces, like spaces and newlines) will be preserved (except removing a common prefix of whitespace from all the lines, see below),
+- and the code will be syntax-highlighted, using colors and bold/italic to show the structure of the code.
+
+Example usage:
 
 [source,pascal]
 ----
 (*Some example use of TForm.OnCreate :
 
-  @longCode(#
+  @longCode(
   procedure TForm1.FormCreate(Sender: TObject);
   var
     I: Integer;
@@ -35,12 +29,67 @@ Example:
       // It will be formatted as if it were meaningful pascal code.
     end;
   end;
-  #)
+  )
 *)
+property OnCreate: TNotifyEvent read FOnCreate write FOnCreate;
 ----
 
-Note that this tag does not expand its parameter (see
-link:TagsParameters[TagsParameters]), which means that @-tags are
-_not_ expanded inside the parameter of this tag, paragraphs are _not_
-inserted, and you can simply write @ char to get it in the output (no
-need to double it, like @@).
+This example will result in a description that looks like this in HTML (with the default CSS):
+
+image::assets/images/longcode.png[Sunset]
+
+The `@longCode` tag does not _expand_ the given parameter (see link:TagsParameters[TagsParameters]), which means that:
+
+- Other @-tags are _not_ expanded inside the `@longCode` contents,
+- paragraphs are _not_ inserted and in general whitespace has no special meaning,
+- you can simply write a single `@` char to get it in the output (no need to double it, like `@@`). For example this is valid:
++
+[source,pascal]
+----
+{ Do something with the pointer to an Integer. Use like this:
+  @longCode(
+    var
+      MyInteger: Integer;
+    begin
+      Foo(@MyInteger);
+    end;
+  ) }
+procedure Foo(const A: PInteger);
+----
+
+To make it comfortable to write, we remove "initial whitespace" from all the lines in the included Pascal code. To determine what is exactly the _"initial whitespace"_, we find the longest common prefix of all lines in the `@longCode` parameter that contains only whitespace, and then we remove it from all the lines. This way all the following examples are equivalent:
+
+[source,pascal]
+----
+{ @longCode(
+    Foo;
+    Bar;
+  )
+}
+procedure Sample1;
+
+{ @longCode(
+  Foo;
+  Bar;
+  )
+}
+procedure Sample2;
+
+{ @longCode(
+Foo;
+Bar;
+  )
+}
+procedure Sample3;
+
+    { @longCode(
+        Foo;
+        Bar;
+      )
+    }
+    procedure Sample4;
+----
+
+The contents of the `@longCode` tag span to the matching closing parenthesis, just like for all other `@tags`.
+
+In the past, `@longCode` required a special marker character at the beginning and at the end of the text (the convention was to use `#` for this, but any character was valid). This is no longer necessary and is just ignored by the current pasdoc versions. For backward compatibility, if the first and last character of the `@longCode` parameter (before any trimming and indentation removal) are the same, it is treated as a marker character and removed. You will usually not notice this -- as these characters are almost always whitespace or are different.
