@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9ddb5b80ed3d0910f20dc1f94f85eb1928680936">
+    <link rel="stylesheet" href="/assets/css/style.css?v=c0418a2f217ecb30efc12c22fc6440b5d9f8d2a1">
   </head>
   <body>
     <div id="layout-container">
@@ -40,29 +40,32 @@
           
 
           <div class="paragraph">
-<p><a href="index">PasDoc</a> uses the tag @longcode to mark example code which
-is preformatted so the layout should not be changed in the output. In
-addition <a href="index">PasDoc</a> will add code highlighting like in the
-Delphi IDE (see also <a href="CodeTag">@code</a>).</p>
+<p>Use the tag <code>@longCode</code> to include a piece of Pascal code in the documentation. This is usually a short example how to use the identifier you&#8217;re documenting.</p>
 </div>
 <div class="paragraph">
-<p>For compatibility with older pasdoc behaviour, you must specify an extra
-"marker" character at the beginning and at the end of text that will be
-formatted. Any character can be used but it is best to avoid the space
-character or any other character that cannot be seen. The common
-practice is to use "#" as the marker character. In previous pasdoc
-versions, this marker was used to mark end of longcode text. But
-currently longcode parameters are just parsed to the next matching
-closing parenthesis (just like parameters for any other tag).</p>
+<p>The Pascal code will be displayed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>using a fixed-width font,</p>
+</li>
+<li>
+<p>the formatting inside (whitespaces, like spaces and newlines) will be preserved (except removing a common prefix of whitespace from all the lines, see below),</p>
+</li>
+<li>
+<p>and the code will be syntax-highlighted, using colors and bold/italic to show the structure of the code.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Example usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">(*Some example use of TForm.OnCreate :</span>
 
-<span style="color: #408080; font-style: italic">  @longCode(#</span>
+<span style="color: #408080; font-style: italic">  @longCode(</span>
 <span style="color: #408080; font-style: italic">  procedure TForm1.FormCreate(Sender: TObject);</span>
 <span style="color: #408080; font-style: italic">  var</span>
 <span style="color: #408080; font-style: italic">    I: Integer;</span>
@@ -77,16 +80,87 @@ closing parenthesis (just like parameters for any other tag).</p>
 <span style="color: #408080; font-style: italic">      // It will be formatted as if it were meaningful pascal code.</span>
 <span style="color: #408080; font-style: italic">    end;</span>
 <span style="color: #408080; font-style: italic">  end;</span>
-<span style="color: #408080; font-style: italic">  #)</span>
-<span style="color: #408080; font-style: italic">*)</span></code></pre>
+<span style="color: #408080; font-style: italic">  )</span>
+<span style="color: #408080; font-style: italic">*)</span>
+<span style="color: #008000; font-weight: bold">property</span> OnCreate<span style="color: #666666">:</span> TNotifyEvent <span style="color: #008000">read</span> <span style="color: #0000FF">FOnCreate</span> <span style="color: #008000">write</span> <span style="color: #0000FF">FOnCreate</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that this tag does not expand its parameter (see
-<a href="TagsParameters">TagsParameters</a>), which means that @-tags are
-<em>not</em> expanded inside the parameter of this tag, paragraphs are <em>not</em>
-inserted, and you can simply write @ char to get it in the output (no
-need to double it, like @@).</p>
+<p>This example will result in a description that looks like this in HTML (with the default CSS):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/images/longcode.png" alt="Sunset">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>@longCode</code> tag does not <em>expand</em> the given parameter (see <a href="TagsParameters">TagsParameters</a>), which means that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Other @-tags are <em>not</em> expanded inside the <code>@longCode</code> contents,</p>
+</li>
+<li>
+<p>paragraphs are <em>not</em> inserted and in general whitespace has no special meaning,</p>
+</li>
+<li>
+<p>you can simply write a single <code>@</code> char to get it in the output (no need to double it, like <code>@@</code>). For example this is valid:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ Do something with the pointer to an Integer. Use like this:</span>
+<span style="color: #408080; font-style: italic">  @longCode(</span>
+<span style="color: #408080; font-style: italic">    var</span>
+<span style="color: #408080; font-style: italic">      MyInteger: Integer;</span>
+<span style="color: #408080; font-style: italic">    begin</span>
+<span style="color: #408080; font-style: italic">      Foo(@MyInteger);</span>
+<span style="color: #408080; font-style: italic">    end;</span>
+<span style="color: #408080; font-style: italic">  ) }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span>(<span style="color: #008000; font-weight: bold">const</span> A<span style="color: #666666">:</span> <span style="color: #B00040">PInteger</span>)<span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To make it comfortable to write, we remove "initial whitespace" from all the lines in the included Pascal code. To determine what is exactly the <em>"initial whitespace"</em>, we find the longest common prefix of all lines in the <code>@longCode</code> parameter that contains only whitespace, and then we remove it from all the lines. This way all the following examples are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ @longCode(</span>
+<span style="color: #408080; font-style: italic">    Foo;</span>
+<span style="color: #408080; font-style: italic">    Bar;</span>
+<span style="color: #408080; font-style: italic">  )</span>
+<span style="color: #408080; font-style: italic">}</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Sample1</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ @longCode(</span>
+<span style="color: #408080; font-style: italic">  Foo;</span>
+<span style="color: #408080; font-style: italic">  Bar;</span>
+<span style="color: #408080; font-style: italic">  )</span>
+<span style="color: #408080; font-style: italic">}</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Sample2</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ @longCode(</span>
+<span style="color: #408080; font-style: italic">Foo;</span>
+<span style="color: #408080; font-style: italic">Bar;</span>
+<span style="color: #408080; font-style: italic">  )</span>
+<span style="color: #408080; font-style: italic">}</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Sample3</span><span style="color: #666666">;</span>
+
+    <span style="color: #408080; font-style: italic">{ @longCode(</span>
+<span style="color: #408080; font-style: italic">        Foo;</span>
+<span style="color: #408080; font-style: italic">        Bar;</span>
+<span style="color: #408080; font-style: italic">      )</span>
+<span style="color: #408080; font-style: italic">    }</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Sample4</span><span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The contents of the <code>@longCode</code> tag span to the matching closing parenthesis, just like for all other <code>@tags</code>.</p>
+</div>
+<div class="paragraph">
+<p>In the past, <code>@longCode</code> required a special marker character at the beginning and at the end of the text (the convention was to use <code>#</code> for this, but any character was valid). This is no longer necessary and is just ignored by the current pasdoc versions. For backward compatibility, if the first and last character of the <code>@longCode</code> parameter (before any trimming and indentation removal) are the same, it is treated as a marker character and removed. You will usually not notice this&#8201;&#8212;&#8201;as these characters are almost always whitespace or are different.</p>
 </div>
 
           <footer class="site-footer">
