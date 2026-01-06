@@ -2,13 +2,15 @@
 
 Release making process:
 
-## Change version number
+## Change version number to next stable
 
 * Change version of all packages in pasdoc/source/packages/ dir. Right now this means changing
 ** .../packages/lazarus/pasdoc_package.lpk
 ** all Delphi packages
 * change VERSION in pasdoc/Makefile
 * change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas
+
+Make last version number _even_ to signify stable release, like `1.2.4`.
 
 ## [[write-changelog-entry]] Write ChangeLog entry
 
@@ -105,3 +107,11 @@ changing the project's description:
 * on https://github.com/pasdoc/pasdoc/[GitHub]
 * on https://sourceforge.net/projects/pasdoc/[SF project page]
 * on http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc[Lazarus wiki "Projects Using Lazarus" page]
+
+## Change version number to next UNstable
+
+Repeat the steps from _"Change version number to next stable"_, but :
+
+- Make last version number _odd_ to signify unstable release and add `.snapshot`, like `1.2.5.snapshot`.
+
+- Update `DevelopmentSnapshots.asciidoc` version number.

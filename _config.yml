@@ -20,7 +20,8 @@ show_downloads: true
 # our custom theme variables:
 pasdoc:
   repository_url: https://github.com/pasdoc/pasdoc
-  download_version: 0.16.0
+  stable_download_version: 0.16.0
+  unstable_download_version: 0.17.0.snapshot
   main_url: index
 
 # for highlighting in code blocks, see https://github.com/asciidoctor/jekyll-asciidoc

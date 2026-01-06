@@ -1,6 +1,6 @@
 :doctitle: PHP Output
 
-**This is new feature in upcoming PasDoc 0.17.0. Not yet available in stable 0.16.0.**
+**This is a new feature, not yet available in stable PasDoc version 0.16.0.**
 
 PHP output of PasDoc generates a map that can be used to find identifiers in your HTML documentation.
 
