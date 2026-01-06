@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=93dc6f588c49ace57f421bdd3cad6e9363996388">
+    <link rel="stylesheet" href="/assets/css/style.css?v=7607abe31269084e565ebd6d8955cc5a33a7580b">
   </head>
   <body>
     <div id="layout-container">
@@ -47,7 +47,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_change-version-number">Change version number</h2>
+<h2 id="_change-version-number-to-next-stable">Change version number to next stable</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -71,6 +71,9 @@
 <p>change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Make last version number <em>even</em> to signify stable release, like <code>1.2.4</code>.</p>
 </div>
 </div>
 </div>
@@ -239,6 +242,24 @@ changing the project&#8217;s description:</p>
 </li>
 <li>
 <p>on <a href="http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc">Lazarus wiki "Projects Using Lazarus" page</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change-version-number-to-next-unstable">Change version number to next UNstable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Repeat the steps from <em>"Change version number to next stable"</em>, but :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Make last version number <em>odd</em> to signify unstable release and add <code>.snapshot</code>, like <code>1.2.5.snapshot</code>.</p>
+</li>
+<li>
+<p>Update <code>DevelopmentSnapshots.asciidoc</code> version number.</p>
 </li>
 </ul>
 </div>
