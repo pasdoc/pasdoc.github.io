@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Wanted Features - Template Documentation | PasDoc</title>
+<title>Show (linked) source file names and line numbers | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Wanted Features - Template Documentation" />
+<meta property="og:title" content="Show (linked) source file names and line numbers" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
-<link rel="canonical" href="https://pasdoc.github.io//WantedFeaturesTemplateDocumentation.html" />
-<meta property="og:url" content="https://pasdoc.github.io//WantedFeaturesTemplateDocumentation.html" />
+<link rel="canonical" href="https://pasdoc.github.io//SourcePosition.html" />
+<meta property="og:url" content="https://pasdoc.github.io//SourcePosition.html" />
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Wanted Features - Template Documentation" />
+<meta property="twitter:title" content="Show (linked) source file names and line numbers" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Wanted Features - Template Documentation","url":"https://pasdoc.github.io//WantedFeaturesTemplateDocumentation.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Show (linked) source file names and line numbers","url":"https://pasdoc.github.io//SourcePosition.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,48 +36,70 @@
           
 
           
-          <h1>Wanted Features - Template Documentation</h1>
+          <h1>Show (linked) source file names and line numbers</h1>
           
 
-          <div class="paragraph">
-<p>Templates are written in OP via a pseudo class and an include file (see
-the link Thomas provided to his article).</p>
-</div>
+          <div class="sect1">
+<h2 id="_-show-source-position">--show-source-position</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Currently documentation would be generated for the classes like this</p>
+<p>Use command-line option <code>--show-source-position</code> to show in the generated documentation the filename and line number where each identifier is declared. This is great to let developers reading the docs actually connect them with source files.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-source-url-pattern">--source-url-pattern</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>TObject &gt; TEMPLATE_CLASS &gt; TTemplateUser</p>
+<p>You can take it a step further by also using <code>--source-url-pattern=URL-PATTERN</code>. This will turn the source file / line numbers into a clickable link, leading to the given <code>URL-PATTERN</code>. The argument <code>URL-PATTERN</code> may have placeholders</p>
 </div>
-<div class="paragraph">
-<p>now, the request is to collate this to</p>
-</div>
-<div class="paragraph">
-<p>TObject &gt; TTemplateUser</p>
-</div>
-<div class="paragraph">
-<p>so that the templating is invisible in the documentation.</p>
-</div>
-<div class="paragraph">
-<p><a href="JohannesBerg">JohannesBerg</a>: I propose to introduce a new tag
-@template specifically for this (after all, the people writing the
-program should decide whats in |;)| ). The @template tag on a class
-would cause the class to be skipped when creating documentation, but
-descendents would get all methods it directly defines as their methods.
-Basically this means three things</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>we have to add a new tag,</p>
+<p><code>{FILE}</code> (replaced by the filename, relative to <code>--source-root</code> if given, see below),</p>
 </li>
 <li>
-<p>the class containing the tag must be skipped in output, and</p>
+<p><code>{LINE}</code> line number, 1-based.</p>
 </li>
-<li>
-<p>classes must check their superclasses for extra methods, properties and attributes</p>
-</li>
-</ol>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>--source-url-pattern=&#39;https://github.com/owner/repo/blob/main/{FILE}#L{LINE}&#39;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-source-root">--source-root</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To make the behavior of <code>--show-source-position</code> and <code>--source-url-pattern</code> correct, we need to know the root of your project, relative to which we should show filenames (and put them in <code>{FILE}</code> replacement). You can provide it using <code>--source-root</code>.</p>
+</div>
+<div class="paragraph">
+<p>What is the "correct source root" should be synchronized with the <code>--source-url-pattern</code> you use.
+If the <code>--source-url-pattern</code> points to the top-level of a GIT repository browser, then your <code>--source-root</code> should point to the root of your GIT repository.</p>
+</div>
+<div class="paragraph">
+<p>When <code>--source-root-path</code> was not used, PasDoc doesn&#8217;t know the "root" of your project, and all filenames (displayed and replaced) just show the filename without any directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example-usage">Example usage</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>pasdoc /home/michalis/my_amazing_project/code/*.pas \
+  --show-source-position \
+  &#39;--source-url-pattern=https://github.com/michaliskambi/my_amazing_project/blob/main/{FILE}#L{LINE}&#39; \
+  --source-root=/home/michalis/my_amazing_project</code></pre>
+</div>
+</div>
+</div>
 </div>
 
           <footer class="site-footer">
