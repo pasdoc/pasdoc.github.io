@@ -151,6 +151,8 @@
 
 * [\--description](ReadDescriptionFromFile)
 
+* [\--show-source-position, \--source-url-pattern, \--source-root](SourcePosition)
+
 * [\--sort](SortOption)
 
 * [\--spell-check, \--spell-check-ignore-words](SpellChecking)

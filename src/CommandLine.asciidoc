@@ -129,6 +129,9 @@ Use the code of your cascading style sheet in replacement of default one.
 link:UseTipueSearchOption[--use-tipue-search]::
 Use tipue search engine in HTML output.
 
+link:SourcePosition[--show-source-position, --source-url-pattern, --source-root]::
+Show (linked) source file names and line numbers.
+
 link:SortOption[--sort]::
 Specifies what groups of items are sorted.
 

@@ -83,6 +83,7 @@ link:CommandLine[Command Line]: ::
 * link:OutputLanguage[--language]
 * link:OutputOption[--output]
 * link:ReadDescriptionFromFile[--description]
+* link:SourcePosition[--show-source-position, --source-url-pattern, --source-root]
 * link:SortOption[--sort]
 * link:SpellChecking[--spell-check, --spell-check-ignore-words]
 * link:UseTipueSearchOption[--use-tipue-search]

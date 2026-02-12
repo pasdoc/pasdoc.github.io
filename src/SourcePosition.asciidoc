@@ -1,0 +1,37 @@
+:doctitle: Show (linked) source file names and line numbers
+
+## --show-source-position
+
+Use command-line option `--show-source-position` to show in the generated documentation the filename and line number where each identifier is declared. This is great to let developers reading the docs actually connect them with source files.
+
+## --source-url-pattern
+
+You can take it a step further by also using `--source-url-pattern=URL-PATTERN`. This will turn the source file / line numbers into a clickable link, leading to the given `URL-PATTERN`. The argument `URL-PATTERN` may have placeholders
+
+- `{FILE}` (replaced by the filename, relative to `--source-root` if given, see below),
+
+- `{LINE}` line number, 1-based.
+
+For example
+
+```
+--source-url-pattern='https://github.com/owner/repo/blob/main/{FILE}#L{LINE}'
+```
+
+## --source-root
+
+To make the behavior of `--show-source-position` and `--source-url-pattern` correct, we need to know the root of your project, relative to which we should show filenames (and put them in `{FILE}` replacement). You can provide it using `--source-root`.
+
+What is the "correct source root" should be synchronized with the `--source-url-pattern` you use.
+If the `--source-url-pattern` points to the top-level of a GIT repository browser, then your `--source-root` should point to the root of your GIT repository.
+
+When `--source-root-path` was not used, PasDoc doesn't know the "root" of your project, and all filenames (displayed and replaced) just show the filename without any directory.
+
+## Example usage
+
+```
+pasdoc /home/michalis/my_amazing_project/code/*.pas \
+  --show-source-position \
+  '--source-url-pattern=https://github.com/michaliskambi/my_amazing_project/blob/main/{FILE}#L{LINE}' \
+  --source-root=/home/michalis/my_amazing_project
+```
