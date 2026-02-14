@@ -141,9 +141,6 @@ digraph Classes {
   "TPasUnit" [href="PasDoc_Items.TPasUnit.html"]
   "TSpellingError" -> "TObject"
   "TSpellingError" [href="PasDoc_Aspell.TSpellingError.html"]
-  "TStream" -> "TObject"
-  "TBufferedStream" -> "TStream"
-  "TBufferedStream" [href="PasDoc_StreamUtils.TBufferedStream.html"]
   "TStringCardinalTree" -> "TObject"
   "TStringCardinalTree" [href="PasDoc_HierarchyTree.TStringCardinalTree.html"]
   "TStringPair" -> "TObject"

@@ -42,7 +42,7 @@ Simple Pascal tokenizer.</p>
 <p>The <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> object creates <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects (tokens) for the Pascal programming language from a character input stream.
 
 <p>The <a class="normal" href="PasDoc_Scanner.html">PasDoc_Scanner</a> unit does the same (it actually uses this unit's tokenizer), with the exception that it evaluates compiler directives, which are comments that start with a dollar sign.</p>
-<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L38">Source: source/component/PasDoc_Tokenizer.pas (line 38).</a></p><span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
 <ul class="useslist"><li>Classes</li><li><a href="PasDoc_Utils.html">PasDoc_Utils</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
@@ -143,7 +143,7 @@ Simple Pascal tokenizer.</p>
 <tr><td colspan="1">
 <p>
 Checks is Name (case ignored) some Pascal keyword. Returns SD_INVALIDSTANDARDDIRECTIVE if not.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L463">Source: source/component/PasDoc_Tokenizer.pas (line 463).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -152,7 +152,7 @@ Checks is Name (case ignored) some Pascal keyword. Returns SD_INVALIDSTANDARDDIR
 <tr><td colspan="1">
 <p>
 Checks is Name (case ignored) some Pascal standard directive. Returns KEY_INVALIDKEYWORD if not.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L467">Source: source/component/PasDoc_Tokenizer.pas (line 467).</a></p></td></tr>
 </table>
 <h3 class="detail">Types</h3>
 <table class="detail wide_list">
@@ -193,7 +193,7 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <li>
 <span id="TOK_ATT_ASSEMBLER_REGISTER">TOK_ATT_ASSEMBLER_REGISTER</span></li>
 </ul>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L67">Source: source/component/PasDoc_Tokenizer.pas (line 67).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -339,7 +339,7 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <li>
 <span id="KEY_OUT">KEY_OUT</span></li>
 </ul>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L74">Source: source/component/PasDoc_Tokenizer.pas (line 74).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -451,14 +451,14 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <li>
 <span id="SD_FINAL">SD_FINAL</span></li>
 </ul>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L145">Source: source/component/PasDoc_Tokenizer.pas (line 145).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="TStandardDirectives"></span><code><strong>TStandardDirectives</strong> = set of <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L199">Source: source/component/PasDoc_Tokenizer.pas (line 199).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -518,7 +518,7 @@ enumeration type that provides all types of symbols; each symbol's name starts w
 <li>
 <span id="SYM_BACKSLASH">SYM_BACKSLASH</span>: SYM_BACKSLASH may occur when writing char constant &quot;&circ;\&quot;, see ../../tests/ok_caret_character.pas</li>
 </ul>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L219">Source: source/component/PasDoc_Tokenizer.pas (line 219).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail wide_list">
@@ -532,7 +532,7 @@ enumeration type that provides all types of symbols; each symbol's name starts w
 <tr><td colspan="1">
 <p>
 Names of the token types. All start with lower letter. They should somehow describe (in a few short words) given TTokenType.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L205">Source: source/component/PasDoc_Tokenizer.pas (line 205).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -542,7 +542,7 @@ Names of the token types. All start with lower letter. They should somehow descr
   <a href="PasDoc_Tokenizer.html#TOK_COMMENT_CSTYLE">TOK_COMMENT_CSTYLE</a> ];</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L211">Source: source/component/PasDoc_Tokenizer.pas (line 211).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -553,7 +553,7 @@ Names of the token types. All start with lower letter. They should somehow descr
 <tr><td colspan="1">
 <p>
 Symbols as strings. They can be useful to have some mapping TSymbolType -&gt; string, but remember that actually some symbols in tokenizer have multiple possible representations, e.g. &quot;right bracket&quot; is usually given as &quot;]&quot; but can also be written as &quot;.)&quot;.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L235">Source: source/component/PasDoc_Tokenizer.pas (line 235).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -573,7 +573,7 @@ Symbols as strings. They can be useful to have some mapping TSymbolType -&gt; st
 <tr><td colspan="1">
 <p>
 all Object Pascal keywords</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L435">Source: source/component/PasDoc_Tokenizer.pas (line 435).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -592,7 +592,7 @@ all Object Pascal keywords</p>
 <tr><td colspan="1">
 <p>
 Object Pascal directives</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L449">Source: source/component/PasDoc_Tokenizer.pas (line 449).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">

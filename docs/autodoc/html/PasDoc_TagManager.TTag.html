@@ -40,7 +40,7 @@
 <p class="declaration">
 <code>type TTag = class(TObject)</code></p>
 <h2 class="description">Description</h2>
-<p class="nodescription">This item has no description.</p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L138">Source: source/component/PasDoc_TagManager.pas (line 138).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TTag</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -110,7 +110,7 @@
 <tr><td colspan="2">
 <p>
 Note that AName will be converted to lowercase before assigning to Name.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L149">Source: source/component/PasDoc_TagManager.pas (line 149).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -120,7 +120,7 @@ Note that AName will be converted to lowercase before assigning to Name.</p>
 <tr><td colspan="2">
 <p>
 This is completely analogous to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">Execute</a> but used when <a class="normal" href="PasDoc_TagManager.TTagManager.html#PreExecute">TTagManager.PreExecute</a> is <code>True</code>. In this class this simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnPreExecute">OnPreExecute</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L196">Source: source/component/PasDoc_TagManager.pas (line 196).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -150,7 +150,7 @@ This will be used to do main work when this @-tag occured in description.
 <p>When we start parsing parameter of some tag with toRecursiveTags, we create a new pointer inited to <a class="normal" href="PasDoc_TagManager.TTag.html#CreateOccurenceData">CreateOccurenceData</a>. When @-tags occur inside this parameter, we pass them this pointer as EnclosingTagData (this way all @-tags with the same parent can use this pointer to communicate with each other). At the end, when parameter was parsed, we call given tag's Execute method passing the resulting pointer as ThisTagData (this way @-tags with the same parent can use this pointer to pass some data to their parent).
 
 <p>In this class this method simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a> (if assigned).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L247">Source: source/component/PasDoc_TagManager.pas (line 247).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -169,7 +169,7 @@ This will be checked always when this tag occurs within description. Given Enclo
 </ol>
 
 <p></p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L271">Source: source/component/PasDoc_TagManager.pas (line 271).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -179,7 +179,7 @@ This will be checked always when this tag occurs within description. Given Enclo
 <tr><td colspan="2">
 <p>
 In this class this simply returns <code>Nil</code>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L274">Source: source/component/PasDoc_TagManager.pas (line 274).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -189,7 +189,7 @@ In this class this simply returns <code>Nil</code>.</p>
 <tr><td colspan="2">
 <p>
 In this class this simply does <code>Value.Free</code>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L277">Source: source/component/PasDoc_TagManager.pas (line 277).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -198,7 +198,7 @@ In this class this simply does <code>Value.Free</code>.</p>
 <td class="itemcode"><span id="TagOptions"></span><code>property <strong>TagOptions</strong>: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a> read FTagOptions write FTagOptions;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L155">Source: source/component/PasDoc_TagManager.pas (line 155).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -220,7 +220,7 @@ TagManager that will recognize and handle this tag. Note that the tag instance i
 <p> and this way you have explicitly recursively expanded the tag.
 
 <p>Scenario above is actually used in implementation of @noAutoLink tag. There I call TagManager.Execute with parameter <code>AutoLink</code> set to false thus preventing auto-linking inside text within @noAutoLink.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L181">Source: source/component/PasDoc_TagManager.pas (line 181).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -230,7 +230,7 @@ TagManager that will recognize and handle this tag. Note that the tag instance i
 <tr><td colspan="2">
 <p>
 Name of the tag, that must be specified by user after the &quot;@&quot; sign. Value of this property must always be lowercase.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L185">Source: source/component/PasDoc_TagManager.pas (line 185).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -239,7 +239,7 @@ Name of the tag, that must be specified by user after the &quot;@&quot; sign. Va
       read FOnPreExecute write FOnPreExecute;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L187">Source: source/component/PasDoc_TagManager.pas (line 187).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -248,7 +248,7 @@ Name of the tag, that must be specified by user after the &quot;@&quot; sign. Va
       read FOnExecute write FOnExecute;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L190">Source: source/component/PasDoc_TagManager.pas (line 190).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -257,7 +257,7 @@ Name of the tag, that must be specified by user after the &quot;@&quot; sign. Va
       read FOnAllowedInside write FOnAllowedInside;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L251">Source: source/component/PasDoc_TagManager.pas (line 251).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

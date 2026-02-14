@@ -44,7 +44,7 @@
 List of string pairs. This class contains only non-nil objects of class TStringPair.
 
 <p>Using this class instead of TStringList (with it's Name and Value properties) is often better, because this allows both Name and Value of each pair to safely contain any special characters (including '=' and newline markers). It's also faster, since it doesn't try to encode Name and Value into one string.</p>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L55">Source: source/component/PasDoc_StringPairVector.pas (line 55).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TList</li>
 <li class="ancestor">TObjectList</li>
@@ -96,7 +96,7 @@ List of string pairs. This class contains only non-nil objects of class TStringP
 Returns all items Names and Values glued together. For every item, string Name + NameValueSepapator + Value is constructed. Then all such strings for every items all concatenated with ItemSeparator.
 
 <p>Remember that the very idea of <a class="normal" href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> and <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a> is that Name and Value strings may contain any special characters, including things you give here as NameValueSepapator and ItemSeparator. So it's practically impossible to later convert such Text back to items and Names/Value pairs.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L73">Source: source/component/PasDoc_StringPairVector.pas (line 73).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -106,7 +106,7 @@ Returns all items Names and Values glued together. For every item, string Name +
 <tr><td colspan="2">
 <p>
 Finds a string pair with given Name. Returns -1 if not found.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L77">Source: source/component/PasDoc_StringPairVector.pas (line 77).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -116,7 +116,7 @@ Finds a string pair with given Name. Returns -1 if not found.</p>
 <tr><td colspan="2">
 <p>
 Removes first string pair with given Name. Returns if some pair was removed.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L81">Source: source/component/PasDoc_StringPairVector.pas (line 81).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -126,7 +126,7 @@ Removes first string pair with given Name. Returns if some pair was removed.</p>
 <tr><td colspan="2">
 <p>
 Load from a stream using the binary format. For each item, it's Name and Value are saved. (TStringPair.Data pointers are <em>not</em> saved.)</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L86">Source: source/component/PasDoc_StringPairVector.pas (line 86).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -136,7 +136,7 @@ Load from a stream using the binary format. For each item, it's Name and Value a
 <tr><td colspan="2">
 <p>
 Save to a stream, in a format readable by <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html#LoadFromBinaryStream-TStream-">LoadFromBinaryStream</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L90">Source: source/component/PasDoc_StringPairVector.pas (line 90).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -146,7 +146,7 @@ Save to a stream, in a format readable by <a class="normal" href="PasDoc_StringP
 <tr><td colspan="2">
 <p>
 Name of first item, or '' if list empty.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L93">Source: source/component/PasDoc_StringPairVector.pas (line 93).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -155,7 +155,7 @@ Name of first item, or '' if list empty.</p>
 <td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>[i: Integer]: <a href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> read GetItems write SetItems;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L60">Source: source/component/PasDoc_StringPairVector.pas (line 60).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

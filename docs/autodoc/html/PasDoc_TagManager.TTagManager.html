@@ -40,7 +40,7 @@
 <p class="declaration">
 <code>type TTagManager = class(TObject)</code></p>
 <h2 class="description">Description</h2>
-<p class="nodescription">This item has no description.</p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L316">Source: source/component/PasDoc_TagManager.pas (line 316).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TTagManager</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -141,7 +141,7 @@
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L337">Source: source/component/PasDoc_TagManager.pas (line 337).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -149,7 +149,7 @@
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L338">Source: source/component/PasDoc_TagManager.pas (line 338).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -159,7 +159,7 @@
 <tr><td colspan="2">
 <p>
 Call OnMessage (if assigned) with given params.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L341">Source: source/component/PasDoc_TagManager.pas (line 341).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -169,7 +169,7 @@ Call OnMessage (if assigned) with given params.</p>
 <tr><td colspan="2">
 <p>
 Call <a class="normal" href="PasDoc_TagManager.TTagManager.html#DoMessage-Cardinal-TPasDocMessageType-string-arrayof-">DoMessage</a> only if <a class="normal" href="PasDoc_TagManager.TTagManager.html#PreExecute">PreExecute</a> is <code>False</code>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L346">Source: source/component/PasDoc_TagManager.pas (line 346).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -183,7 +183,7 @@ This method is the very essence of this class and this unit. It expands Descript
 <p>If WantFirstSentenceEnd then we will look for '.' char followed by any whitespace in Description. Moreover, this '.' must be outside of any @-tags parameter. Under FirstSentenceEnd we will return the number of beginning characters <em>in the output string</em> that will include correspong '.' character (note that this definition takes into account that ConvertString may translate '.' into something longer). If no such character exists in Description, FirstSentenceEnd will be set to Length(Result), so the whole Description will be treated as it's first sentence.
 
 <p>If WantFirstSentenceEnd, FirstSentenceEnd will not be set.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L450">Source: source/component/PasDoc_TagManager.pas (line 450).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -193,7 +193,7 @@ This method is the very essence of this class and this unit. It expands Descript
 <tr><td colspan="2">
 <p>
 This is equivalent to Execute(Description, AutoLink, false, Dummy)</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L456">Source: source/component/PasDoc_TagManager.pas (line 456).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -209,7 +209,7 @@ This is the underlying version of Execute. Use with caution!
 <p>If EnclosingTag &lt;&gt; nil then this is not toplevel.
 
 <p>EnclosingTagData returns collected data for given EnclosingTag. You should init it to EnclosingTag.CreateOccurenceData. It will be passed as EnclosingTagData to each of @-tags found inside Description.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L470">Source: source/component/PasDoc_TagManager.pas (line 470).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -217,7 +217,7 @@ This is the underlying version of Execute. Use with caution!
 <td class="itemcode"><span id="CoreExecute-string-boolean-TTag-TObject-"></span><code>function <strong>CoreExecute</strong>(const Description: string; AutoLink: boolean; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject): string; overload;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L476">Source: source/component/PasDoc_TagManager.pas (line 476).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -230,7 +230,7 @@ This is the underlying version of Execute. Use with caution!
 This will be used to print messages from within <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute-string-boolean-">Execute</a>.
 
 <p>Note that in this unit we essentialy &quot;don't know&quot; that parsed Description string is probably attached to some TPasItem. It's good that we don't know it (because it makes this class more flexible). But it also means that OnMessage that you assign here may want to add to passed AMessage something like + ' (Expanded_TPasItem_Name)', see e.g. TDocGenerator.DoMessageFromExpandDescription. Maybe in the future we will do some descendant of this class, like TTagManagerForPasItem.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L360">Source: source/component/PasDoc_TagManager.pas (line 360).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -242,7 +242,7 @@ This will be used to print messages from within <a class="normal" href="PasDoc_T
 This will be inserted on paragraph marker (two consecutive newlines, see wiki page WritingDocumentation) in the text. This should specify how paragraphs are marked in particular output format, e.g. html generator may set this to '&lt;p&gt;'.
 
 <p>Default value is ' ' (one space).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L368">Source: source/component/PasDoc_TagManager.pas (line 368).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -256,7 +256,7 @@ This will be inserted on each whitespace sequence (but not on paragraph break). 
 <p>Although in some pasdoc output formats amount of whitespace also does not matter (e.g. HTML and LaTeX) but in other (e.g. plain text) it matters, so such space compression is needed. In other output formats (no examples yet) it may need to be expressed by something else than simple space, that's why this property is exposed.
 
 <p>Default value is ' ' (one space).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L383">Source: source/component/PasDoc_TagManager.pas (line 383).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -279,7 +279,7 @@ This will be inserted on <code>@-</code> in description, and on a normal single 
   <dt><a class="normal" href="PasDoc_TagManager.TTagManager.html#EmDash">EmDash</a></dt>
   <dd>This will be inserted on <code>---</code> in description.</dd>
 </dl>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L398">Source: source/component/PasDoc_TagManager.pas (line 398).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -289,7 +289,7 @@ This will be inserted on <code>@-</code> in description, and on a normal single 
 <tr><td colspan="2">
 <p>
 This will be inserted on <code>--</code> in description. This should produce en-dash (as in LaTeX). Default value is '--'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L403">Source: source/component/PasDoc_TagManager.pas (line 403).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -299,7 +299,7 @@ This will be inserted on <code>--</code> in description. This should produce en-
 <tr><td colspan="2">
 <p>
 This will be inserted on <code>---</code> in description. This should produce em-dash (as in LaTeX). Default value is '---'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L408">Source: source/component/PasDoc_TagManager.pas (line 408).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -311,7 +311,7 @@ This will be inserted on <code>---</code> in description. This should produce em
 This will be called from <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute-string-boolean-">Execute</a> when URL will be found in Description. Note that passed here URL will <em>not</em> be processed by <a class="normal" href="PasDoc_TagManager.TTagManager.html#ConvertString">ConvertString</a>.
 
 <p>This tells what to put in result on URL. If this is not assigned, then ConvertString(URL) will be appended to Result in <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute-string-boolean-">Execute</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L417">Source: source/component/PasDoc_TagManager.pas (line 417).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -322,7 +322,7 @@ This will be called from <a class="normal" href="PasDoc_TagManager.TTagManager.h
 <tr><td colspan="2">
 <p>
 This should check does QualifiedIdentifier looks like a name of some existing identifier. If yes, sets AutoLinked to true and sets QualifiedIdentifierReplacement to a link to QualifiedIdentifier (QualifiedIdentifierReplacement should be ready to be put in final documentation, i.e. already in the final output format). By default AutoLinked is false.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L425">Source: source/component/PasDoc_TagManager.pas (line 425).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -331,7 +331,7 @@ This should check does QualifiedIdentifier looks like a name of some existing id
       read FConvertString write FConvertString;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L480">Source: source/component/PasDoc_TagManager.pas (line 480).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -339,7 +339,7 @@ This should check does QualifiedIdentifier looks like a name of some existing id
 <td class="itemcode"><span id="Abbreviations"></span><code>property <strong>Abbreviations</strong>: TStringList read FAbbreviations write FAbbreviations;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L482">Source: source/component/PasDoc_TagManager.pas (line 482).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -366,7 +366,7 @@ When <code>PreExecute</code> is <code>True</code>, tag manager will work a littl
 </ul>
 
 <p></p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L512">Source: source/component/PasDoc_TagManager.pas (line 512).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -377,7 +377,7 @@ When <code>PreExecute</code> is <code>True</code>, tag manager will work a littl
 <tr><td colspan="2">
 <p>
 When <code>Markdown</code> is <code>True</code>, Markdown syntax is considered</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L516">Source: source/component/PasDoc_TagManager.pas (line 516).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

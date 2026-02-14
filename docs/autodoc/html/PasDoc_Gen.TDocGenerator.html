@@ -42,7 +42,7 @@
 <h2 class="description">Description</h2>
 <p>
 Base generator class, to be specialized for specific output formats. This abstract object will do the complete process of writing documentation files. It will be given the collection of units that was the result of the parsing process and a configuration object that was created from default values and program parameters. Depending on the output format, one or more files may be created (HTML will create several, Tex only one).</p>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L237">Source: source/component/PasDoc_Gen.pas (line 237).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
 <li class="ancestor">TComponent</li>
@@ -547,7 +547,7 @@ Base generator class, to be specialized for specific output formats. This abstra
 <tr><td colspan="2">
 <p>
 the (human) output language of the documentation file(s)</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L461">Source: source/component/PasDoc_Gen.pas (line 461).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -555,7 +555,7 @@ the (human) output language of the documentation file(s)</p>
 <td class="itemcode"><span id="FClassHierarchy"></span><code><strong>FClassHierarchy</strong>: <a href="PasDoc_HierarchyTree.TStringCardinalTree.html">TStringCardinalTree</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L463">Source: source/component/PasDoc_Gen.pas (line 463).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -565,7 +565,7 @@ the (human) output language of the documentation file(s)</p>
 <tr><td colspan="2">
 <p>
 list of all units that were successfully parsed</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L512">Source: source/component/PasDoc_Gen.pas (line 512).</a></p></td></tr>
 </table>
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
@@ -574,7 +574,7 @@ list of all units that were successfully parsed</p>
 <td class="itemcode"><span id="DoError-string-arrayof-Word-"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L465">Source: source/component/PasDoc_Gen.pas (line 465).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -582,7 +582,7 @@ list of all units that were successfully parsed</p>
 <td class="itemcode"><span id="DoMessage-Cardinal-TPasDocMessageType-string-arrayof-"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L467">Source: source/component/PasDoc_Gen.pas (line 467).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -590,7 +590,7 @@ list of all units that were successfully parsed</p>
 <td class="itemcode"><span id="CreateClassHierarchy"></span><code>procedure <strong>CreateClassHierarchy</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L476">Source: source/component/PasDoc_Gen.pas (line 476).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -604,7 +604,7 @@ Return a link to item Item which will be displayed as LinkCaption. Returned stri
 <p>LinkContext may be used in some descendants to present the link differently, see <a class="normal" href="PasDoc_Gen.html#TLinkContext">TLinkContext</a> for it's meaning.
 
 <p>If some output format doesn't support this feature, it can return simply ConvertString(LinkCaption). This is the default implementation of this method in this class.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L489">Source: source/component/PasDoc_Gen.pas (line 489).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -614,7 +614,7 @@ Return a link to item Item which will be displayed as LinkCaption. Returned stri
 <tr><td colspan="2">
 <p>
 This writes Code as a Pascal code. Links inside the code are resolved from Item. If WriteItemLink then Item.Name is made a link. Item.Name is printed between NameLinkBegin and NameLinkEnd.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L497">Source: source/component/PasDoc_Gen.pas (line 497).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -635,7 +635,7 @@ Utility to process information from <a class="normal" href="PasDoc_Items.TPasIte
 <dt>ItemUrl</dt>
 <dd>is the URL to link to, if any (don't make a link if this is '').</dd>
 </dl>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L508">Source: source/component/PasDoc_Gen.pas (line 508).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -645,7 +645,7 @@ Utility to process information from <a class="normal" href="PasDoc_Items.TPasIte
 <tr><td colspan="2">
 <p>
 If field <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CurrentStream">CurrentStream</a> is assigned, it is disposed and set to nil.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L515">Source: source/component/PasDoc_Gen.pas (line 515).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -657,7 +657,7 @@ If field <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CurrentStream">Cu
 Return S formatted to look like code, e.g. &lt;code&gt;xxx&lt;/code&gt; in HTML.
 
 <p>Given S is already in the final output format (with characters converted using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>, @-tags expanded etc.).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L522">Source: source/component/PasDoc_Gen.pas (line 522).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -669,7 +669,7 @@ Return S formatted to look like code, e.g. &lt;code&gt;xxx&lt;/code&gt; in HTML.
 Converts for each character in S, thus assembling a String that is returned and can be written to the documentation file.
 
 <p>The @ character should not be converted, this will be done later on.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L529">Source: source/component/PasDoc_Gen.pas (line 529).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -681,7 +681,7 @@ Converts for each character in S, thus assembling a String that is returned and 
 Converts a character to its converted form. This method should always be called to add characters to a string.
 
 <p>@ should also be converted by this routine.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L535">Source: source/component/PasDoc_Gen.pas (line 535).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -691,7 +691,7 @@ Converts a character to its converted form. This method should always be called 
 <tr><td colspan="2">
 <p>
 This function is supposed to return a reference to an item, that is the name combined with some linking information like a hyperlink element in HTML or a page number in Tex.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L540">Source: source/component/PasDoc_Gen.pas (line 540).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -705,7 +705,7 @@ Open output stream in the destination directory. If <a class="normal" href="PasD
 <p>Use this only for text files that you want to write using WriteXxx methods of this class (like WriteConverted). There's no point to use if for other files.
 
 <p>Returns <code>True</code> if creation was successful, <code>False</code> otherwise. When it returns <code>False</code>, the error message was already shown by DoMessage.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L553">Source: source/component/PasDoc_Gen.pas (line 553).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -715,7 +715,7 @@ Open output stream in the destination directory. If <a class="normal" href="PasD
 <tr><td colspan="2">
 <p>
 Searches for an email address in String S. Searches for first appearance of the @ character</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L557">Source: source/component/PasDoc_Gen.pas (line 557).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -727,7 +727,7 @@ Searches for an email address in String S. Searches for first appearance of the 
 Searches for an email address in PossibleEmailAddress and appends mailto: if it's an email address and mailto: wasn't provided. Otherwise it simply returns the input.
 
 <p>Needed to link email addresses properly which doesn't start with mailto:</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L564">Source: source/component/PasDoc_Gen.pas (line 564).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -737,7 +737,7 @@ Searches for an email address in PossibleEmailAddress and appends mailto: if it'
 <tr><td colspan="2">
 <p>
 Searches for a web address in String S. It must either contain a <a href="http://">http://</a> or start with www.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L568">Source: source/component/PasDoc_Gen.pas (line 568).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -747,7 +747,7 @@ Searches for a web address in String S. It must either contain a <a href="http:/
 <tr><td colspan="2">
 <p>
 Searches all items in all units (given by field <a class="normal" href="PasDoc_Gen.TDocGenerator.html#Units">Units</a>) for item with NameParts. Returns a pointer to the item on success, nil otherwise.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L573">Source: source/component/PasDoc_Gen.pas (line 573).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -757,7 +757,7 @@ Searches all items in all units (given by field <a class="normal" href="PasDoc_G
 <tr><td colspan="2">
 <p>
 Find a Pascal item, searching global namespace. Returns <code>Nil</code> if not found.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L577">Source: source/component/PasDoc_Gen.pas (line 577).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -767,7 +767,7 @@ Find a Pascal item, searching global namespace. Returns <code>Nil</code> if not 
 <tr><td colspan="2">
 <p>
 Find a Pascal item, searching global namespace. Assumes that Name is only one component (not something with dots inside). Returns <code>Nil</code> if not found.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L582">Source: source/component/PasDoc_Gen.pas (line 582).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -777,7 +777,7 @@ Find a Pascal item, searching global namespace. Assumes that Name is only one co
 <tr><td colspan="2">
 <p>
 <code>GetClassDirectiveName</code> returns ' abstract', or ' sealed' for classes that abstract or sealed respectively. <code>GetClassDirectiveName</code> is used by <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a> and <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a> in writing the declaration of the class.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L587">Source: source/component/PasDoc_Gen.pas (line 587).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -787,7 +787,7 @@ Find a Pascal item, searching global namespace. Assumes that Name is only one co
 <tr><td colspan="2">
 <p>
 <code>GetCIOTypeName</code> writes a translation of MyType based on the current language. However, 'record' and 'packed record' are not translated.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L591">Source: source/component/PasDoc_Gen.pas (line 591).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -797,7 +797,7 @@ Find a Pascal item, searching global namespace. Assumes that Name is only one co
 <tr><td colspan="2">
 <p>
 Loads descriptions from file N and replaces or fills the corresponding comment sections of items.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L595">Source: source/component/PasDoc_Gen.pas (line 595).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -811,7 +811,7 @@ Searches for item with name S.
 <p>If S is not splittable by SplitNameParts, returns nil. If WarningIfNotSplittable, additionally does DoMessage with appropriate warning.
 
 <p>Else (if S is &quot;splittable&quot;), seeks for S (first trying Item.FindName, if Item is not nil, then trying FindGlobal). Returns nil if not found.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L605">Source: source/component/PasDoc_Gen.pas (line 605).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -841,7 +841,7 @@ Searches for an item of name S which was linked in the description of Item. Star
 <dt>FoundItem</dt>
 <dd>is the found item instance or nil if not found.</dd>
 </dl>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L632">Source: source/component/PasDoc_Gen.pas (line 632).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -851,7 +851,7 @@ Searches for an item of name S which was linked in the description of Item. Star
 <tr><td colspan="2">
 <p>
 Just like previous overloaded version, but this doesn't return FoundItem (in case you don't need it).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L639">Source: source/component/PasDoc_Gen.pas (line 639).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -859,7 +859,7 @@ Just like previous overloaded version, but this doesn't return FoundItem (in cas
 <td class="itemcode"><span id="StoreDescription-string-string-"></span><code>procedure <strong>StoreDescription</strong>(ItemName: string; var t: string);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L643">Source: source/component/PasDoc_Gen.pas (line 643).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -869,7 +869,7 @@ Just like previous overloaded version, but this doesn't return FoundItem (in cas
 <tr><td colspan="2">
 <p>
 Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>. Then optionally writes LineEnding.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L647">Source: source/component/PasDoc_Gen.pas (line 647).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -879,7 +879,7 @@ Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Ge
 <tr><td colspan="2">
 <p>
 Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>. No LineEnding at the end.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L651">Source: source/component/PasDoc_Gen.pas (line 651).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -889,7 +889,7 @@ Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Ge
 <tr><td colspan="2">
 <p>
 Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>. Then writes LineEnding.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L655">Source: source/component/PasDoc_Gen.pas (line 655).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -899,7 +899,7 @@ Writes S to CurrentStream, converting it using <a class="normal" href="PasDoc_Ge
 <tr><td colspan="2">
 <p>
 Simply writes T to CurrentStream, with optional LineEnding.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L658">Source: source/component/PasDoc_Gen.pas (line 658).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -909,7 +909,7 @@ Simply writes T to CurrentStream, with optional LineEnding.</p>
 <tr><td colspan="2">
 <p>
 Simply writes T to CurrentStream.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L661">Source: source/component/PasDoc_Gen.pas (line 661).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -919,7 +919,7 @@ Simply writes T to CurrentStream.</p>
 <tr><td colspan="2">
 <p>
 Simply writes T followed by LineEnding to CurrentStream.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L664">Source: source/component/PasDoc_Gen.pas (line 664).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -929,7 +929,7 @@ Simply writes T followed by LineEnding to CurrentStream.</p>
 <tr><td colspan="2">
 <p>
 Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L670">Source: source/component/PasDoc_Gen.pas (line 670).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -939,7 +939,7 @@ Abstract method that writes all documentation for a single unit U to output, sta
 <tr><td colspan="2">
 <p>
 Writes documentation for all units, calling <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit-integer-TPasUnit-">WriteUnit</a> for each unit.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L675">Source: source/component/PasDoc_Gen.pas (line 675).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -947,7 +947,7 @@ Writes documentation for all units, calling <a class="normal" href="PasDoc_Gen.T
 <td class="itemcode"><span id="WriteStartOfCode"></span><code>procedure <strong>WriteStartOfCode</strong>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L677">Source: source/component/PasDoc_Gen.pas (line 677).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -955,7 +955,7 @@ Writes documentation for all units, calling <a class="normal" href="PasDoc_Gen.T
 <td class="itemcode"><span id="WriteEndOfCode"></span><code>procedure <strong>WriteEndOfCode</strong>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L679">Source: source/component/PasDoc_Gen.pas (line 679).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -965,7 +965,7 @@ Writes documentation for all units, calling <a class="normal" href="PasDoc_Gen.T
 <tr><td colspan="2">
 <p>
 output graphviz uses tree</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L682">Source: source/component/PasDoc_Gen.pas (line 682).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -975,7 +975,7 @@ output graphviz uses tree</p>
 <tr><td colspan="2">
 <p>
 output graphviz class tree</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L684">Source: source/component/PasDoc_Gen.pas (line 684).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -985,7 +985,7 @@ output graphviz class tree</p>
 <tr><td colspan="2">
 <p>
 starts the spell checker</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L687">Source: source/component/PasDoc_Gen.pas (line 687).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -997,7 +997,7 @@ starts the spell checker</p>
 If CheckSpelling and spell checking was successfully started, this will run <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TObjectVector-">FAspellProcess.CheckString</a> and will report all errors using DoMessage with mtWarning.
 
 <p>Otherwise this just clears AErrors, which means that no errors were found.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L695">Source: source/component/PasDoc_Gen.pas (line 695).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1007,7 +1007,7 @@ If CheckSpelling and spell checking was successfully started, this will run <a c
 <tr><td colspan="2">
 <p>
 closes the spellchecker</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L698">Source: source/component/PasDoc_Gen.pas (line 698).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1021,7 +1021,7 @@ FormatPascalCode will cause Line to be formatted in the way that Pascal code is 
 <pre class="longcode"></pre>
 
 <p>, it is not even processed by ConvertString. You should process it with ConvertString if you want.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L705">Source: source/component/PasDoc_Gen.pas (line 705).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1031,7 +1031,7 @@ FormatPascalCode will cause Line to be formatted in the way that Pascal code is 
 <tr><td colspan="2">
 <p>
 This will cause AString to be formatted in the way that normal Pascal statements (not keywords, strings, comments, etc.) look in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L710">Source: source/component/PasDoc_Gen.pas (line 710).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1041,7 +1041,7 @@ This will cause AString to be formatted in the way that normal Pascal statements
 <tr><td colspan="2">
 <p>
 FormatComment will cause AString to be formatted in the way that comments other than compiler directives are formatted in Delphi. See: <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatCompilerComment-string-">FormatCompilerComment</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L715">Source: source/component/PasDoc_Gen.pas (line 715).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1051,7 +1051,7 @@ FormatComment will cause AString to be formatted in the way that comments other 
 <tr><td colspan="2">
 <p>
 FormatHex will cause AString to be formatted in the way that Hex are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L719">Source: source/component/PasDoc_Gen.pas (line 719).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1061,7 +1061,7 @@ FormatHex will cause AString to be formatted in the way that Hex are formatted i
 <tr><td colspan="2">
 <p>
 FormatNumeric will cause AString to be formatted in the way that Numeric are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L723">Source: source/component/PasDoc_Gen.pas (line 723).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1071,7 +1071,7 @@ FormatNumeric will cause AString to be formatted in the way that Numeric are for
 <tr><td colspan="2">
 <p>
 FormatFloat will cause AString to be formatted in the way that Float are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L727">Source: source/component/PasDoc_Gen.pas (line 727).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1081,7 +1081,7 @@ FormatFloat will cause AString to be formatted in the way that Float are formatt
 <tr><td colspan="2">
 <p>
 FormatString will cause AString to be formatted in the way that strings are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L731">Source: source/component/PasDoc_Gen.pas (line 731).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1091,7 +1091,7 @@ FormatString will cause AString to be formatted in the way that strings are form
 <tr><td colspan="2">
 <p>
 FormatKeyWord will cause AString to be formatted in the way that reserved words are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L735">Source: source/component/PasDoc_Gen.pas (line 735).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1101,7 +1101,7 @@ FormatKeyWord will cause AString to be formatted in the way that reserved words 
 <tr><td colspan="2">
 <p>
 FormatCompilerComment will cause AString to be formatted in the way that compiler directives are formatted in Delphi.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L739">Source: source/component/PasDoc_Gen.pas (line 739).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1113,7 +1113,7 @@ FormatCompilerComment will cause AString to be formatted in the way that compile
 This is paragraph marker in output documentation.
 
 <p>Default implementation in this class simply returns ' ' (one space).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L745">Source: source/component/PasDoc_Gen.pas (line 745).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1123,7 +1123,7 @@ This is paragraph marker in output documentation.
 <tr><td colspan="2">
 <p>
 See <a class="normal" href="PasDoc_TagManager.TTagManager.html#ShortDash">TTagManager.ShortDash</a>. Default implementation in this class returns '-'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L749">Source: source/component/PasDoc_Gen.pas (line 749).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1133,7 +1133,7 @@ See <a class="normal" href="PasDoc_TagManager.TTagManager.html#ShortDash">TTagMa
 <tr><td colspan="2">
 <p>
 See <a class="normal" href="PasDoc_TagManager.TTagManager.html#EnDash">TTagManager.EnDash</a>. Default implementation in this class returns '--'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L753">Source: source/component/PasDoc_Gen.pas (line 753).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1143,7 +1143,7 @@ See <a class="normal" href="PasDoc_TagManager.TTagManager.html#EnDash">TTagManag
 <tr><td colspan="2">
 <p>
 See <a class="normal" href="PasDoc_TagManager.TTagManager.html#EmDash">TTagManager.EmDash</a>. Default implementation in this class returns '---'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L757">Source: source/component/PasDoc_Gen.pas (line 757).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1157,7 +1157,7 @@ Process HTML content, like provided by the @html tag. Override this function to 
 <p>Note that S is not processed in any way, even with ConvertString. So you're able to copy user's input inside @html() verbatim to the output.
 
 <p>The default implementation is this class simply discards it, i.e. returns always ''. Generators that know what to do with HTML can override this with simple &quot;Result := S&quot;.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L769">Source: source/component/PasDoc_Gen.pas (line 769).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1169,7 +1169,7 @@ Process HTML content, like provided by the @html tag. Override this function to 
 Process LaTeX content, like provided by the @latex tag.
 
 <p>The default implementation is this class simply discards it, i.e. returns always ''. Generators that know what to do with raw LaTeX markup can override this with simple &quot;Result := S&quot;.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L776">Source: source/component/PasDoc_Gen.pas (line 776).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1185,7 +1185,7 @@ Markup that forces line break in given output format (e.g. '&lt;br&gt;' in html 
 <p>It is used on <br> tag (but may also be used on other occasions in the future).
 
 <p>In this class it returns '', because it's valid for an output generator to simply ignore <br> tags if linebreaks can't be expressed in given output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L787">Source: source/component/PasDoc_Gen.pas (line 787).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1199,7 +1199,7 @@ Markup to display URL in a description. E.g. HTML generator will want to wrap th
 <p>Note that passed here URL is <em>not</em> processed by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a> (because sometimes it could be undesirable). If you want you can process URL with ConvertString when overriding this method.
 
 <p>Default implementation in this class simply returns ConvertString(URL). This is good if your documentation format does not support anything like URL links.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L801">Source: source/component/PasDoc_Gen.pas (line 801).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1211,7 +1211,7 @@ Markup to display URL in a description. E.g. HTML generator will want to wrap th
 Text which will be shown for an URL tag.
 
 <p>URL is a link to a website or e-mail address. LinkDisplay is an optional parameter which will be used as the display name of the URL.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L807">Source: source/component/PasDoc_Gen.pas (line 807).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1221,7 +1221,7 @@ Text which will be shown for an URL tag.
 <tr><td colspan="2">
 <p>
 Write the introduction and conclusion of the project.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L810">Source: source/component/PasDoc_Gen.pas (line 810).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1231,7 +1231,7 @@ Write the introduction and conclusion of the project.</p>
 <tr><td colspan="2">
 <p>
 This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a> when ExternalItem.Title and ShortTitle are already set, message about generating appropriate item is printed etc. This should write ExternalItem, including ExternalItem.DetailedDescription, ExternalItem.Authors, ExternalItem.Created, ExternalItem.LastMod.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L821">Source: source/component/PasDoc_Gen.pas (line 821).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1241,7 +1241,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p>
 Writes a conclusion for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L826">Source: source/component/PasDoc_Gen.pas (line 826).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1251,7 +1251,7 @@ Writes a conclusion for the project. See <a class="normal" href="PasDoc_Gen.TDoc
 <tr><td colspan="2">
 <p>
 Writes an introduction for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L830">Source: source/component/PasDoc_Gen.pas (line 830).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1261,7 +1261,7 @@ Writes an introduction for the project. See <a class="normal" href="PasDoc_Gen.T
 <tr><td colspan="2">
 <p>
 Writes the other files for the project. See <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L834">Source: source/component/PasDoc_Gen.pas (line 834).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1271,7 +1271,7 @@ Writes the other files for the project. See <a class="normal" href="PasDoc_Gen.T
 <tr><td colspan="2">
 <p>
 Writes a section heading and a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L837">Source: source/component/PasDoc_Gen.pas (line 837).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1281,7 +1281,7 @@ Writes a section heading and a link-anchor.</p>
 <tr><td colspan="2">
 <p>
 Writes a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L841">Source: source/component/PasDoc_Gen.pas (line 841).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1302,7 +1302,7 @@ Return Text formatted using bold font.
   <dt><a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatItalic-string-">FormatItalic</a></dt>
   <dd>Return Text formatted using italic font.</dd>
 </dl>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L854">Source: source/component/PasDoc_Gen.pas (line 854).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1312,7 +1312,7 @@ Return Text formatted using bold font.
 <tr><td colspan="2">
 <p>
 Return Text formatted using italic font. Analogous to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold-string-">FormatBold</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L858">Source: source/component/PasDoc_Gen.pas (line 858).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1322,7 +1322,7 @@ Return Text formatted using italic font. Analogous to <a class="normal" href="Pa
 <tr><td colspan="2">
 <p>
 Return Text using bold font by calling FormatBold(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L861">Source: source/component/PasDoc_Gen.pas (line 861).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1332,7 +1332,7 @@ Return Text using bold font by calling FormatBold(Text).</p>
 <tr><td colspan="2">
 <p>
 Return Text using italic font by calling FormatItalic(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L864">Source: source/component/PasDoc_Gen.pas (line 864).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1342,7 +1342,7 @@ Return Text using italic font by calling FormatItalic(Text).</p>
 <tr><td colspan="2">
 <p>
 Return Text preserving spaces and line breaks. Note that Text passed here is not yet converted with ConvertString. The implementation of this method in this class just returns ConvertString(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L870">Source: source/component/PasDoc_Gen.pas (line 870).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1356,7 +1356,7 @@ Return markup to show an image. FileNames is a list of possible filenames of the
 <p>E.g. HTML generator will want to choose the best format for HTML, then somehow copy the image from FileNames[Chosen] and wrap this in &lt;img src=&quot;...&quot;&gt;.
 
 <p>Implementation of this method in this class simply shows <code>FileNames[0]</code>. Output generators should override this.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L884">Source: source/component/PasDoc_Gen.pas (line 884).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1366,7 +1366,7 @@ Return markup to show an image. FileNames is a list of possible filenames of the
 <tr><td colspan="2">
 <p>
 Format a list from given ListData.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L887">Source: source/component/PasDoc_Gen.pas (line 887).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1376,7 +1376,7 @@ Format a list from given ListData.</p>
 <tr><td colspan="2">
 <p>
 Return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L893">Source: source/component/PasDoc_Gen.pas (line 893).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1390,7 +1390,7 @@ Override this if you want to insert something on @tableOfContents tag. As a para
 <p>Sections given here are never nil, and item's Data is never nil. But of course they may contain 0 items, and this should be a signal to you that given section doesn't have any subsections.
 
 <p>Default implementation of this method in this class just returns empty string.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L909">Source: source/component/PasDoc_Gen.pas (line 909).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1400,7 +1400,7 @@ Override this if you want to insert something on @tableOfContents tag. As a para
 <tr><td colspan="2">
 <p>
 Creates anchors and links for all items in all units.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L913">Source: source/component/PasDoc_Gen.pas (line 913).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1410,7 +1410,7 @@ Creates anchors and links for all items in all units.</p>
 <tr><td colspan="2">
 <p>
 Expands description for each item in each unit of <a class="normal" href="PasDoc_Gen.TDocGenerator.html#Units">Units</a>. &quot;Expands description&quot; means that TTagManager.Execute is called, and item's DetailedDescription, AbstractDescription, AbstractDescriptionWasAutomatic (and many others, set by @-tags handlers) properties are calculated.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L920">Source: source/component/PasDoc_Gen.pas (line 920).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1420,7 +1420,7 @@ Expands description for each item in each unit of <a class="normal" href="PasDoc
 <tr><td colspan="2">
 <p>
 Abstract function that provides file extension for documentation format. Must be overwritten by descendants.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L924">Source: source/component/PasDoc_Gen.pas (line 924).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1430,7 +1430,7 @@ Abstract function that provides file extension for documentation format. Must be
 <tr><td colspan="2">
 <p>
 Assumes C contains file names as PString variables. Calls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#LoadDescriptionFile-string-">LoadDescriptionFile</a> with each file name.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L928">Source: source/component/PasDoc_Gen.pas (line 928).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1440,7 +1440,7 @@ Assumes C contains file names as PString variables. Calls <a class="normal" href
 <tr><td colspan="2">
 <p>
 Must be overwritten, writes all documentation. Will create either a single file or one file for each unit and each class, interface or object, depending on output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L933">Source: source/component/PasDoc_Gen.pas (line 933).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1448,7 +1448,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="Create-TComponent-"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L937">Source: source/component/PasDoc_Gen.pas (line 937).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1456,7 +1456,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L938">Source: source/component/PasDoc_Gen.pas (line 938).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1464,7 +1464,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="ParseAbbreviationsFile-string-"></span><code>procedure <strong>ParseAbbreviationsFile</strong>(const AFileName: string);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L940">Source: source/component/PasDoc_Gen.pas (line 940).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -1473,7 +1473,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="CurrentStream"></span><code>property <strong>CurrentStream</strong>: TStream read FCurrentStream;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L473">Source: source/component/PasDoc_Gen.pas (line 473).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1481,7 +1481,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="Units"></span><code>property <strong>Units</strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a> write <a href="PasDoc_Gen.TDocGenerator.html#FUnits">FUnits</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L935">Source: source/component/PasDoc_Gen.pas (line 935).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1490,7 +1490,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
       write FIntroduction;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L942">Source: source/component/PasDoc_Gen.pas (line 942).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1498,7 +1498,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="Conclusion"></span><code>property <strong>Conclusion</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion write FConclusion;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L944">Source: source/component/PasDoc_Gen.pas (line 944).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1506,7 +1506,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <td class="itemcode"><span id="AdditionalFiles"></span><code>property <strong>AdditionalFiles</strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles write FAdditionalFiles;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L945">Source: source/component/PasDoc_Gen.pas (line 945).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1520,7 +1520,7 @@ Callback receiving messages from generator.
 <p>This is usually used internally by TPasDoc class, that assigns it's internal callback here when using this generator. Also, for the above reason, do not make this published.
 
 <p>See TPasDoc.OnMessage for something more useful for final programs.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L954">Source: source/component/PasDoc_Gen.pas (line 954).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1531,7 +1531,7 @@ Callback receiving messages from generator.
 <tr><td colspan="2">
 <p>
 the (human) output language of the documentation file(s)</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L957">Source: source/component/PasDoc_Gen.pas (line 957).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1541,7 +1541,7 @@ the (human) output language of the documentation file(s)</p>
 <tr><td colspan="2">
 <p>
 Name of the project to create.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L960">Source: source/component/PasDoc_Gen.pas (line 960).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1563,7 +1563,7 @@ Name of the project to create.</p>
 <p> See <a href="https://pasdoc.github.io/ExcludeGeneratorOption">--exclude-generator documentation</a>. Default value is false (i.e. show them), as this information is generally considered useful.
 
 <p>Setting this to true is useful for automatically comparing two versions of pasdoc's output (e.g. when trying to automate pasdoc's tests).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L978">Source: source/component/PasDoc_Gen.pas (line 978).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1574,7 +1574,7 @@ Name of the project to create.</p>
 <tr><td colspan="2">
 <p>
 Show creation time in the output.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L982">Source: source/component/PasDoc_Gen.pas (line 982).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1585,7 +1585,7 @@ Show creation time in the output.</p>
 <tr><td colspan="2">
 <p>
 Setting to define how literal tag keywords should appear in documentaion.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L986">Source: source/component/PasDoc_Gen.pas (line 986).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1595,7 +1595,7 @@ Setting to define how literal tag keywords should appear in documentaion.</p>
 <tr><td colspan="2">
 <p>
 Title of the documentation, supplied by user. May be empty. See <a class="normal" href="PasDoc_Base.TPasDoc.html#Title">TPasDoc.Title</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L991">Source: source/component/PasDoc_Gen.pas (line 991).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1605,7 +1605,7 @@ Title of the documentation, supplied by user. May be empty. See <a class="normal
 <tr><td colspan="2">
 <p>
 Destination directory for documentation. Must include terminating forward slash or backslash so that valid file names can be created by concatenating DestinationDirectory and a pathless file name.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L996">Source: source/component/PasDoc_Gen.pas (line 996).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1616,7 +1616,7 @@ Destination directory for documentation. Must include terminating forward slash 
 <tr><td colspan="2">
 <p>
 generate a GraphViz diagram for the units dependencies</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L999">Source: source/component/PasDoc_Gen.pas (line 999).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1627,7 +1627,7 @@ generate a GraphViz diagram for the units dependencies</p>
 <tr><td colspan="2">
 <p>
 generate a GraphViz diagram for the Class hierarchy</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1002">Source: source/component/PasDoc_Gen.pas (line 1002).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1637,7 +1637,7 @@ generate a GraphViz diagram for the Class hierarchy</p>
 <tr><td colspan="2">
 <p>
 link the GraphViz uses diagram</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1005">Source: source/component/PasDoc_Gen.pas (line 1005).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1647,7 +1647,7 @@ link the GraphViz uses diagram</p>
 <tr><td colspan="2">
 <p>
 link the GraphViz classes diagram</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1007">Source: source/component/PasDoc_Gen.pas (line 1007).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1655,7 +1655,7 @@ link the GraphViz classes diagram</p>
 <td class="itemcode"><span id="Abbreviations"></span><code>property <strong>Abbreviations</strong>: TStringList read FAbbreviations write SetAbbreviations;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1009">Source: source/component/PasDoc_Gen.pas (line 1009).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1664,7 +1664,7 @@ link the GraphViz classes diagram</p>
       default false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1011">Source: source/component/PasDoc_Gen.pas (line 1011).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1672,7 +1672,7 @@ link the GraphViz classes diagram</p>
 <td class="itemcode"><span id="AspellLanguage"></span><code>property <strong>AspellLanguage</strong>: string read FAspellLanguage write FAspellLanguage;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1014">Source: source/component/PasDoc_Gen.pas (line 1014).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1681,7 +1681,7 @@ link the GraphViz classes diagram</p>
       read FSpellCheckIgnoreWords write SetSpellCheckIgnoreWords;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1016">Source: source/component/PasDoc_Gen.pas (line 1016).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1691,7 +1691,7 @@ link the GraphViz classes diagram</p>
 <tr><td colspan="2">
 <p>
 The meaning of this is just like --auto-abstract command-line option. It is used in <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ExpandDescriptions">ExpandDescriptions</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1021">Source: source/component/PasDoc_Gen.pas (line 1021).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1701,7 +1701,7 @@ The meaning of this is just like --auto-abstract command-line option. It is used
 <tr><td colspan="2">
 <p>
 This controls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SearchLink-string-TBaseItem-string-TLinkNotFoundAction-">SearchLink</a> behavior, as described in <a href="https://pasdoc.github.io/LinkLookOption">--link-look documentation</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1025">Source: source/component/PasDoc_Gen.pas (line 1025).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1710,7 +1710,7 @@ This controls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SearchLink-s
       read FWriteUsesClause write FWriteUsesClause default false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1027">Source: source/component/PasDoc_Gen.pas (line 1027).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1721,7 +1721,7 @@ This controls <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SearchLink-s
 <tr><td colspan="2">
 <p>
 This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption">--auto-link documentation</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1032">Source: source/component/PasDoc_Gen.pas (line 1032).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1729,7 +1729,7 @@ This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption
 <td class="itemcode"><span id="AutoLinkExclude"></span><code>property <strong>AutoLinkExclude</strong>: TStringList read FAutoLinkExclude;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1035">Source: source/component/PasDoc_Gen.pas (line 1035).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1739,7 +1739,7 @@ This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption
       stored StoredExternalClassHierarchy;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1037">Source: source/component/PasDoc_Gen.pas (line 1037).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1748,7 +1748,7 @@ This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption
       read FMarkdown write FMarkdown default false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1041">Source: source/component/PasDoc_Gen.pas (line 1041).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1759,7 +1759,7 @@ This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption
 <tr><td colspan="2">
 <p>
 Show source filename and line number in documentation output.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1045">Source: source/component/PasDoc_Gen.pas (line 1045).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1770,7 +1770,7 @@ Show source filename and line number in documentation output.</p>
 <tr><td colspan="2">
 <p>
 Root path for source files. Used to make relative paths, shown by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ShowSourcePosition">ShowSourcePosition</a> and replaced by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SourceUrlPattern">SourceUrlPattern</a>. Leave empty to make <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ShowSourcePosition">ShowSourcePosition</a> and <a class="normal" href="PasDoc_Gen.TDocGenerator.html#SourceUrlPattern">SourceUrlPattern</a> just take the final filename part to show / replace.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1054">Source: source/component/PasDoc_Gen.pas (line 1054).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -1781,7 +1781,7 @@ Root path for source files. Used to make relative paths, shown by <a class="norm
 <tr><td colspan="2">
 <p>
 URL pattern for linking source positions. Use <code>{FILE}</code> for filename and <code>{LINE}</code> for line number. When set, source positions in the output become clickable links. Example: <code><a href="https://github.com/owner/repo/blob/main/">https://github.com/owner/repo/blob/main/</a>{FILE}#L{LINE}</code></p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1061">Source: source/component/PasDoc_Gen.pas (line 1061).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

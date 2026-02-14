@@ -44,7 +44,7 @@
 LaTeX documentation generator.</p>
 <p>
  Extends <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> and overwrites many of its methods to generate output in LaTex format.</p>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L42">Source: source/component/PasDoc_GenLatex.pas (line 42).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
 <li class="ancestor">TComponent</li>
@@ -212,7 +212,7 @@ LaTeX documentation generator.</p>
 Converts for each character in S, thus assembling a String that is returned and can be written to the documentation file.
 
 <p>The @ character should not be converted, this will be done later on.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L167">Source: source/component/PasDoc_GenLatex.pas (line 167).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -222,7 +222,7 @@ Converts for each character in S, thus assembling a String that is returned and 
 <tr><td colspan="2">
 <p>
 Called by <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#ConvertString-string-">ConvertString</a> to convert a character. Will convert special characters to their html escape sequence -&gt; test</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L172">Source: source/component/PasDoc_GenLatex.pas (line 172).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -232,7 +232,7 @@ Called by <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#ConvertS
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit-integer-TPasUnit-">TDocGenerator.WriteUnit</a>.</p><p>
 Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L174">Source: source/component/PasDoc_GenLatex.pas (line 174).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -244,7 +244,7 @@ Abstract method that writes all documentation for a single unit U to output, sta
 Process LaTeX content, like provided by the @latex tag.
 
 <p>The default implementation is this class simply discards it, i.e. returns always ''. Generators that know what to do with raw LaTeX markup can override this with simple &quot;Result := S&quot;.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L176">Source: source/component/PasDoc_GenLatex.pas (line 176).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -254,7 +254,7 @@ Process LaTeX content, like provided by the @latex tag.
 <tr><td colspan="2">
 <p>
 Makes a String look like a coded String, i.e. '\begin{ttfamily}TheString\end{ttfamily}' in LaTeX. }</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L181">Source: source/component/PasDoc_GenLatex.pas (line 181).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -264,7 +264,7 @@ Makes a String look like a coded String, i.e. '\begin{ttfamily}TheString\end{ttf
 <tr><td colspan="2">
 <p>
 Returns a link to an anchor within a document. LaTeX simply concatenates the strings with either a &quot;-&quot; or &quot;.&quot; character between them.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L185">Source: source/component/PasDoc_GenLatex.pas (line 185).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -272,7 +272,7 @@ Returns a link to an anchor within a document. LaTeX simply concatenates the str
 <td class="itemcode"><span id="WriteStartOfCode"></span><code>procedure <strong>WriteStartOfCode</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L187">Source: source/component/PasDoc_GenLatex.pas (line 187).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -280,7 +280,7 @@ Returns a link to an anchor within a document. LaTeX simply concatenates the str
 <td class="itemcode"><span id="WriteEndOfCode"></span><code>procedure <strong>WriteEndOfCode</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L188">Source: source/component/PasDoc_GenLatex.pas (line 188).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -292,7 +292,7 @@ Returns a link to an anchor within a document. LaTeX simply concatenates the str
 This is paragraph marker in output documentation.
 
 <p>Default implementation in this class simply returns ' ' (one space).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L190">Source: source/component/PasDoc_GenLatex.pas (line 190).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -302,7 +302,7 @@ This is paragraph marker in output documentation.
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ShortDash">TDocGenerator.ShortDash</a>.</p><p>
 See <a class="normal" href="PasDoc_TagManager.TTagManager.html#ShortDash">TTagManager.ShortDash</a>. Default implementation in this class returns '-'.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L192">Source: source/component/PasDoc_GenLatex.pas (line 192).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -316,7 +316,7 @@ Markup that forces line break in given output format (e.g. '&lt;br&gt;' in html 
 <p>It is used on <br> tag (but may also be used on other occasions in the future).
 
 <p>In this class it returns '', because it's valid for an output generator to simply ignore <br> tags if linebreaks can't be expressed in given output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L194">Source: source/component/PasDoc_GenLatex.pas (line 194).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -330,7 +330,7 @@ Markup to display URL in a description. E.g. HTML generator will want to wrap th
 <p>Note that passed here URL is <em>not</em> processed by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a> (because sometimes it could be undesirable). If you want you can process URL with ConvertString when overriding this method.
 
 <p>Default implementation in this class simply returns ConvertString(URL). This is good if your documentation format does not support anything like URL links.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L196">Source: source/component/PasDoc_GenLatex.pas (line 196).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -342,7 +342,7 @@ Markup to display URL in a description. E.g. HTML generator will want to wrap th
 Text which will be shown for an URL tag.
 
 <p>URL is a link to a website or e-mail address. LinkDisplay is an optional parameter which will be used as the display name of the URL.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L197">Source: source/component/PasDoc_GenLatex.pas (line 197).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -352,7 +352,7 @@ Text which will be shown for an URL tag.
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternalCore-TExternalItem-TTranslationID-">TDocGenerator.WriteExternalCore</a>.</p><p>
 This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a> when ExternalItem.Title and ShortTitle are already set, message about generating appropriate item is printed etc. This should write ExternalItem, including ExternalItem.DetailedDescription, ExternalItem.Authors, ExternalItem.Created, ExternalItem.LastMod.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L199">Source: source/component/PasDoc_GenLatex.pas (line 199).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -362,7 +362,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p>
 <code>FormatKeyWord</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode-string-">FormatPascalCode</a> to return AString in a bold font.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L210">Source: source/component/PasDoc_GenLatex.pas (line 210).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -372,7 +372,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p>
 <code>FormatCompilerComment</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode-string-">FormatPascalCode</a> to return AString in italics.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L214">Source: source/component/PasDoc_GenLatex.pas (line 214).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -382,7 +382,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p>
 <code>FormatComment</code> is called from within <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html#FormatPascalCode-string-">FormatPascalCode</a> to return AString in italics.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L218">Source: source/component/PasDoc_GenLatex.pas (line 218).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -392,7 +392,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatAnchor-string-">TDocGenerator.FormatAnchor</a>.</p><p>
 Writes a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L220">Source: source/component/PasDoc_GenLatex.pas (line 220).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -406,7 +406,7 @@ Return a link to item Item which will be displayed as LinkCaption. Returned stri
 <p>LinkContext may be used in some descendants to present the link differently, see <a class="normal" href="PasDoc_Gen.html#TLinkContext">TLinkContext</a> for it's meaning.
 
 <p>If some output format doesn't support this feature, it can return simply ConvertString(LinkCaption). This is the default implementation of this method in this class.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L222">Source: source/component/PasDoc_GenLatex.pas (line 222).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -422,7 +422,7 @@ Return Text formatted using bold font.
 <p>Implementation of this method in this class simply returns <code>Result := Text</code>. Output generators that can somehow express bold formatting (or at least emphasis of some text) should override this.
 
 <p></p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L226">Source: source/component/PasDoc_GenLatex.pas (line 226).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -432,7 +432,7 @@ Return Text formatted using bold font.
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatItalic-string-">TDocGenerator.FormatItalic</a>.</p><p>
 Return Text formatted using italic font. Analogous to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold-string-">FormatBold</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L227">Source: source/component/PasDoc_GenLatex.pas (line 227).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -442,7 +442,7 @@ Return Text formatted using italic font. Analogous to <a class="normal" href="Pa
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatWarning-string-">TDocGenerator.FormatWarning</a>.</p><p>
 Return Text using bold font by calling FormatBold(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L229">Source: source/component/PasDoc_GenLatex.pas (line 229).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -452,7 +452,7 @@ Return Text using bold font by calling FormatBold(Text).</p>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatNote-string-">TDocGenerator.FormatNote</a>.</p><p>
 Return Text using italic font by calling FormatItalic(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L230">Source: source/component/PasDoc_GenLatex.pas (line 230).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -462,7 +462,7 @@ Return Text using italic font by calling FormatItalic(Text).</p>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatPreformatted-string-">TDocGenerator.FormatPreformatted</a>.</p><p>
 Return Text preserving spaces and line breaks. Note that Text passed here is not yet converted with ConvertString. The implementation of this method in this class just returns ConvertString(Text).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L231">Source: source/component/PasDoc_GenLatex.pas (line 231).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -476,7 +476,7 @@ Return markup to show an image. FileNames is a list of possible filenames of the
 <p>E.g. HTML generator will want to choose the best format for HTML, then somehow copy the image from FileNames[Chosen] and wrap this in &lt;img src=&quot;...&quot;&gt;.
 
 <p>Implementation of this method in this class simply shows <code>FileNames[0]</code>. Output generators should override this.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L233">Source: source/component/PasDoc_GenLatex.pas (line 233).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -486,7 +486,7 @@ Return markup to show an image. FileNames is a list of possible filenames of the
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatList-TListData-">TDocGenerator.FormatList</a>.</p><p>
 Format a list from given ListData.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L235">Source: source/component/PasDoc_GenLatex.pas (line 235).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -496,7 +496,7 @@ Format a list from given ListData.</p>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable-TTableData-">TDocGenerator.FormatTable</a>.</p><p>
 Return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L237">Source: source/component/PasDoc_GenLatex.pas (line 237).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -506,7 +506,7 @@ Return appropriate content for given Table. It's guaranteed that the Table passe
 <tr><td colspan="2">
 <p>
 <code>FormatPascalCode</code> is intended to format Line as if it were Object Pascal code in Delphi or Lazarus. However, unlike Lazarus and Delphi, colored text is not used because printing colored text tends to be much more expensive than printing all black text.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L243">Source: source/component/PasDoc_GenLatex.pas (line 243).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -516,7 +516,7 @@ Return appropriate content for given Table. It's guaranteed that the Table passe
 <tr><td colspan="2">
 <p>
 Returns Latex file extension &quot;.tex&quot;.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L246">Source: source/component/PasDoc_GenLatex.pas (line 246).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -526,7 +526,7 @@ Returns Latex file extension &quot;.tex&quot;.</p>
 <tr><td colspan="2">
 <p>
 The method that does everything &mdash; writes documentation for all units and creates overview files.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L249">Source: source/component/PasDoc_GenLatex.pas (line 249).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -534,7 +534,7 @@ The method that does everything &mdash; writes documentation for all units and c
 <td class="itemcode"><span id="Create-TComponent-"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L250">Source: source/component/PasDoc_GenLatex.pas (line 250).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -542,7 +542,7 @@ The method that does everything &mdash; writes documentation for all units and c
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L251">Source: source/component/PasDoc_GenLatex.pas (line 251).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -550,7 +550,7 @@ The method that does everything &mdash; writes documentation for all units and c
 <td class="itemcode"><span id="EscapeURL-string-"></span><code>function <strong>EscapeURL</strong>(const AString: string): string; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L252">Source: source/component/PasDoc_GenLatex.pas (line 252).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -560,7 +560,7 @@ The method that does everything &mdash; writes documentation for all units and c
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatSection-integer-string-string-">TDocGenerator.FormatSection</a>.</p><p>
 Writes a section heading and a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L254">Source: source/component/PasDoc_GenLatex.pas (line 254).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -571,7 +571,7 @@ Writes a section heading and a link-anchor.</p>
 <tr><td colspan="2">
 <p>
 Indicate if the output must be simplified for latex2rtf</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L258">Source: source/component/PasDoc_GenLatex.pas (line 258).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -581,7 +581,7 @@ Indicate if the output must be simplified for latex2rtf</p>
 <tr><td colspan="2">
 <p>
 The strings in <code>LatexHead</code> are inserted directly into the preamble of the LaTeX document. Therefore they must be valid LaTeX code.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenLatex.pas#L261">Source: source/component/PasDoc_GenLatex.pas (line 261).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

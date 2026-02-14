@@ -42,7 +42,7 @@
 <h2 class="description">Description</h2>
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>.</p><p>
 Base generator class, to be specialized for specific output formats. This abstract object will do the complete process of writing documentation files. It will be given the collection of units that was the result of the parsing process and a configuration object that was created from default values and program parameters. Depending on the output format, one or more files may be created (HTML will create several, Tex only one).</p>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L41">Source: source/component/PasDoc_GenSimpleXML.pas (line 41).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
 <li class="ancestor">TComponent</li>
@@ -115,7 +115,7 @@ Base generator class, to be specialized for specific output formats. This abstra
 Return S formatted to look like code, e.g. &lt;code&gt;xxx&lt;/code&gt; in HTML.
 
 <p>Given S is already in the final output format (with characters converted using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>, @-tags expanded etc.).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L43">Source: source/component/PasDoc_GenSimpleXML.pas (line 43).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -127,7 +127,7 @@ Return S formatted to look like code, e.g. &lt;code&gt;xxx&lt;/code&gt; in HTML.
 Converts for each character in S, thus assembling a String that is returned and can be written to the documentation file.
 
 <p>The @ character should not be converted, this will be done later on.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L44">Source: source/component/PasDoc_GenSimpleXML.pas (line 44).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -139,7 +139,7 @@ Converts for each character in S, thus assembling a String that is returned and 
 Converts a character to its converted form. This method should always be called to add characters to a string.
 
 <p>@ should also be converted by this routine.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L45">Source: source/component/PasDoc_GenSimpleXML.pas (line 45).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -149,7 +149,7 @@ Converts a character to its converted form. This method should always be called 
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit-integer-TPasUnit-">TDocGenerator.WriteUnit</a>.</p><p>
 Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L46">Source: source/component/PasDoc_GenSimpleXML.pas (line 46).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -159,7 +159,7 @@ Abstract method that writes all documentation for a single unit U to output, sta
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternalCore-TExternalItem-TTranslationID-">TDocGenerator.WriteExternalCore</a>.</p><p>
 This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteExternal-TExternalItem-TTranslationID-">WriteExternal</a> when ExternalItem.Title and ShortTitle are already set, message about generating appropriate item is printed etc. This should write ExternalItem, including ExternalItem.DetailedDescription, ExternalItem.Authors, ExternalItem.Created, ExternalItem.LastMod.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L48">Source: source/component/PasDoc_GenSimpleXML.pas (line 48).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -169,7 +169,7 @@ This is called from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteE
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatSection-integer-string-string-">TDocGenerator.FormatSection</a>.</p><p>
 Writes a section heading and a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L50">Source: source/component/PasDoc_GenSimpleXML.pas (line 50).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -179,7 +179,7 @@ Writes a section heading and a link-anchor.</p>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatAnchor-string-">TDocGenerator.FormatAnchor</a>.</p><p>
 Writes a link-anchor.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L52">Source: source/component/PasDoc_GenSimpleXML.pas (line 52).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -189,7 +189,7 @@ Writes a link-anchor.</p>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable-TTableData-">TDocGenerator.FormatTable</a>.</p><p>
 Return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L53">Source: source/component/PasDoc_GenSimpleXML.pas (line 53).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -199,7 +199,7 @@ Return appropriate content for given Table. It's guaranteed that the Table passe
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatList-TListData-">TDocGenerator.FormatList</a>.</p><p>
 Format a list from given ListData.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L54">Source: source/component/PasDoc_GenSimpleXML.pas (line 54).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -215,7 +215,7 @@ Return Text formatted using bold font.
 <p>Implementation of this method in this class simply returns <code>Result := Text</code>. Output generators that can somehow express bold formatting (or at least emphasis of some text) should override this.
 
 <p></p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L55">Source: source/component/PasDoc_GenSimpleXML.pas (line 55).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -225,7 +225,7 @@ Return Text formatted using bold font.
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatItalic-string-">TDocGenerator.FormatItalic</a>.</p><p>
 Return Text formatted using italic font. Analogous to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold-string-">FormatBold</a>.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L56">Source: source/component/PasDoc_GenSimpleXML.pas (line 56).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -235,7 +235,7 @@ Return Text formatted using italic font. Analogous to <a class="normal" href="Pa
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteDocumentation">TDocGenerator.WriteDocumentation</a>.</p><p>
 Must be overwritten, writes all documentation. Will create either a single file or one file for each unit and each class, interface or object, depending on output format.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L82">Source: source/component/PasDoc_GenSimpleXML.pas (line 82).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -245,7 +245,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#GetFileExtension">TDocGenerator.GetFileExtension</a>.</p><p>
 Abstract function that provides file extension for documentation format. Must be overwritten by descendants.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_GenSimpleXML.pas#L83">Source: source/component/PasDoc_GenSimpleXML.pas (line 83).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

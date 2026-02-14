@@ -59,7 +59,7 @@ Scanner for Pascal, producing tokens and interpreting conditionals
 <p>Effectively this is a combined tokenizer and pre-processor.
 
 <p>Single TScanner instance scans one unit using one or more <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> instances (to scan the unit and all nested include files).</p>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L83">Source: source/component/PasDoc_Scanner.pas (line 83).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TScanner</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
@@ -145,7 +145,7 @@ Scanner for Pascal, producing tokens and interpreting conditionals
 <td class="itemcode"><span id="DoError-string-arrayof-"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L157">Source: source/component/PasDoc_Scanner.pas (line 157).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -153,7 +153,7 @@ Scanner for Pascal, producing tokens and interpreting conditionals
 <td class="itemcode"><span id="DoMessage-Cardinal-TPasDocMessageType-string-arrayof-"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L159">Source: source/component/PasDoc_Scanner.pas (line 159).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -165,7 +165,7 @@ Scanner for Pascal, producing tokens and interpreting conditionals
 Creates a TScanner object that scans the given input stream.
 
 <p>Note that the stream S will be freed by this object (at destruction or when we will read all it's tokens), so after creating TScanner you should leave the stream to be managed completely by this TScanner.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L168">Source: source/component/PasDoc_Scanner.pas (line 168).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -173,7 +173,7 @@ Creates a TScanner object that scans the given input stream.
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L174">Source: source/component/PasDoc_Scanner.pas (line 174).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -183,7 +183,7 @@ Creates a TScanner object that scans the given input stream.
 <tr><td colspan="2">
 <p>
 Adds Name to the list of symbols (as a normal symbol, not macro).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L177">Source: source/component/PasDoc_Scanner.pas (line 177).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -193,7 +193,7 @@ Adds Name to the list of symbols (as a normal symbol, not macro).</p>
 <tr><td colspan="2">
 <p>
 Adds all symbols in the NewSymbols collection by calling <a class="normal" href="PasDoc_Scanner.TScanner.html#AddSymbol-string-">AddSymbol</a> for each of the strings in that collection.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L181">Source: source/component/PasDoc_Scanner.pas (line 181).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -203,7 +203,7 @@ Adds all symbols in the NewSymbols collection by calling <a class="normal" href=
 <tr><td colspan="2">
 <p>
 Adds Name as a symbol that is a macro, that expands to Value.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L184">Source: source/component/PasDoc_Scanner.pas (line 184).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -213,7 +213,7 @@ Adds Name as a symbol that is a macro, that expands to Value.</p>
 <tr><td colspan="2">
 <p>
 Gets next token and throws it away.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L187">Source: source/component/PasDoc_Scanner.pas (line 187).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -223,7 +223,7 @@ Gets next token and throws it away.</p>
 <tr><td colspan="2">
 <p>
 Returns next token. Always non-nil (will raise exception in case of any problem).</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L191">Source: source/component/PasDoc_Scanner.pas (line 191).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -233,7 +233,7 @@ Returns next token. Always non-nil (will raise exception in case of any problem)
 <tr><td colspan="2">
 <p>
 Returns the name of the file that is currently processed and the line number. Good for meaningful error messages.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L195">Source: source/component/PasDoc_Scanner.pas (line 195).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -241,7 +241,7 @@ Returns the name of the file that is currently processed and the line number. Go
 <td class="itemcode"><span id="PeekToken"></span><code>function <strong>PeekToken</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L202">Source: source/component/PasDoc_Scanner.pas (line 202).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -251,7 +251,7 @@ Returns the name of the file that is currently processed and the line number. Go
 <tr><td colspan="2">
 <p>
 Place T in the buffer. Next time you will call GetToken you will get T. This also sets T to nil (because you shouldn't free T anymore after ungetting it). Note that the buffer has room only for 1 token, so you have to make sure that you will never unget more than two tokens. Practically, always call UnGetToken right after some GetToken.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L210">Source: source/component/PasDoc_Scanner.pas (line 210).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
@@ -263,7 +263,7 @@ Place T in the buffer. Next time you will call GetToken you will get T. This als
 <tr><td colspan="2">
 <p>
 Paths to search for include files. When you assign something to this property it causes Assign(Value) call, not a real reference copy.</p>
-</td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L200">Source: source/component/PasDoc_Scanner.pas (line 200).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -271,7 +271,7 @@ Paths to search for include files. When you assign something to this property it
 <td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L212">Source: source/component/PasDoc_Scanner.pas (line 212).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -279,7 +279,7 @@ Paths to search for include files. When you assign something to this property it
 <td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read FVerbosity write FVerbosity;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L213">Source: source/component/PasDoc_Scanner.pas (line 213).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -287,7 +287,7 @@ Paths to search for include files. When you assign something to this property it
 <td class="itemcode"><span id="SwitchOptions"></span><code>property <strong>SwitchOptions</strong>: <a href="PasDoc_Scanner.html#TSwitchOptions">TSwitchOptions</a> read FSwitchOptions;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L214">Source: source/component/PasDoc_Scanner.pas (line 214).</a></p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -295,7 +295,7 @@ Paths to search for include files. When you assign something to this property it
 <td class="itemcode"><span id="HandleMacros"></span><code>property <strong>HandleMacros</strong>: boolean read FHandleMacros;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Scanner.pas#L216">Source: source/component/PasDoc_Scanner.pas (line 216).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
