@@ -1,13 +1,34 @@
-:doctitle: --css command-line option
+:doctitle: --css, --css-based-on-bootstrap command-line options
 
-By default, pasdoc generates a pasdoc.css file in the generated
-documentation in link:HtmlOutput[HTML] and link:HtmlHelp[HtmlHelp]
-formats.
+## Introduction
 
-If you want to use your own style sheet, you can use the
-link:CommandLine[CommandLine] option --css=CSS-FILE-NAME. Then pasdoc
-will simply copy the given file CSS-FILE-NAME to the output directory as
-pasdoc.css.
+You can control what your link:HtmlOutput[HTML] and link:HtmlHelp[HtmlHelp]
+documentation looks like by tweaking the CSS file.
 
-You can find some alternative stylesheets on
-link:PasDocCssExamples[PasDocCssExamples].
+To use your own style sheet, use the link:CommandLine[CommandLine] option:
+
+- `--css=CSS-FILE` to provide a new CSS file (that does _not_ rely on standard Bootstrap CSS classes, so Bootstrap will not be used in the output).
+
+- `--css-based-on-bootstrap=CSS-FILE` to provide a new CSS file that _does_ rely on standard Bootstrap CSS classes. So Bootstrap will be used in the output.
+
+## Default CSS
+
+The https://github.com/pasdoc/pasdoc/blob/master/source/component/pasdoc.css[default pasdoc.css is here]. Note that it relies on Bootstrap, so if you tweak it, provide the new version using link:Css[--css-based-on-bootstrap] command-line option.
+
+The old `pasdoc.css` that does not rely on Bootstrap is here: https://github.com/pasdoc/pasdoc/blob/master/source/component/alternative_css/pasdoc-up-to-0.16.0.css[source/component/alternative_css/pasdoc-up-to-0.16.0.css]. You can tweak it, and provide the new version using link:Css[--css] command-line option.
+
+## Alternative CSS
+
+We provide some alternative CSS styles in the https://github.com/pasdoc/pasdoc/tree/master/source/component/alternative_css/[source/component/alternative_css/] directory of the PasDoc repository.
+
+Use them directly as a starting point for your own CSS styles.
+
+Examples:
+
+```
+pasdoc *.pas -css=source/component/alternative_css/AscanioPressato.css
+
+pasdoc *.pas -css=source/component/alternative_css/ThomasMueller.css
+
+pasdoc *.pas -css=source/component/alternative_css/pasdoc-up-to-0.16.0.css
+```

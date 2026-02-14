@@ -8,7 +8,7 @@ These three command-line options insert custom HTML code to every generated page
 
 They offer you a lot of possibilities:
 
-* In `--html-head` you can add links to additional CSS files. (Remember that you can also _replace_ the original CSS code using link:CssOption[--css] option.)
+* In `--html-head` you can add links to additional CSS files. (Remember that you can also _replace_ the original CSS code using link:CssOption[--css or --css-based-on-bootstrap] options.)
 * You can add links to external JavaScript files. Some of them should to `--html-head`, some to `--html-body-end`. Consult the documentation of the particular JavaScript code.
 * You can add navigation panel to the top and/or bottom of every page.
 * Using both `--html-body-begin` and `--html-body-end` you can wrap the whole PasDoc content in an additional container (like `<div class="pasdoc-container">...</div>`). This can be useful e.g. to style the content selectively, or add a custom sidebar to it.

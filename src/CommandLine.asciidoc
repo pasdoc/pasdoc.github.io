@@ -123,7 +123,7 @@ Obsolete name for --link-look=full option.
 link:AutoAbstractOption[--auto-abstract]::
 Automatically deduce @abstract description of item from 1st sentence of it's full description
 
-link:CssOption[--css]::
+link:CssOption[--css, --css-based-on-bootstrap]::
 Use the code of your cascading style sheet in replacement of default one.
 
 link:UseTipueSearchOption[--use-tipue-search]::

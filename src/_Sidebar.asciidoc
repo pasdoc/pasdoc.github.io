@@ -61,7 +61,7 @@ link:CommandLine[Command Line]: ::
 * link:CacheOption[--cache]
 * link:CommentMarker[--marker, --staronly, --marker-optional]
 * link:ConditionalDefines[--define, --conditionals]
-* link:CssOption[--css]
+* link:CssOption[--css, --css-based-on-bootstrap]
 * link:DocumentationTitle[--title]
 * link:ExcludeGeneratorOption[--exclude-generator]
 * link:ExternalClassHierarchy[--external-class-hierarchy]
