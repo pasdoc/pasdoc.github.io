@@ -3,17 +3,33 @@
 <head>
 <title>PasDoc's autodoc: Class Hierarchy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="allitems">Class Hierarchy</h1>
 <ul class="hierarchylevel">
 <li>TObject<ul class="hierarchylevel">
@@ -31,7 +47,7 @@
 <li><a class="bold" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_Items.TBaseItems.html">TBaseItems</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_Items.TPasItems.html">TPasItems</a><ul class="hierarchylevel">
-<li><a class="bold" href="PasDoc_Items.TPasMethods.html">TPasMethods</a><li><a class="bold" href="PasDoc_Items.TPasNestedCios.html">TPasNestedCios</a><li><a class="bold" href="PasDoc_Items.TPasProperties.html">TPasProperties</a><li><a class="bold" href="PasDoc_Items.TPasTypes.html">TPasTypes</a><li><a class="bold" href="PasDoc_Items.TPasUnits.html">TPasUnits</a></ul>
+<li><a class="bold" href="PasDoc_Items.TPasNestedCios.html">TPasNestedCios</a><li><a class="bold" href="PasDoc_Items.TPasProperties.html">TPasProperties</a><li><a class="bold" href="PasDoc_Items.TPasRoutines.html">TPasRoutines</a><li><a class="bold" href="PasDoc_Items.TPasTypes.html">TPasTypes</a><li><a class="bold" href="PasDoc_Items.TPasUnits.html">TPasUnits</a></ul>
 </li>
 </ul>
 </li>
@@ -65,7 +81,7 @@
 <li><a class="bold" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_GenHtml.THTMLDocGenerator.html">THTMLDocGenerator</a><li><a class="bold" href="PasDoc_GenHtmlHelp.THTMLHelpDocGenerator.html">THTMLHelpDocGenerator</a></ul>
 </li>
-<li><a class="bold" href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html">TSimpleXMLDocGenerator</a><li><a class="bold" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a></ul>
+<li><a class="bold" href="PasDoc_GenPHP.TPHPDocGenerator.html">TPHPDocGenerator</a><li><a class="bold" href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html">TSimpleXMLDocGenerator</a><li><a class="bold" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a></ul>
 </li>
 <li><a class="bold" href="PasDoc_Base.TPasDoc.html">TPasDoc</a><li><a class="bold" href="PasDoc_ProcessLineTalk.TProcessLineTalk.html">TProcessLineTalk</a></ul>
 </li>
@@ -80,7 +96,7 @@
 <li><a class="bold" href="PasDoc_Parser.TRawDescriptionInfoList.html">TRawDescriptionInfoList</a><li><a class="bold" href="PasDoc_Gen.TRowData.html">TRowData</a><li><a class="bold" href="PasDoc_Scanner.TScanner.html">TScanner</a><li><a class="bold" href="PasDoc_Serialize.TSerializable.html">TSerializable</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_Items.TBaseItem.html">TBaseItem</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a><li><a class="bold" href="PasDoc_Items.TExternalItem.html">TExternalItem</a><li><a class="bold" href="PasDoc_Items.TPasItem.html">TPasItem</a><ul class="hierarchylevel">
-<li><a class="bold" href="PasDoc_Items.TPasConstant.html">TPasConstant</a><li><a class="bold" href="PasDoc_Items.TPasFieldVariable.html">TPasFieldVariable</a><li><a class="bold" href="PasDoc_Items.TPasMethod.html">TPasMethod</a><li><a class="bold" href="PasDoc_Items.TPasProperty.html">TPasProperty</a><li><a class="bold" href="PasDoc_Items.TPasType.html">TPasType</a><ul class="hierarchylevel">
+<li><a class="bold" href="PasDoc_Items.TPasConstant.html">TPasConstant</a><li><a class="bold" href="PasDoc_Items.TPasFieldVariable.html">TPasFieldVariable</a><li><a class="bold" href="PasDoc_Items.TPasProperty.html">TPasProperty</a><li><a class="bold" href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a><li><a class="bold" href="PasDoc_Items.TPasType.html">TPasType</a><ul class="hierarchylevel">
 <li><a class="bold" href="PasDoc_Items.TPasCio.html">TPasCio</a><li><a class="bold" href="PasDoc_Items.TPasEnum.html">TPasEnum</a></ul>
 </li>
 <li><a class="bold" href="PasDoc_Items.TPasUnit.html">TPasUnit</a></ul>
@@ -98,6 +114,8 @@
 <li><a class="bold" href="PasDoc_TagManager.TTagManager.html">TTagManager</a><li><a class="bold" href="PasDoc_ProcessLineTalk.TTextReader.html">TTextReader</a><li><a class="bold" href="PasDoc_Tokenizer.TToken.html">TToken</a><li><a class="bold" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a></ul>
 </li>
 </ul>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

@@ -3,20 +3,36 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Serialize: Class TSerializable</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <span id="TSerializable"></span><h1 class="cio">Class TSerializable</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_Serialize.html">PasDoc_Serialize</a></p>
@@ -24,80 +40,80 @@
 <p class="declaration">
 <code>type TSerializable = class(TObject)</code></p>
 <h2 class="description">Description</h2>
-<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="nodescription">This item has no description.</p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TSerializable</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Serialize">Serialize</a></strong>(const ADestination: TStream); virtual;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); virtual;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Deserialize">Deserialize</a></strong>(const ASource: TStream); virtual;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); virtual;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#Read7BitEncodedInt">Read7BitEncodedInt</a></strong>(const ASource: TStream): Integer;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#Read7BitEncodedInt-TStream-">Read7BitEncodedInt</a></strong>(const ASource: TStream): Integer;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Write7BitEncodedInt">Write7BitEncodedInt</a></strong>(Value: Integer; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Write7BitEncodedInt-Integer-TStream-">Write7BitEncodedInt</a></strong>(Value: Integer; const ADestination: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadStringFromStream">LoadStringFromStream</a></strong>(const ASource: TStream): string;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadStringFromStream-TStream-">LoadStringFromStream</a></strong>(const ASource: TStream): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveStringToStream">SaveStringToStream</a></strong>(const AValue: string; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveStringToStream-string-TStream-">SaveStringToStream</a></strong>(const AValue: string; const ADestination: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadDoubleFromStream">LoadDoubleFromStream</a></strong>(const ASource: TStream): double;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadDoubleFromStream-TStream-">LoadDoubleFromStream</a></strong>(const ASource: TStream): double;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveDoubleToStream">SaveDoubleToStream</a></strong>(const AValue: double; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveDoubleToStream-double-TStream-">SaveDoubleToStream</a></strong>(const AValue: double; const ADestination: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadIntegerFromStream">LoadIntegerFromStream</a></strong>(const ASource: TStream): Longint;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#LoadIntegerFromStream-TStream-">LoadIntegerFromStream</a></strong>(const ASource: TStream): Longint;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveIntegerToStream">SaveIntegerToStream</a></strong>(const AValue: Longint; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SaveIntegerToStream-Longint-TStream-">SaveIntegerToStream</a></strong>(const AValue: Longint; const ADestination: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_Serialize.TSerializable.html#Create">Create</a></strong>; virtual;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SerializeObject">SerializeObject</a></strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SerializeObject-TSerializable-TStream-">SerializeObject</a></strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#DeserializeObject">DeserializeObject</a></strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#DeserializeObject-TStream-">DeserializeObject</a></strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Register">Register</a></strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Serialize.TSerializable.html#Register-TSerializableClass-">Register</a></strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SerializeToFile">SerializeToFile</a></strong>(const AFileName: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Serialize.TSerializable.html#SerializeToFile-string-">SerializeToFile</a></strong>(const AFileName: string);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#DeserializeFromFile">DeserializeFromFile</a></strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Serialize.TSerializable.html#DeserializeFromFile-string-">DeserializeFromFile</a></strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Serialize.TSerializable.html#WasDeserialized">WasDeserialized</a></strong>: boolean read FWasDeserialized;</code></td>
 </tr>
 </table>
@@ -105,128 +121,128 @@
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="Serialize"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); virtual;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="Deserialize"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); virtual;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Read7BitEncodedInt"></span><code>class function <strong>Read7BitEncodedInt</strong>(const ASource: TStream): Integer;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Read7BitEncodedInt-TStream-"></span><code>class function <strong>Read7BitEncodedInt</strong>(const ASource: TStream): Integer;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Write7BitEncodedInt"></span><code>class procedure <strong>Write7BitEncodedInt</strong>(Value: Integer; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Write7BitEncodedInt-Integer-TStream-"></span><code>class procedure <strong>Write7BitEncodedInt</strong>(Value: Integer; const ADestination: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="LoadStringFromStream"></span><code>class function <strong>LoadStringFromStream</strong>(const ASource: TStream): string;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadStringFromStream-TStream-"></span><code>class function <strong>LoadStringFromStream</strong>(const ASource: TStream): string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SaveStringToStream"></span><code>class procedure <strong>SaveStringToStream</strong>(const AValue: string; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveStringToStream-string-TStream-"></span><code>class procedure <strong>SaveStringToStream</strong>(const AValue: string; const ADestination: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="LoadDoubleFromStream"></span><code>class function <strong>LoadDoubleFromStream</strong>(const ASource: TStream): double;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadDoubleFromStream-TStream-"></span><code>class function <strong>LoadDoubleFromStream</strong>(const ASource: TStream): double;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SaveDoubleToStream"></span><code>class procedure <strong>SaveDoubleToStream</strong>(const AValue: double; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveDoubleToStream-double-TStream-"></span><code>class procedure <strong>SaveDoubleToStream</strong>(const AValue: double; const ADestination: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="LoadIntegerFromStream"></span><code>class function <strong>LoadIntegerFromStream</strong>(const ASource: TStream): Longint;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadIntegerFromStream-TStream-"></span><code>class function <strong>LoadIntegerFromStream</strong>(const ASource: TStream): Longint;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SaveIntegerToStream"></span><code>class procedure <strong>SaveIntegerToStream</strong>(const AValue: Longint; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveIntegerToStream-Longint-TStream-"></span><code>class procedure <strong>SaveIntegerToStream</strong>(const AValue: Longint; const ADestination: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SerializeObject"></span><code>class procedure <strong>SerializeObject</strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SerializeObject-TSerializable-TStream-"></span><code>class procedure <strong>SerializeObject</strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DeserializeObject"></span><code>class function <strong>DeserializeObject</strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DeserializeObject-TStream-"></span><code>class function <strong>DeserializeObject</strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Register"></span><code>class procedure <strong>Register</strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Register-TSerializableClass-"></span><code>class procedure <strong>Register</strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="SerializeToFile"></span><code>procedure <strong>SerializeToFile</strong>(const AFileName: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SerializeToFile-string-"></span><code>procedure <strong>SerializeToFile</strong>(const AFileName: string);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DeserializeFromFile"></span><code>class function <strong>DeserializeFromFile</strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DeserializeFromFile-string-"></span><code>class function <strong>DeserializeFromFile</strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -241,12 +257,14 @@ Read back from file. </p>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="WasDeserialized"></span><code>property <strong>WasDeserialized</strong>: boolean read FWasDeserialized;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

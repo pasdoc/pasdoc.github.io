@@ -3,20 +3,36 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Tokenizer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_Tokenizer</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Simple Pascal tokenizer.</p>
@@ -46,10 +62,10 @@ Simple Pascal tokenizer.</p>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#StandardDirectiveByName">StandardDirectiveByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#StandardDirectiveByName-string-">StandardDirectiveByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#KeyWordByName">KeyWordByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.html#KeyWordByName-string-">KeyWordByName</a></strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
@@ -93,7 +109,7 @@ Simple Pascal tokenizer.</p>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#KeyWordArray">KeyWordArray</a></strong>: array[Low(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)..High(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)] of string =
   ('x', 
-    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'CONST',
+    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'OBJCCLASS', 'CONST',
     'CONSTRUCTOR', 'DESTRUCTOR', 'DISPINTERFACE', 'DIV',  'DO', 'DOWNTO',
     'ELSE', 'END', 'EXCEPT', 'EXPORTS', 'FILE', 'FINALIZATION',
     'FINALLY', 'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
@@ -102,7 +118,7 @@ Simple Pascal tokenizer.</p>
     'ON', 'OR', 'PACKED', 'PROCEDURE', 'PROGRAM', 'PROPERTY',
     'RAISE', 'RECORD', 'REPEAT', 'RESOURCESTRING', 'SET', 'SHL',
     'SHR', 'STRING', 'THEN', 'THREADVAR', 'TO', 'TRY', 'TYPE',
-    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR');</code></td>
+    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR', 'OUT');</code></td>
 </tr>
 <tr class="list">
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.html#StandardDirectiveArray">StandardDirectiveArray</a></strong>:
@@ -122,7 +138,7 @@ Simple Pascal tokenizer.</p>
 <h3 class="detail">Functions and Procedures</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StandardDirectiveByName"></span><code>function <strong>StandardDirectiveByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
+<td class="itemcode"><span id="StandardDirectiveByName-string-"></span><code>function <strong>StandardDirectiveByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -131,7 +147,7 @@ Checks is Name (case ignored) some Pascal keyword. Returns SD_INVALIDSTANDARDDIR
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="KeyWordByName"></span><code>function <strong>KeyWordByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
+<td class="itemcode"><span id="KeyWordByName-string-"></span><code>function <strong>KeyWordByName</strong>(const Name: string): <a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -184,7 +200,7 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <td class="itemcode"><span id="TKeyword"></span><code><strong>TKeyword</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">Values</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="KEY_INVALIDKEYWORD">KEY_INVALIDKEYWORD</span></li>
@@ -202,6 +218,8 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <span id="KEY_CASE">KEY_CASE</span></li>
 <li>
 <span id="KEY_CLASS">KEY_CLASS</span></li>
+<li>
+<span id="KEY_OBJCCLASS">KEY_OBJCCLASS</span></li>
 <li>
 <span id="KEY_CONST">KEY_CONST</span></li>
 <li>
@@ -318,6 +336,8 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <span id="KEY_WITH">KEY_WITH</span></li>
 <li>
 <span id="KEY_XOR">KEY_XOR</span></li>
+<li>
+<span id="KEY_OUT">KEY_OUT</span></li>
 </ul>
 </td></tr>
 </table>
@@ -326,7 +346,7 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <td class="itemcode"><span id="TStandardDirective"></span><code><strong>TStandardDirective</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">Values</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="SD_INVALIDSTANDARDDIRECTIVE">SD_INVALIDSTANDARDDIRECTIVE</span></li>
@@ -438,7 +458,7 @@ enumeration type that provides all types of tokens; each token's name starts wit
 <td class="itemcode"><span id="TStandardDirectives"></span><code><strong>TStandardDirectives</strong> = set of <a href="PasDoc_Tokenizer.html#TStandardDirective">TStandardDirective</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -522,7 +542,7 @@ Names of the token types. All start with lower letter. They should somehow descr
   <a href="PasDoc_Tokenizer.html#TOK_COMMENT_CSTYLE">TOK_COMMENT_CSTYLE</a> ];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -539,7 +559,7 @@ Symbols as strings. They can be useful to have some mapping TSymbolType -&gt; st
 <tr class="list">
 <td class="itemcode"><span id="KeyWordArray"></span><code><strong>KeyWordArray</strong>: array[Low(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)..High(<a href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a>)] of string =
   ('x', 
-    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'CONST',
+    'AND', 'ARRAY', 'AS', 'ASM', 'BEGIN', 'CASE', 'CLASS', 'OBJCCLASS', 'CONST',
     'CONSTRUCTOR', 'DESTRUCTOR', 'DISPINTERFACE', 'DIV',  'DO', 'DOWNTO',
     'ELSE', 'END', 'EXCEPT', 'EXPORTS', 'FILE', 'FINALIZATION',
     'FINALLY', 'FOR', 'FUNCTION', 'GOTO', 'IF', 'IMPLEMENTATION',
@@ -548,7 +568,7 @@ Symbols as strings. They can be useful to have some mapping TSymbolType -&gt; st
     'ON', 'OR', 'PACKED', 'PROCEDURE', 'PROGRAM', 'PROPERTY',
     'RAISE', 'RECORD', 'REPEAT', 'RESOURCESTRING', 'SET', 'SHL',
     'SHR', 'STRING', 'THEN', 'THREADVAR', 'TO', 'TRY', 'TYPE',
-    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR');</code></td>
+    'UNIT', 'UNTIL', 'USES', 'VAR', 'WHILE', 'WITH', 'XOR', 'OUT');</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -582,6 +602,8 @@ Object Pascal directives</p>
 <li>Michalis Kamburelis</li>
 <li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
 </ul>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

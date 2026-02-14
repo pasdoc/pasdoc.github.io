@@ -3,27 +3,43 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Utils</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_Utils</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section">Types</div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Utility functions.</p>
 <p>
    </p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>SysUtils</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>Classes</li><li>SysUtils</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -38,97 +54,109 @@ Utility functions.</p>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsStrEmptyA">IsStrEmptyA</a></strong>(const AString: string): boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsStrEmptyA-string-">IsStrEmptyA</a></strong>(const AString: string): boolean;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrCountCharA">StrCountCharA</a></strong>(const AString: string; const AChar: Char): Integer;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrCountCharA-string-Char-">StrCountCharA</a></strong>(const AString: string; const AChar: Char): Integer;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrPosIA">StrPosIA</a></strong>(const ASub, AString: string): Integer;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrPosIA-string-string-">StrPosIA</a></strong>(const ASub, AString: string): Integer;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#MakeMethod">MakeMethod</a></strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#MakeMethod-Pointer-Pointer-">MakeMethod</a></strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StringReplaceChars">StringReplaceChars</a></strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StringReplaceChars-string-arrayofTCharReplacement-">StringReplaceChars</a></strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs">SCharIs</a></strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs-string-integer-char-">SCharIs</a></strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs">SCharIs</a></strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs-string-integer-TCharSet-">SCharIs</a></strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#ExtractFirstWord">ExtractFirstWord</a></strong>(var s: string): string; overload;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#ExtractFirstWord-string-">ExtractFirstWord</a></strong>(var s: string): string; overload;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#ExtractFirstWord">ExtractFirstWord</a></strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#ExtractFirstWord-string-string-string-">ExtractFirstWord</a></strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#FileToString">FileToString</a></strong>(const FileName: string): string;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#SkipBOM-TStream-">SkipBOM</a></strong>(const InputStream: TStream);</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#StringToFile">StringToFile</a></strong>(const FileName, S: string);</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#FileToString-string-">FileToString</a></strong>(const FileName: string): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#DataToFile">DataToFile</a></strong>(const FileName: string; const Data: array of Byte);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#StringToFile-string-string-">StringToFile</a></strong>(const FileName, S: string);</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharsReplace">SCharsReplace</a></strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; ReplacementChar: char): string;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#DataToFile-string-arrayofByte-">DataToFile</a></strong>(const FileName: string; const Data: array of Byte);</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#CopyFile">CopyFile</a></strong>(const SourceFileName, DestinationFileName: string);</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharsReplace-String-TCharSet-Char-">SCharsReplace</a></strong>(const S: String; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPrefix">IsPrefix</a></strong>(const Prefix, S: string): boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharsReplace-String-Char-Char-">SCharsReplace</a></strong>(const S: String; const SearchChar: Char; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemovePrefix">RemovePrefix</a></strong>(const Prefix, S: string): string;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#CopyFile-string-string-">CopyFile</a></strong>(const SourceFileName, DestinationFileName: string);</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SEnding">SEnding</a></strong>(const s: string; P: integer): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPrefix-string-string-">IsPrefix</a></strong>(const Prefix, S: string): boolean;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsolute">IsPathAbsolute</a></strong>(const Path: string): boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemovePrefix-string-string-">RemovePrefix</a></strong>(const Prefix, S: string): string;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsoluteOnDrive">IsPathAbsoluteOnDrive</a></strong>(const Path: string): boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SEnding-string-integer-">SEnding</a></strong>(const s: string; P: integer): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CombinePaths">CombinePaths</a></strong>(BasePath, RelPath: string): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsolute-string-">IsPathAbsolute</a></strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#DeleteFileExt">DeleteFileExt</a></strong>(const FileName: string): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsoluteOnDrive-string-">IsPathAbsoluteOnDrive</a></strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemoveIndentation">RemoveIndentation</a></strong>(const Code: string): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CombinePaths-string-string-">CombinePaths</a></strong>(BasePath, RelPath: string): string;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#Swap16Buf">Swap16Buf</a></strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#DeleteFileExt-string-">DeleteFileExt</a></strong>(const FileName: string): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet">IsCharInSet</a></strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemoveIndentation-string-">RemoveIndentation</a></strong>(const Code: string): string;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet">IsCharInSet</a></strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#Swap16Buf-PWord-PWord-Integer-">Swap16Buf</a></strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8LeadByte">IsUtf8LeadByte</a></strong>(const B: Byte): Boolean; inline;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet-AnsiChar-TCharSet-">IsCharInSet</a></strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8TrailByte">IsUtf8TrailByte</a></strong>(const B: Byte): Boolean; inline;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet-WideChar-TCharSet-">IsCharInSet</a></strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#Utf8Size">Utf8Size</a></strong>(const LeadByte: Byte): Integer; inline;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8LeadByte-Byte-">IsUtf8LeadByte</a></strong>(const B: Byte): Boolean; inline;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsLeadChar">IsLeadChar</a></strong>(Ch: WideChar): Boolean; overload; inline;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8TrailByte-Byte-">IsUtf8TrailByte</a></strong>(const B: Byte): Boolean; inline;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StripHtml">StripHtml</a></strong>(const S: string): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#Utf8Size-Byte-">Utf8Size</a></strong>(const LeadByte: Byte): Integer; inline;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SAppendPart">SAppendPart</a></strong>(const s, PartSeparator, NextPart: String): String;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsLeadChar-WideChar-">IsLeadChar</a></strong>(Ch: WideChar): Boolean; overload; inline;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StripHtml-string-">StripHtml</a></strong>(const S: string): string;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SAppendPart-String-String-String-">SAppendPart</a></strong>(const s, PartSeparator, NextPart: String): String;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CharsPos-TCharSet-String-">CharsPos</a></strong>(const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const S: String): Integer;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SRemoveChars-string-TCharSet-">SRemoveChars</a></strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
@@ -156,7 +184,7 @@ Utility functions.</p>
 <h3 class="detail">Functions and Procedures</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsStrEmptyA"></span><code>function <strong>IsStrEmptyA</strong>(const AString: string): boolean;</code></td>
+<td class="itemcode"><span id="IsStrEmptyA-string-"></span><code>function <strong>IsStrEmptyA</strong>(const AString: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -165,7 +193,7 @@ string empty means it contains only whitespace</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StrCountCharA"></span><code>function <strong>StrCountCharA</strong>(const AString: string; const AChar: Char): Integer;</code></td>
+<td class="itemcode"><span id="StrCountCharA-string-Char-"></span><code>function <strong>StrCountCharA</strong>(const AString: string; const AChar: Char): Integer;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -174,7 +202,7 @@ count occurences of AChar in AString</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StrPosIA"></span><code>function <strong>StrPosIA</strong>(const ASub, AString: string): Integer;</code></td>
+<td class="itemcode"><span id="StrPosIA-string-string-"></span><code>function <strong>StrPosIA</strong>(const ASub, AString: string): Integer;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -183,7 +211,7 @@ Position of the ASub in AString. Return 0 if not found</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="MakeMethod"></span><code>function <strong>MakeMethod</strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
+<td class="itemcode"><span id="MakeMethod-Pointer-Pointer-"></span><code>function <strong>MakeMethod</strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -192,7 +220,7 @@ creates a &quot;method pointer&quot;</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StringReplaceChars"></span><code>function <strong>StringReplaceChars</strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
+<td class="itemcode"><span id="StringReplaceChars-string-arrayofTCharReplacement-"></span><code>function <strong>StringReplaceChars</strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -201,7 +229,7 @@ Returns S with each char from ReplacementArray[].cChar replaced with Replacement
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SCharIs"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
+<td class="itemcode"><span id="SCharIs-string-integer-char-"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -210,7 +238,7 @@ Comfortable shortcut for Index &lt;= Length(S) and S[Index] = C.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SCharIs"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
+<td class="itemcode"><span id="SCharIs-string-integer-TCharSet-"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -219,7 +247,7 @@ Comfortable shortcut for Index &lt;= Length(S) and S[Index] in Chars.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="ExtractFirstWord"></span><code>function <strong>ExtractFirstWord</strong>(var s: string): string; overload;</code></td>
+<td class="itemcode"><span id="ExtractFirstWord-string-"></span><code>function <strong>ExtractFirstWord</strong>(var s: string): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -232,7 +260,7 @@ Extracts all characters up to the first white-space encountered (ignoring white-
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="ExtractFirstWord"></span><code>procedure <strong>ExtractFirstWord</strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
+<td class="itemcode"><span id="ExtractFirstWord-string-string-string-"></span><code>procedure <strong>ExtractFirstWord</strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -245,28 +273,50 @@ Another version of ExtractFirstWord.
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="FileToString"></span><code>function <strong>FileToString</strong>(const FileName: string): string;</code></td>
+<td class="itemcode"><span id="SkipBOM-TStream-"></span><code>procedure <strong>SkipBOM</strong>(const InputStream: TStream);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p>
+Interpret and skip the BOM in the InputStream. Assumes that initial position is at the beginning of the InputStream, and will change the position to the one immediately after BOM (or 0, if no BOM was detected).
+
+<p></p>
+<h6 class="description_section">Exceptions raised</h6>
+<dl class="exceptions_raised">
+<dt><a class="normal" href="PasDoc_Types.EPasDoc.html">EPasDoc</a></dt>
+<dd>When BOM indicates UTF encoding that we cannot handle (UTF-32, UTF-16 now).</dd>
+</dl>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StringToFile"></span><code>procedure <strong>StringToFile</strong>(const FileName, S: string);</code></td>
+<td class="itemcode"><span id="FileToString-string-"></span><code>function <strong>FileToString</strong>(const FileName: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p>
+Read the given FileName contents into a String. Use this only with text files &ndash; it does automatic UTF BOM skipping, so it assumes it is a text file, not a binary file with random contents.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DataToFile"></span><code>procedure <strong>DataToFile</strong>(const FileName: string; const Data: array of Byte);</code></td>
+<td class="itemcode"><span id="StringToFile-string-string-"></span><code>procedure <strong>StringToFile</strong>(const FileName, S: string);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p>
+Save the String content into a file. Overwrites the FileName, if it already exists.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SCharsReplace"></span><code>function <strong>SCharsReplace</strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; ReplacementChar: char): string;</code></td>
+<td class="itemcode"><span id="DataToFile-string-arrayofByte-"></span><code>procedure <strong>DataToFile</strong>(const FileName: string; const Data: array of Byte);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Save the binary Data into a file. Overwrites the FileName, if it already exists.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SCharsReplace-String-TCharSet-Char-"></span><code>function <strong>SCharsReplace</strong>(const S: String; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -275,14 +325,21 @@ Returns S with all Chars replaced by ReplacementChar</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="CopyFile"></span><code>procedure <strong>CopyFile</strong>(const SourceFileName, DestinationFileName: string);</code></td>
+<td class="itemcode"><span id="SCharsReplace-String-Char-Char-"></span><code>function <strong>SCharsReplace</strong>(const S: String; const SearchChar: Char; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsPrefix"></span><code>function <strong>IsPrefix</strong>(const Prefix, S: string): boolean;</code></td>
+<td class="itemcode"><span id="CopyFile-string-string-"></span><code>procedure <strong>CopyFile</strong>(const SourceFileName, DestinationFileName: string);</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="IsPrefix-string-string-"></span><code>function <strong>IsPrefix</strong>(const Prefix, S: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -291,7 +348,7 @@ Checks is Prefix a prefix of S. Not case-sensitive.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="RemovePrefix"></span><code>function <strong>RemovePrefix</strong>(const Prefix, S: string): string;</code></td>
+<td class="itemcode"><span id="RemovePrefix-string-string-"></span><code>function <strong>RemovePrefix</strong>(const Prefix, S: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -300,7 +357,7 @@ If IsPrefix(Prefix, S), then remove the prefix, otherwise return unmodifed S.</p
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SEnding"></span><code>function <strong>SEnding</strong>(const s: string; P: integer): string;</code></td>
+<td class="itemcode"><span id="SEnding-string-integer-"></span><code>function <strong>SEnding</strong>(const s: string; P: integer): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -309,7 +366,7 @@ SEnding returns S contents starting from position P. Returns '' if P &gt; length
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsPathAbsolute"></span><code>function <strong>IsPathAbsolute</strong>(const Path: string): boolean;</code></td>
+<td class="itemcode"><span id="IsPathAbsolute-string-"></span><code>function <strong>IsPathAbsolute</strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -322,14 +379,14 @@ Check is the given Path absolute.
 <p></p>
 <h6 class="description_section">See also</h6>
 <dl class="see_also">
-  <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsoluteOnDrive">IsPathAbsoluteOnDrive</a></dt>
+  <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsoluteOnDrive-string-">IsPathAbsoluteOnDrive</a></dt>
   <dd>Just like IsPathAbsolute, but on Windows accepts also paths that specify full directory tree without drive letter.</dd>
 </dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsPathAbsoluteOnDrive"></span><code>function <strong>IsPathAbsoluteOnDrive</strong>(const Path: string): boolean;</code></td>
+<td class="itemcode"><span id="IsPathAbsoluteOnDrive-string-"></span><code>function <strong>IsPathAbsoluteOnDrive</strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -338,14 +395,14 @@ Just like IsPathAbsolute, but on Windows accepts also paths that specify full di
 <p></p>
 <h6 class="description_section">See also</h6>
 <dl class="see_also">
-  <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsolute">IsPathAbsolute</a></dt>
+  <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsolute-string-">IsPathAbsolute</a></dt>
   <dd>Check is the given Path absolute.</dd>
 </dl>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="CombinePaths"></span><code>function <strong>CombinePaths</strong>(BasePath, RelPath: string): string;</code></td>
+<td class="itemcode"><span id="CombinePaths-string-string-"></span><code>function <strong>CombinePaths</strong>(BasePath, RelPath: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -354,7 +411,7 @@ Combines BasePath with RelPath. BasePath MUST be an absolute path, on Windows it
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="DeleteFileExt"></span><code>function <strong>DeleteFileExt</strong>(const FileName: string): string;</code></td>
+<td class="itemcode"><span id="DeleteFileExt-string-"></span><code>function <strong>DeleteFileExt</strong>(const FileName: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -363,7 +420,7 @@ Remove from the FileName the last extension (including the dot). Note that if th
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="RemoveIndentation"></span><code>function <strong>RemoveIndentation</strong>(const Code: string): string;</code></td>
+<td class="itemcode"><span id="RemoveIndentation-string-"></span><code>function <strong>RemoveIndentation</strong>(const Code: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -372,56 +429,56 @@ Remove common indentation (whitespace prefix) from a multiline string.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="Swap16Buf"></span><code>procedure <strong>Swap16Buf</strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
+<td class="itemcode"><span id="Swap16Buf-PWord-PWord-Integer-"></span><code>procedure <strong>Swap16Buf</strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsCharInSet"></span><code>function <strong>IsCharInSet</strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
+<td class="itemcode"><span id="IsCharInSet-AnsiChar-TCharSet-"></span><code>function <strong>IsCharInSet</strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsCharInSet"></span><code>function <strong>IsCharInSet</strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
+<td class="itemcode"><span id="IsCharInSet-WideChar-TCharSet-"></span><code>function <strong>IsCharInSet</strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsUtf8LeadByte"></span><code>function <strong>IsUtf8LeadByte</strong>(const B: Byte): Boolean; inline;</code></td>
+<td class="itemcode"><span id="IsUtf8LeadByte-Byte-"></span><code>function <strong>IsUtf8LeadByte</strong>(const B: Byte): Boolean; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsUtf8TrailByte"></span><code>function <strong>IsUtf8TrailByte</strong>(const B: Byte): Boolean; inline;</code></td>
+<td class="itemcode"><span id="IsUtf8TrailByte-Byte-"></span><code>function <strong>IsUtf8TrailByte</strong>(const B: Byte): Boolean; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="Utf8Size"></span><code>function <strong>Utf8Size</strong>(const LeadByte: Byte): Integer; inline;</code></td>
+<td class="itemcode"><span id="Utf8Size-Byte-"></span><code>function <strong>Utf8Size</strong>(const LeadByte: Byte): Integer; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="IsLeadChar"></span><code>function <strong>IsLeadChar</strong>(Ch: WideChar): Boolean; overload; inline;</code></td>
+<td class="itemcode"><span id="IsLeadChar-WideChar-"></span><code>function <strong>IsLeadChar</strong>(Ch: WideChar): Boolean; overload; inline;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="StripHtml"></span><code>function <strong>StripHtml</strong>(const S: string): string;</code></td>
+<td class="itemcode"><span id="StripHtml-string-"></span><code>function <strong>StripHtml</strong>(const S: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -432,11 +489,29 @@ Strip HTML elements from the string.
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="SAppendPart"></span><code>function <strong>SAppendPart</strong>(const s, PartSeparator, NextPart: String): String;</code></td>
+<td class="itemcode"><span id="SAppendPart-String-String-String-"></span><code>function <strong>SAppendPart</strong>(const s, PartSeparator, NextPart: String): String;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 If S = '' then returns NextPart, else returns S + PartSeparator + NextPart.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="CharsPos-TCharSet-String-"></span><code>function <strong>CharsPos</strong>(const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const S: String): Integer;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Find first occurrence of any character in Chars in string S. This is quite like FirstDelimiter but it takes parameter as TSetOfChars and has more sensible name. Returns 0 if not found.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="SRemoveChars-string-TCharSet-"></span><code>function <strong>SRemoveChars</strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Remove all instances of a character in Chars from a string.</p>
 </td></tr>
 </table>
 <h3 class="detail">Constants</h3>
@@ -445,7 +520,7 @@ If S = '' then returns NextPart, else returns S + PartSeparator + NextPart.</p>
 <td class="itemcode"><span id="AllChars"></span><code><strong>AllChars</strong> = [Low(AnsiChar)..High(AnsiChar)];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -480,7 +555,7 @@ Any whitespace (that may indicate newline or not)</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Flag Start- and Endsigns for parameters (Feature request &quot;direction of parameter&quot;: <a href="https://github.com/pasdoc/pasdoc/issues/8">https://github.com/pasdoc/pasdoc/issues/8</a>)</p>
+Flag Start- and Endsigns for parameters (Feature request &quot;direction of parameter&quot;: <a href="https://github.com/pasdoc/pasdoc/issues/8">pasdoc issue 8</a>)</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -488,7 +563,7 @@ Flag Start- and Endsigns for parameters (Feature request &quot;direction of para
 <td class="itemcode"><span id="FlagEndSigns"></span><code><strong>FlagEndSigns</strong> = [']'];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">
@@ -496,6 +571,8 @@ Flag Start- and Endsigns for parameters (Feature request &quot;direction of para
 <li>Michalis Kamburelis</li>
 <li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
 </ul>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

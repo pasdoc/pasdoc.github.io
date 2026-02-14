@@ -1,4 +1,4 @@
-DiGraph Classes {
+digraph Classes {
   "Exception" -> "TObject"
   "EAnchorAlreadyExists" -> "Exception"
   "EAnchorAlreadyExists" [href="PasDoc_Items.EAnchorAlreadyExists.html"]
@@ -30,12 +30,12 @@ DiGraph Classes {
   "TBaseItems" [href="PasDoc_Items.TBaseItems.html"]
   "TPasItems" -> "TBaseItems"
   "TPasItems" [href="PasDoc_Items.TPasItems.html"]
-  "TPasMethods" -> "TPasItems"
-  "TPasMethods" [href="PasDoc_Items.TPasMethods.html"]
   "TPasNestedCios" -> "TPasItems"
   "TPasNestedCios" [href="PasDoc_Items.TPasNestedCios.html"]
   "TPasProperties" -> "TPasItems"
   "TPasProperties" [href="PasDoc_Items.TPasProperties.html"]
+  "TPasRoutines" -> "TPasItems"
+  "TPasRoutines" [href="PasDoc_Items.TPasRoutines.html"]
   "TPasTypes" -> "TPasItems"
   "TPasTypes" [href="PasDoc_Items.TPasTypes.html"]
   "TPasUnits" -> "TPasItems"
@@ -93,6 +93,8 @@ DiGraph Classes {
   "THTMLDocGenerator" [href="PasDoc_GenHtml.THTMLDocGenerator.html"]
   "THTMLHelpDocGenerator" -> "TGenericHTMLDocGenerator"
   "THTMLHelpDocGenerator" [href="PasDoc_GenHtmlHelp.THTMLHelpDocGenerator.html"]
+  "TPHPDocGenerator" -> "TDocGenerator"
+  "TPHPDocGenerator" [href="PasDoc_GenPHP.TPHPDocGenerator.html"]
   "TSimpleXMLDocGenerator" -> "TDocGenerator"
   "TSimpleXMLDocGenerator" [href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html"]
   "TTexDocGenerator" -> "TDocGenerator"
@@ -125,10 +127,10 @@ DiGraph Classes {
   "TPasConstant" [href="PasDoc_Items.TPasConstant.html"]
   "TPasFieldVariable" -> "TPasItem"
   "TPasFieldVariable" [href="PasDoc_Items.TPasFieldVariable.html"]
-  "TPasMethod" -> "TPasItem"
-  "TPasMethod" [href="PasDoc_Items.TPasMethod.html"]
   "TPasProperty" -> "TPasItem"
   "TPasProperty" [href="PasDoc_Items.TPasProperty.html"]
+  "TPasRoutine" -> "TPasItem"
+  "TPasRoutine" [href="PasDoc_Items.TPasRoutine.html"]
   "TPasType" -> "TPasItem"
   "TPasType" [href="PasDoc_Items.TPasType.html"]
   "TPasCio" -> "TPasType"

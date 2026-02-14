@@ -3,17 +3,33 @@
 <head>
 <title>PasDoc's autodoc: All Classes, Interfaces, Objects and Records</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="allitems">All Classes, Interfaces, Objects and Records</h1>
 <table class="itemstable wide_list">
 <tr class="listheader">
@@ -49,7 +65,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.EPasDoc.html">EPasDoc</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Exception raised in many situations when PasDoc encounters an error.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Serialize.ESerializedException.html">ESerializedException</a></td>
@@ -84,7 +100,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TBoolOption.html">TBoolOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>simple boolean option</p></td>
+<td class="itemdesc"><p>Boolean option, &quot;on&quot; if was specified.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_StreamUtils.TBufferedStream.html">TBufferedStream</a></td>
@@ -99,7 +115,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
-<td class="itemdesc"><p>basic documentation generator object</p></td>
+<td class="itemdesc"><p>Base generator class, to be specialized for specific output formats.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TExternalItem.html">TExternalItem</a></td>
@@ -114,7 +130,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
-<td class="itemdesc"><p>generates HTML documentation</p></td>
+<td class="itemdesc"><p>HTML documentation generator.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Hashes.THash.html">THash</a></td>
@@ -139,7 +155,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TIntegerOption.html">TIntegerOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>Integer option</p></td>
+<td class="itemdesc"><p>Option that accepts additional Integer as a value.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.TLanguageRecord.html">TLanguageRecord</a></td>
@@ -174,7 +190,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TOption.html">TOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>abstract base class for options</p></td>
+<td class="itemdesc"><p>Base class for options.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a></td>
@@ -214,7 +230,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Base.TPasDoc.html">TPasDoc</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Base.html">PasDoc_Base</a></td>
-<td class="itemdesc"><p>The main object in the pasdoc application; first scans parameters, then parses files.</p></td>
+<td class="itemdesc"><p>Manages parsing and documentation generation.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.TPasDocLanguages.html">TPasDocLanguages</a></td>
@@ -247,24 +263,6 @@
 <td class="itemdesc"><p>Container class to store a list of <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>s.</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Items.TPasMethod.html">TPasMethod</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>This represents: </p>
-
-<ol class="paragraph_spacing">
-  <li value="1"><p>global function/procedure,</p></li>
-  <li value="2"><p>method (function/procedure of a class/interface/object),</p></li>
-  <li value="3"><p>pointer type to one of the above (in this case Name is the type name).</p></li>
-</ol>
-
-<p></p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Items.TPasMethods.html">TPasMethods</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>Collection of methods.</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasNestedCios.html">TPasNestedCios</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Collection of classes / records / interfaces.</p></td>
@@ -280,9 +278,27 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>This represents: </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>global function/procedure,</p></li>
+  <li value="2"><p>method (function/procedure of a structure (TPasCio)),</p></li>
+  <li value="3"><p>type (pointer to one of the above) (in this case Name is the type name).</p></li>
+</ol>
+
+<p></p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Items.TPasRoutines.html">TPasRoutines</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>Collection of methods.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasType.html">TPasType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>Pascal type (but not a procedural type &mdash; these are expressed as <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod</a>.)</p></td>
+<td class="itemdesc"><p>Pascal type (but not a procedural type &mdash; these are expressed as <a class="normal" href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>.)</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasTypes.html">TPasTypes</a></td>
@@ -305,131 +321,140 @@
 <td class="itemdesc"><p>pathlist option</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_GenPHP.TPHPDocGenerator.html">TPHPDocGenerator</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_GenPHP.html">PasDoc_GenPHP</a></td>
+<td class="itemdesc"><p>PHP output generator.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_ProcessLineTalk.TProcessLineTalk.html">TProcessLineTalk</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_ProcessLineTalk.html">PasDoc_ProcessLineTalk</a></td>
 <td class="itemdesc"><p>This is a subclass of TProcess that allows to easy &quot;talk&quot; with executed process by pipes (read process stdout/stderr, write to process stdin) on a line-by-line basis.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Raw description, in other words: the contents of comment before given item.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Parser.TRawDescriptionInfoList.html">TRawDescriptionInfoList</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
 <td class="itemdesc"><p><code>TRawDescriptionInfoList</code> stores a series of <a class="normal" href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfos</a>.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TRowData.html">TRowData</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Collected information about @row (or @rowHead).</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Scanner.TScanner.html">TScanner</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Scanner.html">PasDoc_Scanner</a></td>
-<td class="itemdesc"><p>This class scans one unit using one or more <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> objects to scan the unit and all nested include files.</p></td>
+<td class="itemdesc"><p>Scanner for Pascal, producing tokens and interpreting conditionals
+
+<p>Returns tokens from a Pascal language source code input stream.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Serialize.TSerializable.html">TSerializable</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Serialize.html">PasDoc_Serialize</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TSetOption.html">TSetOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
 <td class="itemdesc"><p>useful for making a choice of things</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html">TSimpleXMLDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenSimpleXML.html">PasDoc_GenSimpleXML</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Aspell.TSpellingError.html">TSpellingError</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Aspell.html">PasDoc_Aspell</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Single misspelling found by <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TObjectVector-">TAspellProcess.CheckString</a>.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_HierarchyTree.TStringCardinalTree.html">TStringCardinalTree</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_HierarchyTree.html">PasDoc_HierarchyTree</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TStringOption.html">TStringOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>String option</p></td>
+<td class="itemdesc"><p>Option that accepts additional string as a value.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TStringOptionList.html">TStringOptionList</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
 <td class="itemdesc"><p>stringlist option</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></td>
 <td class="itemdesc"><p>List of string pairs.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StringVector.TStringVector.html">TStringVector</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StringVector.html">PasDoc_StringVector</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TTableData.html">TTableData</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Collected information about @table.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TTag.html">TTag</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TTagManager.html">TTagManager</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TTagVector.html">TTagVector</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>All Items of this list must be non-nil TTag objects.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenLatex.html">PasDoc_GenLatex</a></td>
-<td class="itemdesc"><p>generates latex documentation</p></td>
+<td class="itemdesc"><p>LaTeX documentation generator.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_ProcessLineTalk.TTextReader.html">TTextReader</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_ProcessLineTalk.html">PasDoc_ProcessLineTalk</a></td>
 <td class="itemdesc"><p>TTextReader reads given Stream line by line.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.TToken.html">TToken</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>Stores the exact type and additional information on one token.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>Converts an input TStream to a sequence of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TTopLevelTag.html">TTopLevelTag</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TValueOption.html">TValueOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>base class for all options that values</p></td>
+<td class="itemdesc"><p>Base class for all options that have values.</p></td>
 </tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

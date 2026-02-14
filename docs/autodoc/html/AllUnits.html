@@ -3,17 +3,33 @@
 <head>
 <title>PasDoc's autodoc: All Units</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="allitems">All Units</h1>
 <table class="unitstable wide_list">
 <tr class="listheader">
@@ -26,15 +42,15 @@
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Base.html">PasDoc_Base</a></td>
-<td class="itemdesc"><p>Contains the main TPasDoc component.</p></td>
+<td class="itemdesc"><p>Manages parsing and documentation generation: <a class="normal" href="PasDoc_Base.TPasDoc.html">TPasDoc</a>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
-<td class="itemdesc"><p>basic doc generator object</p></td>
+<td class="itemdesc"><p>Base generator class <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>, to be specialized for specific output formats.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
-<td class="itemdesc"><p>Provides HTML document generator object.</p></td>
+<td class="itemdesc"><p>HTML documentation generator in <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtmlHelp.html">PasDoc_GenHtmlHelp</a></td>
@@ -42,101 +58,107 @@
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_GenLatex.html">PasDoc_GenLatex</a></td>
-<td class="itemdesc"><p>Provides Latex document generator object.</p></td>
+<td class="itemdesc"><p>LaTeX documentation generator <a class="normal" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a>.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_GenSimpleXML.html">PasDoc_GenSimpleXML</a></td>
-<td class="itemdesc"><p>SimpleXML output generator.</p></td>
+<td class="itemname"><a class="bold" href="PasDoc_GenPHP.html">PasDoc_GenPHP</a></td>
+<td class="itemdesc"><p>PHP output generator.</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_GenSimpleXML.html">PasDoc_GenSimpleXML</a></td>
+<td class="itemdesc"><p>SimpleXML documentation generator <a class="normal" href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html">TSimpleXMLDocGenerator</a>.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
 <td class="itemdesc"><p>This unit implements an associative array.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_HierarchyTree.html">PasDoc_HierarchyTree</a></td>
 <td class="itemdesc"><p> a n-ary tree for PasItems &mdash; for use in Class Hierarchy</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>defines all items that can appear within a Pascal unit's interface</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>PasDoc language definitions and translations.</p></td>
+<td class="itemdesc"><p>All items that can appear within Pascal source code.</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Main.html">PasDoc_Main</a></td>
-<td class="itemdesc"><p>Provides the Main procedure.</p></td>
+<td class="itemname"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
+<td class="itemdesc"><p>Language definitions and translations.</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Main.html">PasDoc_Main</a></td>
+<td class="itemdesc"><p>Main procedure, that does the complete job of the command-line PasDoc.</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></td>
 <td class="itemdesc"><p>  a simple object vector</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>The <code>PasDoc_OptionParser</code> unit &mdash; easing command line parsing</p></td>
+<td class="itemdesc"><p>Command line option parsing.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
+<td class="itemdesc"><p>Parse Pascal code.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
-<td class="itemdesc"><p>Parse ObjectPascal code.</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_ProcessLineTalk.html">PasDoc_ProcessLineTalk</a></td>
 <td class="itemdesc"><p>Talking with another process through pipes.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Reg.html">PasDoc_Reg</a></td>
 <td class="itemdesc"><p>Registers the PasDoc components into the IDE. </p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Scanner.html">PasDoc_Scanner</a></td>
-<td class="itemdesc"><p>Simple Pascal scanner.</p></td>
+<td class="itemdesc"><p>Scanner for Pascal, producing tokens and interpreting conditionals.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Serialize.html">PasDoc_Serialize</a></td>
+<td class="itemdesc"><p>Serializing / deserializing cached information.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Serialize.html">PasDoc_Serialize</a></td>
-<td class="itemdesc"><p>Serializing/deserializing cached information.</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></td>
 <td class="itemdesc"><p>Sorting settings types and names.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
 <td class="itemdesc"><p>A few stream utility functions.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></td>
 <td class="itemdesc"><p>Simple container for a pair of strings.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_StringVector.html">PasDoc_StringVector</a></td>
 <td class="itemdesc"><p>String vector based on TStringList.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>Collects information about available @-tags and can parse text with tags.</p></td>
 </tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
-<td class="itemdesc"><p>Helper unit for integrating tipue [<a href="http://www.tipue.com/">http://www.tipue.com/</a>] with pasdoc HTML output.</p></td>
-</tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
+<td class="itemdesc"><p>Integrate Tipue search.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>Simple Pascal tokenizer.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>Basic types.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Utility functions.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Versions.html">PasDoc_Versions</a></td>
 <td class="itemdesc"><p>Information about PasDoc and compilers version.</p></td>
 </tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

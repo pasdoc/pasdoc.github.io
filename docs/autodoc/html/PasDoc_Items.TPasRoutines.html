@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>PasDoc's autodoc: PasDoc_ProcessLineTalk: Class TTextReader</title>
+<title>PasDoc's autodoc: PasDoc_Items: Class TPasRoutines</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -30,72 +30,71 @@
 </li></ul></div></div>
 <main class="pasdoc-content content">
 <div class="container-fluid py-3 px-4">
-<span id="TTextReader"></span><h1 class="cio">Class TTextReader</h1>
+<span id="TPasRoutines"></span><h1 class="cio">Class TPasRoutines</h1>
 <div class="sections">
 <div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
-<a href="PasDoc_ProcessLineTalk.html">PasDoc_ProcessLineTalk</a></p>
+<a href="PasDoc_Items.html">PasDoc_Items</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TTextReader = class(TObject)</code></p>
+<code>type TPasRoutines = class(<a class="normal" href="PasDoc_Items.TPasItems.html">TPasItems</a>)</code></p>
 <h2 class="description">Description</h2>
 <p>
-TTextReader reads given Stream line by line. Lines may be terminated in Stream with #13, #10, #13+#10 or #10+#13. This way I can treat any TStream quite like standard Pascal text files: I have simple Readln method.
-
-<p>After calling Readln or Eof you should STOP directly using underlying Stream (but you CAN use Stream right after creating TTextReader.Create(Stream) and before any Readln or Eof operations on this TTextReader).</p>
+Collection of methods.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TTextReader</li></ul><h2 class="overview">Overview</h2>
+<li class="ancestor">TList</li>
+<li class="ancestor">TObjectList</li>
+<li class="ancestor"><a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></li>
+<li class="ancestor"><a class="normal" href="PasDoc_Items.TBaseItems.html">TBaseItems</a></li>
+<li class="ancestor"><a class="normal" href="PasDoc_Items.TPasItems.html">TPasItems</a></li>
+<li class="thisitem">TPasRoutines</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>constructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#CreateFromFileStream-string-">CreateFromFileStream</a></strong>(const FileName: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasRoutines.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>constructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Create-TStream-boolean-">Create</a></strong>(AStream: TStream; AOwnsStream: boolean);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasRoutines.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>destructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Destroy">Destroy</a></strong>; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasRoutines.html#FindListItem-string-Integer-">FindListItem</a></strong>(const AName: string; Index: Integer): <a href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>; overload;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Readln">Readln</a></strong>: string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasRoutines.html#FindListItem-string-">FindListItem</a></strong>(const ANameOrSignature: string): <a href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>; overload;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Eof">Eof</a></strong>: boolean;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasRoutines.html#Add-TBaseItem-">Add</a></strong>(const AItem: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TPasRoutines.html#Create-Boolean-">Create</a></strong>(const AOwnsObject: Boolean); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TPasRoutines.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="CreateFromFileStream-string-"></span><code>constructor <strong>CreateFromFileStream</strong>(const FileName: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p>
-This is a comfortable constructor, equivalent to TTextReader.Create(TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite), true)</p>
-</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Create-TStream-boolean-"></span><code>constructor <strong>Create</strong>(AStream: TStream; AOwnsStream: boolean);</code></td>
-</tr>
-<tr><td colspan="2">
-<p>
-If AOwnsStream then in Destroy we will free Stream object.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>
@@ -103,17 +102,47 @@ If AOwnsStream then in Destroy we will free Stream object.</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Readln"></span><code>function <strong>Readln</strong>: string;</code></td>
+<td class="itemcode"><span id="FindListItem-string-Integer-"></span><code>function <strong>FindListItem</strong>(const AName: string; Index: Integer): <a href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Reads next line from Stream. Returned string does not contain any end-of-line characters.</p>
+Find an Index-th item with given name on a list. Index is 0-based. There could be multiple items sharing the same name (overloads) while method of base class returns only the one most recently added item.
+
+<p>Returns <code>Nil</code> if nothing can be found.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Eof"></span><code>function <strong>Eof</strong>: boolean;</code></td>
+<td class="itemcode"><span id="FindListItem-string-"></span><code>function <strong>FindListItem</strong>(const ANameOrSignature: string): <a href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-TBaseItem-"></span><code>procedure <strong>Add</strong>(const AItem: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TBaseItems.html#Add-TBaseItem-">TBaseItems.Add</a>.</p><p>
+During Add, AObject is associated with AObject.Name using hash table, so remember to set AObject.Name <em>before</em> calling Add(AObject).</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-Boolean-"></span><code>constructor <strong>Create</strong>(const AOwnsObject: Boolean); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_ObjectVector.TObjectVector.html#Create-boolean-">TObjectVector.Create</a>.</p><p>
+This is only to make constructor virtual, while original TObjectList has a static constructor.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p></td></tr>

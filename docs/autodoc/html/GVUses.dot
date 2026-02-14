@@ -1,12 +1,14 @@
-DiGraph Uses {
+digraph Uses {
   "PasDoc_Aspell" -> "SysUtils"
   "PasDoc_Aspell" -> "Classes"
+  "PasDoc_Aspell" -> "Contnrs"
   "PasDoc_Aspell" -> "PasDoc_ProcessLineTalk"
   "PasDoc_Aspell" -> "PasDoc_ObjectVector"
   "PasDoc_Aspell" -> "PasDoc_Types"
   "PasDoc_Aspell" [href="PasDoc_Aspell.html"]
   "PasDoc_Base" -> "SysUtils"
   "PasDoc_Base" -> "Classes"
+  "PasDoc_Base" -> "Contnrs"
   "PasDoc_Base" -> "PasDoc_Items"
   "PasDoc_Base" -> "PasDoc_Languages"
   "PasDoc_Base" -> "PasDoc_Gen"
@@ -23,6 +25,7 @@ DiGraph Uses {
   "PasDoc_Gen" -> "PasDoc_HierarchyTree"
   "PasDoc_Gen" -> "PasDoc_Types"
   "PasDoc_Gen" -> "Classes"
+  "PasDoc_Gen" -> "Contnrs"
   "PasDoc_Gen" -> "PasDoc_TagManager"
   "PasDoc_Gen" -> "PasDoc_Aspell"
   "PasDoc_Gen" -> "PasDoc_StreamUtils"
@@ -35,6 +38,7 @@ DiGraph Uses {
   "PasDoc_GenHtml" -> "PasDoc_StringVector"
   "PasDoc_GenHtml" -> "PasDoc_Types"
   "PasDoc_GenHtml" -> "Classes"
+  "PasDoc_GenHtml" -> "Contnrs"
   "PasDoc_GenHtml" -> "PasDoc_StringPairVector"
   "PasDoc_GenHtml" [href="PasDoc_GenHtml.html"]
   "PasDoc_GenHtmlHelp" -> "PasDoc_GenHtml"
@@ -47,7 +51,15 @@ DiGraph Uses {
   "PasDoc_GenLatex" -> "PasDoc_StringVector"
   "PasDoc_GenLatex" -> "PasDoc_Types"
   "PasDoc_GenLatex" -> "Classes"
+  "PasDoc_GenLatex" -> "Contnrs"
   "PasDoc_GenLatex" [href="PasDoc_GenLatex.html"]
+  "PasDoc_GenPHP" -> "PasDoc_Utils"
+  "PasDoc_GenPHP" -> "PasDoc_Gen"
+  "PasDoc_GenPHP" -> "PasDoc_Items"
+  "PasDoc_GenPHP" -> "PasDoc_Types"
+  "PasDoc_GenPHP" -> "PasDoc_Languages"
+  "PasDoc_GenPHP" -> "PasDoc_StringVector"
+  "PasDoc_GenPHP" [href="PasDoc_GenPHP.html"]
   "PasDoc_GenSimpleXML" -> "PasDoc_Utils"
   "PasDoc_GenSimpleXML" -> "PasDoc_Gen"
   "PasDoc_GenSimpleXML" -> "PasDoc_Items"
@@ -55,6 +67,7 @@ DiGraph Uses {
   "PasDoc_GenSimpleXML" -> "PasDoc_StringVector"
   "PasDoc_GenSimpleXML" -> "PasDoc_Types"
   "PasDoc_GenSimpleXML" -> "Classes"
+  "PasDoc_GenSimpleXML" -> "Contnrs"
   "PasDoc_GenSimpleXML" -> "PasDoc_StringPairVector"
   "PasDoc_GenSimpleXML" [href="PasDoc_GenSimpleXML.html"]
   "PasDoc_Hashes" -> "SysUtils"
@@ -69,6 +82,7 @@ DiGraph Uses {
   "PasDoc_Items" -> "PasDoc_ObjectVector"
   "PasDoc_Items" -> "PasDoc_Hashes"
   "PasDoc_Items" -> "Classes"
+  "PasDoc_Items" -> "Contnrs"
   "PasDoc_Items" -> "PasDoc_TagManager"
   "PasDoc_Items" -> "PasDoc_Serialize"
   "PasDoc_Items" -> "PasDoc_SortSettings"
@@ -99,11 +113,14 @@ DiGraph Uses {
   "PasDoc_Reg" [href="PasDoc_Reg.html"]
   "PasDoc_Scanner" -> "SysUtils"
   "PasDoc_Scanner" -> "Classes"
+  "PasDoc_Scanner" -> "Contnrs"
+  "PasDoc_Scanner" -> "Types"
   "PasDoc_Scanner" -> "PasDoc_Types"
   "PasDoc_Scanner" -> "PasDoc_Tokenizer"
   "PasDoc_Scanner" -> "PasDoc_StringVector"
   "PasDoc_Scanner" -> "PasDoc_StreamUtils"
   "PasDoc_Scanner" -> "PasDoc_StringPairVector"
+  "PasDoc_Scanner" -> "PasDoc_ObjectVector"
   "PasDoc_Scanner" [href="PasDoc_Scanner.html"]
   "PasDoc_Serialize" -> "Classes"
   "PasDoc_Serialize" -> "SysUtils"
@@ -116,17 +133,20 @@ DiGraph Uses {
   "PasDoc_StreamUtils" -> "PasDoc_Types"
   "PasDoc_StreamUtils" [href="PasDoc_StreamUtils.html"]
   "PasDoc_StringPairVector" -> "Classes"
+  "PasDoc_StringPairVector" -> "Contnrs"
   "PasDoc_StringPairVector" -> "PasDoc_ObjectVector"
   "PasDoc_StringPairVector" [href="PasDoc_StringPairVector.html"]
   "PasDoc_StringVector" -> "Classes"
   "PasDoc_StringVector" [href="PasDoc_StringVector.html"]
   "PasDoc_TagManager" -> "SysUtils"
   "PasDoc_TagManager" -> "Classes"
+  "PasDoc_TagManager" -> "Contnrs"
   "PasDoc_TagManager" -> "PasDoc_Types"
   "PasDoc_TagManager" -> "PasDoc_ObjectVector"
   "PasDoc_TagManager" [href="PasDoc_TagManager.html"]
   "PasDoc_Tipue" -> "PasDoc_Utils"
   "PasDoc_Tipue" -> "PasDoc_Items"
+  "PasDoc_Tipue" -> "Contnrs"
   "PasDoc_Tipue" [href="PasDoc_Tipue.html"]
   "PasDoc_Tokenizer" -> "Classes"
   "PasDoc_Tokenizer" -> "PasDoc_Utils"
@@ -137,6 +157,7 @@ DiGraph Uses {
   "PasDoc_Types" -> "StrUtils"
   "PasDoc_Types" -> "Types"
   "PasDoc_Types" [href="PasDoc_Types.html"]
+  "PasDoc_Utils" -> "Classes"
   "PasDoc_Utils" -> "SysUtils"
   "PasDoc_Utils" -> "PasDoc_Types"
   "PasDoc_Utils" [href="PasDoc_Utils.html"]

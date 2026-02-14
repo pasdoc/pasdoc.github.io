@@ -3,29 +3,45 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Items</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_Items</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
-defines all items that can appear within a Pascal unit's interface</p>
+All items that can appear within Pascal source code.</p>
 <p>
         
 
 <p>For each item (type, variable, class etc.) that may appear in a Pascal source code file and can thus be taken into the documentation, this unit provides an object type which will store name, unit, description and more on this item.</p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>SysUtils</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li><li><a href="PasDoc_Hashes.html">PasDoc_Hashes</a></li><li>Classes</li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Serialize.html">PasDoc_Serialize</a></li><li><a href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li><li><a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>SysUtils</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li><li><a href="PasDoc_Hashes.html">PasDoc_Hashes</a></li><li>Classes</li><li>Contnrs</li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Serialize.html">PasDoc_Serialize</a></li><li><a href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li><li><a href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -54,20 +70,20 @@ defines all items that can appear within a Pascal unit's interface</p>
 </tr>
 <tr class="list2">
 <td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasType.html"><code>TPasType</code></a></td>
-<td class="itemdesc">Pascal type (but not a procedural type &mdash; these are expressed as <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod</a>.)</td>
+<td class="itemdesc">Pascal type (but not a procedural type &mdash; these are expressed as <a class="normal" href="PasDoc_Items.TPasRoutine.html">TPasRoutine</a>.)</td>
 </tr>
 <tr class="list">
 <td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasEnum.html"><code>TPasEnum</code></a></td>
 <td class="itemdesc">Enumerated type.</td>
 </tr>
 <tr class="list2">
-<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasMethod.html"><code>TPasMethod</code></a></td>
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasRoutine.html"><code>TPasRoutine</code></a></td>
 <td class="itemdesc">This represents: </p>
 
 <ol class="paragraph_spacing">
   <li value="1"><p>global function/procedure,</p></li>
-  <li value="2"><p>method (function/procedure of a class/interface/object),</p></li>
-  <li value="3"><p>pointer type to one of the above (in this case Name is the type name).</p></li>
+  <li value="2"><p>method (function/procedure of a structure (TPasCio)),</p></li>
+  <li value="3"><p>type (pointer to one of the above) (in this case Name is the type name).</p></li>
 </ol>
 
 <p></td>
@@ -109,7 +125,7 @@ defines all items that can appear within a Pascal unit's interface</p>
 <td class="itemdesc">Container class to store a list of <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>s.</td>
 </tr>
 <tr class="list2">
-<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasMethods.html"><code>TPasMethods</code></a></td>
+<td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_Items.TPasRoutines.html"><code>TPasRoutines</code></a></td>
 <td class="itemdesc">Collection of methods.</td>
 </tr>
 <tr class="list">
@@ -132,13 +148,16 @@ defines all items that can appear within a Pascal unit's interface</p>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#MethodTypeToString">MethodTypeToString</a></strong>(const MethodType: <a href="PasDoc_Items.html#TMethodType">TMethodType</a>): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#RoutineTypeToString-TRoutineType-">RoutineTypeToString</a></strong>(const RoutineType: <a href="PasDoc_Items.html#TRoutineType">TRoutineType</a>): string;</code></td>
 </tr>
 <tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisibilitiesToStr">VisibilitiesToStr</a></strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#CioTypeToString-TCIOType-">CioTypeToString</a></strong>(const CioType: <a href="PasDoc_Items.html#TCIOType">TCIOType</a>): String;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisToStr">VisToStr</a></strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisibilitiesToStr-TVisibilities-">VisibilitiesToStr</a></strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.html#VisToStr-TVisibility-">VisToStr</a></strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
@@ -162,7 +181,7 @@ defines all items that can appear within a Pascal unit's interface</p>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.html#THintDirectives">THintDirectives</a></strong> = set of <a href="PasDoc_Items.html#THintDirective">THintDirective</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TMethodType">TMethodType</a></strong> = (...);</code></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#TRoutineType">TRoutineType</a></strong> = (...);</code></td>
 </tr>
 <tr class="list2">
 <td class="itemcode"><code><strong><a href="PasDoc_Items.html#TCIOType">TCIOType</a></strong> = (...);</code></td>
@@ -197,8 +216,8 @@ defines all items that can appear within a Pascal unit's interface</p>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.html#InfoMergeTypeStr">InfoMergeTypeStr</a></strong>: array[<a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>] of string = (
     'none',
     'prefer-interface',
-    'join',
-    'prefer-implementation'
+    'prefer-implementation',
+    'join'
   );</code></td>
 </tr>
 <tr class="list">
@@ -216,7 +235,7 @@ defines all items that can appear within a Pascal unit's interface</p>
 <h3 class="detail">Functions and Procedures</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="MethodTypeToString"></span><code>function <strong>MethodTypeToString</strong>(const MethodType: <a href="PasDoc_Items.html#TMethodType">TMethodType</a>): string;</code></td>
+<td class="itemcode"><span id="RoutineTypeToString-TRoutineType-"></span><code>function <strong>RoutineTypeToString</strong>(const RoutineType: <a href="PasDoc_Items.html#TRoutineType">TRoutineType</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -225,7 +244,16 @@ Returns lowercased keyword associated with given method type.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="VisibilitiesToStr"></span><code>function <strong>VisibilitiesToStr</strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
+<td class="itemcode"><span id="CioTypeToString-TCIOType-"></span><code>function <strong>CioTypeToString</strong>(const CioType: <a href="PasDoc_Items.html#TCIOType">TCIOType</a>): String;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Returns lowercased keyword(s) associated with given structure type.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="VisibilitiesToStr-TVisibilities-"></span><code>function <strong>VisibilitiesToStr</strong>(const Visibilities: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -234,10 +262,10 @@ Returns VisibilityStr for each value in Visibilities, delimited by commas.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="VisToStr"></span><code>function <strong>VisToStr</strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
+<td class="itemcode"><span id="VisToStr-TVisibility-"></span><code>function <strong>VisToStr</strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <h3 class="detail">Types</h3>
 <table class="detail wide_list">
@@ -273,7 +301,7 @@ Visibility of a field/method.</p>
 <td class="itemcode"><span id="TVisibilities"></span><code><strong>TVisibilities</strong> = set of <a href="PasDoc_Items.html#TVisibility">TVisibility</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -281,17 +309,17 @@ Visibility of a field/method.</p>
 </tr>
 <tr><td colspan="1">
 <p>
-Type of merging intf section and impl section metadata of an item</p>
+Type of merging interface and implementation comments. See <a href="https://pasdoc.github.io/ImplementationCommentsOption">--implementation-comments documentation</a>.</p>
 <h6 class="description_section">Values</h6>
 <ul>
 <li>
-<span id="imtNone">imtNone</span>: impl section is not scanned - default behavior</li>
+<span id="imtNone">imtNone</span>: Implementation not parsed.</li>
 <li>
-<span id="imtPreferIntf">imtPreferIntf</span>: data is taken from intf, if it's empty - from impl</li>
+<span id="imtPreferIntf">imtPreferIntf</span>: Read both, prefer interface.</li>
 <li>
-<span id="imtJoin">imtJoin</span>: data is concatenated</li>
+<span id="imtPreferImpl">imtPreferImpl</span>: Read both, prefer implementation.</li>
 <li>
-<span id="imtPreferImpl">imtPreferImpl</span>: data is taken from impl, if it's empty - from intf</li>
+<span id="imtJoin">imtJoin</span>: Read both, concatenate.</li>
 </ul>
 </td></tr>
 </table>
@@ -300,14 +328,14 @@ Type of merging intf section and impl section metadata of an item</p>
 <td class="itemcode"><span id="PRawDescriptionInfo"></span><code><strong>PRawDescriptionInfo</strong> = &circ;<a href="PasDoc_Items.TRawDescriptionInfo.html">TRawDescriptionInfo</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="THintDirective"></span><code><strong>THintDirective</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">Values</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="hdDeprecated">hdDeprecated</span></li>
@@ -325,27 +353,27 @@ Type of merging intf section and impl section metadata of an item</p>
 <td class="itemcode"><span id="THintDirectives"></span><code><strong>THintDirectives</strong> = set of <a href="PasDoc_Items.html#THintDirective">THintDirective</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="itemcode"><span id="TMethodType"></span><code><strong>TMethodType</strong> = (...);</code></td>
+<td class="itemcode"><span id="TRoutineType"></span><code><strong>TRoutineType</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-Methodtype for <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod</a></p>
+Routine type for <a class="normal" href="PasDoc_Items.TPasRoutine.html#What">TPasRoutine.What</a></p>
 <h6 class="description_section">Values</h6>
 <ul>
 <li>
-<span id="METHOD_CONSTRUCTOR">METHOD_CONSTRUCTOR</span></li>
+<span id="ROUTINE_CONSTRUCTOR">ROUTINE_CONSTRUCTOR</span></li>
 <li>
-<span id="METHOD_DESTRUCTOR">METHOD_DESTRUCTOR</span></li>
+<span id="ROUTINE_DESTRUCTOR">ROUTINE_DESTRUCTOR</span></li>
 <li>
-<span id="METHOD_FUNCTION">METHOD_FUNCTION</span></li>
+<span id="ROUTINE_FUNCTION">ROUTINE_FUNCTION</span></li>
 <li>
-<span id="METHOD_PROCEDURE">METHOD_PROCEDURE</span></li>
+<span id="ROUTINE_PROCEDURE">ROUTINE_PROCEDURE</span></li>
 <li>
-<span id="METHOD_OPERATOR">METHOD_OPERATOR</span></li>
+<span id="ROUTINE_OPERATOR">ROUTINE_OPERATOR</span></li>
 </ul>
 </td></tr>
 </table>
@@ -355,13 +383,17 @@ Methodtype for <a class="normal" href="PasDoc_Items.TPasMethod.html">TPasMethod<
 </tr>
 <tr><td colspan="1">
 <p>
-enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a> item</p>
+Determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a> item, like a class or record.</p>
 <h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="CIO_CLASS">CIO_CLASS</span></li>
 <li>
 <span id="CIO_PACKEDCLASS">CIO_PACKEDCLASS</span></li>
+<li>
+<span id="CIO_OBJCCLASS">CIO_OBJCCLASS</span></li>
+<li>
+<span id="CIO_PACKEDOBJCCLASS">CIO_PACKEDOBJCCLASS</span></li>
 <li>
 <span id="CIO_DISPINTERFACE">CIO_DISPINTERFACE</span></li>
 <li>
@@ -374,6 +406,8 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
 <span id="CIO_RECORD">CIO_RECORD</span></li>
 <li>
 <span id="CIO_PACKEDRECORD">CIO_PACKEDRECORD</span></li>
+<li>
+<span id="CIO_TYPE">CIO_TYPE</span>: CIO_TYPE is used only when CIO is a type helper, designed by CIO.ClassDirective = CT_HELPER.</li>
 </ul>
 </td></tr>
 </table>
@@ -382,7 +416,7 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
 <td class="itemcode"><span id="TClassDirective"></span><code><strong>TClassDirective</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">Values</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="CT_NONE">CT_NONE</span></li>
@@ -392,6 +426,8 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
 <span id="CT_SEALED">CT_SEALED</span></li>
 <li>
 <span id="CT_HELPER">CT_HELPER</span></li>
+<li>
+<span id="CT_EXTERNAL">CT_EXTERNAL</span>: external can be used with objcclass (see <a href="https://wiki.freepascal.org/FPC_PasCocoa">FPC PasCocoa</a>)</li>
 </ul>
 </td></tr>
 </table>
@@ -411,14 +447,14 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
   );</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="AllVisibilities"></span><code><strong>AllVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -426,33 +462,33 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
     [<a href="PasDoc_Items.html#viProtected">viProtected</a>, <a href="PasDoc_Items.html#viPublic">viPublic</a>, <a href="PasDoc_Items.html#viPublished">viPublished</a>, <a href="PasDoc_Items.html#viAutomated">viAutomated</a>];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="InfoMergeTypeStr"></span><code><strong>InfoMergeTypeStr</strong>: array[<a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>] of string = (
     'none',
     'prefer-interface',
-    'join',
-    'prefer-implementation'
+    'prefer-implementation',
+    'join'
   );</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="CIORecordType"></span><code><strong>CIORecordType</strong> = [<a href="PasDoc_Items.html#CIO_RECORD">CIO_RECORD</a>, <a href="PasDoc_Items.html#CIO_PACKEDRECORD">CIO_PACKEDRECORD</a>];</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="CIONonHierarchy"></span><code><strong>CIONonHierarchy</strong> = <a href="PasDoc_Items.html#CIORecordType">CIORecordType</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
@@ -460,7 +496,7 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
   ( Content: ''; StreamName: ''; BeginPosition: -1; EndPosition: -1; );</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">
@@ -476,6 +512,8 @@ enumeration type to determine type of <a class="normal" href="PasDoc_Items.TPasC
 <p>
 11 Mar 1999
 </p>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

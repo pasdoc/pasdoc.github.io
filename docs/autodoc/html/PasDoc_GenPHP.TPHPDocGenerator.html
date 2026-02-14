@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>PasDoc's autodoc: PasDoc_GenSimpleXML: Class TSimpleXMLDocGenerator</title>
+<title>PasDoc's autodoc: PasDoc_GenPHP: Class TPHPDocGenerator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -30,77 +30,69 @@
 </li></ul></div></div>
 <main class="pasdoc-content content">
 <div class="container-fluid py-3 px-4">
-<span id="TSimpleXMLDocGenerator"></span><h1 class="cio">Class TSimpleXMLDocGenerator</h1>
+<span id="TPHPDocGenerator"></span><h1 class="cio">Class TPHPDocGenerator</h1>
 <div class="sections">
 <div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
-<a href="PasDoc_GenSimpleXML.html">PasDoc_GenSimpleXML</a></p>
+<a href="PasDoc_GenPHP.html">PasDoc_GenPHP</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TSimpleXMLDocGenerator = class(<a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>)</code></p>
+<code>type TPHPDocGenerator = class(<a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>)</code></p>
 <h2 class="description">Description</h2>
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>.</p><p>
-Base generator class, to be specialized for specific output formats. This abstract object will do the complete process of writing documentation files. It will be given the collection of units that was the result of the parsing process and a configuration object that was created from default values and program parameters. Depending on the output format, one or more files may be created (HTML will create several, Tex only one).</p>
+<p>
+PHP output generator.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
 <li class="ancestor">TComponent</li>
 <li class="ancestor"><a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a></li>
-<li class="thisitem">TSimpleXMLDocGenerator</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TPHPDocGenerator</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#CodeString-string-">CodeString</a></strong>(const s: string): string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#CodeString-string-">CodeString</a></strong>(const s: string): string; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#ConvertString-string-">ConvertString</a></strong>(const s: string): string; override;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#WriteExternalCore-TExternalItem-TTranslationID-">WriteExternalCore</a></strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#ConvertChar-char-">ConvertChar</a></strong>(c: char): string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#FormatSection-integer-string-string-">FormatSection</a></strong>(HL: integer; const Anchor: string; const Caption: string): string; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#WriteUnit-integer-TPasUnit-">WriteUnit</a></strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#FormatAnchor-string-">FormatAnchor</a></strong>(const Anchor: string): string; override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#WriteExternalCore-TExternalItem-TTranslationID-">WriteExternalCore</a></strong>(const ExternalItem: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const Id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>); override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#FormatList-TListData-">FormatList</a></strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatSection-integer-string-string-">FormatSection</a></strong>(HL: integer; const Anchor: string; const Caption: string): string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#FormatTable-TTableData-">FormatTable</a></strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatAnchor-string-">FormatAnchor</a></strong>(const Anchor: string): string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#ConvertString-string-">ConvertString</a></strong>(const s: string): string; override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatTable-TTableData-">FormatTable</a></strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#ConvertChar-char-">ConvertChar</a></strong>(c: char): string; override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatList-TListData-">FormatList</a></strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; override;</code></td>
-</tr>
-<tr class="list2">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatBold-string-">FormatBold</a></strong>(const Text: string): string; override;</code></td>
-</tr>
-<tr class="list">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#FormatItalic-string-">FormatItalic</a></strong>(const Text: string): string; override;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#WriteUnit-integer-TPasUnit-">WriteUnit</a></strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#WriteDocumentation">WriteDocumentation</a></strong>; override;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#WriteDocumentation">WriteDocumentation</a></strong>; override;</code></td>
 </tr>
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html#GetFileExtension">GetFileExtension</a></strong>: string; override;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_GenPHP.TPHPDocGenerator.html#GetFileExtension">GetFileExtension</a></strong>: String; override;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
@@ -111,44 +103,8 @@ Base generator class, to be specialized for specific output formats. This abstra
 <td class="itemcode"><span id="CodeString-string-"></span><code>function <strong>CodeString</strong>(const s: string): string; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#CodeString-string-">TDocGenerator.CodeString</a>.</p><p>
-Return S formatted to look like code, e.g. &lt;code&gt;xxx&lt;/code&gt; in HTML.
-
-<p>Given S is already in the final output format (with characters converted using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>, @-tags expanded etc.).</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="ConvertString-string-"></span><code>function <strong>ConvertString</strong>(const s: string): string; override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">TDocGenerator.ConvertString</a>.</p><p>
-Converts for each character in S, thus assembling a String that is returned and can be written to the documentation file.
-
-<p>The @ character should not be converted, this will be done later on.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="ConvertChar-char-"></span><code>function <strong>ConvertChar</strong>(c: char): string; override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertChar-char-">TDocGenerator.ConvertChar</a>.</p><p>
-Converts a character to its converted form. This method should always be called to add characters to a string.
-
-<p>@ should also be converted by this routine.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="WriteUnit-integer-TPasUnit-"></span><code>procedure <strong>WriteUnit</strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit-integer-TPasUnit-">TDocGenerator.WriteUnit</a>.</p><p>
-Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
+<p>
+Overrides of ancestor abstract methods, not really used by PHP generation. As we output only a simple map (name-&gt;html_filename) for PHP now, we don't really use most of these methods. But we override them, as they are absract in ancestor.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -184,16 +140,6 @@ Writes a link-anchor.</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="FormatTable-TTableData-"></span><code>function <strong>FormatTable</strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable-TTableData-">TDocGenerator.FormatTable</a>.</p><p>
-Return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
-</td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FormatList-TListData-"></span><code>function <strong>FormatList</strong>(ListData: <a href="PasDoc_Gen.TListData.html">TListData</a>): string; override;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -204,27 +150,43 @@ Format a list from given ListData.</p>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="FormatBold-string-"></span><code>function <strong>FormatBold</strong>(const Text: string): string; override;</code></td>
+<td class="itemcode"><span id="FormatTable-TTableData-"></span><code>function <strong>FormatTable</strong>(Table: <a href="PasDoc_Gen.TTableData.html">TTableData</a>): string; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold-string-">TDocGenerator.FormatBold</a>.</p><p>
-Return Text formatted using bold font.
-
-<p>Given Text is already in the final output format (with characters converted using <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertString-string-">ConvertString</a>, @-tags expanded etc.).
-
-<p>Implementation of this method in this class simply returns <code>Result := Text</code>. Output generators that can somehow express bold formatting (or at least emphasis of some text) should override this.
-
-<p></p>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable-TTableData-">TDocGenerator.FormatTable</a>.</p><p>
+Return appropriate content for given Table. It's guaranteed that the Table passed here will have at least one row and in each row there will be at least one cell, so you don't have to check it within descendants.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="FormatItalic-string-"></span><code>function <strong>FormatItalic</strong>(const Text: string): string; override;</code></td>
+<td class="itemcode"><span id="ConvertString-string-"></span><code>function <strong>ConvertString</strong>(const s: string): string; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatItalic-string-">TDocGenerator.FormatItalic</a>.</p><p>
-Return Text formatted using italic font. Analogous to <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatBold-string-">FormatBold</a>.</p>
+<p>
+Overrides actually used.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="ConvertChar-char-"></span><code>function <strong>ConvertChar</strong>(c: char): string; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#ConvertChar-char-">TDocGenerator.ConvertChar</a>.</p><p>
+Converts a character to its converted form. This method should always be called to add characters to a string.
+
+<p>@ should also be converted by this routine.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="WriteUnit-integer-TPasUnit-"></span><code>procedure <strong>WriteUnit</strong>(const HL: integer; const U: <a href="PasDoc_Items.TPasUnit.html">TPasUnit</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteUnit-integer-TPasUnit-">TDocGenerator.WriteUnit</a>.</p><p>
+Abstract method that writes all documentation for a single unit U to output, starting at heading level HL. Implementation must be provided by descendant objects and is dependent on output format.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
@@ -240,7 +202,7 @@ Must be overwritten, writes all documentation. Will create either a single file 
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="GetFileExtension"></span><code>function <strong>GetFileExtension</strong>: string; override;</code></td>
+<td class="itemcode"><span id="GetFileExtension"></span><code>function <strong>GetFileExtension</strong>: String; override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Gen.TDocGenerator.html#GetFileExtension">TDocGenerator.GetFileExtension</a>.</p><p>

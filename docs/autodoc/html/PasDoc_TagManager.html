@@ -3,25 +3,41 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_TagManager</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_TagManager</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section">Functions and Procedures</div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Collects information about available @-tags and can parse text with tags.</p>
 <span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li>Contnrs</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -77,9 +93,9 @@ Collects information about available @-tags and can parse text with tags.</p>
 <td class="itemcode"><span id="TTagExecuteEvent"></span><code><strong>TTagExecuteEvent</strong> = procedure(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string) of object;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">See also</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">See also</h6>
 <dl class="see_also">
-  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a></dt>
+  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">TTag.Execute</a></dt>
   <dd>This will be used to do main work when this @-tag occured in description.</dd>
 </dl>
 </td></tr>
@@ -89,9 +105,9 @@ Collects information about available @-tags and can parse text with tags.</p>
 <td class="itemcode"><span id="TTagAllowedInsideEvent"></span><code><strong>TTagAllowedInsideEvent</strong> = procedure( ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var Allowed: boolean) of object;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">See also</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">See also</h6>
 <dl class="see_also">
-  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside">TTag.AllowedInside</a></dt>
+  <dt><a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside-TTag-">TTag.AllowedInside</a></dt>
   <dd>This will be checked always when this tag occurs within description.</dd>
 </dl>
 </td></tr>
@@ -101,19 +117,19 @@ Collects information about available @-tags and can parse text with tags.</p>
 <td class="itemcode"><span id="TStringConverter"></span><code><strong>TStringConverter</strong> = function(const s: string): string of object;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="TTagOption"></span><code><strong>TTagOption</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;<h6 class="description_section">Values</h6>
+<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
 <ul>
 <li>
-<span id="toParameterRequired">toParameterRequired</span>: This means that tag expects parameters. If this is not included in TagOptions then tag should not be given any parameters, i.e. TagParameter passed to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a> should be ''. We will display a warning if user will try to give some parameters for such tag.</li>
+<span id="toParameterRequired">toParameterRequired</span>: This means that tag expects parameters. If this is not included in TagOptions then tag should not be given any parameters, i.e. TagParameter passed to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">TTag.Execute</a> should be ''. We will display a warning if user will try to give some parameters for such tag.</li>
 <li>
-<span id="toRecursiveTags">toRecursiveTags</span>: This means that parameters of this tag will be expanded before passing them to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute">TTag.Execute</a>. This means that we will expand recursive tags inside parameters, that we will ConvertString inside parameters, that we will handle paragraphs inside parameters etc. &mdash; all that does <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute">TTagManager.Execute</a>.
+<span id="toRecursiveTags">toRecursiveTags</span>: This means that parameters of this tag will be expanded before passing them to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">TTag.Execute</a>. This means that we will expand recursive tags inside parameters, that we will ConvertString inside parameters, that we will handle paragraphs inside parameters etc. &mdash; all that does <a class="normal" href="PasDoc_TagManager.TTagManager.html#Execute-string-boolean-">TTagManager.Execute</a>.
 
 <p>If toParameterRequired is not present in TTagOptions then it's not important whether you included toRecursiveTags.
 
@@ -125,13 +141,13 @@ Collects information about available @-tags and can parse text with tags.</p>
 
 <p>Never use both flags toRecursiveTags and toRecursiveTagsManually.</li>
 <li>
-<span id="toAllowOtherTagsInsideByDefault">toAllowOtherTagsInsideByDefault</span>: This is meaningful only if toRecursiveTags is included. Then toAllowOtherTagsInsideByDefault determines are other tags allowed by the default implementation of <a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside">TTag.AllowedInside</a>.</li>
+<span id="toAllowOtherTagsInsideByDefault">toAllowOtherTagsInsideByDefault</span>: This is meaningful only if toRecursiveTags is included. Then toAllowOtherTagsInsideByDefault determines are other tags allowed by the default implementation of <a class="normal" href="PasDoc_TagManager.TTag.html#AllowedInside-TTag-">TTag.AllowedInside</a>.</li>
 <li>
 <span id="toAllowNormalTextInside">toAllowNormalTextInside</span>: This is meaningful only if toRecursiveTags is included. Then <code>toAllowNormalTextInside</code> says that normal text is allowed inside parameter of this tag. <em>&quot;Normal text&quot;</em> is anything except other @-tags: normal text, paragraph breaks, various dashes, URLs, and literal @ character (expressed by @@ in descriptions).
 
 <p>If <code>toAllowNormalTextInside</code> will not be included, then normal text (not enclosed within other @-tags) will not be allowed inside. Only whitespace will be allowed, and it will be ignored anyway (i.e. will not be passed to ConvertString, empty line will not produce any Paragraph etc.). This is useful for tags like @orderedList that should only contain other @item tags inside.</li>
 <li>
-<span id="toFirstWordVerbatim">toFirstWordVerbatim</span>: This is useful for tags like @raises and @param that treat 1st word of their descriptions very specially (where &quot;what exactly is the 1st word&quot; is defined by the <a class="normal" href="PasDoc_Utils.html#ExtractFirstWord">ExtractFirstWord</a> function). This tells pasdoc to leave the beginning of tag parameter (the first word and the eventual whitespace before it) as it is in the parameter. Don't search there for @-tags, URLs, -- or other special dashes, don't insert paragraphs, don't try to auto-link it.
+<span id="toFirstWordVerbatim">toFirstWordVerbatim</span>: This is useful for tags like @raises and @param that treat 1st word of their descriptions very specially (where &quot;what exactly is the 1st word&quot; is defined by the <a class="normal" href="PasDoc_Utils.html#ExtractFirstWord-string-string-string-">ExtractFirstWord</a> function). This tells pasdoc to leave the beginning of tag parameter (the first word and the eventual whitespace before it) as it is in the parameter. Don't search there for @-tags, URLs, -- or other special dashes, don't insert paragraphs, don't try to auto-link it.
 
 <p>This is meaningful only if toRecursiveTags is included (otherwise the whole tag parameters are always preserved &quot;verbatim&quot;).
 
@@ -144,15 +160,17 @@ Collects information about available @-tags and can parse text with tags.</p>
 <td class="itemcode"><span id="TTagOptions"></span><code><strong>TTagOptions</strong> = set of <a href="PasDoc_TagManager.html#TTagOption">TTagOption</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
 <td class="itemcode"><span id="TTryAutoLinkEvent"></span><code><strong>TTryAutoLinkEvent</strong> = procedure(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const QualifiedIdentifier: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>; out QualifiedIdentifierReplacement: string; var AutoLinked: boolean) of object;</code></td>
 </tr>
 <tr><td colspan="1">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

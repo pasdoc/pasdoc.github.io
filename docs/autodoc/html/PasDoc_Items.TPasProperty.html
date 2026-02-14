@@ -3,17 +3,33 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Items: Class TPasProperty</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <span id="TPasProperty"></span><h1 class="cio">Class TPasProperty</h1>
 <div class="sections">
 <div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
@@ -24,10 +40,10 @@
 <p class="declaration">
 <code>type TPasProperty = class(<a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>)</code></p>
 <h2 class="description">Description</h2>
-<div class="nodescription">No description available, ancestor TPasItem description follows</div><p>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a>.</p><p>
 This is a <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> descendant that is always declared inside some Pascal source file.
 
-<p>Parser creates only items of this class (e.g. never some basic <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> instance). This class introduces properties and methods pointing to parent unit (<a class="normal" href="PasDoc_Items.TPasItem.html#MyUnit">MyUnit</a>) and parent class/interface/object/record (<a class="normal" href="PasDoc_Items.TPasItem.html#MyObject">MyObject</a>). Also many other things not needed at <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> level are introduced here: things related to handling @abstract tag, @seealso tag, used to sorting items inside (<a class="normal" href="PasDoc_Items.TPasItem.html#Sort">Sort</a>) and some more.</p>
+<p>Parser creates only items of this class (e.g. never some basic <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> instance). This class introduces properties and methods pointing to parent unit (<a class="normal" href="PasDoc_Items.TPasItem.html#MyUnit">MyUnit</a>) and parent class/interface/object/record (<a class="normal" href="PasDoc_Items.TPasItem.html#MyObject">MyObject</a>). Also many other things not needed at <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> level are introduced here: things related to handling @abstract tag, @seealso tag, used to sorting items inside (<a class="normal" href="PasDoc_Items.TPasItem.html#Sort-TSortSettings-">Sort</a>) and some more.</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="PasDoc_Serialize.TSerializable.html">TSerializable</a></li>
@@ -37,171 +53,212 @@ This is a <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> des
 <span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FDefault">FDefault</a></strong>: Boolean;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FDefaultInClass">FDefaultInClass</a></strong>: Boolean;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FNoDefault">FNoDefault</a></strong>: Boolean;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FIndexDecl">FIndexDecl</a></strong>: string;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FStoredID">FStoredID</a></strong>: string;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FStored">FStored</a></strong>: string;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FDefaultID">FDefaultID</a></strong>: string;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FDefaultValue">FDefaultValue</a></strong>: string;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FWriter">FWriter</a></strong>: string;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FPropType">FPropType</a></strong>: string;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Items.TPasProperty.html#FReader">FReader</a></strong>: string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperty.html#Serialize">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperty.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperty.html#Deserialize">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperty.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasProperty.html#InheritedItem">InheritedItem</a></strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasProperty.html#IsOverride">IsOverride</a></strong>: Boolean; override;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#IndexDecl">IndexDecl</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FIndexDecl">FIndexDecl</a> write <a href="PasDoc_Items.TPasProperty.html#FIndexDecl">FIndexDecl</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#Proptype">Proptype</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FPropType">FPropType</a> write <a href="PasDoc_Items.TPasProperty.html#FPropType">FPropType</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#Reader">Reader</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FReader">FReader</a> write <a href="PasDoc_Items.TPasProperty.html#FReader">FReader</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#Writer">Writer</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FWriter">FWriter</a> write <a href="PasDoc_Items.TPasProperty.html#FWriter">FWriter</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#Default">Default</a></strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FDefault">FDefault</a> write <a href="PasDoc_Items.TPasProperty.html#FDefault">FDefault</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#DefaultInClass">DefaultInClass</a></strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FDefaultInClass">FDefaultInClass</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultInClass">FDefaultInClass</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#DefaultID">DefaultID</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FDefaultID">FDefaultID</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultID">FDefaultID</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#DefaultValue">DefaultValue</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FDefaultValue">FDefaultValue</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultValue">FDefaultValue</a>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#NoDefault">NoDefault</a></strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FNoDefault">FNoDefault</a> write <a href="PasDoc_Items.TPasProperty.html#FNoDefault">FNoDefault</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#StoredId">StoredId</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FStoredID">FStoredID</a> write <a href="PasDoc_Items.TPasProperty.html#FStoredID">FStoredID</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperty.html#Stored">Stored</a></strong>: string read <a href="PasDoc_Items.TPasProperty.html#FStored">FStored</a> write <a href="PasDoc_Items.TPasProperty.html#FStored">FStored</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="FDefault"></span><code><strong>FDefault</strong>: Boolean;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FDefaultInClass"></span><code><strong>FDefaultInClass</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FNoDefault"></span><code><strong>FNoDefault</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FIndexDecl"></span><code><strong>FIndexDecl</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="FStoredID"></span><code><strong>FStoredID</strong>: string;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FStored"></span><code><strong>FStored</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="FDefaultID"></span><code><strong>FDefaultID</strong>: string;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="FDefaultValue"></span><code><strong>FDefaultValue</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FWriter"></span><code><strong>FWriter</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FPropType"></span><code><strong>FPropType</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FReader"></span><code><strong>FReader</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="Serialize"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TBaseItem.html#Serialize-TStream-">TBaseItem.Serialize</a>.</p><p>
+Serialization of TPasItem need to store in stream only data that is generated by parser. That's because current approach treats &quot;loading from cache&quot; as equivalent to parsing a unit and stores to cache right after parsing a unit. So what is generated by parser must be written to cache.
+
+<p>That said,
+
+<p></p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p> It will not break anything if you will accidentally store in cache something that is not generated by parser. That's because saving to cache will be done anyway right after doing parsing, so properties not initialized by parser will have their initial values anyway. You're just wasting memory for cache, and some cache saving/loading time.</p></li>
+  <li value="2"><p> For now, in implementation of serialize/deserialize we try to add even things not generated by parser in a commented out code. This way if approach to cache will change some day, we will be able to use this code.</p></li>
+</ol>
+
+<p></p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="Deserialize"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="InheritedItem"></span><code>function <strong>InheritedItem</strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Get the closest item that this item inherits from. Returns <code>Nil</code> if the property does not override.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="IsOverride"></span><code>function <strong>IsOverride</strong>: Boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TPasItem.html#IsOverride">TPasItem.IsOverride</a>.</p><p>
+Whether this item overrides an item in an ancestor.</p>
+</td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="IndexDecl"></span><code>property <strong>IndexDecl</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FIndexDecl">FIndexDecl</a> write <a href="PasDoc_Items.TPasProperty.html#FIndexDecl">FIndexDecl</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -211,7 +268,7 @@ contains the optional index declaration, including brackets</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Proptype"></span><code>property <strong>Proptype</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FPropType">FPropType</a> write <a href="PasDoc_Items.TPasProperty.html#FPropType">FPropType</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -221,7 +278,7 @@ contains the type of the property</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Reader"></span><code>property <strong>Reader</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FReader">FReader</a> write <a href="PasDoc_Items.TPasProperty.html#FReader">FReader</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -231,7 +288,7 @@ read specifier</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Writer"></span><code>property <strong>Writer</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FWriter">FWriter</a> write <a href="PasDoc_Items.TPasProperty.html#FWriter">FWriter</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -241,27 +298,27 @@ write specifier</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Default"></span><code>property <strong>Default</strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FDefault">FDefault</a> write <a href="PasDoc_Items.TPasProperty.html#FDefault">FDefault</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DefaultInClass"></span><code>property <strong>DefaultInClass</strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FDefaultInClass">FDefaultInClass</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultInClass">FDefaultInClass</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-true if the property is the default property</p>
+Is it the default property in class. For example &quot;property Items[I: Integer]: String read GetItems; default;&quot;.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="DefaultID"></span><code>property <strong>DefaultID</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FDefaultID">FDefaultID</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultID">FDefaultID</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DefaultValue"></span><code>property <strong>DefaultValue</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FDefaultValue">FDefaultValue</a> write <a href="PasDoc_Items.TPasProperty.html#FDefaultValue">FDefaultValue</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-keeps default value specifier</p>
+Default value. For example it will be 123 for declaration like this &quot;property Xxx: Integer default 123;&quot;.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="NoDefault"></span><code>property <strong>NoDefault</strong>: Boolean read <a href="PasDoc_Items.TPasProperty.html#FNoDefault">FNoDefault</a> write <a href="PasDoc_Items.TPasProperty.html#FNoDefault">FNoDefault</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -271,14 +328,16 @@ true if Nodefault property</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="StoredId"></span><code>property <strong>StoredId</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FStoredID">FStoredID</a> write <a href="PasDoc_Items.TPasProperty.html#FStoredID">FStoredID</a>;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Stored"></span><code>property <strong>Stored</strong>: string read <a href="PasDoc_Items.TPasProperty.html#FStored">FStored</a> write <a href="PasDoc_Items.TPasProperty.html#FStored">FStored</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 keeps Stored specifier</p>
 </td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

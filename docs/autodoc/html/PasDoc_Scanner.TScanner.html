@@ -3,20 +3,36 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Scanner: Class TScanner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <span id="TScanner"></span><h1 class="cio">Class TScanner</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_Scanner.html">PasDoc_Scanner</a></p>
@@ -25,82 +41,99 @@
 <code>type TScanner = class(TObject)</code></p>
 <h2 class="description">Description</h2>
 <p>
-This class scans one unit using one or more <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> objects to scan the unit and all nested include files.</p>
+Scanner for Pascal, producing tokens and interpreting conditionals
+
+<p>Returns tokens from a Pascal language source code input stream. Uses the <a class="normal" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a> unit to get tokens, processes directives that might lead to
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>including other files</p></li>
+  <li><p>define / undefine symbols</p></li>
+  <li><p>processes conditional directives</p></li>
+  <li><p>handles FPC macros (when HandleMacros is true).</p></li>
+</ul>
+
+<p>
+
+<p>Effectively this is a combined tokenizer and pre-processor.
+
+<p>Single TScanner instance scans one unit using one or more <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html">TTokenizer</a> instances (to scan the unit and all nested include files).</p>
 <span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="thisitem">TScanner</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#DoError">DoError</a></strong>(const AMessage: string; const AArguments: array of const);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#DoError-string-arrayof-">DoError</a></strong>(const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#DoMessage">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#DoMessage-Cardinal-TPasDocMessageType-string-arrayof-">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>constructor <strong><a href="PasDoc_Scanner.TScanner.html#Create">Create</a></strong>( const s: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamPath: string; const AHandleMacros: boolean);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Scanner.TScanner.html#Create-TStream-TPasDocMessageEvent-Cardinal-string-string-boolean-">Create</a></strong>( const s: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamAbsoluteFileName: string; const AHandleMacros: boolean);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Scanner.TScanner.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddSymbol">AddSymbol</a></strong>(const Name: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddSymbol-string-">AddSymbol</a></strong>(const Name: string);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddSymbols">AddSymbols</a></strong>(const NewSymbols: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddSymbols-TStringVector-">AddSymbols</a></strong>(const NewSymbols: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddMacro">AddMacro</a></strong>(const Name, Value: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#AddMacro-string-string-">AddMacro</a></strong>(const Name, Value: string);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#ConsumeToken">ConsumeToken</a></strong>;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Scanner.TScanner.html#GetToken">GetToken</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Scanner.TScanner.html#GetStreamInfo">GetStreamInfo</a></strong>: string;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Scanner.TScanner.html#PeekToken">PeekToken</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#UnGetToken">UnGetToken</a></strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Scanner.TScanner.html#UnGetToken-TToken-">UnGetToken</a></strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Scanner.TScanner.html#IncludeFilePaths">IncludeFilePaths</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeFilePaths
       write SetIncludeFilePaths;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Scanner.TScanner.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Scanner.TScanner.html#Verbosity">Verbosity</a></strong>: Cardinal read FVerbosity write FVerbosity;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Scanner.TScanner.html#SwitchOptions">SwitchOptions</a></strong>: <a href="PasDoc_Scanner.html#TSwitchOptions">TSwitchOptions</a> read FSwitchOptions;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Scanner.TScanner.html#HandleMacros">HandleMacros</a></strong>: boolean read FHandleMacros;</code></td>
 </tr>
 </table>
@@ -108,24 +141,24 @@ This class scans one unit using one or more <a class="normal" href="PasDoc_Token
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="DoError"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="DoError-string-arrayof-"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="DoMessage"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="DoMessage-Cardinal-TPasDocMessageType-string-arrayof-"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>( const s: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamPath: string; const AHandleMacros: boolean);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-TStream-TPasDocMessageEvent-Cardinal-string-string-boolean-"></span><code>constructor <strong>Create</strong>( const s: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamAbsoluteFileName: string; const AHandleMacros: boolean);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -136,16 +169,16 @@ Creates a TScanner object that scans the given input stream.
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddSymbol"></span><code>procedure <strong>AddSymbol</strong>(const Name: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddSymbol-string-"></span><code>procedure <strong>AddSymbol</strong>(const Name: string);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -154,18 +187,18 @@ Adds Name to the list of symbols (as a normal symbol, not macro).</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddSymbols"></span><code>procedure <strong>AddSymbols</strong>(const NewSymbols: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddSymbols-TStringVector-"></span><code>procedure <strong>AddSymbols</strong>(const NewSymbols: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Adds all symbols in the NewSymbols collection by calling <a class="normal" href="PasDoc_Scanner.TScanner.html#AddSymbol">AddSymbol</a> for each of the strings in that collection.</p>
+Adds all symbols in the NewSymbols collection by calling <a class="normal" href="PasDoc_Scanner.TScanner.html#AddSymbol-string-">AddSymbol</a> for each of the strings in that collection.</p>
 </td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddMacro"></span><code>procedure <strong>AddMacro</strong>(const Name, Value: string);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddMacro-string-string-"></span><code>procedure <strong>AddMacro</strong>(const Name, Value: string);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -174,7 +207,7 @@ Adds Name as a symbol that is a macro, that expands to Value.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="ConsumeToken"></span><code>procedure <strong>ConsumeToken</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -184,7 +217,7 @@ Gets next token and throws it away.</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GetToken"></span><code>function <strong>GetToken</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -194,7 +227,7 @@ Returns next token. Always non-nil (will raise exception in case of any problem)
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GetStreamInfo"></span><code>function <strong>GetStreamInfo</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -204,16 +237,16 @@ Returns the name of the file that is currently processed and the line number. Go
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="PeekToken"></span><code>function <strong>PeekToken</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="UnGetToken"></span><code>procedure <strong>UnGetToken</strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="UnGetToken-TToken-"></span><code>procedure <strong>UnGetToken</strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -223,7 +256,7 @@ Place T in the buffer. Next time you will call GetToken you will get T. This als
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="IncludeFilePaths"></span><code>property <strong>IncludeFilePaths</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeFilePaths
       write SetIncludeFilePaths;</code></td>
 </tr>
@@ -234,36 +267,38 @@ Paths to search for include files. When you assign something to this property it
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read FVerbosity write FVerbosity;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="SwitchOptions"></span><code>property <strong>SwitchOptions</strong>: <a href="PasDoc_Scanner.html#TSwitchOptions">TSwitchOptions</a> read FSwitchOptions;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="HandleMacros"></span><code>property <strong>HandleMacros</strong>: boolean read FHandleMacros;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

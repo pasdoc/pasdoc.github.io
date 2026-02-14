@@ -3,20 +3,36 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Items: Class TExternalItem</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.16.0">
+<meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
 </head>
 <body>
-<div class="container"><div class="navigation">
-<h2><a href="index.html">PasDoc's autodoc</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li><li><a href="GVUses.jpg">Unit dependency graph</a></li><li><a href="GVClasses.jpg">Classes hierarchy graph</a></li><li><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
+<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">PasDoc's autodoc</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVUses.jpg">Unit dependency graph</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="GVClasses.jpg">Classes hierarchy graph</a></li><li class="nav-item pt-2 px-2"><form class="search-form" action="tipue_results.html"><div class="search-input"><input type="text" name="q" id="tipue_search_input" pattern=".{1,}" title="At least 1 characters" required><div class="search-button"><input type="button" id="tipue_search_button" onclick="this.form.submit();"></div></div></form>
 <div style="clear: both"></div>
-</li></ul></div><div class="content">
+</li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
 <span id="TExternalItem"></span><h1 class="cio">Class TExternalItem</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_Items.html">PasDoc_Items</a></p>
@@ -34,62 +50,62 @@
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#HandleTitleTag">HandleTitleTag</a></strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#HandleTitleTag-TTag-TObject-TTag-TObject-string-string-">HandleTitleTag</a></strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#HandleShortTitleTag">HandleShortTitleTag</a></strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#HandleShortTitleTag-TTag-TObject-TTag-TObject-string-string-">HandleShortTitleTag</a></strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>Constructor <strong><a href="PasDoc_Items.TExternalItem.html#Create">Create</a></strong>; override;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TExternalItem.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#RegisterTags">RegisterTags</a></strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); override;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#RegisterTags-TTagManager-">RegisterTags</a></strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); override;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TExternalItem.html#FindItem">FindItem</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TExternalItem.html#FindItem-string-">FindItem</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#AddAnchor">AddAnchor</a></strong>(const AnchorItem: <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>); overload;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TExternalItem.html#AddAnchor-TAnchorItem-">AddAnchor</a></strong>(const AnchorItem: <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>); overload;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TExternalItem.html#AddAnchor">AddAnchor</a></strong>(const AnchorName: string): <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>; overload;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TExternalItem.html#AddAnchor-string-">AddAnchor</a></strong>(const AnchorName: string): <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>; overload;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TExternalItem.html#BasePath">BasePath</a></strong>: string; override;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TExternalItem.html#OutputFileName">OutputFileName</a></strong>: string read FOutputFileName write SetOutputFileName;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TExternalItem.html#ShortTitle">ShortTitle</a></strong>: string read FShortTitle write FShortTitle;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TExternalItem.html#SourceFileName">SourceFileName</a></strong>: string read FSourceFilename write FSourceFilename;</code></td>
 </tr>
 <tr class="list2">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TExternalItem.html#Title">Title</a></strong>: string read FTitle write FTitle;</code></td>
 </tr>
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TExternalItem.html#Anchors">Anchors</a></strong>: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a> read FAnchors;</code></td>
 </tr>
 </table>
@@ -97,64 +113,78 @@
 <h3 class="detail">Methods</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="HandleTitleTag"></span><code>procedure <strong>HandleTitleTag</strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="HandleTitleTag-TTag-TObject-TTag-TObject-string-string-"></span><code>procedure <strong>HandleTitleTag</strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
-<td class="itemcode"><span id="HandleShortTitleTag"></span><code>procedure <strong>HandleShortTitleTag</strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="HandleShortTitleTag-TTag-TObject-TTag-TObject-string-string-"></span><code>procedure <strong>HandleShortTitleTag</strong>(ThisTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string);</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create"></span><code>Constructor <strong>Create</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="RegisterTags"></span><code>procedure <strong>RegisterTags</strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); override;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="RegisterTags-TTagManager-"></span><code>procedure <strong>RegisterTags</strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TBaseItem.html#RegisterTags-TTagManager-">TBaseItem.RegisterTags</a>.</p><p>
+It registers <a class="normal" href="PasDoc_TagManager.TTag.html">TTag</a>s that init <a class="normal" href="PasDoc_Items.TBaseItem.html#Authors">Authors</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#Created">Created</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#LastMod">LastMod</a> and remove relevant tags from description. You can override it to add more handlers.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="FindItem"></span><code>function <strong>FindItem</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FindItem-string-"></span><code>function <strong>FindItem</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem-string-">TBaseItem.FindItem</a>.</p><p>
+Search for an item called ItemName <em>inside this Pascal item</em>. For units, it searches for items declared <em>inside this unit</em> (like a procedure, or a class in this unit). For classes it searches for items declared <em>within this class</em> (like a method or a property). For an enumerated type, it searches for members of this enumerated type.
+
+<p>All normal rules of ObjectPascal scope apply, which means that e.g. if this item is a unit, <code>FindItem</code> searches for a class named ItemName but it <em>doesn't</em> search for a method named ItemName inside some class of this unit. Just like in ObjectPascal the scope of identifiers declared within the class always stays within the class. Of course, in ObjectPascal you can qualify a method name with a class name, and you can also do such qualified links in pasdoc, but this is not handled by this routine (see <a class="normal" href="PasDoc_Items.TBaseItem.html#FindName-TNameParts-">FindName</a> instead).
+
+<p>Returns nil if not found.
+
+<p>Note that it never compares ItemName with Self.Name. You may want to check this yourself if you want.
+
+<p>Note that for TPasItem descendants, it always returns also some TPasItem descendant (so if you use this method with some TPasItem instance, you can safely cast result of this method to TPasItem).
+
+<p>Implementation in this class always returns nil. Override as necessary.</p>
+</td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddAnchor"></span><code>procedure <strong>AddAnchor</strong>(const AnchorItem: <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>); overload;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddAnchor-TAnchorItem-"></span><code>procedure <strong>AddAnchor</strong>(const AnchorItem: <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>); overload;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="AddAnchor"></span><code>function <strong>AddAnchor</strong>(const AnchorName: string): <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>; overload;</code></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AddAnchor-string-"></span><code>function <strong>AddAnchor</strong>(const AnchorName: string): <a href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
@@ -163,16 +193,18 @@ If item with Name (case ignored) already exists, this raises exception EAnchorAl
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="BasePath"></span><code>function <strong>BasePath</strong>: string; override;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="inheritdescription">This item has no description. Showing description inherited from <a class="normal" href="PasDoc_Items.TBaseItem.html#BasePath">TBaseItem.BasePath</a>.</p><p>
+The full (absolute) path used to resolve filenames in this item's descriptions. Must always end with PathDelim. In this class, this simply returns GetCurrentDir (with PathDelim added if needed).</p>
+</td></tr>
 </table>
 <h3 class="detail">Properties</h3>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="OutputFileName"></span><code>property <strong>OutputFileName</strong>: string read FOutputFileName write SetOutputFileName;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -182,31 +214,31 @@ name of documentation output file</p>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="ShortTitle"></span><code>property <strong>ShortTitle</strong>: string read FShortTitle write FShortTitle;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="SourceFileName"></span><code>property <strong>SourceFileName</strong>: string read FSourceFilename write FSourceFilename;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>: string read FTitle write FTitle;</code></td>
 </tr>
 <tr><td colspan="2">
-&nbsp;</td></tr>
+<p class="nodescription">This item has no description.</p></td></tr>
 </table>
 <table class="detail wide_list">
 <tr class="list">
-<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Anchors"></span><code>property <strong>Anchors</strong>: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a> read FAnchors;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -214,6 +246,8 @@ name of documentation output file</p>
 <code>Anchors</code> holds a list of <a class="normal" href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>s that represent anchors and sections within the <code>TExternalItem</code>. The <a class="normal" href="PasDoc_Items.TAnchorItem.html">TAnchorItem</a>s have no content so, they should not be indexed separately.</p>
 </td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
-</div></div></body></html>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>
