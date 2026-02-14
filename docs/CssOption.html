@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>–css command-line option | PasDoc</title>
+<title>–css, –css-based-on-bootstrap command-line options | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="–css command-line option" />
+<meta property="og:title" content="–css, –css-based-on-bootstrap command-line options" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="–css command-line option" />
+<meta property="twitter:title" content="–css, –css-based-on-bootstrap command-line options" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–css command-line option","url":"https://pasdoc.github.io//CssOption.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–css, –css-based-on-bootstrap command-line options","url":"https://pasdoc.github.io//CssOption.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=24d171e8de0ee19cc9e5301acbe69e573ccb3899">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4acaf1c2113abc6ba480fb560e067afa1dd2d761">
   </head>
   <body>
     <div id="layout-container">
@@ -36,23 +36,64 @@
           
 
           
-          <h1>--css command-line option</h1>
+          <h1>--css, --css-based-on-bootstrap command-line options</h1>
           
 
-          <div class="paragraph">
-<p>By default, pasdoc generates a pasdoc.css file in the generated
-documentation in <a href="HtmlOutput">HTML</a> and <a href="HtmlHelp">HtmlHelp</a>
-formats.</p>
+          <div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can control what your <a href="HtmlOutput">HTML</a> and <a href="HtmlHelp">HtmlHelp</a>
+documentation looks like by tweaking the CSS file.</p>
 </div>
 <div class="paragraph">
-<p>If you want to use your own style sheet, you can use the
-<a href="CommandLine">CommandLine</a> option --css=CSS-FILE-NAME. Then pasdoc
-will simply copy the given file CSS-FILE-NAME to the output directory as
-pasdoc.css.</p>
+<p>To use your own style sheet, use the <a href="CommandLine">CommandLine</a> option:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--css=CSS-FILE</code> to provide a new CSS file (that does <em>not</em> rely on standard Bootstrap CSS classes, so Bootstrap will not be used in the output).</p>
+</li>
+<li>
+<p><code>--css-based-on-bootstrap=CSS-FILE</code> to provide a new CSS file that <em>does</em> rely on standard Bootstrap CSS classes. So Bootstrap will be used in the output.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_default-css">Default CSS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/pasdoc.css">default pasdoc.css is here</a>. Note that it relies on Bootstrap, so if you tweak it, provide the new version using <a href="Css">--css-based-on-bootstrap</a> command-line option.</p>
 </div>
 <div class="paragraph">
-<p>You can find some alternative stylesheets on
-<a href="PasDocCssExamples">PasDocCssExamples</a>.</p>
+<p>The old <code>pasdoc.css</code> that does not rely on Bootstrap is here: <a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/alternative_css/pasdoc-up-to-0.16.0.css">source/component/alternative_css/pasdoc-up-to-0.16.0.css</a>. You can tweak it, and provide the new version using <a href="Css">--css</a> command-line option.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_alternative-css">Alternative CSS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We provide some alternative CSS styles in the <a href="https://github.com/pasdoc/pasdoc/tree/master/source/component/alternative_css/">source/component/alternative_css/</a> directory of the PasDoc repository.</p>
+</div>
+<div class="paragraph">
+<p>Use them directly as a starting point for your own CSS styles.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>pasdoc *.pas -css=source/component/alternative_css/AscanioPressato.css
+
+pasdoc *.pas -css=source/component/alternative_css/ThomasMueller.css
+
+pasdoc *.pas -css=source/component/alternative_css/pasdoc-up-to-0.16.0.css</code></pre>
+</div>
+</div>
+</div>
 </div>
 
           <footer class="site-footer">
@@ -232,7 +273,7 @@ pasdoc.css.</p>
     <p><a href="ConditionalDefines">--define, --conditionals</a></p>
   </li>
   <li>
-    <p><a href="CssOption">--css</a></p>
+    <p><a href="CssOption">--css, --css-based-on-bootstrap</a></p>
   </li>
   <li>
     <p><a href="DocumentationTitle">--title</a></p>
