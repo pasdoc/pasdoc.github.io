@@ -6,7 +6,8 @@
 @import "rouge-github";
 @import "variables";
 @import "pasdoc";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+// We no longer use Open Sans font .
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
 @mixin large {
   @media screen and (min-width: #{$large-breakpoint}) {
@@ -33,7 +34,8 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  //font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: $body-text-color;
@@ -94,9 +96,16 @@ a {
 
 .page-header {
   color: $header-heading-color;
-  text-align: center;
-  background-color: $header-bg-color;
-  background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+  text-align: left;
+
+  // Behave as if:
+  // $header-bg-color: #1a2332;
+  // $header-bg-color-secondary: #242c3d;
+  // background-color: $header-bg-color;
+  // background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
+
+  background-color: #1a2332 !important;
+  background-image: linear-gradient(120deg, #242c3d, #1a2332) !important;
 
   @include large {
     padding: 5rem 6rem;
