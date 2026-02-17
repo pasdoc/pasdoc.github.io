@@ -26,9 +26,9 @@ Use them directly as a starting point for your own CSS styles.
 Examples:
 
 ```
-pasdoc *.pas -css=source/component/alternative_css/AscanioPressato.css
+pasdoc *.pas --css=<pasdoc>/source/component/alternative_css/AscanioPressato.css
 
-pasdoc *.pas -css=source/component/alternative_css/ThomasMueller.css
+pasdoc *.pas --css=<pasdoc>/source/component/alternative_css/ThomasMueller.css
 
-pasdoc *.pas -css=source/component/alternative_css/pasdoc-up-to-0.16.0.css
+pasdoc *.pas --css=<pasdoc>/source/component/alternative_css/pasdoc-up-to-0.16.0.css
 ```
