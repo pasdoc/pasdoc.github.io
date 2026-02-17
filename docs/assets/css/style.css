@@ -282,7 +282,7 @@ display: block;
 
 * { box-sizing: border-box; }
 
-body { padding: 0; margin: 0; font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #606c71; }
+body { padding: 0; margin: 0; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #606c71; }
 
 a { color: #1e6bb8; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -295,7 +295,7 @@ a:hover { text-decoration: underline; }
 @media screen and (max-width: 42em) { .btn { display: block; width: 100%; padding: 0.75rem; font-size: 0.9rem; }
   .btn + .btn { margin-top: 1rem; margin-left: 0; } }
 
-.page-header { color: #fff; text-align: center; background-color: #159957; background-image: linear-gradient(120deg, #155799, #159957); }
+.page-header { color: #fff; text-align: left; background-color: #1a2332; background-image: linear-gradient(120deg, #242c3d, #1a2332); }
 @media screen and (min-width: 64em) { .page-header { padding: 5rem 6rem; } }
 @media screen and (min-width: 42em) and (max-width: 64em) { .page-header { padding: 3rem 4rem; } }
 @media screen and (max-width: 42em) { .page-header { padding: 2rem 1rem; } }
