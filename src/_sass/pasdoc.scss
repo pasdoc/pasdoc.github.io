@@ -100,6 +100,17 @@
   /* background: #B2D2E1 !important; */
   background: #475a94 !important;
   /* background: #4e4b42 !important; */
+
+  h2 {
+    /* smaller margin than theme default, to be closer to "PasDoc" header */
+    margin-top: 0.1rem;
+  }
+
+  a.btn {
+    /* margin on right, not left, to make 2nd line of buttons aligned with 1st */
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
 }
 
 /* Make sure <pre> is not too wide, like on ListTags page with wide <pre> element */
