@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5707e9f385c5e65a0195341fd56c725df294c311">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1a2ed387f4b1755a6606c9e81ec873cf6d000bcf">
   </head>
   <body>
     <div id="layout-container">
@@ -32,13 +32,19 @@
           <h1 class="project-name">PasDoc</h1>
           <h2 class="project-tagline">Documentation tool for Pascal source code</h2>
           
+            <!--
+            Commented out: make header look slimmer.
             <b>Stable version (0.16.0):</b>
             <br>
+            -->
+
             <a href="https://github.com/pasdoc/pasdoc/releases/download/v0.16.0/pasdoc-0.16.0-win64.zip" class="btn">Windows (x86_64)</a>
             <a href="https://github.com/pasdoc/pasdoc/releases/download/v0.16.0/pasdoc-0.16.0-linux-x86_64.tar.gz" class="btn">Linux (x86_64)</a>
             <a href="https://github.com/pasdoc/pasdoc/releases/download/v0.16.0/pasdoc-0.16.0-linux-arm.tar.gz" class="btn">Linux (Arm, 32-bit) (Raspberry Pi)</a>
             <a href="https://github.com/pasdoc/pasdoc/releases/download/v0.16.0/pasdoc-0.16.0-darwin-x86_64.zip" class="btn">macOS (x86_64)</a>
 
+            <!--
+            Commented out: make header look slimmer.
             <br>
             <br>
 
@@ -50,12 +56,16 @@
             <a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-linux-aarch64.tar.gz" class="btn">Linux (Aarch64, 64-bit) (Raspberry Pi, PineTab2)</a>
             <a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-darwin-x86_64.zip" class="btn">macOS (x86_64)</a>
             <a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-darwin-x86_64.zip" class="btn">macOS (Aarch64)</a>
+            -->
           
           
+            <!--
+            Commented out: make header look slimmer.
             <br>
             <br>
 
             <a href="https://github.com/pasdoc/pasdoc" class="btn">Source code (build with FPC or Delphi)</a>
+            -->
           
         </section>
         
@@ -69,10 +79,10 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_download">2. Download</a></li>
-<li><a href="#_tutorial">3. Tutorial</a></li>
-<li><a href="#_examples">4. Examples</a></li>
-<li><a href="#_more-usage-information-output-formats-command-line-options-examples">5. More usage information: output formats, command-line options, examples</a></li>
+<li><a href="#_basic-usage">2. Basic Usage</a></li>
+<li><a href="#_examples">3. Examples</a></li>
+<li><a href="#_features">4. Features</a></li>
+<li><a href="#_all-downloads-stable-and-unstable">5. All Downloads (Stable and Unstable)</a></li>
 <li><a href="#_get-involved">6. Get involved</a></li>
 <li><a href="#_development">7. Development</a></li>
 </ul>
@@ -88,34 +98,15 @@ Documentation is generated from comments found in the source code
 and / or in dedicated "description files". Numerous output formats are supported, including HTML, LaTeX (for PDF, PS), XML and PHP.</p>
 </div>
 <div class="paragraph">
-<p>This is a <em>free and open source software</em>.
-We <a href="https://castle-engine.io/donate">appreciate your donations (Michalis, maintainer of PasDoc, also makes Castle Game Engine)</a>, esp. if you use PasDoc in a commercial project. This helps us to continue developing and improving PasDoc.</p>
+<p>This is a <em>free and open source software</em>.</p>
+</div>
+<div class="paragraph">
+<p>We <a href="https://castle-engine.io/donate">appreciate your donations (Michalis, maintainer of PasDoc, also makes Castle Game Engine)</a>, esp. if you use PasDoc in a commercial project. This helps us to continue developing and improving PasDoc.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_download">2. Download</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Download:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Latest <strong>stable</strong> PasDoc release <a href="https://github.com/pasdoc/pasdoc/releases/latest">can be downloaded from here</a>.</p>
-</li>
-<li>
-<p>Latest <strong>unstable</strong> (automatic build after every commit, published once automatic tests pass) release <a href="https://github.com/pasdoc/pasdoc/releases/tag/snapshot">is available here ("snapshot" releases)</a>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>You can watch our <a href="https://github.com/pasdoc/pasdoc/releases">releases page</a> or <a href="https://github.com/pasdoc/pasdoc/discussions/categories/announcements">announcements category in our discussions</a> to be notified about a new release.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_tutorial">3. Tutorial</h2>
+<h2 id="_basic-usage">2. Basic Usage</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Put comments before the identifiers in your Pascal source code. Like this:</p>
@@ -124,7 +115,9 @@ We <a href="https://castle-engine.io/donate">appreciate your donations (Michalis
 <div class="content">
 <pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ My amazing unit. }</span>
 <span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
+
 <span style="color: #008000; font-weight: bold">interface</span>
+
 <span style="color: #008000; font-weight: bold">type</span>
   <span style="color: #408080; font-style: italic">{ My amazing class. }</span>
   TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
@@ -134,6 +127,7 @@ We <a href="https://castle-engine.io/donate">appreciate your donations (Michalis
     <span style="color: #408080; font-style: italic">{ My amazing property. }</span>
     <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span> <span style="color: #008000">read</span> <span style="color: #0000FF">GetMyProperty</span><span style="color: #666666">;</span>
   <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
+
 <span style="color: #008000; font-weight: bold">implementation</span>
 <span style="color: #666666">...</span>
 <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
@@ -154,15 +148,15 @@ pasdoc myunit.pas --format html --output output-dir</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_examples">4. Examples</h2>
+<h2 id="_examples">3. Examples</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>This is <a href="https://pasdoc.github.io/autodoc/html/index.html">PasDoc&#8217;s own documentation in the HTML format</a>.</p>
+<p>Take a look at <a href="https://pasdoc.github.io/autodoc/html/index.html">PasDoc&#8217;s own documentation (in the HTML format)</a>.</p>
 </li>
 <li>
-<p>See also <a href="PasDocAutoDoc">PasDoc&#8217;s own documentation in all the formats</a> .</p>
+<p>See <a href="PasDocAutoDoc">PasDoc&#8217;s own documentation in all the formats</a>.</p>
 </li>
 <li>
 <p>See <a href="ProjectsUsingPasDoc">Projects using PasDoc</a> for links to larger real-world
@@ -173,7 +167,7 @@ examples of how documentation generated by PasDoc looks like.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_more-usage-information-output-formats-command-line-options-examples">5. More usage information: output formats, command-line options, examples</h2>
+<h2 id="_features">4. Features</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For more information on how to document your source code see:</p>
@@ -187,7 +181,7 @@ examples of how documentation generated by PasDoc looks like.</p>
 <p><a href="WritingDocumentation">Writing Documentation</a></p>
 </li>
 <li>
-<p><a href="SupportedTags">Supported Tags</a>.</p>
+<p><a href="SupportedTags">Supported Tags</a></p>
 </li>
 </ul>
 </div>
@@ -221,8 +215,28 @@ examples of how documentation generated by PasDoc looks like.</p>
 for how PasDoc works.</p>
 </div>
 <div class="paragraph">
-<p>You may also be interested in the list of
-<a href="AdvancedFeatures">AdvancedFeatures</a> of PasDoc.</p>
+<p>See also the list of <a href="AdvancedFeatures">AdvancedFeatures</a> of PasDoc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_all-downloads-stable-and-unstable">5. All Downloads (Stable and Unstable)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Download:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Latest <strong>stable</strong> PasDoc release <a href="https://github.com/pasdoc/pasdoc/releases/latest">can be downloaded from here</a>.</p>
+</li>
+<li>
+<p>Latest <strong>unstable</strong> (automatic build after every commit, published once automatic tests pass) release <a href="https://github.com/pasdoc/pasdoc/releases/tag/snapshot">is available here ("snapshot" releases)</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can watch our <a href="https://github.com/pasdoc/pasdoc/releases">releases page</a> or <a href="https://github.com/pasdoc/pasdoc/discussions/categories/announcements">announcements category in our discussions</a> to be notified about a new release.</p>
 </div>
 </div>
 </div>
