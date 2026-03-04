@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=2d997f7bc87b94c766a81f88f356c4fb0b747373">
+    <link rel="stylesheet" href="/assets/css/style.css?v=bc385a10ac74dfda00bec72414af8f926818a751">
   </head>
   <body>
     <div id="layout-container">
@@ -121,15 +121,17 @@ and / or in dedicated "description files". Numerous output formats are supported
 <span style="color: #008000; font-weight: bold">type</span>
   <span style="color: #408080; font-style: italic">{ My amazing class. }</span>
   TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+  <span style="color: #008000">private</span>
+    FMyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span><span style="color: #666666">;</span>
   <span style="color: #008000">public</span>
     <span style="color: #408080; font-style: italic">{ My amazing method. }</span>
     <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyMethod</span><span style="color: #666666">;</span>
     <span style="color: #408080; font-style: italic">{ My amazing property. }</span>
-    <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span> <span style="color: #008000">read</span> <span style="color: #0000FF">GetMyProperty</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span> <span style="color: #008000">read</span> <span style="color: #0000FF">FMyProperty</span> <span style="color: #008000">write</span> <span style="color: #0000FF">FMyProperty</span><span style="color: #666666">;</span>
   <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">implementation</span>
-<span style="color: #666666">...</span>
+<span style="color: #408080; font-style: italic">// ...</span>
 <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
 </div>
 </div>
@@ -139,7 +141,7 @@ and / or in dedicated "description files". Numerous output formats are supported
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="shell"><span></span>mkdir -p output-dir/
-pasdoc myunit.pas --format html --output output-dir</code></pre>
+pasdoc myunit.pas --format<span style="color: #666666">=</span>html --auto-abstract --output<span style="color: #666666">=</span>output-dir</code></pre>
 </div>
 </div>
 <div class="paragraph">
