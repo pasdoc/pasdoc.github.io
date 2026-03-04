@@ -279,6 +279,10 @@ display: block;
 /* Make sure <pre> is not too wide, like on ListTags page with wide <pre> element */
 .main-conten pre { overflow: scroll !important; }
 
+#toc #toctitle { display: none; }
+
+#toc ul { list-style: none; padding-left: 1em; }
+
 * { box-sizing: border-box; }
 
 body { padding: 0; margin: 0; font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; color: #606c71; }

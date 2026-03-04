@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6132b81b59bf021728c98ac4486ab2ceca4e8fe0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5707e9f385c5e65a0195341fd56c725df294c311">
   </head>
   <body>
     <div id="layout-container">
@@ -65,19 +65,36 @@
         <section class="main-content">
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_download">2. Download</a></li>
+<li><a href="#_tutorial">3. Tutorial</a></li>
+<li><a href="#_examples">4. Examples</a></li>
+<li><a href="#_more-usage-information-output-formats-command-line-options-examples">5. More usage information: output formats, command-line options, examples</a></li>
+<li><a href="#_get-involved">6. Get involved</a></li>
+<li><a href="#_development">7. Development</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>PasDoc is a documentation tool for the Object Pascal code
-(as implemented by <a href="http://www.freepascal.org/">FreePascal</a> and
+(as implemented by <a href="http://www.freepascal.org/">FPC</a> and
 <a href="http://www.embarcadero.com/products/delphi">Delphi</a>).
 Documentation is generated from comments found in the source code
-and from external files.</p>
+and / or in dedicated "description files". Numerous output formats are supported, including HTML, LaTeX (for PDF, PS), XML and PHP.</p>
+</div>
+<div class="paragraph">
+<p>This is a <em>free and open source software</em>.
+We <a href="https://castle-engine.io/donate">appreciate your donations (Michalis, maintainer of PasDoc, also makes Castle Game Engine)</a>, esp. if you use PasDoc in a commercial project. This helps us to continue developing and improving PasDoc.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_download">Download</h2>
+<h2 id="_download">2. Download</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Download:</p>
@@ -85,30 +102,97 @@ and from external files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Latest stable PasDoc release
-<a href="https://github.com/pasdoc/pasdoc/releases/latest">can be downloaded from here</a>.</p>
+<p>Latest <strong>stable</strong> PasDoc release <a href="https://github.com/pasdoc/pasdoc/releases/latest">can be downloaded from here</a>.</p>
 </li>
 <li>
-<p>Unstable (automatic build after every commit, published once automatic tests pass) releases are available at <a href="DevelopmentSnapshots">DevelopmentSnapshots</a>.</p>
+<p>Latest <strong>unstable</strong> (automatic build after every commit, published once automatic tests pass) release <a href="https://github.com/pasdoc/pasdoc/releases/tag/snapshot">is available here ("snapshot" releases)</a>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>You can watch our <a href="https://github.com/pasdoc/pasdoc/releases">releases page</a> to be notified about the new releases.</p>
+<p>You can watch our <a href="https://github.com/pasdoc/pasdoc/releases">releases page</a> or <a href="https://github.com/pasdoc/pasdoc/discussions/categories/announcements">announcements category in our discussions</a> to be notified about a new release.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_usage">Usage</h2>
+<h2 id="_tutorial">3. Tutorial</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See <a href="WhereToPlaceComments">WhereToPlaceComments</a>,
-<a href="WritingDocumentation">WritingDocumentation</a> and
-<a href="SupportedTags">SupportedTags</a> for information on how to document
-your source code.</p>
+<p>Put comments before the identifiers in your Pascal source code. Like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ My amazing unit. }</span>
+<span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">interface</span>
+<span style="color: #008000; font-weight: bold">type</span>
+  <span style="color: #408080; font-style: italic">{ My amazing class. }</span>
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+  <span style="color: #008000">public</span>
+    <span style="color: #408080; font-style: italic">{ My amazing method. }</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyMethod</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{ My amazing property. }</span>
+    <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span> <span style="color: #008000">read</span> <span style="color: #0000FF">GetMyProperty</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">implementation</span>
+<span style="color: #666666">...</span>
+<span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Available output formats are</p>
+<p>Process this source code with PasDoc, and get documentation in one of the output formats. From the command-line, you can do it like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="shell"><span></span>mkdir -p output-dir/
+pasdoc myunit.pas --format html --output output-dir</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also use the GUI interface, see <a href="PasDocGui">PasDoc GUI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_examples">4. Examples</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This is <a href="https://pasdoc.github.io/autodoc/html/index.html">PasDoc&#8217;s own documentation in the HTML format</a>.</p>
+</li>
+<li>
+<p>See also <a href="PasDocAutoDoc">PasDoc&#8217;s own documentation in all the formats</a> .</p>
+</li>
+<li>
+<p>See <a href="ProjectsUsingPasDoc">Projects using PasDoc</a> for links to larger real-world
+examples of how documentation generated by PasDoc looks like.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more-usage-information-output-formats-command-line-options-examples">5. More usage information: output formats, command-line options, examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information on how to document your source code see:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
+</li>
+<li>
+<p><a href="WritingDocumentation">Writing Documentation</a></p>
+</li>
+<li>
+<p><a href="SupportedTags">Supported Tags</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Available output formats:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -119,13 +203,13 @@ your source code.</p>
 <p><a href="HtmlHelp">HtmlHelp</a></p>
 </li>
 <li>
-<p><a href="LatexOutput">LaTeX</a> - you can use this to generate PDF or PS using LaTeX tools like <code>pdflatex</code></p>
+<p><a href="LatexOutput">LaTeX</a> - you can use this to generate PDF or PostScript using LaTeX tools like <code>pdflatex</code></p>
 </li>
 <li>
 <p><a href="Latex2RtfOutput">Latex2rtf</a></p>
 </li>
 <li>
-<p><a href="SimpleXmlOutput">SimpleXml</a> - useful to process obtained information using further tools</p>
+<p><a href="SimpleXmlOutput">SimpleXml</a> - useful to process obtained information using your own tools, you only need to read the generated XML file</p>
 </li>
 <li>
 <p><a href="PhpOutput">PHP</a> - PHP map from Pascal identifier &#8594; HTML link, to implement searching/enumeration in PHP websites</p>
@@ -134,14 +218,7 @@ your source code.</p>
 </div>
 <div class="paragraph">
 <p>Check out the <a href="CommandLine">CommandLine</a> to get a better feeling
-for how PasDoc works. There is also a GUI interface, see
-<a href="PasDocGui">PasDocGui</a>.</p>
-</div>
-<div class="paragraph">
-<p>Check out <a href="PasDocAutoDoc">PasDocAutoDoc</a> and
-<a href="ProjectsUsingPasDoc">ProjectsUsingPasDoc</a> to see some real-world
-examples of how documentation generated by PasDoc looks like, and to see
-some programs that use PasDoc&#8217;s code.</p>
+for how PasDoc works.</p>
 </div>
 <div class="paragraph">
 <p>You may also be interested in the list of
@@ -150,26 +227,23 @@ some programs that use PasDoc&#8217;s code.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_get-involved">Get involved</h2>
+<h2 id="_get-involved">6. Get involved</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/pasdoc/pasdoc/discussions">We use GitHub Team Discussions</a> as our forum. You&#8217;re welcome to join there, everyone is welcome :)</p>
+<p><a href="https://github.com/pasdoc/pasdoc/discussions">We use GitHub Team Discussions</a> as our forum. Come and talk to us!</p>
 </div>
 <div class="paragraph">
-<p>You can also use the <a href="https://github.com/pasdoc/pasdoc/issues">GitHub issues</a> to report bugs and feature requests. If you would like to contribute, it&#8217;s best to <a href="https://github.com/pasdoc/pasdoc/pulls">submit a pull request using GitHub</a>, although you can also attach a patch file to an issue.</p>
-</div>
-<div class="paragraph">
-<p>We have also collected some older "wanted features" on the <a href="WantedFeatures">WantedFeatures</a> list. And there is a <a href="ToDo">ToDo</a> list.</p>
+<p>Use the <a href="https://github.com/pasdoc/pasdoc/issues">GitHub issues</a> to report bugs and feature requests. If you would like to contribute, it&#8217;s best to <a href="https://github.com/pasdoc/pasdoc/pulls">submit a pull request using GitHub</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_development">Development</h2>
+<h2 id="_development">7. Development</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See the
-<a href="https://github.com/pasdoc/pasdoc/blob/master/ChangeLog">ChangeLog</a> for
-recent changes to PasDoc and a short history overview.</p>
+<a href="https://github.com/pasdoc/pasdoc/blob/master/ChangeLog.md">ChangeLog</a> for
+recent changes to PasDoc.</p>
 </div>
 <div class="paragraph">
 <p>PasDoc source code:</p>
@@ -187,14 +261,6 @@ In short, just call</p>
 <div class="listingblock">
 <div class="content">
 <pre>git clone https://github.com/pasdoc/pasdoc.git</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, you can get the same code using SVN. In short, just call</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>svn co https://github.com/pasdoc/pasdoc.git/trunk</pre>
 </div>
 </div>
 </li>
@@ -251,10 +317,10 @@ In short, just call</p>
 
 <ul>
   <li>
-    <p><a href="WritingDocumentation">Writing Documentation</a></p>
+    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
   </li>
   <li>
-    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
+    <p><a href="WritingDocumentation">Writing Documentation</a></p>
   </li>
   <li>
     <p><a href="AdvancedFeatures">Advanced Features</a></p>

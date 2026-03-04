@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6132b81b59bf021728c98ac4486ab2ceca4e8fe0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5707e9f385c5e65a0195341fd56c725df294c311">
   </head>
   <body>
     <div id="layout-container">
@@ -39,15 +39,29 @@
           <h1>Process of making new PasDoc release</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_change-version-number-to-next-stable">2. Change version number to next stable</a></li>
+<li><a href="#_-write-changelog-entry">3.  Write ChangeLog entry</a></li>
+<li><a href="#_-update-docs">4.  Update docs</a></li>
+<li><a href="#_-build-and-test-all-releases-automated-now">5.  Build and test all releases (automated now)</a></li>
+<li><a href="#_-release-files-using-github">6.  Release files using GitHub</a></li>
+<li><a href="#_-final-things-to-do">7.  Final things to do</a></li>
+<li><a href="#_change-version-number-to-next-unstable">8. Change version number to next UNstable</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Release making process:</p>
+<p>This page describes the process of making a new <a href="https://github.com/pasdoc/pasdoc/releases">PasDoc release</a>. Unless you&#8217;re a PasDoc maintainer, you probably don&#8217;t care about the details described here.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_change-version-number-to-next-stable">Change version number to next stable</h2>
+<h2 id="_change-version-number-to-next-stable">2. Change version number to next stable</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -78,7 +92,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-write-changelog-entry"><a id="write-changelog-entry"></a> Write ChangeLog entry</h2>
+<h2 id="_-write-changelog-entry">3. <a id="write-changelog-entry"></a> Write ChangeLog entry</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Make sure you have nice entry in <a href="https://github.com/pasdoc/pasdoc/blob/master/ChangeLog.md" class="bare">https://github.com/pasdoc/pasdoc/blob/master/ChangeLog.md</a> file in pasdoc sources.</p>
@@ -89,7 +103,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-update-docs"><a id="update-docs"></a> Update docs</h2>
+<h2 id="_-update-docs">4. <a id="update-docs"></a> Update docs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Remove from the documentation text</p>
@@ -103,7 +117,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-build-and-test-all-releases-automated-now"><a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
+<h2 id="_-build-and-test-all-releases-automated-now">5. <a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Note: This step is in practice automated now, using <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> to automatically test and build PasDoc. The commands performed by Jenkins are configured in <code>Jenkinsfile</code> in the PasDoc repository.</strong></p>
@@ -171,7 +185,7 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-release-files-using-github"><a id="release-files-using-sourceforge-file-release-system"></a> Release files using GitHub</h2>
+<h2 id="_-release-files-using-github">6. <a id="release-files-using-sourceforge-file-release-system"></a> Release files using GitHub</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -182,14 +196,17 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 <p>Go to <a href="https://github.com/pasdoc/pasdoc/releases" class="bare">https://github.com/pasdoc/pasdoc/releases</a> and create a new release from tag</p>
 </li>
 <li>
-<p>Upload there the release. Right now Michalis has this automated by <a href="https://github.com/github-release/github-release">github-release</a> on <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> server.</p>
+<p>Upload there the release.</p>
+</li>
+<li>
+<p>Mark it as "latest", make sure <a href="https://github.com/pasdoc/pasdoc/releases/latest">latest release</a> page links to it.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-final-things-to-do"><a id="final-things-to-do"></a> Final things to do</h2>
+<h2 id="_-final-things-to-do">7. <a id="final-things-to-do"></a> Final things to do</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -248,7 +265,7 @@ changing the project&#8217;s description:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_change-version-number-to-next-unstable">Change version number to next UNstable</h2>
+<h2 id="_change-version-number-to-next-unstable">8. Change version number to next UNstable</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Repeat the steps from <em>"Change version number to next stable"</em>, but :</p>
@@ -292,10 +309,10 @@ changing the project&#8217;s description:</p>
 
 <ul>
   <li>
-    <p><a href="WritingDocumentation">Writing Documentation</a></p>
+    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
   </li>
   <li>
-    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
+    <p><a href="WritingDocumentation">Writing Documentation</a></p>
   </li>
   <li>
     <p><a href="AdvancedFeatures">Advanced Features</a></p>

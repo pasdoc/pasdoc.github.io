@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=6132b81b59bf021728c98ac4486ab2ceca4e8fe0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=5707e9f385c5e65a0195341fd56c725df294c311">
   </head>
   <body>
     <div id="layout-container">
@@ -39,21 +39,43 @@
           <h1>Compiling PasDoc from sources</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_get-the-source-code">1. Get the source code</a></li>
+<li><a href="#_-build-with-command-line-fpc">2.  Build with command-line FPC</a>
+<ul class="sectlevel2">
+<li><a href="#_-build-with-lazarus">2.1.  Build with Lazarus</a></li>
+</ul>
+</li>
+<li><a href="#_-build-with-delphi">3.  Build with Delphi</a></li>
+<li><a href="#_-see-also-release-making">4.  See also: release making</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_get-the-source-code">1. Get the source code</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>How to compile <a href="index">PasDoc</a>?</p>
+<p>First of all, get <a href="https://github.com/pasdoc/pasdoc/">our source code from GitHub</a>. E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>git clone https://github.com/pasdoc/pasdoc.git</code></pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-fpc"><a id="fpc"></a> FPC</h2>
+<h2 id="_-build-with-command-line-fpc">2. <a id="fpc"></a> Build with command-line FPC</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The preferred <a href="http://www.freepascal.org/">FreePascal</a> version should always be the latest stable FPC release. Any FPC &gt;= 2.6.0 is supported, although compilation with older versions is less extensively tested. Using the latest stable FPC is always the best option.</p>
+<p>You can build with command-line <a href="https://www.freepascal.org/">Free Pascal Compiler (FPC)</a>.</p>
 </div>
 <div class="paragraph">
-<p>Compile by simply executing</p>
+<p><em>Requirements</em>: We need FPC with <code>Generics.Collections</code> support, which implies FPC &gt;= 3.2.0.</p>
+</div>
+<div class="paragraph">
+<p>From the command-line, compile by simply executing</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -70,26 +92,47 @@
 <div class="title">Note</div>
 </td>
 <td class="content">
-You must use GNU make. Under Linux this is the standard <code>make</code>. Under Windows it is included with FPC installation (you can also get it with <a href="http://www.mingw.org/">MinGW</a> or <a href="http://www.cygwin.com/">Cygwin</a>). Under FreeBSD it&#8217;s called <code>gmake</code>.
+<div class="paragraph">
+<p>You must use <em>GNU make</em>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Under Linux this is the standard <code>make</code>.</p>
+</li>
+<li>
+<p>Under Windows it is included with FPC installation (you can also get it with <a href="http://www.mingw.org/">MinGW</a> or <a href="http://www.cygwin.com/">Cygwin</a>).</p>
+</li>
+<li>
+<p>Under FreeBSD it&#8217;s called <code>gmake</code>.</p>
+</li>
+<li>
+<p>Under MacOS it&#8217;s called <code>gmake</code> and you can install it with <code>brew install make</code> (using <a href="https://brew.sh/">Homebrew</a>).</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_-lazarus"><a id="lazarus"></a> Lazarus</h3>
+<h3 id="_-build-with-lazarus">2.1. <a id="lazarus"></a> Build with Lazarus</h3>
 <div class="paragraph">
-<p>Lazarus version required is 1.0.10 or later. Using the latest stable Lazarus version is always adviced and best tested.</p>
+<p><a href="https://www.lazarus-ide.org/">Lazarus is an IDE using FPC under the hood</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>Requirements</em>: Any Lazarus version that supports FPC &gt;= 3.2.0 should be able to compile pasdoc.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You can install pasdoc components by installing <code>source/packages/lazarus/pasdoc_package.lpk</code>. This package is used by console <code>pasdoc</code> and by <code>pasdoc_gui</code>.</p>
+<p>First, open and build the package with our components by installing <code>source/packages/lazarus/pasdoc_package.lpk</code>.</p>
 </li>
 <li>
-<p>You can compile console pasdoc from Lazarus by compiling <code>source/console/pasdoc.lpi</code>.</p>
+<p>Build the command-line PasDoc by opening the <code>source/console/pasdoc.lpi</code> project in Lazarus and compiling it.</p>
 </li>
 <li>
-<p>You can compile <code>pasdoc_gui</code> from Lazarus by compiling <code>source/gui/pasdoc_gui.lpi</code>.</p>
+<p>Build the GUI PasDoc by opening the <code>source/gui/pasdoc_gui.lpi</code> project in Lazarus and compiling it.</p>
 </li>
 </ul>
 </div>
@@ -97,66 +140,18 @@ You must use GNU make. Under Linux this is the standard <code>make</code>. Under
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-delphi"><a id="delphi"></a> Delphi</h2>
+<h2 id="_-build-with-delphi">3. <a id="delphi"></a> Build with Delphi</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In theory, the project can support even Delphi versions &gt;= 5. However, it wasn&#8217;t tested with so old Delphi versions for a long time. Using Delphi &gt;= 11 is advised.</p>
-</div>
-<div class="sect2">
-<h3 id="_-compiling-from-the-ide"><a id="compiling-from-the-ide-1"></a> Compiling from the IDE</h3>
-<div class="paragraph">
-<p>Open the Delphi project in <code>source/console/</code> and build as usual.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. We may fix it, since we longer support Kylix.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_-compiling-using-the-makefile"><a id="compiling-using-the-makefile-1"></a> Compiling using the Makefile</h3>
-<div class="paragraph">
-<p>You can compile using the command</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make build-delphi-win32</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_-delphi-5-specific-notes"><a id="delphi-5-specific-notes"></a> Delphi 5 specific notes</h3>
-<div class="paragraph">
-<p>You must do one specific thing to compile pasdoc with Delphi 5 (and not later):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Add "..\component\strutils" to your units search path.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_-using-fastmm-memory-manager"><a id="using-fastmm-memory-manager"></a> Using FastMM memory manager</h3>
-<div class="paragraph">
-<p>You can speed up pasdoc a little (about 17%) by using <a href="http://sourceforge.net/projects/fastmm">FastMM memory manager</a>. Just download FastMM, add it to your Delphi units path, and define symbol USE_FASTMM when compiling.</p>
+<p><em>Requirements</em>: Any Delphi with <code>Generics.Collections</code> support should be good, which in theory means &gt;= 2009. We actively test (using GitHub Actions) with Delphi 10 and 12 right now.</p>
 </div>
 <div class="paragraph">
-<p>This is not necessary with newer Delphi versions, as they already include FastMM.</p>
-</div>
+<p>To build the command-line PasDoc, open the Delphi project in <code>source/console/</code> and build as usual.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-see-also-release-making"><a id="see-also-release-making"></a> See also: release making</h2>
+<h2 id="_-see-also-release-making">4. <a id="see-also-release-making"></a> See also: release making</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Compiling, testing and other things related to release making are described on this page: <a href="ReleaseMaking">ReleaseMaking</a>.</p>
@@ -190,10 +185,10 @@ The reason why the project file does not contain a list of all units including f
 
 <ul>
   <li>
-    <p><a href="WritingDocumentation">Writing Documentation</a></p>
+    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
   </li>
   <li>
-    <p><a href="WhereToPlaceComments">Where To Place Comments</a></p>
+    <p><a href="WritingDocumentation">Writing Documentation</a></p>
   </li>
   <li>
     <p><a href="AdvancedFeatures">Advanced Features</a></p>
