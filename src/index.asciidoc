@@ -29,15 +29,17 @@ interface
 type
   { My amazing class. }
   TMyClass = class
+  private
+    FMyProperty: String;
   public
     { My amazing method. }
     procedure MyMethod;
     { My amazing property. }
-    property MyProperty: string read GetMyProperty;
+    property MyProperty: String read FMyProperty write FMyProperty;
   end;
 
 implementation
-...
+// ...
 end.
 ```
 
