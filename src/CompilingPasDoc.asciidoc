@@ -1,12 +1,23 @@
 :doctitle: Compiling PasDoc from sources
+:sectnums:
+:toc: left
+:toclevels: 4
 
-How to compile link:index[PasDoc]?
+## Get the source code
 
-## [[fpc]] FPC
+First of all, get https://github.com/pasdoc/pasdoc/[our source code from GitHub]. E.g.
 
-The preferred http://www.freepascal.org/[FreePascal] version should always be the latest stable FPC release. Any FPC >= 2.6.0 is supported, although compilation with older versions is less extensively tested. Using the latest stable FPC is always the best option.
+```
+git clone https://github.com/pasdoc/pasdoc.git
+```
 
-Compile by simply executing
+## [[fpc]] Build with command-line FPC
+
+You can build with command-line https://www.freepascal.org/[Free Pascal Compiler (FPC)].
+
+_Requirements_: We need FPC with `Generics.Collections` support, which implies FPC >= 3.2.0.
+
+From the command-line, compile by simply executing
 
 ```
 make
@@ -14,45 +25,33 @@ make
 
 in the main repository directory.
 
-NOTE: You must use GNU make. Under Linux this is the standard `make`. Under Windows it is included with FPC installation (you can also get it with http://www.mingw.org/[MinGW] or http://www.cygwin.com/[Cygwin]). Under FreeBSD it's called `gmake`.
+[NOTE]
+====
+You must use _GNU make_.
 
-### [[lazarus]] Lazarus
+- Under Linux this is the standard `make`.
+- Under Windows it is included with FPC installation (you can also get it with http://www.mingw.org/[MinGW] or http://www.cygwin.com/[Cygwin]).
+- Under FreeBSD it's called `gmake`.
+- Under MacOS it's called `gmake` and you can install it with `brew install make` (using https://brew.sh/[Homebrew]).
+====
 
-Lazarus version required is 1.0.10 or later. Using the latest stable Lazarus version is always adviced and best tested.
+### [[lazarus]] Build with Lazarus
 
-* You can install pasdoc components by installing `source/packages/lazarus/pasdoc_package.lpk`. This package is used by console `pasdoc` and by `pasdoc_gui`.
-* You can compile console pasdoc from Lazarus by compiling `source/console/pasdoc.lpi`.
-* You can compile `pasdoc_gui` from Lazarus by compiling `source/gui/pasdoc_gui.lpi`.
+https://www.lazarus-ide.org/[Lazarus is an IDE using FPC under the hood].
 
-## [[delphi]] Delphi
+_Requirements_: Any Lazarus version that supports FPC >= 3.2.0 should be able to compile pasdoc.
 
-In theory, the project can support even Delphi versions >= 5. However, it wasn't tested with so old Delphi versions for a long time. Using Delphi >= 11 is advised.
+- First, open and build the package with our components by installing `source/packages/lazarus/pasdoc_package.lpk`.
 
-### [[compiling-from-the-ide-1]] Compiling from the IDE
+- Build the command-line PasDoc by opening the `source/console/pasdoc.lpi` project in Lazarus and compiling it.
 
-Open the Delphi project in `source/console/` and build as usual.
+- Build the GUI PasDoc by opening the `source/gui/pasdoc_gui.lpi` project in Lazarus and compiling it.
 
-NOTE: The reason why the project file does not contain a list of all units including full filenames is that older versions of Delphi do not support a forward slash in paths while Kylix does not support backslashes. We may fix it, since we longer support Kylix.
+## [[delphi]] Build with Delphi
 
-### [[compiling-using-the-makefile-1]] Compiling using the Makefile
+_Requirements_: Any Delphi with `Generics.Collections` support should be good, which in theory means >= 2009. We actively test (using GitHub Actions) with Delphi 10 and 12 right now.
 
-You can compile using the command
-
-```
-make build-delphi-win32
-```
-
-### [[delphi-5-specific-notes]] Delphi 5 specific notes
-
-You must do one specific thing to compile pasdoc with Delphi 5 (and not later):
-
-* Add "..\component\strutils" to your units search path.
-
-### [[using-fastmm-memory-manager]] Using FastMM memory manager
-
-You can speed up pasdoc a little (about 17%) by using http://sourceforge.net/projects/fastmm[FastMM memory manager]. Just download FastMM, add it to your Delphi units path, and define symbol USE_FASTMM when compiling.
-
-This is not necessary with newer Delphi versions, as they already include FastMM.
+To build the command-line PasDoc, open the Delphi project in `source/console/` and build as usual.
 
 ## [[see-also-release-making]] See also: release making
 

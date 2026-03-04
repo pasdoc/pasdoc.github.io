@@ -1,6 +1,11 @@
 :doctitle: Process of making new PasDoc release
+:sectnums:
+:toc: left
+:toclevels: 4
 
-Release making process:
+## Introduction
+
+This page describes the process of making a new https://github.com/pasdoc/pasdoc/releases[PasDoc release]. Unless you're a PasDoc maintainer, you probably don't care about the details described here.
 
 ## Change version number to next stable
 
@@ -77,7 +82,9 @@ For basic test of  pasdoc_gui, open the project with pasdoc's autodoc source/aut
 
 * Go to https://github.com/pasdoc/pasdoc/releases and create a new release from tag
 
-* Upload there the release. Right now Michalis has this automated by https://github.com/github-release/github-release[github-release] on https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)[Castle Game Engine Jenkins infrastructure] server.
+* Upload there the release.
+
+* Mark it as "latest", make sure https://github.com/pasdoc/pasdoc/releases/latest[latest release] page links to it.
 
 ## [[final-things-to-do]] Final things to do
 
