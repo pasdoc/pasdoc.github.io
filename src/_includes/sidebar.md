@@ -5,9 +5,9 @@
 
 ## Features:
 
-* [Writing Documentation](WritingDocumentation)
-
 * [Where To Place Comments](WhereToPlaceComments)
+
+* [Writing Documentation](WritingDocumentation)
 
 * [Advanced Features](AdvancedFeatures)
 
