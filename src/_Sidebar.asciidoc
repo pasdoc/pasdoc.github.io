@@ -73,7 +73,7 @@ link:CommandLine[Command Line]: ::
 * link:IntroductionAndConclusion[--introduction, --conclusion, -A, --additional]
 * link:ImplicitVisibilityOption[--implicit-visibility]
 * link:TrueFalseNilTag[--lowercase-keywords]
-* link:IncludeByVisibility[--visible-members]
+* link:VisibleMembers[--visible-members]
 * link:IncludeCreationTimeOption[--include-creation-time]
 * link:IncludeInSearchPath[--include]
 * link:LinkLookOption[--link-look]

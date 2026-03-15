@@ -131,7 +131,7 @@
 
 * [\--lowercase-keywords](TrueFalseNilTag)
 
-* [\--visible-members](IncludeByVisibility)
+* [\--visible-members](VisibleMembers)
 
 * [\--include-creation-time](IncludeCreationTimeOption)
 

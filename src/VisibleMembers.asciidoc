@@ -1,0 +1,45 @@
+:doctitle: --visible-members command-line option
+:sectnums:
+:toc: left
+:toclevels: 4
+
+== What members to include in the documentation
+
+The link:CommandLine[CommandLine] option `--visible-members` (short
+form is `-M`) controls what class members are visible in final
+documentation. The following visibility types are known:
+
+* `private`
+* `strictprivate`
+* `protected`
+* `strictprotected`
+* `public`
+* `published`
+* `automated`
+* `implicit` (which can mean either `public` or `published`; see link:ImplicitVisibilityOption[--implicit-visibility option])
+
+Example:
+
+----
+pasdoc --visible-members protected,public,published,automated
+----
+
+By default `private` and `implicit` members are hidden, the rest is shown.
+
+== Make some members "included but hidden by default"
+
+Moreover, you can specify some visibility levels as "included but hidden by default" by adding `?` at the end of the visibility level name.
+
+The main use-case is for `protected` and `strictprotected` visibility levels, which:
+
+- on one hand, deserve to be mentioned and documented (developers using the class need to know about them, to be able to develop descendants),
+
+- on the other hand, sometimes we don't want the `protected` stuff to clutter the default view too much, because _most_ developers are fine just exploring the `public` identifiers.
+
+Now you can have a cake, and eat it too :), by specifying the "included but hidden by default" visibility levels with `?` at the end for the `--visible-members` option. Like this:
+
+```
+pasdoc --visible-members=protected?,public,published *.pas
+```
+
+This results in `protected` members included but hidden by default in the HTML output. We will show a checkbox to allow user to show/hide them (using JavaScript, so no page reload).

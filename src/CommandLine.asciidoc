@@ -84,7 +84,7 @@ Do not require the markers given in `--marker` but remove them from the comment 
 --numericfilenames::
 Causes the html generator to create numeric filenames
 
-link:IncludeByVisibility[-M, --visible-members]::
+link:VisibleMembers[-M, --visible-members]::
 Include / Exclude class Members by visiblity
 
 link:WriteUsesList[--write-uses-list]::
