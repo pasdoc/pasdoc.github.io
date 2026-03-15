@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>–visible-members command-line option | PasDoc</title>
+<title>PasDoc | Documentation tool for Pascal source code</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="–visible-members command-line option" />
+<meta property="og:title" content="PasDoc" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="–visible-members command-line option" />
+<meta property="twitter:title" content="PasDoc" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–visible-members command-line option","url":"https://pasdoc.github.io//IncludeByVisibility.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"PasDoc","url":"https://pasdoc.github.io//IncludeByVisibility.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=189edfc82c02f3b4c2ea28ec93f287e0654ef5d7">
+    <link rel="stylesheet" href="/assets/css/style.css?v=7a0e1382f4cb7eeb580269d3342c2b1aedb1b880">
   </head>
   <body>
     <div id="layout-container">
@@ -36,88 +36,11 @@
           
 
           
-          <h1>--visible-members command-line option</h1>
+          <h1></h1>
           
 
-          <div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>The <a href="CommandLine">CommandLine</a> option <code>--visible-members</code> (short
-form is <code>-M</code>) controls what class members are visible in final
-documentation. The following visibility types are known:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>private</code></p>
-</li>
-<li>
-<p><code>strictprivate</code></p>
-</li>
-<li>
-<p><code>protected</code></p>
-</li>
-<li>
-<p><code>strictprotected</code></p>
-</li>
-<li>
-<p><code>public</code></p>
-</li>
-<li>
-<p><code>published</code></p>
-</li>
-<li>
-<p><code>automated</code></p>
-</li>
-<li>
-<p><code>implicit</code> (which can mean either <code>public</code> or <code>published</code>; see <a href="ImplicitVisibilityOption">--implicit-visibility option</a>)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>pasdoc --visible-members protected,public,published,automated</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>By default <code>private</code> and <code>implicit</code> members are hidden, the rest is shown.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_make-some-members-included-but-hidden-by-default">Make some members "included but hidden by default"</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Moreover, you can specify some visibility levels as "included but hidden by default" by adding <code>?</code> at the end of the visibility level name.</p>
-</div>
-<div class="paragraph">
-<p>The main use-case is for <code>protected</code> and <code>strictprotected</code> visibility levels, which:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>on one hand, deserve to be mentioned and documented (developers using the class need to know about them, to be able to develop descendants),</p>
-</li>
-<li>
-<p>on the other hand, sometimes we don&#8217;t want the <code>protected</code> stuff to clutter the default view too much, because <em>most</em> developers are fine just exploring the <code>public</code> identifiers.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Now you can have a cake, and eat it too :), by specifying the "included but hidden by default" visibility levels with <code>?</code> at the end for the <code>--visible-members</code> option. Like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>pasdoc --visible-members=protected?,public,published *.pas</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This results in <code>protected</code> members included but hidden by default in the HTML output. We will show a checkbox to allow user to show/hide them (using JavaScript, so no page reload).</p>
-</div>
-</div>
+          <div class="paragraph">
+<p><code>--visible-members</code> docs moved to <a href="VisibleMembers" class="bare">VisibleMembers</a> page.</p>
 </div>
 
           <footer class="site-footer">
@@ -337,7 +260,7 @@ documentation. The following visibility types are known:</p>
     <p><a href="TrueFalseNilTag">--lowercase-keywords</a></p>
   </li>
   <li>
-    <p><a href="IncludeByVisibility">--visible-members</a></p>
+    <p><a href="VisibleMembers">--visible-members</a></p>
   </li>
   <li>
     <p><a href="IncludeCreationTimeOption">--include-creation-time</a></p>

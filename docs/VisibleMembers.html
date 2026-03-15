@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>–ignore-leading command-line option | PasDoc</title>
+<title>–visible-members command-line option | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="–ignore-leading command-line option" />
+<meta property="og:title" content="–visible-members command-line option" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
-<link rel="canonical" href="https://pasdoc.github.io//IgnoreLeadingOption.html" />
-<meta property="og:url" content="https://pasdoc.github.io//IgnoreLeadingOption.html" />
+<link rel="canonical" href="https://pasdoc.github.io//VisibleMembers.html" />
+<meta property="og:url" content="https://pasdoc.github.io//VisibleMembers.html" />
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="–ignore-leading command-line option" />
+<meta property="twitter:title" content="–visible-members command-line option" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–ignore-leading command-line option","url":"https://pasdoc.github.io//IgnoreLeadingOption.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–visible-members command-line option","url":"https://pasdoc.github.io//VisibleMembers.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,54 +36,96 @@
           
 
           
-          <h1>--ignore-leading command-line option</h1>
+          <h1>--visible-members command-line option</h1>
           
 
-          <div class="paragraph">
-<p><a href="CommandLine">CommandLine</a> option
-<code>--ignore-leading=&lt;leading-characters&gt;</code> makes <a href="index">PasDoc</a>
-ignore &lt;leading-characters&gt; at the beginning of comment lines. This
-means that you can decorate comments like</p>
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_what-members-to-include-in-the-documentation">1. What members to include in the documentation</a></li>
+<li><a href="#_make-some-members-included-but-hidden-by-default">2. Make some members "included but hidden by default"</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_what-members-to-include-in-the-documentation">1. What members to include in the documentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="CommandLine">CommandLine</a> option <code>--visible-members</code> (short
+form is <code>-M</code>) controls what class members are visible in final
+documentation. The following visibility types are known:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>private</code></p>
+</li>
+<li>
+<p><code>strictprivate</code></p>
+</li>
+<li>
+<p><code>protected</code></p>
+</li>
+<li>
+<p><code>strictprotected</code></p>
+</li>
+<li>
+<p><code>public</code></p>
+</li>
+<li>
+<p><code>published</code></p>
+</li>
+<li>
+<p><code>automated</code></p>
+</li>
+<li>
+<p><code>implicit</code> (which can mean either <code>public</code> or <code>published</code>; see <a href="ImplicitVisibilityOption">--implicit-visibility option</a>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{*</span>
-<span style="color: #408080; font-style: italic"> * Test</span>
-<span style="color: #408080; font-style: italic"> *}</span> <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span>
-
-<span style="color: #408080; font-style: italic">{ ***************</span>
-<span style="color: #408080; font-style: italic">  * Test2</span>
-<span style="color: #408080; font-style: italic">  ****************}</span>
-<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
+<pre>pasdoc --visible-members protected,public,published,automated</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and run pasdoc like</p>
+<p>By default <code>private</code> and <code>implicit</code> members are hidden, the rest is shown.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_make-some-members-included-but-hidden-by-default">2. Make some members "included but hidden by default"</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Moreover, you can specify some visibility levels as "included but hidden by default" by adding <code>?</code> at the end of the visibility level name.</p>
+</div>
+<div class="paragraph">
+<p>The main use-case is for <code>protected</code> and <code>strictprotected</code> visibility levels, which:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>on one hand, deserve to be mentioned and documented (developers using the class need to know about them, to be able to develop descendants),</p>
+</li>
+<li>
+<p>on the other hand, sometimes we don&#8217;t want the <code>protected</code> stuff to clutter the default view too much, because <em>most</em> developers are fine just exploring the <code>public</code> identifiers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now you can have a cake, and eat it too :), by specifying the "included but hidden by default" visibility levels with <code>?</code> at the end for the <code>--visible-members</code> option. Like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>pasdoc --ignore-leading=* my.pas</pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>pasdoc --visible-members=protected?,public,published *.pas</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>to avoid these star characters in documentation.</p>
+<p>This results in <code>protected</code> members included but hidden by default in the HTML output. We will show a checkbox to allow user to show/hide them (using JavaScript, so no page reload).</p>
 </div>
-<div class="paragraph">
-<p>Consecutive occurrences of the character are ignored too. Whitespace
-preceding the character to ignore is irrelevant. Trailing characters
-(like in <code>* MyTest *</code>) are <em>not</em> removed from the comments. This is
-compatible with JavaDoc behavior.</p>
 </div>
-<div class="paragraph">
-<p>This doesn&#8217;t interfere with the <a href="CommentMarker">--staronly and --marker</a> options as these are handled before the characters are stripped.</p>
-</div>
-<div class="paragraph">
-<p>As <code>--ignore-leading</code> is a string-option you can even assign a string to
-it instead of a single character, e.g. --ignore-leading=*!. But this is
-not supported (meaning: the ability to pass more than 1 character to
---ignore-leading may be removed at some point; you&#8217;re welcome to send
-reports to our <a href="http://lists.sourceforge.net/lists/listinfo/pasdoc-main">mailing list</a> if you find a good
-justification for this feature to be "stable").</p>
 </div>
 
           <footer class="site-footer">
