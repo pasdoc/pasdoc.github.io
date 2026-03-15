@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=7a0e1382f4cb7eeb580269d3342c2b1aedb1b880">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ec3b3fec2a0553c830c3bf48b7da4d9996aa6dd8">
   </head>
   <body>
     <div id="layout-container">
@@ -40,42 +40,58 @@
           
 
           <div class="paragraph">
-<p>When you declare a class, ObjectPascal rules say that default ("implicit") visibility of members is <em>public</em>, unless the class is declared within {$M+} state or the class inherits from another class
-declared in {$M+} state (like TPersistent)&#8201;&#8212;&#8201;then it&#8217;s <em>published</em>.</p>
+<p>When you declare a class, ObjectPascal rules say that the default ("implicit") visibility of members is <em>public</em>, unless the class is declared within <code>{$M+}</code> state or the class inherits from another class
+declared in <code>{$M+}</code> state (like <code>TPersistent</code>)&#8201;&#8212;&#8201;then it&#8217;s <em>published</em>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>(<span style="color: #B00040">TObject</span>)
+    <span style="color: #408080; font-style: italic">// this field is public</span>
+    MyField<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
+
+  <span style="color: #408080; font-style: italic">{$M+}</span>
+  TMyClass2 <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>(<span style="color: #B00040">TObject</span>)
+    <span style="color: #408080; font-style: italic">// this field is published</span>
+    MyField<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>However, pasdoc cannot always absolutely correctly implement this behavior
-(only the compiler really knows whether class inherits from another class declared in {$M+} state).</p>
+<p>However, PasDoc cannot always correctly implement this behavior, because we don&#8217;t know all your ancestor classes (unlike the compiler). For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">uses</span> Classes<span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">type</span>
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>(TComponent)
+    <span style="color: #408080; font-style: italic">// this is published, but PasDoc doesn&#39;t know that</span>
+    MyField<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can control using the command-line option <code>--implicit-visibility</code> how
-exactly pasdoc handles members with "implicit visibility":</p>
+<p>Therefore you can customize how we treat members with "implicit visibility" (i.e. members without an explicit visibility section) using the command-line option <code>--implicit-visibility</code>. It has the following possible values:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">--implicit-visibility=public</dt>
 <dd>
-<p>Visibility of implicit members is <em>public</em>, unless the class is
-declared within {$M+} state, then visibility is <em>published</em>. This is
-the default setting.</p>
+<p>Visibility of implicit members is <em>public</em>, unless the class is declared within <code>{$M+}</code> state, then visibility is <em>published</em>. This is the default setting.</p>
 </dd>
 <dt class="hdlist1">--implicit-visibility=published</dt>
 <dd>
-<p>Visibility of implicit members is always <em>published</em>.</p>
+<p>Visibility of implicit members is always <em>published</em>. Use this if you always descend from classes declared in <code>{$M+}</code> state (like <code>TPersistent</code>, <code>TComponent</code>, <code>TForm</code>).</p>
 </dd>
 <dt class="hdlist1">--implicit-visibility=implicit</dt>
 <dd>
-<p>Visibility of implicit members is always <em>implicit</em>. <em>Implicit</em> is a new
-visibility kind, invented only for the sake of pasdoc. It&#8217;s another
-possible kind for <code>--visible-members</code> option. By default,
---visible-members do not include <em>implicit</em> members.</p>
+<p>Assign to the implicit members a special invented visibility level, which we call <em>implicit</em>. The <a href="VisibleMembers">--visible-members</a> option allows to control whether they are displayed.</p>
+<div class="paragraph">
+<p>If you don&#8217;t use <code>--implicit-visibility=implicit</code> command-line option then <em>no</em> members will be ever considered as having an <em>implicit</em> visibility.</p>
+</div>
 </dd>
 </dl>
-</div>
-<div class="paragraph">
-<p>If you don&#8217;t use <code>--implicit-visibility=implicit</code> command-line option then
-<em>no</em> members will be ever considered as having an <em>implicit</em> visibility
-by pasdoc.</p>
 </div>
 
           <footer class="site-footer">

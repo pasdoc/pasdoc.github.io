@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=7a0e1382f4cb7eeb580269d3342c2b1aedb1b880">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ec3b3fec2a0553c830c3bf48b7da4d9996aa6dd8">
   </head>
   <body>
     <div id="layout-container">
@@ -51,7 +51,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <a href="CommandLine">CommandLine</a> option <code>--visible-members</code> (short
-form is <code>-M</code>) controls what class members are visible in final
+form is <code>-M</code>) controls what class members are visible in the generated
 documentation. The following visibility types are known:</p>
 </div>
 <div class="ulist">
@@ -78,7 +78,10 @@ documentation. The following visibility types are known:</p>
 <p><code>automated</code></p>
 </li>
 <li>
-<p><code>implicit</code> (which can mean either <code>public</code> or <code>published</code>; see <a href="ImplicitVisibilityOption">--implicit-visibility option</a>)</p>
+<p><code>implicit</code></p>
+<div class="paragraph">
+<p>This is a special visibility level, used only if you requested it by <code>--implicit-visibility=implicit</code>.See <a href="ImplicitVisibilityOption">--implicit-visibility option</a> for more details.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -91,7 +94,7 @@ documentation. The following visibility types are known:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>By default <code>private</code> and <code>implicit</code> members are hidden, the rest is shown.</p>
+<p>By default <code>private</code>, <code>strictprivate</code> and <code>implicit</code> members are hidden. The rest is shown.</p>
 </div>
 </div>
 </div>
