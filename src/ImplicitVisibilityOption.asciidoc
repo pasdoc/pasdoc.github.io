@@ -1,28 +1,42 @@
 :doctitle: --implicit-visibility command-line option
 
-When you declare a class, ObjectPascal rules say that default ("implicit") visibility of members is __public__, unless the class is declared within {$M+} state or the class inherits from another class
-declared in {$M+} state (like TPersistent) -- then it's __published__.
+When you declare a class, ObjectPascal rules say that the default ("implicit") visibility of members is __public__, unless the class is declared within `{$M+}` state or the class inherits from another class
+declared in `{$M+}` state (like `TPersistent`) -- then it's __published__. For example:
 
-However, pasdoc cannot always absolutely correctly implement this behavior
-(only the compiler really knows whether class inherits from another class declared in {$M+} state).
+```pascal
+type
+  TMyClass = class(TObject)
+    // this field is public
+    MyField: Integer;
+  end;
 
-You can control using the command-line option `--implicit-visibility` how
-exactly pasdoc handles members with "implicit visibility":
+  {$M+}
+  TMyClass2 = class(TObject)
+    // this field is published
+    MyField: Integer;
+  end;
+```
+
+However, PasDoc cannot always correctly implement this behavior, because we don't know all your ancestor classes (unlike the compiler). For example:
+
+```pascal
+uses Classes;
+type
+  TMyClass = class(TComponent)
+    // this is published, but PasDoc doesn't know that
+    MyField: Integer;
+  end;
+```
+
+Therefore you can customize how we treat members with "implicit visibility" (i.e. members without an explicit visibility section) using the command-line option `--implicit-visibility`. It has the following possible values:
 
 --implicit-visibility=public::
-Visibility of implicit members is __public__, unless the class is
-declared within {$M+} state, then visibility is __published__. This is
-the default setting.
+Visibility of implicit members is __public__, unless the class is declared within `{$M+}` state, then visibility is __published__. This is the default setting.
 
 --implicit-visibility=published::
-Visibility of implicit members is always __published__.
+Visibility of implicit members is always __published__. Use this if you always descend from classes declared in `{$M+}` state (like `TPersistent`, `TComponent`, `TForm`).
 
 --implicit-visibility=implicit::
-Visibility of implicit members is always __implicit__. _Implicit_ is a new
-visibility kind, invented only for the sake of pasdoc. It's another
-possible kind for `--visible-members` option. By default,
---visible-members do not include _implicit_ members.
-
-If you don't use `--implicit-visibility=implicit` command-line option then
-_no_ members will be ever considered as having an _implicit_ visibility
-by pasdoc.
+Assign to the implicit members a special invented visibility level, which we call __implicit__. The link:VisibleMembers[--visible-members] option allows to control whether they are displayed.
++
+If you don't use `--implicit-visibility=implicit` command-line option then _no_ members will be ever considered as having an _implicit_ visibility.

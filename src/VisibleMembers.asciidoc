@@ -6,7 +6,7 @@
 == What members to include in the documentation
 
 The link:CommandLine[CommandLine] option `--visible-members` (short
-form is `-M`) controls what class members are visible in final
+form is `-M`) controls what class members are visible in the generated
 documentation. The following visibility types are known:
 
 * `private`
@@ -16,7 +16,9 @@ documentation. The following visibility types are known:
 * `public`
 * `published`
 * `automated`
-* `implicit` (which can mean either `public` or `published`; see link:ImplicitVisibilityOption[--implicit-visibility option])
+* `implicit`
++
+This is a special visibility level, used only if you requested it by `--implicit-visibility=implicit`.See link:ImplicitVisibilityOption[--implicit-visibility option] for more details.
 
 Example:
 
@@ -24,7 +26,7 @@ Example:
 pasdoc --visible-members protected,public,published,automated
 ----
 
-By default `private` and `implicit` members are hidden, the rest is shown.
+By default `private`, `strictprivate` and `implicit` members are hidden. The rest is shown.
 
 == Make some members "included but hidden by default"
 
