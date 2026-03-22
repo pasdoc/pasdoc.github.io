@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1287adce74463a8209e6e6fc4379e308c70fcba6">
   </head>
   <body>
     <div id="layout-container">
@@ -39,7 +39,22 @@
           <h1>Writing Documentation Comments</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_first-sentence-should-stand-on-its-own">2. First sentence should stand on its own</a></li>
+<li><a href="#_-expanding-tags">3.  Expanding @-tags</a></li>
+<li><a href="#_-whitespace">4.  Whitespace</a></li>
+<li><a href="#_-paragraphs">5.  Paragraphs</a></li>
+<li><a href="#_-automatic-recognition-of-urls">6.  Automatic recognition of URLs</a></li>
+<li><a href="#_-dashes">7.  Dashes</a></li>
+<li><a href="#_-help-insight-comments">8.  Help Insight comments</a></li>
+<li><a href="#_-items-without-documentation">9.  Items without documentation</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>PasDoc extracts documentation from the comments that you place in your
@@ -53,7 +68,15 @@ available in documentation comments</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-expanding-tags"><a id="expanding-tags"></a> Expanding @-tags</h2>
+<h2 id="_first-sentence-should-stand-on-its-own">2. First sentence should stand on its own</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first sentence of every documentation comment is the most important. It determines the <a href="Abstract">abstract (short) description</a> of this item, which is shown in various overviews, and as such should "stand on its own". Make it a short and precise sentence that describes the item.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-expanding-tags">3. <a id="expanding-tags"></a> Expanding @-tags</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>See <a href="SupportedTags">SupportedTags</a>.</p>
@@ -61,7 +84,7 @@ available in documentation comments</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-whitespace"><a id="whitespace"></a> Whitespace</h2>
+<h2 id="_-whitespace">4. <a id="whitespace"></a> Whitespace</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Like in HTML or LaTeX, amount of whitespace you put between words
@@ -92,7 +115,7 @@ TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-paragraphs"><a id="paragraphs"></a> Paragraphs</h2>
+<h2 id="_-paragraphs">5. <a id="paragraphs"></a> Paragraphs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Like in LaTeX: The only exception to the rule above is that an empty
@@ -115,7 +138,7 @@ TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-automatic-recognition-of-urls"><a id="automatic-recognition-of-urls"></a> Automatic recognition of URLs</h2>
+<h2 id="_-automatic-recognition-of-urls">6. <a id="automatic-recognition-of-urls"></a> Automatic recognition of URLs</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Pasdoc automatically recognizes URLs (like
@@ -129,7 +152,7 @@ will be presented with \html command.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-dashes"><a id="dashes"></a> Dashes</h2>
+<h2 id="_-dashes">7. <a id="dashes"></a> Dashes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Three consecutive dashes, ---, in your comment produce
@@ -152,7 +175,7 @@ just produce the short dash in the output, and so the 2nd dash is a
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-help-insight-comments"><a id="help-insight-comments"></a> Help Insight comments</h2>
+<h2 id="_-help-insight-comments">8. <a id="help-insight-comments"></a> Help Insight comments</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="index">PasDoc</a> also recognizes Help Insight comments, that start
@@ -175,7 +198,7 @@ page:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-items-without-documentation"><a id="items-without-documentation"></a> Items without documentation</h2>
+<h2 id="_-items-without-documentation">9. <a id="items-without-documentation"></a> Items without documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Even undocumented items (not annotated with any comment) are visible in the output. Here&#8217;s why:</p>
@@ -248,7 +271,7 @@ page:</p>
 
 <ul>
   <li>
-    <p><a href="AbstractTag">@abstract</a></p>
+    <p><a href="Abstract">@abstract</a></p>
   </li>
   <li>
     <p><a href="AuthorTag">@author</a></p>
@@ -356,7 +379,7 @@ page:</p>
     </ul>
   </li>
   <li>
-    <p><a href="AutoAbstractOption">--auto-abstract</a></p>
+    <p><a href="Abstract">--auto-abstract</a></p>
   </li>
   <li>
     <p><a href="AutoBackComments">--auto-back-comments</a></p>
@@ -429,6 +452,9 @@ page:</p>
   </li>
   <li>
     <p><a href="NameOption">--name</a></p>
+  </li>
+  <li>
+    <p><a href="Abstract">--no-auto-abstract</a></p>
   </li>
   <li>
     <p><a href="NoMacroOption">--no-macro</a></p>

@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1287adce74463a8209e6e6fc4379e308c70fcba6">
   </head>
   <body>
     <div id="layout-container">
@@ -39,100 +39,8 @@
           <h1>--auto-abstract command-line option</h1>
           
 
-          <div class="sect1">
-<h2 id="_-overview"><a id="overview"></a> Overview</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you run pasdoc with --auto-abstract <a href="CommandLine">CommandLine</a>
-option, pasdoc will automatically deduce the abstract description of
-every item from the first sentence of it&#8217;s description. This means that
-you can write</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
-  <span style="color: #408080; font-style: italic">{ Short description of this class.</span>
-<span style="color: #408080; font-style: italic">    More elaborate description of this class. }</span>
-  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and it&#8217;s equivalent to</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
-  <span style="color: #408080; font-style: italic">{ @abstract(Short description of this class.)</span>
-<span style="color: #408080; font-style: italic">    More elaborate description of this class. }</span>
-  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This means that you can avoid writing explicitly @abstract tags, which
-means that your comments look less cluttered. Of course, this also means
-that you have to carefully watch to make the first sentence of every
-description to "stand on it&#8217;s own".</p>
-</div>
-<div class="paragraph">
-<p>This is a standard feature of javadoc, and it&#8217;s also available in
-doxygen.</p>
-</div>
-<div class="paragraph">
-<p>The parsing logic is simple: the first sentence of the description ends
-at the first period followed by any whitespace (including newline). Of
-course this period must be in the "top-level" text, not inside parameter
-of any @-tag. If there is no such period in the description, then the
-<em>whole</em> description is treated as one sentence, and the <em>whole</em>
-description is treated as an abstract description of the item.</p>
-</div>
-<div class="paragraph">
-<p>Of course if any description has an explicit @abstract section, then
-this has priority over "the first sentence rule". Using explicit
-@abstract tag may be useful if e.g. you need to make the abstract
-description two-sentence long.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-small-difference-between-explicit-abstract"><a id="small-difference-between-explicit-abstract"></a> Small difference between explicit @abstract</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Note that there is actually a small difference between two examples
-given above. It occurs when pasdoc writes full description of a given
-item (full = abstract one + the rest).</p>
-</div>
-<div class="paragraph">
-<p>If you used explicit @abstract tag, then pasdoc will always separate the
-abstract description with some space (e.g. paragraph marker, &lt;p&gt;, in
-HTML) from the rest of the description. But if your abstract description
-was deduced automatically, then pasdoc will not automatically insert
-such paragraph. This way full description of an item looks more like it
-was specified in source code.</p>
-</div>
-<div class="paragraph">
-<p>So if I would really want to make two exactly equivalent examples, I
-should show this as the first example (note that I explicitly inserted
-empty line between abstract description and the rest here):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
-  <span style="color: #408080; font-style: italic">{ Short description of this class.</span>
-
-<span style="color: #408080; font-style: italic">    More elaborate description of this class. }</span>
-  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
-  <span style="color: #666666">...</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_-example-unit"><a id="example-unit"></a> Example unit</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>See <a href="https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_auto_abstract.pas">test unit of this feature</a>.</p>
-</div>
-</div>
+          <div class="paragraph">
+<p>The <code>--auto-abstract</code> docs moved to the <a href="Abstract">Abstract Description</a> page of the documentation.</p>
 </div>
 
           <footer class="site-footer">
@@ -190,7 +98,7 @@ empty line between abstract description and the rest here):</p>
 
 <ul>
   <li>
-    <p><a href="AbstractTag">@abstract</a></p>
+    <p><a href="Abstract">@abstract</a></p>
   </li>
   <li>
     <p><a href="AuthorTag">@author</a></p>
@@ -298,7 +206,7 @@ empty line between abstract description and the rest here):</p>
     </ul>
   </li>
   <li>
-    <p><a href="AutoAbstractOption">--auto-abstract</a></p>
+    <p><a href="Abstract">--auto-abstract</a></p>
   </li>
   <li>
     <p><a href="AutoBackComments">--auto-back-comments</a></p>
@@ -371,6 +279,9 @@ empty line between abstract description and the rest here):</p>
   </li>
   <li>
     <p><a href="NameOption">--name</a></p>
+  </li>
+  <li>
+    <p><a href="Abstract">--no-auto-abstract</a></p>
   </li>
   <li>
     <p><a href="NoMacroOption">--no-macro</a></p>

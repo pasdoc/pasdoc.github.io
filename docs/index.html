@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1287adce74463a8209e6e6fc4379e308c70fcba6">
   </head>
   <body>
     <div id="layout-container">
@@ -113,7 +113,7 @@ and / or in dedicated "description files". Numerous output formats are supported
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ My amazing unit. }</span>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ My amazing unit. This does @bold(something amazing). }</span>
 <span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
 
 <span style="color: #008000; font-weight: bold">interface</span>
@@ -124,7 +124,7 @@ and / or in dedicated "description files". Numerous output formats are supported
   <span style="color: #008000">private</span>
     FMyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span><span style="color: #666666">;</span>
   <span style="color: #008000">public</span>
-    <span style="color: #408080; font-style: italic">{ My amazing method. }</span>
+    <span style="color: #408080; font-style: italic">{ My amazing method. Sets @link(MyProperty) to &#39;foo&#39;. }</span>
     <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyMethod</span><span style="color: #666666">;</span>
     <span style="color: #408080; font-style: italic">{ My amazing property. }</span>
     <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span> <span style="color: #008000">read</span> <span style="color: #0000FF">FMyProperty</span> <span style="color: #008000">write</span> <span style="color: #0000FF">FMyProperty</span><span style="color: #666666">;</span>
@@ -141,7 +141,7 @@ and / or in dedicated "description files". Numerous output formats are supported
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="shell"><span></span>mkdir -p output-dir/
-pasdoc myunit.pas --format<span style="color: #666666">=</span>html --auto-abstract --output<span style="color: #666666">=</span>output-dir</code></pre>
+pasdoc myunit.pas --format<span style="color: #666666">=</span>html --output<span style="color: #666666">=</span>output-dir</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -362,7 +362,7 @@ In short, just call</p>
 
 <ul>
   <li>
-    <p><a href="AbstractTag">@abstract</a></p>
+    <p><a href="Abstract">@abstract</a></p>
   </li>
   <li>
     <p><a href="AuthorTag">@author</a></p>
@@ -470,7 +470,7 @@ In short, just call</p>
     </ul>
   </li>
   <li>
-    <p><a href="AutoAbstractOption">--auto-abstract</a></p>
+    <p><a href="Abstract">--auto-abstract</a></p>
   </li>
   <li>
     <p><a href="AutoBackComments">--auto-back-comments</a></p>
@@ -543,6 +543,9 @@ In short, just call</p>
   </li>
   <li>
     <p><a href="NameOption">--name</a></p>
+  </li>
+  <li>
+    <p><a href="Abstract">--no-auto-abstract</a></p>
   </li>
   <li>
     <p><a href="NoMacroOption">--no-macro</a></p>

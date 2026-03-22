@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Development Snapshots | PasDoc</title>
+<title>Abstract Description | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Development Snapshots" />
+<meta property="og:title" content="Abstract Description" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
-<link rel="canonical" href="https://pasdoc.github.io//DevelopmentSnapshots.html" />
-<meta property="og:url" content="https://pasdoc.github.io//DevelopmentSnapshots.html" />
+<link rel="canonical" href="https://pasdoc.github.io//Abstract.html" />
+<meta property="og:url" content="https://pasdoc.github.io//Abstract.html" />
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Development Snapshots" />
+<meta property="twitter:title" content="Abstract Description" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Development Snapshots","url":"https://pasdoc.github.io//DevelopmentSnapshots.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Abstract Description","url":"https://pasdoc.github.io//Abstract.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,53 +36,121 @@
           
 
           
-          <h1>Development Snapshots</h1>
+          <h1>Abstract Description</h1>
           
 
-          <div class="paragraph">
-<p>Try the current development version of <a href="index">PasDoc</a> by downloading snapshot from here:</p>
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_abstract-tag">2. <code>@abstract</code> tag</a></li>
+<li><a href="#_automatic-determination-of-abstract-description">3. Automatic determination of abstract description</a></li>
+<li><a href="#_disable-automatic-deduction-of-abstract-description-no-auto-abstract">4. Disable automatic deduction of abstract description (<code>--no-auto-abstract</code>)</a></li>
+<li><a href="#_other-software">5. Other software</a></li>
+<li><a href="#_example-unit">6. Example unit</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The documentation looks best if each documented identifier has an <em>"abstract"</em>, which means just <em>"a short description"</em>. This should usually be just one sentence.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/pasdoc/pasdoc/releases/tag/snapshot" class="bare">https://github.com/pasdoc/pasdoc/releases/tag/snapshot</a></p>
+<p>Such abstract description is displayed in various overview pages. It&#8217;s also used in conjunction with the <a href="SeeAlsoTag">@seealso tag</a>.</p>
 </div>
 <div class="paragraph">
-<p>The files available there are automatically build from the latest source (using <a href="https://github.com/pasdoc/pasdoc/tree/master/.github/workflows">GitHub Actions</a>).</p>
-</div>
-<div class="paragraph">
-<p>In particular, download latest builds for:</p>
+<p>It can be provided:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-linux-x86_64.tar.gz">Linux (x86_64)</a></p>
+<p>using the <code>@abstract</code> tag</p>
 </li>
 <li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-linux-arm.tar.gz">Linux (Arm, 32-bit) (Raspberry Pi)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-linux-aarch64.tar.gz">Linux (Aarch64, 64-bit) (Raspberry Pi, PineTab2)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-win64.zip">Windows (x86_64)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-darwin-x86_64.zip">macOS (x86_64)</a></p>
-</li>
-<li>
-<p><a href="https://github.com/pasdoc/pasdoc/releases/download/snapshot/pasdoc-0.17.0.snapshot-darwin-x86_64.zip">macOS (Aarch64)</a></p>
+<p>or (recommended) it will be automatically deduced from the first sentence of the description. This automatic deduction can be turned off using the <code>--no-auto-abstract</code> command-line option.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abstract-tag">2. <code>@abstract</code> tag</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>These snapshots look like regular <a href="index">PasDoc</a> releases, but are actually compiled automatically from <a href="https://github.com/pasdoc/pasdoc">current GitHub code</a>.</p>
+<p>You can use the <code>@abstract</code> tag to explicitly delimit a short explanation of the documented item. There should be at most one <code>@abstract</code> tag per description.</p>
 </div>
 <div class="paragraph">
-<p>Note: Since these "snapshot" versions change frequently, when reporting bugs please mention not only the version number (<code>0.17.0.snapshot</code>) but also the date when you downloaded them or <a href="https://github.com/pasdoc/pasdoc">last GIT commit hash</a> used to build them.</p>
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ @abstract(Read JSON file.)</span>
+<span style="color: #408080; font-style: italic">  Read the JSON file indicated by the given URL.</span>
+<span style="color: #408080; font-style: italic">  The resulting JSON object is owned by the caller, and must be freed by the caller. }</span>
+<span style="color: #008000; font-weight: bold">function</span> <span style="color: #0000FF">ReadJson</span>(<span style="color: #008000; font-weight: bold">const</span> Url<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span>)<span style="color: #666666">:</span> TJsonValue<span style="color: #666666">;</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Note: You can always download and compile current pasdoc sources
-yourself. See the GIT instructions <a href="index">on the main page</a> and
-see <a href="CompilingPasDoc">CompilingPasDoc</a>.</p>
+<p>The abstract description provided this way is always separated from the rest of the description by a paragraph break. This is in contrast to the case when the abstract description is deduced automatically from the first sentence of the description (see below), where paragraph break is done only if you explicitly insert an empty line between the first sentence and the rest of the description.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_automatic-determination-of-abstract-description">3. Automatic determination of abstract description</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If no <code>@abstract</code> tag is present in the description of an item, we will deduce the abstract description from the first sentence of the full description. Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{ Read JSON file.</span>
+<span style="color: #408080; font-style: italic">  Read the JSON file indicated by the given URL.</span>
+<span style="color: #408080; font-style: italic">  The resulting JSON object is owned by the caller, and must be freed by the caller. }</span>
+<span style="color: #008000; font-weight: bold">function</span> <span style="color: #0000FF">ReadJson</span>(<span style="color: #008000; font-weight: bold">const</span> Url<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">string</span>)<span style="color: #666666">:</span> TJsonValue<span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first sentence is determined by looking for a <em>first period followed by any whitespace</em> (including newline). If there is no such period in the description, then the <em>whole</em> description is treated as one sentence, and the <em>whole</em> description is treated as an abstract description of the item.</p>
+</div>
+<div class="paragraph">
+<p>We recommend to utilize this automatic deduction of the abstract description. It makes the comments look less cluttered when you don&#8217;t need to write <code>@abstract</code> everywhere.</p>
+</div>
+<div class="paragraph">
+<p>Write the documentation such that <strong>the first sentence of every description "stands on its own"</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_disable-automatic-deduction-of-abstract-description-no-auto-abstract">4. Disable automatic deduction of abstract description (<code>--no-auto-abstract</code>)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you really want to, you can disable the automatic deduction of the abstract description by using the <code>--no-auto-abstract</code> command-line option. In this case, if no <code>@abstract</code> tag is present in the description of an item, then no abstract description will be generated for that item.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other-software">5. Other software</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This is a standard feature of <em>JavaDoc</em> as well.</p>
+</li>
+<li>
+<p><a href="https://www.doxygen.nl/manual/docblocks.html">Doxygen also has a similar feature</a>. With <code>JAVADOC_AUTOBRIEF</code> enabled, the first sentence of the description is used as a brief description, just like with <em>JavaDoc</em> and <em>PasDoc</em>. Without <code>JAVADOC_AUTOBRIEF</code>, you still don&#8217;t have to write <code>\brief</code> to provide a brief description, as long as you separate first line of the description from the rest of the description with a newline.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example-unit">6. Example unit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_auto_abstract.pas">test unit of this feature</a>.</p>
+</div>
+</div>
 </div>
 
           <footer class="site-footer">

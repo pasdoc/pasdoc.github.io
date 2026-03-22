@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1287adce74463a8209e6e6fc4379e308c70fcba6">
   </head>
   <body>
     <div id="layout-container">
@@ -219,9 +219,9 @@ Defaults are in brackets.</p>
 <dd>
 <p>Obsolete name for --link-look=full option.</p>
 </dd>
-<dt class="hdlist1"><a href="AutoAbstractOption">--auto-abstract</a></dt>
+<dt class="hdlist1"><a href="Abstract">--auto-abstract</a></dt>
 <dd>
-<p>Automatically deduce @abstract description of item from 1st sentence of it&#8217;s full description</p>
+<p>Deprecated. This is the default now.</p>
 </dd>
 <dt class="hdlist1"><a href="CssOption">--css, --css-based-on-bootstrap</a></dt>
 <dd>
@@ -254,6 +254,10 @@ Defaults are in brackets.</p>
 <dt class="hdlist1"><a href="ImplicitVisibilityOption">--implicit-visibility</a></dt>
 <dd>
 <p>How pasdoc should handle class members within default class visibility.</p>
+</dd>
+<dt class="hdlist1"><a href="Abstract">--no-auto-abstract</a></dt>
+<dd>
+<p>Disable automatic deduction of abstract description from the first sentence of the full description.</p>
 </dd>
 <dt class="hdlist1"><a href="NoMacroOption">--no-macro</a></dt>
 <dd>
@@ -353,7 +357,7 @@ complete class tree diagrams.</p>
 
 <ul>
   <li>
-    <p><a href="AbstractTag">@abstract</a></p>
+    <p><a href="Abstract">@abstract</a></p>
   </li>
   <li>
     <p><a href="AuthorTag">@author</a></p>
@@ -461,7 +465,7 @@ complete class tree diagrams.</p>
     </ul>
   </li>
   <li>
-    <p><a href="AutoAbstractOption">--auto-abstract</a></p>
+    <p><a href="Abstract">--auto-abstract</a></p>
   </li>
   <li>
     <p><a href="AutoBackComments">--auto-back-comments</a></p>
@@ -534,6 +538,9 @@ complete class tree diagrams.</p>
   </li>
   <li>
     <p><a href="NameOption">--name</a></p>
+  </li>
+  <li>
+    <p><a href="Abstract">--no-auto-abstract</a></p>
   </li>
   <li>
     <p><a href="NoMacroOption">--no-macro</a></p>

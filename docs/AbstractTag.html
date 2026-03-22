@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1287adce74463a8209e6e6fc4379e308c70fcba6">
   </head>
   <body>
     <div id="layout-container">
@@ -40,35 +40,7 @@
           
 
           <div class="paragraph">
-<p>For some item types like classes or units you may write very large
-descriptions to give an adequate introduction. However, these large
-texts are not appropriate in an overview list. Use the abstract tag to
-give a short explanation of what an item is about. One row of text is a
-good rule of thumb. Of course, there should only be one abstract tag per
-description.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
-  <span style="color: #408080; font-style: italic">{ @abstract(This class does some very useful thing.)</span>
-<span style="color: #408080; font-style: italic">    With the help of this class you can ...</span>
-<span style="color: #408080; font-style: italic">    (more text that describes how very very</span>
-<span style="color: #408080; font-style: italic">    useful is this class follows). }</span>
-  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #666666">...</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The abstract text will appear in the overview section of the
-documentation (if the document format supports this overview section),
-and will also appear as the first paragraph of the item full
-documentation.</p>
-</div>
-<div class="paragraph">
-<p>Note that can avoid writing explicit @abstract tag if you use
-<a href="AutoAbstractOption">--auto-abstract command-line option</a>.</p>
+<p>The <code>@abstract</code> docs moved to the <a href="Abstract">Abstract Description</a> page of the documentation.</p>
 </div>
 
           <footer class="site-footer">
@@ -126,7 +98,7 @@ documentation.</p>
 
 <ul>
   <li>
-    <p><a href="AbstractTag">@abstract</a></p>
+    <p><a href="Abstract">@abstract</a></p>
   </li>
   <li>
     <p><a href="AuthorTag">@author</a></p>
@@ -234,7 +206,7 @@ documentation.</p>
     </ul>
   </li>
   <li>
-    <p><a href="AutoAbstractOption">--auto-abstract</a></p>
+    <p><a href="Abstract">--auto-abstract</a></p>
   </li>
   <li>
     <p><a href="AutoBackComments">--auto-back-comments</a></p>
@@ -307,6 +279,9 @@ documentation.</p>
   </li>
   <li>
     <p><a href="NameOption">--name</a></p>
+  </li>
+  <li>
+    <p><a href="Abstract">--no-auto-abstract</a></p>
   </li>
   <li>
     <p><a href="NoMacroOption">--no-macro</a></p>
