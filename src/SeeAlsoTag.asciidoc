@@ -13,8 +13,7 @@ multiple items that are related to this item.
 
 In output documentation, this will result in "See also" section created
 in description of this item. This section will list all items specified
-by @seealso tags. Abstract descriptions (the one created e.g. by
-link:AbstractTag[@abstract tag]) of each related item will also be
+by @seealso tags. link:Abstract[Abstract description] of each related item will also be
 shown.
 
 ## [[simple-example]] Simple example

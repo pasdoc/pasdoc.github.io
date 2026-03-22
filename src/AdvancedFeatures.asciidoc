@@ -7,7 +7,7 @@ Some important non-obvious PasDoc features:
 
 == Input
 
-* link:AutoAbstractOption[--auto-abstract] command-line option allows you to automatically treat the 1st sentence of the description as an abstract.
+* We automatically treat the 1st sentence of the description as an link:Abstract[abstract]. So make sure it "stands on its own" and is a good short description of the item. You can also explicitly specify the abstract using link:Abstract[@abstract tag].
 
 * You can write entire pages using pasdoc syntax, with all supported link:SupportedTags[@tags]. This way you can use pasdoc like a simple document creation tool. See the link:IntroductionAndConclusion[Introduction and conclusion] documentation.
 

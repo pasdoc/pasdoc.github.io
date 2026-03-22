@@ -23,7 +23,7 @@
 
 ## [Supported Tags](SupportedTags):
 
-* [@abstract](AbstractTag)
+* [@abstract](Abstract)
 
 * [@author](AuthorTag)
 
@@ -95,7 +95,7 @@
     * [\--format=simplexml](SimpleXmlOutput)
     * [\--format=php](PhpOutput)
 
-* [\--auto-abstract](AutoAbstractOption)
+* [\--auto-abstract](Abstract)
 
 * [\--auto-back-comments](AutoBackComments)
 
@@ -144,6 +144,8 @@
 * [\--markdown](MarkdownOption)
 
 * [\--name](NameOption)
+
+* [\--no-auto-abstract](Abstract)
 
 * [\--no-macro](NoMacroOption)
 

@@ -10,7 +10,7 @@ others do not, see link:TagsParameters[TagsParameters].
 Alphabetical list of supported tags:
 
 @@:: Insert the @ character literally
-link:AbstractTag[@abstract]:: Specify a short abstract of the description
+link:Abstract[@abstract]:: Specify a short abstract of the description
 link:IntroductionAndConclusion[@anchor]:: Set up an invisible anchor inside introduction/conclusion
 link:AuthorTag[@author]:: Specify an author's name (and email address etc.)
 link:BoldAndItalicTags[@bold]:: Format text using bold font

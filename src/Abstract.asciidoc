@@ -1,0 +1,65 @@
+:doctitle: Abstract Description
+:sectnums:
+:toc: left
+:toclevels: 4
+
+## Introduction
+
+The documentation looks best if each documented identifier has an _"abstract"_, which means just _"a short description"_. This should usually be just one sentence.
+
+Such abstract description is displayed in various overview pages. It's also used in conjunction with the link:SeeAlsoTag[@seealso tag].
+
+It can be provided:
+
+- using the `@abstract` tag
+
+- or (recommended) it will be automatically deduced from the first sentence of the description. This automatic deduction can be turned off using the `--no-auto-abstract` command-line option.
+
+## `@abstract` tag
+
+You can use the `@abstract` tag to explicitly delimit a short explanation of the documented item. There should be at most one `@abstract` tag per description.
+
+Example:
+
+[source,pascal]
+----
+{ @abstract(Read JSON file.)
+  Read the JSON file indicated by the given URL.
+  The resulting JSON object is owned by the caller, and must be freed by the caller. }
+function ReadJson(const Url: string): TJsonValue;
+----
+
+The abstract description provided this way is always separated from the rest of the description by a paragraph break. This is in contrast to the case when the abstract description is deduced automatically from the first sentence of the description (see below), where paragraph break is done only if you explicitly insert an empty line between the first sentence and the rest of the description.
+
+## Automatic determination of abstract description
+
+If no `@abstract` tag is present in the description of an item, we will deduce the abstract description from the first sentence of the full description. Example:
+
+[source,pascal]
+----
+{ Read JSON file.
+  Read the JSON file indicated by the given URL.
+  The resulting JSON object is owned by the caller, and must be freed by the caller. }
+function ReadJson(const Url: string): TJsonValue;
+----
+
+The first sentence is determined by looking for a _first period followed by any whitespace_ (including newline). If there is no such period in the description, then the _whole_ description is treated as one sentence, and the _whole_ description is treated as an abstract description of the item.
+
+We recommend to utilize this automatic deduction of the abstract description. It makes the comments look less cluttered when you don't need to write `@abstract` everywhere.
+
+Write the documentation such that **the first sentence of every description "stands on its own"**.
+
+## Disable automatic deduction of abstract description (`--no-auto-abstract`)
+
+If you really want to, you can disable the automatic deduction of the abstract description by using the `--no-auto-abstract` command-line option. In this case, if no `@abstract` tag is present in the description of an item, then no abstract description will be generated for that item.
+
+## Other software
+
+- This is a standard feature of _JavaDoc_ as well.
+
+- https://www.doxygen.nl/manual/docblocks.html[Doxygen also has a similar feature]. With `JAVADOC_AUTOBRIEF` enabled, the first sentence of the description is used as a brief description, just like with _JavaDoc_ and _PasDoc_. Without `JAVADOC_AUTOBRIEF`, you still don't have to write `\brief` to provide a brief description, as long as you separate first line of the description from the rest of the description with a newline.
+
+## Example unit
+
+See https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_auto_abstract.pas[test unit of this feature].
+

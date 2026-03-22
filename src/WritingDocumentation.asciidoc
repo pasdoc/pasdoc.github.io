@@ -1,4 +1,9 @@
 :doctitle: Writing Documentation Comments
+:sectnums:
+:toc: left
+:toclevels: 4
+
+## Introduction
 
 PasDoc extracts documentation from the comments that you place in your
 source code (and from external files if you use the
@@ -7,6 +12,10 @@ Basically, you just place a description of each item in the comment right before
 See link:WhereToPlaceComments[WhereToPlaceComments] for more explanation
 *where* to place comments. This page describes special syntax *features
 available in documentation comments*.
+
+## First sentence should stand on its own
+
+The first sentence of every documentation comment is the most important. It determines the link:Abstract[abstract (short) description] of this item, which is shown in various overviews, and as such should "stand on its own". Make it a short and precise sentence that describes the item.
 
 ## [[expanding-tags]] Expanding @-tags
 

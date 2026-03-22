@@ -123,8 +123,8 @@ How multipart links (like @link(Unit.Procedure)) look like in output
 link:LinkLookOption[--full-link]::
 Obsolete name for --link-look=full option.
 
-link:AutoAbstractOption[--auto-abstract]::
-Automatically deduce @abstract description of item from 1st sentence of it's full description
+link:Abstract[--auto-abstract]::
+Deprecated. This is the default now.
 
 link:CssOption[--css, --css-based-on-bootstrap]::
 Use the code of your cascading style sheet in replacement of default one.
@@ -149,6 +149,9 @@ Specify the name of a text file that should be inserted into the preamble of a L
 
 link:ImplicitVisibilityOption[--implicit-visibility]::
 How pasdoc should handle class members within default class visibility.
+
+link:Abstract[--no-auto-abstract]::
+Disable automatic deduction of abstract description from the first sentence of the full description.
 
 link:NoMacroOption[--no-macro]::
 Turn FPC macro support off.

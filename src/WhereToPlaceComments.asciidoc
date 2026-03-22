@@ -1,4 +1,7 @@
 :doctitle: Where To Place Comments
+:sectnums:
+:toc: left
+:toclevels: 4
 
 ## [[basic-rule]] Basic rule
 

@@ -15,7 +15,7 @@ Features: ::
 
 
 link:SupportedTags[Supported Tags]: ::
-* link:AbstractTag[@abstract]
+* link:Abstract[@abstract]
 * link:AuthorTag[@author]
 * link:BoldAndItalicTags[@bold, @italic]
 * link:BrTag[@br]
@@ -55,7 +55,7 @@ link:CommandLine[Command Line]: ::
 ** link:LatexOutput[--format=latex]
 ** link:Latex2RtfOutput[--format=latex2rtf]
 ** link:SimpleXmlOutput[--format=simplexml]
-* link:AutoAbstractOption[--auto-abstract]
+* link:Abstract[--auto-abstract]
 * link:AutoBackComments[--auto-back-comments]
 * link:AutoLinkOption[--auto-link, --auto-link-exclude]
 * link:CacheOption[--cache]
@@ -80,6 +80,7 @@ link:CommandLine[Command Line]: ::
 * link:LinkLookOption[--link-look]
 * link:MarkdownOption[--markdown]
 * link:NameOption[--name]
+* link:Abstract[--no-auto-abstract]
 * link:NoMacroOption[--no-macro]
 * link:OutputLanguage[--language]
 * link:OutputOption[--output]
