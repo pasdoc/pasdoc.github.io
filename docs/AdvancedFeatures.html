@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=a92f71a6a83686dd5cec968f49a28ccd1626f661">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b56c76a091fccd5697365291748319e1f1540676">
   </head>
   <body>
     <div id="layout-container">
@@ -39,51 +39,98 @@
           <h1>Advanced Features</h1>
           
 
-          <div class="paragraph">
-<p>Summary of the most important non-obvious PasDoc features:</p>
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_input">1. Input</a></li>
+<li><a href="#_output">2. Output</a></li>
+<li><a href="#_more">3. More</a></li>
+</ul>
 </div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some important non-obvious PasDoc features:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_input">1. Input</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p>The documentation can be written in an external files (see the <a href="ReadDescriptionFromFile">--description</a> command-line option), not only in the source code.</p>
-</li>
-<li>
-<p>The documentation comments in the source code may be in the <code>interface</code> or (if you use <a href="ImplementationCommentsOption">--implementation-comments</a> option) <code>implementation</code> section of the unit.</p>
-</li>
-<li>
-<p>The documentation can be localized to many languages, see the <a href="OutputLanguage">--language</a> command-line option.</p>
-</li>
-<li>
-<p>Support for arbitrary (even optional) <a href="CommentMarker">comment markers</a>.</p>
-</li>
-<li>
-<p>You can write entire pages using pasdoc syntax (like @-tags, see <a href="WritingDocumentation">WritingDocumentation</a>). This way you can use pasdoc like a simple document creation tool. See the <a href="IntroductionAndConclusion">IntroductionAndConclusion</a> documentation.</p>
-</li>
-<li>
-<p>You can easily add a search box to your documentation, just pass <a href="UseTipueSearchOption">--use-tipue-search</a> command-line option.</p>
-</li>
-<li>
-<p><a href="GraphVizSupport">GraphVizSupport</a> allows PasDoc to easily incorporate classes inheritance and unit dependency graphs in the documentation.</p>
-</li>
-<li>
-<p><a href="AutoLinkOption">--auto-link</a> command-line option allows you to avoid writing @link tags, identifiers will be automatically turned into links.</p>
-</li>
 <li>
 <p><a href="AutoAbstractOption">--auto-abstract</a> command-line option allows you to automatically treat the 1st sentence of the description as an abstract.</p>
 </li>
 <li>
-<p><a href="SpellChecking">Spell checking</a>.</p>
+<p>You can write entire pages using pasdoc syntax, with all supported <a href="SupportedTags">@tags</a>. This way you can use pasdoc like a simple document creation tool. See the <a href="IntroductionAndConclusion">Introduction and conclusion</a> documentation.</p>
 </li>
 <li>
-<p><a href="CacheOption">Caching for faster generation of documentation</a>.</p>
+<p>By default documentation is read from the source code comments. But you can also write it in separate external files: see the <a href="ReadDescriptionFromFile">--description</a> command-line option.</p>
+</li>
+<li>
+<p>By default we consider only comments in the <code>interface</code> section of the unit. But you can enable parsing also the <code>implementation</code> sections, and using comments from it, using the <a href="ImplementationCommentsOption">--implementation-comments</a> option.</p>
+</li>
+<li>
+<p>By default every comment before an identifier is treated as a documentation. But you can limit this with arbitrary <a href="CommentMarker">comment markers</a>.</p>
+</li>
+<li>
+<p><a href="AutoLinkOption">--auto-link</a> command-line option allows you to avoid writing so many <code>@link</code> tags. Identifiers will be automatically turned into links.</p>
 </li>
 <li>
 <p><a href="MarkdownOption">Markdown support for emphasis, lists, code blocks etc.</a></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>If you want to compare <a href="index">PasDoc</a> to FpDoc (another open-source Pascal documentation tool), see <a href="PasDocFpDocComparison">PasDocFpDocComparison</a> .</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_output">2. Output</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Our HTML output has a <a href="https://github.com/pasdoc/pasdoc/discussions/230">modern, mobile-friendly design based on Bootstrap</a>. You can customize it using <a href="CssOption">--css or --css-based-on-bootstrap</a> command-line options. You can also add your own HTML code to the output using <a href="HtmlHeadBodyBeginEndOptions">--html-head, --html-body-begin and --html-body-end</a> command-line options.</p>
+</li>
+<li>
+<p>The documentation of each class can also include <a href="InheritedMembersOption">inherited members</a>.</p>
+</li>
+<li>
+<p>The documentation of each class can have toggable (using checkboxes in HTML) visibility e.g. for protected members. See <a href="VisibleMembers">--visible-members</a> command-line option.</p>
+</li>
+<li>
+<p>The documentation can point to the source code (file, line number) where given item is declared. It can even link to the online repository (e.g. GitHub) which is a great way to link people from your docs to your code. See the <a href="SourcePosition">--show-source-position, --source-url-pattern, --source-root</a> command-line options.</p>
+</li>
+<li>
+<p>You can easily add a search box to your documentation, just pass <a href="UseTipueSearchOption">--use-tipue-search</a> command-line option.</p>
+</li>
+<li>
+<p>The documentation can be localized to many languages, see the <a href="OutputLanguage">--language</a> command-line option.</p>
+</li>
+<li>
+<p><a href="GraphVizSupport">GraphVizSupport</a> allows PasDoc to easily incorporate classes inheritance and unit dependency graphs in the documentation.</p>
+</li>
+<li>
+<p><a href="SpellChecking">Spell checking</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more">3. More</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="CacheOption">Caching for faster generation of documentation</a>.</p>
+</li>
+<li>
+<p>See also <a href="PasDocFpDocComparison">comparison of PasDoc with FpDoc (another open-source Pascal documentation tool)</a>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
           <footer class="site-footer">
@@ -292,6 +339,9 @@
   </li>
   <li>
     <p><a href="IgnoreMarkerOption">--ignore-marker</a></p>
+  </li>
+  <li>
+    <p><a href="InheritedMembersOption">--inherited-members</a></p>
   </li>
   <li>
     <p><a href="IntroductionAndConclusion">--introduction, --conclusion, -A, --additional</a></p>

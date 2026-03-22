@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>@note and @warning tags | PasDoc</title>
+<title>–inherited-members command-line option | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="@note and @warning tags" />
+<meta property="og:title" content="–inherited-members command-line option" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
-<link rel="canonical" href="https://pasdoc.github.io//NoteAndWarningTags.html" />
-<meta property="og:url" content="https://pasdoc.github.io//NoteAndWarningTags.html" />
+<link rel="canonical" href="https://pasdoc.github.io//InheritedMembersOption.html" />
+<meta property="og:url" content="https://pasdoc.github.io//InheritedMembersOption.html" />
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="@note and @warning tags" />
+<meta property="twitter:title" content="–inherited-members command-line option" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"@note and @warning tags","url":"https://pasdoc.github.io//NoteAndWarningTags.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"–inherited-members command-line option","url":"https://pasdoc.github.io//InheritedMembersOption.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,26 +36,101 @@
           
 
           
-          <h1>@note and @warning tags</h1>
+          <h1>--inherited-members command-line option</h1>
           
 
-          <div class="paragraph">
-<p>The <code>@note</code> and <code>@warning</code> tags allow to display a nicely formatted box with a note (something of particular interest to the reader) or a warning.</p>
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_example">2. Example</a></li>
+<li><a href="#_possible-values-of-inherited-members">3. Possible values of --inherited-members</a></li>
+<li><a href="#_default-value-and-future-plans">4. Default value and future plans</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the command-line option <code>--inherited-members</code> to include inherited members in the documentation of a class. This allows to see, at a glance, all members of a given class&#8201;&#8212;&#8201;both defined in the given class and inherited from its ancestors.</p>
 </div>
 <div class="paragraph">
-<p>Their content can be anything, other @-tags inside are expanded too. For example this works:</p>
+<p>This feature is only meaningful for the <a href="HtmlOutput">HTML output format</a> right now. The inherited members, if requested, are present in the generated output and user has a checkbox (using JavaScript) to show / hide them.</p>
 </div>
+<div class="paragraph">
+<p>The <em>"members"</em> means all the things declared in a class:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fields</p>
+</li>
+<li>
+<p>properties</p>
+</li>
+<li>
+<p>methods</p>
+</li>
+<li>
+<p>constants</p>
+</li>
+<li>
+<p>types, including nested classes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example">2. Example</h2>
+<div class="sectionbody">
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{</span>
-<span style="color: #408080; font-style: italic">  @note(Please open your eyes while reading)</span>
-<span style="color: #408080; font-style: italic">  @note(Please check @link(Create) for more details)</span>
-<span style="color: #408080; font-style: italic">  @note(For more infos see @url(https://example.com/))</span>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  TBase <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">BaseMethod</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
 
-<span style="color: #408080; font-style: italic">  @warning(test)</span>
-<span style="color: #408080; font-style: italic">  @warning(hello @italic(world)!)</span>
-<span style="color: #408080; font-style: italic">  @warning(Does this work? - @bold(Yes.))</span>
-<span style="color: #408080; font-style: italic">}</span></code></pre>
+  TDerived <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>(TBase)
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">DerivedMethod</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, documentation of <code>TDerived</code> will include only <code>DerivedMethod</code>. Use <code>--inherited-members=default-show</code> or <code>--inherited-members=default-hide</code> to include <code>BaseMethod</code> in the documentation of <code>TDerived</code>. This reflects the typical usage: if you have an instance of <code>TDerived</code>, you can call both <code>DerivedMethod</code> and <code>BaseMethod</code> on it, so it&#8217;s useful to have documentation showing both methods on the same page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_possible-values-of-inherited-members">3. Possible values of --inherited-members</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">--inherited-members=never</dt>
+<dd>
+<p>Do not include inherited members in the documentation of a class. This is the default behavior.</p>
+</dd>
+<dt class="hdlist1">--inherited-members=default-show</dt>
+<dd>
+<p>Include inherited members in the documentation of a class. Inherited members are shown by default. User can hide them using a checkbox.</p>
+</dd>
+<dt class="hdlist1">--inherited-members=default-hide</dt>
+<dd>
+<p>Include inherited members in the documentation of a class, however they are hidden by default. User can show them using a checkbox.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_default-value-and-future-plans">4. Default value and future plans</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>never</code> remains the default for now, but it may change in the future. We recommend to test your documentation with <code>--inherited-members=default-hide</code> and let us know how do you like it (<a href="https://github.com/pasdoc/pasdoc/discussions/">e.g. in this discussion thread</a>).</p>
+</div>
+<div class="paragraph">
+<p>In our experience, practically the only drawback of using <code>--inherited-members=default-hide</code> (versus leaving the default <code>never</code>) is that it makes generating HTML documentation a bit slower (as we necessarily generate more content, duplicating a lot of the descriptions). That said, it&#8217;s not a big difference. For <a href="https://castle-engine.io/apidoc/html/index.html">Castle Game Engine API docs</a>, time of generation grew from 1:30 to 2:40&#8201;&#8212;&#8201;not really noticeable, esp. since documentation is updated by CI, so it doesn&#8217;t really matter that it now takes almost 3 minutes. Again, let us know <a href="https://github.com/pasdoc/pasdoc/discussions/">your experience with this option</a>.</p>
+</div>
 </div>
 </div>
 
