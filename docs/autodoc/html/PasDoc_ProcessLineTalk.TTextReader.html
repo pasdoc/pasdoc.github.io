@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -46,34 +90,39 @@ TTextReader reads given Stream line by line. Lines may be terminated in Stream w
 <p>After calling Readln or Eof you should STOP directly using underlying Stream (but you CAN use Stream right after creating TTextReader.Create(Stream) and before any Readln or Eof operations on this TTextReader).</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_ProcessLineTalk.pas#L54">Source: source/component/PasDoc_ProcessLineTalk.pas (line 54).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TTextReader</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TTextReader</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#CreateFromFileStream-string-">CreateFromFileStream</a></strong>(const FileName: string);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Create-TStream-boolean-">Create</a></strong>(AStream: TStream; AOwnsStream: boolean);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Readln">Readln</a></strong>: string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_ProcessLineTalk.TTextReader.html#Eof">Eof</a></strong>: boolean;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="CreateFromFileStream-string-"></span><code>constructor <strong>CreateFromFileStream</strong>(const FileName: string);</code></td>
 </tr>
@@ -82,8 +131,8 @@ TTextReader reads given Stream line by line. Lines may be terminated in Stream w
 This is a comfortable constructor, equivalent to TTextReader.Create(TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite), true)</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_ProcessLineTalk.pas#L65">Source: source/component/PasDoc_ProcessLineTalk.pas (line 65).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create-TStream-boolean-"></span><code>constructor <strong>Create</strong>(AStream: TStream; AOwnsStream: boolean);</code></td>
 </tr>
@@ -92,16 +141,16 @@ This is a comfortable constructor, equivalent to TTextReader.Create(TFileStream.
 If AOwnsStream then in Destroy we will free Stream object.</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_ProcessLineTalk.pas#L68">Source: source/component/PasDoc_ProcessLineTalk.pas (line 68).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_ProcessLineTalk.pas#L69">Source: source/component/PasDoc_ProcessLineTalk.pas (line 69).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Readln"></span><code>function <strong>Readln</strong>: string;</code></td>
 </tr>
@@ -110,8 +159,8 @@ If AOwnsStream then in Destroy we will free Stream object.</p>
 Reads next line from Stream. Returned string does not contain any end-of-line characters.</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_ProcessLineTalk.pas#L73">Source: source/component/PasDoc_ProcessLineTalk.pas (line 73).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Eof"></span><code>function <strong>Eof</strong>: boolean;</code></td>
 </tr>

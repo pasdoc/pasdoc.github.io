@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -42,116 +86,121 @@
 <h2 class="description">Description</h2>
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L38">Source: source/component/PasDoc_HierarchyTree.pas (line 38).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TPasItemNode</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TPasItemNode</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#FChildren">FChildren</a></strong>: TList;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#FParent">FParent</a></strong>: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#FItem">FItem</a></strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#FName">FName</a></strong>: string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#GetName">GetName</a></strong>: string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#AddChild-TPasItemNode-">AddChild</a></strong>(const Child: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>); overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#AddChild-string-">AddChild</a></strong>(const AName: string): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#AddChild-TPasItem-">AddChild</a></strong>(const AItem: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#FindItem-string-">FindItem</a></strong>(const AName: string): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Adopt-TPasItemNode-">Adopt</a></strong>(const AChild: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Orphan-TPasItemNode-">Orphan</a></strong>(const AChild: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>): boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Sort">Sort</a></strong>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Create">Create</a></strong>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Level">Level</a></strong>: Integer;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Name">Name</a></strong>: string read <a href="PasDoc_HierarchyTree.TPasItemNode.html#GetName">GetName</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Item">Item</a></strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read <a href="PasDoc_HierarchyTree.TPasItemNode.html#FItem">FItem</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_HierarchyTree.TPasItemNode.html#Parent">Parent</a></strong>: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a> read <a href="PasDoc_HierarchyTree.TPasItemNode.html#FParent">FParent</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FChildren"></span><code><strong>FChildren</strong>: TList;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L40">Source: source/component/PasDoc_HierarchyTree.pas (line 40).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FParent"></span><code><strong>FParent</strong>: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L41">Source: source/component/PasDoc_HierarchyTree.pas (line 41).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FItem"></span><code><strong>FItem</strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L42">Source: source/component/PasDoc_HierarchyTree.pas (line 42).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FName"></span><code><strong>FName</strong>: string;</code></td>
 </tr>
@@ -159,88 +208,88 @@
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L43">Source: source/component/PasDoc_HierarchyTree.pas (line 43).</a></p></td></tr>
 </table>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="GetName"></span><code>function <strong>GetName</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L44">Source: source/component/PasDoc_HierarchyTree.pas (line 44).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="AddChild-TPasItemNode-"></span><code>procedure <strong>AddChild</strong>(const Child: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>); overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L46">Source: source/component/PasDoc_HierarchyTree.pas (line 46).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="AddChild-string-"></span><code>function <strong>AddChild</strong>(const AName: string): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L47">Source: source/component/PasDoc_HierarchyTree.pas (line 47).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="AddChild-TPasItem-"></span><code>function <strong>AddChild</strong>(const AItem: <a href="PasDoc_Items.TPasItem.html">TPasItem</a>): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L48">Source: source/component/PasDoc_HierarchyTree.pas (line 48).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FindItem-string-"></span><code>function <strong>FindItem</strong>(const AName: string): <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L49">Source: source/component/PasDoc_HierarchyTree.pas (line 49).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Adopt-TPasItemNode-"></span><code>procedure <strong>Adopt</strong>(const AChild: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L50">Source: source/component/PasDoc_HierarchyTree.pas (line 50).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Orphan-TPasItemNode-"></span><code>function <strong>Orphan</strong>(const AChild: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a>): boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L51">Source: source/component/PasDoc_HierarchyTree.pas (line 51).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Sort"></span><code>procedure <strong>Sort</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L52">Source: source/component/PasDoc_HierarchyTree.pas (line 52).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L54">Source: source/component/PasDoc_HierarchyTree.pas (line 54).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L55">Source: source/component/PasDoc_HierarchyTree.pas (line 55).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Level"></span><code>function <strong>Level</strong>: Integer;</code></td>
 </tr>
@@ -248,24 +297,24 @@
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L56">Source: source/component/PasDoc_HierarchyTree.pas (line 56).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>: string read <a href="PasDoc_HierarchyTree.TPasItemNode.html#GetName">GetName</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L57">Source: source/component/PasDoc_HierarchyTree.pas (line 57).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Item"></span><code>property <strong>Item</strong>: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read <a href="PasDoc_HierarchyTree.TPasItemNode.html#FItem">FItem</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_HierarchyTree.pas#L58">Source: source/component/PasDoc_HierarchyTree.pas (line 58).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Parent"></span><code>property <strong>Parent</strong>: <a href="PasDoc_HierarchyTree.TPasItemNode.html">TPasItemNode</a> read <a href="PasDoc_HierarchyTree.TPasItemNode.html#FParent">FParent</a>;</code></td>
 </tr>

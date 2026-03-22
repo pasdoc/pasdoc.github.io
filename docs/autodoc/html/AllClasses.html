@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -108,6 +152,16 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Parser.TCioState.html">TCioState</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
+<td class="itemdesc"><p>State of parsing a structure (called &quot;CIO&quot; throughout PasDoc codebase).</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Parser.TCioStateStack.html">TCioStateStack</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
+<td class="itemdesc"><p>A stack of <a class="normal" href="PasDoc_Parser.TCioState.html">TCioState</a> objects currently used to parse nested classes and records.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Base generator class, to be specialized for specific output formats.</p></td>
@@ -118,104 +172,74 @@
 <td class="itemdesc"><p><code>TExternalItem</code> extends <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a> to store extra information about a project.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p><code>TExternalItemList</code> extends <a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a> to store non-nil instances of <a class="normal" href="PasDoc_Items.TExternalItem.html">TExternalItem</a></p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
 <td class="itemdesc"><p>HTML documentation generator.</p></td>
 </tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.THash.html">THash</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.THashEntry.html">THashEntry</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtml.THTMLDocGenerator.html">THTMLDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
 <td class="itemdesc"><p>Right now this is the same thing as TGenericHTMLDocGenerator.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtmlHelp.THTMLHelpDocGenerator.html">THTMLHelpDocGenerator</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenHtmlHelp.html">PasDoc_GenHtmlHelp</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TIntegerOption.html">TIntegerOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
 <td class="itemdesc"><p>Option that accepts additional Integer as a value.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.TLanguageRecord.html">TLanguageRecord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TListData.html">TListData</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Collected information about @xxxList content.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TListItemData.html">TListItemData</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Collected information about @xxxList item.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TNonSelfTag.html">TNonSelfTag</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.TObjectHash.html">TObjectHash</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TOption.html">TOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
 <td class="itemdesc"><p>Base class for options.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
 <td class="itemdesc"><p>OptionParser &mdash; instantiate one of these for commandline parsing</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.TOverviewFileInfo.html">TOverviewFileInfo</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Parser.TParser.html">TParser</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
 <td class="itemdesc"><p>Parser class that will process a complete unit file and all of its include files, regarding directives.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Items.TPasAliasType.html">TPasAliasType</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>Alias type</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasCio.html">TPasCio</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Extends <a class="normal" href="PasDoc_Items.TPasItem.html">TPasItem</a> to store all items in a class / an object, e.g. fields.</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Parser.TPasCioHelper.html">TPasCioHelper</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
-<td class="itemdesc"><p><code>TPasCioHelper</code> stores a CIO reference and current state.</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Parser.TPasCioHelperStack.html">TPasCioHelperStack</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
-<td class="itemdesc"><p>A stack of <a class="normal" href="PasDoc_Parser.TPasCioHelper.html">TPasCioHelper</a> objects currently used to parse nested classes and records</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasConstant.html">TPasConstant</a></td>
@@ -240,7 +264,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasFieldVariable.html">TPasFieldVariable</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>Pascal global variable or field or nested constant of CIO.</p></td>
+<td class="itemdesc"><p>Global variable or a field in CIO.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasItem.html">TPasItem</a></td>
@@ -260,7 +284,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasNestedCios.html">TPasNestedCios</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>Collection of classes / records / interfaces.</p></td>
+<td class="itemdesc"><p>Collection of CIOs (classes, records, interfaces...) nested in outer CIO.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasProperties.html">TPasProperties</a></td>
@@ -298,7 +322,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasTypes.html">TPasTypes</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
-<td class="itemdesc"><p>Collection of types.</p></td>
+<td class="itemdesc"><p>List of types.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.TPasUnit.html">TPasUnit</a></td>
@@ -355,7 +379,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_OptionParser.TSetOption.html">TSetOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_OptionParser.html">PasDoc_OptionParser</a></td>
-<td class="itemdesc"><p>useful for making a choice of things</p></td>
+<td class="itemdesc"><p>Option that allows to define a set.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenSimpleXML.TSimpleXMLDocGenerator.html">TSimpleXMLDocGenerator</a></td>
@@ -365,7 +389,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Aspell.TSpellingError.html">TSpellingError</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Aspell.html">PasDoc_Aspell</a></td>
-<td class="itemdesc"><p>Single misspelling found by <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TObjectVector-">TAspellProcess.CheckString</a>.</p></td>
+<td class="itemdesc"><p>Single misspelling found by <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TSpellingErrorList-">TAspellProcess.CheckString</a>.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_HierarchyTree.TStringCardinalTree.html">TStringCardinalTree</a></td>
@@ -415,7 +439,7 @@
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.TTagVector.html">TTagVector</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
-<td class="itemdesc"><p>All Items of this list must be non-nil TTag objects.</p></td>
+<td class="itemdesc"><p>List of TTag objects (only non-nil).</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenLatex.TTexDocGenerator.html">TTexDocGenerator</a></td>

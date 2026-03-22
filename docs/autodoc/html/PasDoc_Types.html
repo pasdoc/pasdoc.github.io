@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,14 +76,14 @@
 <div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_Types</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Basic types.</p>
 <p>
    </p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L27">Source: source/component/PasDoc_Types.pas (line 27).</a></p><span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>SysUtils</li><li>StrUtils</li><li>Types</li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>SysUtils</li><li>StrUtils</li><li>Types</li><li>Classes</li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -53,139 +97,171 @@ Basic types.</p>
 </table>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#SplitNameParts-string-TNameParts-">SplitNameParts</a></strong>(S: string; out NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#StripNamePart-TNameParts-">StripNamePart</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#IsValidMultipartName-string-">IsValidMultipartName</a></strong>(S: string): boolean;</code></td>
+</tr>
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#OneNamePart-string-">OneNamePart</a></strong>(const S: string): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#GlueNameParts-TNameParts-">GlueNameParts</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): string;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Types.html#StringToImplicitVisibility-String-">StringToImplicitVisibility</a></strong>(const S: String): <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TBytes">TBytes</a></strong> = array of Byte;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#UnicodeString">UnicodeString</a></strong> = WideString;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#RawByteString">RawByteString</a></strong> = AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TStringArray">TStringArray</a></strong> = TStringDynArray;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TNameParts">TNameParts</a></strong> = <a href="PasDoc_Types.html#TStringArray">TStringArray</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a></strong> = procedure(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal) of object;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TCharSet">TCharSet</a></strong> = set of AnsiChar;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a></strong> = (...);</code></td>
-</tr>
-</table>
-<span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
-<table class="summary wide_list">
-<tr class="list">
-<td class="itemcode"><code><strong><a href="PasDoc_Types.html#MaxNameParts">MaxNameParts</a></strong> = 3;</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF16">CP_UTF16</a></strong>      = 1200;</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF16Be">CP_UTF16Be</a></strong>    = 1201;</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF32">CP_UTF32</a></strong>      = 12000;</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code><strong><a href="PasDoc_Types.html#CP_UTF32Be">CP_UTF32Be</a></strong>    = 12001;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SplitNameParts-string-TNameParts-"></span><code>function <strong>SplitNameParts</strong>(S: string; out NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): Boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Splits S, which can be made of any number of parts, separated by dots (Delphi namespaces, like PasDoc.Output.HTML.TWriter.Write). If S is not a valid identifier, <code>False</code> is returned, otherwise <code>True</code> is returned and splitted name is returned as NameParts.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L98">Source: source/component/PasDoc_Types.pas (line 98).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L107">Source: source/component/PasDoc_Types.pas (line 107).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="StripNamePart-TNameParts-"></span><code>function <strong>StripNamePart</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Strip one name part. Only call when we have at least 2 parts.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L110">Source: source/component/PasDoc_Types.pas (line 110).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="IsValidMultipartName-string-"></span><code>function <strong>IsValidMultipartName</strong>(S: string): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Checks that the string is a valid multipart identifier</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L113">Source: source/component/PasDoc_Types.pas (line 113).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="OneNamePart-string-"></span><code>function <strong>OneNamePart</strong>(const S: string): <a href="PasDoc_Types.html#TNameParts">TNameParts</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-Simply returns an array with Length = 1 and one item = S.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L101">Source: source/component/PasDoc_Types.pas (line 101).</a></p></td></tr>
+Simply returns an array with Length = 1 and one item = S.
+
+<p>TODO: This function, and all its usage, should be removed. Reason: all identifiers across Pascal code are potentially qualified. Using this function right now means e.g. that using ancestor names with qualified identifiers, like &quot;TMyClass = class(OtherUnit.TAncestor)&quot;, is not resolved fully (they are not linked everywhere they should be).</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L122">Source: source/component/PasDoc_Types.pas (line 122).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="GlueNameParts-TNameParts-"></span><code>function <strong>GlueNameParts</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Simply concatenates all NameParts with dot.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L104">Source: source/component/PasDoc_Types.pas (line 104).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L125">Source: source/component/PasDoc_Types.pas (line 125).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="StringToImplicitVisibility-String-"></span><code>function <strong>StringToImplicitVisibility</strong>(const S: String): <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L132">Source: source/component/PasDoc_Types.pas (line 132).</a></p></td></tr>
 </table>
 <h3 class="detail">Types</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TBytes"></span><code><strong>TBytes</strong> = array of Byte;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L38">Source: source/component/PasDoc_Types.pas (line 38).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="UnicodeString"></span><code><strong>UnicodeString</strong> = WideString;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L41">Source: source/component/PasDoc_Types.pas (line 41).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="RawByteString"></span><code><strong>RawByteString</strong> = AnsiString;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L42">Source: source/component/PasDoc_Types.pas (line 42).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TStringArray"></span><code><strong>TStringArray</strong> = TStringDynArray;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L51">Source: source/component/PasDoc_Types.pas (line 51).</a></p></td></tr>
+<p>
+Dynamic array of String.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L53">Source: source/component/PasDoc_Types.pas (line 53).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TNameParts"></span><code><strong>TNameParts</strong> = <a href="PasDoc_Types.html#TStringArray">TStringArray</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-This represents parts of a qualified name of some item.
+Qualified name of a Pascal item.
 
-<p>User supplies such name by separating each part with dot, e.g. 'UnitName.ClassName.ProcedureName', then <a class="normal" href="PasDoc_Types.html#SplitNameParts-string-TNameParts-">SplitNameParts</a> converts it to TNameParts like ['UnitName', 'ClassName', 'ProcedureName']. Length must be <em>always</em> between 1 and <a class="normal" href="PasDoc_Types.html#MaxNameParts">MaxNameParts</a>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L59">Source: source/component/PasDoc_Types.pas (line 59).</a></p></td></tr>
+<p>User supplies such name by separating each part with dot, e.g. 'UnitName.ClassName.MethodName', then <a class="normal" href="PasDoc_Types.html#SplitNameParts-string-TNameParts-">SplitNameParts</a> converts it to TNameParts like ['UnitName', 'ClassName', 'MethodName'].
+
+<p>Note that in case of unit names with dots, the item on this list may also contain a dot inside, if it's determined to be a name of unit with dot. Like this: ['Unit.Name.With.Dot', 'ClassName', 'MethodName']. We have special code to do this in TDocGenerator.FindGlobal .
+
+<p>The idea is that each string corresponds to some <a class="normal" href="PasDoc_Items.TBaseItem.html#Name">TBaseItem.Name</a>.
+
+<p>Use such list for searching routines, for <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem-TNameParts-">TBaseItem.FindItem</a> and friends.
+
+<p>This must <em>always have at least one part</em>.
+
+<p>There is no limit on the maximum length of TNameParts, since we can have arbitrary number of parts with nested classes, like &quot;MyUnit.TMyClass.TMyNestedClass.TAnotherNestedClass.TOriginalType&quot;.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L76">Source: source/component/PasDoc_Types.pas (line 76).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TPasDocMessageType"></span><code><strong>TPasDocMessageType</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><h6 class="description_section">Values</h6>
+<p>
+Message type to send with <a class="normal" href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>.</p>
+<h6 class="description_section">Values</h6>
 <ul>
 <li>
 <span id="pmtPlainText">pmtPlainText</span></li>
@@ -196,24 +272,28 @@ This represents parts of a qualified name of some item.
 <li>
 <span id="pmtError">pmtError</span></li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L62">Source: source/component/PasDoc_Types.pas (line 62).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L79">Source: source/component/PasDoc_Types.pas (line 79).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TPasDocMessageEvent"></span><code><strong>TPasDocMessageEvent</strong> = procedure(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal) of object;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p></td></tr>
+<p>
+Callback to send a message from one class and react to it in another.</p>
+</td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TCharSet"></span><code><strong>TCharSet</strong> = set of AnsiChar;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L67">Source: source/component/PasDoc_Types.pas (line 67).</a></p></td></tr>
+<p>
+Set of AnsiChars.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L86">Source: source/component/PasDoc_Types.pas (line 86).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TImplicitVisibility"></span><code><strong>TImplicitVisibility</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -228,45 +308,7 @@ See command-line option --implicit-visibility documentation at <a href="https://
 <li>
 <span id="ivImplicit">ivImplicit</span></li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L109">Source: source/component/PasDoc_Types.pas (line 109).</a></p></td></tr>
-</table>
-<h3 class="detail">Constants</h3>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="MaxNameParts"></span><code><strong>MaxNameParts</strong> = 3;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L81">Source: source/component/PasDoc_Types.pas (line 81).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="CP_UTF16"></span><code><strong>CP_UTF16</strong>      = 1200;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-Windows Unicode code page ID</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L83">Source: source/component/PasDoc_Types.pas (line 83).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="CP_UTF16Be"></span><code><strong>CP_UTF16Be</strong>    = 1201;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L84">Source: source/component/PasDoc_Types.pas (line 84).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="CP_UTF32"></span><code><strong>CP_UTF32</strong>      = 12000;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L85">Source: source/component/PasDoc_Types.pas (line 85).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="CP_UTF32Be"></span><code><strong>CP_UTF32Be</strong>    = 12001;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L86">Source: source/component/PasDoc_Types.pas (line 86).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Types.pas#L130">Source: source/component/PasDoc_Types.pas (line 130).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">

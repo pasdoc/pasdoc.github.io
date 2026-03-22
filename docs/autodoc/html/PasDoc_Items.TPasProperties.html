@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,7 +76,7 @@
 <div class="container-fluid py-3 px-4">
 <span id="TPasProperties"></span><h1 class="cio">Class TPasProperties</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_Items.html">PasDoc_Items</a></p>
@@ -42,14 +86,309 @@
 <h2 class="description">Description</h2>
 <p>
 Collection of properties.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1236">Source: source/component/PasDoc_Items.pas (line 1236).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1280">Source: source/component/PasDoc_Items.pas (line 1280).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TList</li>
 <li class="ancestor">TObjectList</li>
-<li class="ancestor"><a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></li>
 <li class="ancestor"><a class="normal" href="PasDoc_Items.TBaseItems.html">TBaseItems</a></li>
 <li class="ancestor"><a class="normal" href="PasDoc_Items.TPasItems.html">TPasItems</a></li>
-<li class="thisitem">TPasProperties</li></ul><hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<li class="thisitem">TPasProperties</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-protected inherited-member">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); virtual;</code></td>
+</tr>
+<tr class="list2 visibility-protected inherited-member">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); virtual;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TPasProperties.html#Create-Boolean-">Create</a></strong>(const AOwnsObject: Boolean); reintroduce; virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TPasProperties.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasProperties.html#FindListItem-string-">FindListItem</a></strong>(const ASignature: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#InsertItems-TBaseItems-">InsertItems</a></strong>(const c: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a>);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#Add-TBaseItem-">Add</a></strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>); reintroduce; virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#ClearAndAdd-TBaseItem-">ClearAndAdd</a></strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#Delete-Integer-">Delete</a></strong>(const AIndex: Integer);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#Clear">Clear</a></strong>; reintroduce; virtual;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TPasProperties.html#FindListItem-string-">FindListItem</a></strong>(const ASignature: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#CopyItems-TPasItems-">CopyItems</a></strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#CountCIO-Integer-Integer-Integer-">CountCIO</a></strong>(var c, i, o: Integer);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#RemovePrivateItems">RemovePrivateItems</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#SortDeep-TSortSettings-">SortDeep</a></strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#SortOnlyInsideItems-TSortSettings-">SortOnlyInsideItems</a></strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#SortShallow-Boolean-">SortShallow</a></strong>(const Unqualified: Boolean = false);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TPasProperties.html#SetFullDeclaration-boolean-string-">SetFullDeclaration</a></strong>(PrefixName: boolean; const Suffix: string);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TPasProperties.html#PasItemAt">PasItemAt</a></strong>[const AIndex: Integer]: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read GetPasItemAt
+      write SetPasItemAt;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-protected inherited-member wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1154">Source: source/component/PasDoc_Items.pas (line 1154).</a></p></td></tr>
+</table>
+<table class="detail visibility-protected inherited-member wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1155">Source: source/component/PasDoc_Items.pas (line 1155).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-Boolean-"></span><code>constructor <strong>Create</strong>(const AOwnsObject: Boolean); reintroduce; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1157">Source: source/component/PasDoc_Items.pas (line 1157).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1158">Source: source/component/PasDoc_Items.pas (line 1158).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FindListItem-string-"></span><code>function <strong>FindListItem</strong>(const ASignature: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Find a given item name on a list. In the base class (TBaseItems), this simply searches the items (not recursively).
+
+<p>In some cases, it may look within the items (recursively), when the identifiers inside the item are in same namespace as the items themselves. Example: it will look also inside enumerated types members, because (when &quot;scoped enums&quot; are off) the enumerated members are in the same namespace as the enumerated type name.
+
+<p>Returns <code>Nil</code> if nothing can be found.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1171">Source: source/component/PasDoc_Items.pas (line 1171).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="InsertItems-TBaseItems-"></span><code>procedure <strong>InsertItems</strong>(const c: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Inserts all items of C into this collection. Disposes C and sets it to nil.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1175">Source: source/component/PasDoc_Items.pas (line 1175).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-TBaseItem-"></span><code>procedure <strong>Add</strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>); reintroduce; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+During Add, AObject is associated with AObject.Name using hash table, so remember to set AObject.Name <em>before</em> calling Add(AObject).</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1179">Source: source/component/PasDoc_Items.pas (line 1179).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ClearAndAdd-TBaseItem-"></span><code>procedure <strong>ClearAndAdd</strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is a shortcut for doing <a class="normal" href="PasDoc_Items.TBaseItems.html#Clear">Clear</a> and then <a class="normal" href="PasDoc_Items.TBaseItems.html#Add-TBaseItem-">Add(AObject)</a>. Useful when you want the list to contain exactly the one given AObject.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1184">Source: source/component/PasDoc_Items.pas (line 1184).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Delete-Integer-"></span><code>procedure <strong>Delete</strong>(const AIndex: Integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1186">Source: source/component/PasDoc_Items.pas (line 1186).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>; reintroduce; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1187">Source: source/component/PasDoc_Items.pas (line 1187).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FindListItem-string-"></span><code>function <strong>FindListItem</strong>(const ASignature: string): <a href="PasDoc_Items.TPasItem.html">TPasItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+A comfortable routine that just calls inherited and casts result to TPasItem, since every item on this list must be always TPasItem.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1199">Source: source/component/PasDoc_Items.pas (line 1199).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="CopyItems-TPasItems-"></span><code>procedure <strong>CopyItems</strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Copies all Items from c to this object, not changing c at all.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1202">Source: source/component/PasDoc_Items.pas (line 1202).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="CountCIO-Integer-Integer-Integer-"></span><code>procedure <strong>CountCIO</strong>(var c, i, o: Integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Counts classes, interfaces and objects within this collection.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1205">Source: source/component/PasDoc_Items.pas (line 1205).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="RemovePrivateItems"></span><code>procedure <strong>RemovePrivateItems</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Checks each element's Visibility field and removes all elements with a value of viPrivate.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1209">Source: source/component/PasDoc_Items.pas (line 1209).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortDeep-TSortSettings-"></span><code>procedure <strong>SortDeep</strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sort all items by their (qualified) name, and call <a class="normal" href="PasDoc_Items.TPasItem.html#Sort-TSortSettings-">Sort(SortSettings)</a> for each of these items. This way we sort recursively everything in this list.
+
+<p>This is equivalent to doing both <a class="normal" href="PasDoc_Items.TPasItems.html#SortShallow-Boolean-">SortShallow</a> and <a class="normal" href="PasDoc_Items.TPasItems.html#SortOnlyInsideItems-TSortSettings-">SortOnlyInsideItems</a>.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1221">Source: source/component/PasDoc_Items.pas (line 1221).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortOnlyInsideItems-TSortSettings-"></span><code>procedure <strong>SortOnlyInsideItems</strong>(const SortSettings: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Call <a class="normal" href="PasDoc_Items.TPasItem.html#Sort-TSortSettings-">Sort(SortSettings)</a> for each of items on the list. It does <em>not</em> sort the items on this list.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1226">Source: source/component/PasDoc_Items.pas (line 1226).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortShallow-Boolean-"></span><code>procedure <strong>SortShallow</strong>(const Unqualified: Boolean = false);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sort all items on this list by their name, qualified or not. Unlike <a class="normal" href="PasDoc_Items.TPasItems.html#SortDeep-TSortSettings-">SortDeep</a>, it does <em>not</em> call <a class="normal" href="PasDoc_Items.TPasItem.html#Sort-TSortSettings-">Sort</a> for each of these items. So &quot;items inside items&quot; (e.g. class methods, if this list contains TPasCio objects) remain unsorted.
+
+<p></p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>Unqualified</dt>
+<dd><p>When <code>True</code>, we sort first by <a class="normal" href="PasDoc_Items.TBaseItem.html#Name">TBaseItem.Name</a>.
+
+<p>When <code>False</code>, we sort first by <a class="normal" href="PasDoc_Items.TPasItem.html#UnitRelativeQualifiedName">TPasItem.UnitRelativeQualifiedName</a>, which includes unit and class names.</dd>
+</dl>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1241">Source: source/component/PasDoc_Items.pas (line 1241).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SetFullDeclaration-boolean-string-"></span><code>procedure <strong>SetFullDeclaration</strong>(PrefixName: boolean; const Suffix: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sets FullDeclaration of every item to </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Name of this item (only if PrefixName)</p></li>
+  <li value="2"><p>+ Suffix.</p></li>
+</ol>
+
+<p> Very useful if you have a couple of items that share a common declaration in source file, e.g. variables or fields declared like </p>
+
+<pre class="longcode">
+A, B: Integer;</pre>
+
+<p></p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1253">Source: source/component/PasDoc_Items.pas (line 1253).</a></p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="PasItemAt"></span><code>property <strong>PasItemAt</strong>[const AIndex: Integer]: <a href="PasDoc_Items.TPasItem.html">TPasItem</a> read GetPasItemAt
+      write SetPasItemAt;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1211">Source: source/component/PasDoc_Items.pas (line 1211).</a></p></td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>

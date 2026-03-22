@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -42,393 +86,428 @@
 <h2 class="description">Description</h2>
 <p>
 Converts an input TStream to a sequence of <a class="normal" href="PasDoc_Tokenizer.TToken.html">TToken</a> objects.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L325">Source: source/component/PasDoc_Tokenizer.pas (line 325).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L336">Source: source/component/PasDoc_Tokenizer.pas (line 336).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TTokenizer</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TTokenizer</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a></strong>: Cardinal;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#BufferedChar">BufferedChar</a></strong>: Char;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#EOS">EOS</a></strong>: Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#IsCharBuffered">IsCharBuffered</a></strong>: Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#Line">Line</a></strong>: Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a></strong>: TStream;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a></strong>: string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_Tokenizer.TTokenizer.html#FStreamAbsoluteFileName">FStreamAbsoluteFileName</a></strong>: string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#DoError-string-arrayof-">DoError</a></strong>(const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#DoMessage-Cardinal-TPasDocMessageType-string-arrayof-">DoMessage</a></strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CheckForDirective-TToken-">CheckForDirective</a></strong>(const t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ConsumeChar">ConsumeChar</a></strong>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CreateSymbolToken-TSymbolType-string-">CreateSymbolToken</a></strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>; const s: string): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#CreateSymbolToken-TSymbolType-">CreateSymbolToken</a></strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetChar-AnsiChar-">GetChar</a></strong>(out c: AnsiChar): Integer;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetChar-AnsiChar-">GetChar</a></strong>(out c: AnsiChar ): Integer;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#PeekChar-Char-">PeekChar</a></strong>(out c: Char): Boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType1">ReadCommentType1</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType2">ReadCommentType2</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadCommentType3">ReadCommentType3</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadAttAssemblerRegister">ReadAttAssemblerRegister</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadLiteralString-TToken-">ReadLiteralString</a></strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadLiteralString">ReadLiteralString</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadToken-Char-TCharSet-TTokenType-TToken-">ReadToken</a></strong>(c: Char; const s: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadDoubleQuotedString">ReadDoubleQuotedString</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadToken-Char-TCharSet-TTokenType-TToken-">ReadToken</a></strong>(const StartChar: Char; const AllowedChars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TokenType: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; out T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr class="list2 visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#ReadIdentifierToken-Char-TToken-">ReadIdentifierToken</a></strong>(const StartChar: Char; out T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Create-TStream-TPasDocMessageEvent-Cardinal-string-string-">Create</a></strong>( const AStream: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamAbsoluteFileName: string);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#HasData">HasData</a></strong>: Boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetStreamInfo">GetStreamInfo</a></strong>: string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#GetToken-Boolean-Boolean-">GetToken</a></strong>(const NilOnEnd: Boolean = false; const NilOnInvalidContent: Boolean = false): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Tokenizer.TTokenizer.html#UnGetToken-TToken-">UnGetToken</a></strong>(var T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tokenizer.TTokenizer.html#SkipUntilCompilerDirective">SkipUntilCompilerDirective</a></strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#Verbosity">Verbosity</a></strong>: Cardinal read <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#StreamName">StreamName</a></strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Tokenizer.TTokenizer.html#StreamAbsoluteFileName">StreamAbsoluteFileName</a></strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamAbsoluteFileName">FStreamAbsoluteFileName</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FOnMessage"></span><code><strong>FOnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L331">Source: source/component/PasDoc_Tokenizer.pas (line 331).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L342">Source: source/component/PasDoc_Tokenizer.pas (line 342).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FVerbosity"></span><code><strong>FVerbosity</strong>: Cardinal;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L332">Source: source/component/PasDoc_Tokenizer.pas (line 332).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L343">Source: source/component/PasDoc_Tokenizer.pas (line 343).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="BufferedChar"></span><code><strong>BufferedChar</strong>: Char;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 if <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#IsCharBuffered">IsCharBuffered</a> is true, this field contains the buffered character</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L335">Source: source/component/PasDoc_Tokenizer.pas (line 335).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L346">Source: source/component/PasDoc_Tokenizer.pas (line 346).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="EOS"></span><code><strong>EOS</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 true if end of stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a> has been reached, false otherwise</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L337">Source: source/component/PasDoc_Tokenizer.pas (line 337).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L348">Source: source/component/PasDoc_Tokenizer.pas (line 348).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="IsCharBuffered"></span><code><strong>IsCharBuffered</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 if this is true, <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#BufferedChar">BufferedChar</a> contains a buffered character; the next call to <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#GetChar-AnsiChar-">GetChar</a> or <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#PeekChar-Char-">PeekChar</a> will return this character, not the next in the associated stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a></p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L341">Source: source/component/PasDoc_Tokenizer.pas (line 341).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L352">Source: source/component/PasDoc_Tokenizer.pas (line 352).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Line"></span><code><strong>Line</strong>: Integer;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 current line number in stream <a class="normal" href="PasDoc_Tokenizer.TTokenizer.html#Stream">Stream</a>; useful when giving error messages</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L343">Source: source/component/PasDoc_Tokenizer.pas (line 343).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L354">Source: source/component/PasDoc_Tokenizer.pas (line 354).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Stream"></span><code><strong>Stream</strong>: TStream;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-the input stream this tokenizer is working on</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L345">Source: source/component/PasDoc_Tokenizer.pas (line 345).</a></p></td></tr>
+Input stream this tokenizer is working on. In case of STRING_UNICODE, all reads should go through the TStreamReader API, so underlying TStream is not exposed as a field even.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L361">Source: source/component/PasDoc_Tokenizer.pas (line 361).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FStreamName"></span><code><strong>FStreamName</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L346">Source: source/component/PasDoc_Tokenizer.pas (line 346).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L363">Source: source/component/PasDoc_Tokenizer.pas (line 363).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FStreamAbsoluteFileName"></span><code><strong>FStreamAbsoluteFileName</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L347">Source: source/component/PasDoc_Tokenizer.pas (line 347).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L364">Source: source/component/PasDoc_Tokenizer.pas (line 364).</a></p></td></tr>
 </table>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="DoError-string-arrayof-"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L349">Source: source/component/PasDoc_Tokenizer.pas (line 349).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L366">Source: source/component/PasDoc_Tokenizer.pas (line 366).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="DoMessage-Cardinal-TPasDocMessageType-string-arrayof-"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L350">Source: source/component/PasDoc_Tokenizer.pas (line 350).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L367">Source: source/component/PasDoc_Tokenizer.pas (line 367).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="CheckForDirective-TToken-"></span><code>procedure <strong>CheckForDirective</strong>(const t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L353">Source: source/component/PasDoc_Tokenizer.pas (line 353).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L370">Source: source/component/PasDoc_Tokenizer.pas (line 370).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ConsumeChar"></span><code>procedure <strong>ConsumeChar</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L354">Source: source/component/PasDoc_Tokenizer.pas (line 354).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L371">Source: source/component/PasDoc_Tokenizer.pas (line 371).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="CreateSymbolToken-TSymbolType-string-"></span><code>function <strong>CreateSymbolToken</strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>; const s: string): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L356">Source: source/component/PasDoc_Tokenizer.pas (line 356).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L373">Source: source/component/PasDoc_Tokenizer.pas (line 373).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="CreateSymbolToken-TSymbolType-"></span><code>function <strong>CreateSymbolToken</strong>(const st: <a href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a>): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>; overload;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Uses default symbol representation, from SymbolNames[st]</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L360">Source: source/component/PasDoc_Tokenizer.pas (line 360).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L377">Source: source/component/PasDoc_Tokenizer.pas (line 377).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="GetChar-AnsiChar-"></span><code>function <strong>GetChar</strong>(out c: AnsiChar): Integer;</code></td>
+<td class="itemcode"><span id="GetChar-AnsiChar-"></span><code>function <strong>GetChar</strong>(out c: AnsiChar ): Integer;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Returns 1 on success or 0 on failure</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L368">Source: source/component/PasDoc_Tokenizer.pas (line 368).</a></p></td></tr>
+Read next character (WideChar in case of STRING_UNICODE). Returns how many bytes this character takes, or 0 if cannot read.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L381">Source: source/component/PasDoc_Tokenizer.pas (line 381).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="PeekChar-Char-"></span><code>function <strong>PeekChar</strong>(out c: Char): Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L370">Source: source/component/PasDoc_Tokenizer.pas (line 370).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L382">Source: source/component/PasDoc_Tokenizer.pas (line 382).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ReadCommentType1"></span><code>function <strong>ReadCommentType1</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L371">Source: source/component/PasDoc_Tokenizer.pas (line 371).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L383">Source: source/component/PasDoc_Tokenizer.pas (line 383).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ReadCommentType2"></span><code>function <strong>ReadCommentType2</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L372">Source: source/component/PasDoc_Tokenizer.pas (line 372).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L384">Source: source/component/PasDoc_Tokenizer.pas (line 384).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ReadCommentType3"></span><code>function <strong>ReadCommentType3</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L373">Source: source/component/PasDoc_Tokenizer.pas (line 373).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L385">Source: source/component/PasDoc_Tokenizer.pas (line 385).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ReadAttAssemblerRegister"></span><code>function <strong>ReadAttAssemblerRegister</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L374">Source: source/component/PasDoc_Tokenizer.pas (line 374).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L386">Source: source/component/PasDoc_Tokenizer.pas (line 386).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="ReadLiteralString-TToken-"></span><code>function <strong>ReadLiteralString</strong>(var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+<td class="itemcode"><span id="ReadLiteralString"></span><code>function <strong>ReadLiteralString</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L375">Source: source/component/PasDoc_Tokenizer.pas (line 375).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L387">Source: source/component/PasDoc_Tokenizer.pas (line 387).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
-<td class="itemcode"><span id="ReadToken-Char-TCharSet-TTokenType-TToken-"></span><code>function <strong>ReadToken</strong>(c: Char; const s: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TT: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; var t: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+<td class="itemcode"><span id="ReadDoubleQuotedString"></span><code>function <strong>ReadDoubleQuotedString</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L376">Source: source/component/PasDoc_Tokenizer.pas (line 376).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L388">Source: source/component/PasDoc_Tokenizer.pas (line 388).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="ReadToken-Char-TCharSet-TTokenType-TToken-"></span><code>function <strong>ReadToken</strong>(const StartChar: Char; const AllowedChars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const TokenType: <a href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a>; out T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Read the rest of token of type TokenType, knowing the 1st character of this token is StartChar, and subsequent characters of this token are in set AllowedChars.
+
+<p>Returns <code>True</code> and sets T if we successfully read such token, returns <code>False</code> (and sets T to <code>Nil</code>) otherwise. The <code>False</code> result means we encountered an error reading the next character from stream (we are not at end of stream, but TTokenizer.GetChar returned 0).</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L398">Source: source/component/PasDoc_Tokenizer.pas (line 398).</a></p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="ReadIdentifierToken-Char-TToken-"></span><code>function <strong>ReadIdentifierToken</strong>(const StartChar: Char; out T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>): Boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Like ReadToken, but for identifiers. The set of valid subsequent characters is defined by IsIdentifierOtherChar function, and the token type is always TOK_IDENTIFIER.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L404">Source: source/component/PasDoc_Tokenizer.pas (line 404).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create-TStream-TPasDocMessageEvent-Cardinal-string-string-"></span><code>constructor <strong>Create</strong>( const AStream: TStream; const OnMessageEvent: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>; const VerbosityLevel: Cardinal; const AStreamName, AStreamAbsoluteFileName: string);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Creates a TTokenizer and associates it with given input TStream. Note that AStream will be freed when this object will be freed.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L382">Source: source/component/PasDoc_Tokenizer.pas (line 382).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L408">Source: source/component/PasDoc_Tokenizer.pas (line 408).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Releases all dynamically allocated memory.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L388">Source: source/component/PasDoc_Tokenizer.pas (line 388).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L414">Source: source/component/PasDoc_Tokenizer.pas (line 414).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="HasData"></span><code>function <strong>HasData</strong>: Boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L389">Source: source/component/PasDoc_Tokenizer.pas (line 389).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L415">Source: source/component/PasDoc_Tokenizer.pas (line 415).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GetStreamInfo"></span><code>function <strong>GetStreamInfo</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L390">Source: source/component/PasDoc_Tokenizer.pas (line 390).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L416">Source: source/component/PasDoc_Tokenizer.pas (line 416).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GetToken-Boolean-Boolean-"></span><code>function <strong>GetToken</strong>(const NilOnEnd: Boolean = false; const NilOnInvalidContent: Boolean = false): <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
@@ -446,10 +525,10 @@ Get next token from stream.
 <dt>NilOnInvalidContent</dt>
 <dd>If <code>True</code>, return <code>Nil</code> on some invalid content, like &quot;!&quot; which is not Pascal token at all. This parameter is independent from NilOnEnd. The &quot;invalid content&quot; affected by this parameter is still something that &quot;we can read to advance our position within the stream&quot;.</dd>
 </dl>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L402">Source: source/component/PasDoc_Tokenizer.pas (line 402).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L428">Source: source/component/PasDoc_Tokenizer.pas (line 428).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="UnGetToken-TToken-"></span><code>procedure <strong>UnGetToken</strong>(var T: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>);</code></td>
 </tr>
@@ -458,37 +537,37 @@ Get next token from stream.
 Makes the token T next to be returned by GetToken. Also sets T to <code>Nil</code>, to prevent you from freeing it accidentally.
 
 <p>You cannot have more than one &quot;unget&quot; token. If you only call UnGetToken after some GetToken, you are safe.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L410">Source: source/component/PasDoc_Tokenizer.pas (line 410).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L436">Source: source/component/PasDoc_Tokenizer.pas (line 436).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="SkipUntilCompilerDirective"></span><code>function <strong>SkipUntilCompilerDirective</strong>: <a href="PasDoc_Tokenizer.TToken.html">TToken</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Skip all chars until it encounters some compiler directive, like $ELSE or $ENDIF. Returns either <code>Nil</code> or a token with MyType = TOK_DIRECTIVE.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L415">Source: source/component/PasDoc_Tokenizer.pas (line 415).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L441">Source: source/component/PasDoc_Tokenizer.pas (line 441).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FOnMessage">FOnMessage</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L417">Source: source/component/PasDoc_Tokenizer.pas (line 417).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L443">Source: source/component/PasDoc_Tokenizer.pas (line 443).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a> write <a href="PasDoc_Tokenizer.TTokenizer.html#FVerbosity">FVerbosity</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L418">Source: source/component/PasDoc_Tokenizer.pas (line 418).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L444">Source: source/component/PasDoc_Tokenizer.pas (line 444).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="StreamName"></span><code>property <strong>StreamName</strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamName">FStreamName</a>;</code></td>
 </tr>
@@ -497,17 +576,17 @@ Skip all chars until it encounters some compiler directive, like $ELSE or $ENDIF
 Informative to user name of the stream from which this token was read. This can be a filename (relative or absolute, however user specified it), but it also can be something arbitrary like &quot;$if / $elseif condition&quot;.
 
 <p>So don't treat it like a reliable filename, for this use StreamAbsoluteFileName.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L426">Source: source/component/PasDoc_Tokenizer.pas (line 426).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L452">Source: source/component/PasDoc_Tokenizer.pas (line 452).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="StreamAbsoluteFileName"></span><code>property <strong>StreamAbsoluteFileName</strong>: string read <a href="PasDoc_Tokenizer.TTokenizer.html#FStreamAbsoluteFileName">FStreamAbsoluteFileName</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Filename, always absolute, of the underlying file of this stream. Empty ('') if this is not a file stream.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L430">Source: source/component/PasDoc_Tokenizer.pas (line 430).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Tokenizer.pas#L456">Source: source/component/PasDoc_Tokenizer.pas (line 456).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

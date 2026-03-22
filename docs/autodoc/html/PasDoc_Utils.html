@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -53,200 +97,188 @@ Utility functions.</p>
 </table>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsStrEmptyA-string-">IsStrEmptyA</a></strong>(const AString: string): boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrCountCharA-string-Char-">StrCountCharA</a></strong>(const AString: string; const AChar: Char): Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StrPosIA-string-string-">StrPosIA</a></strong>(const ASub, AString: string): Integer;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#MakeMethod-Pointer-Pointer-">MakeMethod</a></strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StringReplaceChars-string-arrayofTCharReplacement-">StringReplaceChars</a></strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs-string-integer-char-">SCharIs</a></strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharIs-string-integer-TCharSet-">SCharIs</a></strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#ExtractFirstWord-string-">ExtractFirstWord</a></strong>(var s: string): string; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#ExtractFirstWord-string-string-string-">ExtractFirstWord</a></strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#SkipBOM-TStream-">SkipBOM</a></strong>(const InputStream: TStream);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#FileToString-string-">FileToString</a></strong>(const FileName: string): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#StringToFile-string-string-">StringToFile</a></strong>(const FileName, S: string);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#DataToFile-string-arrayofByte-">DataToFile</a></strong>(const FileName: string; const Data: array of Byte);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharsReplace-String-TCharSet-Char-">SCharsReplace</a></strong>(const S: String; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SCharsReplace-String-Char-Char-">SCharsReplace</a></strong>(const S: String; const SearchChar: Char; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#CopyFile-string-string-">CopyFile</a></strong>(const SourceFileName, DestinationFileName: string);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPrefix-string-string-">IsPrefix</a></strong>(const Prefix, S: string): boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemovePrefix-string-string-">RemovePrefix</a></strong>(const Prefix, S: string): string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsSuffix-string-string-">IsSuffix</a></strong>(const Suffix, S: string): boolean;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemoveSuffix-string-string-">RemoveSuffix</a></strong>(const Suffix, S: string): string;</code></td>
+</tr>
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SEnding-string-integer-">SEnding</a></strong>(const s: string; P: integer): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsolute-string-">IsPathAbsolute</a></strong>(const Path: string): boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsPathAbsoluteOnDrive-string-">IsPathAbsoluteOnDrive</a></strong>(const Path: string): boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CombinePaths-string-string-">CombinePaths</a></strong>(BasePath, RelPath: string): string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#DeleteFileExt-string-">DeleteFileExt</a></strong>(const FileName: string): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#RemoveIndentation-string-">RemoveIndentation</a></strong>(const Code: string): string;</code></td>
 </tr>
-<tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Utils.html#Swap16Buf-PWord-PWord-Integer-">Swap16Buf</a></strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
+<tr class="list visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CheckGetFileDate-string-">CheckGetFileDate</a></strong>(const AFileName: string): TDateTime;</code></td>
 </tr>
-<tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet-AnsiChar-TCharSet-">IsCharInSet</a></strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload;</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsCharInSet-WideChar-TCharSet-">IsCharInSet</a></strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload;</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8LeadByte-Byte-">IsUtf8LeadByte</a></strong>(const B: Byte): Boolean;</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsUtf8TrailByte-Byte-">IsUtf8TrailByte</a></strong>(const B: Byte): Boolean;</code></td>
-</tr>
-<tr class="list2">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#Utf8Size-Byte-">Utf8Size</a></strong>(const LeadByte: Byte): Integer;</code></td>
-</tr>
-<tr class="list">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#IsLeadChar-WideChar-">IsLeadChar</a></strong>(Ch: WideChar): Boolean; overload;</code></td>
-</tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#StripHtml-string-">StripHtml</a></strong>(const S: string): string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SAppendPart-String-String-String-">SAppendPart</a></strong>(const s, PartSeparator, NextPart: String): String;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#CharsPos-TCharSet-String-">CharsPos</a></strong>(const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const S: String): Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Utils.html#SRemoveChars-string-TCharSet-">SRemoveChars</a></strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): string;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#AllChars">AllChars</a></strong> = [Low(AnsiChar)..High(AnsiChar)];</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#WhiteSpaceNotNL">WhiteSpaceNotNL</a></strong> = [' ', #9];</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#WhiteSpaceNL">WhiteSpaceNL</a></strong> = [#10, #13];</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#WhiteSpace">WhiteSpace</a></strong> = <a href="PasDoc_Utils.html#WhiteSpaceNotNL">WhiteSpaceNotNL</a> + <a href="PasDoc_Utils.html#WhiteSpaceNL">WhiteSpaceNL</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#FlagStartSigns">FlagStartSigns</a></strong> = ['['];</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Utils.html#FlagEndSigns">FlagEndSigns</a></strong> = [']'];</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="IsStrEmptyA-string-"></span><code>function <strong>IsStrEmptyA</strong>(const AString: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 string empty means it contains only whitespace</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L67">Source: source/component/PasDoc_Utils.pas (line 67).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L41">Source: source/component/PasDoc_Utils.pas (line 41).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StrCountCharA-string-Char-"></span><code>function <strong>StrCountCharA</strong>(const AString: string; const AChar: Char): Integer;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 count occurences of AChar in AString</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L69">Source: source/component/PasDoc_Utils.pas (line 69).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L43">Source: source/component/PasDoc_Utils.pas (line 43).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StrPosIA-string-string-"></span><code>function <strong>StrPosIA</strong>(const ASub, AString: string): Integer;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Position of the ASub in AString. Return 0 if not found</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L71">Source: source/component/PasDoc_Utils.pas (line 71).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L45">Source: source/component/PasDoc_Utils.pas (line 45).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="MakeMethod-Pointer-Pointer-"></span><code>function <strong>MakeMethod</strong>(const AObject: Pointer; AMethod: Pointer): TMethod;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 creates a &quot;method pointer&quot;</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L73">Source: source/component/PasDoc_Utils.pas (line 73).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L47">Source: source/component/PasDoc_Utils.pas (line 47).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StringReplaceChars-string-arrayofTCharReplacement-"></span><code>function <strong>StringReplaceChars</strong>(const S: string; const ReplacementArray: array of <a href="PasDoc_Utils.TCharReplacement.html">TCharReplacement</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Returns S with each char from ReplacementArray[].cChar replaced with ReplacementArray[].sSpec.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L99">Source: source/component/PasDoc_Utils.pas (line 99).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L58">Source: source/component/PasDoc_Utils.pas (line 58).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SCharIs-string-integer-char-"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; C: char): boolean; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Comfortable shortcut for Index &lt;= Length(S) and S[Index] = C.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L103">Source: source/component/PasDoc_Utils.pas (line 103).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L62">Source: source/component/PasDoc_Utils.pas (line 62).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SCharIs-string-integer-TCharSet-"></span><code>function <strong>SCharIs</strong>(const S: string; Index: integer; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): boolean; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Comfortable shortcut for Index &lt;= Length(S) and S[Index] in Chars.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L105">Source: source/component/PasDoc_Utils.pas (line 105).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L64">Source: source/component/PasDoc_Utils.pas (line 64).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="ExtractFirstWord-string-"></span><code>function <strong>ExtractFirstWord</strong>(var s: string): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -256,10 +288,10 @@ Extracts all characters up to the first white-space encountered (ignoring white-
 <p>If there is no white-space in S (or there is white-space only at the beginning of S, in which case it is ignored) then the whole S is regarded as it's first word.
 
 <p>Both S and result are trimmed, i.e. they don't have any excessive white-space at the beginning or end.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L118">Source: source/component/PasDoc_Utils.pas (line 118).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L77">Source: source/component/PasDoc_Utils.pas (line 77).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="ExtractFirstWord-string-string-string-"></span><code>procedure <strong>ExtractFirstWord</strong>(const S: string; out FirstWord, Rest: string); overload;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -269,10 +301,10 @@ Another version of ExtractFirstWord.
 <p>Splits S by it's first white-space (ignoring white-space at the very beginning of the string). No such white-space means that whole S is regarded as the FirstWord.
 
 <p>Both FirstWord and Rest are trimmed.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L127">Source: source/component/PasDoc_Utils.pas (line 127).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L86">Source: source/component/PasDoc_Utils.pas (line 86).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SkipBOM-TStream-"></span><code>procedure <strong>SkipBOM</strong>(const InputStream: TStream);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -285,87 +317,105 @@ Interpret and skip the BOM in the InputStream. Assumes that initial position is 
 <dt><a class="normal" href="PasDoc_Types.EPasDoc.html">EPasDoc</a></dt>
 <dd>When BOM indicates UTF encoding that we cannot handle (UTF-32, UTF-16 now).</dd>
 </dl>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L152">Source: source/component/PasDoc_Utils.pas (line 152).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L111">Source: source/component/PasDoc_Utils.pas (line 111).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="FileToString-string-"></span><code>function <strong>FileToString</strong>(const FileName: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Read the given FileName contents into a String. Use this only with text files &ndash; it does automatic UTF BOM skipping, so it assumes it is a text file, not a binary file with random contents.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L158">Source: source/component/PasDoc_Utils.pas (line 158).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L117">Source: source/component/PasDoc_Utils.pas (line 117).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StringToFile-string-string-"></span><code>procedure <strong>StringToFile</strong>(const FileName, S: string);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Save the String content into a file. Overwrites the FileName, if it already exists.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L162">Source: source/component/PasDoc_Utils.pas (line 162).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L121">Source: source/component/PasDoc_Utils.pas (line 121).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="DataToFile-string-arrayofByte-"></span><code>procedure <strong>DataToFile</strong>(const FileName: string; const Data: array of Byte);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Save the binary Data into a file. Overwrites the FileName, if it already exists.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L166">Source: source/component/PasDoc_Utils.pas (line 166).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L125">Source: source/component/PasDoc_Utils.pas (line 125).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SCharsReplace-String-TCharSet-Char-"></span><code>function <strong>SCharsReplace</strong>(const S: String; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Returns S with all Chars replaced by ReplacementChar</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L169">Source: source/component/PasDoc_Utils.pas (line 169).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L128">Source: source/component/PasDoc_Utils.pas (line 128).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SCharsReplace-String-Char-Char-"></span><code>function <strong>SCharsReplace</strong>(const S: String; const SearchChar: Char; const ReplacementChar: Char): string; overload;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L171">Source: source/component/PasDoc_Utils.pas (line 171).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L130">Source: source/component/PasDoc_Utils.pas (line 130).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="CopyFile-string-string-"></span><code>procedure <strong>CopyFile</strong>(const SourceFileName, DestinationFileName: string);</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L174">Source: source/component/PasDoc_Utils.pas (line 174).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L133">Source: source/component/PasDoc_Utils.pas (line 133).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="IsPrefix-string-string-"></span><code>function <strong>IsPrefix</strong>(const Prefix, S: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-Checks is Prefix a prefix of S. Not case-sensitive.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L190">Source: source/component/PasDoc_Utils.pas (line 190).</a></p></td></tr>
+Is given Prefix a prefix of S. Not case-sensitive.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L149">Source: source/component/PasDoc_Utils.pas (line 149).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="RemovePrefix-string-string-"></span><code>function <strong>RemovePrefix</strong>(const Prefix, S: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 If IsPrefix(Prefix, S), then remove the prefix, otherwise return unmodifed S.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L193">Source: source/component/PasDoc_Utils.pas (line 193).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L152">Source: source/component/PasDoc_Utils.pas (line 152).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="IsSuffix-string-string-"></span><code>function <strong>IsSuffix</strong>(const Suffix, S: string): boolean;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Is given Suffix a suffix of S. Not case-sensitive.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L155">Source: source/component/PasDoc_Utils.pas (line 155).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="RemoveSuffix-string-string-"></span><code>function <strong>RemoveSuffix</strong>(const Suffix, S: string): string;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+If IsSuffix(Suffix, S), then remove the suffix, otherwise return unmodifed S.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L158">Source: source/component/PasDoc_Utils.pas (line 158).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SEnding-string-integer-"></span><code>function <strong>SEnding</strong>(const s: string; P: integer): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 SEnding returns S contents starting from position P. Returns '' if P &gt; length(S). Yes, this is simply equivalent to Copy(S, P, MaxInt).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L206">Source: source/component/PasDoc_Utils.pas (line 206).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L163">Source: source/component/PasDoc_Utils.pas (line 163).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="IsPathAbsolute-string-"></span><code>function <strong>IsPathAbsolute</strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -382,10 +432,10 @@ Check is the given Path absolute.
   <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsoluteOnDrive-string-">IsPathAbsoluteOnDrive</a></dt>
   <dd>Just like IsPathAbsolute, but on Windows accepts also paths that specify full directory tree without drive letter.</dd>
 </dl>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L221">Source: source/component/PasDoc_Utils.pas (line 221).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L178">Source: source/component/PasDoc_Utils.pas (line 178).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="IsPathAbsoluteOnDrive-string-"></span><code>function <strong>IsPathAbsoluteOnDrive</strong>(const Path: string): boolean;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -398,86 +448,44 @@ Just like IsPathAbsolute, but on Windows accepts also paths that specify full di
   <dt><a class="normal" href="PasDoc_Utils.html#IsPathAbsolute-string-">IsPathAbsolute</a></dt>
   <dd>Check is the given Path absolute.</dd>
 </dl>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L227">Source: source/component/PasDoc_Utils.pas (line 227).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L184">Source: source/component/PasDoc_Utils.pas (line 184).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="CombinePaths-string-string-"></span><code>function <strong>CombinePaths</strong>(BasePath, RelPath: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Combines BasePath with RelPath. BasePath MUST be an absolute path, on Windows it must contain at least drive specifier (like 'c:'), on Unix it must begin with &quot;/&quot;. RelPath can be relative and can be absolute. If RelPath is absolute, result is RelPath. Else the result is an absolute path calculated by combining RelPath with BasePath.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L235">Source: source/component/PasDoc_Utils.pas (line 235).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L192">Source: source/component/PasDoc_Utils.pas (line 192).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="DeleteFileExt-string-"></span><code>function <strong>DeleteFileExt</strong>(const FileName: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Remove from the FileName the last extension (including the dot). Note that if the FileName had a couple of extensions (e.g. <code>blah.x3d.gz</code>) this will remove only the last one. Will remove nothing if filename has no extension.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L241">Source: source/component/PasDoc_Utils.pas (line 241).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L198">Source: source/component/PasDoc_Utils.pas (line 198).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="RemoveIndentation-string-"></span><code>function <strong>RemoveIndentation</strong>(const Code: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Remove common indentation (whitespace prefix) from a multiline string.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L244">Source: source/component/PasDoc_Utils.pas (line 244).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L201">Source: source/component/PasDoc_Utils.pas (line 201).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="Swap16Buf-PWord-PWord-Integer-"></span><code>procedure <strong>Swap16Buf</strong>(Src, Dst: PWord; WordCount: Integer);</code></td>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="CheckGetFileDate-string-"></span><code>function <strong>CheckGetFileDate</strong>(const AFileName: string): TDateTime;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L246">Source: source/component/PasDoc_Utils.pas (line 246).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L203">Source: source/component/PasDoc_Utils.pas (line 203).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IsCharInSet-AnsiChar-TCharSet-"></span><code>function <strong>IsCharInSet</strong>(C: AnsiChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L247">Source: source/component/PasDoc_Utils.pas (line 247).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IsCharInSet-WideChar-TCharSet-"></span><code>function <strong>IsCharInSet</strong>(C: WideChar; const CharSet: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): Boolean; overload;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L249">Source: source/component/PasDoc_Utils.pas (line 249).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IsUtf8LeadByte-Byte-"></span><code>function <strong>IsUtf8LeadByte</strong>(const B: Byte): Boolean;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L251">Source: source/component/PasDoc_Utils.pas (line 251).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IsUtf8TrailByte-Byte-"></span><code>function <strong>IsUtf8TrailByte</strong>(const B: Byte): Boolean;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L252">Source: source/component/PasDoc_Utils.pas (line 252).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="Utf8Size-Byte-"></span><code>function <strong>Utf8Size</strong>(const LeadByte: Byte): Integer;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L253">Source: source/component/PasDoc_Utils.pas (line 253).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="IsLeadChar-WideChar-"></span><code>function <strong>IsLeadChar</strong>(Ch: WideChar): Boolean; overload;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L255">Source: source/component/PasDoc_Utils.pas (line 255).</a></p></td></tr>
-</table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StripHtml-string-"></span><code>function <strong>StripHtml</strong>(const S: string): string;</code></td>
 </tr>
 <tr><td colspan="1">
@@ -485,85 +493,85 @@ Remove common indentation (whitespace prefix) from a multiline string.</p>
 Strip HTML elements from the string.
 
 <p>Assumes that the HTML content is correct (all elements are nicely closed, all &lt; &gt; inside attributes are escaped to &amp;lt; &amp;gt;, all &lt; &gt; outside elements are escaped to &amp;lt; &amp;gt;). It doesn't try very hard to deal with incorrect HTML context (it will not crash, but results are undefined). It's designed to strip HTML from PasDoc-generated HTML, which should always be correct.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L284">Source: source/component/PasDoc_Utils.pas (line 284).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L214">Source: source/component/PasDoc_Utils.pas (line 214).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SAppendPart-String-String-String-"></span><code>function <strong>SAppendPart</strong>(const s, PartSeparator, NextPart: String): String;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 If S = '' then returns NextPart, else returns S + PartSeparator + NextPart.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L293">Source: source/component/PasDoc_Utils.pas (line 293).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L223">Source: source/component/PasDoc_Utils.pas (line 223).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="CharsPos-TCharSet-String-"></span><code>function <strong>CharsPos</strong>(const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>; const S: String): Integer;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Find first occurrence of any character in Chars in string S. This is quite like FirstDelimiter but it takes parameter as TSetOfChars and has more sensible name. Returns 0 if not found.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L299">Source: source/component/PasDoc_Utils.pas (line 299).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L229">Source: source/component/PasDoc_Utils.pas (line 229).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="SRemoveChars-string-TCharSet-"></span><code>function <strong>SRemoveChars</strong>(const S: string; const Chars: <a href="PasDoc_Types.html#TCharSet">TCharSet</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Remove all instances of a character in Chars from a string.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L302">Source: source/component/PasDoc_Utils.pas (line 302).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L232">Source: source/component/PasDoc_Utils.pas (line 232).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="AllChars"></span><code><strong>AllChars</strong> = [Low(AnsiChar)..High(AnsiChar)];</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L131">Source: source/component/PasDoc_Utils.pas (line 131).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L90">Source: source/component/PasDoc_Utils.pas (line 90).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="WhiteSpaceNotNL"></span><code><strong>WhiteSpaceNotNL</strong> = [' ', #9];</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Whitespace that is not any part of newline.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L134">Source: source/component/PasDoc_Utils.pas (line 134).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L93">Source: source/component/PasDoc_Utils.pas (line 93).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="WhiteSpaceNL"></span><code><strong>WhiteSpaceNL</strong> = [#10, #13];</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Whitespace that is some part of newline.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L136">Source: source/component/PasDoc_Utils.pas (line 136).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L95">Source: source/component/PasDoc_Utils.pas (line 95).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="WhiteSpace"></span><code><strong>WhiteSpace</strong> = <a href="PasDoc_Utils.html#WhiteSpaceNotNL">WhiteSpaceNotNL</a> + <a href="PasDoc_Utils.html#WhiteSpaceNL">WhiteSpaceNL</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Any whitespace (that may indicate newline or not)</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L138">Source: source/component/PasDoc_Utils.pas (line 138).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L97">Source: source/component/PasDoc_Utils.pas (line 97).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="FlagStartSigns"></span><code><strong>FlagStartSigns</strong> = ['['];</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Flag Start- and Endsigns for parameters (Feature request &quot;direction of parameter&quot;: <a href="https://github.com/pasdoc/pasdoc/issues/8">pasdoc issue 8</a>)</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L142">Source: source/component/PasDoc_Utils.pas (line 142).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L101">Source: source/component/PasDoc_Utils.pas (line 101).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="FlagEndSigns"></span><code><strong>FlagEndSigns</strong> = [']'];</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L143">Source: source/component/PasDoc_Utils.pas (line 143).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Utils.pas#L102">Source: source/component/PasDoc_Utils.pas (line 102).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">

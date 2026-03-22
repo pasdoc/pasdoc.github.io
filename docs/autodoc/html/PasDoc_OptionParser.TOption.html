@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -44,255 +88,260 @@
 Base class for options.</p>
 <p>
  This class implements all the basic functionality and provides abstract methods for the <a class="normal" href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a> class to call, which are overridden by descendants. It also provides function to write the explanation.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L67">Source: source/component/PasDoc_OptionParser.pas (line 67).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L64">Source: source/component/PasDoc_OptionParser.pas (line 64).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TOption</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TOption</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a></strong>: char;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a></strong>: string;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a></strong>: boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a></strong>: boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a></strong>: string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a></strong>: boolean;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.TOption.html#FParser">FParser</a></strong>: <a href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_OptionParser.TOption.html#ParseOption-TStrings-">ParseOption</a></strong>(const AWords: TStrings): boolean; virtual; abstract;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_OptionParser.TOption.html#Create-char-string-">Create</a></strong>(const AShort:char; const ALong: string);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_OptionParser.TOption.html#CreateEx-char-string-boolean-boolean-">CreateEx</a></strong>(const AShort:char; const ALong: string; const AShortCaseSensitive, ALongCaseSensitive: boolean); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_OptionParser.TOption.html#GetOptionWidth">GetOptionWidth</a></strong>: Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_OptionParser.TOption.html#WriteExplanation-Integer-">WriteExplanation</a></strong>(const AOptWidth: Integer);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#ShortForm">ShortForm</a></strong>: char read <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a> write <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#LongForm">LongForm</a></strong>: string read <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a> write <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#ShortCaseSensitive">ShortCaseSensitive</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a> write <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#LongCaseSensitive">LongCaseSensitive</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a> write <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#WasSpecified">WasSpecified</a></strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_OptionParser.TOption.html#Explanation">Explanation</a></strong>: string read <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a> write <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a>;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Fields</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FShort"></span><code><strong>FShort</strong>: char;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L69">Source: source/component/PasDoc_OptionParser.pas (line 69).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L66">Source: source/component/PasDoc_OptionParser.pas (line 66).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FLong"></span><code><strong>FLong</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L70">Source: source/component/PasDoc_OptionParser.pas (line 70).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L67">Source: source/component/PasDoc_OptionParser.pas (line 67).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FShortSens"></span><code><strong>FShortSens</strong>: boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L71">Source: source/component/PasDoc_OptionParser.pas (line 71).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L68">Source: source/component/PasDoc_OptionParser.pas (line 68).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FLongSens"></span><code><strong>FLongSens</strong>: boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L72">Source: source/component/PasDoc_OptionParser.pas (line 72).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L69">Source: source/component/PasDoc_OptionParser.pas (line 69).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FExplanation"></span><code><strong>FExplanation</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L73">Source: source/component/PasDoc_OptionParser.pas (line 73).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L70">Source: source/component/PasDoc_OptionParser.pas (line 70).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FWasSpecified"></span><code><strong>FWasSpecified</strong>: boolean;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L74">Source: source/component/PasDoc_OptionParser.pas (line 74).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L71">Source: source/component/PasDoc_OptionParser.pas (line 71).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="FParser"></span><code><strong>FParser</strong>: <a href="PasDoc_OptionParser.TOptionParser.html">TOptionParser</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L75">Source: source/component/PasDoc_OptionParser.pas (line 75).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L72">Source: source/component/PasDoc_OptionParser.pas (line 72).</a></p></td></tr>
 </table>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="ParseOption-TStrings-"></span><code>function <strong>ParseOption</strong>(const AWords: TStrings): boolean; virtual; abstract;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L76">Source: source/component/PasDoc_OptionParser.pas (line 76).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L73">Source: source/component/PasDoc_OptionParser.pas (line 73).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create-char-string-"></span><code>constructor <strong>Create</strong>(const AShort:char; const ALong: string);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Create a new Option. Set AShort to #0 in order to have no short option. Technically you can set ALong to '' to have no long option, but in practive *every* option should have long form. Don't override this in descendants (this always simply calls CreateEx). Override only CreateEx.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L88">Source: source/component/PasDoc_OptionParser.pas (line 88).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L81">Source: source/component/PasDoc_OptionParser.pas (line 81).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="CreateEx-char-string-boolean-boolean-"></span><code>constructor <strong>CreateEx</strong>(const AShort:char; const ALong: string; const AShortCaseSensitive, ALongCaseSensitive: boolean); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L90">Source: source/component/PasDoc_OptionParser.pas (line 90).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L83">Source: source/component/PasDoc_OptionParser.pas (line 83).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GetOptionWidth"></span><code>function <strong>GetOptionWidth</strong>: Integer;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 returns the width of the string &quot;-s, --long-option&quot; where s is the short option. Removes non-existant options (longoption = '' or shortoption = #0)</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L95">Source: source/component/PasDoc_OptionParser.pas (line 95).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L88">Source: source/component/PasDoc_OptionParser.pas (line 88).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="WriteExplanation-Integer-"></span><code>procedure <strong>WriteExplanation</strong>(const AOptWidth: Integer);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 writes the wrapped explanation including option format, AOptWidth determines how much it is indented &amp; wrapped</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L98">Source: source/component/PasDoc_OptionParser.pas (line 98).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L91">Source: source/component/PasDoc_OptionParser.pas (line 91).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="ShortForm"></span><code>property <strong>ShortForm</strong>: char read <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a> write <a href="PasDoc_OptionParser.TOption.html#FShort">FShort</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Short form of the option &mdash; single character &mdash; if #0 then not used</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L100">Source: source/component/PasDoc_OptionParser.pas (line 100).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L93">Source: source/component/PasDoc_OptionParser.pas (line 93).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="LongForm"></span><code>property <strong>LongForm</strong>: string read <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a> write <a href="PasDoc_OptionParser.TOption.html#FLong">FLong</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 long form of the option &mdash; string &mdash; if empty, then not used</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L102">Source: source/component/PasDoc_OptionParser.pas (line 102).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L95">Source: source/component/PasDoc_OptionParser.pas (line 95).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="ShortCaseSensitive"></span><code>property <strong>ShortCaseSensitive</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a> write <a href="PasDoc_OptionParser.TOption.html#FShortSens">FShortSens</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 specified whether the short form should be case sensitive or not</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L104">Source: source/component/PasDoc_OptionParser.pas (line 104).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L97">Source: source/component/PasDoc_OptionParser.pas (line 97).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="LongCaseSensitive"></span><code>property <strong>LongCaseSensitive</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a> write <a href="PasDoc_OptionParser.TOption.html#FLongSens">FLongSens</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 specifies whether the long form should be case sensitive or not</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L106">Source: source/component/PasDoc_OptionParser.pas (line 106).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L99">Source: source/component/PasDoc_OptionParser.pas (line 99).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="WasSpecified"></span><code>property <strong>WasSpecified</strong>: boolean read <a href="PasDoc_OptionParser.TOption.html#FWasSpecified">FWasSpecified</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 signifies if the option was specified at least once</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L108">Source: source/component/PasDoc_OptionParser.pas (line 108).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L101">Source: source/component/PasDoc_OptionParser.pas (line 101).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Explanation"></span><code>property <strong>Explanation</strong>: string read <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a> write <a href="PasDoc_OptionParser.TOption.html#FExplanation">FExplanation</a>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 explanation for the option, see also <a class="normal" href="PasDoc_OptionParser.TOption.html#WriteExplanation-Integer-">WriteExplanation</a></p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L110">Source: source/component/PasDoc_OptionParser.pas (line 110).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L103">Source: source/component/PasDoc_OptionParser.pas (line 103).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,7 +76,7 @@
 <div class="container-fluid py-3 px-4">
 <span id="TTopLevelTag"></span><h1 class="cio">Class TTopLevelTag</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_TagManager.html">PasDoc_TagManager</a></p>
@@ -40,21 +84,169 @@
 <p class="declaration">
 <code>type TTopLevelTag = class(<a class="normal" href="PasDoc_TagManager.TTag.html">TTag</a>)</code></p>
 <h2 class="description">Description</h2>
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L280">Source: source/component/PasDoc_TagManager.pas (line 280).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L278">Source: source/component/PasDoc_TagManager.pas (line 278).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="PasDoc_TagManager.TTag.html">TTag</a></li>
-<li class="thisitem">TTopLevelTag</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TTopLevelTag</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_TagManager.TTopLevelTag.html#Create-TTagManager-string-TTagExecuteEvent-TTagExecuteEvent-TTagOptions-">Create</a></strong>(ATagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const AName: string; AOnPreExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; AOnExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; const ATagOptions: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a>);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTopLevelTag.html#PreExecute-TObject-TTag-TObject-string-string-">PreExecute</a></strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTopLevelTag.html#Execute-TObject-TTag-TObject-string-string-">Execute</a></strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTopLevelTag.html#AllowedInside-TTag-">AllowedInside</a></strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; virtual;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTopLevelTag.html#CreateOccurenceData">CreateOccurenceData</a></strong>: TObject; virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_TagManager.TTopLevelTag.html#DestroyOccurenceData-TObject-">DestroyOccurenceData</a></strong>(Value: TObject); virtual;</code></td>
+</tr>
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_TagManager.TTopLevelTag.html#AllowedInside-TTag-">AllowedInside</a></strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; override;</code></td>
 </tr>
 </table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#TagOptions">TagOptions</a></strong>: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a> read FTagOptions write FTagOptions;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#TagManager">TagManager</a></strong>: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a> read FTagManager;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#Name">Name</a></strong>: string read FName write FName;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#OnPreExecute">OnPreExecute</a></strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnPreExecute write FOnPreExecute;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#OnExecute">OnExecute</a></strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnExecute write FOnExecute;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_TagManager.TTopLevelTag.html#OnAllowedInside">OnAllowedInside</a></strong>: <a href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a>
+      read FOnAllowedInside write FOnAllowedInside;</code></td>
+</tr>
+</table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-TTagManager-string-TTagExecuteEvent-TTagExecuteEvent-TTagOptions-"></span><code>constructor <strong>Create</strong>(ATagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>; const AName: string; AOnPreExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; AOnExecute: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>; const ATagOptions: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Note that AName will be converted to lowercase before assigning to Name.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L147">Source: source/component/PasDoc_TagManager.pas (line 147).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="PreExecute-TObject-TTag-TObject-string-string-"></span><code>procedure <strong>PreExecute</strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This is completely analogous to <a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">Execute</a> but used when <a class="normal" href="PasDoc_TagManager.TTagManager.html#PreExecute">TTagManager.PreExecute</a> is <code>True</code>. In this class this simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnPreExecute">OnPreExecute</a>.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L194">Source: source/component/PasDoc_TagManager.pas (line 194).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Execute-TObject-TTag-TObject-string-string-"></span><code>procedure <strong>Execute</strong>(var ThisTagData: TObject; EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>; var EnclosingTagData: TObject; const TagParameter: string; var ReplaceStr: string); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be used to do main work when this @-tag occured in description.
+
+<p>EnclosingTag parameter specifies enclosing tag. This is useful for tags that must behave differently in different contexts, e.g. in plain-text output @item tag will behave differently inside @orderedList and @unorderedList. EnclosingTag is nil when the tag occured at top level of the description.
+
+<p>ThisTagData and EnclosingTagData form a mechanism to pass arbitraty data between child tags enclosed within one parent tag. Example uses:
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>This is the way for multiple @item tags inside @orderedList tag to count themselves (to provide list item numbers, for pasdoc output formats that can't automatically number list items).</p></li>
+  <li><p>This is the way for @itemSpacing tag to communicate with enclosing @orderedList tag to specify list style. </p></li>
+  <li><p>And this is the way for @cell tags to be collected inside rows data and then @rows tags to be collected inside table data. Thanks to such collecting <a class="normal" href="PasDoc_Gen.TDocGenerator.html#FormatTable-TTableData-">TDocGenerator.FormatTable</a> receives at once all information about given table, and can use it to format table.</p></li>
+</ul>
+
+<p>
+
+<p>How does this XxxTagData mechanism work:
+
+<p>When we start parsing parameter of some tag with toRecursiveTags, we create a new pointer inited to <a class="normal" href="PasDoc_TagManager.TTag.html#CreateOccurenceData">CreateOccurenceData</a>. When @-tags occur inside this parameter, we pass them this pointer as EnclosingTagData (this way all @-tags with the same parent can use this pointer to communicate with each other). At the end, when parameter was parsed, we call given tag's Execute method passing the resulting pointer as ThisTagData (this way @-tags with the same parent can use this pointer to pass some data to their parent).
+
+<p>In this class this method simply calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a> (if assigned).</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L245">Source: source/component/PasDoc_TagManager.pas (line 245).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="AllowedInside-TTag-"></span><code>function <strong>AllowedInside</strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+This will be checked always when this tag occurs within description. Given EnclosingTag is enclosing tag, nil if we're in top level. If this returns false then this tag will not be allowed inside EnclosingTag.
+
+<p>In this class this method </p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p> Assumes that Result = true if we're at top level or EnclosingTag.TagOptions contains toAllowOtherTagsInsideByDefault. Else it assumes Result = false.</p></li>
+  <li value="2"><p> Then it calls <a class="normal" href="PasDoc_TagManager.TTag.html#OnAllowedInside">OnAllowedInside(Self, EnclosingTag, Result)</a> (if OnAllowedInside is assigned).</p></li>
+</ol>
+
+<p></p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L269">Source: source/component/PasDoc_TagManager.pas (line 269).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="CreateOccurenceData"></span><code>function <strong>CreateOccurenceData</strong>: TObject; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+In this class this simply returns <code>Nil</code>.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L272">Source: source/component/PasDoc_TagManager.pas (line 272).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DestroyOccurenceData-TObject-"></span><code>procedure <strong>DestroyOccurenceData</strong>(Value: TObject); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+In this class this simply does <code>Value.Free</code>.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L275">Source: source/component/PasDoc_TagManager.pas (line 275).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AllowedInside-TTag-"></span><code>function <strong>AllowedInside</strong>(EnclosingTag: <a href="PasDoc_TagManager.TTag.html">TTag</a>): boolean; override;</code></td>
 </tr>
@@ -63,7 +255,75 @@
 This returns just <code>EnclosingTag = nil</code>.
 
 <p>Which means that this tag is allowed only at top level of description, never inside parameter of some tag.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L285">Source: source/component/PasDoc_TagManager.pas (line 285).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L283">Source: source/component/PasDoc_TagManager.pas (line 283).</a></p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="TagOptions"></span><code>property <strong>TagOptions</strong>: <a href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a> read FTagOptions write FTagOptions;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L153">Source: source/component/PasDoc_TagManager.pas (line 153).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="TagManager"></span><code>property <strong>TagManager</strong>: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a> read FTagManager;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+TagManager that will recognize and handle this tag. Note that the tag instance is owned by this tag manager (i.e. it will be freed inside this tag manager). It can be nil if no tag manager currently owns this tag.
+
+<p>Note that it's very useful in <a class="normal" href="PasDoc_TagManager.TTag.html#Execute-TObject-TTag-TObject-string-string-">Execute</a> or <a class="normal" href="PasDoc_TagManager.TTag.html#OnExecute">OnExecute</a> implementations.
+
+<p>E.g. you can use it to report a message by <code>TagManager.DoMessage(...)</code>, this is e.g. used by implementation of TPasItem.StoreAbstractTag.
+
+<p>You could also use this to manually force recursive behavior of a given tag. I.e let's suppose that you have a tag with TagOptions = [toParameterRequired], so the TagParameter parameter passed to handler was not recursively expanded. Then you can do inside your handler </p>
+
+<pre class="longcode">NewTagParameter := TagManager.Execute(TagParameter, ...)</pre>
+
+<p> and this way you have explicitly recursively expanded the tag.
+
+<p>Scenario above is actually used in implementation of @noAutoLink tag. There I call TagManager.Execute with parameter <code>AutoLink</code> set to false thus preventing auto-linking inside text within @noAutoLink.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L179">Source: source/component/PasDoc_TagManager.pas (line 179).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>: string read FName write FName;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Name of the tag, that must be specified by user after the &quot;@&quot; sign. Value of this property must always be lowercase.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L183">Source: source/component/PasDoc_TagManager.pas (line 183).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="OnPreExecute"></span><code>property <strong>OnPreExecute</strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnPreExecute write FOnPreExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L185">Source: source/component/PasDoc_TagManager.pas (line 185).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="OnExecute"></span><code>property <strong>OnExecute</strong>: <a href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a>
+      read FOnExecute write FOnExecute;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L188">Source: source/component/PasDoc_TagManager.pas (line 188).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="OnAllowedInside"></span><code>property <strong>OnAllowedInside</strong>: <a href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a>
+      read FOnAllowedInside write FOnAllowedInside;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_TagManager.pas#L249">Source: source/component/PasDoc_TagManager.pas (line 249).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

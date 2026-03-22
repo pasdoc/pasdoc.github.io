@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -43,79 +87,79 @@
 <td class="itemdesc"><p>Find first occurrence of any character in Chars in string S.</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#CheckGetFileDate-string-">CheckGetFileDate</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#CioTypeToString-TCIOType-">CioTypeToString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Returns lowercased keyword(s) associated with given structure type.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#CombinePaths-string-string-">CombinePaths</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Combines BasePath with RelPath.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Versions.html#COMPILER_NAME">COMPILER_NAME</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Versions.html">PasDoc_Versions</a></td>
 <td class="itemdesc"><p>Nice compiler name.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#CopyFile-string-string-">CopyFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#DataToFile-string-arrayofByte-">DataToFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Save the binary Data into a file.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#DeleteFileExt-string-">DeleteFileExt</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Remove from the FileName the last extension (including the dot).</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#ExtractFirstWord-string-">ExtractFirstWord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Extracts all characters up to the first white-space encountered (ignoring white-space at the very beginning of the string) from the string specified by S.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#ExtractFirstWord-string-string-string-">ExtractFirstWord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Another version of ExtractFirstWord.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#FileToString-string-">FileToString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Read the given FileName contents into a String.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#GlueNameParts-TNameParts-">GlueNameParts</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>Simply concatenates all NameParts with dot.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#IDfromLanguage-string-">IDfromLanguage</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>Search for language by short or long name</p></td>
 </tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsCharInSet-WideChar-TCharSet-">IsCharInSet</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsCharInSet-AnsiChar-TCharSet-">IsCharInSet</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StringVector.html#IsEmpty-TStringVector-">IsEmpty</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StringVector.html">PasDoc_StringVector</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#IsIdentifierOtherChar-Char-">IsIdentifierOtherChar</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
+<td class="itemdesc"><p>Returns true if c is a valid continuation character of a Pascal identifier: underscore, ASCII letter, ASCII digit, or non-ASCII character (Unicode letter/digit).</p></td>
+</tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsLeadChar-WideChar-">IsLeadChar</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#IsIdentifierStartChar-Char-">IsIdentifierStartChar</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
+<td class="itemdesc"><p>Returns true if c is a valid first character of a Pascal identifier: underscore, ASCII letter, or non-ASCII character (Unicode letter).</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsPathAbsolute-string-">IsPathAbsolute</a></td>
@@ -130,7 +174,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsPrefix-string-string-">IsPrefix</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>Checks is Prefix a prefix of S.</p></td>
+<td class="itemdesc"><p>Is given Prefix a prefix of S.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsStrEmptyA-string-">IsStrEmptyA</a></td>
@@ -138,14 +182,14 @@
 <td class="itemdesc"><p>string empty means it contains only whitespace</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsUtf8LeadByte-Byte-">IsUtf8LeadByte</a></td>
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsSuffix-string-string-">IsSuffix</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Is given Suffix a suffix of S.</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#IsUtf8TrailByte-Byte-">IsUtf8TrailByte</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemname"><a class="bold" href="PasDoc_Types.html#IsValidMultipartName-string-">IsValidMultipartName</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
+<td class="itemdesc"><p>Checks that the string is a valid multipart identifier</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#KeyWordByName-string-">KeyWordByName</a></td>
@@ -198,9 +242,9 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_ObjectVector.html#ObjectVectorIsNilOrEmpty-TObjectVector-">ObjectVectorIsNilOrEmpty</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemname"><a class="bold" href="PasDoc_Items.html#ObjectVectorIsNilOrEmpty-TBaseItems-">ObjectVectorIsNilOrEmpty</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>Is List nil or empty.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#OneNamePart-string-">OneNamePart</a></td>
@@ -228,19 +272,19 @@
 <td class="itemdesc"><p>If IsPrefix(Prefix, S), then remove the prefix, otherwise return unmodifed S.</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#RemoveSuffix-string-string-">RemoveSuffix</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
+<td class="itemdesc"><p>If IsSuffix(Suffix, S), then remove the suffix, otherwise return unmodifed S.</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#RoutineTypeToString-TRoutineType-">RoutineTypeToString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Returns lowercased keyword associated with given method type.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SAppendPart-String-String-String-">SAppendPart</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>If S = '' then returns NextPart, else returns S + PartSeparator + NextPart.</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharIs-string-integer-TCharSet-">SCharIs</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>Comfortable shortcut for Index &lt;= Length(S) and S[Index] in Chars.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharIs-string-integer-char-">SCharIs</a></td>
@@ -248,9 +292,9 @@
 <td class="itemdesc"><p>Comfortable shortcut for Index &lt;= Length(S) and S[Index] = C.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharsReplace-String-TCharSet-Char-">SCharsReplace</a></td>
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharIs-string-integer-TCharSet-">SCharIs</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>Returns S with all Chars replaced by ReplacementChar</p></td>
+<td class="itemdesc"><p>Comfortable shortcut for Index &lt;= Length(S) and S[Index] in Chars.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharsReplace-String-Char-Char-">SCharsReplace</a></td>
@@ -258,64 +302,74 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#SCharsReplace-String-TCharSet-Char-">SCharsReplace</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
+<td class="itemdesc"><p>Returns S with all Chars replaced by ReplacementChar</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SEnding-string-integer-">SEnding</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>SEnding returns S contents starting from position P.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_GenHtml.html#SignatureToHtmlId-string-">SignatureToHtmlId</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
 <td class="itemdesc"><p>DON'T EDIT &ndash; this file was automatically generated from &quot;pasdoc.css&quot;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SkipBOM-TStream-">SkipBOM</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Interpret and skip the BOM in the InputStream.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_SortSettings.html#SortSettingFromName-string-">SortSettingFromName</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_SortSettings.html#SortSettingsToName-TSortSettings-">SortSettingsToName</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></td>
 <td class="itemdesc"><p>Comma-separated list</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#SplitNameParts-string-TNameParts-">SplitNameParts</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>Splits S, which can be made of any number of parts, separated by dots (Delphi namespaces, like PasDoc.Output.HTML.TWriter.Write).</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#SRemoveChars-string-TCharSet-">SRemoveChars</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Remove all instances of a character in Chars from a string.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#StandardDirectiveByName-string-">StandardDirectiveByName</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>Checks is Name (case ignored) some Pascal keyword.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#StrCountCharA-string-Char-">StrCountCharA</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>count occurences of AChar in AString</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html#StreamReadLine-TStream-">StreamReadLine</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html#StreamWriteLine-TStream-AnsiString-">StreamWriteLine</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
-<td class="itemdesc"><p>Write AString contents, then LineEnding to AStream</p></td>
+<td class="itemdesc"><p>Read next line from AStream, return it as AnsiString.</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html#StreamWriteLine-TStream-AnsiString-">StreamWriteLine</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
+<td class="itemdesc"><p>Write AString contents, then LineEnding to AStream.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html#StreamWriteString-TStream-AnsiString-">StreamWriteString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
-<td class="itemdesc"><p>Just write AString contents to AStream</p></td>
+<td class="itemdesc"><p>Just write AString contents to AStream.</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_StringPairVector.html#StringPairIsNilOrEmpty-TStringPairVector-">StringPairIsNilOrEmpty</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#StringReplaceChars-string-arrayofTCharReplacement-">StringReplaceChars</a></td>
@@ -328,9 +382,29 @@
 <td class="itemdesc"><p>Save the String content into a file.</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Types.html#StringToImplicitVisibility-String-">StringToImplicitVisibility</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_GenHtml.html#StringToInheritedMembers-String-">StringToInheritedMembers</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Gen.html#StringToLinkLook-String-">StringToLinkLook</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#StripHtml-string-">StripHtml</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Strip HTML elements from the string.</p></td>
+</tr>
+<tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Types.html#StripNamePart-TNameParts-">StripNamePart</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
+<td class="itemdesc"><p>Strip one name part.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#StrPosIA-string-string-">StrPosIA</a></td>
@@ -338,44 +412,34 @@
 <td class="itemdesc"><p>Position of the ASub in AString.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#Swap16Buf-PWord-PWord-Integer-">Swap16Buf</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#SyntaxFromID-TLanguageID-">SyntaxFromID</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#SyntaxFromIndex-integer-">SyntaxFromIndex</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>Language abbreviation</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tipue.html#TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-">TipueAddFiles</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
 <td class="itemdesc"><p>Adds some additional files to html documentation, needed for tipue engine.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Tipue.html#TipueSearchButton">TipueSearchButton</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
 <td class="itemdesc"><p>Put this at a place where Tipue button should appear.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tipue.html#TipueSearchButtonHead">TipueSearchButtonHead</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
 <td class="itemdesc"><p>Put this in &lt;head&gt; of every page with search button.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#Translation-TTranslationID-TLanguageID-">Translation</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>Manual translation of id into lang</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Utils.html#Utf8Size-Byte-">Utf8Size</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#VisibilitiesToStr-TVisibilities-">VisibilitiesToStr</a></td>

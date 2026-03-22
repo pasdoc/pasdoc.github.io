@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,57 +76,82 @@
 <div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_StreamUtils</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 A few stream utility functions.</p>
 <p>
-   TBufferedStream, TStreamReader and TStreamWriter by Arno Garrels.</p>
+   </p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L29">Source: source/component/PasDoc_StreamUtils.pas (line 29).</a></p><span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li>SysUtils</li><li>Classes</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li>BufStream</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_StreamUtils.html#StreamReadLine-TStream-">StreamReadLine</a></strong>(const AStream: TStream): AnsiString;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_StreamUtils.html#StreamWriteLine-TStream-AnsiString-">StreamWriteLine</a></strong>(const AStream: TStream; const AString: AnsiString);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_StreamUtils.html#StreamWriteString-TStream-AnsiString-">StreamWriteString</a></strong>(const AStream: TStream; const AString: AnsiString);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><code><strong><a href="PasDoc_StreamUtils.html#TBufferedFileStream">TBufferedFileStream</a></strong> =
+    
+       BufStream.TBufferedFileStream
+      
+    ;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StreamReadLine-TStream-"></span><code>function <strong>StreamReadLine</strong>(const AStream: TStream): AnsiString;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L215">Source: source/component/PasDoc_StreamUtils.pas (line 215).</a></p></td></tr>
+<p>
+Read next line from AStream, return it as AnsiString. Line ending is included in the result.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L53">Source: source/component/PasDoc_StreamUtils.pas (line 53).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StreamWriteLine-TStream-AnsiString-"></span><code>procedure <strong>StreamWriteLine</strong>(const AStream: TStream; const AString: AnsiString);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-Write AString contents, then LineEnding to AStream</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L218">Source: source/component/PasDoc_StreamUtils.pas (line 218).</a></p></td></tr>
+Write AString contents, then LineEnding to AStream.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L56">Source: source/component/PasDoc_StreamUtils.pas (line 56).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="StreamWriteString-TStream-AnsiString-"></span><code>procedure <strong>StreamWriteString</strong>(const AStream: TStream; const AString: AnsiString);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-Just write AString contents to AStream</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L221">Source: source/component/PasDoc_StreamUtils.pas (line 221).</a></p></td></tr>
+Just write AString contents to AStream.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L59">Source: source/component/PasDoc_StreamUtils.pas (line 59).</a></p></td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TBufferedFileStream"></span><code><strong>TBufferedFileStream</strong> =
+    
+       BufStream.TBufferedFileStream
+      
+    ;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StreamUtils.pas#L41">Source: source/component/PasDoc_StreamUtils.pas (line 41).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">
 <li>Johannes Berg &lt;<a href="mailto:johannes@sipsolutions.de">johannes@sipsolutions.de</a>&gt;</li>
 <li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
+<li>Michalis Kamburelis</li>
 </ul>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

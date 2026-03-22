@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,7 +76,7 @@
 <div class="container-fluid py-3 px-4">
 <h1 class="unit">Unit PasDoc_Gen</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section"><a class="section" href="#PasDoc-Constants">Constants</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="description">Description</h2>
 <p>
 Base generator class <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>, to be specialized for specific output formats.</p>
@@ -41,7 +85,7 @@ Base generator class <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDoc
 
 <p><code>PasDoc_Gen</code> contains the basic documentation generator object <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>. It is not sufficient by itself but the basis for all generators that produce documentation in a specific format like HTML or LaTex. They override <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a>'s virtual methods.</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L43">Source: source/component/PasDoc_Gen.pas (line 43).</a></p><span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li><a href="PasDoc_Items.html">PasDoc_Items</a></li><li><a href="PasDoc_Languages.html">PasDoc_Languages</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_ObjectVector.html">PasDoc_ObjectVector</a></li><li><a href="PasDoc_HierarchyTree.html">PasDoc_HierarchyTree</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li>Classes</li><li>Contnrs</li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Aspell.html">PasDoc_Aspell</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>SysUtils</li><li>Classes</li><li>Contnrs</li><li>Generics.Collections</li><li><a href="PasDoc_Items.html">PasDoc_Items</a></li><li><a href="PasDoc_Languages.html">PasDoc_Languages</a></li><li><a href="PasDoc_StringVector.html">PasDoc_StringVector</a></li><li><a href="PasDoc_HierarchyTree.html">PasDoc_HierarchyTree</a></li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_TagManager.html">PasDoc_TagManager</a></li><li><a href="PasDoc_Aspell.html">PasDoc_Aspell</a></li><li><a href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></li><li><a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></li><li><a href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
 <table class="classestable wide_list">
 <tr class="listheader">
@@ -73,33 +117,39 @@ Base generator class <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDoc
 <td class="itemdesc">Base generator class, to be specialized for specific output formats.</td>
 </tr>
 </table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><code>function <strong><a href="PasDoc_Gen.html#StringToLinkLook-String-">StringToLinkLook</a></strong>(const S: String): <a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a>;</code></td>
+</tr>
+</table>
 <span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a></strong> = Low(<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>) .. <a href="PasDoc_Gen.html#ofIdentifiers">ofIdentifiers</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TLinkNotFoundAction">TLinkNotFoundAction</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TLinkContext">TLinkContext</a></strong> = (...);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TListType">TListType</a></strong> = (...);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#TListItemSpacing">TListItemSpacing</a></strong> = (...);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#OverviewFilesInfo">OverviewFilesInfo</a></strong>: array[<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>] of <a href="PasDoc_Gen.TOverviewFileInfo.html">TOverviewFileInfo</a> = (
     (BaseFileName: 'AllUnits'      ; TranslationId: <a href="PasDoc_Languages.html#trUnits">trUnits</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineUnits">trHeadlineUnits</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
     (BaseFileName: 'ClassHierarchy'; TranslationId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a>        ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a> ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
@@ -113,17 +163,25 @@ Base generator class <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDoc
     (BaseFileName: 'GVClasses'     ; TranslationId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>             ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trGvClasses">trGvClasses</a>      ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a> ; )
   );</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#LowCreatedOverviewFile">LowCreatedOverviewFile</a></strong> = Low(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Gen.html#HighCreatedOverviewFile">HighCreatedOverviewFile</a></strong> = High(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="StringToLinkLook-String-"></span><code>function <strong>StringToLinkLook</strong>(const S: String): <a href="PasDoc_Gen.html#TLinkLook">TLinkLook</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L1087">Source: source/component/PasDoc_Gen.pas (line 1087).</a></p></td></tr>
+</table>
 <h3 class="detail">Types</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TOverviewFile"></span><code><strong>TOverviewFile</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -156,15 +214,15 @@ Overview files that pasdoc generates for multiple-document-formats like HTML (se
 </ul>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L72">Source: source/component/PasDoc_Gen.pas (line 72).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TCreatedOverviewFile"></span><code><strong>TCreatedOverviewFile</strong> = Low(<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>) .. <a href="PasDoc_Gen.html#ofIdentifiers">ofIdentifiers</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L84">Source: source/component/PasDoc_Gen.pas (line 84).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TLinkLook"></span><code><strong>TLinkLook</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -179,8 +237,8 @@ Overview files that pasdoc generates for multiple-document-formats like HTML (se
 </ul>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L119">Source: source/component/PasDoc_Gen.pas (line 119).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TLinkNotFoundAction"></span><code><strong>TLinkNotFoundAction</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -195,8 +253,8 @@ Overview files that pasdoc generates for multiple-document-formats like HTML (se
 </ul>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L121">Source: source/component/PasDoc_Gen.pas (line 121).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TLinkContext"></span><code><strong>TLinkContext</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -211,8 +269,8 @@ This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLi
 </ul>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L124">Source: source/component/PasDoc_Gen.pas (line 124).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TListType"></span><code><strong>TListType</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -227,8 +285,8 @@ This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLi
 </ul>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L133">Source: source/component/PasDoc_Gen.pas (line 133).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TListItemSpacing"></span><code><strong>TListItemSpacing</strong> = (...);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -242,8 +300,8 @@ This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLi
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L135">Source: source/component/PasDoc_Gen.pas (line 135).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="OverviewFilesInfo"></span><code><strong>OverviewFilesInfo</strong>: array[<a href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a>] of <a href="PasDoc_Gen.TOverviewFileInfo.html">TOverviewFileInfo</a> = (
     (BaseFileName: 'AllUnits'      ; TranslationId: <a href="PasDoc_Languages.html#trUnits">trUnits</a>                 ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trHeadlineUnits">trHeadlineUnits</a>                 ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNone">trNone</a>   ; ),
     (BaseFileName: 'ClassHierarchy'; TranslationId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a>        ; TranslationHeadlineId: <a href="PasDoc_Languages.html#trClassHierarchy">trClassHierarchy</a> ; NoItemsTranslationId: <a href="PasDoc_Languages.html#trNoCIOs">trNoCIOs</a>           ; ),
@@ -260,8 +318,8 @@ This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLi
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L94">Source: source/component/PasDoc_Gen.pas (line 94).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="LowCreatedOverviewFile"></span><code><strong>LowCreatedOverviewFile</strong> = Low(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
 </tr>
 <tr><td colspan="1">
@@ -271,8 +329,8 @@ Using High(TCreatedOverviewFile) or High(Overview) where Overview: TCreatedOverv
 <p>This is submitted as FPC bug 4140, <a href="http://www.freepascal.org/bugs/showrec.php3?ID=4140">FPC bug 4140</a>. Fixed in FPC 2.0.1 and FPC 2.1.1.</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Gen.pas#L115">Source: source/component/PasDoc_Gen.pas (line 115).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="HighCreatedOverviewFile"></span><code><strong>HighCreatedOverviewFile</strong> = High(<a href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a>);</code></td>
 </tr>
 <tr><td colspan="1">

@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -37,42 +81,42 @@
 <p>
 Integrate Tipue search.</p>
 <p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L24">Source: source/component/tipue/PasDoc_Tipue.pas (line 24).</a></p><span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
-<ul class="useslist"><li><a href="PasDoc_Utils.html">PasDoc_Utils</a></li><li><a href="PasDoc_Items.html">PasDoc_Items</a></li><li>Contnrs</li></ul><h2 class="overview">Overview</h2>
+<ul class="useslist"><li>Contnrs</li><li><a href="PasDoc_Types.html">PasDoc_Types</a></li><li><a href="PasDoc_Utils.html">PasDoc_Utils</a></li><li><a href="PasDoc_Items.html">PasDoc_Items</a></li></ul><h2 class="overview">Overview</h2>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tipue.html#TipueSearchButtonHead">TipueSearchButtonHead</a></strong>: string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Tipue.html#TipueSearchButton">TipueSearchButton</a></strong>: string;</code></td>
 </tr>
-<tr class="list">
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tipue.html#TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-">TipueAddFiles</a></strong>(Units: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>; const Introduction, Conclusion: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const AdditionalFiles: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a>; const Head, BodyBegin, BodyEnd: string; const LanguageCode: string; const OutputPath: string);</code></td>
+<tr class="list visibility-published">
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Tipue.html#TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-">TipueAddFiles</a></strong>(Units: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>; const Introduction, Conclusion: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const AdditionalFiles: <a href="PasDoc_Items.html#TExternalItemList">TExternalItemList</a>; const Head, BodyBegin, BodyEnd: string; const LanguageCode: string; const OutputPath: string);</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TipueSearchButtonHead"></span><code>function <strong>TipueSearchButtonHead</strong>: string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Put this in &lt;head&gt; of every page with search button.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L31">Source: source/component/tipue/PasDoc_Tipue.pas (line 31).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L32">Source: source/component/tipue/PasDoc_Tipue.pas (line 32).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="TipueSearchButton"></span><code>function <strong>TipueSearchButton</strong>: string;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Put this at a place where Tipue button should appear. It will make a form with search button. You will need to use Format to insert the localized word for &quot;Search&quot;, e.g.: Format(TipueSearchButton, ['Search']) for English.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L37">Source: source/component/tipue/PasDoc_Tipue.pas (line 37).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L38">Source: source/component/tipue/PasDoc_Tipue.pas (line 38).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
-<td class="itemcode"><span id="TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-"></span><code>procedure <strong>TipueAddFiles</strong>(Units: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>; const Introduction, Conclusion: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const AdditionalFiles: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a>; const Head, BodyBegin, BodyEnd: string; const LanguageCode: string; const OutputPath: string);</code></td>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-"></span><code>procedure <strong>TipueAddFiles</strong>(Units: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a>; const Introduction, Conclusion: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>; const AdditionalFiles: <a href="PasDoc_Items.html#TExternalItemList">TExternalItemList</a>; const Head, BodyBegin, BodyEnd: string; const LanguageCode: string; const OutputPath: string);</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
@@ -81,7 +125,7 @@ Adds some additional files to html documentation, needed for tipue engine.
 <p>OutputPath is our output path, where html output must be placed. Must end with PathDelim.
 
 <p>Units must be non-nil. It will be used to generate index data for tipue.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L45">Source: source/component/tipue/PasDoc_Tipue.pas (line 45).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/tipue/PasDoc_Tipue.pas#L46">Source: source/component/tipue/PasDoc_Tipue.pas (line 46).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

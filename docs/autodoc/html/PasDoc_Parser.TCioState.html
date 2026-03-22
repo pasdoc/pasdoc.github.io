@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>PasDoc's autodoc: PasDoc_Languages: Record TLanguageRecord</title>
+<title>PasDoc's autodoc: PasDoc_Parser: Class TCioState</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="PasDoc 0.17.0.snapshot">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -74,94 +74,90 @@ function pasdocUpdateMembers(className) {
 </li></ul></div></div>
 <main class="pasdoc-content content">
 <div class="container-fluid py-3 px-4">
-<span id="TLanguageRecord"></span><h1 class="cio">Record TLanguageRecord</h1>
+<span id="TCioState"></span><h1 class="cio">Class TCioState</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
-<a href="PasDoc_Languages.html">PasDoc_Languages</a></p>
+<a href="PasDoc_Parser.html">PasDoc_Parser</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TLanguageRecord = record</code></p>
+<code>type TCioState = class(TObject)</code></p>
 <h2 class="description">Description</h2>
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L252">Source: source/component/PasDoc_Languages.pas (line 252).</a></p><div class="show-members-toggles">
+<p>
+State of parsing a structure (called &quot;CIO&quot; throughout PasDoc codebase).</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Parser.pas#L56">Source: source/component/PasDoc_Parser.pas (line 56).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TCioState</li></ul><div class="show-members-toggles">
 <span class="show-members-toggles-label">Show Additional Members:</span>
 <label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
 <label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
 </div>
 <h2 class="overview">Overview</h2>
-<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
 <tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.TLanguageRecord.html#Table">Table</a></strong>: <a href="PasDoc_Languages.html#PTransTable">PTransTable</a>;</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Parser.TCioState.html#FreeAll">FreeAll</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Parser.TCioState.html#Cio">Cio</a></strong>: <a href="PasDoc_Items.TPasCio.html">TPasCio</a> read FCio write FCio;</code></td>
 </tr>
 <tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.TLanguageRecord.html#Name">Name</a></strong>: string;</code></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Parser.TCioState.html#Visibility">Visibility</a></strong>: <a href="PasDoc_Items.html#TVisibility">TVisibility</a> read FVisibility write FVisibility;</code></td>
 </tr>
 <tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.TLanguageRecord.html#Syntax">Syntax</a></strong>: string;</code></td>
-</tr>
-<tr class="list2 visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.TLanguageRecord.html#CharSet">CharSet</a></strong>: string;</code></td>
-</tr>
-<tr class="list visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.TLanguageRecord.html#AspellLanguage">AspellLanguage</a></strong>: string;</code></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Parser.TCioState.html#Section">Section</a></strong>: <a href="PasDoc_Parser.html#TParsingSection">TParsingSection</a> read FSection write FSection;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
-<h3 class="detail">Fields</h3>
+<h3 class="detail">Methods</h3>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Table"></span><code><strong>Table</strong>: <a href="PasDoc_Languages.html#PTransTable">PTransTable</a>;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L259">Source: source/component/PasDoc_Languages.pas (line 259).</a></p></td></tr>
-</table>
-<table class="detail visibility-public wide_list">
-<tr class="list visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Name"></span><code><strong>Name</strong>: string;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L260">Source: source/component/PasDoc_Languages.pas (line 260).</a></p></td></tr>
-</table>
-<table class="detail visibility-public wide_list">
-<tr class="list visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Syntax"></span><code><strong>Syntax</strong>: string;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L261">Source: source/component/PasDoc_Languages.pas (line 261).</a></p></td></tr>
-</table>
-<table class="detail visibility-public wide_list">
-<tr class="list visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="CharSet"></span><code><strong>CharSet</strong>: string;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L262">Source: source/component/PasDoc_Languages.pas (line 262).</a></p></td></tr>
-</table>
-<table class="detail visibility-public wide_list">
-<tr class="list visibility-public">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="AspellLanguage"></span><code><strong>AspellLanguage</strong>: string;</code></td>
+<td class="itemcode"><span id="FreeAll"></span><code>procedure <strong>FreeAll</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Name of this language as used by Aspell, see <a href="http://aspell.net/man-html/Supported.html">Aspell supported languages</a>.
-
-<p>Set this to empty string if it's the same as our Syntax up to a dot. So a Syntax = 'pl' or Syntax = 'pl.iso-8859-2' already indicates AspellLanguage = 'pl'.
-
-<p>TODO: In the future, it would be nice if all language names used by PasDoc and Aspell matched. Aspell language naming follows the standard <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> as far as I see, and we should probably follow it too (currently, we deviate for some languages).
-
-<p>So in the future, we'll probably replace Syntax and AspellLanguage by LanguageCode and CharsetCode. LanguageCode = code (suitable for both PasDoc and Aspell command-line; the thing currently up to a dot in Syntax), CharsetCode = the short representation of CharSet (the thing currently after a dot in Syntax).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L281">Source: source/component/PasDoc_Languages.pas (line 281).</a></p></td></tr>
+Frees included objects and calls its own destructor. Objects are not owned by default.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Parser.pas#L73">Source: source/component/PasDoc_Parser.pas (line 73).</a></p></td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Cio"></span><code>property <strong>Cio</strong>: <a href="PasDoc_Items.TPasCio.html">TPasCio</a> read FCio write FCio;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Structure (CIO) that is currently being parsed.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Parser.pas#L63">Source: source/component/PasDoc_Parser.pas (line 63).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Visibility"></span><code>property <strong>Visibility</strong>: <a href="PasDoc_Items.html#TVisibility">TVisibility</a> read FVisibility write FVisibility;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Current visibility (like public, private...) for members of this CIO.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Parser.pas#L66">Source: source/component/PasDoc_Parser.pas (line 66).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Section"></span><code>property <strong>Section</strong>: <a href="PasDoc_Parser.html#TParsingSection">TParsingSection</a> read FSection write FSection;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Are we inside a const, var, type section (nested in a class)?</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Parser.pas#L69">Source: source/component/PasDoc_Parser.pas (line 69).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

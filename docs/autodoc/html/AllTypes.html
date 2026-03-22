@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -38,183 +82,183 @@
 <th class="itemdesc">Description</th>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.html#PFakeArray">PFakeArray</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.html#PHashEntry">PHashEntry</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>language descriptor</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.html#PPHashEntry">PPHashEntry</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#PTransTable">PTransTable</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#RawByteString">RawByteString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#RTransTable">RTransTable</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>array holding the translated strings, or empty for default (English) text.</p></td>
 </tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Items.html#TBaseItemDictionary">TBaseItemDictionary</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_StreamUtils.html#TBufferedFileStream">TBufferedFileStream</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_StreamUtils.html">PasDoc_StreamUtils</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TBytes">TBytes</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TCharSet">TCharSet</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Set of AnsiChars.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#TCIOType">TCIOType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a> item, like a class or record.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#TClassDirective">TClassDirective</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TCreatedOverviewFile">TCreatedOverviewFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Scanner.html#TDirectiveType">TDirectiveType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Scanner.html">PasDoc_Scanner</a></td>
 <td class="itemdesc"><p>All directives a scanner is going to regard.</p></td>
 </tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Hashes.html#TFakeArray">TFakeArray</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Hashes.html">PasDoc_Hashes</a></td>
-<td class="itemdesc"><p>in FPC, I can simply use PPHashEntry as an array of PHashEntry - Delphi doesn't allow that.</p></td>
-</tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Items.html#TExternalItemList">TExternalItemList</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#THintDirective">THintDirective</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#THintDirectives">THintDirectives</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>See command-line option --implicit-visibility documentation at <a href="https://pasdoc.github.io/ImplicitVisibilityOption">--implicit-visibility documentation</a>.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Type of merging interface and implementation comments.</p></td>
 </tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Parser.html#TItemParseMode">TItemParseMode</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_GenHtml.html#TInheritedMembers">TInheritedMembers</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_GenHtml.html">PasDoc_GenHtml</a></td>
+<td class="itemdesc"><p>Show we show inherited members (in outputs that make it possible, which right now means only HTML output).</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#TKeyword">TKeyword</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#TLanguageID">TLanguageID</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>An enumeration type of all supported languages</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TLinkContext">TLinkContext</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>This is used by <a class="normal" href="PasDoc_Gen.TDocGenerator.html#MakeItemLink-TBaseItem-string-TLinkContext-">TDocGenerator.MakeItemLink</a></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TLinkLook">TLinkLook</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TLinkNotFoundAction">TLinkNotFoundAction</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TListItemSpacing">TListItemSpacing</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TListType">TListType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TNameParts">TNameParts</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>This represents parts of a qualified name of some item.</p></td>
+<td class="itemdesc"><p>Qualified name of a Pascal item.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Gen.html#TOverviewFile">TOverviewFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Gen.html">PasDoc_Gen</a></td>
 <td class="itemdesc"><p>Overview files that pasdoc generates for multiple-document-formats like HTML (see <a class="normal" href="PasDoc_GenHtml.TGenericHTMLDocGenerator.html">TGenericHTMLDocGenerator</a>).</p></td>
 </tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Parser.html#TOwnerItemType">TOwnerItemType</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Parser.html#TParsingSection">TParsingSection</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Parser.html">PasDoc_Parser</a></td>
+<td class="itemdesc"><p>Are we currently inside a const, var, type section?</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Callback to send a message from one class and react to it in another.</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
+<td class="itemdesc"><p>Message type to send with <a class="normal" href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>.</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#TRoutineType">TRoutineType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Routine type for <a class="normal" href="PasDoc_Items.TPasRoutine.html#What">TPasRoutine.What</a></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Serialize.html">PasDoc_Serialize</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_SortSettings.html#TSortSetting">TSortSetting</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_SortSettings.html">PasDoc_SortSettings</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Aspell.html#TSpellingErrorList">TSpellingErrorList</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Aspell.html">PasDoc_Aspell</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
@@ -230,7 +274,7 @@
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#TStringArray">TStringArray</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
+<td class="itemdesc"><p>Dynamic array of String.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html#TStringConverter">TStringConverter</a></td>
@@ -238,39 +282,49 @@
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
+<td class="itemname"><a class="bold" href="PasDoc_Items.html#TStringStringDictionary">TStringStringDictionary</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Scanner.html#TSwitchOptions">TSwitchOptions</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Scanner.html">PasDoc_Scanner</a></td>
 <td class="itemdesc"><p>an array of boolean values, index type is <a class="normal" href="PasDoc_Scanner.html#TUpperCaseLetter">TUpperCaseLetter</a></p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#TSymbolType">TSymbolType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>enumeration type that provides all types of symbols; each symbol's name starts with SYM_</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html#TTagAllowedInsideEvent">TTagAllowedInsideEvent</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html#TTagExecuteEvent">TTagExecuteEvent</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html#TTagOption">TTagOption</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_TagManager.html#TTagOptions">TTagOptions</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_TagManager.html">PasDoc_TagManager</a></td>
+<td class="itemdesc"><p>&nbsp;</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#TTokenList">TTokenList</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tokenizer.html#TTokenType">TTokenType</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tokenizer.html">PasDoc_Tokenizer</a></td>
-<td class="itemdesc"><p>enumeration type that provides all types of tokens; each token's name starts with TOK_.</p></td>
+<td class="itemdesc"><p>All types of tokens.</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#TTranslationID">TTranslationID</a></td>

@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -42,94 +86,167 @@
 <h2 class="description">Description</h2>
 <p>
 This is a basic item class, that is linkable, and has some <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L158">Source: source/component/PasDoc_Items.pas (line 158).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L157">Source: source/component/PasDoc_Items.pas (line 157).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor"><a class="normal" href="PasDoc_Serialize.TSerializable.html">TSerializable</a></li>
-<li class="thisitem">TBaseItem</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TBaseItem</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected inherited-member">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); virtual;</code></td>
+</tr>
+<tr class="list2 visibility-protected inherited-member">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); virtual;</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#Read7BitEncodedInt-TStream-">Read7BitEncodedInt</a></strong>(const ASource: TStream): Integer;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#Write7BitEncodedInt-Integer-TStream-">Write7BitEncodedInt</a></strong>(Value: Integer; const ADestination: TStream);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#LoadStringFromStream-TStream-">LoadStringFromStream</a></strong>(const ASource: TStream): string;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#SaveStringToStream-string-TStream-">SaveStringToStream</a></strong>(const AValue: string; const ADestination: TStream);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#LoadDoubleFromStream-TStream-">LoadDoubleFromStream</a></strong>(const ASource: TStream): double;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#SaveDoubleToStream-double-TStream-">SaveDoubleToStream</a></strong>(const AValue: double; const ADestination: TStream);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#LoadIntegerFromStream-TStream-">LoadIntegerFromStream</a></strong>(const ASource: TStream): Longint;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#SaveIntegerToStream-Longint-TStream-">SaveIntegerToStream</a></strong>(const AValue: Longint; const ADestination: TStream);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TBaseItem.html#Create">Create</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#SerializeObject-TSerializable-TStream-">SerializeObject</a></strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#DeserializeObject-TStream-">DeserializeObject</a></strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class procedure <strong><a href="PasDoc_Items.TBaseItem.html#Register-TSerializableClass-">Register</a></strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
+</tr>
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#SerializeToFile-string-">SerializeToFile</a></strong>(const AFileName: string);</code></td>
+</tr>
+<tr class="list2 visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>class function <strong><a href="PasDoc_Items.TBaseItem.html#DeserializeFromFile-string-">DeserializeFromFile</a></strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+</tr>
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Serialize-TStream-">Serialize</a></strong>(const ADestination: TStream); override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#Deserialize-TStream-">Deserialize</a></strong>(const ASource: TStream); override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_Items.TBaseItem.html#Create">Create</a></strong>; override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Items.TBaseItem.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItem.html#RegisterTags-TTagManager-">RegisterTags</a></strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItem-string-">FindItem</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItem-TNameParts-">FindItem</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItemMaybeInAncestors-string-">FindItemMaybeInAncestors</a></strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindItemMaybeInAncestors-TNameParts-">FindItemMaybeInAncestors</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#FindName-TNameParts-">FindName</a></strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#RawDescriptionInfo">RawDescriptionInfo</a></strong>: <a href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#QualifiedName">QualifiedName</a></strong>: String; virtual;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#BasePath">BasePath</a></strong>: string; virtual;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItem.html#Signature">Signature</a></strong>: string; virtual;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public inherited-member">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#WasDeserialized">WasDeserialized</a></strong>: boolean read FWasDeserialized;</code></td>
+</tr>
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#DetailedDescription">DetailedDescription</a></strong>: string
       read FDetailedDescription write FDetailedDescription;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#RawDescription">RawDescription</a></strong>: string
       read GetRawDescription write WriteRawDescription;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#FullLink">FullLink</a></strong>: string read FFullLink write FFullLink;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#LastMod">LastMod</a></strong>: string read FLastMod write FLastMod;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Name">Name</a></strong>: string read FName write FName;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Authors">Authors</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FAuthors write SetAuthors;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#Created">Created</a></strong>: string read FCreated;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Items.TBaseItem.html#AutoLinkHereAllowed">AutoLinkHereAllowed</a></strong>: boolean
       read FAutoLinkHereAllowed write FAutoLinkHereAllowed default true;</code></td>
@@ -137,8 +254,143 @@ This is a basic item class, that is linkable, and has some <a class="normal" hre
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected inherited-member wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L46">Source: source/component/PasDoc_Serialize.pas (line 46).</a></p></td></tr>
+</table>
+<table class="detail visibility-protected inherited-member wide_list">
+<tr class="list visibility-protected">
+<td class="visibility"><span class="badge vis-protected">Protected</span></td>
+<td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L47">Source: source/component/PasDoc_Serialize.pas (line 47).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Read7BitEncodedInt-TStream-"></span><code>class function <strong>Read7BitEncodedInt</strong>(const ASource: TStream): Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L49">Source: source/component/PasDoc_Serialize.pas (line 49).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Write7BitEncodedInt-Integer-TStream-"></span><code>class procedure <strong>Write7BitEncodedInt</strong>(Value: Integer; const ADestination: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L50">Source: source/component/PasDoc_Serialize.pas (line 50).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadStringFromStream-TStream-"></span><code>class function <strong>LoadStringFromStream</strong>(const ASource: TStream): string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L52">Source: source/component/PasDoc_Serialize.pas (line 52).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveStringToStream-string-TStream-"></span><code>class procedure <strong>SaveStringToStream</strong>(const AValue: string; const ADestination: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L53">Source: source/component/PasDoc_Serialize.pas (line 53).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadDoubleFromStream-TStream-"></span><code>class function <strong>LoadDoubleFromStream</strong>(const ASource: TStream): double;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L54">Source: source/component/PasDoc_Serialize.pas (line 54).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveDoubleToStream-double-TStream-"></span><code>class procedure <strong>SaveDoubleToStream</strong>(const AValue: double; const ADestination: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L55">Source: source/component/PasDoc_Serialize.pas (line 55).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadIntegerFromStream-TStream-"></span><code>class function <strong>LoadIntegerFromStream</strong>(const ASource: TStream): Longint;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L56">Source: source/component/PasDoc_Serialize.pas (line 56).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveIntegerToStream-Longint-TStream-"></span><code>class procedure <strong>SaveIntegerToStream</strong>(const AValue: Longint; const ADestination: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L57">Source: source/component/PasDoc_Serialize.pas (line 57).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L59">Source: source/component/PasDoc_Serialize.pas (line 59).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SerializeObject-TSerializable-TStream-"></span><code>class procedure <strong>SerializeObject</strong>(const AObject: <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>; const ADestination: TStream);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L60">Source: source/component/PasDoc_Serialize.pas (line 60).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DeserializeObject-TStream-"></span><code>class function <strong>DeserializeObject</strong>(const ASource: TStream): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L61">Source: source/component/PasDoc_Serialize.pas (line 61).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Register-TSerializableClass-"></span><code>class procedure <strong>Register</strong>(const AClass: <a href="PasDoc_Serialize.html#TSerializableClass">TSerializableClass</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L62">Source: source/component/PasDoc_Serialize.pas (line 62).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SerializeToFile-string-"></span><code>procedure <strong>SerializeToFile</strong>(const AFileName: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L63">Source: source/component/PasDoc_Serialize.pas (line 63).</a></p></td></tr>
+</table>
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DeserializeFromFile-string-"></span><code>class function <strong>DeserializeFromFile</strong>(const AFileName: string): <a href="PasDoc_Serialize.TSerializable.html">TSerializable</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Read back from file. </p>
+<h6 class="description_section">Exceptions raised</h6>
+<dl class="exceptions_raised">
+<dt><a class="normal" href="PasDoc_Serialize.EInvalidCacheFileVersion.html">EInvalidCacheFileVersion</a></dt>
+<dd>When the cached file contents are from an old pasdoc version (or invalid).</dd>
+</dl>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L67">Source: source/component/PasDoc_Serialize.pas (line 67).</a></p></td></tr>
+</table>
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); override;</code></td>
 </tr>
@@ -156,74 +408,74 @@ Serialization of TPasItem need to store in stream only data that is generated by
 </ol>
 
 <p></p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L216">Source: source/component/PasDoc_Items.pas (line 216).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L215">Source: source/component/PasDoc_Items.pas (line 215).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L217">Source: source/component/PasDoc_Items.pas (line 217).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L216">Source: source/component/PasDoc_Items.pas (line 216).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L219">Source: source/component/PasDoc_Items.pas (line 219).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L218">Source: source/component/PasDoc_Items.pas (line 218).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L220">Source: source/component/PasDoc_Items.pas (line 220).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L219">Source: source/component/PasDoc_Items.pas (line 219).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="RegisterTags-TTagManager-"></span><code>procedure <strong>RegisterTags</strong>(TagManager: <a href="PasDoc_TagManager.TTagManager.html">TTagManager</a>); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 It registers <a class="normal" href="PasDoc_TagManager.TTag.html">TTag</a>s that init <a class="normal" href="PasDoc_Items.TBaseItem.html#Authors">Authors</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#Created">Created</a>, <a class="normal" href="PasDoc_Items.TBaseItem.html#LastMod">LastMod</a> and remove relevant tags from description. You can override it to add more handlers.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L225">Source: source/component/PasDoc_Items.pas (line 225).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L224">Source: source/component/PasDoc_Items.pas (line 224).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="FindItem-string-"></span><code>function <strong>FindItem</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+<td class="itemcode"><span id="FindItem-TNameParts-"></span><code>function <strong>FindItem</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Search for an item called ItemName <em>inside this Pascal item</em>. For units, it searches for items declared <em>inside this unit</em> (like a procedure, or a class in this unit). For classes it searches for items declared <em>within this class</em> (like a method or a property). For an enumerated type, it searches for members of this enumerated type.
+Search for an item with name NameParts <em>inside this Pascal item</em>. For units, it searches for items declared <em>inside this unit</em> (like a procedure, or a class in this unit). For classes it searches for items declared <em>within this class</em> (like a method or a property). For an enumerated type, it searches for members of this enumerated type.
 
-<p>All normal rules of ObjectPascal scope apply, which means that e.g. if this item is a unit, <code>FindItem</code> searches for a class named ItemName but it <em>doesn't</em> search for a method named ItemName inside some class of this unit. Just like in ObjectPascal the scope of identifiers declared within the class always stays within the class. Of course, in ObjectPascal you can qualify a method name with a class name, and you can also do such qualified links in pasdoc, but this is not handled by this routine (see <a class="normal" href="PasDoc_Items.TBaseItem.html#FindName-TNameParts-">FindName</a> instead).
+<p>All normal rules of ObjectPascal scope apply, which means that e.g. classes have their separate namespace. When searching for Foo from the unit level, we do not &quot;look into&quot; class namespaces.
 
 <p>Returns nil if not found.
 
-<p>Note that it never compares ItemName with Self.Name. You may want to check this yourself if you want.
+<p>Note that it never compares NameParts with Self.Name. You may want to check this yourself if you want.
 
 <p>Note that for TPasItem descendants, it always returns also some TPasItem descendant (so if you use this method with some TPasItem instance, you can safely cast result of this method to TPasItem).
 
 <p>Implementation in this class always returns nil. Override as necessary.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L256">Source: source/component/PasDoc_Items.pas (line 256).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L249">Source: source/component/PasDoc_Items.pas (line 249).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="FindItemMaybeInAncestors-string-"></span><code>function <strong>FindItemMaybeInAncestors</strong>(const ItemName: string): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
+<td class="itemcode"><span id="FindItemMaybeInAncestors-TNameParts-"></span><code>function <strong>FindItemMaybeInAncestors</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-This is just like <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem-string-">FindItem</a>, but in case of classes or such it should also search within ancestors. In this class, the default implementation just calls FindItem.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L261">Source: source/component/PasDoc_Items.pas (line 261).</a></p></td></tr>
+This is just like <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem-TNameParts-">FindItem</a>, but in case of classes or such it should also search within ancestors. In this class, the default implementation just calls FindItem.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L254">Source: source/component/PasDoc_Items.pas (line 254).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="FindName-TNameParts-"></span><code>function <strong>FindName</strong>(const NameParts: <a href="PasDoc_Types.html#TNameParts">TNameParts</a>): <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>; virtual;</code></td>
 </tr>
@@ -232,10 +484,10 @@ This is just like <a class="normal" href="PasDoc_Items.TBaseItem.html#FindItem-s
 Do all you can to find link specified by NameParts.
 
 <p>While searching this tries to mimic ObjectPascal identifier scope as much as it can. It seaches within this item, but also within class enclosing this item, within ancestors of this class, within unit enclosing this item, then within units used by unit of this item.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L272">Source: source/component/PasDoc_Items.pas (line 272).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L265">Source: source/component/PasDoc_Items.pas (line 265).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="RawDescriptionInfo"></span><code>function <strong>RawDescriptionInfo</strong>: <a href="PasDoc_Items.html#PRawDescriptionInfo">PRawDescriptionInfo</a>;</code></td>
 </tr>
@@ -250,10 +502,10 @@ Full info about <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescripti
 <pre class="longcode">Item.RawDescriptionInfo.StreamName := <span class="pascal_string">'foo'</span>;</pre>
 
 <p> would not work as expected) .</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L303">Source: source/component/PasDoc_Items.pas (line 303).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L296">Source: source/component/PasDoc_Items.pas (line 296).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="QualifiedName"></span><code>function <strong>QualifiedName</strong>: String; virtual;</code></td>
 </tr>
@@ -262,29 +514,37 @@ Full info about <a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescripti
 Returns the qualified name of the item. This is intended to return a concise and not ambigous name. E.g. in case of TPasItem it is overridden to return Name qualified by class name and unit name.
 
 <p>In this class this simply returns Name.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L322">Source: source/component/PasDoc_Items.pas (line 322).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L315">Source: source/component/PasDoc_Items.pas (line 315).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="BasePath"></span><code>function <strong>BasePath</strong>: string; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 The full (absolute) path used to resolve filenames in this item's descriptions. Must always end with PathDelim. In this class, this simply returns GetCurrentDir (with PathDelim added if needed).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L340">Source: source/component/PasDoc_Items.pas (line 340).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L333">Source: source/component/PasDoc_Items.pas (line 333).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Signature"></span><code>function <strong>Signature</strong>: string; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L342">Source: source/component/PasDoc_Items.pas (line 342).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L335">Source: source/component/PasDoc_Items.pas (line 335).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public inherited-member wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="WasDeserialized"></span><code>property <strong>WasDeserialized</strong>: boolean read FWasDeserialized;</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Serialize.pas#L68">Source: source/component/PasDoc_Serialize.pas (line 68).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="DetailedDescription"></span><code>property <strong>DetailedDescription</strong>: string
       read FDetailedDescription write FDetailedDescription;</code></td>
@@ -296,10 +556,10 @@ Detailed description of this item.
 <p>In case of TPasItem, this is something more elaborate than <a class="normal" href="PasDoc_Items.TPasItem.html#AbstractDescription">TPasItem.AbstractDescription</a>.
 
 <p>This is already in the form suitable for final output, ready to be put inside final documentation.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L281">Source: source/component/PasDoc_Items.pas (line 281).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L274">Source: source/component/PasDoc_Items.pas (line 274).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="RawDescription"></span><code>property <strong>RawDescription</strong>: string
       read GetRawDescription write WriteRawDescription;</code></td>
@@ -309,60 +569,60 @@ Detailed description of this item.
 This stores unexpanded version (as specified in user's comment in source code of parsed units) of description of this item.
 
 <p>Actually, this is just a shortcut to <code><a class="normal" href="PasDoc_Items.TBaseItem.html#RawDescriptionInfo">RawDescriptionInfo</a>.Content</code></p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L290">Source: source/component/PasDoc_Items.pas (line 290).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L283">Source: source/component/PasDoc_Items.pas (line 283).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="FullLink"></span><code>property <strong>FullLink</strong>: string read FFullLink write FFullLink;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 a full link that should be enough to link this item from anywhere else</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L306">Source: source/component/PasDoc_Items.pas (line 306).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L299">Source: source/component/PasDoc_Items.pas (line 299).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="LastMod"></span><code>property <strong>LastMod</strong>: string read FLastMod write FLastMod;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Contains '' or string with date of last modification. This string is already in the form suitable for final output format (i.e. already processed by TDocGenerator.ConvertString).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L311">Source: source/component/PasDoc_Items.pas (line 311).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L304">Source: source/component/PasDoc_Items.pas (line 304).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Name"></span><code>property <strong>Name</strong>: string read FName write FName;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 name of the item</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L314">Source: source/component/PasDoc_Items.pas (line 314).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L307">Source: source/component/PasDoc_Items.pas (line 307).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Authors"></span><code>property <strong>Authors</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FAuthors write SetAuthors;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 list of strings, each representing one author of this item</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L325">Source: source/component/PasDoc_Items.pas (line 325).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L318">Source: source/component/PasDoc_Items.pas (line 318).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Created"></span><code>property <strong>Created</strong>: string read FCreated;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Contains '' or string with date of creation. This string is already in the form suitable for final output format (i.e. already processed by TDocGenerator.ConvertString).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L330">Source: source/component/PasDoc_Items.pas (line 330).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L323">Source: source/component/PasDoc_Items.pas (line 323).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AutoLinkHereAllowed"></span><code>property <strong>AutoLinkHereAllowed</strong>: boolean
       read FAutoLinkHereAllowed write FAutoLinkHereAllowed default true;</code></td>
@@ -370,7 +630,7 @@ Contains '' or string with date of creation. This string is already in the form 
 <tr><td colspan="2">
 <p>
 Is auto-link mechanism allowed to create link to this item ? This may be set to <code>False</code> by @noAutoLinkHere tag in item's description.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L334">Source: source/component/PasDoc_Items.pas (line 334).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L327">Source: source/component/PasDoc_Items.pas (line 327).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

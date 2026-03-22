@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -78,7 +122,7 @@ Command line option parsing.</p>
 </tr>
 <tr class="list2">
 <td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TSetOption.html"><code>TSetOption</code></a></td>
-<td class="itemdesc">useful for making a choice of things</td>
+<td class="itemdesc">Option that allows to define a set.</td>
 </tr>
 <tr class="list">
 <td class="itemname">Class&nbsp;<a class="bold" href="PasDoc_OptionParser.TOptionParser.html"><code>TOptionParser</code></a></td>
@@ -87,92 +131,92 @@ Command line option parsing.</p>
 </table>
 <span id="PasDoc-Constants"></span><h3 class="summary">Constants</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#DefShortOptionChar">DefShortOptionChar</a></strong> = '-';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#DefLongOptionString">DefLongOptionString</a></strong> = '--';</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionFileChar">OptionFileChar</a></strong> = '@';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#CfgMacroCfgPath">CfgMacroCfgPath</a></strong> = '$CFG_PATH';</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionIndent">OptionIndent</a></strong> = '  ';</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#OptionSep">OptionSep</a></strong> = '  ';</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_OptionParser.html#ConsoleWidth">ConsoleWidth</a></strong> = 80;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Constants</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="DefShortOptionChar"></span><code><strong>DefShortOptionChar</strong> = '-';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 default short option character used</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L44">Source: source/component/PasDoc_OptionParser.pas (line 44).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L41">Source: source/component/PasDoc_OptionParser.pas (line 41).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="DefLongOptionString"></span><code><strong>DefLongOptionString</strong> = '--';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 default long option string used</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L46">Source: source/component/PasDoc_OptionParser.pas (line 46).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L43">Source: source/component/PasDoc_OptionParser.pas (line 43).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="OptionFileChar"></span><code><strong>OptionFileChar</strong> = '@';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Marks &quot;include config file&quot; option</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L48">Source: source/component/PasDoc_OptionParser.pas (line 48).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L45">Source: source/component/PasDoc_OptionParser.pas (line 45).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="CfgMacroCfgPath"></span><code><strong>CfgMacroCfgPath</strong> = '$CFG_PATH';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Special substitution that, if found inside a config file, will be replaced with actual path of the file</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L51">Source: source/component/PasDoc_OptionParser.pas (line 51).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L48">Source: source/component/PasDoc_OptionParser.pas (line 48).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="OptionIndent"></span><code><strong>OptionIndent</strong> = '  ';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Indentation of option's name from the start of console line</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L53">Source: source/component/PasDoc_OptionParser.pas (line 53).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L50">Source: source/component/PasDoc_OptionParser.pas (line 50).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="OptionSep"></span><code><strong>OptionSep</strong> = '  ';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Separator between option's name and explanation</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L55">Source: source/component/PasDoc_OptionParser.pas (line 55).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L52">Source: source/component/PasDoc_OptionParser.pas (line 52).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="itemcode"><span id="ConsoleWidth"></span><code><strong>ConsoleWidth</strong> = 80;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
 Width of console</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L57">Source: source/component/PasDoc_OptionParser.pas (line 57).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_OptionParser.pas#L54">Source: source/component/PasDoc_OptionParser.pas (line 54).</a></p></td></tr>
 </table>
 <h2 class="authors">Author</h2>
 <ul class="authors">

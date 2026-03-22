@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -42,113 +86,118 @@
 <h2 class="description">Description</h2>
 <p>
 This is a class to interface with aspell through pipe. It uses underlying <a class="normal" href="PasDoc_ProcessLineTalk.TProcessLineTalk.html">TProcessLineTalk</a> to execute and &quot;talk&quot; with aspell.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L52">Source: source/component/PasDoc_Aspell.pas (line 52).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L55">Source: source/component/PasDoc_Aspell.pas (line 55).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
-<li class="thisitem">TAspellProcess</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TAspellProcess</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_Aspell.TAspellProcess.html#Create-string-string-TPasDocMessageEvent-">Create</a></strong>(const AAspellMode, AAspellLanguage: string; AOnMessage: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Aspell.TAspellProcess.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Aspell.TAspellProcess.html#SetIgnoreWords-TStringList-">SetIgnoreWords</a></strong>(Value: TStringList);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TObjectVector-">CheckString</a></strong>(const AString: string; const AErrors: <a href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>);</code></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TSpellingErrorList-">CheckString</a></strong>(const AString: string; const AErrors: <a href="PasDoc_Aspell.html#TSpellingErrorList">TSpellingErrorList</a>);</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Aspell.TAspellProcess.html#AspellMode">AspellMode</a></strong>: string read FAspellMode;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Aspell.TAspellProcess.html#AspellLanguage">AspellLanguage</a></strong>: string read FAspellLanguage;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Aspell.TAspellProcess.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create-string-string-TPasDocMessageEvent-"></span><code>constructor <strong>Create</strong>(const AAspellMode, AAspellLanguage: string; AOnMessage: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Constructor. Values for AspellMode and AspellLanguage are the same as for aspell --mode and --lang command-line options. You can pass here '', then we will not pass appropriate command-line option to aspell.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L67">Source: source/component/PasDoc_Aspell.pas (line 67).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L70">Source: source/component/PasDoc_Aspell.pas (line 70).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L69">Source: source/component/PasDoc_Aspell.pas (line 69).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L72">Source: source/component/PasDoc_Aspell.pas (line 72).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="SetIgnoreWords-TStringList-"></span><code>procedure <strong>SetIgnoreWords</strong>(Value: TStringList);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-Tell Aspell to ignore all words in Value for subsequent <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TObjectVector-">CheckString</a> calls.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L83">Source: source/component/PasDoc_Aspell.pas (line 83).</a></p></td></tr>
+Tell Aspell to ignore all words in Value for subsequent <a class="normal" href="PasDoc_Aspell.TAspellProcess.html#CheckString-string-TSpellingErrorList-">CheckString</a> calls.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L86">Source: source/component/PasDoc_Aspell.pas (line 86).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="CheckString-string-TObjectVector-"></span><code>procedure <strong>CheckString</strong>(const AString: string; const AErrors: <a href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>);</code></td>
+<td class="itemcode"><span id="CheckString-string-TSpellingErrorList-"></span><code>procedure <strong>CheckString</strong>(const AString: string; const AErrors: <a href="PasDoc_Aspell.html#TSpellingErrorList">TSpellingErrorList</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Spellchecks AString and returns result. Will create an array of TSpellingError objects, one entry for each misspelled word. Offsets of TSpellingErrors will be relative to AString.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L89">Source: source/component/PasDoc_Aspell.pas (line 89).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L92">Source: source/component/PasDoc_Aspell.pas (line 92).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AspellMode"></span><code>property <strong>AspellMode</strong>: string read FAspellMode;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Aspell input mode (passed to aspell --mode command-line option) passed at construction. Empty string means the Aspell default.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L74">Source: source/component/PasDoc_Aspell.pas (line 74).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L77">Source: source/component/PasDoc_Aspell.pas (line 77).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AspellLanguage"></span><code>property <strong>AspellLanguage</strong>: string read FAspellLanguage;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Language code for aspell (passed to aspell --lang command-line option) passed at construction. Empty string means the Aspell default.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L79">Source: source/component/PasDoc_Aspell.pas (line 79).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L82">Source: source/component/PasDoc_Aspell.pas (line 82).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Callback for diagnostic messages.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L92">Source: source/component/PasDoc_Aspell.pas (line 92).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Aspell.pas#L95">Source: source/component/PasDoc_Aspell.pas (line 95).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

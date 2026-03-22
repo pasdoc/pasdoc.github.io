@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -42,185 +86,194 @@
 <h2 class="description">Description</h2>
 <p>
 Manages parsing and documentation generation.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L71">Source: source/component/PasDoc_Base.pas (line 71).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L63">Source: source/component/PasDoc_Base.pas (line 63).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TPersistent</li>
 <li class="ancestor">TComponent</li>
-<li class="thisitem">TPasDoc</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TPasDoc</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#RemoveExcludedItems-TPasItems-">RemoveExcludedItems</a></strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#Notification-TComponent-TOperation-">Notification</a></strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>constructor <strong><a href="PasDoc_Base.TPasDoc.html#Create-TComponent-">Create</a></strong>(AOwner: TComponent); override;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>destructor <strong><a href="PasDoc_Base.TPasDoc.html#Destroy">Destroy</a></strong>; override;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#AddSourceFileNames-TStringList-">AddSourceFileNames</a></strong>(const AFileNames: TStringList);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#AddSourceFileNamesFromFile-string-boolean-">AddSourceFileNamesFromFile</a></strong>(const FileName: string; DashMeansStdin: boolean);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#DoError-string-arrayof-Word-">DoError</a></strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#DoMessage-Cardinal-TPasDocMessageType-string-arrayof-">DoMessage</a></strong>(const AVerbosity: Cardinal; const AMessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#GenMessage-TPasDocMessageType-string-Cardinal-">GenMessage</a></strong>(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Base.TPasDoc.html#Execute">Execute</a></strong>;</code></td>
 </tr>
 </table>
 <span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Units">Units</a></strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read FUnits;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Conclusion">Conclusion</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Introduction">Introduction</a></strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AdditionalFiles">AdditionalFiles</a></strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles;</code></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AdditionalFiles">AdditionalFiles</a></strong>: <a href="PasDoc_Items.html#TExternalItemList">TExternalItemList</a> read FAdditionalFiles;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#DescriptionFileNames">DescriptionFileNames</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>
       read FDescriptionFileNames write SetDescriptionFileNames;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Directives">Directives</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FDirectives write SetDirectives;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IncludeDirectories">IncludeDirectories</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeDirectories write
       SetIncludeDirectories;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#OnWarning">OnWarning</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage stored false;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a></strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ProjectName">ProjectName</a></strong>: string read FProjectName write FProjectName;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#SourceFileNames">SourceFileNames</a></strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FSourceFileNames write
       SetSourceFileNames;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Title">Title</a></strong>: string read FTitle write FTitle;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Verbosity">Verbosity</a></strong>: Cardinal read FVerbosity write FVerbosity
       default <a href="PasDoc_Base.html#DEFAULT_VERBOSITY_LEVEL">DEFAULT_VERBOSITY_LEVEL</a>;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#StarOnly">StarOnly</a></strong>: boolean read GetStarOnly write SetStarOnly stored false;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#CommentMarkers">CommentMarkers</a></strong>: TStringList read FCommentMarkers write SetCommentMarkers;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IgnoreMarkers">IgnoreMarkers</a></strong>: TStringList read FIgnoreMarkers write SetIgnoreMarkers;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#MarkerOptional">MarkerOptional</a></strong>: boolean read FMarkerOptional write FMarkerOptional
       default false;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IgnoreLeading">IgnoreLeading</a></strong>: string read FIgnoreLeading write FIgnoreLeading;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#Generator">Generator</a></strong>: <a href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> read FGenerator write SetGenerator;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ShowVisibilities">ShowVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FShowVisibilities write FShowVisibilities;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ToggleVisibilities">ToggleVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FToggleVisibilities write FToggleVisibilities;</code></td>
+</tr>
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#CacheDir">CacheDir</a></strong>: string read FCacheDir write FCacheDir;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#SortSettings">SortSettings</a></strong>: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>
       read FSortSettings write FSortSettings default [];</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#IntroductionFileName">IntroductionFileName</a></strong>: string read FIntroductionFileName
       write FIntroductionFileName;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ConclusionFileName">ConclusionFileName</a></strong>: string read FConclusionFileName
       write FConclusionFileName;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AdditionalFilesNames">AdditionalFilesNames</a></strong>: TStringList read FAdditionalFilesNames;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#ImplicitVisibility">ImplicitVisibility</a></strong>: <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>
       read FImplicitVisibility write FImplicitVisibility default <a href="PasDoc_Types.html#ivPublic">ivPublic</a>;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#HandleMacros">HandleMacros</a></strong>: boolean
       read FHandleMacros write FHandleMacros default true;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AutoLink">AutoLink</a></strong>: boolean
       read FAutoLink write FAutoLink default false;</code></td>
 </tr>
-<tr class="list">
+<tr class="list2 visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#AutoBackComments">AutoBackComments</a></strong>: boolean
       read FAutoBackComments write FAutoBackComments default false;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><code>property <strong><a href="PasDoc_Base.TPasDoc.html#InfoMergeType">InfoMergeType</a></strong>: <a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>
       read FInfoMergeType write FInfoMergeType;</code></td>
@@ -228,327 +281,339 @@ Manages parsing and documentation generation.</p>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="RemoveExcludedItems-TPasItems-"></span><code>procedure <strong>RemoveExcludedItems</strong>(const c: <a href="PasDoc_Items.TPasItems.html">TPasItems</a>);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Searches the description of each TPasUnit item in the collection for an excluded tag. If one is found, the item is removed from the collection. If not, the fields, methods and properties collections are called with RemoveExcludedItems If the collection is empty after removal of all items, it is disposed of and the variable is set to nil.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L134">Source: source/component/PasDoc_Base.pas (line 134).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L127">Source: source/component/PasDoc_Base.pas (line 127).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-protected wide_list">
+<tr class="list visibility-protected">
 <td class="visibility"><span class="badge vis-protected">Protected</span></td>
 <td class="itemcode"><span id="Notification-TComponent-TOperation-"></span><code>procedure <strong>Notification</strong>(AComponent: TComponent; Operation: TOperation); override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L136">Source: source/component/PasDoc_Base.pas (line 136).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L129">Source: source/component/PasDoc_Base.pas (line 129).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Create-TComponent-"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Creates object and sets fields to default values.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L139">Source: source/component/PasDoc_Base.pas (line 139).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L132">Source: source/component/PasDoc_Base.pas (line 132).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L141">Source: source/component/PasDoc_Base.pas (line 141).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L134">Source: source/component/PasDoc_Base.pas (line 134).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AddSourceFileNames-TStringList-"></span><code>procedure <strong>AddSourceFileNames</strong>(const AFileNames: TStringList);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Adds source filenames from a stringlist</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L144">Source: source/component/PasDoc_Base.pas (line 144).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L137">Source: source/component/PasDoc_Base.pas (line 137).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="AddSourceFileNamesFromFile-string-boolean-"></span><code>procedure <strong>AddSourceFileNamesFromFile</strong>(const FileName: string; DashMeansStdin: boolean);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Loads names of Pascal unit source code files from a text file. Adds all file names to <a class="normal" href="PasDoc_Base.TPasDoc.html#SourceFileNames">SourceFileNames</a>. If DashMeansStdin and AFileName = '-' then it will load filenames from stdin.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L149">Source: source/component/PasDoc_Base.pas (line 149).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L142">Source: source/component/PasDoc_Base.pas (line 142).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="DoError-string-arrayof-Word-"></span><code>procedure <strong>DoError</strong>(const AMessage: string; const AArguments: array of const; const AExitCode: Word);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Raises an exception.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L152">Source: source/component/PasDoc_Base.pas (line 152).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L145">Source: source/component/PasDoc_Base.pas (line 145).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="DoMessage-Cardinal-TPasDocMessageType-string-arrayof-"></span><code>procedure <strong>DoMessage</strong>(const AVerbosity: Cardinal; const AMessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AArguments: array of const);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Forwards a message to the <a class="normal" href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a> event.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L155">Source: source/component/PasDoc_Base.pas (line 155).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L148">Source: source/component/PasDoc_Base.pas (line 148).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="GenMessage-TPasDocMessageType-string-Cardinal-"></span><code>procedure <strong>GenMessage</strong>(const MessageType: <a href="PasDoc_Types.html#TPasDocMessageType">TPasDocMessageType</a>; const AMessage: string; const AVerbosity: Cardinal);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 for Generator messages</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L158">Source: source/component/PasDoc_Base.pas (line 158).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L151">Source: source/component/PasDoc_Base.pas (line 151).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Execute"></span><code>procedure <strong>Execute</strong>;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Starts creating the documentation.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L161">Source: source/component/PasDoc_Base.pas (line 161).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L154">Source: source/component/PasDoc_Base.pas (line 154).</a></p></td></tr>
 </table>
 <h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Units"></span><code>property <strong>Units</strong>: <a href="PasDoc_Items.TPasUnits.html">TPasUnits</a> read FUnits;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Units</code> holds the units that have been parsed.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L164">Source: source/component/PasDoc_Base.pas (line 164).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L157">Source: source/component/PasDoc_Base.pas (line 157).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Conclusion"></span><code>property <strong>Conclusion</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FConclusion;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Conclusion</code> holds the conclusion.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L166">Source: source/component/PasDoc_Base.pas (line 166).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L159">Source: source/component/PasDoc_Base.pas (line 159).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Introduction"></span><code>property <strong>Introduction</strong>: <a href="PasDoc_Items.TExternalItem.html">TExternalItem</a> read FIntroduction;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>Introduction</code> holds the introduction.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L168">Source: source/component/PasDoc_Base.pas (line 168).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L161">Source: source/component/PasDoc_Base.pas (line 161).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="AdditionalFiles"></span><code>property <strong>AdditionalFiles</strong>: <a href="PasDoc_Items.TExternalItemList.html">TExternalItemList</a> read FAdditionalFiles;</code></td>
+<td class="itemcode"><span id="AdditionalFiles"></span><code>property <strong>AdditionalFiles</strong>: <a href="PasDoc_Items.html#TExternalItemList">TExternalItemList</a> read FAdditionalFiles;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 After <a class="normal" href="PasDoc_Base.TPasDoc.html#Execute">Execute</a> has been called, <code>AdditionalFiles</code> holds the additional external files.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L170">Source: source/component/PasDoc_Base.pas (line 170).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L163">Source: source/component/PasDoc_Base.pas (line 163).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="DescriptionFileNames"></span><code>property <strong>DescriptionFileNames</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a>
       read FDescriptionFileNames write SetDescriptionFileNames;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L172">Source: source/component/PasDoc_Base.pas (line 172).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L165">Source: source/component/PasDoc_Base.pas (line 165).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="Directives"></span><code>property <strong>Directives</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FDirectives write SetDirectives;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L174">Source: source/component/PasDoc_Base.pas (line 174).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L167">Source: source/component/PasDoc_Base.pas (line 167).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="IncludeDirectories"></span><code>property <strong>IncludeDirectories</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FIncludeDirectories write
       SetIncludeDirectories;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L175">Source: source/component/PasDoc_Base.pas (line 175).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L168">Source: source/component/PasDoc_Base.pas (line 168).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="OnWarning"></span><code>property <strong>OnWarning</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage stored false;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 This is deprecated name for <a class="normal" href="PasDoc_Base.TPasDoc.html#OnMessage">OnMessage</a></p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L179">Source: source/component/PasDoc_Base.pas (line 179).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L172">Source: source/component/PasDoc_Base.pas (line 172).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="OnMessage"></span><code>property <strong>OnMessage</strong>: <a href="PasDoc_Types.html#TPasDocMessageEvent">TPasDocMessageEvent</a> read FOnMessage write FOnMessage;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L181">Source: source/component/PasDoc_Base.pas (line 181).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L174">Source: source/component/PasDoc_Base.pas (line 174).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="ProjectName"></span><code>property <strong>ProjectName</strong>: string read FProjectName write FProjectName;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 The name PasDoc shall give to this documentation project, also used to name some of the output files.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L185">Source: source/component/PasDoc_Base.pas (line 185).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L178">Source: source/component/PasDoc_Base.pas (line 178).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="SourceFileNames"></span><code>property <strong>SourceFileNames</strong>: <a href="PasDoc_StringVector.TStringVector.html">TStringVector</a> read FSourceFileNames write
       SetSourceFileNames;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L186">Source: source/component/PasDoc_Base.pas (line 186).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L179">Source: source/component/PasDoc_Base.pas (line 179).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="Title"></span><code>property <strong>Title</strong>: string read FTitle write FTitle;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L188">Source: source/component/PasDoc_Base.pas (line 188).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L181">Source: source/component/PasDoc_Base.pas (line 181).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="Verbosity"></span><code>property <strong>Verbosity</strong>: Cardinal read FVerbosity write FVerbosity
       default <a href="PasDoc_Base.html#DEFAULT_VERBOSITY_LEVEL">DEFAULT_VERBOSITY_LEVEL</a>;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L189">Source: source/component/PasDoc_Base.pas (line 189).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L182">Source: source/component/PasDoc_Base.pas (line 182).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="StarOnly"></span><code>property <strong>StarOnly</strong>: boolean read GetStarOnly write SetStarOnly stored false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L191">Source: source/component/PasDoc_Base.pas (line 191).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L184">Source: source/component/PasDoc_Base.pas (line 184).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="CommentMarkers"></span><code>property <strong>CommentMarkers</strong>: TStringList read FCommentMarkers write SetCommentMarkers;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L192">Source: source/component/PasDoc_Base.pas (line 192).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L185">Source: source/component/PasDoc_Base.pas (line 185).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="IgnoreMarkers"></span><code>property <strong>IgnoreMarkers</strong>: TStringList read FIgnoreMarkers write SetIgnoreMarkers;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L193">Source: source/component/PasDoc_Base.pas (line 193).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L186">Source: source/component/PasDoc_Base.pas (line 186).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="MarkerOptional"></span><code>property <strong>MarkerOptional</strong>: boolean read FMarkerOptional write FMarkerOptional
       default false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L194">Source: source/component/PasDoc_Base.pas (line 194).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L187">Source: source/component/PasDoc_Base.pas (line 187).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="IgnoreLeading"></span><code>property <strong>IgnoreLeading</strong>: string read FIgnoreLeading write FIgnoreLeading;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L196">Source: source/component/PasDoc_Base.pas (line 196).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L189">Source: source/component/PasDoc_Base.pas (line 189).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="Generator"></span><code>property <strong>Generator</strong>: <a href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> read FGenerator write SetGenerator;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L198">Source: source/component/PasDoc_Base.pas (line 198).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L191">Source: source/component/PasDoc_Base.pas (line 191).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="ShowVisibilities"></span><code>property <strong>ShowVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FShowVisibilities write FShowVisibilities;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L199">Source: source/component/PasDoc_Base.pas (line 199).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L192">Source: source/component/PasDoc_Base.pas (line 192).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="ToggleVisibilities"></span><code>property <strong>ToggleVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> read FToggleVisibilities write FToggleVisibilities;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Visibilities that should be included in HTML output but hidden by default, with checkboxes to toggle their display.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L195">Source: source/component/PasDoc_Base.pas (line 195).</a></p></td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="CacheDir"></span><code>property <strong>CacheDir</strong>: string read FCacheDir write FCacheDir;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L200">Source: source/component/PasDoc_Base.pas (line 200).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L196">Source: source/component/PasDoc_Base.pas (line 196).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="SortSettings"></span><code>property <strong>SortSettings</strong>: <a href="PasDoc_SortSettings.html#TSortSettings">TSortSettings</a>
       read FSortSettings write FSortSettings default [];</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
-This determines how items inside will be sorted. See <a href="https://pasdoc.github.io/SortOption">--sort documentation</a>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L204">Source: source/component/PasDoc_Base.pas (line 204).</a></p></td></tr>
+How items will be sorted. See <a href="https://pasdoc.github.io/SortOption">--sort documentation</a>.
+
+<p>This class sorts the items in <a class="normal" href="PasDoc_Gen.TDocGenerator.html#Units">TDocGenerator.Units</a> before executing <a class="normal" href="PasDoc_Gen.TDocGenerator.html#WriteDocumentation">TDocGenerator.WriteDocumentation</a>, so <a class="normal" href="PasDoc_Gen.TDocGenerator.html">TDocGenerator</a> <em>usually</em> doesn't need to worry about sorting anymore... Except if output rearranges/sums items, like HTML output does for InheritedMembers&lt;&gt;imNever, in which case they need to be sorted again.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L206">Source: source/component/PasDoc_Base.pas (line 206).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="IntroductionFileName"></span><code>property <strong>IntroductionFileName</strong>: string read FIntroductionFileName
       write FIntroductionFileName;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L207">Source: source/component/PasDoc_Base.pas (line 207).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L209">Source: source/component/PasDoc_Base.pas (line 209).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="ConclusionFileName"></span><code>property <strong>ConclusionFileName</strong>: string read FConclusionFileName
       write FConclusionFileName;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L210">Source: source/component/PasDoc_Base.pas (line 210).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L212">Source: source/component/PasDoc_Base.pas (line 212).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="AdditionalFilesNames"></span><code>property <strong>AdditionalFilesNames</strong>: TStringList read FAdditionalFilesNames;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L213">Source: source/component/PasDoc_Base.pas (line 213).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L215">Source: source/component/PasDoc_Base.pas (line 215).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="ImplicitVisibility"></span><code>property <strong>ImplicitVisibility</strong>: <a href="PasDoc_Types.html#TImplicitVisibility">TImplicitVisibility</a>
       read FImplicitVisibility write FImplicitVisibility default <a href="PasDoc_Types.html#ivPublic">ivPublic</a>;</code></td>
@@ -556,19 +621,19 @@ This determines how items inside will be sorted. See <a href="https://pasdoc.git
 <tr><td colspan="2">
 <p>
 See command-line option --implicit-visibility documentation at <a href="https://pasdoc.github.io/ImplicitVisibilityOption">--implicit-visibility documentation</a>. This will be passed to parser instance.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L218">Source: source/component/PasDoc_Base.pas (line 218).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L220">Source: source/component/PasDoc_Base.pas (line 220).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="HandleMacros"></span><code>property <strong>HandleMacros</strong>: boolean
       read FHandleMacros write FHandleMacros default true;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L221">Source: source/component/PasDoc_Base.pas (line 221).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L223">Source: source/component/PasDoc_Base.pas (line 223).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="AutoLink"></span><code>property <strong>AutoLink</strong>: boolean
       read FAutoLink write FAutoLink default false;</code></td>
@@ -576,25 +641,25 @@ See command-line option --implicit-visibility documentation at <a href="https://
 <tr><td colspan="2">
 <p>
 This controls auto-linking, see <a href="https://pasdoc.github.io/AutoLinkOption">--auto-link documentation</a>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L226">Source: source/component/PasDoc_Base.pas (line 226).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L228">Source: source/component/PasDoc_Base.pas (line 228).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="AutoBackComments"></span><code>property <strong>AutoBackComments</strong>: boolean
       read FAutoBackComments write FAutoBackComments default false;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L228">Source: source/component/PasDoc_Base.pas (line 228).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L230">Source: source/component/PasDoc_Base.pas (line 230).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
 <td class="visibility"><span class="badge vis-published">Published</span></td>
 <td class="itemcode"><span id="InfoMergeType"></span><code>property <strong>InfoMergeType</strong>: <a href="PasDoc_Items.html#TInfoMergeType">TInfoMergeType</a>
       read FInfoMergeType write FInfoMergeType;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L230">Source: source/component/PasDoc_Base.pas (line 230).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Base.pas#L232">Source: source/component/PasDoc_Base.pas (line 232).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

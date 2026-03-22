@@ -9,9 +9,53 @@
 
 <link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
 <link rel="StyleSheet" type="text/css" href="pasdoc.css">
+<style>
+.visibility-protected { display: none; }
+.inherited-member { display: none; }
+</style>
+<script>
+/* PasDoc JavaScript for toggleable visibility and/or inherited members. */
+
+/* Get checkbox value, or true if the checkbox does not exist (e.g. for visibilities that are not toggable). */
+function getCheckboxValue(checkboxId) {
+  var checkbox = document.getElementById(checkboxId);
+  return checkbox ? checkbox.checked : true;
+}
+
+/* Update display of members that are toggable because
+   1. their visibility is toggable (--visible-members=xxx? in PasDoc)
+   2. or they are from ancestors (inherited), and thus toggable (see --inherited-members in PasDoc)
+*/ 
+function pasdocUpdateMembers(className) {
+  var elements = document.getElementsByClassName(className);
+  var showInherited = getCheckboxValue("checkbox-inherited-member");
+  var showVisibilities = {};
+  showVisibilities["visibility-published"] = getCheckboxValue("checkbox-visibility-published");
+  showVisibilities["visibility-public"] = getCheckboxValue("checkbox-visibility-public");
+  showVisibilities["visibility-protected"] = getCheckboxValue("checkbox-visibility-protected");
+  showVisibilities["visibility-strictprotected"] = getCheckboxValue("checkbox-visibility-strictprotected");
+  showVisibilities["visibility-private"] = getCheckboxValue("checkbox-visibility-private");
+  showVisibilities["visibility-strictprivate"] = getCheckboxValue("checkbox-visibility-strictprivate");
+  showVisibilities["visibility-automated"] = getCheckboxValue("checkbox-visibility-automated");
+  showVisibilities["visibility-implicit"] = getCheckboxValue("checkbox-visibility-implicit");
+  for (var i = 0; i < elements.length; i++) {
+    var show = true;
+    if (elements[i].classList.contains("inherited-member")) {
+      show = show && showInherited;
+    }
+    for (var visibility in showVisibilities) {
+      if (elements[i].classList.contains(visibility)) {
+        show = show && showVisibilities[visibility];
+        break;
+      }
+    }
+    elements[i].style.display = show ? "revert" : "none";
+  }
+}
+</script>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark d-md-none sticky-top">
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">PasDoc's autodoc</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
@@ -19,7 +63,7 @@
     </button>
   </div>
 </nav>
-<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav">
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">PasDoc's autodoc</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
@@ -32,62 +76,59 @@
 <div class="container-fluid py-3 px-4">
 <span id="TStringPairVector"></span><h1 class="cio">Class TStringPairVector</h1>
 <div class="sections">
-<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
 <span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
 <p class="unitlink">
 <a href="PasDoc_StringPairVector.html">PasDoc_StringPairVector</a></p>
 <h2 class="declaration">Declaration</h2>
 <p class="declaration">
-<code>type TStringPairVector = class(<a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a>)</code></p>
+<code>type TStringPairVector = class(specialize TObjectList&lt;TStringPair&gt;)</code></p>
 <h2 class="description">Description</h2>
 <p>
-List of string pairs. This class contains only non-nil objects of class TStringPair.
+List of string pairs.
 
 <p>Using this class instead of TStringList (with it's Name and Value properties) is often better, because this allows both Name and Value of each pair to safely contain any special characters (including '=' and newline markers). It's also faster, since it doesn't try to encode Name and Value into one string.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L55">Source: source/component/PasDoc_StringPairVector.pas (line 55).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L53">Source: source/component/PasDoc_StringPairVector.pas (line 53).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TList</li>
 <li class="ancestor">TObjectList</li>
-<li class="ancestor"><a class="normal" href="PasDoc_ObjectVector.TObjectVector.html">TObjectVector</a></li>
-<li class="thisitem">TStringPairVector</li></ul><h2 class="overview">Overview</h2>
+<li class="thisitem">TStringPairVector</li></ul><div class="show-members-toggles">
+<span class="show-members-toggles-label">Show Additional Members:</span>
+<label><input type="checkbox" autocomplete="off" id="checkbox-inherited-member" onchange="pasdocUpdateMembers('inherited-member')"> Inherited</label>
+<label><input type="checkbox" autocomplete="off" id="checkbox-visibility-protected" onchange="pasdocUpdateMembers('visibility-protected')"> Protected</label>
+</div>
+<h2 class="overview">Overview</h2>
 <span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
 <table class="summary wide_list">
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#Text-string-string-">Text</a></strong>(const NameValueSepapator, ItemSeparator: string): string;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#FindName-string-boolean-">FindName</a></strong>(const Name: string; IgnoreCase: boolean = true): Integer;</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#DeleteName-string-boolean-">DeleteName</a></strong>(const Name: string; IgnoreCase: boolean = true): boolean;</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#LoadFromBinaryStream-TStream-">LoadFromBinaryStream</a></strong>(Stream: TStream);</code></td>
 </tr>
-<tr class="list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#SaveToBinaryStream-TStream-">SaveToBinaryStream</a></strong>(Stream: TStream);</code></td>
 </tr>
-<tr class="list2">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>function <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#FirstName">FirstName</a></strong>: string;</code></td>
 </tr>
 </table>
-<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
-<table class="summary wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>property <strong><a href="PasDoc_StringPairVector.TStringPairVector.html#Items">Items</a></strong>[i: Integer]: <a href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> read GetItems write SetItems;</code></td>
-</tr>
-</table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Methods</h3>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="Text-string-string-"></span><code>function <strong>Text</strong>(const NameValueSepapator, ItemSeparator: string): string;</code></td>
 </tr>
@@ -96,66 +137,57 @@ List of string pairs. This class contains only non-nil objects of class TStringP
 Returns all items Names and Values glued together. For every item, string Name + NameValueSepapator + Value is constructed. Then all such strings for every items all concatenated with ItemSeparator.
 
 <p>Remember that the very idea of <a class="normal" href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> and <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html">TStringPairVector</a> is that Name and Value strings may contain any special characters, including things you give here as NameValueSepapator and ItemSeparator. So it's practically impossible to later convert such Text back to items and Names/Value pairs.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L73">Source: source/component/PasDoc_StringPairVector.pas (line 73).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L66">Source: source/component/PasDoc_StringPairVector.pas (line 66).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="FindName-string-boolean-"></span><code>function <strong>FindName</strong>(const Name: string; IgnoreCase: boolean = true): Integer;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Finds a string pair with given Name. Returns -1 if not found.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L77">Source: source/component/PasDoc_StringPairVector.pas (line 77).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L70">Source: source/component/PasDoc_StringPairVector.pas (line 70).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="DeleteName-string-boolean-"></span><code>function <strong>DeleteName</strong>(const Name: string; IgnoreCase: boolean = true): boolean;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Removes first string pair with given Name. Returns if some pair was removed.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L81">Source: source/component/PasDoc_StringPairVector.pas (line 81).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L74">Source: source/component/PasDoc_StringPairVector.pas (line 74).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="LoadFromBinaryStream-TStream-"></span><code>procedure <strong>LoadFromBinaryStream</strong>(Stream: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Load from a stream using the binary format. For each item, it's Name and Value are saved. (TStringPair.Data pointers are <em>not</em> saved.)</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L86">Source: source/component/PasDoc_StringPairVector.pas (line 86).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L79">Source: source/component/PasDoc_StringPairVector.pas (line 79).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="SaveToBinaryStream-TStream-"></span><code>procedure <strong>SaveToBinaryStream</strong>(Stream: TStream);</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Save to a stream, in a format readable by <a class="normal" href="PasDoc_StringPairVector.TStringPairVector.html#LoadFromBinaryStream-TStream-">LoadFromBinaryStream</a>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L90">Source: source/component/PasDoc_StringPairVector.pas (line 90).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L83">Source: source/component/PasDoc_StringPairVector.pas (line 83).</a></p></td></tr>
 </table>
-<table class="detail wide_list">
-<tr class="list">
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><span id="FirstName"></span><code>function <strong>FirstName</strong>: string;</code></td>
 </tr>
 <tr><td colspan="2">
 <p>
 Name of first item, or '' if list empty.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L93">Source: source/component/PasDoc_StringPairVector.pas (line 93).</a></p></td></tr>
-</table>
-<h3 class="detail">Properties</h3>
-<table class="detail wide_list">
-<tr class="list">
-<td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>[i: Integer]: <a href="PasDoc_StringPairVector.TStringPair.html">TStringPair</a> read GetItems write SetItems;</code></td>
-</tr>
-<tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L60">Source: source/component/PasDoc_StringPairVector.pas (line 60).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_StringPairVector.pas#L86">Source: source/component/PasDoc_StringPairVector.pas (line 86).</a></p></td></tr>
 </table>
 <hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
 </span>

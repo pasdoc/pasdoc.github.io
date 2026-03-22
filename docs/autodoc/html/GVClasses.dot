@@ -1,4 +1,6 @@
 digraph Classes {
+  "TCioStateStack" -> "Contnrs.TObjectStack"
+  "TCioStateStack" [href="PasDoc_Parser.TCioStateStack.html"]
   "Exception" -> "TObject"
   "EAnchorAlreadyExists" -> "Exception"
   "EAnchorAlreadyExists" [href="PasDoc_Items.EAnchorAlreadyExists.html"]
@@ -18,37 +20,31 @@ digraph Classes {
   "ESerializedException" [href="PasDoc_Serialize.ESerializedException.html"]
   "TAspellProcess" -> "TObject"
   "TAspellProcess" [href="PasDoc_Aspell.TAspellProcess.html"]
-  "THash" -> "TObject"
-  "THash" [href="PasDoc_Hashes.THash.html"]
-  "TObjectHash" -> "THash"
-  "TObjectHash" [href="PasDoc_Hashes.TObjectHash.html"]
+  "TCioState" -> "TObject"
+  "TCioState" [href="PasDoc_Parser.TCioState.html"]
   "TList" -> "TObject"
   "TObjectList" -> "TList"
-  "TObjectVector" -> "TObjectList"
-  "TObjectVector" [href="PasDoc_ObjectVector.TObjectVector.html"]
-  "TBaseItems" -> "TObjectVector"
+  "TBaseItems" -> "TObjectList"
   "TBaseItems" [href="PasDoc_Items.TBaseItems.html"]
   "TPasItems" -> "TBaseItems"
   "TPasItems" [href="PasDoc_Items.TPasItems.html"]
-  "TPasNestedCios" -> "TPasItems"
-  "TPasNestedCios" [href="PasDoc_Items.TPasNestedCios.html"]
   "TPasProperties" -> "TPasItems"
   "TPasProperties" [href="PasDoc_Items.TPasProperties.html"]
   "TPasRoutines" -> "TPasItems"
   "TPasRoutines" [href="PasDoc_Items.TPasRoutines.html"]
   "TPasTypes" -> "TPasItems"
   "TPasTypes" [href="PasDoc_Items.TPasTypes.html"]
+  "TPasNestedCios" -> "TPasTypes"
+  "TPasNestedCios" [href="PasDoc_Items.TPasNestedCios.html"]
   "TPasUnits" -> "TPasItems"
   "TPasUnits" [href="PasDoc_Items.TPasUnits.html"]
-  "TExternalItemList" -> "TObjectVector"
-  "TExternalItemList" [href="PasDoc_Items.TExternalItemList.html"]
-  "TListData" -> "TObjectVector"
+  "TListData" -> "TObjectList"
   "TListData" [href="PasDoc_Gen.TListData.html"]
-  "TStringPairVector" -> "TObjectVector"
+  "TStringPairVector" -> "TObjectList"
   "TStringPairVector" [href="PasDoc_StringPairVector.TStringPairVector.html"]
-  "TTableData" -> "TObjectVector"
+  "TTableData" -> "TObjectList"
   "TTableData" [href="PasDoc_Gen.TTableData.html"]
-  "TTagVector" -> "TObjectVector"
+  "TTagVector" -> "TObjectList"
   "TTagVector" [href="PasDoc_TagManager.TTagVector.html"]
   "TListItemData" -> "TObject"
   "TListItemData" [href="PasDoc_Gen.TListItemData.html"]
@@ -70,15 +66,8 @@ digraph Classes {
   "TPathListOption" [href="PasDoc_OptionParser.TPathListOption.html"]
   "TOptionParser" -> "TObject"
   "TOptionParser" [href="PasDoc_OptionParser.TOptionParser.html"]
-  "TOrderedList" -> "TObject"
-  "TStack" -> "TOrderedList"
-  "TObjectStack" -> "TStack"
-  "TPasCioHelperStack" -> "TObjectStack"
-  "TPasCioHelperStack" [href="PasDoc_Parser.TPasCioHelperStack.html"]
   "TParser" -> "TObject"
   "TParser" [href="PasDoc_Parser.TParser.html"]
-  "TPasCioHelper" -> "TObject"
-  "TPasCioHelper" [href="PasDoc_Parser.TPasCioHelper.html"]
   "TPasDocLanguages" -> "TObject"
   "TPasDocLanguages" [href="PasDoc_Languages.TPasDocLanguages.html"]
   "TPasItemNode" -> "TObject"
@@ -133,6 +122,8 @@ digraph Classes {
   "TPasRoutine" [href="PasDoc_Items.TPasRoutine.html"]
   "TPasType" -> "TPasItem"
   "TPasType" [href="PasDoc_Items.TPasType.html"]
+  "TPasAliasType" -> "TPasType"
+  "TPasAliasType" [href="PasDoc_Items.TPasAliasType.html"]
   "TPasCio" -> "TPasType"
   "TPasCio" [href="PasDoc_Items.TPasCio.html"]
   "TPasEnum" -> "TPasType"
