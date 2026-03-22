@@ -1,0 +1,50 @@
+:doctitle: --inherited-members command-line option
+:sectnums:
+:toc: left
+:toclevels: 4
+
+## Introduction
+
+Use the command-line option `--inherited-members` to include inherited members in the documentation of a class. This allows to see, at a glance, all members of a given class -- both defined in the given class and inherited from its ancestors.
+
+This feature is only meaningful for the link:HtmlOutput[HTML output format] right now. The inherited members, if requested, are present in the generated output and user has a checkbox (using JavaScript) to show / hide them.
+
+The _"members"_ means all the things declared in a class:
+
+- fields
+- properties
+- methods
+- constants
+- types, including nested classes.
+
+## Example
+
+```pascal
+type
+  TBase = class
+    procedure BaseMethod;
+  end;
+
+  TDerived = class(TBase)
+    procedure DerivedMethod;
+  end;
+```
+
+By default, documentation of `TDerived` will include only `DerivedMethod`. Use `--inherited-members=default-show` or `--inherited-members=default-hide` to include `BaseMethod` in the documentation of `TDerived`. This reflects the typical usage: if you have an instance of `TDerived`, you can call both `DerivedMethod` and `BaseMethod` on it, so it's useful to have documentation showing both methods on the same page.
+
+## Possible values of --inherited-members
+
+--inherited-members=never::
+  Do not include inherited members in the documentation of a class. This is the default behavior.
+
+--inherited-members=default-show::
+  Include inherited members in the documentation of a class. Inherited members are shown by default. User can hide them using a checkbox.
+
+--inherited-members=default-hide::
+  Include inherited members in the documentation of a class, however they are hidden by default. User can show them using a checkbox.
+
+## Default value and future plans
+
+The `never` remains the default for now, but it may change in the future. We recommend to test your documentation with `--inherited-members=default-hide` and let us know how do you like it (https://github.com/pasdoc/pasdoc/discussions/[e.g. in this discussion thread]).
+
+In our experience, practically the only drawback of using `--inherited-members=default-hide` (versus leaving the default `never`) is that it makes generating HTML documentation a bit slower (as we necessarily generate more content, duplicating a lot of the descriptions). That said, it's not a big difference. For https://castle-engine.io/apidoc/html/index.html[Castle Game Engine API docs], time of generation grew from 1:30 to 2:40 -- not really noticeable, esp. since documentation is updated by CI, so it doesn't really matter that it now takes almost 3 minutes. Again, let us know https://github.com/pasdoc/pasdoc/discussions/[your experience with this option].

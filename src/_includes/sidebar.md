@@ -125,6 +125,8 @@
 
 * [\--ignore-marker](IgnoreMarkerOption)
 
+* [\--inherited-members](InheritedMembersOption)
+
 * [\--introduction, \--conclusion, -A, \--additional](IntroductionAndConclusion)
 
 * [\--implicit-visibility](ImplicitVisibilityOption)

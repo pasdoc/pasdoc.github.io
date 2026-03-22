@@ -1,18 +1,46 @@
 :doctitle: Advanced Features
+:sectnums:
+:toc: left
+:toclevels: 4
 
-Summary of the most important non-obvious PasDoc features:
+Some important non-obvious PasDoc features:
 
-* The documentation can be written in an external files (see the link:ReadDescriptionFromFile[--description] command-line option), not only in the source code.
-* The documentation comments in the source code may be in the `interface` or (if you use link:ImplementationCommentsOption[--implementation-comments] option) `implementation` section of the unit.
-* The documentation can be localized to many languages, see the link:OutputLanguage[--language] command-line option.
-* Support for arbitrary (even optional) link:CommentMarker[comment markers].
-* You can write entire pages using pasdoc syntax (like @-tags, see link:WritingDocumentation[WritingDocumentation]). This way you can use pasdoc like a simple document creation tool. See the link:IntroductionAndConclusion[IntroductionAndConclusion] documentation.
-* You can easily add a search box to your documentation, just pass link:UseTipueSearchOption[--use-tipue-search] command-line option.
-* link:GraphVizSupport[GraphVizSupport] allows PasDoc to easily incorporate classes inheritance and unit dependency graphs in the documentation.
-* link:AutoLinkOption[--auto-link] command-line option allows you to avoid writing @link tags, identifiers will be automatically turned into links.
+== Input
+
 * link:AutoAbstractOption[--auto-abstract] command-line option allows you to automatically treat the 1st sentence of the description as an abstract.
-* link:SpellChecking[Spell checking].
-* link:CacheOption[Caching for faster generation of documentation].
+
+* You can write entire pages using pasdoc syntax, with all supported link:SupportedTags[@tags]. This way you can use pasdoc like a simple document creation tool. See the link:IntroductionAndConclusion[Introduction and conclusion] documentation.
+
+* By default documentation is read from the source code comments. But you can also write it in separate external files: see the link:ReadDescriptionFromFile[--description] command-line option.
+
+* By default we consider only comments in the `interface` section of the unit. But you can enable parsing also the `implementation` sections, and using comments from it, using the link:ImplementationCommentsOption[--implementation-comments] option.
+
+* By default every comment before an identifier is treated as a documentation. But you can limit this with arbitrary link:CommentMarker[comment markers].
+
+* link:AutoLinkOption[--auto-link] command-line option allows you to avoid writing so many `@link` tags. Identifiers will be automatically turned into links.
+
 * link:MarkdownOption[Markdown support for emphasis, lists, code blocks etc.]
 
-If you want to compare link:index[PasDoc] to FpDoc (another open-source Pascal documentation tool), see link:PasDocFpDocComparison[PasDocFpDocComparison] .
+== Output
+
+* Our HTML output has a https://github.com/pasdoc/pasdoc/discussions/230[modern, mobile-friendly design based on Bootstrap]. You can customize it using link:CssOption[--css or --css-based-on-bootstrap] command-line options. You can also add your own HTML code to the output using link:HtmlHeadBodyBeginEndOptions[--html-head, --html-body-begin and --html-body-end] command-line options.
+
+* The documentation of each class can also include link:InheritedMembersOption[inherited members].
+
+* The documentation of each class can have toggable (using checkboxes in HTML) visibility e.g. for protected members. See link:VisibleMembers[--visible-members] command-line option.
+
+* The documentation can point to the source code (file, line number) where given item is declared. It can even link to the online repository (e.g. GitHub) which is a great way to link people from your docs to your code. See the link:SourcePosition[--show-source-position, --source-url-pattern, --source-root] command-line options.
+
+* You can easily add a search box to your documentation, just pass link:UseTipueSearchOption[--use-tipue-search] command-line option.
+
+* The documentation can be localized to many languages, see the link:OutputLanguage[--language] command-line option.
+
+* link:GraphVizSupport[GraphVizSupport] allows PasDoc to easily incorporate classes inheritance and unit dependency graphs in the documentation.
+
+* link:SpellChecking[Spell checking].
+
+== More
+
+* link:CacheOption[Caching for faster generation of documentation].
+
+* See also link:PasDocFpDocComparison[comparison of PasDoc with FpDoc (another open-source Pascal documentation tool)].

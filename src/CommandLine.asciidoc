@@ -33,6 +33,9 @@ Read description from this file
 link:IncludeInSearchPath[-I, --include]::
 Include search path
 
+link:InheritedMembersOption[--inherited-members]::
+Include inherited members in the documentation of a class.
+
 -S, --source::
 Read source filenames from file, - (single dash) means standard input.
 

@@ -70,6 +70,7 @@ link:CommandLine[Command Line]: ::
 * link:HtmlHeadBodyBeginEndOptions[--html-head, --html-body-begin, --html-body-end]
 * link:IgnoreLeadingOption[--ignore-leading]
 * link:IgnoreMarkerOption[--ignore-marker]
+* link:InheritedMembersOption[--inherited-members]
 * link:IntroductionAndConclusion[--introduction, --conclusion, -A, --additional]
 * link:ImplicitVisibilityOption[--implicit-visibility]
 * link:TrueFalseNilTag[--lowercase-keywords]
