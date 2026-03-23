@@ -24,29 +24,25 @@ Note that only a subset of Markdown syntax is supported.
 
 * Multi-line code (preformatted text, output like link:PreformattedTag[@preformatted tag]):
 +
-*Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
-+
 [source]
 ----
-'''
+```
 Example
 preformatted
 multi-line
 text.
-'''
+```
 ----
 
 
 * Multi-line Pascal code with syntax highlighting (output like link:LongCodeTag[@longCode tag]):
 +
-*Important note*: Use 3 backtick characters, like this +```+, to  make this work. In the example below we show 3 apostrophes because of a limitation of GitHub wiki formatting (seems to implement incomplete/old AsciiDoctor syntax for escaping).
-+
 [source]
 ----
-'''pascal
+```pascal
 if Foo then
   Writeln('Example Pascal code'); // comment
-'''
+```
 ----
 
 
