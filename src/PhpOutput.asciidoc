@@ -1,7 +1,5 @@
 :doctitle: PHP Output
 
-**This is a new feature, not yet available in stable PasDoc version 0.16.0.**
-
 PHP output of PasDoc generates a map that can be used to find identifiers in your HTML documentation.
 
 It works closely with PasDoc HTML output generator. If HTML output generator would generate output for identifier `Foo` in file `Aaa.html`, with anchor `Foo`, then the PHP output allows you to map `Foo` -> `Aaa.html#Foo`.
