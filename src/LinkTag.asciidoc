@@ -1,8 +1,11 @@
 :doctitle: @link tag
+:sectnums:
+:toc: left
+:toclevels: 4
 
-Inside a description of one item you can place a link to another item
-using @link link:SupportedTags[tag]. Depending on the type of output,
-these links could be hyperlinks (in HTML) or page references (in LaTeX).
+## Introduction
+
+In a description of one item you can link to another item using the `@link` link:SupportedTags[tag]. The links are converted to be clickable references suitable for the output format.
 
 Example:
 
@@ -11,45 +14,76 @@ Example:
 const
   MaxFactorialArgument = 20;
 
-{ This function calculates factorial of n, n!.
-  You should always call this function with
+{ Calculate factorial of n, @code(n!).
+  Always call this function with
   n <= @link(MaxFactorialArgument),
   otherwise result will not fit in Int64 type. }
 function SmallFactorial(n: Integer): Int64;
 ----
 
-You can link to _any_ item in your units that has some Pascal
-identifier. So you can link not only to some procedure, constant,
-variable, etc. but also to a whole class or a whole unit.
+You can link to any item in your codebase, including:
 
-You can use qualified names for the link target, like
+- routines (procedures, functions),
+- constants,
+- types,
+- enumeration types and enumerations members,
+- variables,
+- properties,
+- fields,
+- methods,
+- units,
+- classes, interfaces, records,
+- and so on -- really every Pascal item that PasDoc found in the source code.
 
-* @link(SomeClassName.IdentifierinThisClass) or
-* @link(SomeUnitName.IdentifierInThisUnit) or even
-* @link(SomeUnitName.SomeClassName.Identifier).
+## Qualifying the linked item with class name, unit name, etc.
 
-When resolving links, pasdoc tries to loosely mimic Pascal identifier
-scope: The name of an identifier is first searched within the current
-class / record etc., then within the current unit, then within the units
-in the uses clause. Only if that fails pasdoc will search globally in
-all known units.
+When resolving links, PasDoc follows similar namespace rules as the compiler. For example, within a class, you can link to its methods and properties directly (without specifying the class name). From the outside, you need to specify the class name, like `@link(TMyClass.MyMethod)`. You can qualify the link even more, with a unit name.
 
-## [[explicit-display-name-of-a-link]] Explicit display name of a link
+For example:
 
-You can also specify an explicit display name for this link, simply by
-putting a space after your link target and then typing the link display
-name. E.g.
+```pascal
+unit MyUnit;
+interface
+
+type
+  { Create an instance of this, then use @link(MyMethod) to do something. }
+  TMyClass = class
+    { Sets @link(MyProperty) to 'foo'. }
+    procedure MyMethod;
+    { Change this directly or by calling @link(MyMethod). }
+    property MyProperty: String read FMyProperty write FMyProperty;
+  end;
+
+{ Creates an instance of @link(TMyClass)
+  and calls @link(TMyClass.MyMethod). }
+procedure SomeProcedure;
+
+{ Creates @link(SomeOtherUnit.TSomeOtherClass)
+  and calls @link(SomeUnit.TSomeOtherClass.SomeOtherMethod). }
+procedure AnotherProcedure;
+
+implementation
+end.
+```
+
+## Explicit caption of a link
+
+By default, the link looks just like the name of the item it links to. And the multipart links look
+can be customized using the `--link-look` link:CommandLine[CommandLine] option.
+
+You can also specify an explicit caption for this link, simply by
+putting a space after your link target and then typing the caption. E.g.
 
 [source]
 ----
-@link(TMyClass.MyMethod This is a silly link to MyMethod in TMyClass)
+@link(TMyClass.MyMethod This is a link to MyMethod in TMyClass)
 ----
 
-One use for such an explicit name is if you have a class TMemo that has
-a property named Lines that returns an instance of a class TStringList.
-You want to document routine TMemo.Clear, that calls Lines.Clear and
+An example use for such an explicit caption is if you have a class `TMemo` that has
+a property named Lines that returns an instance of a class `TStringList`.
+You want to document routine `TMemo.Clear`, that calls `Lines.Clear` and
 then does some repainting stuff. So you want to link in your description
-to TStringList.Clear, but you want the link to show as Lines.Clear. You
+to `TStringList.Clear`, but you want the link to show as `Lines.Clear`. You
 can do it by writing a description like
 
 [source,pascal]
@@ -64,5 +98,28 @@ type
   end;
 ----
 
-If no explicit display name was specified, then what multipart links
-will look like depends on the `--link-look` link:CommandLine[CommandLine] option.
+## Disambiguate links to overloaded routines
+
+If you have overloaded routines, you can disambiguate the link by specifying the parameter types. For example, if you have two overloaded procedures `Foo`, one with no parameters and another with an `Integer` parameter, you can link to the first one using `@link(Foo())` and to the second one using `@link(Foo(Integer))`. Like this:
+
+[source,pascal]
+----
+procedure Foo; overload;
+procedure Foo(x: Integer); overload;
+
+{ This calls @link(Foo()) and then @link(Foo(Integer)). }
+procedure Bar;
+----
+
+You can still specify a caption after a space:
+
+[source,pascal]
+----
+procedure Foo; overload;
+procedure Foo(x: Integer); overload;
+
+{ This calls @link(Foo() Foo without parameters)
+  and then @link(Foo(Integer) Foo with an Integer parameter). }
+procedure Bar;
+----
+
