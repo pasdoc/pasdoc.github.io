@@ -1,51 +1,62 @@
-:doctitle: Conditional processing and related command-line options --define, --conditionals
+:doctitle: Conditional expressions and related command-line options (--define, --conditionals)
+:sectnums:
+:toc: left
+:toclevels: 4
 
-## [[overview]] Overview
+## Introduction
 
-Pascal allows for _directives_ in the source code. These are comments that contain commands for the compiler introduced by the dollar sign.
-
-To distinguish different compilers, libraries or development stages,
-_conditional directives_ make it possible to make the compiler ignore
-part of the file.
+Pascal allows for _directives_ in the source code. These look similar to comments and they contain commands for the compiler to do something special, like conditionaly ignore (or not ignore) a piece of following Pascal code.
 
 An example:
 
 [source,pascal]
 ----
-unit SampleUnit;
-
-{$ifdef MSWINDOWS}
-
-uses Windows, WinProcs;
-procedure WindowMove(H: TWindowHandle; DX, DY: Integer);
-
-{$else}
-
-procedure ClearConsole;
-procedure PrintText(S: String);
-
-{$endif}
+type
+  TProcess = class
+  public
+    property CommandLine: TStrings read GetCommandLine;
+    procedure Run;
+    {$ifdef MSWINDOWS}
+    property Handle: TWindowHandle read GetHandle;
+    {$endif}
+    {$ifdef UNIX}
+    property StdIn: TUnixHandle read GetStdIn write SetStdIn;
+    property StdOut: TUnixHandle read GetStdOut write SetStdOut;
+    property StdErr: TUnixHandle read GetStdErr write SetStdErr;
+    {$endif}
+  end;
 ----
 
-As PasDoc parses Pascal files it must be able to correctly understand conditional directives. So it understands a number of directives dealing with conditional compilation: `$ifdef`, `$if`, `$else`, `$endif`, `$ifend`, `$ifopt`, `$define` and `$undef`.
+Just like a compiler, _PasDoc_ understands various directives when it parses Pascal code:
 
-In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don't automatically define `MSWINDOWS`, even when you run PasDoc on Windows. The reason for this is that you probably want to generate *one* documentation that makes sense for *all* operating systems, *all* compiler versions and so on. It's up to you to decide which symbols should be defined to achieve this.
+- `$ifdef`, `$if`, `$ifopt` (and friends: `$else`, `$endif`, `$ifend`) - to conditionally use or ignore a piece of code.
+- `$define`, `$undef` - to define or undefine a symbol that can be used in `$if defined(SYMBOL)` / `$ifdef` expressions.
+- `$include` (short form `$I`) to include another file.
+
+In contrast to a Pascal compiler, PasDoc starts with an empty list of conditional directives. For example, we don't automatically define `MSWINDOWS`, even when you run PasDoc on Windows. The reason for this is that you usually want to generate *one* documentation that makes sense for *all* operating systems, *all* compiler versions and so on. It's up to you to decide which symbols should be defined to achieve this.
 
 You can tell PasDoc to have some symbol defined using the `--define` and `--conditionals`
-link:CommandLine[CommandLine] options described below. It's valid to specify multiple --define or --condtional options.
+link:CommandLine[CommandLine] options described below.
 
-## [[define-option]] --define option
+## `--define` command-line option
 
---define DIRECTIVES option (short form is -D DIRECTIVES) adds DIRECTIVES
-to the list of conditional directives that are present whenever parsing
-a unit is started. Each define should be separated from the others by a
-comma, as shown in the following example:
+`--define SYMBOL` (short form is `-D SYMBOL`) adds `SYMBOL` to the list of defined symbols. In effect, in Pascal code, `{$ifdef SYMBOL}` and (equivalent) `{$if defined(SYMBOL)}` will be considered true.
+
+You can specify multiple symbols separated by a comma:
 
 ----
 pasdoc --define DEBUG,FPC,MSWINDOWS myunit.pas
 ----
 
-This defines three conditionals: DEBUG, FPC and MSWINDOWS.
+This defines three conditionals: `DEBUG`, `FPC` and `MSWINDOWS`.
+
+You can also just use `--define SYMBOL` multiple times, like this:
+
+----
+pasdoc --define DEBUG --define FPC --define MSWINDOWS myunit.pas
+----
+
+## `--define` command-line option with `:=` to define a symbol with a value
 
 You can use the assignment operator to define a symbol with a value, like this:
 
@@ -61,19 +72,18 @@ This is useful to:
 +
 --
 - Special FPC `FPC_FULLVERSION` symbol (available only in conditional expressions in FPC, though in PasDoc it will be also expanded during normal Pascal code parsing)
-- `LCL_FULLVERSION` defined in Lazarus `LCLVersion` unit,
+- `LCL_FULLVERSION` defined in Lazarus `LCLVersion` unit
 - https://delphi.fandom.com/wiki/CompilerVersion_Constant[CompilerVersion] constant from Delphi.
 --
 
 - Or to define FPC macros values at command-line.
 
-## [[conditionals-option]] --conditionals option
+## `--conditionals` command-line option
 
---conditionals CONDITIONALS-FILE option (short form is
--d CONDITIONALS-FILE) adds the defines specified in a file
-CONDITIONALS-FILE to the list of conditional directives that are present
-whenever parsing a unit is started. The file must contain one
-conditional per line, without any comments.
+`--conditionals SYMBOLS-FILE` option (short form
+`-d SYMBOLS-FILE`) adds the symbols specified in a file
+`SYMBOLS-FILE` to the list of conditional symbols defined. The file must contain one
+symbol per line, without any comments.
 
 Examples:
 
@@ -90,42 +100,47 @@ FPC
 MSWINDOWS
 ----
 
-## Make sure the resulting code is valid
+## Define symbols to make the code valid for PasDoc
 
-Consider this sample:
+When you use conditional directives in your code, make sure that the combination of symbols you define for PasDoc results in code that can be parsed by PasDoc. For example, if you have something like this:
 
 ```pascal
-const NewLine = {$IFDEF MSWINDOWS} #13#10 {$ENDIF} {$IFDEF POSIX} #10 {$ENDIF};
+const NewLine =
+  {$ifdef MSWINDOWS} #13#10 {$endif}
+  {$ifdef UNIX} #10 {$endif};
 ```
 
-By default PasDoc defines neither `MSWINDOWS` nor `POSIX`, so it will consider them both undefined and will try to parse (and fail) the following line:
+By default PasDoc defines neither `MSWINDOWS` nor `UNIX`, so it will consider them both undefined. Thus PasDoc will "see" (and fail to parse) a code like this:
 
 ```pascal
 const NewLine = ;
 ```
 
-You have to make sure that the combination of symbols used by PasDoc "makes sense", i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:
+You have to make sure that the combination of symbols used by PasDoc makes sense, i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:
 
 ```pascal
 const NewLine =
   {$ifdef PASDOC}
     'The value of this constant depends on the operating system'
   {$else}
-    {$ifdef MSWINDOWS} #13#10 {$endif} {$ifdef POSIX} #10 {$endif}
+    {$ifdef MSWINDOWS} #13#10 {$endif}
+    {$ifdef UNIX} #10 {$endif}
   {$endif};
 ```
 
-Make sure to execute PasDoc with command-line option `-d PASDOC` to make it work.
+Make sure to execute PasDoc with command-line option `-define PASDOC` to make it work.
 
-## Support for `$if`
+## Support for `$if` expressions
 
-The `$if` directive allows to evaluate an expression, like `{$if defined(MSWINDOWS) and not defined(FPC)}`.
+The `$if` directive allows to evaluate an expression, like
 
-NOTE: We had a number of improvements to `$if` parsing since last PasDoc 0.16.0 release. For now, use link:DevelopmentShapshots[development snapshots] to get the latest version with full support for `$if` expressions.
+```pascal
+{$if defined(MSWINDOWS) and not defined(FPC)}
+const CompilerInfo = 'Delphi on Windows';
+{$endif}
+```
 
-Most of `$if` features supported by compilers (like FPC or Delphi) are now supported.
-
-We support:
+Most of `$if` features supported by compilers (like FPC or Delphi) are supported. This includes:
 
 - Functions `defined(SYMBOL)`, `undefined(SYMBOL)`, `option(R+)`
 - Constants `false`, `true`
@@ -133,7 +148,23 @@ We support:
 - Comparing (Booleans and Integers) using `=`
 - Addition, multiplication operatoers.
 
-In particular, some not supported features:
+Some expressions remain not supported, ultimately because _PasDoc_ is not a compiler (so we don't have the knowledge about the units you used, like RTL; and we don't decide what are OS / CPU parameters). We don't support:
 
-- `sizeof(xxx)` function (not likely to be ever supported -- requires a compiler to determine it)
-- `declared(identifier)` function
+- `declared(...)`
+- `SizeOf(...)`
+
+The solution is to use a special symbol, like `PASDOC`, to make sure that the expression is valid for PasDoc. For example:
+
+```pascal
+const
+  { Integer of the same size as Pointer.
+    @deprecated Use NativeUInt (Delphi) or PtrUInt (FPC). }
+  MyPointerInt =
+    {$if defined(PASDOC)}
+      UIntSystemDependent
+    {$elseif SizeOf(Pointer) = 8}
+      UInt64
+    {$else}
+      UInt32
+    {$endif};
+```
