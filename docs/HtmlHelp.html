@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=948545a5646ea8923fc5cfd7537d8d8a2823e7a0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9c508b9fd0cf92195eefe9a20c8b2353a0ca5e73">
   </head>
   <body>
     <div id="layout-container">
@@ -43,8 +43,13 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_prerequisite-html-help-workshop">2. Prerequisite: HTML Help Workshop</a></li>
-<li><a href="#_usage-of-html-help-output-from-pasdoc">3. Usage of HTML Help output from PasDoc</a></li>
+<li><a href="#_generating-html-help-files-with-pasdoc">2. Generating HTML Help files with PasDoc</a></li>
+<li><a href="#_creating-the-final-chm-file">3. Creating the final .chm file</a>
+<ul class="sectlevel2">
+<li><a href="#_microsoft-html-help-workshop-windows-only-proprietary">3.1. Microsoft HTML Help Workshop (Windows only, proprietary)</a></li>
+<li><a href="#_chmcmd-cross-platform-open-source">3.2. chmcmd (cross-platform, open-source)</a></li>
+</ul>
+</li>
 <li><a href="#_custom-help-contents">4. Custom help contents</a></li>
 </ul>
 </div>
@@ -58,15 +63,28 @@
 <p>As the name suggests, the format is based on HTML. Internally, a <code>.chm</code> file is just a collection of HTML files, with some extra information. See <a href="https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help">Wikipedia</a> and <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx">Microsoft documentation</a> for more information.</p>
 </div>
 <div class="paragraph">
-<p><a href="index">PasDoc</a> can generate all the files necessary to create the <em>HTML Help</em> documentation. We do not produce a ready <code>.chm</code> file&#8201;&#8212;&#8201;but we generate all the prerequisites necessary, so that you can create the final file using the <em>Microsoft HTML Workshop</em> (free download).</p>
+<p><a href="index">PasDoc</a> can generate all the files necessary to create the <em>HTML Help</em> documentation. We do not produce a ready <code>.chm</code> file&#8201;&#8212;&#8201;but we generate all the prerequisites necessary. After generating the files, you can create the final CHM file using tools like <code>hhc</code> or <code>chmcmd</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_prerequisite-html-help-workshop">2. Prerequisite: HTML Help Workshop</h2>
+<h2 id="_generating-html-help-files-with-pasdoc">2. Generating HTML Help files with PasDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You need to get <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx">HTML Help Workshop</a>. Unfortunately, the download links (on this Microsoft page) are broken, which has been <a href="https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp">reported</a> but seems unlikely to be fixed.</p>
+<p>First, generate documentation using pasdoc with <code>--format=htmlhelp</code> command-line option. In addition to normal HTML files, we will output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>docs.hhp</code>. You can change the names of these files to something else with <a href="NameOption">--name option</a>.</p>
+</div>
+<div class="paragraph">
+<p>Once this is done, you can create the final <code>.chm</code> file using one of the tools described below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating-the-final-chm-file">3. Creating the final .chm file</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_microsoft-html-help-workshop-windows-only-proprietary">3.1. Microsoft HTML Help Workshop (Windows only, proprietary)</h3>
+<div class="paragraph">
+<p>One option to create the final <code>.chm</code> file is to use <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx">HTML Help Workshop</a>. Unfortunately, the download links (on this Microsoft page) are broken, which has been <a href="https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp">reported</a> but seems unlikely to be fixed.</p>
 </div>
 <div class="paragraph">
 <p>Best options to get <em>HTML Help Workshop</em> now:</p>
@@ -98,19 +116,9 @@
 <div class="paragraph">
 <p>In both cases, after the installation the tools are in <code>C:\Program Files (x86)\HTML Help Workshop</code> directory. You can add it to your <code>$PATH</code> to easily execute <code>hhc</code> from the command line.</p>
 </div>
+<div class="paragraph">
+<p>To make <code>docs.chm</code> file:</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_usage-of-html-help-output-from-pasdoc">3. Usage of HTML Help output from PasDoc</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Generate documentation with pasdoc with <code>--format=htmlhelp</code>. In addition to normal HTML files, we
-will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>docs.hhp</code>. You can change the names of these files to something else with <a href="NameOption">--name option</a>.</p>
-</li>
-<li>
-<p>Make <code>docs.chm</code> file:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -121,11 +129,23 @@ will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>do
 </li>
 </ul>
 </div>
-</li>
-</ol>
+<div class="paragraph">
+<p>That&#8217;s it! You have <code>docs.chm</code> file.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_chmcmd-cross-platform-open-source">3.2. chmcmd (cross-platform, open-source)</h3>
+<div class="paragraph">
+<p>Another option is to use cross-platform open-source tool <code>chmcmd</code> developed and distributed along with <a href="https://www.freepascal.org/">FPC</a>. Call it like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>chmcmd --no-html-scan docs.hhp</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>That&#8217;s it! You have <code>docs.chm</code> file, that can be viewed with <em>HTML Help</em> viewer.</p>
+<p>This will again create <code>docs.chm</code> file.</p>
+</div>
 </div>
 </div>
 </div>
