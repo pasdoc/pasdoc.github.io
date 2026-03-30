@@ -160,7 +160,7 @@ changing the project's description:
 * `ChangeLog.md` file should start with line
 +
 ----
-`## Upcoming Next Release`
+## Upcoming Next Release
 ----
 
 - Repeat the steps from _"Change version number to next stable"_, but :
