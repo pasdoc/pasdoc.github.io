@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=53ed5ff6544f24716458da8227ce5a1f6c31eee2">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b8781ba1e346af54347c8b72432b1b1242d9e8c2">
   </head>
   <body>
     <div id="layout-container">
@@ -39,12 +39,20 @@
           <h1>@link tag</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_qualifying-the-linked-item-with-class-name-unit-name-etc">2. Qualifying the linked item with class name, unit name, etc.</a></li>
+<li><a href="#_explicit-caption-of-a-link">3. Explicit caption of a link</a></li>
+<li><a href="#_disambiguate-links-to-overloaded-routines">4. Disambiguate links to overloaded routines</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Inside a description of one item you can place a link to another item
-using @link <a href="SupportedTags">tag</a>. Depending on the type of output,
-these links could be hyperlinks (in HTML) or page references (in LaTeX).</p>
+<p>In a description of one item you can link to another item using the <code>@link</code> <a href="SupportedTags">tag</a>. The links are converted to be clickable references suitable for the output format.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -54,62 +62,114 @@ these links could be hyperlinks (in HTML) or page references (in LaTeX).</p>
 <pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">const</span>
   MaxFactorialArgument <span style="color: #666666">=</span> <span style="color: #666666">20;</span>
 
-<span style="color: #408080; font-style: italic">{ This function calculates factorial of n, n!.</span>
-<span style="color: #408080; font-style: italic">  You should always call this function with</span>
+<span style="color: #408080; font-style: italic">{ Calculate factorial of n, @code(n!).</span>
+<span style="color: #408080; font-style: italic">  Always call this function with</span>
 <span style="color: #408080; font-style: italic">  n &lt;= @link(MaxFactorialArgument),</span>
 <span style="color: #408080; font-style: italic">  otherwise result will not fit in Int64 type. }</span>
 <span style="color: #008000; font-weight: bold">function</span> <span style="color: #0000FF">SmallFactorial</span>(n<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span>)<span style="color: #666666">:</span> <span style="color: #B00040">Int64</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can link to <em>any</em> item in your units that has some Pascal
-identifier. So you can link not only to some procedure, constant,
-variable, etc. but also to a whole class or a whole unit.</p>
-</div>
-<div class="paragraph">
-<p>You can use qualified names for the link target, like</p>
+<p>You can link to any item in your codebase, including:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>@link(SomeClassName.IdentifierinThisClass) or</p>
+<p>routines (procedures, functions),</p>
 </li>
 <li>
-<p>@link(SomeUnitName.IdentifierInThisUnit) or even</p>
+<p>constants,</p>
 </li>
 <li>
-<p>@link(SomeUnitName.SomeClassName.Identifier).</p>
+<p>types,</p>
+</li>
+<li>
+<p>enumeration types and enumerations members,</p>
+</li>
+<li>
+<p>variables,</p>
+</li>
+<li>
+<p>properties,</p>
+</li>
+<li>
+<p>fields,</p>
+</li>
+<li>
+<p>methods,</p>
+</li>
+<li>
+<p>units,</p>
+</li>
+<li>
+<p>classes, interfaces, records,</p>
+</li>
+<li>
+<p>and so on&#8201;&#8212;&#8201;really every Pascal item that PasDoc found in the source code.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>When resolving links, pasdoc tries to loosely mimic Pascal identifier
-scope: The name of an identifier is first searched within the current
-class / record etc., then within the current unit, then within the units
-in the uses clause. Only if that fails pasdoc will search globally in
-all known units.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-explicit-display-name-of-a-link"><a id="explicit-display-name-of-a-link"></a> Explicit display name of a link</h2>
+<h2 id="_qualifying-the-linked-item-with-class-name-unit-name-etc">2. Qualifying the linked item with class name, unit name, etc.</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can also specify an explicit display name for this link, simply by
-putting a space after your link target and then typing the link display
-name. E.g.</p>
+<p>When resolving links, PasDoc follows similar namespace rules as the compiler. For example, within a class, you can link to its methods and properties directly (without specifying the class name). From the outside, you need to specify the class name, like <code>@link(TMyClass.MyMethod)</code>. You can qualify the link even more, with a unit name.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>@link(TMyClass.MyMethod This is a silly link to MyMethod in TMyClass)</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">unit</span> MyUnit<span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">interface</span>
+
+<span style="color: #008000; font-weight: bold">type</span>
+  <span style="color: #408080; font-style: italic">{ Create an instance of this, then use @link(MyMethod) to do something. }</span>
+  TMyClass <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+    <span style="color: #408080; font-style: italic">{ Sets @link(MyProperty) to &#39;foo&#39;. }</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">MyMethod</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{ Change this directly or by calling @link(MyMethod). }</span>
+    <span style="color: #008000; font-weight: bold">property</span> MyProperty<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span> <span style="color: #008000">read</span> <span style="color: #0000FF">FMyProperty</span> <span style="color: #008000">write</span> <span style="color: #0000FF">FMyProperty</span><span style="color: #666666">;</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ Creates an instance of @link(TMyClass)</span>
+<span style="color: #408080; font-style: italic">  and calls @link(TMyClass.MyMethod). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">SomeProcedure</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ Creates @link(SomeOtherUnit.TSomeOtherClass)</span>
+<span style="color: #408080; font-style: italic">  and calls @link(SomeUnit.TSomeOtherClass.SomeOtherMethod). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">AnotherProcedure</span><span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">implementation</span>
+<span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">.</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_explicit-caption-of-a-link">3. Explicit caption of a link</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the link looks just like the name of the item it links to. And the multipart links look
+can be customized using the <code>--link-look</code> <a href="CommandLine">CommandLine</a> option.</p>
+</div>
+<div class="paragraph">
+<p>You can also specify an explicit caption for this link, simply by
+putting a space after your link target and then typing the caption. E.g.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>@link(TMyClass.MyMethod This is a link to MyMethod in TMyClass)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>One use for such an explicit name is if you have a class TMemo that has
-a property named Lines that returns an instance of a class TStringList.
-You want to document routine TMemo.Clear, that calls Lines.Clear and
+<p>An example use for such an explicit caption is if you have a class <code>TMemo</code> that has
+a property named Lines that returns an instance of a class <code>TStringList</code>.
+You want to document routine <code>TMemo.Clear</code>, that calls <code>Lines.Clear</code> and
 then does some repainting stuff. So you want to link in your description
-to TStringList.Clear, but you want the link to show as Lines.Clear. You
+to <code>TStringList.Clear</code>, but you want the link to show as <code>Lines.Clear</code>. You
 can do it by writing a description like</p>
 </div>
 <div class="listingblock">
@@ -124,9 +184,35 @@ can do it by writing a description like</p>
   <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_disambiguate-links-to-overloaded-routines">4. Disambiguate links to overloaded routines</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>If no explicit display name was specified, then what multipart links
-will look like depends on the <code>--link-look</code> <a href="CommandLine">CommandLine</a> option.</p>
+<p>If you have overloaded routines, you can disambiguate the link by specifying the parameter types. For example, if you have two overloaded procedures <code>Foo</code>, one with no parameters and another with an <code>Integer</code> parameter, you can link to the first one using <code>@link(Foo())</code> and to the second one using <code>@link(Foo(Integer))</code>. Like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span> overload<span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span>(x<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span>)<span style="color: #666666">;</span> overload<span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ This calls @link(Foo()) and then @link(Foo(Integer)). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can still specify a caption after a space:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span><span style="color: #666666">;</span> overload<span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Foo</span>(x<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span>)<span style="color: #666666">;</span> overload<span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">{ This calls @link(Foo() Foo without parameters)</span>
+<span style="color: #408080; font-style: italic">  and then @link(Foo(Integer) Foo with an Integer parameter). }</span>
+<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Bar</span><span style="color: #666666">;</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -134,9 +220,9 @@ will look like depends on the <code>--link-look</code> <a href="CommandLine">Com
           <footer class="site-footer">
             
 
-            <p><span class="site-footer-credits"><a href="https://www.patreon.com/castleengine">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
-
             <p><span class="site-footer-credits">Improve this website by <a href="https://github.com/pasdoc/pasdoc.github.io">proposing a change to the sources</a>.</span></p>
+
+            <p><span class="site-footer-credits"><a href="https://castle-engine.io/donate">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
 
             <p></p>
           </footer>

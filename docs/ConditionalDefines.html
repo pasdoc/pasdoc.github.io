@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Conditional processing and related command-line options –define, –conditionals | PasDoc</title>
+<title>Conditional expressions and related command-line options (–define, –conditionals) | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Conditional processing and related command-line options –define, –conditionals" />
+<meta property="og:title" content="Conditional expressions and related command-line options (–define, –conditionals)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Conditional processing and related command-line options –define, –conditionals" />
+<meta property="twitter:title" content="Conditional expressions and related command-line options (–define, –conditionals)" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Conditional processing and related command-line options –define, –conditionals","url":"https://pasdoc.github.io//ConditionalDefines.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Conditional expressions and related command-line options (–define, –conditionals)","url":"https://pasdoc.github.io//ConditionalDefines.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=53ed5ff6544f24716458da8227ce5a1f6c31eee2">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b8781ba1e346af54347c8b72432b1b1242d9e8c2">
   </head>
   <body>
     <div id="layout-container">
@@ -36,60 +36,80 @@
           
 
           
-          <h1>Conditional processing and related command-line options --define, --conditionals</h1>
+          <h1>Conditional expressions and related command-line options (--define, --conditionals)</h1>
           
 
-          <div class="sect1">
-<h2 id="_-overview"><a id="overview"></a> Overview</h2>
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_-define-command-line-option">2. <code>--define</code> command-line option</a></li>
+<li><a href="#_-define-command-line-option-with-to-define-a-symbol-with-a-value">3. <code>--define</code> command-line option with <code>:=</code> to define a symbol with a value</a></li>
+<li><a href="#_-conditionals-command-line-option">4. <code>--conditionals</code> command-line option</a></li>
+<li><a href="#_define-symbols-to-make-the-code-valid-for-pasdoc">5. Define symbols to make the code valid for PasDoc</a></li>
+<li><a href="#_support-for-if-expressions">6. Support for <code>$if</code> expressions</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pascal allows for <em>directives</em> in the source code. These are comments that contain commands for the compiler introduced by the dollar sign.</p>
-</div>
-<div class="paragraph">
-<p>To distinguish different compilers, libraries or development stages,
-<em>conditional directives</em> make it possible to make the compiler ignore
-part of the file.</p>
+<p>Pascal allows for <em>directives</em> in the source code. These look similar to comments and they contain commands for the compiler to do something special, like conditionaly ignore (or not ignore) a piece of following Pascal code.</p>
 </div>
 <div class="paragraph">
 <p>An example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">unit</span> SampleUnit<span style="color: #666666">;</span>
-
-<span style="color: #408080; font-style: italic">{$ifdef MSWINDOWS}</span>
-
-<span style="color: #008000; font-weight: bold">uses</span> Windows<span style="color: #666666">,</span> WinProcs<span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">WindowMove</span>(H<span style="color: #666666">:</span> TWindowHandle<span style="color: #666666">;</span> DX<span style="color: #666666">,</span> DY<span style="color: #666666">:</span> <span style="color: #B00040">Integer</span>)<span style="color: #666666">;</span>
-
-<span style="color: #408080; font-style: italic">{$else}</span>
-
-<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">ClearConsole</span><span style="color: #666666">;</span>
-<span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">PrintText</span>(S<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">String</span>)<span style="color: #666666">;</span>
-
-<span style="color: #408080; font-style: italic">{$endif}</span></code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">type</span>
+  TProcess <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">class</span>
+  <span style="color: #008000">public</span>
+    <span style="color: #008000; font-weight: bold">property</span> CommandLine<span style="color: #666666">:</span> TStrings <span style="color: #008000">read</span> <span style="color: #0000FF">GetCommandLine</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">procedure</span> <span style="color: #0000FF">Run</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{$ifdef MSWINDOWS}</span>
+    <span style="color: #008000; font-weight: bold">property</span> Handle<span style="color: #666666">:</span> TWindowHandle <span style="color: #008000">read</span> <span style="color: #0000FF">GetHandle</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{$endif}</span>
+    <span style="color: #408080; font-style: italic">{$ifdef UNIX}</span>
+    <span style="color: #008000; font-weight: bold">property</span> StdIn<span style="color: #666666">:</span> TUnixHandle <span style="color: #008000">read</span> <span style="color: #0000FF">GetStdIn</span> <span style="color: #008000">write</span> <span style="color: #0000FF">SetStdIn</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">property</span> StdOut<span style="color: #666666">:</span> TUnixHandle <span style="color: #008000">read</span> <span style="color: #0000FF">GetStdOut</span> <span style="color: #008000">write</span> <span style="color: #0000FF">SetStdOut</span><span style="color: #666666">;</span>
+    <span style="color: #008000; font-weight: bold">property</span> StdErr<span style="color: #666666">:</span> TUnixHandle <span style="color: #008000">read</span> <span style="color: #0000FF">GetStdErr</span> <span style="color: #008000">write</span> <span style="color: #0000FF">SetStdErr</span><span style="color: #666666">;</span>
+    <span style="color: #408080; font-style: italic">{$endif}</span>
+  <span style="color: #008000; font-weight: bold">end</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>As PasDoc parses Pascal files it must be able to correctly understand conditional directives. So it understands a number of directives dealing with conditional compilation: <code>$ifdef</code>, <code>$if</code>, <code>$else</code>, <code>$endif</code>, <code>$ifend</code>, <code>$ifopt</code>, <code>$define</code> and <code>$undef</code>.</p>
+<p>Just like a compiler, <em>PasDoc</em> understands various directives when it parses Pascal code:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$ifdef</code>, <code>$if</code>, <code>$ifopt</code> (and friends: <code>$else</code>, <code>$endif</code>, <code>$ifend</code>) - to conditionally use or ignore a piece of code.</p>
+</li>
+<li>
+<p><code>$define</code>, <code>$undef</code> - to define or undefine a symbol that can be used in <code>$if defined(SYMBOL)</code> / <code>$ifdef</code> expressions.</p>
+</li>
+<li>
+<p><code>$include</code> (short form <code>$I</code>) to include another file.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>In contrast from a real compiler, PasDoc starts with an empty list of conditional directives. For example, we don&#8217;t automatically define <code>MSWINDOWS</code>, even when you run PasDoc on Windows. The reason for this is that you probably want to generate <strong>one</strong> documentation that makes sense for <strong>all</strong> operating systems, <strong>all</strong> compiler versions and so on. It&#8217;s up to you to decide which symbols should be defined to achieve this.</p>
+<p>In contrast to a Pascal compiler, PasDoc starts with an empty list of conditional directives. For example, we don&#8217;t automatically define <code>MSWINDOWS</code>, even when you run PasDoc on Windows. The reason for this is that you usually want to generate <strong>one</strong> documentation that makes sense for <strong>all</strong> operating systems, <strong>all</strong> compiler versions and so on. It&#8217;s up to you to decide which symbols should be defined to achieve this.</p>
 </div>
 <div class="paragraph">
 <p>You can tell PasDoc to have some symbol defined using the <code>--define</code> and <code>--conditionals</code>
-<a href="CommandLine">CommandLine</a> options described below. It&#8217;s valid to specify multiple --define or --condtional options.</p>
+<a href="CommandLine">CommandLine</a> options described below.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-define-option"><a id="define-option"></a> --define option</h2>
+<h2 id="_-define-command-line-option">2. <code>--define</code> command-line option</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>--define DIRECTIVES option (short form is -D DIRECTIVES) adds DIRECTIVES
-to the list of conditional directives that are present whenever parsing
-a unit is started. Each define should be separated from the others by a
-comma, as shown in the following example:</p>
+<p><code>--define SYMBOL</code> (short form is <code>-D SYMBOL</code>) adds <code>SYMBOL</code> to the list of defined symbols. In effect, in Pascal code, <code>{$ifdef SYMBOL}</code> and (equivalent) <code>{$if defined(SYMBOL)}</code> will be considered true.</p>
+</div>
+<div class="paragraph">
+<p>You can specify multiple symbols separated by a comma:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -97,8 +117,21 @@ comma, as shown in the following example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This defines three conditionals: DEBUG, FPC and MSWINDOWS.</p>
+<p>This defines three conditionals: <code>DEBUG</code>, <code>FPC</code> and <code>MSWINDOWS</code>.</p>
 </div>
+<div class="paragraph">
+<p>You can also just use <code>--define SYMBOL</code> multiple times, like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pasdoc --define DEBUG --define FPC --define MSWINDOWS myunit.pas</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-define-command-line-option-with-to-define-a-symbol-with-a-value">3. <code>--define</code> command-line option with <code>:=</code> to define a symbol with a value</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>You can use the assignment operator to define a symbol with a value, like this:</p>
 </div>
@@ -125,7 +158,7 @@ comma, as shown in the following example:</p>
 <p>Special FPC <code>FPC_FULLVERSION</code> symbol (available only in conditional expressions in FPC, though in PasDoc it will be also expanded during normal Pascal code parsing)</p>
 </li>
 <li>
-<p><code>LCL_FULLVERSION</code> defined in Lazarus <code>LCLVersion</code> unit,</p>
+<p><code>LCL_FULLVERSION</code> defined in Lazarus <code>LCLVersion</code> unit</p>
 </li>
 <li>
 <p><a href="https://delphi.fandom.com/wiki/CompilerVersion_Constant">CompilerVersion</a> constant from Delphi.</p>
@@ -143,14 +176,13 @@ comma, as shown in the following example:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-conditionals-option"><a id="conditionals-option"></a> --conditionals option</h2>
+<h2 id="_-conditionals-command-line-option">4. <code>--conditionals</code> command-line option</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>--conditionals CONDITIONALS-FILE option (short form is
--d CONDITIONALS-FILE) adds the defines specified in a file
-CONDITIONALS-FILE to the list of conditional directives that are present
-whenever parsing a unit is started. The file must contain one
-conditional per line, without any comments.</p>
+<p><code>--conditionals SYMBOLS-FILE</code> option (short form
+<code>-d SYMBOLS-FILE</code>) adds the symbols specified in a file
+<code>SYMBOLS-FILE</code> to the list of conditional symbols defined. The file must contain one
+symbol per line, without any comments.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -174,18 +206,20 @@ MSWINDOWS</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_make-sure-the-resulting-code-is-valid">Make sure the resulting code is valid</h2>
+<h2 id="_define-symbols-to-make-the-code-valid-for-pasdoc">5. Define symbols to make the code valid for PasDoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Consider this sample:</p>
+<p>When you use conditional directives in your code, make sure that the combination of symbols you define for PasDoc results in code that can be parsed by PasDoc. For example, if you have something like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">const</span> NewLine <span style="color: #666666">=</span> <span style="color: #408080; font-style: italic">{$IFDEF MSWINDOWS}</span> <span style="color: #BA2121">#13#10</span> <span style="color: #408080; font-style: italic">{$ENDIF}</span> <span style="color: #408080; font-style: italic">{$IFDEF POSIX}</span> <span style="color: #BA2121">#10</span> <span style="color: #408080; font-style: italic">{$ENDIF}</span><span style="color: #666666">;</span></code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">const</span> NewLine <span style="color: #666666">=</span>
+  <span style="color: #408080; font-style: italic">{$ifdef MSWINDOWS}</span> <span style="color: #BA2121">#13#10</span> <span style="color: #408080; font-style: italic">{$endif}</span>
+  <span style="color: #408080; font-style: italic">{$ifdef UNIX}</span> <span style="color: #BA2121">#10</span> <span style="color: #408080; font-style: italic">{$endif}</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>By default PasDoc defines neither <code>MSWINDOWS</code> nor <code>POSIX</code>, so it will consider them both undefined and will try to parse (and fail) the following line:</p>
+<p>By default PasDoc defines neither <code>MSWINDOWS</code> nor <code>UNIX</code>, so it will consider them both undefined. Thus PasDoc will "see" (and fail to parse) a code like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -193,7 +227,7 @@ MSWINDOWS</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You have to make sure that the combination of symbols used by PasDoc "makes sense", i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:</p>
+<p>You have to make sure that the combination of symbols used by PasDoc makes sense, i.e. results in code that can be parsed. Sometimes the right solution is to introduce a special variant, used only when parsing with PasDoc:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -201,38 +235,31 @@ MSWINDOWS</pre>
   <span style="color: #408080; font-style: italic">{$ifdef PASDOC}</span>
     <span style="color: #BA2121">&#39;The value of this constant depends on the operating system&#39;</span>
   <span style="color: #408080; font-style: italic">{$else}</span>
-    <span style="color: #408080; font-style: italic">{$ifdef MSWINDOWS}</span> <span style="color: #BA2121">#13#10</span> <span style="color: #408080; font-style: italic">{$endif}</span> <span style="color: #408080; font-style: italic">{$ifdef POSIX}</span> <span style="color: #BA2121">#10</span> <span style="color: #408080; font-style: italic">{$endif}</span>
+    <span style="color: #408080; font-style: italic">{$ifdef MSWINDOWS}</span> <span style="color: #BA2121">#13#10</span> <span style="color: #408080; font-style: italic">{$endif}</span>
+    <span style="color: #408080; font-style: italic">{$ifdef UNIX}</span> <span style="color: #BA2121">#10</span> <span style="color: #408080; font-style: italic">{$endif}</span>
   <span style="color: #408080; font-style: italic">{$endif}</span><span style="color: #666666">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Make sure to execute PasDoc with command-line option <code>-d PASDOC</code> to make it work.</p>
+<p>Make sure to execute PasDoc with command-line option <code>-define PASDOC</code> to make it work.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_support-for-if">Support for <code>$if</code></h2>
+<h2 id="_support-for-if-expressions">6. Support for <code>$if</code> expressions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>$if</code> directive allows to evaluate an expression, like <code>{$if defined(MSWINDOWS) and not defined(FPC)}</code>.</p>
+<p>The <code>$if</code> directive allows to evaluate an expression, like</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-We had a number of improvements to <code>$if</code> parsing since last PasDoc 0.16.0 release. For now, use <a href="DevelopmentShapshots">development snapshots</a> to get the latest version with full support for <code>$if</code> expressions.
-</td>
-</tr>
-</table>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #408080; font-style: italic">{$if defined(MSWINDOWS) and not defined(FPC)}</span>
+<span style="color: #008000; font-weight: bold">const</span> CompilerInfo <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;Delphi on Windows&#39;</span><span style="color: #666666">;</span>
+<span style="color: #408080; font-style: italic">{$endif}</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Most of <code>$if</code> features supported by compilers (like FPC or Delphi) are now supported.</p>
-</div>
-<div class="paragraph">
-<p>We support:</p>
+<p>Most of <code>$if</code> features supported by compilers (like FPC or Delphi) are supported. This includes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -254,17 +281,35 @@ We had a number of improvements to <code>$if</code> parsing since last PasDoc 0.
 </ul>
 </div>
 <div class="paragraph">
-<p>In particular, some not supported features:</p>
+<p>Some expressions remain not supported, ultimately because <em>PasDoc</em> is not a compiler (so we don&#8217;t have the knowledge about the units you used, like RTL; and we don&#8217;t decide what are OS / CPU parameters). We don&#8217;t support:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>sizeof(xxx)</code> function (not likely to be ever supported&#8201;&#8212;&#8201;requires a compiler to determine it)</p>
+<p><code>declared(&#8230;&#8203;)</code></p>
 </li>
 <li>
-<p><code>declared(identifier)</code> function</p>
+<p><code>SizeOf(&#8230;&#8203;)</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The solution is to use a special symbol, like <code>PASDOC</code>, to make sure that the expression is valid for PasDoc. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight" style="background: #f8f8f8;"><code data-lang="pascal"><span></span><span style="color: #008000; font-weight: bold">const</span>
+  <span style="color: #408080; font-style: italic">{ Integer of the same size as Pointer.</span>
+<span style="color: #408080; font-style: italic">    @deprecated Use NativeUInt (Delphi) or PtrUInt (FPC). }</span>
+  MyPointerInt <span style="color: #666666">=</span>
+    <span style="color: #408080; font-style: italic">{$if defined(PASDOC)}</span>
+      UIntSystemDependent
+    <span style="color: #408080; font-style: italic">{$elseif SizeOf(Pointer) = 8}</span>
+      UInt64
+    <span style="color: #408080; font-style: italic">{$else}</span>
+      UInt32
+    <span style="color: #408080; font-style: italic">{$endif}</span><span style="color: #666666">;</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -272,9 +317,9 @@ We had a number of improvements to <code>$if</code> parsing since last PasDoc 0.
           <footer class="site-footer">
             
 
-            <p><span class="site-footer-credits"><a href="https://www.patreon.com/castleengine">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
-
             <p><span class="site-footer-credits">Improve this website by <a href="https://github.com/pasdoc/pasdoc.github.io">proposing a change to the sources</a>.</span></p>
+
+            <p><span class="site-footer-credits"><a href="https://castle-engine.io/donate">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
 
             <p></p>
           </footer>

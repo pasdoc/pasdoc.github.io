@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Introduction and Conclusion Files | PasDoc</title>
+<title>Introduction, Conclusion Files and Additional Files | PasDoc</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Introduction and Conclusion Files" />
+<meta property="og:title" content="Introduction, Conclusion Files and Additional Files" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Documentation tool for Pascal source code" />
 <meta property="og:description" content="Documentation tool for Pascal source code" />
@@ -15,14 +15,14 @@
 <meta property="og:site_name" content="PasDoc" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Introduction and Conclusion Files" />
+<meta property="twitter:title" content="Introduction, Conclusion Files and Additional Files" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Introduction and Conclusion Files","url":"https://pasdoc.github.io//IntroductionAndConclusion.html"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Documentation tool for Pascal source code","headline":"Introduction, Conclusion Files and Additional Files","url":"https://pasdoc.github.io//IntroductionAndConclusion.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=53ed5ff6544f24716458da8227ce5a1f6c31eee2">
+    <link rel="stylesheet" href="/assets/css/style.css?v=b8781ba1e346af54347c8b72432b1b1242d9e8c2">
   </head>
   <body>
     <div id="layout-container">
@@ -36,21 +36,45 @@
           
 
           
-          <h1>Introduction and Conclusion Files</h1>
+          <h1>Introduction, Conclusion Files and Additional Files</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_-simple-example">2.  Simple example</a></li>
+<li><a href="#_-format-of-introductionconclusion-files">3.  Format of introduction/conclusion files</a></li>
+<li><a href="#_-special-tags">4.  Special tags</a></li>
+<li><a href="#_-more-examples">5.  More examples</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use the <a href="CommandLine">CommandLine</a> options <code>--introduction=FILE-NAME</code> and <code>--conclusion=FILE-NAME</code> to add additional special pages to your documentation.</p>
+<p>You can provide extra documentation files to be included in your documentation, like an introduction and a conclusion. This is useful if you want to have some general information about your codebase, not related to any particular item in the code.</p>
 </div>
 <div class="paragraph">
-<p>Since PasDoc 0.16.0 you can also use option <code>--additional=FILE-NAME</code> to provide any number of additional files. Option <code>--additional</code> can be shortened to <code>-A</code>.</p>
+<p>Use these <a href="CommandLine">CommandLine</a> options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>--introduction=FILE-NAME</code></p>
+</li>
+<li>
+<p><code>--conclusion=FILE-NAME</code></p>
+</li>
+<li>
+<p><code>--additional=FILE-NAME</code> (use this as many time as you need, to add any number of additional files). Short form: <code>-A</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-simple-example"><a id="simple-example"></a> Simple example</h2>
+<h2 id="_-simple-example">2. <a id="simple-example"></a> Simple example</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Create a file named introduction.txt with contents like</p>
@@ -77,10 +101,10 @@ Some text describing your source code.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-format-of-introductionconclusion-files"><a id="format-of-introductionconclusion-files"></a> Format of introduction/conclusion files</h2>
+<h2 id="_-format-of-introductionconclusion-files">3. <a id="format-of-introductionconclusion-files"></a> Format of introduction/conclusion files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in <a href="WritingDocumentation">WritingDocumentation</a> apply here too: @-tags are allowed, you must write @@ to get single @ character, URLs are automatically turned into links, an empty line starts a new paragraph etc.</p>
+<p>The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in <a href="WritingDocumentation">Writing Documentation</a> apply here too: @-tags are allowed, you must write <code>@@</code> to get single <code>@</code> character, URLs are automatically turned into links, an empty line starts a new paragraph etc.</p>
 </div>
 <div class="paragraph">
 <p>In particular, you can use the <a href="LinkTag">@link tag</a> to link <em>from</em> introduction/conclusion to other items in your documentation. Also, you can create links <em>to</em> the introduction/conclusion by specifying the introduction/conclusion filename (without extension) as the link target, e.g.</p>
@@ -93,7 +117,7 @@ Some text describing your source code.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-special-tags"><a id="special-tags"></a> Special tags</h2>
+<h2 id="_-special-tags">4. <a id="special-tags"></a> Special tags</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Some special @-tags are allowed only in introduction/conclusion files:</p>
@@ -114,10 +138,24 @@ Some text describing your source code.</pre>
 <div class="ulist">
 <ul>
 <li>
-<p><em>HeadingLevel</em>: a number used to indicate section nesting. It must be an integer &gt;= 1. E.g. in <a href="HtmlOutput">HtmlOutput</a> HeadingLevel = 1 results in &lt;h2&gt;Section title&lt;/h2&gt;, HeadingLevel = 2 results in &lt;h3&gt;Section title&lt;/h3&gt; etc. In <a href="LatexOutput">LatexOutput</a> HeadingLevel = 1 results in <code>\section{Section title}</code> , HeadingLevel = 2 results in <code>\subsection{Section title}</code> etc.</p>
+<p><em>HeadingLevel</em>: a number used to indicate section nesting. It must be an integer &gt;= 1. E.g.</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>in the <a href="HtmlOutput">HTML output format</a> HeadingLevel = 1 results in <code>&lt;h2&gt;Section title&lt;/h2&gt;</code>, HeadingLevel = 2 results in <code>&lt;h3&gt;Section title&lt;/h3&gt;</code> etc.</p>
 </li>
 <li>
-<p><em>AnchorName</em>: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a LinkTag_. Allowed AnchorNames are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).</p>
+<p>In the <a href="LatexOutput">LaTeX output format</a> HeadingLevel = 1 results in <code>\section{Section title}</code> , HeadingLevel = 2 results in <code>\subsection{Section title}</code> etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><em>AnchorName</em>: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a <a href="LinkTag">@link tag</a>. Allowed <code>AnchorNames</code> are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).</p>
 </li>
 <li>
 <p><em>Section title</em>: title shown in the documentation.</p>
@@ -127,7 +165,7 @@ Some text describing your source code.</pre>
 </dd>
 <dt class="hdlist1">@anchor(AnchorName)</dt>
 <dd>
-<p>Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a <a href="LinkTag">@link tag</a></p>
+<p>Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a <a href="LinkTag">@link tag</a>.</p>
 </dd>
 <dt class="hdlist1"><a href="TableOfContentsTag">@tableOfContents</a></dt>
 <dd>
@@ -138,7 +176,7 @@ Some text describing your source code.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-more-examples"><a id="more-examples"></a> More examples</h2>
+<h2 id="_-more-examples">5. <a id="more-examples"></a> More examples</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -146,7 +184,7 @@ Some text describing your source code.</pre>
 <p>See the <a href="https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_introduction.txt">test introduction file</a>.</p>
 </li>
 <li>
-<p>See also <a href="PasDocAutoDoc">PasDocAutoDoc</a>&#8201;&#8212;&#8201;there&#8217;s an "Overview" page included, and it was generated using --introduction command-line option.</p>
+<p>See also <a href="PasDocAutoDoc">PasDocAutoDoc</a>&#8201;&#8212;&#8201;there&#8217;s an "Overview" page included, and it was generated using <code>--introduction</code> command-line option.</p>
 </li>
 </ul>
 </div>
@@ -156,9 +194,9 @@ Some text describing your source code.</pre>
           <footer class="site-footer">
             
 
-            <p><span class="site-footer-credits"><a href="https://www.patreon.com/castleengine">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
-
             <p><span class="site-footer-credits">Improve this website by <a href="https://github.com/pasdoc/pasdoc.github.io">proposing a change to the sources</a>.</span></p>
+
+            <p><span class="site-footer-credits"><a href="https://castle-engine.io/donate">Support Michalis, developer of PasDoc and Castle Game Engine</a>.</span></p>
 
             <p></p>
           </footer>
