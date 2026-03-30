@@ -129,6 +129,25 @@ For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/a
 * Announce new release on http://freshcode.club/projects/pasdoc.
 * Send an update to http://directory.fsf.org/project/pasdoc/[FSF directory].
 
+* Post to Delphi / FPC communities on FB:
++
+--
+- https://www.facebook.com/groups/lazide
+- https://www.facebook.com/groups/freepascallazarusdelphi
+- https://www.facebook.com/groups/DelphiDevelopers/
+- https://www.facebook.com/groups/170041353008050 - Pascal Game Development
+- https://www.facebook.com/groups/2326037874 - Pascal programming language
+- https://www.facebook.com/groups/137012246341854 - Delphi developer
+--
++
+Sample post: https://www.facebook.com/groups/lazide/posts/3320318151558389/
+
+* Post to https://en.delphipraxis.net/forum/13-delphi-third-party/[Delphi Praxis] forum, in "Delphi Third Party" section.
++
+Sample: https://en.delphipraxis.net/topic/7480-castle-game-engine-70-alpha2-release/
+
+* LinkedIn: https://www.linkedin.com/groups/1290947/
+
 Really, really large and significant improvements may be signalled by
 changing the project's description:
 
