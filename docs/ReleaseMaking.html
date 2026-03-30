@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=b8781ba1e346af54347c8b72432b1b1242d9e8c2">
+    <link rel="stylesheet" href="/assets/css/style.css?v=cb84420e37e0509c958d15f58cf4ab64d80d0836">
   </head>
   <body>
     <div id="layout-container">
@@ -46,10 +46,12 @@
 <li><a href="#_change-version-number-to-next-stable">2. Change version number to next stable</a></li>
 <li><a href="#_-write-changelog-entry">3.  Write ChangeLog entry</a></li>
 <li><a href="#_-update-docs">4.  Update docs</a></li>
-<li><a href="#_-build-and-test-all-releases-automated-now">5.  Build and test all releases (automated now)</a></li>
-<li><a href="#_-release-files-using-github">6.  Release files using GitHub</a></li>
-<li><a href="#_-final-things-to-do">7.  Final things to do</a></li>
-<li><a href="#_change-version-number-to-next-unstable">8. Change version number to next UNstable</a></li>
+<li><a href="#_update-autodoc">5. Update AutoDoc</a></li>
+<li><a href="#_prepare-tag-and-github-release">6. Prepare tag and GitHub release</a></li>
+<li><a href="#_-build-and-test-all-releases-automated-now">7.  Build and test all releases (automated now)</a></li>
+<li><a href="#_make-release-public">8. Make release public</a></li>
+<li><a href="#_announce-new-release-everywhere">9. Announce new release everywhere</a></li>
+<li><a href="#_prepare-for-next-release">10. Prepare for next release</a></li>
 </ul>
 </div>
 <div class="sect1">
@@ -66,23 +68,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Change version of all packages in pasdoc/source/packages/ dir. Right now this means changing</p>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;/packages/lazarus/pasdoc_package.lpk</p>
+<p>Change version of all packages in <code>source/packages/</code>. Right now this means just changing <code>source/packages/lazarus/pasdoc_package.lpk</code>. (Delphi packages don&#8217;t store PasDoc version now.)</p>
 </li>
 <li>
-<p>all Delphi packages</p>
-</li>
-</ul>
-</div>
+<p>change <code>VERSION</code> in <code>pasdoc/Makefile</code></p>
 </li>
 <li>
-<p>change VERSION in pasdoc/Makefile</p>
-</li>
-<li>
-<p>change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas</p>
+<p>change <code>PASDOC_VERSION</code> and <code>PASDOC_DATE</code> in <code>source/components/PasDoc_Versions.pas</code></p>
 </li>
 </ul>
 </div>
@@ -111,16 +103,54 @@
 <div class="paragraph">
 <p><em>Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use <a href="DevelopmentSnapshots">DevelopmentSnapshots</a> to use this feature.</em></p>
 </div>
-<div class="paragraph">
-<p>(where <em>x.y.z</em> is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase <em>Note that this feature is not available in latest released pasdoc version</em>. (For GitHub wiki, you can clone it and then just grep locally.)</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update-autodoc">5. Update AutoDoc</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>It&#8217;s a good idea to upload <a href="PasDocAutoDoc">PasDocAutoDoc</a> at this time, like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre>cd pasdoc/source/autodoc/
+pasdoc --version # make sure latest version of pasdoc is used
+make clean public upload
+
+cd  ../../../pasdoc.github.io/
+git commit -m "Updated autodoc"
+git push</pre>
+</div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-build-and-test-all-releases-automated-now">5. <a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
+<h2 id="_prepare-tag-and-github-release">6. Prepare tag and GitHub release</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Create a tag by <code>make tag</code>.</p>
+</li>
+<li>
+<p>Go to <a href="https://github.com/pasdoc/pasdoc/releases" class="bare">https://github.com/pasdoc/pasdoc/releases</a> and create a new release from this tag. Place the notes from the changelog entry as description. Make it "draft" for now.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-build-and-test-all-releases-automated-now">7. <a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Note: This step is in practice automated now, using <a href="https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)">Castle Game Engine Jenkins infrastructure</a> to automatically test and build PasDoc. The commands performed by Jenkins are configured in <code>Jenkinsfile</code> in the PasDoc repository.</strong></p>
+<p>Note: This step is automated now, using <a href="https://github.com/pasdoc/pasdoc/tree/master/.github/workflows">GitHub Actions</a> to automatically test and build PasDoc. Just switch <code>release_tag</code> in <code>.github/workflows/build.yml</code> to the new tag and push it, and GitHub Actions will do the rest.</p>
+</div>
+<div class="paragraph">
+<p>Below we describe how to do things manually, just in case.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -145,22 +175,14 @@
 <p>To build for the current platform (OS and architecture) call this:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make clean build-fpc-default</code></pre>
+<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make clean build-fpc-release</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Note that it&#8217;s important to call <code>clean</code> before <code>build-&#8230;&#8203;</code>, otherwise you risk that some units were left as compiled with debug options.</p>
 </div>
 <div class="paragraph">
-<p>To build for an indicated platform:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight" style="background: #f8f8f8;"><code><span></span>make clean build-fpc-&lt;os/arch&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To build for indicated platform and package to zip/tar.gz (this will call <code>clean build-fpc-&lt;os/arch&gt;</code> as first steps):</p>
+<p>To build for indicated platform and package to zip/tar.gz (this will call <code>clean build-fpc-release</code> as first steps):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -177,7 +199,7 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For basic test of  pasdoc_gui, open the project with pasdoc&#8217;s autodoc source/autodoc/autodoc.pds and hit "Generate".</p>
+<p>For basic test of <code>pasdoc_gui</code>, open the project with pasdoc&#8217;s autodoc <code>source/autodoc/autodoc.pds</code> and hit "Generate".</p>
 </div>
 </li>
 </ul>
@@ -185,18 +207,12 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-release-files-using-github">6. <a id="release-files-using-sourceforge-file-release-system"></a> Release files using GitHub</h2>
+<h2 id="_make-release-public">8. Make release public</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Create a tag by <code>make tag</code></p>
-</li>
-<li>
-<p>Go to <a href="https://github.com/pasdoc/pasdoc/releases" class="bare">https://github.com/pasdoc/pasdoc/releases</a> and create a new release from tag</p>
-</li>
-<li>
-<p>Upload there the release.</p>
+<p>Make the release non-draft on GitHub.</p>
 </li>
 <li>
 <p>Mark it as "latest", make sure <a href="https://github.com/pasdoc/pasdoc/releases/latest">latest release</a> page links to it.</p>
@@ -206,42 +222,21 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-final-things-to-do">7. <a id="final-things-to-do"></a> Final things to do</h2>
+<h2 id="_announce-new-release-everywhere">9. Announce new release everywhere</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>It&#8217;s a good idea to upload <a href="PasDocAutoDoc">PasDocAutoDoc</a> at this time, like this:</p>
-<div class="listingblock">
-<div class="content">
-<pre>cd pasdoc/source/autodoc/
-make clean public upload
-
-cd  ../../../pasdoc.github.io/
-git commit -m "Updated autodoc"
-git push</pre>
-</div>
-</div>
+<p>Announce new release on <a href="https://forum.lazarus.freepascal.org/">Lazarus forum</a>.</p>
 </li>
 <li>
-<p><a href="https://sourceforge.net/p/pasdoc/news/">Submit news item</a> <em>PasDoc x.y.z released</em></p>
+<p><a href="https://sourceforge.net/p/pasdoc/news/">SourceForge "Old News" item</a> <em>PasDoc x.y.z released</em></p>
 </li>
 <li>
 <p>Announce new release on <a href="http://freshcode.club/projects/pasdoc" class="bare">http://freshcode.club/projects/pasdoc</a>.</p>
 </li>
 <li>
-<p>Announce new release on <a href="http://lazarus.freepascal.org/">Lazarus forum</a>.</p>
-</li>
-<li>
 <p>Send an update to <a href="http://directory.fsf.org/project/pasdoc/">FSF directory</a>.</p>
-</li>
-<li>
-<p>Prepare for next release: ChangeLog.md file should start with line</p>
-<div class="listingblock">
-<div class="content">
-<pre>[Next release -- release date and new version number unknown yet...]</pre>
-</div>
-</div>
 </li>
 </ul>
 </div>
@@ -265,18 +260,38 @@ changing the project&#8217;s description:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_change-version-number-to-next-unstable">8. Change version number to next UNstable</h2>
+<h2 id="_prepare-for-next-release">10. Prepare for next release</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Repeat the steps from <em>"Change version number to next stable"</em>, but :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ChangeLog.md</code> file should start with line</p>
+<div class="listingblock">
+<div class="content">
+<pre>`## Upcoming Next Release`</pre>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Repeat the steps from <em>"Change version number to next stable"</em>, but :</p>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
 <p>Make last version number <em>odd</em> to signify unstable release and add <code>.snapshot</code>, like <code>1.2.5.snapshot</code>.</p>
 </li>
 <li>
-<p>Update <code>DevelopmentSnapshots.asciidoc</code> version number.</p>
+<p>Update <a href="DevelopmentSnapshots">DevelopmentSnapshots</a> version number.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
