@@ -9,11 +9,19 @@ _HTML Help_ is a file format for documentation. The final documentation can be a
 
 As the name suggests, the format is based on HTML. Internally, a `.chm` file is just a collection of HTML files, with some extra information. See https://en.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help[Wikipedia] and http://msdn.microsoft.com/en-us/library/windows/desktop/ms524413(v=vs.85).aspx[Microsoft documentation] for more information.
 
-link:index[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary, so that you can create the final file using the _Microsoft HTML Workshop_ (free download).
+link:index[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary. After generating the files, you can create the final CHM file using tools like `hhc` or `chmcmd`.
 
-## Prerequisite: HTML Help Workshop
+## Generating HTML Help files with PasDoc
 
-You need to get https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx[HTML Help Workshop]. Unfortunately, the download links (on this Microsoft page) are broken, which has been https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp[reported] but seems unlikely to be fixed.
+First, generate documentation using pasdoc with `--format=htmlhelp` command-line option. In addition to normal HTML files, we will output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the names of these files to something else with link:NameOption[--name option].
+
+Once this is done, you can create the final `.chm` file using one of the tools described below.
+
+## Creating the final .chm file
+
+### Microsoft HTML Help Workshop (Windows only, proprietary)
+
+One option to create the final `.chm` file is to use https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx[HTML Help Workshop]. Unfortunately, the download links (on this Microsoft page) are broken, which has been https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp[reported] but seems unlikely to be fixed.
 
 Best options to get _HTML Help Workshop_ now:
 
@@ -28,16 +36,23 @@ Best options to get _HTML Help Workshop_ now:
 
 In both cases, after the installation the tools are in `C:\Program Files (x86)\HTML Help Workshop` directory. You can add it to your `$PATH` to easily execute `hhc` from the command line.
 
-## Usage of HTML Help output from PasDoc
+To make `docs.chm` file:
 
-1. Generate documentation with pasdoc with `--format=htmlhelp`. In addition to normal HTML files, we
-will also output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the names of these files to something else with link:NameOption[--name option].
+* Interactively: run the `hhw` program from the _HTML Help Workshop_, open generated `docs.hhp` file, and run _"Compile HTML file"_ from toolbar.
 
-2. Make `docs.chm` file:
-** Interactively: run the `hhw` program from the _HTML Help Workshop_, open generated `docs.hhp` file, and run _"Compile HTML file"_ from toolbar.
-** Or in batch mode (command line): run `hhc docs.hhp`.
+* Or in batch mode (command line): run `hhc docs.hhp`.
 
-That's it! You have `docs.chm` file, that can be viewed with _HTML Help_ viewer.
+That's it! You have `docs.chm` file.
+
+### chmcmd (cross-platform, open-source)
+
+Another option is to use cross-platform open-source tool `chmcmd` developed and distributed along with https://www.freepascal.org/[FPC]. Call it like this:
+
+```
+chmcmd --no-html-scan docs.hhp
+```
+
+This will again create `docs.chm` file.
 
 ## Custom help contents
 
