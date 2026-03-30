@@ -118,10 +118,10 @@ In short, just call
 ----
 git clone https://github.com/pasdoc/pasdoc.git
 ----
-* See link:CompilingPasDoc[CompilingPasDoc] for instructions how to compile PasDoc.
-* See link:ReleaseMaking[ReleaseMaking] to know how we test and package PasDoc for final releases.
+* See link:CompilingPasDoc[compiling PasDoc] for instructions how to compile PasDoc.
+* See link:ReleaseMaking[release making] to know how we test and package PasDoc for final releases.
 
-While developing PasDoc we also developed some link:OtherTools[OtherTools] that you may find useful.
+While developing PasDoc we also developed some link:OtherTools[other tools, like Pascal preprocessor] that you may find useful.
 
 About these web pages:
 
