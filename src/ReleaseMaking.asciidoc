@@ -96,9 +96,18 @@ For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/a
 
 * Mark it as "latest", make sure https://github.com/pasdoc/pasdoc/releases/latest[latest release] page links to it.
 
+* Update our website to link to latest release: edit `_config.yml`, `make`, commit and push.
+
 ## Announce new release everywhere
 
 * Make thread on our forum: https://github.com/pasdoc/pasdoc/discussions .
++
+--
+- GitHub's new _"Create discussion from release"_ checkbox also does it OK (make sure it's checked when making release public).
+- _Unpin_ old release announcement thread.
+- _Pin_ the release announcement thread, for Discussions and for Announcements category.
+--
+
 * Announce new release on https://forum.lazarus.freepascal.org/[Lazarus forum].
 * https://sourceforge.net/p/pasdoc/news/[SourceForge "Old News" item] _PasDoc x.y.z released_
 * Announce new release on http://freshcode.club/projects/pasdoc.
