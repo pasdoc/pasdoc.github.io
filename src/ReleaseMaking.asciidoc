@@ -96,7 +96,15 @@ For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/a
 
 * Mark it as "latest", make sure https://github.com/pasdoc/pasdoc/releases/latest[latest release] page links to it.
 
-* Update our website to link to latest release: edit `_config.yml`, `make`, commit and push.
+* Update our website to link to latest release:
++
+--
+- edit `_config.yml`
+- edit also `src/_layouts/default.html` if plaforms changed.
+- `make`
+- commit and push
+- once live, download all linked releases to make sure links are OK.
+--
 
 ## Announce new release everywhere
 
@@ -109,6 +117,14 @@ For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/a
 --
 
 * Announce new release on https://forum.lazarus.freepascal.org/[Lazarus forum].
++
+--
+- To convert our Markdown changelog/announcement to bbcode, https://pandoc.org/installing.html[install latest pandoc] (at least 3.8.3) and run: `pandoc --from=gfm --to=bbcode n.md --output=n.bbcode`
+- Add a paragraph explaining what we are. `PasDoc is a documentation generator for Pascal source code. Documentation is generated from comments found in the source code (or in special description files). We support many output formats, like HTML, LaTeX (for PDF, PS), XML and PHP. We are free open-source software.`
+--
+* fpc-pascal mailing list (`[ANN] PasDoc X.Y.Z release`)
+* https://castle-engine.io/wp/[Castle Game Engine news]
+* Debian Pascal packaging mailing list
 * https://sourceforge.net/p/pasdoc/news/[SourceForge "Old News" item] _PasDoc x.y.z released_
 * Announce new release on http://freshcode.club/projects/pasdoc.
 * Send an update to http://directory.fsf.org/project/pasdoc/[FSF directory].
