@@ -1,8 +1,17 @@
-:doctitle: Introduction and Conclusion Files
+:doctitle: Introduction, Conclusion Files and Additional Files
+:sectnums:
+:toc: left
+:toclevels: 4
 
-You can use the link:CommandLine[CommandLine] options `--introduction=FILE-NAME` and `--conclusion=FILE-NAME` to add additional special pages to your documentation.
+## Introduction
 
-Since PasDoc 0.16.0 you can also use option `--additional=FILE-NAME` to provide any number of additional files. Option `--additional` can be shortened to `-A`.
+You can provide extra documentation files to be included in your documentation, like an introduction and a conclusion. This is useful if you want to have some general information about your codebase, not related to any particular item in the code.
+
+Use these link:CommandLine[CommandLine] options:
+
+- `--introduction=FILE-NAME`
+- `--conclusion=FILE-NAME`
+- `--additional=FILE-NAME` (use this as many time as you need, to add any number of additional files). Short form: `-A`.
 
 ## [[simple-example]] Simple example
 
@@ -25,7 +34,7 @@ In HTML output you will get an additional page introduction.html in your documen
 
 ## [[format-of-introductionconclusion-files]] Format of introduction/conclusion files
 
-The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in link:WritingDocumentation[WritingDocumentation] apply here too: @-tags are allowed, you must write @@ to get single @ character, URLs are automatically turned into links, an empty line starts a new paragraph etc.
+The text inside the introduction/conclusion files is treated very much like normal pasdoc descriptions. This means that all rules explained in link:WritingDocumentation[Writing Documentation] apply here too: @-tags are allowed, you must write `@@` to get single `@` character, URLs are automatically turned into links, an empty line starts a new paragraph etc.
 
 In particular, you can use the link:LinkTag[@link tag] to link _from_ introduction/conclusion to other items in your documentation. Also, you can create links _to_ the introduction/conclusion by specifying the introduction/conclusion filename (without extension) as the link target, e.g.
 
@@ -45,12 +54,17 @@ Specify the title of introduction/conclusion. In HTML output, the argument is th
 
 @section(HeadingLevel AnchorName Section title)::
 Start a new section. The `@section` tag contains:
-*  _HeadingLevel_: a number used to indicate section nesting. It must be an integer >= 1. E.g. in link:HtmlOutput[HtmlOutput] HeadingLevel = 1 results in <h2>Section title</h2>, HeadingLevel = 2 results in <h3>Section title</h3> etc. In link:LatexOutput[LatexOutput] HeadingLevel = 1 results in `\section{Section title}` , HeadingLevel = 2 results in `\subsection{Section title}` etc.
-*  _AnchorName_: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a LinkTag_. Allowed AnchorNames are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).
-* _Section title_: title shown in the documentation.
+*  _HeadingLevel_: a number used to indicate section nesting. It must be an integer >= 1. E.g.
++
+--
+- in the link:HtmlOutput[HTML output format] HeadingLevel = 1 results in `<h2>Section title</h2>`, HeadingLevel = 2 results in `<h3>Section title</h3>` etc.
+- In the link:LatexOutput[LaTeX output format] HeadingLevel = 1 results in `\section{Section title}` , HeadingLevel = 2 results in `\subsection{Section title}` etc.
+--
+*  _AnchorName_: used to link to a given section (from the introduction/conclusion files or a Pascal items descriptions) using a link:LinkTag[@link tag]. Allowed `AnchorNames` are valid Pascal identifiers (first character is an underscore or a letter, followed by any combination of letters, digits and underscores).
+*  _Section title_: title shown in the documentation.
 
 @anchor(AnchorName)::
-Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a link:LinkTag[@link tag]
+Set up an anchor at this place. The anchor name must be a valid Pascal identifier. Anchors are not visible in the generated documentation, but you can link to them with a link:LinkTag[@link tag].
 
 link:TableOfContentsTag[@tableOfContents]::
 Insert table of contents here.
@@ -58,4 +72,4 @@ Insert table of contents here.
 ## [[more-examples]] More examples
 
 * See the https://github.com/pasdoc/pasdoc/blob/master/tests/testcases/ok_introduction.txt[test introduction file].
-* See also link:PasDocAutoDoc[PasDocAutoDoc] -- there's an "Overview" page included, and it was generated using --introduction command-line option.
+* See also link:PasDocAutoDoc[PasDocAutoDoc] -- there's an "Overview" page included, and it was generated using `--introduction` command-line option.
