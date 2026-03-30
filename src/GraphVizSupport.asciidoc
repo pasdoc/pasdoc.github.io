@@ -1,4 +1,9 @@
 :doctitle: GraphViz support
+:sectnums:
+:toc: left
+:toclevels: 4
+
+## Introduction
 
 link:index[PasDoc] supports the http://www.graphviz.org/[GraphViz] package
 for generating simple unit uses and class inheritance graphs.
@@ -6,23 +11,32 @@ for generating simple unit uses and class inheritance graphs.
 There are four link:CommandLine[CommandLine] options that can be
 used:
 
+## Prerequisite: GraphViz
+
+You need to install http://www.graphviz.org/[GraphViz] with the `dot` program.
+
+You can install it
+
+- from http://www.graphviz.org/[GraphViz website],
+
+- or using a package manager for your system, like `sudo apt install graphviz` on Debian/Ubuntu.
++
+On Windows, you can use https://chocolatey.org/[Chocolatey]. Install https://chocolatey.org/install[Chocolatey itself] first, using _PowerShell_, and then follow https://community.chocolatey.org/packages/Graphviz[installation instructions for `Graphviz` package]. After the installation, `dot` and other GraphViz utilities should be already available on `$PATH` (make sure to close + reopen applications to see new environment variables).
+
 ## [[options-to-create-graph-files]] Options to create graph files
 
-`--graphviz-uses` and `--graphviz-classes` will generate `GVUses.dot` and
-`GVClasses.dot` files that can be used as input for the `dot` program from
-the http://www.graphviz.org/[GraphViz] package like this:
+Command-line options `--graphviz-uses` and `--graphviz-classes` will cause generation of `GVUses.dot` and
+`GVClasses.dot` files that can be used as input for the `dot` program. Follow PasDoc execution by commands like this:
 
 ----
 dot -T png GVUses.dot > GVUses.png
 dot -T png GVClasses.dot > GVClasses.png
 ----
 
-This will generate a file GVUses.png containing a graph of unit
-dependencies and GVClasses.png containing a graph of class dependencies.
+This will generate a file `GVUses.png` containing a graph of unit
+dependencies and `GVClasses.png` containing a graph of class dependencies.
 
-Tip:
-
-The generated graph is usually rather wide which makes it a bit awkward
+_Tip:_ The generated graph is usually rather wide which makes it a bit awkward
 to use. By setting the "rankdir" graph attribute to "LR" the graph will
 be built left to right rather than the default top to bottom direction
 resulting in a much more convenient format:
@@ -33,7 +47,7 @@ dot -Grankdir=LR -T png GVUses.dot > GVUses.png
 
 ## [[options-to-link-to-graphs-in-documentation]] Options to link to graphs in documentation
 
---link-gv-uses and --link-gv-classes will add a link to the overview
+Command-line options `--link-gv-uses` and `--link-gv-classes` will add a link to the overview
 frame pointing to the pictures generated with dot. You must pass the
 file extension of the picture (dot can also generate gif and lots of
 other formats). So if you generate png you must call
