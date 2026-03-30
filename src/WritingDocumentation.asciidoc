@@ -112,6 +112,8 @@ page:
 procedure Parse(const _CmdLine: string);
 ----
 
+We have limited support for _Help Insight_ comments, the relevant XML elements are converted into PasDoc tags using a simple mapping. For more complicated cases, we advise you use our link:SupportedTags[@-tags] (and not _Help Insight_ comments), as our link:SupportedTags[@-tags] are more powerful and reliably understood by PasDoc.
+
 ## [[items-without-documentation]] Items without documentation
 
 Even undocumented items (not annotated with any comment) are visible in the output. Here's why:
