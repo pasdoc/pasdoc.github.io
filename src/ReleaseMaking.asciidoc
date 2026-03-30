@@ -9,11 +9,9 @@ This page describes the process of making a new https://github.com/pasdoc/pasdoc
 
 ## Change version number to next stable
 
-* Change version of all packages in pasdoc/source/packages/ dir. Right now this means changing
-** .../packages/lazarus/pasdoc_package.lpk
-** all Delphi packages
-* change VERSION in pasdoc/Makefile
-* change PASDOC_VERSION and PASDOC_DATE in pasdoc/source/components/PasDoc_Versions.pas
+* Change version of all packages in `source/packages/`. Right now this means just changing `source/packages/lazarus/pasdoc_package.lpk`. (Delphi packages don't store PasDoc version now.)
+* change `VERSION` in `pasdoc/Makefile`
+* change `PASDOC_VERSION` and `PASDOC_DATE` in `source/components/PasDoc_Versions.pas`
 
 Make last version number _even_ to signify stable release, like `1.2.4`.
 
@@ -29,11 +27,31 @@ Remove from the documentation text
 
 _Note that this feature is not available in latest released pasdoc version, x.y.z. You must download and compile pasdoc yourself or use link:DevelopmentSnapshots[DevelopmentSnapshots] to use this feature._
 
-(where _x.y.z_ is version number of previous release) placed at the beginning of some pages. This is easily done by doing a full-text search in the wiki for the phrase __Note that this feature is not available in latest released pasdoc version__. (For GitHub wiki, you can clone it and then just grep locally.)
+## Update AutoDoc
+
+* It's a good idea to upload link:PasDocAutoDoc[PasDocAutoDoc] at this time, like this:
++
+----
+cd pasdoc/source/autodoc/
+pasdoc --version # make sure latest version of pasdoc is used
+make clean public upload
+
+cd  ../../../pasdoc.github.io/
+git commit -m "Updated autodoc"
+git push
+----
+
+## Prepare tag and GitHub release
+
+* Create a tag by `make tag`.
+
+* Go to https://github.com/pasdoc/pasdoc/releases and create a new release from this tag. Place the notes from the changelog entry as description. Make it "draft" for now.
 
 ## [[compile-and-test-all-releases]] Build and test all releases (automated now)
 
-**Note: This step is in practice automated now, using https://github.com/castle-engine/castle-engine/wiki/Cloud-Builds-(Jenkins)[Castle Game Engine Jenkins infrastructure] to automatically test and build PasDoc. The commands performed by Jenkins are configured in `Jenkinsfile` in the PasDoc repository.**
+Note: This step is automated now, using https://github.com/pasdoc/pasdoc/tree/master/.github/workflows[GitHub Actions] to automatically test and build PasDoc. Just switch `release_tag` in `.github/workflows/build.yml` to the new tag and push it, and GitHub Actions will do the rest.
+
+Below we describe how to do things manually, just in case.
 
 * Make sure you have the latest stable FPC and Lazarus versions.
 
@@ -50,18 +68,12 @@ To be sure, you should run these tests on all targets.
 * To build for the current platform (OS and architecture) call this:
 +
 ```
-make clean build-fpc-default
+make clean build-fpc-release
 ```
 +
 Note that it's important to call `clean` before `build-...`, otherwise you risk that some units were left as compiled with debug options.
 +
-To build for an indicated platform:
-+
-```
-make clean build-fpc-<os/arch>
-```
-+
-To build for indicated platform and package to zip/tar.gz (this will call `clean build-fpc-<os/arch>` as first steps):
+To build for indicated platform and package to zip/tar.gz (this will call `clean build-fpc-release` as first steps):
 +
 ```
 make dist-<os/arch>
@@ -74,39 +86,20 @@ lazbuild source/packages/lazarus/pasdoc_package.lpk
 lazbuild source/gui/pasdoc_gui.lpi
 ----
 +
-For basic test of  pasdoc_gui, open the project with pasdoc's autodoc source/autodoc/autodoc.pds and hit "Generate".
+For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/autodoc/autodoc.pds` and hit "Generate".
 
-## [[release-files-using-sourceforge-file-release-system]] Release files using GitHub
+## Make release public
 
-* Create a tag by `make tag`
-
-* Go to https://github.com/pasdoc/pasdoc/releases and create a new release from tag
-
-* Upload there the release.
+* Make the release non-draft on GitHub.
 
 * Mark it as "latest", make sure https://github.com/pasdoc/pasdoc/releases/latest[latest release] page links to it.
 
-## [[final-things-to-do]] Final things to do
+## Announce new release everywhere
 
-* It's a good idea to upload link:PasDocAutoDoc[PasDocAutoDoc] at this time, like this:
-+
-----
-cd pasdoc/source/autodoc/
-make clean public upload
-
-cd  ../../../pasdoc.github.io/
-git commit -m "Updated autodoc"
-git push
-----
-* https://sourceforge.net/p/pasdoc/news/[Submit news item] _PasDoc x.y.z released_
+* Announce new release on https://forum.lazarus.freepascal.org/[Lazarus forum].
+* https://sourceforge.net/p/pasdoc/news/[SourceForge "Old News" item] _PasDoc x.y.z released_
 * Announce new release on http://freshcode.club/projects/pasdoc.
-* Announce new release on http://lazarus.freepascal.org/[Lazarus forum].
 * Send an update to http://directory.fsf.org/project/pasdoc/[FSF directory].
-* Prepare for next release: ChangeLog.md file should start with line
-+
-----
-[Next release -- release date and new version number unknown yet...]
-----
 
 Really, really large and significant improvements may be signalled by
 changing the project's description:
@@ -115,10 +108,18 @@ changing the project's description:
 * on https://sourceforge.net/projects/pasdoc/[SF project page]
 * on http://wiki.lazarus.freepascal.org/Projects_using_Lazarus#PasDoc[Lazarus wiki "Projects Using Lazarus" page]
 
-## Change version number to next UNstable
+## Prepare for next release
 
-Repeat the steps from _"Change version number to next stable"_, but :
+* `ChangeLog.md` file should start with line
++
+----
+`## Upcoming Next Release`
+----
 
+- Repeat the steps from _"Change version number to next stable"_, but :
++
+--
 - Make last version number _odd_ to signify unstable release and add `.snapshot`, like `1.2.5.snapshot`.
 
-- Update `DevelopmentSnapshots.asciidoc` version number.
+- Update link:DevelopmentSnapshots[DevelopmentSnapshots] version number.
+--
