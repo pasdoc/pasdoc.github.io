@@ -12,16 +12,18 @@ This page describes the process of making a new https://github.com/pasdoc/pasdoc
 * Change version of all packages in `source/packages/`. Right now this means just changing `source/packages/lazarus/pasdoc_package.lpk`. (Delphi packages don't store PasDoc version now.)
 * change `VERSION` in `pasdoc/Makefile`
 * change `PASDOC_VERSION` and `PASDOC_DATE` in `source/components/PasDoc_Versions.pas`
+* `make && ./bin/pasdoc --version` should show the new version number and date.
+* `make dist-linux-x86_64` should create a tar.gz file with the new version number in its name.
 
 Make last version number _even_ to signify stable release, like `1.2.4`.
 
-## [[write-changelog-entry]] Write ChangeLog entry
+## Write ChangeLog entry
 
 Make sure you have nice entry in https://github.com/pasdoc/pasdoc/blob/master/ChangeLog.md file in pasdoc sources.
 
 We try to update this changelog file _while_ developing PasDoc (each time someone does something significant, it's immediately added to the changelog). So at this point, mainly _review and finalize (write new verion number and release date) changelog entry_.
 
-## [[update-docs]] Update docs
+## Update docs
 
 Remove from the documentation text
 
@@ -96,6 +98,7 @@ For basic test of `pasdoc_gui`, open the project with pasdoc's autodoc `source/a
 
 ## Announce new release everywhere
 
+* Make thread on our forum: https://github.com/pasdoc/pasdoc/discussions .
 * Announce new release on https://forum.lazarus.freepascal.org/[Lazarus forum].
 * https://sourceforge.net/p/pasdoc/news/[SourceForge "Old News" item] _PasDoc x.y.z released_
 * Announce new release on http://freshcode.club/projects/pasdoc.
@@ -122,4 +125,8 @@ changing the project's description:
 - Make last version number _odd_ to signify unstable release and add `.snapshot`, like `1.2.5.snapshot`.
 
 - Update link:DevelopmentSnapshots[DevelopmentSnapshots] version number.
+
+- Remove from [snapshot release](https://github.com/pasdoc/pasdoc/releases/tag/snapshot) old version numbered archives.
 --
+
+* Switch back `release_tag: snapshot` in `.github/workflows/build.yml`.
