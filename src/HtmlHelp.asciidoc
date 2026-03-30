@@ -1,4 +1,9 @@
 :doctitle: HTML Help Output
+:sectnums:
+:toc: left
+:toclevels: 4
+
+## Introduction
 
 _HTML Help_ is a file format for documentation. The final documentation can be a single file with an extension `.chm` (for "_compiled html_"). It was designed by Microsoft, along with some proprietary tools to create and view it, but a number of cross-platform open-source viewers also exist now.
 
@@ -6,24 +11,31 @@ As the name suggests, the format is based on HTML. Internally, a `.chm` file is 
 
 link:index[PasDoc] can generate all the files necessary to create the _HTML Help_ documentation. We do not produce a ready `.chm` file -- but we generate all the prerequisites necessary, so that you can create the final file using the _Microsoft HTML Workshop_ (free download).
 
-How to use _HTML Help_ output:
+## Prerequisite: HTML Help Workshop
 
-1. Generate htmlhelp documentation with pasdoc with `--format=htmlhelp`. In addition to normal html files, pasdoc
-will also output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the names of these files to something else with link:NameOption[--name option].
+You need to get https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx[HTML Help Workshop]. Unfortunately, the download links (on this Microsoft page) are broken, which has been https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp[reported] but seems unlikely to be fixed.
 
-2. https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx[Download HTML Help Workshop]
+Best options to get _HTML Help Workshop_ now:
+
+1. Get it from the _Internet Archive_:
 +
-[NOTE]
-====
-The download links on that page are broken, unfortunately. See https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp[HTMLHelp Workshop - download for CHM compiler installation failed] question and answers. You can download the resources using the _Internet Archive_:
-
+--
 - http://web.archive.org/web/20160201063255/http://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe[htmlhelp.exe]
 - http://web.archive.org/web/20160314043751/http://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/helpdocs.zip[helpdocs.zip]
-====
+--
 
-3. Make `docs.chm` file:
-** Interactively: run the `hhw` program from the _HTML Help Workshop_, (by default in `C:\Program Files (x86)\HTML Help Workshop`), open generated `docs.hhp` file, and run _"Compile HTML file"_ from toolbar.
-** Or in batch mode: run `hhc docs.hhp` (make sure that the program `hhc` is on your $PATH first).
+2. Or install it using a https://chocolatey.org/[Chocolatey], a package manager for Windows. Install https://chocolatey.org/install[Chocolatey itself] first, using _PowerShell_, and then follow https://community.chocolatey.org/packages/html-help-workshop[installation instructions for `html-help-workshop` package].
+
+In both cases, after the installation the tools are in `C:\Program Files (x86)\HTML Help Workshop` directory. You can add it to your `$PATH` to easily execute `hhc` from the command line.
+
+## Usage of HTML Help output from PasDoc
+
+1. Generate documentation with pasdoc with `--format=htmlhelp`. In addition to normal HTML files, we
+will also output files `docs.hhc`, `docs.hhk` and `docs.hhp`. You can change the names of these files to something else with link:NameOption[--name option].
+
+2. Make `docs.chm` file:
+** Interactively: run the `hhw` program from the _HTML Help Workshop_, open generated `docs.hhp` file, and run _"Compile HTML file"_ from toolbar.
+** Or in batch mode (command line): run `hhc docs.hhp`.
 
 That's it! You have `docs.chm` file, that can be viewed with _HTML Help_ viewer.
 
