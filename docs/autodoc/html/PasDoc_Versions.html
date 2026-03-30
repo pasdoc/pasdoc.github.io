@@ -3,7 +3,7 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Versions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta name="generator" content="PasDoc 1.0.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
@@ -99,10 +99,10 @@ Information about PasDoc and compilers version.</p>
 <td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a></strong> = 'PasDoc';</code></td>
 </tr>
 <tr class="list visibility-published">
-<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_DATE">PASDOC_DATE</a></strong> = 'snapshot';</code></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_DATE">PASDOC_DATE</a></strong> = '2026-03-30';</code></td>
 </tr>
 <tr class="list2 visibility-published">
-<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a></strong> = '0.17.0.snapshot';</code></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a></strong> = '1.0.0';</code></td>
 </tr>
 <tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Versions.html#PASDOC_NAME_AND_VERSION">PASDOC_NAME_AND_VERSION</a></strong> = <a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a> + ' ' + <a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a>;</code></td>
@@ -131,7 +131,7 @@ Nice compiler name. This is a function only because we can't nicely declare it a
 Returns pasdoc name, version, used compiler version, etc.
 
 <p>This is a function only because we can't nicely declare it as a constant. But this behaves like a constant, i.e. every time you call it it returns the same thing (as long as this is the same binary).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L105">Source: source/component/PasDoc_Versions.pas (line 105).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L106">Source: source/component/PasDoc_Versions.pas (line 106).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail visibility-published wide_list">
@@ -150,35 +150,41 @@ Returns pasdoc name, version, used compiler version, etc.
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><span id="PASDOC_DATE"></span><code><strong>PASDOC_DATE</strong> = 'snapshot';</code></td>
+<td class="itemcode"><span id="PASDOC_DATE"></span><code><strong>PASDOC_DATE</strong> = '2026-03-30';</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-PASDOC_DATE = '2021-02-07';</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L92">Source: source/component/PasDoc_Versions.pas (line 92).</a></p></td></tr>
+Date of this pasdoc release, for stable releases. Otherwise just &lt;snapshot&gt;.
+
+<p>We avoid using version control $ Date or such keyword, as it would only indicate the date when this file was modified. So this is neither the date of last stable release, nor the date of last commit.
+
+<p>Also, different version control systems have different (or none) support for this.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L91">Source: source/component/PasDoc_Versions.pas (line 91).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><span id="PASDOC_VERSION"></span><code><strong>PASDOC_VERSION</strong> = '0.17.0.snapshot';</code></td>
+<td class="itemcode"><span id="PASDOC_VERSION"></span><code><strong>PASDOC_VERSION</strong> = '1.0.0';</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L94">Source: source/component/PasDoc_Versions.pas (line 94).</a></p></td></tr>
+<p>
+PASDOC_VERSION = '0.17.0.snapshot';</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L95">Source: source/component/PasDoc_Versions.pas (line 95).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="PASDOC_NAME_AND_VERSION"></span><code><strong>PASDOC_NAME_AND_VERSION</strong> = <a href="PasDoc_Versions.html#PASDOC_NAME">PASDOC_NAME</a> + ' ' + <a href="PasDoc_Versions.html#PASDOC_VERSION">PASDOC_VERSION</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L96">Source: source/component/PasDoc_Versions.pas (line 96).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L97">Source: source/component/PasDoc_Versions.pas (line 97).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="PASDOC_HOMEPAGE"></span><code><strong>PASDOC_HOMEPAGE</strong> = 'https://pasdoc.github.io/';</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L98">Source: source/component/PasDoc_Versions.pas (line 98).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Versions.pas#L99">Source: source/component/PasDoc_Versions.pas (line 99).</a></p></td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.0</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>

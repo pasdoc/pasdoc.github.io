@@ -3,7 +3,7 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Items</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta name="generator" content="PasDoc 1.0.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
@@ -262,10 +262,10 @@ All items that can appear within Pascal source code.</p>
   );</code></td>
 </tr>
 <tr class="list2 visibility-published">
-<td class="itemcode"><code><strong><a href="PasDoc_Items.html#AllVisibilities">AllVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#AllVisibilities">AllVisibilities</a></strong> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
 </tr>
 <tr class="list visibility-published">
-<td class="itemcode"><code><strong><a href="PasDoc_Items.html#DefaultVisibilities">DefaultVisibilities</a></strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)] -
+<td class="itemcode"><code><strong><a href="PasDoc_Items.html#DefaultVisibilities">DefaultVisibilities</a></strong> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)] -
     [<a href="PasDoc_Items.html#viPrivate">viPrivate</a>, <a href="PasDoc_Items.html#viStrictPrivate">viStrictPrivate</a>, <a href="PasDoc_Items.html#viImplicit">viImplicit</a>];</code></td>
 </tr>
 <tr class="list2 visibility-published">
@@ -296,7 +296,7 @@ All items that can appear within Pascal source code.</p>
 <tr><td colspan="1">
 <p>
 Returns lowercased keyword associated with given method type.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1313">Source: source/component/PasDoc_Items.pas (line 1313).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1327">Source: source/component/PasDoc_Items.pas (line 1327).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -305,7 +305,7 @@ Returns lowercased keyword associated with given method type.</p>
 <tr><td colspan="1">
 <p>
 Returns lowercased keyword(s) associated with given structure type.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1316">Source: source/component/PasDoc_Items.pas (line 1316).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1330">Source: source/component/PasDoc_Items.pas (line 1330).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -314,14 +314,14 @@ Returns lowercased keyword(s) associated with given structure type.</p>
 <tr><td colspan="1">
 <p>
 Returns VisibilityStr for each value in Visibilities, delimited by commas.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1320">Source: source/component/PasDoc_Items.pas (line 1320).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1334">Source: source/component/PasDoc_Items.pas (line 1334).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="VisToStr-TVisibility-"></span><code>function <strong>VisToStr</strong>(const Vis: <a href="PasDoc_Items.html#TVisibility">TVisibility</a>): string;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1322">Source: source/component/PasDoc_Items.pas (line 1322).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1336">Source: source/component/PasDoc_Items.pas (line 1336).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -330,7 +330,7 @@ Returns VisibilityStr for each value in Visibilities, delimited by commas.</p>
 <tr><td colspan="1">
 <p>
 Is List nil or empty.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1325">Source: source/component/PasDoc_Items.pas (line 1325).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1339">Source: source/component/PasDoc_Items.pas (line 1339).</a></p></td></tr>
 </table>
 <h3 class="detail">Types</h3>
 <table class="detail visibility-published wide_list">
@@ -413,14 +413,14 @@ Type of merging interface and implementation comments. See <a href="https://pasd
 <li>
 <span id="hdUnimplemented">hdUnimplemented</span></li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L338">Source: source/component/PasDoc_Items.pas (line 338).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L342">Source: source/component/PasDoc_Items.pas (line 342).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="THintDirectives"></span><code><strong>THintDirectives</strong> = set of <a href="PasDoc_Items.html#THintDirective">THintDirective</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L339">Source: source/component/PasDoc_Items.pas (line 339).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L343">Source: source/component/PasDoc_Items.pas (line 343).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -442,7 +442,7 @@ Routine type for <a class="normal" href="PasDoc_Items.TPasRoutine.html#What">TPa
 <li>
 <span id="ROUTINE_OPERATOR">ROUTINE_OPERATOR</span></li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L694">Source: source/component/PasDoc_Items.pas (line 694).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L701">Source: source/component/PasDoc_Items.pas (line 701).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -476,7 +476,7 @@ Determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a>
 <li>
 <span id="CIO_TYPE">CIO_TYPE</span>: CIO_TYPE is used only when CIO is a type helper, designed by CIO.ClassDirective = CT_HELPER.</li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L795">Source: source/component/PasDoc_Items.pas (line 795).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L802">Source: source/component/PasDoc_Items.pas (line 802).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -496,28 +496,28 @@ Determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a>
 <li>
 <span id="CT_EXTERNAL">CT_EXTERNAL</span>: external can be used with objcclass (see <a href="https://wiki.freepascal.org/FPC_PasCocoa">FPC PasCocoa</a>)</li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L806">Source: source/component/PasDoc_Items.pas (line 806).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L813">Source: source/component/PasDoc_Items.pas (line 813).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="TExternalItemList"></span><code><strong>TExternalItemList</strong> = specialize TObjectList&lt;<a href="PasDoc_Items.TExternalItem.html">TExternalItem</a>&gt;;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1025">Source: source/component/PasDoc_Items.pas (line 1025).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1033">Source: source/component/PasDoc_Items.pas (line 1033).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="TBaseItemDictionary"></span><code><strong>TBaseItemDictionary</strong> = specialize TDictionary&lt;String, <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>&gt;;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1147">Source: source/component/PasDoc_Items.pas (line 1147).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1156">Source: source/component/PasDoc_Items.pas (line 1156).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="TStringStringDictionary"></span><code><strong>TStringStringDictionary</strong> = specialize TDictionary&lt;String, String&gt;;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1256">Source: source/component/PasDoc_Items.pas (line 1256).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1270">Source: source/component/PasDoc_Items.pas (line 1270).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail visibility-published wide_list">
@@ -539,14 +539,14 @@ Determine type of <a class="normal" href="PasDoc_Items.TPasCio.html">TPasCio</a>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><span id="AllVisibilities"></span><code><strong>AllVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
+<td class="itemcode"><span id="AllVisibilities"></span><code><strong>AllVisibilities</strong> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)];</code></td>
 </tr>
 <tr><td colspan="1">
 <p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L91">Source: source/component/PasDoc_Items.pas (line 91).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><span id="DefaultVisibilities"></span><code><strong>DefaultVisibilities</strong>: <a href="PasDoc_Items.html#TVisibilities">TVisibilities</a> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)] -
+<td class="itemcode"><span id="DefaultVisibilities"></span><code><strong>DefaultVisibilities</strong> = [Low(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>) .. High(<a href="PasDoc_Items.html#TVisibility">TVisibility</a>)] -
     [<a href="PasDoc_Items.html#viPrivate">viPrivate</a>, <a href="PasDoc_Items.html#viStrictPrivate">viStrictPrivate</a>, <a href="PasDoc_Items.html#viImplicit">viImplicit</a>];</code></td>
 </tr>
 <tr><td colspan="1">
@@ -571,14 +571,14 @@ Default visibility, as documented on <a href="https://pasdoc.github.io/VisibleMe
 <td class="itemcode"><span id="CIORecordType"></span><code><strong>CIORecordType</strong> = [<a href="PasDoc_Items.html#CIO_RECORD">CIO_RECORD</a>, <a href="PasDoc_Items.html#CIO_PACKEDRECORD">CIO_PACKEDRECORD</a>];</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1306">Source: source/component/PasDoc_Items.pas (line 1306).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1320">Source: source/component/PasDoc_Items.pas (line 1320).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="CIONonHierarchy"></span><code><strong>CIONonHierarchy</strong> = <a href="PasDoc_Items.html#CIORecordType">CIORecordType</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1307">Source: source/component/PasDoc_Items.pas (line 1307).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1321">Source: source/component/PasDoc_Items.pas (line 1321).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -586,7 +586,7 @@ Default visibility, as documented on <a href="https://pasdoc.github.io/VisibleMe
   ( Content: ''; StreamName: ''; BeginPosition: -1; EndPosition: -1; );</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1309">Source: source/component/PasDoc_Items.pas (line 1309).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1323">Source: source/component/PasDoc_Items.pas (line 1323).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">
@@ -602,7 +602,7 @@ Default visibility, as documented on <a href="https://pasdoc.github.io/VisibleMe
 <p>
 11 Mar 1999
 </p>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.0</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>

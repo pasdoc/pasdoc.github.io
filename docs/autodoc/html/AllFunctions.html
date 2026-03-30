@@ -3,7 +3,7 @@
 <head>
 <title>PasDoc's autodoc: All Functions and Procedures</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta name="generator" content="PasDoc 1.0.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
@@ -107,44 +107,44 @@ function pasdocUpdateMembers(className) {
 <td class="itemdesc"><p>Nice compiler name.</p></td>
 </tr>
 <tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Utils.html#ConvertHelpInsightDescription-string-">ConvertHelpInsightDescription</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
+<td class="itemdesc"><p>Convert HelpInsight description to PasDoc description, by converting HelpInsight tags like &lt;summary&gt;...&lt;/summary&gt; to PasDoc @tags like @abstract.</p></td>
+</tr>
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#CopyFile-string-string-">CopyFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#DataToFile-string-arrayofByte-">DataToFile</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Save the binary Data into a file.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#DeleteFileExt-string-">DeleteFileExt</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Remove from the FileName the last extension (including the dot).</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#ExtractFirstWord-string-">ExtractFirstWord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Extracts all characters up to the first white-space encountered (ignoring white-space at the very beginning of the string) from the string specified by S.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#ExtractFirstWord-string-string-string-">ExtractFirstWord</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Another version of ExtractFirstWord.</p></td>
 </tr>
-<tr class="list">
+<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Utils.html#FileToString-string-">FileToString</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Utils.html">PasDoc_Utils</a></td>
 <td class="itemdesc"><p>Read the given FileName contents into a String.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Types.html#GlueNameParts-TNameParts-">GlueNameParts</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Types.html">PasDoc_Types</a></td>
 <td class="itemdesc"><p>Simply concatenates all NameParts with dot.</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#IDfromLanguage-string-">IDfromLanguage</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>Search for language by short or long name</p></td>
 </tr>
 <tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_StringVector.html#IsEmpty-TStringVector-">IsEmpty</a></td>
@@ -202,24 +202,14 @@ function pasdocUpdateMembers(className) {
 <td class="itemdesc"><p>Language code, using an official standardardized language names, suitable for Aspell or HTML.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#LanguageDescriptor-TLanguageID-">LanguageDescriptor</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>access LANGUAGE_ARRAY</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#LanguageFromID-TLanguageID-">LanguageFromID</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#LanguageFromIndex-integer-">LanguageFromIndex</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>Full language name</p></td>
-</tr>
-<tr class="list2">
 <td class="itemname"><a class="bold" href="PasDoc_Languages.html#LanguageFromStr-string-TLanguageID-">LanguageFromStr</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
 <td class="itemdesc"><p>Find a language with Syntax = S (case ignored).</p></td>
+</tr>
+<tr class="list2">
+<td class="itemname"><a class="bold" href="PasDoc_Languages.html#LanguageInformation-TLanguageID-">LanguageInformation</a></td>
+<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
+<td class="itemdesc"><p>Read-only language information.</p></td>
 </tr>
 <tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Main.html#Main">Main</a></td>
@@ -412,16 +402,6 @@ function pasdocUpdateMembers(className) {
 <td class="itemdesc"><p>Position of the ASub in AString.</p></td>
 </tr>
 <tr class="list">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#SyntaxFromID-TLanguageID-">SyntaxFromID</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>&nbsp;</p></td>
-</tr>
-<tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#SyntaxFromIndex-integer-">SyntaxFromIndex</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>Language abbreviation</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Tipue.html#TipueAddFiles-TPasUnits-TExternalItem-TExternalItem-TExternalItemList-string-string-string-string-string-">TipueAddFiles</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Tipue.html">PasDoc_Tipue</a></td>
 <td class="itemdesc"><p>Adds some additional files to html documentation, needed for tipue engine.</p></td>
@@ -437,22 +417,17 @@ function pasdocUpdateMembers(className) {
 <td class="itemdesc"><p>Put this in &lt;head&gt; of every page with search button.</p></td>
 </tr>
 <tr class="list2">
-<td class="itemname"><a class="bold" href="PasDoc_Languages.html#Translation-TTranslationID-TLanguageID-">Translation</a></td>
-<td class="itemunit"><a class="bold" href="PasDoc_Languages.html">PasDoc_Languages</a></td>
-<td class="itemdesc"><p>Manual translation of id into lang</p></td>
-</tr>
-<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#VisibilitiesToStr-TVisibilities-">VisibilitiesToStr</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>Returns VisibilityStr for each value in Visibilities, delimited by commas.</p></td>
 </tr>
-<tr class="list2">
+<tr class="list">
 <td class="itemname"><a class="bold" href="PasDoc_Items.html#VisToStr-TVisibility-">VisToStr</a></td>
 <td class="itemunit"><a class="bold" href="PasDoc_Items.html">PasDoc_Items</a></td>
 <td class="itemdesc"><p>&nbsp;</p></td>
 </tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.0</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>

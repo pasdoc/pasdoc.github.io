@@ -3,7 +3,7 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Languages</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta name="generator" content="PasDoc 1.0.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
@@ -101,28 +101,10 @@ Language definitions and translations.</p>
 <span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
 <table class="summary wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromIndex-integer-">LanguageFromIndex</a></strong>(i: integer): string;</code></td>
-</tr>
-<tr class="list2 visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromID-TLanguageID-">LanguageFromID</a></strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr class="list visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#SyntaxFromIndex-integer-">SyntaxFromIndex</a></strong>(i: integer): string;</code></td>
-</tr>
-<tr class="list2 visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#SyntaxFromID-TLanguageID-">SyntaxFromID</a></strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr class="list visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#IDfromLanguage-string-">IDfromLanguage</a></strong>(const s: string): <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>;</code></td>
-</tr>
-<tr class="list2 visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#Translation-TTranslationID-TLanguageID-">Translation</a></strong>(id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>; lang: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageFromStr-string-TLanguageID-">LanguageFromStr</a></strong>(S: string; out LanguageId: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): boolean;</code></td>
 </tr>
 <tr class="list2 visibility-published">
-<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageDescriptor-TLanguageID-">LanguageDescriptor</a></strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageInformation-TLanguageID-">LanguageInformation</a></strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
 </tr>
 <tr class="list visibility-published">
 <td class="itemcode"><code>function <strong><a href="PasDoc_Languages.html#LanguageCode-TLanguageID-">LanguageCode</a></strong>(const Language: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
@@ -151,62 +133,9 @@ Language definitions and translations.</p>
 <tr class="list visibility-published">
 <td class="itemcode"><code><strong><a href="PasDoc_Languages.html#DEFAULT_LANGUAGE">DEFAULT_LANGUAGE</a></strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
 </tr>
-<tr class="list2 visibility-published">
-<td class="itemcode"><code><strong><a href="PasDoc_Languages.html#lgDefault">lgDefault</a></strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
-</tr>
 </table>
 <h2 class="description">Description</h2>
 <h3 class="detail">Functions and Procedures</h3>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="LanguageFromIndex-integer-"></span><code>function <strong>LanguageFromIndex</strong>(i: integer): string;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-Full language name</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L318">Source: source/component/PasDoc_Languages.pas (line 318).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="LanguageFromID-TLanguageID-"></span><code>function <strong>LanguageFromID</strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L319">Source: source/component/PasDoc_Languages.pas (line 319).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="SyntaxFromIndex-integer-"></span><code>function <strong>SyntaxFromIndex</strong>(i: integer): string;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-Language abbreviation</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L322">Source: source/component/PasDoc_Languages.pas (line 322).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="SyntaxFromID-TLanguageID-"></span><code>function <strong>SyntaxFromID</strong>(i: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L323">Source: source/component/PasDoc_Languages.pas (line 323).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="IDfromLanguage-string-"></span><code>function <strong>IDfromLanguage</strong>(const s: string): <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-Search for language by short or long name</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L326">Source: source/component/PasDoc_Languages.pas (line 326).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="Translation-TTranslationID-TLanguageID-"></span><code>function <strong>Translation</strong>(id: <a href="PasDoc_Languages.html#TTranslationID">TTranslationID</a>; lang: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): string;</code></td>
-</tr>
-<tr><td colspan="1">
-<p>
-Manual translation of id into lang</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L329">Source: source/component/PasDoc_Languages.pas (line 329).</a></p></td></tr>
-</table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="LanguageFromStr-string-TLanguageID-"></span><code>function <strong>LanguageFromStr</strong>(S: string; out LanguageId: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): boolean;</code></td>
@@ -214,16 +143,16 @@ Manual translation of id into lang</p>
 <tr><td colspan="1">
 <p>
 Find a language with Syntax = S (case ignored). Returns <code>True</code> and sets LanguageId if found, otherwise returns <code>False</code>.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L333">Source: source/component/PasDoc_Languages.pas (line 333).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L322">Source: source/component/PasDoc_Languages.pas (line 322).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
-<td class="itemcode"><span id="LanguageDescriptor-TLanguageID-"></span><code>function <strong>LanguageDescriptor</strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
+<td class="itemcode"><span id="LanguageInformation-TLanguageID-"></span><code>function <strong>LanguageInformation</strong>(id: <a href="PasDoc_Languages.html#TLanguageID">TLanguageID</a>): <a href="PasDoc_Languages.html#PLanguageRecord">PLanguageRecord</a>;</code></td>
 </tr>
 <tr><td colspan="1">
 <p>
-access LANGUAGE_ARRAY</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L336">Source: source/component/PasDoc_Languages.pas (line 336).</a></p></td></tr>
+Read-only language information.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L325">Source: source/component/PasDoc_Languages.pas (line 325).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -232,7 +161,7 @@ access LANGUAGE_ARRAY</p>
 <tr><td colspan="1">
 <p>
 Language code, using an official standardardized language names, suitable for Aspell or HTML.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L340">Source: source/component/PasDoc_Languages.pas (line 340).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L329">Source: source/component/PasDoc_Languages.pas (line 329).</a></p></td></tr>
 </table>
 <h3 class="detail">Types</h3>
 <table class="detail visibility-published wide_list">
@@ -311,15 +240,15 @@ An enumeration type of all supported languages</p>
 </tr>
 <tr><td colspan="1">
 <p>
-An enumeration type of all static output texts. Warning: count and order changed!</p>
+All translatable string.</p>
 <h6 class="description_section">Values</h6>
 <ul>
 <li>
-<span id="trNoTrans">trNoTrans</span>: no translation ID assigned, so far</li>
+<span id="trNoTrans">trNoTrans</span></li>
 <li>
-<span id="trLanguage">trLanguage</span>: the language name (English, ASCII), e.g. for file names.</li>
+<span id="trLanguage">trLanguage</span>: The language name (in English, ASCII).</li>
 <li>
-<span id="trUnits">trUnits</span>: map</li>
+<span id="trUnits">trUnits</span>: Used for sidebar.</li>
 <li>
 <span id="trClassHierarchy">trClassHierarchy</span></li>
 <li>
@@ -335,7 +264,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trGvClasses">trGvClasses</span></li>
 <li>
-<span id="trClasses">trClasses</span>: tables and members</li>
+<span id="trClasses">trClasses</span>: Used for tables and members.</li>
 <li>
 <span id="trClass">trClass</span></li>
 <li>
@@ -403,7 +332,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trEnum">trEnum</span></li>
 <li>
-<span id="trVisibility">trVisibility</span>: visibilities</li>
+<span id="trVisibility">trVisibility</span>: Visibility names.</li>
 <li>
 <span id="trPrivate">trPrivate</span></li>
 <li>
@@ -421,7 +350,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trImplicit">trImplicit</span></li>
 <li>
-<span id="trDeprecated">trDeprecated</span>: hints</li>
+<span id="trDeprecated">trDeprecated</span>: Hints.</li>
 <li>
 <span id="trPlatformSpecific">trPlatformSpecific</span></li>
 <li>
@@ -431,7 +360,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trUnimplemented">trUnimplemented</span></li>
 <li>
-<span id="trOverview">trOverview</span>: headings</li>
+<span id="trOverview">trOverview</span>: Headings.</li>
 <li>
 <span id="trIntroduction">trIntroduction</span></li>
 <li>
@@ -457,21 +386,21 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trSummaryCio">trSummaryCio</span></li>
 <li>
-<span id="trDeclaration">trDeclaration</span>: column headings</li>
+<span id="trDeclaration">trDeclaration</span>: Column headings.</li>
 <li>
-<span id="trDescription">trDescription</span>: as column OR section heading!</li>
+<span id="trDescription">trDescription</span>: Used as column or section heading.</li>
 <li>
-<span id="trDescriptions">trDescriptions</span>: section heading for detailed descriptions</li>
+<span id="trDescriptions">trDescriptions</span>: Used as section heading for detailed descriptions.</li>
 <li>
 <span id="trName">trName</span></li>
 <li>
 <span id="trValues">trValues</span></li>
 <li>
-<span id="trWarningTag">trWarningTag</span>: tags with inbuilt heading</li>
+<span id="trWarningTag">trWarningTag</span>: Tags with inbuilt heading.</li>
 <li>
 <span id="trNoteTag">trNoteTag</span></li>
 <li>
-<span id="trNone">trNone</span>: empty tables</li>
+<span id="trNone">trNone</span>: Empty tables.</li>
 <li>
 <span id="trNoCIOs">trNoCIOs</span></li>
 <li>
@@ -487,7 +416,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trNoIdentifiers">trNoIdentifiers</span></li>
 <li>
-<span id="trHelp">trHelp</span>: misc</li>
+<span id="trHelp">trHelp</span>: Miscellaneous.</li>
 <li>
 <span id="trLegend">trLegend</span></li>
 <li>
@@ -509,7 +438,7 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trNested">trNested</span></li>
 <li>
-<span id="trAttributes">trAttributes</span>: add more here</li>
+<span id="trAttributes">trAttributes</span></li>
 <li>
 <span id="trSourcePosition">trSourcePosition</span></li>
 <li>
@@ -517,9 +446,15 @@ An enumeration type of all static output texts. Warning: count and order changed
 <li>
 <span id="trInherited">trInherited</span></li>
 <li>
-<span id="trDummy">trDummy</span></li>
+<span id="trDeclaredInAncestor">trDeclaredInAncestor</span></li>
+<li>
+<span id="trNoDescription">trNoDescription</span></li>
+<li>
+<span id="trShowingDescriptionInheritedFrom">trShowingDescriptionInheritedFrom</span></li>
+<li>
+<span id="trDummy">trDummy</span>: Add new translatable strings here.</li>
 </ul>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L122">Source: source/component/PasDoc_Languages.pas (line 122).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L120">Source: source/component/PasDoc_Languages.pas (line 120).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
@@ -527,24 +462,22 @@ An enumeration type of all static output texts. Warning: count and order changed
 </tr>
 <tr><td colspan="1">
 <p>
-array holding the translated strings, or empty for default (English) text.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L247">Source: source/component/PasDoc_Languages.pas (line 247).</a></p></td></tr>
+Array holding the translated strings (or strKeep or strToDo markers) for a language.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L255">Source: source/component/PasDoc_Languages.pas (line 255).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="PTransTable"></span><code><strong>PTransTable</strong> = &circ;<a href="PasDoc_Languages.html#RTransTable">RTransTable</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L248">Source: source/component/PasDoc_Languages.pas (line 248).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L256">Source: source/component/PasDoc_Languages.pas (line 256).</a></p></td></tr>
 </table>
 <table class="detail visibility-published wide_list">
 <tr class="list visibility-published">
 <td class="itemcode"><span id="PLanguageRecord"></span><code><strong>PLanguageRecord</strong> = &circ;<a href="PasDoc_Languages.TLanguageRecord.html">TLanguageRecord</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p>
-language descriptor</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L251">Source: source/component/PasDoc_Languages.pas (line 251).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L258">Source: source/component/PasDoc_Languages.pas (line 258).</a></p></td></tr>
 </table>
 <h3 class="detail">Constants</h3>
 <table class="detail visibility-published wide_list">
@@ -552,14 +485,7 @@ language descriptor</p>
 <td class="itemcode"><span id="DEFAULT_LANGUAGE"></span><code><strong>DEFAULT_LANGUAGE</strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
 </tr>
 <tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L286">Source: source/component/PasDoc_Languages.pas (line 286).</a></p></td></tr>
-</table>
-<table class="detail visibility-published wide_list">
-<tr class="list visibility-published">
-<td class="itemcode"><span id="lgDefault"></span><code><strong>lgDefault</strong> = <a href="PasDoc_Languages.html#lgEnglish">lgEnglish</a>;</code></td>
-</tr>
-<tr><td colspan="1">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L287">Source: source/component/PasDoc_Languages.pas (line 287).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Languages.pas#L293">Source: source/component/PasDoc_Languages.pas (line 293).</a></p></td></tr>
 </table>
 <h2 class="authors">Authors</h2>
 <ul class="authors">
@@ -592,7 +518,7 @@ language descriptor</p>
 <li>Yann Merignac (French translation)</li>
 <li>Arno Garrels &lt;first <a href="mailto:name.name@nospamgmx.de">name.name@nospamgmx.de</a>&gt;</li>
 </ul>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.0</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>

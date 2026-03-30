@@ -3,7 +3,7 @@
 <head>
 <title>PasDoc's autodoc: PasDoc_Items: Class TBaseItems</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="PasDoc 0.17.0.snapshot">
+<meta name="generator" content="PasDoc 1.0.0">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="tipuesearch/tipuesearch.css">
 
@@ -86,7 +86,7 @@ function pasdocUpdateMembers(className) {
 <h2 class="description">Description</h2>
 <p>
 Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseItem.html">TBaseItem</a>s.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1150">Source: source/component/PasDoc_Items.pas (line 1150).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1159">Source: source/component/PasDoc_Items.pas (line 1159).</a></p><span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
 <ul class="hierarchy"><li class="ancestor">TObject</li>
 <li class="ancestor">TList</li>
 <li class="ancestor">TObjectList</li>
@@ -120,21 +120,25 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 </tr>
 <tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
-<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#InsertItems-TBaseItems-">InsertItems</a></strong>(const c: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a>);</code></td>
+<td class="itemcode"><code>function <strong><a href="PasDoc_Items.TBaseItems.html#FindListItemIndex-string-">FindListItemIndex</a></strong>(const ASignature: string): Integer;</code></td>
 </tr>
 <tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#InsertItems-TBaseItems-">InsertItems</a></strong>(const c: <a href="PasDoc_Items.TBaseItems.html">TBaseItems</a>);</code></td>
+</tr>
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#Add-TBaseItem-">Add</a></strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>); reintroduce; virtual;</code></td>
 </tr>
-<tr class="list2 visibility-public">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#ClearAndAdd-TBaseItem-">ClearAndAdd</a></strong>(const AObject: <a href="PasDoc_Items.TBaseItem.html">TBaseItem</a>);</code></td>
 </tr>
-<tr class="list visibility-public">
+<tr class="list2 visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#Delete-Integer-">Delete</a></strong>(const AIndex: Integer);</code></td>
 </tr>
-<tr class="list2 visibility-public">
+<tr class="list visibility-public">
 <td class="visibility"><span class="badge vis-public">Public</span></td>
 <td class="itemcode"><code>procedure <strong><a href="PasDoc_Items.TBaseItems.html#Clear">Clear</a></strong>; reintroduce; virtual;</code></td>
 </tr>
@@ -147,7 +151,7 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 <td class="itemcode"><span id="Serialize-TStream-"></span><code>procedure <strong>Serialize</strong>(const ADestination: TStream); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1154">Source: source/component/PasDoc_Items.pas (line 1154).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1163">Source: source/component/PasDoc_Items.pas (line 1163).</a></p></td></tr>
 </table>
 <table class="detail visibility-protected wide_list">
 <tr class="list visibility-protected">
@@ -155,7 +159,7 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 <td class="itemcode"><span id="Deserialize-TStream-"></span><code>procedure <strong>Deserialize</strong>(const ASource: TStream); virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1155">Source: source/component/PasDoc_Items.pas (line 1155).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1164">Source: source/component/PasDoc_Items.pas (line 1164).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -163,7 +167,7 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 <td class="itemcode"><span id="Create-Boolean-"></span><code>constructor <strong>Create</strong>(const AOwnsObject: Boolean); reintroduce; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1157">Source: source/component/PasDoc_Items.pas (line 1157).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1166">Source: source/component/PasDoc_Items.pas (line 1166).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -171,7 +175,7 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 <td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1158">Source: source/component/PasDoc_Items.pas (line 1158).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1167">Source: source/component/PasDoc_Items.pas (line 1167).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -180,12 +184,24 @@ Container class to store a list of <a class="normal" href="PasDoc_Items.TBaseIte
 </tr>
 <tr><td colspan="2">
 <p>
-Find a given item name on a list. In the base class (TBaseItems), this simply searches the items (not recursively).
+Find a given item on a list, comparing the <a class="normal" href="PasDoc_Items.TBaseItem.html#Signature">Signature</a>. In the base class (TBaseItems), this simply searches the items (not recursively).
 
-<p>In some cases, it may look within the items (recursively), when the identifiers inside the item are in same namespace as the items themselves. Example: it will look also inside enumerated types members, because (when &quot;scoped enums&quot; are off) the enumerated members are in the same namespace as the enumerated type name.
+<p>In case of some descendants, this is obscured by FindListItem definitions that may look within the items (recursively), when the identifiers inside the item are in same namespace as the items themselves. Example: it will look also inside enumerated types members, because (when &quot;scoped enums&quot; are off) the enumerated members are in the same namespace as the enumerated type name.
+
+<p>TODO: Note that this is not virtual, so using it with instance declared as TBaseItems will always perform non-recursive search. This should be cleaned up: it's probably actually good that this is non-virtual method doing non-recursive search, and descendants should just invent new names instead of obscuring this.
 
 <p>Returns <code>Nil</code> if nothing can be found.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1171">Source: source/component/PasDoc_Items.pas (line 1171).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1187">Source: source/component/PasDoc_Items.pas (line 1187).</a></p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FindListItemIndex-string-"></span><code>function <strong>FindListItemIndex</strong>(const ASignature: string): Integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Find a given item on a list, comparing the <a class="normal" href="PasDoc_Items.TBaseItem.html#Signature">Signature</a>, returning the index. Returns -1 if nothing can be found. This guarantees to work like <a class="normal" href="PasDoc_Items.TBaseItems.html#FindListItem-string-">FindListItem</a> just returns an index.</p>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1192">Source: source/component/PasDoc_Items.pas (line 1192).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -195,7 +211,7 @@ Find a given item name on a list. In the base class (TBaseItems), this simply se
 <tr><td colspan="2">
 <p>
 Inserts all items of C into this collection. Disposes C and sets it to nil.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1175">Source: source/component/PasDoc_Items.pas (line 1175).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1196">Source: source/component/PasDoc_Items.pas (line 1196).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -205,7 +221,7 @@ Inserts all items of C into this collection. Disposes C and sets it to nil.</p>
 <tr><td colspan="2">
 <p>
 During Add, AObject is associated with AObject.Name using hash table, so remember to set AObject.Name <em>before</em> calling Add(AObject).</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1179">Source: source/component/PasDoc_Items.pas (line 1179).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1200">Source: source/component/PasDoc_Items.pas (line 1200).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -215,7 +231,7 @@ During Add, AObject is associated with AObject.Name using hash table, so remembe
 <tr><td colspan="2">
 <p>
 This is a shortcut for doing <a class="normal" href="PasDoc_Items.TBaseItems.html#Clear">Clear</a> and then <a class="normal" href="PasDoc_Items.TBaseItems.html#Add-TBaseItem-">Add(AObject)</a>. Useful when you want the list to contain exactly the one given AObject.</p>
-<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1184">Source: source/component/PasDoc_Items.pas (line 1184).</a></p></td></tr>
+<p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1205">Source: source/component/PasDoc_Items.pas (line 1205).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -223,7 +239,7 @@ This is a shortcut for doing <a class="normal" href="PasDoc_Items.TBaseItems.htm
 <td class="itemcode"><span id="Delete-Integer-"></span><code>procedure <strong>Delete</strong>(const AIndex: Integer);</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1186">Source: source/component/PasDoc_Items.pas (line 1186).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1207">Source: source/component/PasDoc_Items.pas (line 1207).</a></p></td></tr>
 </table>
 <table class="detail visibility-public wide_list">
 <tr class="list visibility-public">
@@ -231,9 +247,9 @@ This is a shortcut for doing <a class="normal" href="PasDoc_Items.TBaseItems.htm
 <td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>; reintroduce; virtual;</code></td>
 </tr>
 <tr><td colspan="2">
-<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1187">Source: source/component/PasDoc_Items.pas (line 1187).</a></p></td></tr>
+<p class="nodescription">This item has no description.</p><p class="source_position"><a href="https://github.com/pasdoc/pasdoc/blob/master/source/component/PasDoc_Items.pas#L1208">Source: source/component/PasDoc_Items.pas (line 1208).</a></p></td></tr>
 </table>
-<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.17.0.snapshot</a>. </em>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.0</a>. </em>
 </span>
 </div></main>
 <script src="bootstrap.bundle.min.js"></script>
