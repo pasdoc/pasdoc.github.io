@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ca56728c92f3345eb3e4a8874008d75a4173ac19">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4628025f7299721e19e6412f3e99ce72f69b4cf0">
   </head>
   <body>
     <div id="layout-container">
@@ -39,7 +39,17 @@
           <h1>GraphViz support</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_prerequisite-graphviz">2. Prerequisite: GraphViz</a></li>
+<li><a href="#_-options-to-create-graph-files">3.  Options to create graph files</a></li>
+<li><a href="#_-options-to-link-to-graphs-in-documentation">4.  Options to link to graphs in documentation</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="index">PasDoc</a> supports the <a href="http://www.graphviz.org/">GraphViz</a> package
@@ -52,12 +62,35 @@ used:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-options-to-create-graph-files"><a id="options-to-create-graph-files"></a> Options to create graph files</h2>
+<h2 id="_prerequisite-graphviz">2. Prerequisite: GraphViz</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>--graphviz-uses</code> and <code>--graphviz-classes</code> will generate <code>GVUses.dot</code> and
-<code>GVClasses.dot</code> files that can be used as input for the <code>dot</code> program from
-the <a href="http://www.graphviz.org/">GraphViz</a> package like this:</p>
+<p>You need to install <a href="http://www.graphviz.org/">GraphViz</a> with the <code>dot</code> program.</p>
+</div>
+<div class="paragraph">
+<p>You can install it</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>from <a href="http://www.graphviz.org/">GraphViz website</a>,</p>
+</li>
+<li>
+<p>or using a package manager for your system, like <code>sudo apt install graphviz</code> on Debian/Ubuntu.</p>
+<div class="paragraph">
+<p>On Windows, you can use <a href="https://chocolatey.org/">Chocolatey</a>. Install <a href="https://chocolatey.org/install">Chocolatey itself</a> first, using <em>PowerShell</em>, and then follow <a href="https://community.chocolatey.org/packages/Graphviz">installation instructions for <code>Graphviz</code> package</a>. After the installation, <code>dot</code> and other GraphViz utilities should be already available on <code>$PATH</code> (make sure to close + reopen applications to see new environment variables).</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_-options-to-create-graph-files">3. <a id="options-to-create-graph-files"></a> Options to create graph files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Command-line options <code>--graphviz-uses</code> and <code>--graphviz-classes</code> will cause generation of <code>GVUses.dot</code> and
+<code>GVClasses.dot</code> files that can be used as input for the <code>dot</code> program. Follow PasDoc execution by commands like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -66,14 +99,11 @@ dot -T png GVClasses.dot &gt; GVClasses.png</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This will generate a file GVUses.png containing a graph of unit
-dependencies and GVClasses.png containing a graph of class dependencies.</p>
+<p>This will generate a file <code>GVUses.png</code> containing a graph of unit
+dependencies and <code>GVClasses.png</code> containing a graph of class dependencies.</p>
 </div>
 <div class="paragraph">
-<p>Tip:</p>
-</div>
-<div class="paragraph">
-<p>The generated graph is usually rather wide which makes it a bit awkward
+<p><em>Tip:</em> The generated graph is usually rather wide which makes it a bit awkward
 to use. By setting the "rankdir" graph attribute to "LR" the graph will
 be built left to right rather than the default top to bottom direction
 resulting in a much more convenient format:</p>
@@ -86,10 +116,10 @@ resulting in a much more convenient format:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-options-to-link-to-graphs-in-documentation"><a id="options-to-link-to-graphs-in-documentation"></a> Options to link to graphs in documentation</h2>
+<h2 id="_-options-to-link-to-graphs-in-documentation">4. <a id="options-to-link-to-graphs-in-documentation"></a> Options to link to graphs in documentation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>--link-gv-uses and --link-gv-classes will add a link to the overview
+<p>Command-line options <code>--link-gv-uses</code> and <code>--link-gv-classes</code> will add a link to the overview
 frame pointing to the pictures generated with dot. You must pass the
 file extension of the picture (dot can also generate gif and lots of
 other formats). So if you generate png you must call

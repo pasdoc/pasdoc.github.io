@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ca56728c92f3345eb3e4a8874008d75a4173ac19">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4628025f7299721e19e6412f3e99ce72f69b4cf0">
   </head>
   <body>
     <div id="layout-container">
@@ -39,7 +39,17 @@
           <h1>HTML Help Output</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_prerequisite-html-help-workshop">2. Prerequisite: HTML Help Workshop</a></li>
+<li><a href="#_usage-of-html-help-output-from-pasdoc">3. Usage of HTML Help output from PasDoc</a></li>
+<li><a href="#_custom-help-contents">4. Custom help contents</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>HTML Help</em> is a file format for documentation. The final documentation can be a single file with an extension <code>.chm</code> (for "<em>compiled html</em>"). It was designed by Microsoft, along with some proprietary tools to create and view it, but a number of cross-platform open-source viewers also exist now.</p>
@@ -50,27 +60,23 @@
 <div class="paragraph">
 <p><a href="index">PasDoc</a> can generate all the files necessary to create the <em>HTML Help</em> documentation. We do not produce a ready <code>.chm</code> file&#8201;&#8212;&#8201;but we generate all the prerequisites necessary, so that you can create the final file using the <em>Microsoft HTML Workshop</em> (free download).</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisite-html-help-workshop">2. Prerequisite: HTML Help Workshop</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>How to use <em>HTML Help</em> output:</p>
+<p>You need to get <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx">HTML Help Workshop</a>. Unfortunately, the download links (on this Microsoft page) are broken, which has been <a href="https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp">reported</a> but seems unlikely to be fixed.</p>
+</div>
+<div class="paragraph">
+<p>Best options to get <em>HTML Help Workshop</em> now:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Generate htmlhelp documentation with pasdoc with <code>--format=htmlhelp</code>. In addition to normal html files, pasdoc
-will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>docs.hhp</code>. You can change the names of these files to something else with <a href="NameOption">--name option</a>.</p>
-</li>
-<li>
-<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms669985(v=vs.85).aspx">Download HTML Help Workshop</a></p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The download links on that page are broken, unfortunately. See <a href="https://learn.microsoft.com/en-us/answers/questions/265752/htmlhelp-workshop-download-for-chm-compiler-instalp">HTMLHelp Workshop - download for CHM compiler installation failed</a> question and answers. You can download the resources using the <em>Internet Archive</em>:</p>
-</div>
+<p>Get it from the <em>Internet Archive</em>:</p>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -81,20 +87,37 @@ will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>do
 </li>
 </ul>
 </div>
-</td>
-</tr>
-</table>
 </div>
+</div>
+</li>
+<li>
+<p>Or install it using a <a href="https://chocolatey.org/">Chocolatey</a>, a package manager for Windows. Install <a href="https://chocolatey.org/install">Chocolatey itself</a> first, using <em>PowerShell</em>, and then follow <a href="https://community.chocolatey.org/packages/html-help-workshop">installation instructions for <code>html-help-workshop</code> package</a>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In both cases, after the installation the tools are in <code>C:\Program Files (x86)\HTML Help Workshop</code> directory. You can add it to your <code>$PATH</code> to easily execute <code>hhc</code> from the command line.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage-of-html-help-output-from-pasdoc">3. Usage of HTML Help output from PasDoc</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate documentation with pasdoc with <code>--format=htmlhelp</code>. In addition to normal HTML files, we
+will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>docs.hhp</code>. You can change the names of these files to something else with <a href="NameOption">--name option</a>.</p>
 </li>
 <li>
 <p>Make <code>docs.chm</code> file:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Interactively: run the <code>hhw</code> program from the <em>HTML Help Workshop</em>, (by default in <code>C:\Program Files (x86)\HTML Help Workshop</code>), open generated <code>docs.hhp</code> file, and run <em>"Compile HTML file"</em> from toolbar.</p>
+<p>Interactively: run the <code>hhw</code> program from the <em>HTML Help Workshop</em>, open generated <code>docs.hhp</code> file, and run <em>"Compile HTML file"</em> from toolbar.</p>
 </li>
 <li>
-<p>Or in batch mode: run <code>hhc docs.hhp</code> (make sure that the program <code>hhc</code> is on your $PATH first).</p>
+<p>Or in batch mode (command line): run <code>hhc docs.hhp</code>.</p>
 </li>
 </ul>
 </div>
@@ -107,7 +130,7 @@ will also output files <code>docs.hhc</code>, <code>docs.hhk</code> and <code>do
 </div>
 </div>
 <div class="sect1">
-<h2 id="_custom-help-contents">Custom help contents</h2>
+<h2 id="_custom-help-contents">4. Custom help contents</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Optionally, if you wish to use a custom help-contents file, you can specify a file name with the <code>--html-help-contents</code> option for PasDoc. Each line of the file specifies an entry in the help contents. Each space or tab character at the beginning of a line increases the level of the item in the contents by 1. The remainder of the line comprises a title for the item, an "=" character, and the link to which the item should be connected. For example: <code>An Item = MyPage.html</code></p>

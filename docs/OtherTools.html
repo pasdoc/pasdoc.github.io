@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=ca56728c92f3345eb3e4a8874008d75a4173ac19">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4628025f7299721e19e6412f3e99ce72f69b4cf0">
   </head>
   <body>
     <div id="layout-container">
@@ -39,10 +39,20 @@
           <h1>Other Tools Developed Here</h1>
           
 
-          <div id="preamble">
+          <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_-file_to_pascal_string">2.  file_to_pascal_string</a></li>
+<li><a href="#_-file_to_pascal_data">3.  file_to_pascal_data</a></li>
+<li><a href="#_-pascal_pre_proc">4.  pascal_pre_proc</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Subdirectory source/tools/ inside <a href="index">PasDoc</a> sources
+<p>Subdirectory <code>source/tools/</code> inside <a href="index">PasDoc</a> sources
 contains some useful programs related to PasDoc. They are either small
 programs helpful for development of PasDoc, or tools that use PasDoc
 units to do other tasks.</p>
@@ -50,41 +60,41 @@ units to do other tasks.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-file_to_pascal_string"><a id="file_to_pascal_string"></a> file_to_pascal_string</h2>
+<h2 id="_-file_to_pascal_string">2. <a id="file_to_pascal_string"></a> file_to_pascal_string</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Converts any text file into a Pascal string, so that you can compile
-text files inside your program.</p>
+<p>Converts any text file into a Pascal string.
+This allows to embed contents of any text file into a compiled program.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-file_to_pascal_data"><a id="file_to_pascal_data"></a> file_to_pascal_data</h2>
+<h2 id="_-file_to_pascal_data">3. <a id="file_to_pascal_data"></a> file_to_pascal_data</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Converts any file into a Pascal array of bytes, so that you can compile
-binary files inside your program.</p>
+<p>Converts any file into a Pascal array of bytes.
+This allows to embed contents of any binary file into a compiled program.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-pascal_pre_proc"><a id="pascal_pre_proc"></a> pascal_pre_proc</h2>
+<h2 id="_-pascal_pre_proc">4. <a id="pascal_pre_proc"></a> pascal_pre_proc</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Pascal preprocessor. It reads the Pascal source file given on the
+<p>Pascal preprocessor. Rreads the Pascal source file given on the
 command-line, and outputs it&#8217;s processed version to the standard output.
 Features (all inherited from pasdoc tokenizer and scanner):</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Handles $ifdef and related constructs</p>
+<p>Handles <code>$ifdef</code> and related constructs, see <a href="ConditionalDefines">conditional expressions support</a>.</p>
 </li>
 <li>
 <p>Handles FPC macros (very useful if you want to use FPC source code using macros in Delphi)</p>
 </li>
 <li>
-<p>Handles $include</p>
+<p>Handles <code>$include</code></p>
 </li>
 <li>
 <p>Preserves whitespace</p>
@@ -94,7 +104,7 @@ Features (all inherited from pasdoc tokenizer and scanner):</p>
 <div class="paragraph">
 <p>The preprocessor behavior can be configured by a couple of command-line
 options, a subset of <a href="CommandLine">PasDoc command line options</a>.
-Run pascal_pre_proc --help to get a list of supported options. Examples
+Run <code>pascal_pre_proc --help</code> to get a list of supported options. Examples
 of use:</p>
 </div>
 <div class="ulist">
@@ -108,16 +118,13 @@ of use:</p>
 </div>
 </li>
 <li>
-<p>Generate a single (without any $includes and $ifdefs) source code of the SysUtils unit for Linux/i386 target from FPC sources:</p>
+<p>Generate a single (without any <code>$include</code>, <code>$ifdef</code> etc.) source code of the SysUtils unit for Linux/i386 target from FPC sources:</p>
 <div class="listingblock">
 <div class="content">
 <pre>pascal_pre_proc unix/sysutils.pp \
  -I objpas/sysutils/ -I inc/ -I i386/ -I ./linux/ \
  -D UNIX -D cpui386 &gt; linux_i386_sysutils.pas</pre>
 </div>
-</div>
-<div class="paragraph">
-<p>Note that this is not perfect. because proper handling of $if and $elseif conditions is not implemented yet.</p>
 </div>
 </li>
 </ul>
