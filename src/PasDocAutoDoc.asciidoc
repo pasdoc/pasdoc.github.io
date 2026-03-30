@@ -1,10 +1,10 @@
 :doctitle: PasDoc documentation made by PasDoc
 
-Of course PasDoc sources can be processed by PasDoc itself.
+https://github.com/pasdoc/pasdoc/[PasDoc source code] can be processed by PasDoc itself.
 
-Browse documentation that pasdoc generated for itself (we call it
-"autodoc") in various formats:
+Browse our documentation in various formats:
 
-* https://pasdoc.github.io/autodoc/html/index.html[HTML]
-* https://pasdoc.github.io/autodoc/latex/docs.pdf[PDF]
-* https://pasdoc.github.io/autodoc/latex/docs.tex[LaTeX sources of PDF docs]
+* link:/autodoc/html/index.html[HTML]
+* link:/autodoc/htmlhelp/docs.chm[HTML Help (CHM)]
+* link:/autodoc/latex/docs.pdf[PDF]
+* link:/autodoc/latex/docs.tex[LaTeX sources of PDF docs]
