@@ -168,8 +168,6 @@ changing the project's description:
 --
 - Make last version number _odd_ to signify unstable release and add `.snapshot`, like `1.2.5.snapshot`.
 
-- Update link:DevelopmentSnapshots[DevelopmentSnapshots] version number.
-
 - Remove from [snapshot release](https://github.com/pasdoc/pasdoc/releases/tag/snapshot) old version numbered archives.
 --
 
