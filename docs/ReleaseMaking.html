@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=0c9a2bc4362c6d41097fa1a77916a00f71d8675f">
+    <link rel="stylesheet" href="/assets/css/style.css?v=fa56d6743a5faf6b92475acc338c46b70d6aa0dc">
   </head>
   <body>
     <div id="layout-container">
@@ -224,7 +224,30 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 <p>Mark it as "latest", make sure <a href="https://github.com/pasdoc/pasdoc/releases/latest">latest release</a> page links to it.</p>
 </li>
 <li>
-<p>Update our website to link to latest release: edit <code>_config.yml</code>, <code>make</code>, commit and push.</p>
+<p>Update our website to link to latest release:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>edit <code>_config.yml</code></p>
+</li>
+<li>
+<p>edit also <code>src/_layouts/default.html</code> if plaforms changed.</p>
+</li>
+<li>
+<p><code>make</code></p>
+</li>
+<li>
+<p>commit and push</p>
+</li>
+<li>
+<p>once live, download all linked releases to make sure links are OK.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </li>
 </ul>
 </div>
@@ -257,6 +280,29 @@ lazbuild source/gui/pasdoc_gui.lpi</pre>
 </li>
 <li>
 <p>Announce new release on <a href="https://forum.lazarus.freepascal.org/">Lazarus forum</a>.</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To convert our Markdown changelog/announcement to bbcode, <a href="https://pandoc.org/installing.html">install latest pandoc</a> (at least 3.8.3) and run: <code>pandoc --from=gfm --to=bbcode n.md --output=n.bbcode</code></p>
+</li>
+<li>
+<p>Add a paragraph explaining what we are. <code>PasDoc is a documentation generator for Pascal source code. Documentation is generated from comments found in the source code (or in special description files). We support many output formats, like HTML, LaTeX (for PDF, PS), XML and PHP. We are free open-source software.</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>fpc-pascal mailing list (<code>[ANN] PasDoc X.Y.Z release</code>)</p>
+</li>
+<li>
+<p><a href="https://castle-engine.io/wp/">Castle Game Engine news</a></p>
+</li>
+<li>
+<p>Debian Pascal packaging mailing list</p>
 </li>
 <li>
 <p><a href="https://sourceforge.net/p/pasdoc/news/">SourceForge "Old News" item</a> <em>PasDoc x.y.z released</em></p>
