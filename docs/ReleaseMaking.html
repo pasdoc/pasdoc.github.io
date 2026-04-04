@@ -22,7 +22,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9b39cb5bf13133ad0bbc104c17bbddee1f8341f4">
+    <link rel="stylesheet" href="/assets/css/style.css?v=38148ffeae3b9824bf9c6068da0f0c0af3f04597">
   </head>
   <body>
     <div id="layout-container">
@@ -48,7 +48,7 @@
 <li><a href="#_update-docs">4. Update docs</a></li>
 <li><a href="#_update-autodoc">5. Update AutoDoc</a></li>
 <li><a href="#_prepare-tag-and-github-release">6. Prepare tag and GitHub release</a></li>
-<li><a href="#_-build-and-test-all-releases-automated-now">7.  Build and test all releases (automated now)</a></li>
+<li><a href="#_build-and-test-all-releases-automated-now">7. Build and test all releases (automated now)</a></li>
 <li><a href="#_make-release-public">8. Make release public</a></li>
 <li><a href="#_announce-new-release-everywhere">9. Announce new release everywhere</a></li>
 <li><a href="#_prepare-for-next-release">10. Prepare for next release</a></li>
@@ -140,20 +140,29 @@ git push</pre>
 <div class="ulist">
 <ul>
 <li>
+<p>Switch <code>release_tag</code> in <code>.github/workflows/build.yml</code> to the new tag.</p>
+</li>
+<li>
+<p>Commit all the changes (needed before tagging), but don&#8217;t push yet.</p>
+</li>
+<li>
 <p>Create a tag by <code>make tag</code>.</p>
 </li>
 <li>
 <p>Go to <a href="https://github.com/pasdoc/pasdoc/releases" class="bare">https://github.com/pasdoc/pasdoc/releases</a> and create a new release from this tag. Place the notes from the changelog entry as description. Make it "draft" for now.</p>
+</li>
+<li>
+<p><strong>Push now.</strong> This will rebuild master and upload results to proper GitHub release.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_-build-and-test-all-releases-automated-now">7. <a id="compile-and-test-all-releases"></a> Build and test all releases (automated now)</h2>
+<h2 id="_build-and-test-all-releases-automated-now">7. Build and test all releases (automated now)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Note: This step is automated now, using <a href="https://github.com/pasdoc/pasdoc/tree/master/.github/workflows">GitHub Actions</a> to automatically test and build PasDoc. Just switch <code>release_tag</code> in <code>.github/workflows/build.yml</code> to the new tag and push it, and GitHub Actions will do the rest.</p>
+<p>This step is automated now, using <a href="https://github.com/pasdoc/pasdoc/tree/master/.github/workflows">GitHub Actions</a> to automatically test and build PasDoc. Nothing to do here, just wait for GitHub Actions to finish.</p>
 </div>
 <div class="paragraph">
 <p>Below we describe how to do things manually, just in case.</p>
