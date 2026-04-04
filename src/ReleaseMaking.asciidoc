@@ -45,13 +45,19 @@ git push
 
 ## Prepare tag and GitHub release
 
+* Switch `release_tag` in `.github/workflows/build.yml` to the new tag.
+
+* Commit all the changes (needed before tagging), but don't push yet.
+
 * Create a tag by `make tag`.
 
 * Go to https://github.com/pasdoc/pasdoc/releases and create a new release from this tag. Place the notes from the changelog entry as description. Make it "draft" for now.
 
-## [[compile-and-test-all-releases]] Build and test all releases (automated now)
+* *Push now.* This will rebuild master and upload results to proper GitHub release.
 
-Note: This step is automated now, using https://github.com/pasdoc/pasdoc/tree/master/.github/workflows[GitHub Actions] to automatically test and build PasDoc. Just switch `release_tag` in `.github/workflows/build.yml` to the new tag and push it, and GitHub Actions will do the rest.
+## Build and test all releases (automated now)
+
+This step is automated now, using https://github.com/pasdoc/pasdoc/tree/master/.github/workflows[GitHub Actions] to automatically test and build PasDoc. Nothing to do here, just wait for GitHub Actions to finish.
 
 Below we describe how to do things manually, just in case.
 
