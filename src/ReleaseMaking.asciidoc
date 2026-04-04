@@ -174,7 +174,7 @@ changing the project's description:
 --
 - Make last version number _odd_ to signify unstable release and add `.snapshot`, like `1.2.5.snapshot`.
 
-- Remove from [snapshot release](https://github.com/pasdoc/pasdoc/releases/tag/snapshot) old version numbered archives.
+- Remove from https://github.com/pasdoc/pasdoc/releases/tag/snapshot[snapshot release] old version numbered archives.
 --
 
 * Switch back `release_tag: snapshot` in `.github/workflows/build.yml`.
